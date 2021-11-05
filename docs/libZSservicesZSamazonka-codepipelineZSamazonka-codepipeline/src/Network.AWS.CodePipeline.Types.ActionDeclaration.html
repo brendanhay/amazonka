@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Represents information about an action declaration.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newActionDeclaration' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679279527"><span id="local-6989586621679279528"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionDeclaration"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-var">ActionDeclaration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionDeclaration%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-var">ActionDeclaration'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679279536"><span id="local-6989586621679279537"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionDeclaration"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-var">ActionDeclaration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionDeclaration%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-var">ActionDeclaration'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name or ID of the result of the action declaration, such as a test</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- or build artifact.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AoutputArtifacts%3AActionDeclaration%27"><span class="annot"><span class="annottext">ActionDeclaration -&gt; Maybe [OutputArtifact]
@@ -78,7 +78,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AactionTypeId%3AActionDeclaration%27"><span class="annot"><span class="annottext">ActionDeclaration -&gt; ActionTypeId
 </span><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#%24sel%3AactionTypeId%3AActionDeclaration%27"><span class="hs-identifier hs-var hs-var">actionTypeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeId.html#ActionTypeId"><span class="hs-identifier hs-type">ActionTypeId</span></a></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279513"><span id="local-6989586621679279515"><span class="annot"><span class="annottext">ActionDeclaration -&gt; ActionDeclaration -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279522"><span id="local-6989586621679279524"><span class="annot"><span class="annottext">ActionDeclaration -&gt; ActionDeclaration -&gt; Bool
 (ActionDeclaration -&gt; ActionDeclaration -&gt; Bool)
 -&gt; (ActionDeclaration -&gt; ActionDeclaration -&gt; Bool)
 -&gt; Eq ActionDeclaration
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActionDeclaration -&gt; ActionDeclaration -&gt; Bool
 == :: ActionDeclaration -&gt; ActionDeclaration -&gt; Bool
 $c== :: ActionDeclaration -&gt; ActionDeclaration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279504"><span id="local-6989586621679279506"><span id="local-6989586621679279508"><span id="local-6989586621679279510"><span class="annot"><span class="annottext">ReadPrec [ActionDeclaration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279513"><span id="local-6989586621679279515"><span id="local-6989586621679279517"><span id="local-6989586621679279519"><span class="annot"><span class="annottext">ReadPrec [ActionDeclaration]
 ReadPrec ActionDeclaration
 Int -&gt; ReadS ActionDeclaration
 ReadS [ActionDeclaration]
@@ -107,7 +107,7 @@ readList :: ReadS [ActionDeclaration]
 $creadList :: ReadS [ActionDeclaration]
 readsPrec :: Int -&gt; ReadS ActionDeclaration
 $creadsPrec :: Int -&gt; ReadS ActionDeclaration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279497"><span id="local-6989586621679279499"><span id="local-6989586621679279501"><span class="annot"><span class="annottext">Int -&gt; ActionDeclaration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279506"><span id="local-6989586621679279508"><span id="local-6989586621679279510"><span class="annot"><span class="annottext">Int -&gt; ActionDeclaration -&gt; ShowS
 [ActionDeclaration] -&gt; ShowS
 ActionDeclaration -&gt; String
 (Int -&gt; ActionDeclaration -&gt; ShowS)
@@ -185,9 +185,9 @@ $cfrom :: forall x. ActionDeclaration -&gt; Rep ActionDeclaration x
 </span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeId.html#ActionTypeId"><span class="hs-identifier hs-type">ActionTypeId</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span>
 </span><span id="line-125"></span><span id="newActionDeclaration"><span class="annot"><span class="annottext">newActionDeclaration :: Text -&gt; ActionTypeId -&gt; ActionDeclaration
-</span><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#newActionDeclaration"><span class="hs-identifier hs-var hs-var">newActionDeclaration</span></a></span></span><span> </span><span id="local-6989586621679279491"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279491"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679279490"><span class="annot"><span class="annottext">ActionTypeId
-</span><a href="#local-6989586621679279490"><span class="hs-identifier hs-var">pActionTypeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#newActionDeclaration"><span class="hs-identifier hs-var hs-var">newActionDeclaration</span></a></span></span><span> </span><span id="local-6989586621679279500"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279500"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679279499"><span class="annot"><span class="annottext">ActionTypeId
+</span><a href="#local-6989586621679279499"><span class="hs-identifier hs-var">pActionTypeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><span class="annottext">ActionDeclaration' :: Maybe [OutputArtifact]
 -&gt; Maybe Text
 -&gt; Maybe Natural
@@ -230,10 +230,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ActionDeclaration' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#%24sel%3Aname%3AActionDeclaration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279491"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279500"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionTypeId:ActionDeclaration' :: ActionTypeId
 </span><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#%24sel%3AactionTypeId%3AActionDeclaration%27"><span class="hs-identifier hs-var">actionTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionTypeId
-</span><a href="#local-6989586621679279490"><span class="hs-identifier hs-var">pActionTypeId_</span></a></span><span>
+</span><a href="#local-6989586621679279499"><span class="hs-identifier hs-var">pActionTypeId_</span></a></span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The name or ID of the result of the action declaration, such as a test</span><span>
@@ -250,16 +250,16 @@ forall a. Maybe a
      (Maybe [OutputArtifact])
      (Maybe [OutputArtifact])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279486"><span class="annot"><span class="annottext">Maybe [OutputArtifact]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279495"><span class="annot"><span class="annottext">Maybe [OutputArtifact]
 outputArtifacts :: Maybe [OutputArtifact]
 $sel:outputArtifacts:ActionDeclaration' :: ActionDeclaration -&gt; Maybe [OutputArtifact]
-</span><a href="#local-6989586621679279486"><span class="hs-identifier hs-var hs-var">outputArtifacts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputArtifact]
-</span><a href="#local-6989586621679279486"><span class="hs-identifier hs-var">outputArtifacts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279485"><span class="annot"><span class="annottext">s :: ActionDeclaration
-</span><a href="#local-6989586621679279485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279484"><span class="annot"><span class="annottext">Maybe [OutputArtifact]
-</span><a href="#local-6989586621679279484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
-</span><a href="#local-6989586621679279485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputArtifacts:ActionDeclaration' :: Maybe [OutputArtifact]
+</span><a href="#local-6989586621679279495"><span class="hs-identifier hs-var hs-var">outputArtifacts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputArtifact]
+</span><a href="#local-6989586621679279495"><span class="hs-identifier hs-var">outputArtifacts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279494"><span class="annot"><span class="annottext">s :: ActionDeclaration
+</span><a href="#local-6989586621679279494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279493"><span class="annot"><span class="annottext">Maybe [OutputArtifact]
+</span><a href="#local-6989586621679279493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
+</span><a href="#local-6989586621679279494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputArtifacts:ActionDeclaration' :: Maybe [OutputArtifact]
 </span><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#%24sel%3AoutputArtifacts%3AActionDeclaration%27"><span class="hs-identifier hs-var">outputArtifacts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputArtifact]
-</span><a href="#local-6989586621679279484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OutputArtifact] -&gt; f (Maybe [OutputArtifact]))
+</span><a href="#local-6989586621679279493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OutputArtifact] -&gt; f (Maybe [OutputArtifact]))
  -&gt; ActionDeclaration -&gt; f ActionDeclaration)
 -&gt; ((Maybe [OutputArtifact] -&gt; f (Maybe [OutputArtifact]))
     -&gt; Maybe [OutputArtifact] -&gt; f (Maybe [OutputArtifact]))
@@ -292,16 +292,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ActionDeclaration ActionDeclaration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279479"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279488"><span class="annot"><span class="annottext">Maybe Text
 namespace :: Maybe Text
 $sel:namespace:ActionDeclaration' :: ActionDeclaration -&gt; Maybe Text
-</span><a href="#local-6989586621679279479"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279479"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279478"><span class="annot"><span class="annottext">s :: ActionDeclaration
-</span><a href="#local-6989586621679279478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279477"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
-</span><a href="#local-6989586621679279478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:ActionDeclaration' :: Maybe Text
+</span><a href="#local-6989586621679279488"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279488"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279487"><span class="annot"><span class="annottext">s :: ActionDeclaration
+</span><a href="#local-6989586621679279487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279486"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
+</span><a href="#local-6989586621679279487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:ActionDeclaration' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#%24sel%3Anamespace%3AActionDeclaration%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The order in which actions are run.</span><span>
 </span><span id="line-150"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#actionDeclaration_runOrder"><span class="hs-identifier hs-type">actionDeclaration_runOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -312,16 +312,16 @@ $sel:namespace:ActionDeclaration' :: ActionDeclaration -&gt; Maybe Text
 -&gt; Lens
      ActionDeclaration ActionDeclaration (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279475"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279484"><span class="annot"><span class="annottext">Maybe Natural
 runOrder :: Maybe Natural
 $sel:runOrder:ActionDeclaration' :: ActionDeclaration -&gt; Maybe Natural
-</span><a href="#local-6989586621679279475"><span class="hs-identifier hs-var hs-var">runOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679279475"><span class="hs-identifier hs-var">runOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279474"><span class="annot"><span class="annottext">s :: ActionDeclaration
-</span><a href="#local-6989586621679279474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279473"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679279473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
-</span><a href="#local-6989586621679279474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runOrder:ActionDeclaration' :: Maybe Natural
+</span><a href="#local-6989586621679279484"><span class="hs-identifier hs-var hs-var">runOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679279484"><span class="hs-identifier hs-var">runOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279483"><span class="annot"><span class="annottext">s :: ActionDeclaration
+</span><a href="#local-6989586621679279483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279482"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679279482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
+</span><a href="#local-6989586621679279483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runOrder:ActionDeclaration' :: Maybe Natural
 </span><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#%24sel%3ArunOrder%3AActionDeclaration%27"><span class="hs-identifier hs-var">runOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679279473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The action declaration\'s AWS Region, such as us-east-1.</span><span>
 </span><span id="line-154"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#actionDeclaration_region"><span class="hs-identifier hs-type">actionDeclaration_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -332,16 +332,16 @@ $sel:runOrder:ActionDeclaration' :: ActionDeclaration -&gt; Maybe Natural
 -&gt; Lens
      ActionDeclaration ActionDeclaration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279471"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279480"><span class="annot"><span class="annottext">Maybe Text
 region :: Maybe Text
 $sel:region:ActionDeclaration' :: ActionDeclaration -&gt; Maybe Text
-</span><a href="#local-6989586621679279471"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279471"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279470"><span class="annot"><span class="annottext">s :: ActionDeclaration
-</span><a href="#local-6989586621679279470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279469"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
-</span><a href="#local-6989586621679279470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:ActionDeclaration' :: Maybe Text
+</span><a href="#local-6989586621679279480"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279480"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279479"><span class="annot"><span class="annottext">s :: ActionDeclaration
+</span><a href="#local-6989586621679279479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279478"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
+</span><a href="#local-6989586621679279479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:ActionDeclaration' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#%24sel%3Aregion%3AActionDeclaration%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The action\'s configuration. These are key-value pairs that specify</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- input values for an action. For more information, see</span><span>
@@ -372,16 +372,16 @@ $sel:region:ActionDeclaration' :: ActionDeclaration -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279467"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279476"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 configuration :: Maybe (HashMap Text Text)
 $sel:configuration:ActionDeclaration' :: ActionDeclaration -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679279467"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679279467"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279466"><span class="annot"><span class="annottext">s :: ActionDeclaration
-</span><a href="#local-6989586621679279466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279465"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679279465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
-</span><a href="#local-6989586621679279466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:ActionDeclaration' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679279476"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679279476"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279475"><span class="annot"><span class="annottext">s :: ActionDeclaration
+</span><a href="#local-6989586621679279475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279474"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679279474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
+</span><a href="#local-6989586621679279475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:ActionDeclaration' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#%24sel%3Aconfiguration%3AActionDeclaration%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679279465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679279474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ActionDeclaration -&gt; f ActionDeclaration)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -424,16 +424,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [InputArtifact])
      (Maybe [InputArtifact])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279463"><span class="annot"><span class="annottext">Maybe [InputArtifact]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279472"><span class="annot"><span class="annottext">Maybe [InputArtifact]
 inputArtifacts :: Maybe [InputArtifact]
 $sel:inputArtifacts:ActionDeclaration' :: ActionDeclaration -&gt; Maybe [InputArtifact]
-</span><a href="#local-6989586621679279463"><span class="hs-identifier hs-var hs-var">inputArtifacts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InputArtifact]
-</span><a href="#local-6989586621679279463"><span class="hs-identifier hs-var">inputArtifacts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279462"><span class="annot"><span class="annottext">s :: ActionDeclaration
-</span><a href="#local-6989586621679279462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279461"><span class="annot"><span class="annottext">Maybe [InputArtifact]
-</span><a href="#local-6989586621679279461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
-</span><a href="#local-6989586621679279462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputArtifacts:ActionDeclaration' :: Maybe [InputArtifact]
+</span><a href="#local-6989586621679279472"><span class="hs-identifier hs-var hs-var">inputArtifacts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InputArtifact]
+</span><a href="#local-6989586621679279472"><span class="hs-identifier hs-var">inputArtifacts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279471"><span class="annot"><span class="annottext">s :: ActionDeclaration
+</span><a href="#local-6989586621679279471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279470"><span class="annot"><span class="annottext">Maybe [InputArtifact]
+</span><a href="#local-6989586621679279470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
+</span><a href="#local-6989586621679279471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputArtifacts:ActionDeclaration' :: Maybe [InputArtifact]
 </span><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#%24sel%3AinputArtifacts%3AActionDeclaration%27"><span class="hs-identifier hs-var">inputArtifacts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputArtifact]
-</span><a href="#local-6989586621679279461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InputArtifact] -&gt; f (Maybe [InputArtifact]))
+</span><a href="#local-6989586621679279470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InputArtifact] -&gt; f (Maybe [InputArtifact]))
  -&gt; ActionDeclaration -&gt; f ActionDeclaration)
 -&gt; ((Maybe [InputArtifact] -&gt; f (Maybe [InputArtifact]))
     -&gt; Maybe [InputArtifact] -&gt; f (Maybe [InputArtifact]))
@@ -466,16 +466,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ActionDeclaration ActionDeclaration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279459"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279468"><span class="annot"><span class="annottext">Maybe Text
 roleArn :: Maybe Text
 $sel:roleArn:ActionDeclaration' :: ActionDeclaration -&gt; Maybe Text
-</span><a href="#local-6989586621679279459"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279459"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279458"><span class="annot"><span class="annottext">s :: ActionDeclaration
-</span><a href="#local-6989586621679279458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279457"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
-</span><a href="#local-6989586621679279458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:ActionDeclaration' :: Maybe Text
+</span><a href="#local-6989586621679279468"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279468"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279467"><span class="annot"><span class="annottext">s :: ActionDeclaration
+</span><a href="#local-6989586621679279467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279466"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
+</span><a href="#local-6989586621679279467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:ActionDeclaration' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#%24sel%3AroleArn%3AActionDeclaration%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The action declaration\'s name.</span><span>
 </span><span id="line-188"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#actionDeclaration_name"><span class="hs-identifier hs-type">actionDeclaration_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -484,16 +484,16 @@ $sel:roleArn:ActionDeclaration' :: ActionDeclaration -&gt; Maybe Text
 -&gt; (ActionDeclaration -&gt; Text -&gt; ActionDeclaration)
 -&gt; Lens ActionDeclaration ActionDeclaration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279455"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279464"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:ActionDeclaration' :: ActionDeclaration -&gt; Text
-</span><a href="#local-6989586621679279455"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279455"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279454"><span class="annot"><span class="annottext">s :: ActionDeclaration
-</span><a href="#local-6989586621679279454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279453"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
-</span><a href="#local-6989586621679279454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ActionDeclaration' :: Text
+</span><a href="#local-6989586621679279464"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279464"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279463"><span class="annot"><span class="annottext">s :: ActionDeclaration
+</span><a href="#local-6989586621679279463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279462"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
+</span><a href="#local-6989586621679279463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ActionDeclaration' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#%24sel%3Aname%3AActionDeclaration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | Specifies the action type and the provider of the action.</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#actionDeclaration_actionTypeId"><span class="hs-identifier hs-type">actionDeclaration_actionTypeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeId.html#ActionTypeId"><span class="hs-identifier hs-type">ActionTypeId</span></a></span><span>
@@ -504,19 +504,19 @@ $sel:name:ActionDeclaration' :: ActionDeclaration -&gt; Text
 -&gt; Lens
      ActionDeclaration ActionDeclaration ActionTypeId ActionTypeId
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279451"><span class="annot"><span class="annottext">ActionTypeId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279460"><span class="annot"><span class="annottext">ActionTypeId
 actionTypeId :: ActionTypeId
 $sel:actionTypeId:ActionDeclaration' :: ActionDeclaration -&gt; ActionTypeId
-</span><a href="#local-6989586621679279451"><span class="hs-identifier hs-var hs-var">actionTypeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeId
-</span><a href="#local-6989586621679279451"><span class="hs-identifier hs-var">actionTypeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279450"><span class="annot"><span class="annottext">s :: ActionDeclaration
-</span><a href="#local-6989586621679279450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279449"><span class="annot"><span class="annottext">ActionTypeId
-</span><a href="#local-6989586621679279449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
-</span><a href="#local-6989586621679279450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionTypeId:ActionDeclaration' :: ActionTypeId
+</span><a href="#local-6989586621679279460"><span class="hs-identifier hs-var hs-var">actionTypeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeId
+</span><a href="#local-6989586621679279460"><span class="hs-identifier hs-var">actionTypeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279459"><span class="annot"><span class="annottext">s :: ActionDeclaration
+</span><a href="#local-6989586621679279459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279458"><span class="annot"><span class="annottext">ActionTypeId
+</span><a href="#local-6989586621679279458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionDeclaration
+</span><a href="#local-6989586621679279459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionTypeId:ActionDeclaration' :: ActionTypeId
 </span><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#%24sel%3AactionTypeId%3AActionDeclaration%27"><span class="hs-identifier hs-var">actionTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionTypeId
-</span><a href="#local-6989586621679279449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279446"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679279444"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionDeclaration
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279455"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679279453"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionDeclaration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ActionDeclaration)
@@ -526,8 +526,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ActionDeclaration&quot;</span></span><span>
-</span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279441"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279441"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279450"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279450"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-200"></span><span>          </span><span class="annot"><span class="annottext">Maybe [OutputArtifact]
 -&gt; Maybe Text
 -&gt; Maybe Natural
@@ -562,7 +562,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ActionDeclaration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [OutputArtifact]))
+</span><a href="#local-6989586621679279450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [OutputArtifact]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;outputArtifacts&quot;</span></span><span>
@@ -595,7 +595,7 @@ forall a. Monoid a =&gt; a
       -&gt; ActionDeclaration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679279450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;namespace&quot;</span></span><span class="hs-special">)</span><span>
@@ -619,7 +619,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ActionDeclaration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679279450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;runOrder&quot;</span></span><span class="hs-special">)</span><span>
@@ -641,7 +641,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ActionDeclaration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679279450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;region&quot;</span></span><span class="hs-special">)</span><span>
@@ -658,7 +658,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Text -&gt; ActionTypeId -&gt; ActionDeclaration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679279450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;configuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -674,7 +674,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text -&gt; Text -&gt; ActionTypeId -&gt; ActionDeclaration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InputArtifact]))
+</span><a href="#local-6989586621679279450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InputArtifact]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputArtifacts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [InputArtifact]))
@@ -688,7 +688,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Text -&gt; ActionTypeId -&gt; ActionDeclaration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679279450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -696,7 +696,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (ActionTypeId -&gt; ActionDeclaration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679279450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -704,19 +704,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ActionTypeId -&gt; Parser ActionDeclaration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActionTypeId
+</span><a href="#local-6989586621679279450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActionTypeId
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;actionTypeId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279433"><span id="local-6989586621679279435"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span></span></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279442"><span id="local-6989586621679279444"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span></span></span><span>
 </span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279430"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279439"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span></span><span>
 </span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279422"><span id="local-6989586621679279424"><span id="local-6989586621679279426"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-219"></span><span>  </span><span id="local-6989586621679279420"><span class="annot"><span class="annottext">toJSON :: ActionDeclaration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279410"><span id="local-6989586621679279411"><span id="local-6989586621679279412"><span id="local-6989586621679279413"><span id="local-6989586621679279414"><span id="local-6989586621679279415"><span id="local-6989586621679279416"><span id="local-6989586621679279417"><span id="local-6989586621679279418"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279431"><span id="local-6989586621679279433"><span id="local-6989586621679279435"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration"><span class="hs-identifier hs-type">ActionDeclaration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679279429"><span class="annot"><span class="annottext">toJSON :: ActionDeclaration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionDeclaration.html#ActionDeclaration%27"><span class="hs-identifier hs-type">ActionDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279419"><span id="local-6989586621679279420"><span id="local-6989586621679279421"><span id="local-6989586621679279422"><span id="local-6989586621679279423"><span id="local-6989586621679279424"><span id="local-6989586621679279425"><span id="local-6989586621679279426"><span id="local-6989586621679279427"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [InputArtifact]
 Maybe [OutputArtifact]
 Maybe Text
@@ -741,7 +741,7 @@ $sel:region:ActionDeclaration' :: ActionDeclaration -&gt; Maybe Text
 $sel:runOrder:ActionDeclaration' :: ActionDeclaration -&gt; Maybe Natural
 $sel:namespace:ActionDeclaration' :: ActionDeclaration -&gt; Maybe Text
 $sel:outputArtifacts:ActionDeclaration' :: ActionDeclaration -&gt; Maybe [OutputArtifact]
-</span><a href="#local-6989586621679279410"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679279419"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-221"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -754,28 +754,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-223"></span><span>              </span><span class="annot"><span class="annottext">([OutputArtifact] -&gt; Pair) -&gt; Maybe [OutputArtifact] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OutputArtifact]
-</span><a href="#local-6989586621679279418"><span class="hs-identifier hs-var">outputArtifacts</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279427"><span class="hs-identifier hs-var">outputArtifacts</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279417"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279426"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;runOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679279416"><span class="hs-identifier hs-var">runOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279425"><span class="hs-identifier hs-var">runOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;region&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279415"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279424"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;configuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -783,7 +783,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679279414"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279423"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputArtifacts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [InputArtifact] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -791,28 +791,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-229"></span><span>              </span><span class="annot"><span class="annottext">([InputArtifact] -&gt; Pair) -&gt; Maybe [InputArtifact] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InputArtifact]
-</span><a href="#local-6989586621679279413"><span class="hs-identifier hs-var">inputArtifacts</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279422"><span class="hs-identifier hs-var">inputArtifacts</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279412"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279421"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279411"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279420"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;actionTypeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ActionTypeId -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ActionTypeId
-</span><a href="#local-6989586621679279410"><span class="hs-identifier hs-var">actionTypeId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279419"><span class="hs-identifier hs-var">actionTypeId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-234"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span></pre></body></html>

@@ -70,13 +70,13 @@
 </span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | /See:/ 'newListHsms' smart constructor.</span><span>
-</span><span id="line-73"></span><span id="local-6989586621679176249"><span id="local-6989586621679176250"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListHsms"><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms"><span class="hs-identifier hs-var">ListHsms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListHsms%27"><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms%27"><span class="hs-identifier hs-var">ListHsms'</span></a></span></span><span>
+</span><span id="line-73"></span><span id="local-6989586621679176258"><span id="local-6989586621679176259"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListHsms"><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms"><span class="hs-identifier hs-var">ListHsms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListHsms%27"><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms%27"><span class="hs-identifier hs-var">ListHsms'</span></a></span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @NextToken@ value from a previous call to @ListHsms@. Pass null if</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- this is the first call.</span><span>
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AnextToken%3AListHsms%27"><span class="annot"><span class="annottext">ListHsms -&gt; Maybe Text
 </span><a href="Network.AWS.CloudHSM.ListHsms.html#%24sel%3AnextToken%3AListHsms%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176243"><span id="local-6989586621679176245"><span class="annot"><span class="annottext">ListHsms -&gt; ListHsms -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176252"><span id="local-6989586621679176254"><span class="annot"><span class="annottext">ListHsms -&gt; ListHsms -&gt; Bool
 (ListHsms -&gt; ListHsms -&gt; Bool)
 -&gt; (ListHsms -&gt; ListHsms -&gt; Bool) -&gt; Eq ListHsms
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListHsms -&gt; ListHsms -&gt; Bool
 == :: ListHsms -&gt; ListHsms -&gt; Bool
 $c== :: ListHsms -&gt; ListHsms -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176234"><span id="local-6989586621679176236"><span id="local-6989586621679176238"><span id="local-6989586621679176240"><span class="annot"><span class="annottext">ReadPrec [ListHsms]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176243"><span id="local-6989586621679176245"><span id="local-6989586621679176247"><span id="local-6989586621679176249"><span class="annot"><span class="annottext">ReadPrec [ListHsms]
 ReadPrec ListHsms
 Int -&gt; ReadS ListHsms
 ReadS [ListHsms]
@@ -104,7 +104,7 @@ readList :: ReadS [ListHsms]
 $creadList :: ReadS [ListHsms]
 readsPrec :: Int -&gt; ReadS ListHsms
 $creadsPrec :: Int -&gt; ReadS ListHsms
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176227"><span id="local-6989586621679176229"><span id="local-6989586621679176231"><span class="annot"><span class="annottext">Int -&gt; ListHsms -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176236"><span id="local-6989586621679176238"><span id="local-6989586621679176240"><span class="annot"><span class="annottext">Int -&gt; ListHsms -&gt; ShowS
 [ListHsms] -&gt; ShowS
 ListHsms -&gt; String
 (Int -&gt; ListHsms -&gt; ShowS)
@@ -154,28 +154,28 @@ forall a. Maybe a
 -&gt; (ListHsms -&gt; Maybe Text -&gt; ListHsms)
 -&gt; Lens ListHsms ListHsms (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms%27"><span class="hs-identifier hs-type">ListHsms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176221"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms%27"><span class="hs-identifier hs-type">ListHsms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176230"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListHsms' :: ListHsms -&gt; Maybe Text
-</span><a href="#local-6989586621679176221"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176221"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176220"><span class="annot"><span class="annottext">s :: ListHsms
-</span><a href="#local-6989586621679176220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms%27"><span class="hs-identifier hs-type">ListHsms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176219"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHsms
-</span><a href="#local-6989586621679176220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListHsms' :: Maybe Text
+</span><a href="#local-6989586621679176230"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176230"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176229"><span class="annot"><span class="annottext">s :: ListHsms
+</span><a href="#local-6989586621679176229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms%27"><span class="hs-identifier hs-type">ListHsms'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176228"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHsms
+</span><a href="#local-6989586621679176229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListHsms' :: Maybe Text
 </span><a href="Network.AWS.CloudHSM.ListHsms.html#%24sel%3AnextToken%3AListHsms%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms"><span class="hs-identifier hs-type">ListHsms</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms"><span class="hs-identifier hs-type">ListHsms</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms"><span class="hs-identifier hs-type">ListHsms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679176215"><span class="annot"><span class="annottext">page :: ListHsms -&gt; AWSResponse ListHsms -&gt; Maybe ListHsms
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679176213"><span class="annot"><span class="annottext">ListHsms
-</span><a href="#local-6989586621679176213"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679176212"><span class="annot"><span class="annottext">AWSResponse ListHsms
-</span><a href="#local-6989586621679176212"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679176224"><span class="annot"><span class="annottext">page :: ListHsms -&gt; AWSResponse ListHsms -&gt; Maybe ListHsms
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679176222"><span class="annot"><span class="annottext">ListHsms
+</span><a href="#local-6989586621679176222"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679176221"><span class="annot"><span class="annottext">AWSResponse ListHsms
+</span><a href="#local-6989586621679176221"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-102"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListHsms
 ListHsmsResponse
-</span><a href="#local-6989586621679176212"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679176221"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">ListHsmsResponse
 -&gt; Getting (First Text) ListHsmsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -201,7 +201,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-107"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListHsms
 ListHsmsResponse
-</span><a href="#local-6989586621679176212"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679176221"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">ListHsmsResponse
 -&gt; Getting (First [Text]) ListHsmsResponse [Text] -&gt; Maybe [Text]
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -230,7 +230,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">ListHsms
-</span><a href="#local-6989586621679176213"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679176222"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ListHsms -&gt; (ListHsms -&gt; ListHsms) -&gt; ListHsms
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -243,7 +243,7 @@ Lens ListHsms ListHsms (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListHsms
 ListHsmsResponse
-</span><a href="#local-6989586621679176212"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679176221"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">ListHsmsResponse
 -&gt; Getting (First Text) ListHsmsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -263,12 +263,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms"><span class="hs-identifier hs-type">ListHsms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms"><span class="hs-identifier hs-type">ListHsms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse"><span class="hs-identifier hs-type">ListHsmsResponse</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679176202"><span class="annot"><span class="annottext">request :: ListHsms -&gt; Request ListHsms
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679176211"><span class="annot"><span class="annottext">request :: ListHsms -&gt; Request ListHsms
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListHsms -&gt; Request ListHsms
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudHSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679176198"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679176207"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListHsms
 -&gt; ClientResponse ClientBody
@@ -292,10 +292,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176195"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176195"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679176194"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679176194"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679176193"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176193"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176204"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176204"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679176203"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679176203"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679176202"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176202"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListHsmsResponse
 </span><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse%27"><span class="hs-identifier hs-var">ListHsmsResponse'</span></a></span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListHsmsResponse)
@@ -303,7 +303,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Text] -&gt; Int -&gt; ListHsmsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679176202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -312,7 +312,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListHsmsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679176202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HsmList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -329,15 +329,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176195"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176204"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176184"><span id="local-6989586621679176186"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms"><span class="hs-identifier hs-type">ListHsms</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176193"><span id="local-6989586621679176195"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms"><span class="hs-identifier hs-type">ListHsms</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms"><span class="hs-identifier hs-type">ListHsms</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176190"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms"><span class="hs-identifier hs-type">ListHsms</span></a></span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms"><span class="hs-identifier hs-type">ListHsms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679176177"><span class="annot"><span class="annottext">toHeaders :: ListHsms -&gt; ResponseHeaders
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679176186"><span class="annot"><span class="annottext">toHeaders :: ListHsms -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListHsms -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -364,12 +364,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176167"><span id="local-6989586621679176169"><span id="local-6989586621679176171"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms"><span class="hs-identifier hs-type">ListHsms</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679176165"><span class="annot"><span class="annottext">toJSON :: ListHsms -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms%27"><span class="hs-identifier hs-type">ListHsms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176163"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176176"><span id="local-6989586621679176178"><span id="local-6989586621679176180"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms"><span class="hs-identifier hs-type">ListHsms</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679176174"><span class="annot"><span class="annottext">toJSON :: ListHsms -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms%27"><span class="hs-identifier hs-type">ListHsms'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176172"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListHsms' :: ListHsms -&gt; Maybe Text
-</span><a href="#local-6989586621679176163"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679176172"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -381,18 +381,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176163"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679176172"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms"><span class="hs-identifier hs-type">ListHsms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679176157"><span class="annot"><span class="annottext">toPath :: ListHsms -&gt; ByteString
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679176166"><span class="annot"><span class="annottext">toPath :: ListHsms -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListHsms -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsms"><span class="hs-identifier hs-type">ListHsms</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679176153"><span class="annot"><span class="annottext">toQuery :: ListHsms -&gt; QueryString
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679176162"><span class="annot"><span class="annottext">toQuery :: ListHsms -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListHsms -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -402,7 +402,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-162"></span><span class="hs-comment">-- | Contains the output of the @ListHsms@ operation.</span><span>
 </span><span id="line-163"></span><span class="hs-comment">--</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- /See:/ 'newListHsmsResponse' smart constructor.</span><span>
-</span><span id="line-165"></span><span id="local-6989586621679176150"><span id="local-6989586621679176151"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListHsmsResponse"><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse"><span class="hs-identifier hs-var">ListHsmsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListHsmsResponse%27"><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse%27"><span class="hs-identifier hs-var">ListHsmsResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span id="local-6989586621679176159"><span id="local-6989586621679176160"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListHsmsResponse"><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse"><span class="hs-identifier hs-var">ListHsmsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListHsmsResponse%27"><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse%27"><span class="hs-identifier hs-var">ListHsmsResponse'</span></a></span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If not null, more results are available. Pass this value to @ListHsms@</span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-comment">-- to retrieve the next set of items.</span><span>
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3AnextToken%3AListHsmsResponse%27"><span class="annot"><span class="annottext">ListHsmsResponse -&gt; Maybe Text
@@ -414,7 +414,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListHsmsResponse%27"><span class="annot"><span class="annottext">ListHsmsResponse -&gt; Int
 </span><a href="Network.AWS.CloudHSM.ListHsms.html#%24sel%3AhttpStatus%3AListHsmsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176143"><span id="local-6989586621679176145"><span class="annot"><span class="annottext">ListHsmsResponse -&gt; ListHsmsResponse -&gt; Bool
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176152"><span id="local-6989586621679176154"><span class="annot"><span class="annottext">ListHsmsResponse -&gt; ListHsmsResponse -&gt; Bool
 (ListHsmsResponse -&gt; ListHsmsResponse -&gt; Bool)
 -&gt; (ListHsmsResponse -&gt; ListHsmsResponse -&gt; Bool)
 -&gt; Eq ListHsmsResponse
@@ -423,7 +423,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListHsmsResponse -&gt; ListHsmsResponse -&gt; Bool
 == :: ListHsmsResponse -&gt; ListHsmsResponse -&gt; Bool
 $c== :: ListHsmsResponse -&gt; ListHsmsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176135"><span id="local-6989586621679176137"><span id="local-6989586621679176139"><span id="local-6989586621679176141"><span class="annot"><span class="annottext">ReadPrec [ListHsmsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176144"><span id="local-6989586621679176146"><span id="local-6989586621679176148"><span id="local-6989586621679176150"><span class="annot"><span class="annottext">ReadPrec [ListHsmsResponse]
 ReadPrec ListHsmsResponse
 Int -&gt; ReadS ListHsmsResponse
 ReadS [ListHsmsResponse]
@@ -443,7 +443,7 @@ readList :: ReadS [ListHsmsResponse]
 $creadList :: ReadS [ListHsmsResponse]
 readsPrec :: Int -&gt; ReadS ListHsmsResponse
 $creadsPrec :: Int -&gt; ReadS ListHsmsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176129"><span id="local-6989586621679176131"><span id="local-6989586621679176133"><span class="annot"><span class="annottext">Int -&gt; ListHsmsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176138"><span id="local-6989586621679176140"><span id="local-6989586621679176142"><span class="annot"><span class="annottext">Int -&gt; ListHsmsResponse -&gt; ShowS
 [ListHsmsResponse] -&gt; ShowS
 ListHsmsResponse -&gt; String
 (Int -&gt; ListHsmsResponse -&gt; ShowS)
@@ -488,8 +488,8 @@ $cfrom :: forall x. ListHsmsResponse -&gt; Rep ListHsmsResponse x
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse"><span class="hs-identifier hs-type">ListHsmsResponse</span></a></span><span>
 </span><span id="line-194"></span><span id="newListHsmsResponse"><span class="annot"><span class="annottext">newListHsmsResponse :: Int -&gt; ListHsmsResponse
-</span><a href="Network.AWS.CloudHSM.ListHsms.html#newListHsmsResponse"><span class="hs-identifier hs-var hs-var">newListHsmsResponse</span></a></span></span><span> </span><span id="local-6989586621679176126"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176126"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudHSM.ListHsms.html#newListHsmsResponse"><span class="hs-identifier hs-var hs-var">newListHsmsResponse</span></a></span></span><span> </span><span id="local-6989586621679176135"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176135"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><span class="annottext">ListHsmsResponse' :: Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListHsmsResponse
 </span><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse%27"><span class="hs-identifier hs-type">ListHsmsResponse'</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListHsmsResponse' :: Maybe Text
@@ -502,7 +502,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListHsmsResponse' :: Int
 </span><a href="Network.AWS.CloudHSM.ListHsms.html#%24sel%3AhttpStatus%3AListHsmsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176126"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679176135"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-199"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | If not null, more results are available. Pass this value to @ListHsms@</span><span>
@@ -514,16 +514,16 @@ forall a. Maybe a
 -&gt; (ListHsmsResponse -&gt; Maybe Text -&gt; ListHsmsResponse)
 -&gt; Lens' ListHsmsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse%27"><span class="hs-identifier hs-type">ListHsmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176125"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse%27"><span class="hs-identifier hs-type">ListHsmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176134"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListHsmsResponse' :: ListHsmsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679176125"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176125"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176124"><span class="annot"><span class="annottext">s :: ListHsmsResponse
-</span><a href="#local-6989586621679176124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse%27"><span class="hs-identifier hs-type">ListHsmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176123"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHsmsResponse
-</span><a href="#local-6989586621679176124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListHsmsResponse' :: Maybe Text
+</span><a href="#local-6989586621679176134"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176134"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176133"><span class="annot"><span class="annottext">s :: ListHsmsResponse
+</span><a href="#local-6989586621679176133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse%27"><span class="hs-identifier hs-type">ListHsmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176132"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHsmsResponse
+</span><a href="#local-6989586621679176133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListHsmsResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudHSM.ListHsms.html#%24sel%3AnextToken%3AListHsmsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse"><span class="hs-identifier hs-type">ListHsmsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse"><span class="hs-identifier hs-type">ListHsmsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | The list of ARNs that identify the HSMs.</span><span>
 </span><span id="line-207"></span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#listHsmsResponse_hsmList"><span class="hs-identifier hs-type">listHsmsResponse_hsmList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse"><span class="hs-identifier hs-type">ListHsmsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -533,16 +533,16 @@ $sel:nextToken:ListHsmsResponse' :: ListHsmsResponse -&gt; Maybe Text
 -&gt; (ListHsmsResponse -&gt; Maybe [Text] -&gt; ListHsmsResponse)
 -&gt; Lens' ListHsmsResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse%27"><span class="hs-identifier hs-type">ListHsmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176122"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse%27"><span class="hs-identifier hs-type">ListHsmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176131"><span class="annot"><span class="annottext">Maybe [Text]
 hsmList :: Maybe [Text]
 $sel:hsmList:ListHsmsResponse' :: ListHsmsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679176122"><span class="hs-identifier hs-var hs-var">hsmList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679176122"><span class="hs-identifier hs-var">hsmList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176121"><span class="annot"><span class="annottext">s :: ListHsmsResponse
-</span><a href="#local-6989586621679176121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse%27"><span class="hs-identifier hs-type">ListHsmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176120"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679176120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHsmsResponse
-</span><a href="#local-6989586621679176121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hsmList:ListHsmsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679176131"><span class="hs-identifier hs-var hs-var">hsmList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679176131"><span class="hs-identifier hs-var">hsmList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176130"><span class="annot"><span class="annottext">s :: ListHsmsResponse
+</span><a href="#local-6989586621679176130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse%27"><span class="hs-identifier hs-type">ListHsmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176129"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679176129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHsmsResponse
+</span><a href="#local-6989586621679176130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hsmList:ListHsmsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.CloudHSM.ListHsms.html#%24sel%3AhsmList%3AListHsmsResponse%27"><span class="hs-identifier hs-var">hsmList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679176120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse"><span class="hs-identifier hs-type">ListHsmsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679176129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse"><span class="hs-identifier hs-type">ListHsmsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListHsmsResponse -&gt; f ListHsmsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -566,16 +566,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListHsmsResponse -&gt; Int -&gt; ListHsmsResponse)
 -&gt; Lens ListHsmsResponse ListHsmsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse%27"><span class="hs-identifier hs-type">ListHsmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176117"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse%27"><span class="hs-identifier hs-type">ListHsmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176126"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListHsmsResponse' :: ListHsmsResponse -&gt; Int
-</span><a href="#local-6989586621679176117"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176117"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176116"><span class="annot"><span class="annottext">s :: ListHsmsResponse
-</span><a href="#local-6989586621679176116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse%27"><span class="hs-identifier hs-type">ListHsmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176115"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHsmsResponse
-</span><a href="#local-6989586621679176116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListHsmsResponse' :: Int
+</span><a href="#local-6989586621679176126"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176126"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176125"><span class="annot"><span class="annottext">s :: ListHsmsResponse
+</span><a href="#local-6989586621679176125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse%27"><span class="hs-identifier hs-type">ListHsmsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176124"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHsmsResponse
+</span><a href="#local-6989586621679176125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListHsmsResponse' :: Int
 </span><a href="Network.AWS.CloudHSM.ListHsms.html#%24sel%3AhttpStatus%3AListHsmsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse"><span class="hs-identifier hs-type">ListHsmsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse"><span class="hs-identifier hs-type">ListHsmsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse"><span class="hs-identifier hs-type">ListHsmsResponse</span></a></span></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176122"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListHsms.html#ListHsmsResponse"><span class="hs-identifier hs-type">ListHsmsResponse</span></a></span></span><span>
 </span><span id="line-215"></span></pre></body></html>

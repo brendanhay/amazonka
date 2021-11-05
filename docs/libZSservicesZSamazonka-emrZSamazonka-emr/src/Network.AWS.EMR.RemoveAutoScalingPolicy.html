@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newRemoveAutoScalingPolicy' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679385377"><span id="local-6989586621679385378"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveAutoScalingPolicy"><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-var">RemoveAutoScalingPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveAutoScalingPolicy%27"><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy%27"><span class="hs-identifier hs-var">RemoveAutoScalingPolicy'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679385386"><span id="local-6989586621679385387"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveAutoScalingPolicy"><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-var">RemoveAutoScalingPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveAutoScalingPolicy%27"><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy%27"><span class="hs-identifier hs-var">RemoveAutoScalingPolicy'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the ID of a cluster. The instance group to which the automatic</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- scaling policy is applied is within this cluster.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AclusterId%3ARemoveAutoScalingPolicy%27"><span class="annot"><span class="annottext">RemoveAutoScalingPolicy -&gt; Text
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AinstanceGroupId%3ARemoveAutoScalingPolicy%27"><span class="annot"><span class="annottext">RemoveAutoScalingPolicy -&gt; Text
 </span><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#%24sel%3AinstanceGroupId%3ARemoveAutoScalingPolicy%27"><span class="hs-identifier hs-var hs-var">instanceGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385370"><span id="local-6989586621679385372"><span class="annot"><span class="annottext">RemoveAutoScalingPolicy -&gt; RemoveAutoScalingPolicy -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385379"><span id="local-6989586621679385381"><span class="annot"><span class="annottext">RemoveAutoScalingPolicy -&gt; RemoveAutoScalingPolicy -&gt; Bool
 (RemoveAutoScalingPolicy -&gt; RemoveAutoScalingPolicy -&gt; Bool)
 -&gt; (RemoveAutoScalingPolicy -&gt; RemoveAutoScalingPolicy -&gt; Bool)
 -&gt; Eq RemoveAutoScalingPolicy
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveAutoScalingPolicy -&gt; RemoveAutoScalingPolicy -&gt; Bool
 == :: RemoveAutoScalingPolicy -&gt; RemoveAutoScalingPolicy -&gt; Bool
 $c== :: RemoveAutoScalingPolicy -&gt; RemoveAutoScalingPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385361"><span id="local-6989586621679385363"><span id="local-6989586621679385365"><span id="local-6989586621679385367"><span class="annot"><span class="annottext">ReadPrec [RemoveAutoScalingPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385370"><span id="local-6989586621679385372"><span id="local-6989586621679385374"><span id="local-6989586621679385376"><span class="annot"><span class="annottext">ReadPrec [RemoveAutoScalingPolicy]
 ReadPrec RemoveAutoScalingPolicy
 Int -&gt; ReadS RemoveAutoScalingPolicy
 ReadS [RemoveAutoScalingPolicy]
@@ -87,7 +87,7 @@ readList :: ReadS [RemoveAutoScalingPolicy]
 $creadList :: ReadS [RemoveAutoScalingPolicy]
 readsPrec :: Int -&gt; ReadS RemoveAutoScalingPolicy
 $creadsPrec :: Int -&gt; ReadS RemoveAutoScalingPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385354"><span id="local-6989586621679385356"><span id="local-6989586621679385358"><span class="annot"><span class="annottext">Int -&gt; RemoveAutoScalingPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385363"><span id="local-6989586621679385365"><span id="local-6989586621679385367"><span class="annot"><span class="annottext">Int -&gt; RemoveAutoScalingPolicy -&gt; ShowS
 [RemoveAutoScalingPolicy] -&gt; ShowS
 RemoveAutoScalingPolicy -&gt; String
 (Int -&gt; RemoveAutoScalingPolicy -&gt; ShowS)
@@ -136,18 +136,18 @@ $cfrom :: forall x. RemoveAutoScalingPolicy -&gt; Rep RemoveAutoScalingPolicy x
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy</span></a></span><span>
 </span><span id="line-80"></span><span id="newRemoveAutoScalingPolicy"><span class="annot"><span class="annottext">newRemoveAutoScalingPolicy :: Text -&gt; Text -&gt; RemoveAutoScalingPolicy
 </span><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#newRemoveAutoScalingPolicy"><span class="hs-identifier hs-var hs-var">newRemoveAutoScalingPolicy</span></a></span></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679385349"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385349"><span class="hs-identifier hs-var">pClusterId_</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679385348"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385348"><span class="hs-identifier hs-var">pInstanceGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679385358"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385358"><span class="hs-identifier hs-var">pClusterId_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679385357"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385357"><span class="hs-identifier hs-var">pInstanceGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">RemoveAutoScalingPolicy' :: Text -&gt; Text -&gt; RemoveAutoScalingPolicy
 </span><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy%27"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy'</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterId:RemoveAutoScalingPolicy' :: Text
 </span><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#%24sel%3AclusterId%3ARemoveAutoScalingPolicy%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385349"><span class="hs-identifier hs-var">pClusterId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679385358"><span class="hs-identifier hs-var">pClusterId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceGroupId:RemoveAutoScalingPolicy' :: Text
 </span><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#%24sel%3AinstanceGroupId%3ARemoveAutoScalingPolicy%27"><span class="hs-identifier hs-var">instanceGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385348"><span class="hs-identifier hs-var">pInstanceGroupId_</span></a></span><span>
+</span><a href="#local-6989586621679385357"><span class="hs-identifier hs-var">pInstanceGroupId_</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | Specifies the ID of a cluster. The instance group to which the automatic</span><span>
@@ -159,16 +159,16 @@ $cfrom :: forall x. RemoveAutoScalingPolicy -&gt; Rep RemoveAutoScalingPolicy x
 -&gt; (RemoveAutoScalingPolicy -&gt; Text -&gt; RemoveAutoScalingPolicy)
 -&gt; Lens RemoveAutoScalingPolicy RemoveAutoScalingPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy%27"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385345"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy%27"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385354"><span class="annot"><span class="annottext">Text
 clusterId :: Text
 $sel:clusterId:RemoveAutoScalingPolicy' :: RemoveAutoScalingPolicy -&gt; Text
-</span><a href="#local-6989586621679385345"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385345"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385344"><span class="annot"><span class="annottext">s :: RemoveAutoScalingPolicy
-</span><a href="#local-6989586621679385344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy%27"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385343"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveAutoScalingPolicy
-</span><a href="#local-6989586621679385344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:RemoveAutoScalingPolicy' :: Text
+</span><a href="#local-6989586621679385354"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385354"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385353"><span class="annot"><span class="annottext">s :: RemoveAutoScalingPolicy
+</span><a href="#local-6989586621679385353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy%27"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385352"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveAutoScalingPolicy
+</span><a href="#local-6989586621679385353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:RemoveAutoScalingPolicy' :: Text
 </span><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#%24sel%3AclusterId%3ARemoveAutoScalingPolicy%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | Specifies the ID of the instance group to which the scaling policy is</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- applied.</span><span>
@@ -179,28 +179,28 @@ $sel:clusterId:RemoveAutoScalingPolicy' :: RemoveAutoScalingPolicy -&gt; Text
 -&gt; (RemoveAutoScalingPolicy -&gt; Text -&gt; RemoveAutoScalingPolicy)
 -&gt; Lens RemoveAutoScalingPolicy RemoveAutoScalingPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy%27"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385342"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy%27"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385351"><span class="annot"><span class="annottext">Text
 instanceGroupId :: Text
 $sel:instanceGroupId:RemoveAutoScalingPolicy' :: RemoveAutoScalingPolicy -&gt; Text
-</span><a href="#local-6989586621679385342"><span class="hs-identifier hs-var hs-var">instanceGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385342"><span class="hs-identifier hs-var">instanceGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385341"><span class="annot"><span class="annottext">s :: RemoveAutoScalingPolicy
-</span><a href="#local-6989586621679385341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy%27"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385340"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveAutoScalingPolicy
-</span><a href="#local-6989586621679385341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceGroupId:RemoveAutoScalingPolicy' :: Text
+</span><a href="#local-6989586621679385351"><span class="hs-identifier hs-var hs-var">instanceGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385351"><span class="hs-identifier hs-var">instanceGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385350"><span class="annot"><span class="annottext">s :: RemoveAutoScalingPolicy
+</span><a href="#local-6989586621679385350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy%27"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385349"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveAutoScalingPolicy
+</span><a href="#local-6989586621679385350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceGroupId:RemoveAutoScalingPolicy' :: Text
 </span><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#%24sel%3AinstanceGroupId%3ARemoveAutoScalingPolicy%27"><span class="hs-identifier hs-var">instanceGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicyResponse"><span class="hs-identifier hs-type">RemoveAutoScalingPolicyResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679385336"><span class="annot"><span class="annottext">request :: RemoveAutoScalingPolicy -&gt; Request RemoveAutoScalingPolicy
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679385345"><span class="annot"><span class="annottext">request :: RemoveAutoScalingPolicy -&gt; Request RemoveAutoScalingPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; RemoveAutoScalingPolicy -&gt; Request RemoveAutoScalingPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EMR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679385332"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679385341"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RemoveAutoScalingPolicy
 -&gt; ClientResponse ClientBody
@@ -226,10 +226,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385329"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385329"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385328"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679385328"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385327"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679385327"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385338"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385338"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385337"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679385337"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385336"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679385336"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RemoveAutoScalingPolicyResponse
 </span><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicyResponse%27"><span class="hs-identifier hs-var">RemoveAutoScalingPolicyResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RemoveAutoScalingPolicyResponse)
@@ -241,15 +241,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385329"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385338"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385320"><span id="local-6989586621679385322"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385329"><span id="local-6989586621679385331"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385326"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679385313"><span class="annot"><span class="annottext">toHeaders :: RemoveAutoScalingPolicy -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679385322"><span class="annot"><span class="annottext">toHeaders :: RemoveAutoScalingPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RemoveAutoScalingPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -276,14 +276,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385303"><span id="local-6989586621679385305"><span id="local-6989586621679385307"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679385301"><span class="annot"><span class="annottext">toJSON :: RemoveAutoScalingPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy%27"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385298"><span id="local-6989586621679385299"><span class="annot"><span class="annottext">Text
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385312"><span id="local-6989586621679385314"><span id="local-6989586621679385316"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679385310"><span class="annot"><span class="annottext">toJSON :: RemoveAutoScalingPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy%27"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385307"><span id="local-6989586621679385308"><span class="annot"><span class="annottext">Text
 instanceGroupId :: Text
 clusterId :: Text
 $sel:instanceGroupId:RemoveAutoScalingPolicy' :: RemoveAutoScalingPolicy -&gt; Text
 $sel:clusterId:RemoveAutoScalingPolicy' :: RemoveAutoScalingPolicy -&gt; Text
-</span><a href="#local-6989586621679385298"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679385307"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -295,7 +295,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ClusterId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385299"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679385308"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -303,19 +303,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;InstanceGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385298"><span class="hs-identifier hs-var">instanceGroupId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385307"><span class="hs-identifier hs-var">instanceGroupId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679385292"><span class="annot"><span class="annottext">toPath :: RemoveAutoScalingPolicy -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679385301"><span class="annot"><span class="annottext">toPath :: RemoveAutoScalingPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RemoveAutoScalingPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicy"><span class="hs-identifier hs-type">RemoveAutoScalingPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679385288"><span class="annot"><span class="annottext">toQuery :: RemoveAutoScalingPolicy -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679385297"><span class="annot"><span class="annottext">toQuery :: RemoveAutoScalingPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RemoveAutoScalingPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -323,12 +323,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newRemoveAutoScalingPolicyResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679385285"><span id="local-6989586621679385286"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveAutoScalingPolicyResponse"><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicyResponse"><span class="hs-identifier hs-var">RemoveAutoScalingPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveAutoScalingPolicyResponse%27"><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicyResponse%27"><span class="hs-identifier hs-var">RemoveAutoScalingPolicyResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679385294"><span id="local-6989586621679385295"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveAutoScalingPolicyResponse"><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicyResponse"><span class="hs-identifier hs-var">RemoveAutoScalingPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveAutoScalingPolicyResponse%27"><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicyResponse%27"><span class="hs-identifier hs-var">RemoveAutoScalingPolicyResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARemoveAutoScalingPolicyResponse%27"><span class="annot"><span class="annottext">RemoveAutoScalingPolicyResponse -&gt; Int
 </span><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#%24sel%3AhttpStatus%3ARemoveAutoScalingPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385280"><span id="local-6989586621679385282"><span class="annot"><span class="annottext">RemoveAutoScalingPolicyResponse
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385289"><span id="local-6989586621679385291"><span class="annot"><span class="annottext">RemoveAutoScalingPolicyResponse
 -&gt; RemoveAutoScalingPolicyResponse -&gt; Bool
 (RemoveAutoScalingPolicyResponse
  -&gt; RemoveAutoScalingPolicyResponse -&gt; Bool)
@@ -344,7 +344,7 @@ $c/= :: RemoveAutoScalingPolicyResponse
 -&gt; RemoveAutoScalingPolicyResponse -&gt; Bool
 $c== :: RemoveAutoScalingPolicyResponse
 -&gt; RemoveAutoScalingPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385272"><span id="local-6989586621679385274"><span id="local-6989586621679385276"><span id="local-6989586621679385278"><span class="annot"><span class="annottext">ReadPrec [RemoveAutoScalingPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385281"><span id="local-6989586621679385283"><span id="local-6989586621679385285"><span id="local-6989586621679385287"><span class="annot"><span class="annottext">ReadPrec [RemoveAutoScalingPolicyResponse]
 ReadPrec RemoveAutoScalingPolicyResponse
 Int -&gt; ReadS RemoveAutoScalingPolicyResponse
 ReadS [RemoveAutoScalingPolicyResponse]
@@ -364,7 +364,7 @@ readList :: ReadS [RemoveAutoScalingPolicyResponse]
 $creadList :: ReadS [RemoveAutoScalingPolicyResponse]
 readsPrec :: Int -&gt; ReadS RemoveAutoScalingPolicyResponse
 $creadsPrec :: Int -&gt; ReadS RemoveAutoScalingPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385266"><span id="local-6989586621679385268"><span id="local-6989586621679385270"><span class="annot"><span class="annottext">Int -&gt; RemoveAutoScalingPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385275"><span id="local-6989586621679385277"><span id="local-6989586621679385279"><span class="annot"><span class="annottext">Int -&gt; RemoveAutoScalingPolicyResponse -&gt; ShowS
 [RemoveAutoScalingPolicyResponse] -&gt; ShowS
 RemoveAutoScalingPolicyResponse -&gt; String
 (Int -&gt; RemoveAutoScalingPolicyResponse -&gt; ShowS)
@@ -416,14 +416,14 @@ RemoveAutoScalingPolicyResponse
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicyResponse"><span class="hs-identifier hs-type">RemoveAutoScalingPolicyResponse</span></a></span><span>
 </span><span id="line-165"></span><span id="newRemoveAutoScalingPolicyResponse"><span class="annot"><span class="annottext">newRemoveAutoScalingPolicyResponse :: Int -&gt; RemoveAutoScalingPolicyResponse
-</span><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#newRemoveAutoScalingPolicyResponse"><span class="hs-identifier hs-var hs-var">newRemoveAutoScalingPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679385263"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385263"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#newRemoveAutoScalingPolicyResponse"><span class="hs-identifier hs-var hs-var">newRemoveAutoScalingPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679385272"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385272"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">RemoveAutoScalingPolicyResponse' :: Int -&gt; RemoveAutoScalingPolicyResponse
 </span><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicyResponse%27"><span class="hs-identifier hs-type">RemoveAutoScalingPolicyResponse'</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveAutoScalingPolicyResponse' :: Int
 </span><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#%24sel%3AhttpStatus%3ARemoveAutoScalingPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385263"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679385272"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -440,18 +440,18 @@ RemoveAutoScalingPolicyResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicyResponse%27"><span class="hs-identifier hs-type">RemoveAutoScalingPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385262"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicyResponse%27"><span class="hs-identifier hs-type">RemoveAutoScalingPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385271"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RemoveAutoScalingPolicyResponse' :: RemoveAutoScalingPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679385262"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385262"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385261"><span class="annot"><span class="annottext">s :: RemoveAutoScalingPolicyResponse
-</span><a href="#local-6989586621679385261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicyResponse%27"><span class="hs-identifier hs-type">RemoveAutoScalingPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385260"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveAutoScalingPolicyResponse
-</span><a href="#local-6989586621679385261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveAutoScalingPolicyResponse' :: Int
+</span><a href="#local-6989586621679385271"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385271"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385270"><span class="annot"><span class="annottext">s :: RemoveAutoScalingPolicyResponse
+</span><a href="#local-6989586621679385270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicyResponse%27"><span class="hs-identifier hs-type">RemoveAutoScalingPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385269"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveAutoScalingPolicyResponse
+</span><a href="#local-6989586621679385270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveAutoScalingPolicyResponse' :: Int
 </span><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#%24sel%3AhttpStatus%3ARemoveAutoScalingPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicyResponse"><span class="hs-identifier hs-type">RemoveAutoScalingPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicyResponse"><span class="hs-identifier hs-type">RemoveAutoScalingPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679385258"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679385267"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><a href="Network.AWS.EMR.RemoveAutoScalingPolicy.html#RemoveAutoScalingPolicyResponse"><span class="hs-identifier hs-type">RemoveAutoScalingPolicyResponse</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

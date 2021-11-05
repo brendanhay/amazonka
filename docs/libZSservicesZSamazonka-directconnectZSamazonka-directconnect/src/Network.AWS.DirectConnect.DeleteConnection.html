@@ -72,12 +72,12 @@
 </span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | /See:/ 'newDeleteConnection' smart constructor.</span><span>
-</span><span id="line-75"></span><span id="local-6989586621679299610"><span id="local-6989586621679299611"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConnection"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-var">DeleteConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConnection%27"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection%27"><span class="hs-identifier hs-var">DeleteConnection'</span></a></span></span><span>
+</span><span id="line-75"></span><span id="local-6989586621679299619"><span id="local-6989586621679299620"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConnection"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-var">DeleteConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConnection%27"><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection%27"><span class="hs-identifier hs-var">DeleteConnection'</span></a></span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the connection.</span><span>
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AconnectionId%3ADeleteConnection%27"><span class="annot"><span class="annottext">DeleteConnection -&gt; Text
 </span><a href="Network.AWS.DirectConnect.DeleteConnection.html#%24sel%3AconnectionId%3ADeleteConnection%27"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299604"><span id="local-6989586621679299606"><span class="annot"><span class="annottext">DeleteConnection -&gt; DeleteConnection -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299613"><span id="local-6989586621679299615"><span class="annot"><span class="annottext">DeleteConnection -&gt; DeleteConnection -&gt; Bool
 (DeleteConnection -&gt; DeleteConnection -&gt; Bool)
 -&gt; (DeleteConnection -&gt; DeleteConnection -&gt; Bool)
 -&gt; Eq DeleteConnection
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteConnection -&gt; DeleteConnection -&gt; Bool
 == :: DeleteConnection -&gt; DeleteConnection -&gt; Bool
 $c== :: DeleteConnection -&gt; DeleteConnection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299595"><span id="local-6989586621679299597"><span id="local-6989586621679299599"><span id="local-6989586621679299601"><span class="annot"><span class="annottext">ReadPrec [DeleteConnection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299604"><span id="local-6989586621679299606"><span id="local-6989586621679299608"><span id="local-6989586621679299610"><span class="annot"><span class="annottext">ReadPrec [DeleteConnection]
 ReadPrec DeleteConnection
 Int -&gt; ReadS DeleteConnection
 ReadS [DeleteConnection]
@@ -106,7 +106,7 @@ readList :: ReadS [DeleteConnection]
 $creadList :: ReadS [DeleteConnection]
 readsPrec :: Int -&gt; ReadS DeleteConnection
 $creadsPrec :: Int -&gt; ReadS DeleteConnection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299588"><span id="local-6989586621679299590"><span id="local-6989586621679299592"><span class="annot"><span class="annottext">Int -&gt; DeleteConnection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299597"><span id="local-6989586621679299599"><span id="local-6989586621679299601"><span class="annot"><span class="annottext">Int -&gt; DeleteConnection -&gt; ShowS
 [DeleteConnection] -&gt; ShowS
 DeleteConnection -&gt; String
 (Int -&gt; DeleteConnection -&gt; ShowS)
@@ -146,12 +146,12 @@ $cfrom :: forall x. DeleteConnection -&gt; Rep DeleteConnection x
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-type">DeleteConnection</span></a></span><span>
 </span><span id="line-94"></span><span id="newDeleteConnection"><span class="annot"><span class="annottext">newDeleteConnection :: Text -&gt; DeleteConnection
-</span><a href="Network.AWS.DirectConnect.DeleteConnection.html#newDeleteConnection"><span class="hs-identifier hs-var hs-var">newDeleteConnection</span></a></span></span><span> </span><span id="local-6989586621679299583"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299583"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectConnect.DeleteConnection.html#newDeleteConnection"><span class="hs-identifier hs-var hs-var">newDeleteConnection</span></a></span></span><span> </span><span id="local-6989586621679299592"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299592"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">DeleteConnection' :: Text -&gt; DeleteConnection
 </span><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection%27"><span class="hs-identifier hs-type">DeleteConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:DeleteConnection' :: Text
 </span><a href="Network.AWS.DirectConnect.DeleteConnection.html#%24sel%3AconnectionId%3ADeleteConnection%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299583"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679299592"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The ID of the connection.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#deleteConnection_connectionId"><span class="hs-identifier hs-type">deleteConnection_connectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-type">DeleteConnection</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -160,25 +160,25 @@ $cfrom :: forall x. DeleteConnection -&gt; Rep DeleteConnection x
 -&gt; (DeleteConnection -&gt; Text -&gt; DeleteConnection)
 -&gt; Lens DeleteConnection DeleteConnection Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection%27"><span class="hs-identifier hs-type">DeleteConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299580"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection%27"><span class="hs-identifier hs-type">DeleteConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299589"><span class="annot"><span class="annottext">Text
 connectionId :: Text
 $sel:connectionId:DeleteConnection' :: DeleteConnection -&gt; Text
-</span><a href="#local-6989586621679299580"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299580"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299579"><span class="annot"><span class="annottext">s :: DeleteConnection
-</span><a href="#local-6989586621679299579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection%27"><span class="hs-identifier hs-type">DeleteConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299578"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConnection
-</span><a href="#local-6989586621679299579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:DeleteConnection' :: Text
+</span><a href="#local-6989586621679299589"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299589"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299588"><span class="annot"><span class="annottext">s :: DeleteConnection
+</span><a href="#local-6989586621679299588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection%27"><span class="hs-identifier hs-type">DeleteConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299587"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConnection
+</span><a href="#local-6989586621679299588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:DeleteConnection' :: Text
 </span><a href="Network.AWS.DirectConnect.DeleteConnection.html#%24sel%3AconnectionId%3ADeleteConnection%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-type">DeleteConnection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-type">DeleteConnection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-type">DeleteConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-type">DeleteConnection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679299574"><span class="annot"><span class="annottext">request :: DeleteConnection -&gt; Request DeleteConnection
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679299583"><span class="annot"><span class="annottext">request :: DeleteConnection -&gt; Request DeleteConnection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteConnection -&gt; Request DeleteConnection
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679299570"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679299579"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteConnection
 -&gt; ClientResponse ClientBody
@@ -202,20 +202,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299567"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299567"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679299566"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679299566"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679299565"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299565"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Connection
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299576"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299576"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679299575"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679299575"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679299574"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299574"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Connection
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299565"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299574"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299560"><span id="local-6989586621679299562"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-type">DeleteConnection</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299569"><span id="local-6989586621679299571"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-type">DeleteConnection</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299557"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-type">DeleteConnection</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299566"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-type">DeleteConnection</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-type">DeleteConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679299553"><span class="annot"><span class="annottext">toHeaders :: DeleteConnection -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679299562"><span class="annot"><span class="annottext">toHeaders :: DeleteConnection -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteConnection -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -242,12 +242,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299543"><span id="local-6989586621679299545"><span id="local-6989586621679299547"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-type">DeleteConnection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679299541"><span class="annot"><span class="annottext">toJSON :: DeleteConnection -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection%27"><span class="hs-identifier hs-type">DeleteConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299539"><span class="annot"><span class="annottext">Text
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299552"><span id="local-6989586621679299554"><span id="local-6989586621679299556"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-type">DeleteConnection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679299550"><span class="annot"><span class="annottext">toJSON :: DeleteConnection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection%27"><span class="hs-identifier hs-type">DeleteConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299548"><span class="annot"><span class="annottext">Text
 connectionId :: Text
 $sel:connectionId:DeleteConnection' :: DeleteConnection -&gt; Text
-</span><a href="#local-6989586621679299539"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679299548"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -259,18 +259,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;connectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299539"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679299548"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-type">DeleteConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679299533"><span class="annot"><span class="annottext">toPath :: DeleteConnection -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679299542"><span class="annot"><span class="annottext">toPath :: DeleteConnection -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteConnection -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DeleteConnection.html#DeleteConnection"><span class="hs-identifier hs-type">DeleteConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679299529"><span class="annot"><span class="annottext">toQuery :: DeleteConnection -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679299538"><span class="annot"><span class="annottext">toQuery :: DeleteConnection -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteConnection -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

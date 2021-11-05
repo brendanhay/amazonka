@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ChimeSDKMessaging.CreateChannelModerator</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new @ChannelModerator@. A channel moderator can:</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- -   Add and remove other members of the channel.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- -   Add and remove other moderators of the channel.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- -   Add and remove user bans for the channel.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- -   Redact messages in the channel.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- -   List messages in the channel.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- The @x-amz-chime-bearer@ request header is mandatory. Use the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @AppInstanceUserArn@ of the user that makes the API call as the value in</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- the header.</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.CreateChannelModerator</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier">CreateChannelModerator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#newCreateChannelModerator"><span class="hs-identifier">newCreateChannelModerator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModerator_channelArn"><span class="hs-identifier">createChannelModerator_channelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModerator_channelModeratorArn"><span class="hs-identifier">createChannelModerator_channelModeratorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModerator_chimeBearer"><span class="hs-identifier">createChannelModerator_chimeBearer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse"><span class="hs-identifier">CreateChannelModeratorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#newCreateChannelModeratorResponse"><span class="hs-identifier">newCreateChannelModeratorResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModeratorResponse_channelModerator"><span class="hs-identifier">createChannelModeratorResponse_channelModerator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModeratorResponse_channelArn"><span class="hs-identifier">createChannelModeratorResponse_channelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModeratorResponse_httpStatus"><span class="hs-identifier">createChannelModeratorResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.html"><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newCreateChannelModerator' smart constructor.</span><span>
+</span><span id="line-67"></span><span id="local-6989586621679240199"><span id="local-6989586621679240200"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateChannelModerator"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier hs-var">CreateChannelModerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateChannelModerator%27"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator%27"><span class="hs-identifier hs-var">CreateChannelModerator'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the channel.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AchannelArn%3ACreateChannelModerator%27"><span class="annot"><span class="annottext">CreateChannelModerator -&gt; Text
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AchannelArn%3ACreateChannelModerator%27"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The ARN of the moderator.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AchannelModeratorArn%3ACreateChannelModerator%27"><span class="annot"><span class="annottext">CreateChannelModerator -&gt; Text
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AchannelModeratorArn%3ACreateChannelModerator%27"><span class="hs-identifier hs-var hs-var">channelModeratorArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The @AppInstanceUserArn@ of the user that makes the API call.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AchimeBearer%3ACreateChannelModerator%27"><span class="annot"><span class="annottext">CreateChannelModerator -&gt; Text
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AchimeBearer%3ACreateChannelModerator%27"><span class="hs-identifier hs-var hs-var">chimeBearer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679240191"><span id="local-6989586621679240193"><span class="annot"><span class="annottext">CreateChannelModerator -&gt; CreateChannelModerator -&gt; Bool
+(CreateChannelModerator -&gt; CreateChannelModerator -&gt; Bool)
+-&gt; (CreateChannelModerator -&gt; CreateChannelModerator -&gt; Bool)
+-&gt; Eq CreateChannelModerator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateChannelModerator -&gt; CreateChannelModerator -&gt; Bool
+$c/= :: CreateChannelModerator -&gt; CreateChannelModerator -&gt; Bool
+== :: CreateChannelModerator -&gt; CreateChannelModerator -&gt; Bool
+$c== :: CreateChannelModerator -&gt; CreateChannelModerator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240182"><span id="local-6989586621679240184"><span id="local-6989586621679240186"><span id="local-6989586621679240188"><span class="annot"><span class="annottext">ReadPrec [CreateChannelModerator]
+ReadPrec CreateChannelModerator
+Int -&gt; ReadS CreateChannelModerator
+ReadS [CreateChannelModerator]
+(Int -&gt; ReadS CreateChannelModerator)
+-&gt; ReadS [CreateChannelModerator]
+-&gt; ReadPrec CreateChannelModerator
+-&gt; ReadPrec [CreateChannelModerator]
+-&gt; Read CreateChannelModerator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateChannelModerator]
+$creadListPrec :: ReadPrec [CreateChannelModerator]
+readPrec :: ReadPrec CreateChannelModerator
+$creadPrec :: ReadPrec CreateChannelModerator
+readList :: ReadS [CreateChannelModerator]
+$creadList :: ReadS [CreateChannelModerator]
+readsPrec :: Int -&gt; ReadS CreateChannelModerator
+$creadsPrec :: Int -&gt; ReadS CreateChannelModerator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240175"><span id="local-6989586621679240177"><span id="local-6989586621679240179"><span class="annot"><span class="annottext">Int -&gt; CreateChannelModerator -&gt; ShowS
+[CreateChannelModerator] -&gt; ShowS
+CreateChannelModerator -&gt; String
+(Int -&gt; CreateChannelModerator -&gt; ShowS)
+-&gt; (CreateChannelModerator -&gt; String)
+-&gt; ([CreateChannelModerator] -&gt; ShowS)
+-&gt; Show CreateChannelModerator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateChannelModerator] -&gt; ShowS
+$cshowList :: [CreateChannelModerator] -&gt; ShowS
+show :: CreateChannelModerator -&gt; String
+$cshow :: CreateChannelModerator -&gt; String
+showsPrec :: Int -&gt; CreateChannelModerator -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateChannelModerator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateChannelModerator -&gt; Rep CreateChannelModerator x)
+-&gt; (forall x.
+    Rep CreateChannelModerator x -&gt; CreateChannelModerator)
+-&gt; Generic CreateChannelModerator
+forall x. Rep CreateChannelModerator x -&gt; CreateChannelModerator
+forall x. CreateChannelModerator -&gt; Rep CreateChannelModerator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateChannelModerator x -&gt; CreateChannelModerator
+$cfrom :: forall x. CreateChannelModerator -&gt; Rep CreateChannelModerator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'CreateChannelModerator' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'channelArn', 'createChannelModerator_channelArn' - The ARN of the channel.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'channelModeratorArn', 'createChannelModerator_channelModeratorArn' - The ARN of the moderator.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'chimeBearer', 'createChannelModerator_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#newCreateChannelModerator"><span class="hs-identifier hs-type">newCreateChannelModerator</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'channelArn'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'channelModeratorArn'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'chimeBearer'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier hs-type">CreateChannelModerator</span></a></span><span>
+</span><span id="line-98"></span><span id="newCreateChannelModerator"><span class="annot"><span class="annottext">newCreateChannelModerator :: Text -&gt; Text -&gt; Text -&gt; CreateChannelModerator
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#newCreateChannelModerator"><span class="hs-identifier hs-var hs-var">newCreateChannelModerator</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679240170"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240170"><span class="hs-identifier hs-var">pChannelArn_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679240169"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240169"><span class="hs-identifier hs-var">pChannelModeratorArn_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679240168"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240168"><span class="hs-identifier hs-var">pChimeBearer_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">CreateChannelModerator' :: Text -&gt; Text -&gt; Text -&gt; CreateChannelModerator
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator%27"><span class="hs-identifier hs-type">CreateChannelModerator'</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channelArn:CreateChannelModerator' :: Text
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AchannelArn%3ACreateChannelModerator%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240170"><span class="hs-identifier hs-var">pChannelArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:channelModeratorArn:CreateChannelModerator' :: Text
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AchannelModeratorArn%3ACreateChannelModerator%27"><span class="hs-identifier hs-var">channelModeratorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240169"><span class="hs-identifier hs-var">pChannelModeratorArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:chimeBearer:CreateChannelModerator' :: Text
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AchimeBearer%3ACreateChannelModerator%27"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240168"><span class="hs-identifier hs-var">pChimeBearer_</span></a></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The ARN of the channel.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModerator_channelArn"><span class="hs-identifier hs-type">createChannelModerator_channelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier hs-type">CreateChannelModerator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-110"></span><span id="createChannelModerator_channelArn"><span class="annot"><span class="annottext">createChannelModerator_channelArn :: (Text -&gt; f Text)
+-&gt; CreateChannelModerator -&gt; f CreateChannelModerator
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModerator_channelArn"><span class="hs-identifier hs-var hs-var">createChannelModerator_channelArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateChannelModerator -&gt; Text)
+-&gt; (CreateChannelModerator -&gt; Text -&gt; CreateChannelModerator)
+-&gt; Lens CreateChannelModerator CreateChannelModerator Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator%27"><span class="hs-identifier hs-type">CreateChannelModerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240165"><span class="annot"><span class="annottext">Text
+channelArn :: Text
+$sel:channelArn:CreateChannelModerator' :: CreateChannelModerator -&gt; Text
+</span><a href="#local-6989586621679240165"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240165"><span class="hs-identifier hs-var">channelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240164"><span class="annot"><span class="annottext">s :: CreateChannelModerator
+</span><a href="#local-6989586621679240164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator%27"><span class="hs-identifier hs-type">CreateChannelModerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240163"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateChannelModerator
+</span><a href="#local-6989586621679240164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelArn:CreateChannelModerator' :: Text
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AchannelArn%3ACreateChannelModerator%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier hs-type">CreateChannelModerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The ARN of the moderator.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModerator_channelModeratorArn"><span class="hs-identifier hs-type">createChannelModerator_channelModeratorArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier hs-type">CreateChannelModerator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="createChannelModerator_channelModeratorArn"><span class="annot"><span class="annottext">createChannelModerator_channelModeratorArn :: (Text -&gt; f Text)
+-&gt; CreateChannelModerator -&gt; f CreateChannelModerator
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModerator_channelModeratorArn"><span class="hs-identifier hs-var hs-var">createChannelModerator_channelModeratorArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateChannelModerator -&gt; Text)
+-&gt; (CreateChannelModerator -&gt; Text -&gt; CreateChannelModerator)
+-&gt; Lens CreateChannelModerator CreateChannelModerator Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator%27"><span class="hs-identifier hs-type">CreateChannelModerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240162"><span class="annot"><span class="annottext">Text
+channelModeratorArn :: Text
+$sel:channelModeratorArn:CreateChannelModerator' :: CreateChannelModerator -&gt; Text
+</span><a href="#local-6989586621679240162"><span class="hs-identifier hs-var hs-var">channelModeratorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240162"><span class="hs-identifier hs-var">channelModeratorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240161"><span class="annot"><span class="annottext">s :: CreateChannelModerator
+</span><a href="#local-6989586621679240161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator%27"><span class="hs-identifier hs-type">CreateChannelModerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240160"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateChannelModerator
+</span><a href="#local-6989586621679240161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelModeratorArn:CreateChannelModerator' :: Text
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AchannelModeratorArn%3ACreateChannelModerator%27"><span class="hs-identifier hs-var">channelModeratorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier hs-type">CreateChannelModerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The @AppInstanceUserArn@ of the user that makes the API call.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModerator_chimeBearer"><span class="hs-identifier hs-type">createChannelModerator_chimeBearer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier hs-type">CreateChannelModerator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="createChannelModerator_chimeBearer"><span class="annot"><span class="annottext">createChannelModerator_chimeBearer :: (Text -&gt; f Text)
+-&gt; CreateChannelModerator -&gt; f CreateChannelModerator
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModerator_chimeBearer"><span class="hs-identifier hs-var hs-var">createChannelModerator_chimeBearer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateChannelModerator -&gt; Text)
+-&gt; (CreateChannelModerator -&gt; Text -&gt; CreateChannelModerator)
+-&gt; Lens CreateChannelModerator CreateChannelModerator Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator%27"><span class="hs-identifier hs-type">CreateChannelModerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240159"><span class="annot"><span class="annottext">Text
+chimeBearer :: Text
+$sel:chimeBearer:CreateChannelModerator' :: CreateChannelModerator -&gt; Text
+</span><a href="#local-6989586621679240159"><span class="hs-identifier hs-var hs-var">chimeBearer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240159"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240158"><span class="annot"><span class="annottext">s :: CreateChannelModerator
+</span><a href="#local-6989586621679240158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator%27"><span class="hs-identifier hs-type">CreateChannelModerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240157"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateChannelModerator
+</span><a href="#local-6989586621679240158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:chimeBearer:CreateChannelModerator' :: Text
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AchimeBearer%3ACreateChannelModerator%27"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier hs-type">CreateChannelModerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier hs-type">CreateChannelModerator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier hs-type">CreateChannelModerator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse"><span class="hs-identifier hs-type">CreateChannelModeratorResponse</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679240153"><span class="annot"><span class="annottext">request :: CreateChannelModerator -&gt; Request CreateChannelModerator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateChannelModerator -&gt; Request CreateChannelModerator
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679240149"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateChannelModerator
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateChannelModerator)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateChannelModerator))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateChannelModerator
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateChannelModerator)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679240146"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240146"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679240145"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679240145"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679240144"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240144"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Identity
+-&gt; Maybe Text -&gt; Int -&gt; CreateChannelModeratorResponse
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse%27"><span class="hs-identifier hs-var">CreateChannelModeratorResponse'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Identity
+ -&gt; Maybe Text -&gt; Int -&gt; CreateChannelModeratorResponse)
+-&gt; Either String (Maybe Identity)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; CreateChannelModeratorResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Identity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelModerator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateChannelModeratorResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateChannelModeratorResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateChannelModeratorResponse)
+-&gt; Either String Int
+-&gt; Either String CreateChannelModeratorResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240146"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240136"><span id="local-6989586621679240138"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier hs-type">CreateChannelModerator</span></a></span></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier hs-type">CreateChannelModerator</span></a></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier hs-type">CreateChannelModerator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679240129"><span class="annot"><span class="annottext">toHeaders :: CreateChannelModerator -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator%27"><span class="hs-identifier hs-type">CreateChannelModerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240125"><span id="local-6989586621679240126"><span id="local-6989586621679240127"><span class="annot"><span class="annottext">Text
+chimeBearer :: Text
+channelModeratorArn :: Text
+channelArn :: Text
+$sel:chimeBearer:CreateChannelModerator' :: CreateChannelModerator -&gt; Text
+$sel:channelModeratorArn:CreateChannelModerator' :: CreateChannelModerator -&gt; Text
+$sel:channelArn:CreateChannelModerator' :: CreateChannelModerator -&gt; Text
+</span><a href="#local-6989586621679240125"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-chime-bearer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240125"><span class="hs-identifier hs-var">chimeBearer</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240117"><span id="local-6989586621679240119"><span id="local-6989586621679240121"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier hs-type">CreateChannelModerator</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679240115"><span class="annot"><span class="annottext">toJSON :: CreateChannelModerator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator%27"><span class="hs-identifier hs-type">CreateChannelModerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240111"><span id="local-6989586621679240112"><span id="local-6989586621679240113"><span class="annot"><span class="annottext">Text
+chimeBearer :: Text
+channelModeratorArn :: Text
+channelArn :: Text
+$sel:chimeBearer:CreateChannelModerator' :: CreateChannelModerator -&gt; Text
+$sel:channelModeratorArn:CreateChannelModerator' :: CreateChannelModerator -&gt; Text
+$sel:channelArn:CreateChannelModerator' :: CreateChannelModerator -&gt; Text
+</span><a href="#local-6989586621679240111"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-148"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelModeratorArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240112"><span class="hs-identifier hs-var">channelModeratorArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier hs-type">CreateChannelModerator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679240105"><span class="annot"><span class="annottext">toPath :: CreateChannelModerator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator%27"><span class="hs-identifier hs-type">CreateChannelModerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240101"><span id="local-6989586621679240102"><span id="local-6989586621679240103"><span class="annot"><span class="annottext">Text
+chimeBearer :: Text
+channelModeratorArn :: Text
+channelArn :: Text
+$sel:chimeBearer:CreateChannelModerator' :: CreateChannelModerator -&gt; Text
+$sel:channelModeratorArn:CreateChannelModerator' :: CreateChannelModerator -&gt; Text
+$sel:channelArn:CreateChannelModerator' :: CreateChannelModerator -&gt; Text
+</span><a href="#local-6989586621679240101"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/channels/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240103"><span class="hs-identifier hs-var">channelArn</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/moderators&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModerator"><span class="hs-identifier hs-type">CreateChannelModerator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679240097"><span class="annot"><span class="annottext">toQuery :: CreateChannelModerator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateChannelModerator -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | /See:/ 'newCreateChannelModeratorResponse' smart constructor.</span><span>
+</span><span id="line-161"></span><span id="local-6989586621679240093"><span id="local-6989586621679240094"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateChannelModeratorResponse"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse"><span class="hs-identifier hs-var">CreateChannelModeratorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateChannelModeratorResponse%27"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse%27"><span class="hs-identifier hs-var">CreateChannelModeratorResponse'</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARNs of the channel and the moderator.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AchannelModerator%3ACreateChannelModeratorResponse%27"><span class="annot"><span class="annottext">CreateChannelModeratorResponse -&gt; Maybe Identity
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AchannelModerator%3ACreateChannelModeratorResponse%27"><span class="hs-identifier hs-var hs-var">channelModerator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The ARN of the channel.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AchannelArn%3ACreateChannelModeratorResponse%27"><span class="annot"><span class="annottext">CreateChannelModeratorResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AchannelArn%3ACreateChannelModeratorResponse%27"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateChannelModeratorResponse%27"><span class="annot"><span class="annottext">CreateChannelModeratorResponse -&gt; Int
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AhttpStatus%3ACreateChannelModeratorResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679240086"><span id="local-6989586621679240088"><span class="annot"><span class="annottext">CreateChannelModeratorResponse
+-&gt; CreateChannelModeratorResponse -&gt; Bool
+(CreateChannelModeratorResponse
+ -&gt; CreateChannelModeratorResponse -&gt; Bool)
+-&gt; (CreateChannelModeratorResponse
+    -&gt; CreateChannelModeratorResponse -&gt; Bool)
+-&gt; Eq CreateChannelModeratorResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateChannelModeratorResponse
+-&gt; CreateChannelModeratorResponse -&gt; Bool
+$c/= :: CreateChannelModeratorResponse
+-&gt; CreateChannelModeratorResponse -&gt; Bool
+== :: CreateChannelModeratorResponse
+-&gt; CreateChannelModeratorResponse -&gt; Bool
+$c== :: CreateChannelModeratorResponse
+-&gt; CreateChannelModeratorResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240080"><span id="local-6989586621679240082"><span id="local-6989586621679240084"><span class="annot"><span class="annottext">Int -&gt; CreateChannelModeratorResponse -&gt; ShowS
+[CreateChannelModeratorResponse] -&gt; ShowS
+CreateChannelModeratorResponse -&gt; String
+(Int -&gt; CreateChannelModeratorResponse -&gt; ShowS)
+-&gt; (CreateChannelModeratorResponse -&gt; String)
+-&gt; ([CreateChannelModeratorResponse] -&gt; ShowS)
+-&gt; Show CreateChannelModeratorResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateChannelModeratorResponse] -&gt; ShowS
+$cshowList :: [CreateChannelModeratorResponse] -&gt; ShowS
+show :: CreateChannelModeratorResponse -&gt; String
+$cshow :: CreateChannelModeratorResponse -&gt; String
+showsPrec :: Int -&gt; CreateChannelModeratorResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateChannelModeratorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateChannelModeratorResponse
+ -&gt; Rep CreateChannelModeratorResponse x)
+-&gt; (forall x.
+    Rep CreateChannelModeratorResponse x
+    -&gt; CreateChannelModeratorResponse)
+-&gt; Generic CreateChannelModeratorResponse
+forall x.
+Rep CreateChannelModeratorResponse x
+-&gt; CreateChannelModeratorResponse
+forall x.
+CreateChannelModeratorResponse
+-&gt; Rep CreateChannelModeratorResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateChannelModeratorResponse x
+-&gt; CreateChannelModeratorResponse
+$cfrom :: forall x.
+CreateChannelModeratorResponse
+-&gt; Rep CreateChannelModeratorResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Create a value of 'CreateChannelModeratorResponse' with all optional fields omitted.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'channelModerator', 'createChannelModeratorResponse_channelModerator' - The ARNs of the channel and the moderator.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'channelArn', 'createChannelModeratorResponse_channelArn' - The ARN of the channel.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'httpStatus', 'createChannelModeratorResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#newCreateChannelModeratorResponse"><span class="hs-identifier hs-type">newCreateChannelModeratorResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse"><span class="hs-identifier hs-type">CreateChannelModeratorResponse</span></a></span><span>
+</span><span id="line-188"></span><span id="newCreateChannelModeratorResponse"><span class="annot"><span class="annottext">newCreateChannelModeratorResponse :: Int -&gt; CreateChannelModeratorResponse
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#newCreateChannelModeratorResponse"><span class="hs-identifier hs-var hs-var">newCreateChannelModeratorResponse</span></a></span></span><span> </span><span id="local-6989586621679240077"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240077"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">CreateChannelModeratorResponse' :: Maybe Identity
+-&gt; Maybe Text -&gt; Int -&gt; CreateChannelModeratorResponse
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse%27"><span class="hs-identifier hs-type">CreateChannelModeratorResponse'</span></a></span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channelModerator:CreateChannelModeratorResponse' :: Maybe Identity
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AchannelModerator%3ACreateChannelModeratorResponse%27"><span class="hs-identifier hs-var">channelModerator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">Maybe Identity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelArn:CreateChannelModeratorResponse' :: Maybe Text
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AchannelArn%3ACreateChannelModeratorResponse%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateChannelModeratorResponse' :: Int
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AhttpStatus%3ACreateChannelModeratorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240077"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The ARNs of the channel and the moderator.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModeratorResponse_channelModerator"><span class="hs-identifier hs-type">createChannelModeratorResponse_channelModerator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse"><span class="hs-identifier hs-type">CreateChannelModeratorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="createChannelModeratorResponse_channelModerator"><span class="annot"><span class="annottext">createChannelModeratorResponse_channelModerator :: (Maybe Identity -&gt; f (Maybe Identity))
+-&gt; CreateChannelModeratorResponse
+-&gt; f CreateChannelModeratorResponse
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModeratorResponse_channelModerator"><span class="hs-identifier hs-var hs-var">createChannelModeratorResponse_channelModerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateChannelModeratorResponse -&gt; Maybe Identity)
+-&gt; (CreateChannelModeratorResponse
+    -&gt; Maybe Identity -&gt; CreateChannelModeratorResponse)
+-&gt; Lens
+     CreateChannelModeratorResponse
+     CreateChannelModeratorResponse
+     (Maybe Identity)
+     (Maybe Identity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse%27"><span class="hs-identifier hs-type">CreateChannelModeratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240076"><span class="annot"><span class="annottext">Maybe Identity
+channelModerator :: Maybe Identity
+$sel:channelModerator:CreateChannelModeratorResponse' :: CreateChannelModeratorResponse -&gt; Maybe Identity
+</span><a href="#local-6989586621679240076"><span class="hs-identifier hs-var hs-var">channelModerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679240076"><span class="hs-identifier hs-var">channelModerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240075"><span class="annot"><span class="annottext">s :: CreateChannelModeratorResponse
+</span><a href="#local-6989586621679240075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse%27"><span class="hs-identifier hs-type">CreateChannelModeratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240074"><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679240074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateChannelModeratorResponse
+</span><a href="#local-6989586621679240075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelModerator:CreateChannelModeratorResponse' :: Maybe Identity
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AchannelModerator%3ACreateChannelModeratorResponse%27"><span class="hs-identifier hs-var">channelModerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679240074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse"><span class="hs-identifier hs-type">CreateChannelModeratorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The ARN of the channel.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModeratorResponse_channelArn"><span class="hs-identifier hs-type">createChannelModeratorResponse_channelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse"><span class="hs-identifier hs-type">CreateChannelModeratorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="createChannelModeratorResponse_channelArn"><span class="annot"><span class="annottext">createChannelModeratorResponse_channelArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateChannelModeratorResponse
+-&gt; f CreateChannelModeratorResponse
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModeratorResponse_channelArn"><span class="hs-identifier hs-var hs-var">createChannelModeratorResponse_channelArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateChannelModeratorResponse -&gt; Maybe Text)
+-&gt; (CreateChannelModeratorResponse
+    -&gt; Maybe Text -&gt; CreateChannelModeratorResponse)
+-&gt; Lens
+     CreateChannelModeratorResponse
+     CreateChannelModeratorResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse%27"><span class="hs-identifier hs-type">CreateChannelModeratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240073"><span class="annot"><span class="annottext">Maybe Text
+channelArn :: Maybe Text
+$sel:channelArn:CreateChannelModeratorResponse' :: CreateChannelModeratorResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679240073"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240073"><span class="hs-identifier hs-var">channelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240072"><span class="annot"><span class="annottext">s :: CreateChannelModeratorResponse
+</span><a href="#local-6989586621679240072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse%27"><span class="hs-identifier hs-type">CreateChannelModeratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240071"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateChannelModeratorResponse
+</span><a href="#local-6989586621679240072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelArn:CreateChannelModeratorResponse' :: Maybe Text
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AchannelArn%3ACreateChannelModeratorResponse%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse"><span class="hs-identifier hs-type">CreateChannelModeratorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModeratorResponse_httpStatus"><span class="hs-identifier hs-type">createChannelModeratorResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse"><span class="hs-identifier hs-type">CreateChannelModeratorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-206"></span><span id="createChannelModeratorResponse_httpStatus"><span class="annot"><span class="annottext">createChannelModeratorResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateChannelModeratorResponse
+-&gt; f CreateChannelModeratorResponse
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#createChannelModeratorResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createChannelModeratorResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateChannelModeratorResponse -&gt; Int)
+-&gt; (CreateChannelModeratorResponse
+    -&gt; Int -&gt; CreateChannelModeratorResponse)
+-&gt; Lens
+     CreateChannelModeratorResponse
+     CreateChannelModeratorResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse%27"><span class="hs-identifier hs-type">CreateChannelModeratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240070"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateChannelModeratorResponse' :: CreateChannelModeratorResponse -&gt; Int
+</span><a href="#local-6989586621679240070"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240070"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240069"><span class="annot"><span class="annottext">s :: CreateChannelModeratorResponse
+</span><a href="#local-6989586621679240069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse%27"><span class="hs-identifier hs-type">CreateChannelModeratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240068"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateChannelModeratorResponse
+</span><a href="#local-6989586621679240069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateChannelModeratorResponse' :: Int
+</span><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#%24sel%3AhttpStatus%3ACreateChannelModeratorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse"><span class="hs-identifier hs-type">CreateChannelModeratorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679240066"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.CreateChannelModerator.html#CreateChannelModeratorResponse"><span class="hs-identifier hs-type">CreateChannelModeratorResponse</span></a></span></span><span>
+</span><span id="line-211"></span></pre></body></html>

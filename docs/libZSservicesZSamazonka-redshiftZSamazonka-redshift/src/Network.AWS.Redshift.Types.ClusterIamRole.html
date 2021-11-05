@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- services.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newClusterIamRole' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679490460"><span id="local-6989586621679490461"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClusterIamRole"><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole"><span class="hs-identifier hs-var">ClusterIamRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterIamRole%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole%27"><span class="hs-identifier hs-var">ClusterIamRole'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679490469"><span id="local-6989586621679490470"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClusterIamRole"><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole"><span class="hs-identifier hs-var">ClusterIamRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterIamRole%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole%27"><span class="hs-identifier hs-var">ClusterIamRole'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role, for example,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @arn:aws:iam::123456789012:role\/RedshiftCopyUnload@.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AiamRoleArn%3AClusterIamRole%27"><span class="annot"><span class="annottext">ClusterIamRole -&gt; Maybe Text
@@ -49,7 +49,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AapplyStatus%3AClusterIamRole%27"><span class="annot"><span class="annottext">ClusterIamRole -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#%24sel%3AapplyStatus%3AClusterIamRole%27"><span class="hs-identifier hs-var hs-var">applyStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679490453"><span id="local-6989586621679490455"><span class="annot"><span class="annottext">ClusterIamRole -&gt; ClusterIamRole -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679490462"><span id="local-6989586621679490464"><span class="annot"><span class="annottext">ClusterIamRole -&gt; ClusterIamRole -&gt; Bool
 (ClusterIamRole -&gt; ClusterIamRole -&gt; Bool)
 -&gt; (ClusterIamRole -&gt; ClusterIamRole -&gt; Bool) -&gt; Eq ClusterIamRole
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ClusterIamRole -&gt; ClusterIamRole -&gt; Bool
 == :: ClusterIamRole -&gt; ClusterIamRole -&gt; Bool
 $c== :: ClusterIamRole -&gt; ClusterIamRole -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679490444"><span id="local-6989586621679490446"><span id="local-6989586621679490448"><span id="local-6989586621679490450"><span class="annot"><span class="annottext">ReadPrec [ClusterIamRole]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679490453"><span id="local-6989586621679490455"><span id="local-6989586621679490457"><span id="local-6989586621679490459"><span class="annot"><span class="annottext">ReadPrec [ClusterIamRole]
 ReadPrec ClusterIamRole
 Int -&gt; ReadS ClusterIamRole
 ReadS [ClusterIamRole]
@@ -77,7 +77,7 @@ readList :: ReadS [ClusterIamRole]
 $creadList :: ReadS [ClusterIamRole]
 readsPrec :: Int -&gt; ReadS ClusterIamRole
 $creadsPrec :: Int -&gt; ReadS ClusterIamRole
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679490437"><span id="local-6989586621679490439"><span id="local-6989586621679490441"><span class="annot"><span class="annottext">Int -&gt; ClusterIamRole -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679490446"><span id="local-6989586621679490448"><span id="local-6989586621679490450"><span class="annot"><span class="annottext">Int -&gt; ClusterIamRole -&gt; ShowS
 [ClusterIamRole] -&gt; ShowS
 ClusterIamRole -&gt; String
 (Int -&gt; ClusterIamRole -&gt; ShowS)
@@ -151,16 +151,16 @@ forall a. Maybe a
 -&gt; (ClusterIamRole -&gt; Maybe Text -&gt; ClusterIamRole)
 -&gt; Lens ClusterIamRole ClusterIamRole (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole%27"><span class="hs-identifier hs-type">ClusterIamRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679490428"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole%27"><span class="hs-identifier hs-type">ClusterIamRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679490437"><span class="annot"><span class="annottext">Maybe Text
 iamRoleArn :: Maybe Text
 $sel:iamRoleArn:ClusterIamRole' :: ClusterIamRole -&gt; Maybe Text
-</span><a href="#local-6989586621679490428"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490428"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679490427"><span class="annot"><span class="annottext">s :: ClusterIamRole
-</span><a href="#local-6989586621679490427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole%27"><span class="hs-identifier hs-type">ClusterIamRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679490426"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterIamRole
-</span><a href="#local-6989586621679490427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRoleArn:ClusterIamRole' :: Maybe Text
+</span><a href="#local-6989586621679490437"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679490437"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679490436"><span class="annot"><span class="annottext">s :: ClusterIamRole
+</span><a href="#local-6989586621679490436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole%27"><span class="hs-identifier hs-type">ClusterIamRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679490435"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679490435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterIamRole
+</span><a href="#local-6989586621679490436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRoleArn:ClusterIamRole' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#%24sel%3AiamRoleArn%3AClusterIamRole%27"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole"><span class="hs-identifier hs-type">ClusterIamRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679490435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole"><span class="hs-identifier hs-type">ClusterIamRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | A value that describes the status of the IAM role\'s association with an</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- Amazon Redshift cluster.</span><span>
@@ -181,21 +181,21 @@ $sel:iamRoleArn:ClusterIamRole' :: ClusterIamRole -&gt; Maybe Text
 -&gt; (ClusterIamRole -&gt; Maybe Text -&gt; ClusterIamRole)
 -&gt; Lens ClusterIamRole ClusterIamRole (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole%27"><span class="hs-identifier hs-type">ClusterIamRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679490424"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole%27"><span class="hs-identifier hs-type">ClusterIamRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679490433"><span class="annot"><span class="annottext">Maybe Text
 applyStatus :: Maybe Text
 $sel:applyStatus:ClusterIamRole' :: ClusterIamRole -&gt; Maybe Text
-</span><a href="#local-6989586621679490424"><span class="hs-identifier hs-var hs-var">applyStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490424"><span class="hs-identifier hs-var">applyStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679490423"><span class="annot"><span class="annottext">s :: ClusterIamRole
-</span><a href="#local-6989586621679490423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole%27"><span class="hs-identifier hs-type">ClusterIamRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679490422"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterIamRole
-</span><a href="#local-6989586621679490423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyStatus:ClusterIamRole' :: Maybe Text
+</span><a href="#local-6989586621679490433"><span class="hs-identifier hs-var hs-var">applyStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679490433"><span class="hs-identifier hs-var">applyStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679490432"><span class="annot"><span class="annottext">s :: ClusterIamRole
+</span><a href="#local-6989586621679490432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole%27"><span class="hs-identifier hs-type">ClusterIamRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679490431"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679490431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterIamRole
+</span><a href="#local-6989586621679490432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyStatus:ClusterIamRole' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#%24sel%3AapplyStatus%3AClusterIamRole%27"><span class="hs-identifier hs-var">applyStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole"><span class="hs-identifier hs-type">ClusterIamRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679490431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole"><span class="hs-identifier hs-type">ClusterIamRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole"><span class="hs-identifier hs-type">ClusterIamRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679490419"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ClusterIamRole
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679490417"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679490417"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679490428"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ClusterIamRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679490426"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679490426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; ClusterIamRole
 </span><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole%27"><span class="hs-identifier hs-var">ClusterIamRole'</span></a></span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; ClusterIamRole)
@@ -203,7 +203,7 @@ $sel:applyStatus:ClusterIamRole' :: ClusterIamRole -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; ClusterIamRole)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679490417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679490426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IamRoleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -211,12 +211,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String ClusterIamRole
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679490417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679490426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ApplyStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679490411"><span id="local-6989586621679490413"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole"><span class="hs-identifier hs-type">ClusterIamRole</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679490420"><span id="local-6989586621679490422"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole"><span class="hs-identifier hs-type">ClusterIamRole</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679490408"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole"><span class="hs-identifier hs-type">ClusterIamRole</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679490417"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterIamRole.html#ClusterIamRole"><span class="hs-identifier hs-type">ClusterIamRole</span></a></span></span><span>
 </span><span id="line-112"></span></pre></body></html>

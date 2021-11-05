@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621681106039"><span id="local-6989586621681106040"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FastSnapshotRestoreStateCode"><span class="annot"><a href="Network.AWS.EC2.Types.FastSnapshotRestoreStateCode.html#FastSnapshotRestoreStateCode"><span class="hs-identifier hs-var">FastSnapshotRestoreStateCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FastSnapshotRestoreStateCode%27"><span class="annot"><a href="Network.AWS.EC2.Types.FastSnapshotRestoreStateCode.html#FastSnapshotRestoreStateCode%27"><span class="hs-identifier hs-var">FastSnapshotRestoreStateCode'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621681106048"><span id="local-6989586621681106049"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FastSnapshotRestoreStateCode"><span class="annot"><a href="Network.AWS.EC2.Types.FastSnapshotRestoreStateCode.html#FastSnapshotRestoreStateCode"><span class="hs-identifier hs-var">FastSnapshotRestoreStateCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FastSnapshotRestoreStateCode%27"><span class="annot"><a href="Network.AWS.EC2.Types.FastSnapshotRestoreStateCode.html#FastSnapshotRestoreStateCode%27"><span class="hs-identifier hs-var">FastSnapshotRestoreStateCode'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFastSnapshotRestoreStateCode"><span class="annot"><span class="annottext">FastSnapshotRestoreStateCode -&gt; Text
 </span><a href="Network.AWS.EC2.Types.FastSnapshotRestoreStateCode.html#fromFastSnapshotRestoreStateCode"><span class="hs-identifier hs-var hs-var">fromFastSnapshotRestoreStateCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681106031"><span id="local-6989586621681106033"><span id="local-6989586621681106035"><span class="annot"><span class="annottext">Int -&gt; FastSnapshotRestoreStateCode -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681106040"><span id="local-6989586621681106042"><span id="local-6989586621681106044"><span class="annot"><span class="annottext">Int -&gt; FastSnapshotRestoreStateCode -&gt; ShowS
 [FastSnapshotRestoreStateCode] -&gt; ShowS
 FastSnapshotRestoreStateCode -&gt; String
 (Int -&gt; FastSnapshotRestoreStateCode -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: FastSnapshotRestoreStateCode -&gt; String
 showsPrec :: Int -&gt; FastSnapshotRestoreStateCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; FastSnapshotRestoreStateCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681106022"><span id="local-6989586621681106024"><span id="local-6989586621681106026"><span id="local-6989586621681106028"><span class="annot"><span class="annottext">ReadPrec [FastSnapshotRestoreStateCode]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681106031"><span id="local-6989586621681106033"><span id="local-6989586621681106035"><span id="local-6989586621681106037"><span class="annot"><span class="annottext">ReadPrec [FastSnapshotRestoreStateCode]
 ReadPrec FastSnapshotRestoreStateCode
 Int -&gt; ReadS FastSnapshotRestoreStateCode
 ReadS [FastSnapshotRestoreStateCode]
@@ -76,7 +76,7 @@ $creadList :: ReadS [FastSnapshotRestoreStateCode]
 readsPrec :: Int -&gt; ReadS FastSnapshotRestoreStateCode
 $creadsPrec :: Int -&gt; ReadS FastSnapshotRestoreStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681106017"><span id="local-6989586621681106019"><span class="annot"><span class="annottext">FastSnapshotRestoreStateCode
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681106026"><span id="local-6989586621681106028"><span class="annot"><span class="annottext">FastSnapshotRestoreStateCode
 -&gt; FastSnapshotRestoreStateCode -&gt; Bool
 (FastSnapshotRestoreStateCode
  -&gt; FastSnapshotRestoreStateCode -&gt; Bool)
@@ -93,7 +93,7 @@ $c/= :: FastSnapshotRestoreStateCode
 $c== :: FastSnapshotRestoreStateCode
 -&gt; FastSnapshotRestoreStateCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621681106001"><span id="local-6989586621681106003"><span id="local-6989586621681106005"><span id="local-6989586621681106007"><span id="local-6989586621681106009"><span id="local-6989586621681106011"><span id="local-6989586621681106013"><span class="annot"><span class="annottext">Eq FastSnapshotRestoreStateCode
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681106010"><span id="local-6989586621681106012"><span id="local-6989586621681106014"><span id="local-6989586621681106016"><span id="local-6989586621681106018"><span id="local-6989586621681106020"><span id="local-6989586621681106022"><span class="annot"><span class="annottext">Eq FastSnapshotRestoreStateCode
 Eq FastSnapshotRestoreStateCode
 -&gt; (FastSnapshotRestoreStateCode
     -&gt; FastSnapshotRestoreStateCode -&gt; Ordering)
@@ -174,7 +174,7 @@ FastSnapshotRestoreStateCode -&gt; Rep FastSnapshotRestoreStateCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681105993"><span id="local-6989586621681105995"><span class="annot"><span class="annottext">Int -&gt; FastSnapshotRestoreStateCode -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681106002"><span id="local-6989586621681106004"><span class="annot"><span class="annottext">Int -&gt; FastSnapshotRestoreStateCode -&gt; Int
 FastSnapshotRestoreStateCode -&gt; Int
 (Int -&gt; FastSnapshotRestoreStateCode -&gt; Int)
 -&gt; (FastSnapshotRestoreStateCode -&gt; Int)
@@ -185,56 +185,56 @@ $chash :: FastSnapshotRestoreStateCode -&gt; Int
 hashWithSalt :: Int -&gt; FastSnapshotRestoreStateCode -&gt; Int
 $chashWithSalt :: Int -&gt; FastSnapshotRestoreStateCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681105990"><span class="annot"><span class="annottext">FastSnapshotRestoreStateCode -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681105999"><span class="annot"><span class="annottext">FastSnapshotRestoreStateCode -&gt; ()
 (FastSnapshotRestoreStateCode -&gt; ())
 -&gt; NFData FastSnapshotRestoreStateCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FastSnapshotRestoreStateCode -&gt; ()
 $crnf :: FastSnapshotRestoreStateCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681105987"><span class="annot"><span class="annottext">Text -&gt; Either String FastSnapshotRestoreStateCode
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681105996"><span class="annot"><span class="annottext">Text -&gt; Either String FastSnapshotRestoreStateCode
 (Text -&gt; Either String FastSnapshotRestoreStateCode)
 -&gt; FromText FastSnapshotRestoreStateCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FastSnapshotRestoreStateCode
 $cfromText :: Text -&gt; Either String FastSnapshotRestoreStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681105984"><span class="annot"><span class="annottext">FastSnapshotRestoreStateCode -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681105993"><span class="annot"><span class="annottext">FastSnapshotRestoreStateCode -&gt; Text
 (FastSnapshotRestoreStateCode -&gt; Text)
 -&gt; ToText FastSnapshotRestoreStateCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FastSnapshotRestoreStateCode -&gt; Text
 $ctoText :: FastSnapshotRestoreStateCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681105981"><span class="annot"><span class="annottext">FastSnapshotRestoreStateCode -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681105990"><span class="annot"><span class="annottext">FastSnapshotRestoreStateCode -&gt; ByteString
 (FastSnapshotRestoreStateCode -&gt; ByteString)
 -&gt; ToByteString FastSnapshotRestoreStateCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FastSnapshotRestoreStateCode -&gt; ByteString
 $ctoBS :: FastSnapshotRestoreStateCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681105978"><span class="annot"><span class="annottext">FastSnapshotRestoreStateCode -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681105987"><span class="annot"><span class="annottext">FastSnapshotRestoreStateCode -&gt; ByteStringBuilder
 (FastSnapshotRestoreStateCode -&gt; ByteStringBuilder)
 -&gt; ToLog FastSnapshotRestoreStateCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FastSnapshotRestoreStateCode -&gt; ByteStringBuilder
 $cbuild :: FastSnapshotRestoreStateCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681105975"><span class="annot"><span class="annottext">HeaderName -&gt; FastSnapshotRestoreStateCode -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681105984"><span class="annot"><span class="annottext">HeaderName -&gt; FastSnapshotRestoreStateCode -&gt; [Header]
 (HeaderName -&gt; FastSnapshotRestoreStateCode -&gt; [Header])
 -&gt; ToHeader FastSnapshotRestoreStateCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FastSnapshotRestoreStateCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FastSnapshotRestoreStateCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681105972"><span class="annot"><span class="annottext">FastSnapshotRestoreStateCode -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681105981"><span class="annot"><span class="annottext">FastSnapshotRestoreStateCode -&gt; QueryString
 (FastSnapshotRestoreStateCode -&gt; QueryString)
 -&gt; ToQuery FastSnapshotRestoreStateCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FastSnapshotRestoreStateCode -&gt; QueryString
 $ctoQuery :: FastSnapshotRestoreStateCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681105967"><span id="local-6989586621681105969"><span class="annot"><span class="annottext">Value -&gt; Parser [FastSnapshotRestoreStateCode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681105976"><span id="local-6989586621681105978"><span class="annot"><span class="annottext">Value -&gt; Parser [FastSnapshotRestoreStateCode]
 Value -&gt; Parser FastSnapshotRestoreStateCode
 (Value -&gt; Parser FastSnapshotRestoreStateCode)
 -&gt; (Value -&gt; Parser [FastSnapshotRestoreStateCode])
@@ -246,7 +246,7 @@ $cparseJSONList :: Value -&gt; Parser [FastSnapshotRestoreStateCode]
 parseJSON :: Value -&gt; Parser FastSnapshotRestoreStateCode
 $cparseJSON :: Value -&gt; Parser FastSnapshotRestoreStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681105962"><span id="local-6989586621681105964"><span class="annot"><span class="annottext">FromJSONKeyFunction [FastSnapshotRestoreStateCode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681105971"><span id="local-6989586621681105973"><span class="annot"><span class="annottext">FromJSONKeyFunction [FastSnapshotRestoreStateCode]
 FromJSONKeyFunction FastSnapshotRestoreStateCode
 FromJSONKeyFunction FastSnapshotRestoreStateCode
 -&gt; FromJSONKeyFunction [FastSnapshotRestoreStateCode]
@@ -258,7 +258,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FastSnapshotRestoreStateCode]
 fromJSONKey :: FromJSONKeyFunction FastSnapshotRestoreStateCode
 $cfromJSONKey :: FromJSONKeyFunction FastSnapshotRestoreStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681105953"><span id="local-6989586621681105955"><span id="local-6989586621681105957"><span id="local-6989586621681105959"><span class="annot"><span class="annottext">[FastSnapshotRestoreStateCode] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681105962"><span id="local-6989586621681105964"><span id="local-6989586621681105966"><span id="local-6989586621681105968"><span class="annot"><span class="annottext">[FastSnapshotRestoreStateCode] -&gt; Encoding
 [FastSnapshotRestoreStateCode] -&gt; Value
 FastSnapshotRestoreStateCode -&gt; Encoding
 FastSnapshotRestoreStateCode -&gt; Value
@@ -282,7 +282,7 @@ $ctoEncoding :: FastSnapshotRestoreStateCode -&gt; Encoding
 toJSON :: FastSnapshotRestoreStateCode -&gt; Value
 $ctoJSON :: FastSnapshotRestoreStateCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681105948"><span id="local-6989586621681105950"><span class="annot"><span class="annottext">ToJSONKeyFunction [FastSnapshotRestoreStateCode]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681105957"><span id="local-6989586621681105959"><span class="annot"><span class="annottext">ToJSONKeyFunction [FastSnapshotRestoreStateCode]
 ToJSONKeyFunction FastSnapshotRestoreStateCode
 ToJSONKeyFunction FastSnapshotRestoreStateCode
 -&gt; ToJSONKeyFunction [FastSnapshotRestoreStateCode]
@@ -294,14 +294,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FastSnapshotRestoreStateCode]
 toJSONKey :: ToJSONKeyFunction FastSnapshotRestoreStateCode
 $ctoJSONKey :: ToJSONKeyFunction FastSnapshotRestoreStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681105945"><span class="annot"><span class="annottext">[Node] -&gt; Either String FastSnapshotRestoreStateCode
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681105954"><span class="annot"><span class="annottext">[Node] -&gt; Either String FastSnapshotRestoreStateCode
 ([Node] -&gt; Either String FastSnapshotRestoreStateCode)
 -&gt; FromXML FastSnapshotRestoreStateCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FastSnapshotRestoreStateCode
 $cparseXML :: [Node] -&gt; Either String FastSnapshotRestoreStateCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681105942"><span class="annot"><span class="annottext">FastSnapshotRestoreStateCode -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681105951"><span class="annot"><span class="annottext">FastSnapshotRestoreStateCode -&gt; XML
 (FastSnapshotRestoreStateCode -&gt; XML)
 -&gt; ToXML FastSnapshotRestoreStateCode
 forall a. (a -&gt; XML) -&gt; ToXML a

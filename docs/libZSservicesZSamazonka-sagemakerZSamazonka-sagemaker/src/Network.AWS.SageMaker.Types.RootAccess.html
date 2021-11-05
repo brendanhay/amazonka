@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680339219"><span id="local-6989586621680339220"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RootAccess"><span class="annot"><a href="Network.AWS.SageMaker.Types.RootAccess.html#RootAccess"><span class="hs-identifier hs-var">RootAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RootAccess%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.RootAccess.html#RootAccess%27"><span class="hs-identifier hs-var">RootAccess'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680339228"><span id="local-6989586621680339229"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RootAccess"><span class="annot"><a href="Network.AWS.SageMaker.Types.RootAccess.html#RootAccess"><span class="hs-identifier hs-var">RootAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RootAccess%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.RootAccess.html#RootAccess%27"><span class="hs-identifier hs-var">RootAccess'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRootAccess"><span class="annot"><span class="annottext">RootAccess -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.RootAccess.html#fromRootAccess"><span class="hs-identifier hs-var hs-var">fromRootAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680339211"><span id="local-6989586621680339213"><span id="local-6989586621680339215"><span class="annot"><span class="annottext">Int -&gt; RootAccess -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680339220"><span id="local-6989586621680339222"><span id="local-6989586621680339224"><span class="annot"><span class="annottext">Int -&gt; RootAccess -&gt; ShowS
 [RootAccess] -&gt; ShowS
 RootAccess -&gt; String
 (Int -&gt; RootAccess -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: RootAccess -&gt; String
 showsPrec :: Int -&gt; RootAccess -&gt; ShowS
 $cshowsPrec :: Int -&gt; RootAccess -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680339202"><span id="local-6989586621680339204"><span id="local-6989586621680339206"><span id="local-6989586621680339208"><span class="annot"><span class="annottext">ReadPrec [RootAccess]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680339211"><span id="local-6989586621680339213"><span id="local-6989586621680339215"><span id="local-6989586621680339217"><span class="annot"><span class="annottext">ReadPrec [RootAccess]
 ReadPrec RootAccess
 Int -&gt; ReadS RootAccess
 ReadS [RootAccess]
@@ -72,7 +72,7 @@ $creadList :: ReadS [RootAccess]
 readsPrec :: Int -&gt; ReadS RootAccess
 $creadsPrec :: Int -&gt; ReadS RootAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680339197"><span id="local-6989586621680339199"><span class="annot"><span class="annottext">RootAccess -&gt; RootAccess -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680339206"><span id="local-6989586621680339208"><span class="annot"><span class="annottext">RootAccess -&gt; RootAccess -&gt; Bool
 (RootAccess -&gt; RootAccess -&gt; Bool)
 -&gt; (RootAccess -&gt; RootAccess -&gt; Bool) -&gt; Eq RootAccess
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: RootAccess -&gt; RootAccess -&gt; Bool
 == :: RootAccess -&gt; RootAccess -&gt; Bool
 $c== :: RootAccess -&gt; RootAccess -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680339181"><span id="local-6989586621680339183"><span id="local-6989586621680339185"><span id="local-6989586621680339187"><span id="local-6989586621680339189"><span id="local-6989586621680339191"><span id="local-6989586621680339193"><span class="annot"><span class="annottext">Eq RootAccess
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680339190"><span id="local-6989586621680339192"><span id="local-6989586621680339194"><span id="local-6989586621680339196"><span id="local-6989586621680339198"><span id="local-6989586621680339200"><span id="local-6989586621680339202"><span class="annot"><span class="annottext">Eq RootAccess
 Eq RootAccess
 -&gt; (RootAccess -&gt; RootAccess -&gt; Ordering)
 -&gt; (RootAccess -&gt; RootAccess -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. RootAccess -&gt; Rep RootAccess x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680339173"><span id="local-6989586621680339175"><span class="annot"><span class="annottext">Int -&gt; RootAccess -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680339182"><span id="local-6989586621680339184"><span class="annot"><span class="annottext">Int -&gt; RootAccess -&gt; Int
 RootAccess -&gt; Int
 (Int -&gt; RootAccess -&gt; Int)
 -&gt; (RootAccess -&gt; Int) -&gt; Hashable RootAccess
@@ -141,49 +141,49 @@ $chash :: RootAccess -&gt; Int
 hashWithSalt :: Int -&gt; RootAccess -&gt; Int
 $chashWithSalt :: Int -&gt; RootAccess -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680339170"><span class="annot"><span class="annottext">RootAccess -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680339179"><span class="annot"><span class="annottext">RootAccess -&gt; ()
 (RootAccess -&gt; ()) -&gt; NFData RootAccess
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RootAccess -&gt; ()
 $crnf :: RootAccess -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680339167"><span class="annot"><span class="annottext">Text -&gt; Either String RootAccess
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680339176"><span class="annot"><span class="annottext">Text -&gt; Either String RootAccess
 (Text -&gt; Either String RootAccess) -&gt; FromText RootAccess
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RootAccess
 $cfromText :: Text -&gt; Either String RootAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680339164"><span class="annot"><span class="annottext">RootAccess -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680339173"><span class="annot"><span class="annottext">RootAccess -&gt; Text
 (RootAccess -&gt; Text) -&gt; ToText RootAccess
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RootAccess -&gt; Text
 $ctoText :: RootAccess -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680339161"><span class="annot"><span class="annottext">RootAccess -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680339170"><span class="annot"><span class="annottext">RootAccess -&gt; ByteString
 (RootAccess -&gt; ByteString) -&gt; ToByteString RootAccess
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RootAccess -&gt; ByteString
 $ctoBS :: RootAccess -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680339158"><span class="annot"><span class="annottext">RootAccess -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680339167"><span class="annot"><span class="annottext">RootAccess -&gt; ByteStringBuilder
 (RootAccess -&gt; ByteStringBuilder) -&gt; ToLog RootAccess
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RootAccess -&gt; ByteStringBuilder
 $cbuild :: RootAccess -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680339155"><span class="annot"><span class="annottext">HeaderName -&gt; RootAccess -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680339164"><span class="annot"><span class="annottext">HeaderName -&gt; RootAccess -&gt; [Header]
 (HeaderName -&gt; RootAccess -&gt; [Header]) -&gt; ToHeader RootAccess
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RootAccess -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RootAccess -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680339152"><span class="annot"><span class="annottext">RootAccess -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680339161"><span class="annot"><span class="annottext">RootAccess -&gt; QueryString
 (RootAccess -&gt; QueryString) -&gt; ToQuery RootAccess
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RootAccess -&gt; QueryString
 $ctoQuery :: RootAccess -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680339147"><span id="local-6989586621680339149"><span class="annot"><span class="annottext">Value -&gt; Parser [RootAccess]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680339156"><span id="local-6989586621680339158"><span class="annot"><span class="annottext">Value -&gt; Parser [RootAccess]
 Value -&gt; Parser RootAccess
 (Value -&gt; Parser RootAccess)
 -&gt; (Value -&gt; Parser [RootAccess]) -&gt; FromJSON RootAccess
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [RootAccess]
 parseJSON :: Value -&gt; Parser RootAccess
 $cparseJSON :: Value -&gt; Parser RootAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680339142"><span id="local-6989586621680339144"><span class="annot"><span class="annottext">FromJSONKeyFunction [RootAccess]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680339151"><span id="local-6989586621680339153"><span class="annot"><span class="annottext">FromJSONKeyFunction [RootAccess]
 FromJSONKeyFunction RootAccess
 FromJSONKeyFunction RootAccess
 -&gt; FromJSONKeyFunction [RootAccess] -&gt; FromJSONKey RootAccess
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RootAccess]
 fromJSONKey :: FromJSONKeyFunction RootAccess
 $cfromJSONKey :: FromJSONKeyFunction RootAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680339133"><span id="local-6989586621680339135"><span id="local-6989586621680339137"><span id="local-6989586621680339139"><span class="annot"><span class="annottext">[RootAccess] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680339142"><span id="local-6989586621680339144"><span id="local-6989586621680339146"><span id="local-6989586621680339148"><span class="annot"><span class="annottext">[RootAccess] -&gt; Encoding
 [RootAccess] -&gt; Value
 RootAccess -&gt; Encoding
 RootAccess -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: RootAccess -&gt; Encoding
 toJSON :: RootAccess -&gt; Value
 $ctoJSON :: RootAccess -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680339128"><span id="local-6989586621680339130"><span class="annot"><span class="annottext">ToJSONKeyFunction [RootAccess]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680339137"><span id="local-6989586621680339139"><span class="annot"><span class="annottext">ToJSONKeyFunction [RootAccess]
 ToJSONKeyFunction RootAccess
 ToJSONKeyFunction RootAccess
 -&gt; ToJSONKeyFunction [RootAccess] -&gt; ToJSONKey RootAccess
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RootAccess]
 toJSONKey :: ToJSONKeyFunction RootAccess
 $ctoJSONKey :: ToJSONKeyFunction RootAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680339125"><span class="annot"><span class="annottext">[Node] -&gt; Either String RootAccess
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680339134"><span class="annot"><span class="annottext">[Node] -&gt; Either String RootAccess
 ([Node] -&gt; Either String RootAccess) -&gt; FromXML RootAccess
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RootAccess
 $cparseXML :: [Node] -&gt; Either String RootAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680339122"><span class="annot"><span class="annottext">RootAccess -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680339131"><span class="annot"><span class="annottext">RootAccess -&gt; XML
 (RootAccess -&gt; XML) -&gt; ToXML RootAccess
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RootAccess -&gt; XML

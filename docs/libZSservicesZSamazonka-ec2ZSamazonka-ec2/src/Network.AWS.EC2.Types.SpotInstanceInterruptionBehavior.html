@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621681151206"><span id="local-6989586621681151207"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SpotInstanceInterruptionBehavior"><span class="annot"><a href="Network.AWS.EC2.Types.SpotInstanceInterruptionBehavior.html#SpotInstanceInterruptionBehavior"><span class="hs-identifier hs-var">SpotInstanceInterruptionBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SpotInstanceInterruptionBehavior%27"><span class="annot"><a href="Network.AWS.EC2.Types.SpotInstanceInterruptionBehavior.html#SpotInstanceInterruptionBehavior%27"><span class="hs-identifier hs-var">SpotInstanceInterruptionBehavior'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681151215"><span id="local-6989586621681151216"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SpotInstanceInterruptionBehavior"><span class="annot"><a href="Network.AWS.EC2.Types.SpotInstanceInterruptionBehavior.html#SpotInstanceInterruptionBehavior"><span class="hs-identifier hs-var">SpotInstanceInterruptionBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SpotInstanceInterruptionBehavior%27"><span class="annot"><a href="Network.AWS.EC2.Types.SpotInstanceInterruptionBehavior.html#SpotInstanceInterruptionBehavior%27"><span class="hs-identifier hs-var">SpotInstanceInterruptionBehavior'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSpotInstanceInterruptionBehavior"><span class="annot"><span class="annottext">SpotInstanceInterruptionBehavior -&gt; Text
 </span><a href="Network.AWS.EC2.Types.SpotInstanceInterruptionBehavior.html#fromSpotInstanceInterruptionBehavior"><span class="hs-identifier hs-var hs-var">fromSpotInstanceInterruptionBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681151198"><span id="local-6989586621681151200"><span id="local-6989586621681151202"><span class="annot"><span class="annottext">Int -&gt; SpotInstanceInterruptionBehavior -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681151207"><span id="local-6989586621681151209"><span id="local-6989586621681151211"><span class="annot"><span class="annottext">Int -&gt; SpotInstanceInterruptionBehavior -&gt; ShowS
 [SpotInstanceInterruptionBehavior] -&gt; ShowS
 SpotInstanceInterruptionBehavior -&gt; String
 (Int -&gt; SpotInstanceInterruptionBehavior -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: SpotInstanceInterruptionBehavior -&gt; String
 showsPrec :: Int -&gt; SpotInstanceInterruptionBehavior -&gt; ShowS
 $cshowsPrec :: Int -&gt; SpotInstanceInterruptionBehavior -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681151189"><span id="local-6989586621681151191"><span id="local-6989586621681151193"><span id="local-6989586621681151195"><span class="annot"><span class="annottext">ReadPrec [SpotInstanceInterruptionBehavior]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681151198"><span id="local-6989586621681151200"><span id="local-6989586621681151202"><span id="local-6989586621681151204"><span class="annot"><span class="annottext">ReadPrec [SpotInstanceInterruptionBehavior]
 ReadPrec SpotInstanceInterruptionBehavior
 Int -&gt; ReadS SpotInstanceInterruptionBehavior
 ReadS [SpotInstanceInterruptionBehavior]
@@ -74,7 +74,7 @@ $creadList :: ReadS [SpotInstanceInterruptionBehavior]
 readsPrec :: Int -&gt; ReadS SpotInstanceInterruptionBehavior
 $creadsPrec :: Int -&gt; ReadS SpotInstanceInterruptionBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681151184"><span id="local-6989586621681151186"><span class="annot"><span class="annottext">SpotInstanceInterruptionBehavior
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681151193"><span id="local-6989586621681151195"><span class="annot"><span class="annottext">SpotInstanceInterruptionBehavior
 -&gt; SpotInstanceInterruptionBehavior -&gt; Bool
 (SpotInstanceInterruptionBehavior
  -&gt; SpotInstanceInterruptionBehavior -&gt; Bool)
@@ -91,7 +91,7 @@ $c/= :: SpotInstanceInterruptionBehavior
 $c== :: SpotInstanceInterruptionBehavior
 -&gt; SpotInstanceInterruptionBehavior -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681151168"><span id="local-6989586621681151170"><span id="local-6989586621681151172"><span id="local-6989586621681151174"><span id="local-6989586621681151176"><span id="local-6989586621681151178"><span id="local-6989586621681151180"><span class="annot"><span class="annottext">Eq SpotInstanceInterruptionBehavior
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681151177"><span id="local-6989586621681151179"><span id="local-6989586621681151181"><span id="local-6989586621681151183"><span id="local-6989586621681151185"><span id="local-6989586621681151187"><span id="local-6989586621681151189"><span class="annot"><span class="annottext">Eq SpotInstanceInterruptionBehavior
 Eq SpotInstanceInterruptionBehavior
 -&gt; (SpotInstanceInterruptionBehavior
     -&gt; SpotInstanceInterruptionBehavior -&gt; Ordering)
@@ -185,7 +185,7 @@ SpotInstanceInterruptionBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681151160"><span id="local-6989586621681151162"><span class="annot"><span class="annottext">Int -&gt; SpotInstanceInterruptionBehavior -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681151169"><span id="local-6989586621681151171"><span class="annot"><span class="annottext">Int -&gt; SpotInstanceInterruptionBehavior -&gt; Int
 SpotInstanceInterruptionBehavior -&gt; Int
 (Int -&gt; SpotInstanceInterruptionBehavior -&gt; Int)
 -&gt; (SpotInstanceInterruptionBehavior -&gt; Int)
@@ -196,56 +196,56 @@ $chash :: SpotInstanceInterruptionBehavior -&gt; Int
 hashWithSalt :: Int -&gt; SpotInstanceInterruptionBehavior -&gt; Int
 $chashWithSalt :: Int -&gt; SpotInstanceInterruptionBehavior -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681151157"><span class="annot"><span class="annottext">SpotInstanceInterruptionBehavior -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681151166"><span class="annot"><span class="annottext">SpotInstanceInterruptionBehavior -&gt; ()
 (SpotInstanceInterruptionBehavior -&gt; ())
 -&gt; NFData SpotInstanceInterruptionBehavior
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SpotInstanceInterruptionBehavior -&gt; ()
 $crnf :: SpotInstanceInterruptionBehavior -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681151154"><span class="annot"><span class="annottext">Text -&gt; Either String SpotInstanceInterruptionBehavior
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681151163"><span class="annot"><span class="annottext">Text -&gt; Either String SpotInstanceInterruptionBehavior
 (Text -&gt; Either String SpotInstanceInterruptionBehavior)
 -&gt; FromText SpotInstanceInterruptionBehavior
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SpotInstanceInterruptionBehavior
 $cfromText :: Text -&gt; Either String SpotInstanceInterruptionBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681151151"><span class="annot"><span class="annottext">SpotInstanceInterruptionBehavior -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681151160"><span class="annot"><span class="annottext">SpotInstanceInterruptionBehavior -&gt; Text
 (SpotInstanceInterruptionBehavior -&gt; Text)
 -&gt; ToText SpotInstanceInterruptionBehavior
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SpotInstanceInterruptionBehavior -&gt; Text
 $ctoText :: SpotInstanceInterruptionBehavior -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681151148"><span class="annot"><span class="annottext">SpotInstanceInterruptionBehavior -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681151157"><span class="annot"><span class="annottext">SpotInstanceInterruptionBehavior -&gt; ByteString
 (SpotInstanceInterruptionBehavior -&gt; ByteString)
 -&gt; ToByteString SpotInstanceInterruptionBehavior
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SpotInstanceInterruptionBehavior -&gt; ByteString
 $ctoBS :: SpotInstanceInterruptionBehavior -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681151145"><span class="annot"><span class="annottext">SpotInstanceInterruptionBehavior -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681151154"><span class="annot"><span class="annottext">SpotInstanceInterruptionBehavior -&gt; ByteStringBuilder
 (SpotInstanceInterruptionBehavior -&gt; ByteStringBuilder)
 -&gt; ToLog SpotInstanceInterruptionBehavior
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SpotInstanceInterruptionBehavior -&gt; ByteStringBuilder
 $cbuild :: SpotInstanceInterruptionBehavior -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681151142"><span class="annot"><span class="annottext">HeaderName -&gt; SpotInstanceInterruptionBehavior -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681151151"><span class="annot"><span class="annottext">HeaderName -&gt; SpotInstanceInterruptionBehavior -&gt; [Header]
 (HeaderName -&gt; SpotInstanceInterruptionBehavior -&gt; [Header])
 -&gt; ToHeader SpotInstanceInterruptionBehavior
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SpotInstanceInterruptionBehavior -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SpotInstanceInterruptionBehavior -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681151139"><span class="annot"><span class="annottext">SpotInstanceInterruptionBehavior -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681151148"><span class="annot"><span class="annottext">SpotInstanceInterruptionBehavior -&gt; QueryString
 (SpotInstanceInterruptionBehavior -&gt; QueryString)
 -&gt; ToQuery SpotInstanceInterruptionBehavior
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SpotInstanceInterruptionBehavior -&gt; QueryString
 $ctoQuery :: SpotInstanceInterruptionBehavior -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681151134"><span id="local-6989586621681151136"><span class="annot"><span class="annottext">Value -&gt; Parser [SpotInstanceInterruptionBehavior]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681151143"><span id="local-6989586621681151145"><span class="annot"><span class="annottext">Value -&gt; Parser [SpotInstanceInterruptionBehavior]
 Value -&gt; Parser SpotInstanceInterruptionBehavior
 (Value -&gt; Parser SpotInstanceInterruptionBehavior)
 -&gt; (Value -&gt; Parser [SpotInstanceInterruptionBehavior])
@@ -257,7 +257,7 @@ $cparseJSONList :: Value -&gt; Parser [SpotInstanceInterruptionBehavior]
 parseJSON :: Value -&gt; Parser SpotInstanceInterruptionBehavior
 $cparseJSON :: Value -&gt; Parser SpotInstanceInterruptionBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681151129"><span id="local-6989586621681151131"><span class="annot"><span class="annottext">FromJSONKeyFunction [SpotInstanceInterruptionBehavior]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681151138"><span id="local-6989586621681151140"><span class="annot"><span class="annottext">FromJSONKeyFunction [SpotInstanceInterruptionBehavior]
 FromJSONKeyFunction SpotInstanceInterruptionBehavior
 FromJSONKeyFunction SpotInstanceInterruptionBehavior
 -&gt; FromJSONKeyFunction [SpotInstanceInterruptionBehavior]
@@ -269,7 +269,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SpotInstanceInterruptionBehavior]
 fromJSONKey :: FromJSONKeyFunction SpotInstanceInterruptionBehavior
 $cfromJSONKey :: FromJSONKeyFunction SpotInstanceInterruptionBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681151120"><span id="local-6989586621681151122"><span id="local-6989586621681151124"><span id="local-6989586621681151126"><span class="annot"><span class="annottext">[SpotInstanceInterruptionBehavior] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681151129"><span id="local-6989586621681151131"><span id="local-6989586621681151133"><span id="local-6989586621681151135"><span class="annot"><span class="annottext">[SpotInstanceInterruptionBehavior] -&gt; Encoding
 [SpotInstanceInterruptionBehavior] -&gt; Value
 SpotInstanceInterruptionBehavior -&gt; Encoding
 SpotInstanceInterruptionBehavior -&gt; Value
@@ -293,7 +293,7 @@ $ctoEncoding :: SpotInstanceInterruptionBehavior -&gt; Encoding
 toJSON :: SpotInstanceInterruptionBehavior -&gt; Value
 $ctoJSON :: SpotInstanceInterruptionBehavior -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681151115"><span id="local-6989586621681151117"><span class="annot"><span class="annottext">ToJSONKeyFunction [SpotInstanceInterruptionBehavior]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681151124"><span id="local-6989586621681151126"><span class="annot"><span class="annottext">ToJSONKeyFunction [SpotInstanceInterruptionBehavior]
 ToJSONKeyFunction SpotInstanceInterruptionBehavior
 ToJSONKeyFunction SpotInstanceInterruptionBehavior
 -&gt; ToJSONKeyFunction [SpotInstanceInterruptionBehavior]
@@ -305,14 +305,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SpotInstanceInterruptionBehavior]
 toJSONKey :: ToJSONKeyFunction SpotInstanceInterruptionBehavior
 $ctoJSONKey :: ToJSONKeyFunction SpotInstanceInterruptionBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681151112"><span class="annot"><span class="annottext">[Node] -&gt; Either String SpotInstanceInterruptionBehavior
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681151121"><span class="annot"><span class="annottext">[Node] -&gt; Either String SpotInstanceInterruptionBehavior
 ([Node] -&gt; Either String SpotInstanceInterruptionBehavior)
 -&gt; FromXML SpotInstanceInterruptionBehavior
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SpotInstanceInterruptionBehavior
 $cparseXML :: [Node] -&gt; Either String SpotInstanceInterruptionBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681151109"><span class="annot"><span class="annottext">SpotInstanceInterruptionBehavior -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681151118"><span class="annot"><span class="annottext">SpotInstanceInterruptionBehavior -&gt; XML
 (SpotInstanceInterruptionBehavior -&gt; XML)
 -&gt; ToXML SpotInstanceInterruptionBehavior
 forall a. (a -&gt; XML) -&gt; ToXML a

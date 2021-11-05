@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents an individual node within a DAX cluster.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newNode' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679194383"><span id="local-6989586621679194384"></span></span><span class="hs-keyword">data</span><span> </span><span id="Node"><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-var">Node</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Node%27"><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-var">Node'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679194392"><span id="local-6989586621679194393"></span></span><span class="hs-keyword">data</span><span> </span><span id="Node"><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-var">Node</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Node%27"><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-var">Node'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the node. For example: @available@.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AnodeStatus%3ANode%27"><span class="annot"><span class="annottext">Node -&gt; Maybe Text
 </span><a href="Network.AWS.DAX.Types.Node.html#%24sel%3AnodeStatus%3ANode%27"><span class="hs-identifier hs-var hs-var">nodeStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -51,14 +51,14 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AnodeCreateTime%3ANode%27"><span class="annot"><span class="annottext">Node -&gt; Maybe POSIX
 </span><a href="Network.AWS.DAX.Types.Node.html#%24sel%3AnodeCreateTime%3ANode%27"><span class="hs-identifier hs-var hs-var">nodeCreateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194372"><span id="local-6989586621679194374"><span class="annot"><span class="annottext">Node -&gt; Node -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194381"><span id="local-6989586621679194383"><span class="annot"><span class="annottext">Node -&gt; Node -&gt; Bool
 (Node -&gt; Node -&gt; Bool) -&gt; (Node -&gt; Node -&gt; Bool) -&gt; Eq Node
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Node -&gt; Node -&gt; Bool
 $c/= :: Node -&gt; Node -&gt; Bool
 == :: Node -&gt; Node -&gt; Bool
 $c== :: Node -&gt; Node -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194363"><span id="local-6989586621679194365"><span id="local-6989586621679194367"><span id="local-6989586621679194369"><span class="annot"><span class="annottext">ReadPrec [Node]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194372"><span id="local-6989586621679194374"><span id="local-6989586621679194376"><span id="local-6989586621679194378"><span class="annot"><span class="annottext">ReadPrec [Node]
 ReadPrec Node
 Int -&gt; ReadS Node
 ReadS [Node]
@@ -75,7 +75,7 @@ readList :: ReadS [Node]
 $creadList :: ReadS [Node]
 readsPrec :: Int -&gt; ReadS Node
 $creadsPrec :: Int -&gt; ReadS Node
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194356"><span id="local-6989586621679194358"><span id="local-6989586621679194360"><span class="annot"><span class="annottext">Int -&gt; Node -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194365"><span id="local-6989586621679194367"><span id="local-6989586621679194369"><span class="annot"><span class="annottext">Int -&gt; Node -&gt; ShowS
 [Node] -&gt; ShowS
 Node -&gt; String
 (Int -&gt; Node -&gt; ShowS)
@@ -166,16 +166,16 @@ forall a. Maybe a
 -&gt; (Node -&gt; Maybe Text -&gt; Node)
 -&gt; Lens Node Node (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194347"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194356"><span class="annot"><span class="annottext">Maybe Text
 nodeStatus :: Maybe Text
 $sel:nodeStatus:Node' :: Node -&gt; Maybe Text
-</span><a href="#local-6989586621679194347"><span class="hs-identifier hs-var hs-var">nodeStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194347"><span class="hs-identifier hs-var">nodeStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194346"><span class="annot"><span class="annottext">s :: Node
-</span><a href="#local-6989586621679194346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194345"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Node
-</span><a href="#local-6989586621679194346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeStatus:Node' :: Maybe Text
+</span><a href="#local-6989586621679194356"><span class="hs-identifier hs-var hs-var">nodeStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194356"><span class="hs-identifier hs-var">nodeStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194355"><span class="annot"><span class="annottext">s :: Node
+</span><a href="#local-6989586621679194355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194354"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Node
+</span><a href="#local-6989586621679194355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeStatus:Node' :: Maybe Text
 </span><a href="Network.AWS.DAX.Types.Node.html#%24sel%3AnodeStatus%3ANode%27"><span class="hs-identifier hs-var">nodeStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The status of the parameter group associated with this node. For</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- example, @in-sync@.</span><span>
@@ -185,16 +185,16 @@ $sel:nodeStatus:Node' :: Node -&gt; Maybe Text
 -&gt; (Node -&gt; Maybe Text -&gt; Node)
 -&gt; Lens Node Node (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194343"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194352"><span class="annot"><span class="annottext">Maybe Text
 parameterGroupStatus :: Maybe Text
 $sel:parameterGroupStatus:Node' :: Node -&gt; Maybe Text
-</span><a href="#local-6989586621679194343"><span class="hs-identifier hs-var hs-var">parameterGroupStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194343"><span class="hs-identifier hs-var">parameterGroupStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194342"><span class="annot"><span class="annottext">s :: Node
-</span><a href="#local-6989586621679194342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194341"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Node
-</span><a href="#local-6989586621679194342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterGroupStatus:Node' :: Maybe Text
+</span><a href="#local-6989586621679194352"><span class="hs-identifier hs-var hs-var">parameterGroupStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194352"><span class="hs-identifier hs-var">parameterGroupStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194351"><span class="annot"><span class="annottext">s :: Node
+</span><a href="#local-6989586621679194351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194350"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Node
+</span><a href="#local-6989586621679194351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterGroupStatus:Node' :: Maybe Text
 </span><a href="Network.AWS.DAX.Types.Node.html#%24sel%3AparameterGroupStatus%3ANode%27"><span class="hs-identifier hs-var">parameterGroupStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The Availability Zone (AZ) in which the node has been deployed.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#node_availabilityZone"><span class="hs-identifier hs-type">node_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -203,16 +203,16 @@ $sel:parameterGroupStatus:Node' :: Node -&gt; Maybe Text
 -&gt; (Node -&gt; Maybe Text -&gt; Node)
 -&gt; Lens Node Node (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194339"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194348"><span class="annot"><span class="annottext">Maybe Text
 availabilityZone :: Maybe Text
 $sel:availabilityZone:Node' :: Node -&gt; Maybe Text
-</span><a href="#local-6989586621679194339"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194339"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194338"><span class="annot"><span class="annottext">s :: Node
-</span><a href="#local-6989586621679194338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194337"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Node
-</span><a href="#local-6989586621679194338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:Node' :: Maybe Text
+</span><a href="#local-6989586621679194348"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194348"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194347"><span class="annot"><span class="annottext">s :: Node
+</span><a href="#local-6989586621679194347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194346"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Node
+</span><a href="#local-6989586621679194347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:Node' :: Maybe Text
 </span><a href="Network.AWS.DAX.Types.Node.html#%24sel%3AavailabilityZone%3ANode%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | A system-generated identifier for the node.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#node_nodeId"><span class="hs-identifier hs-type">node_nodeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -221,16 +221,16 @@ $sel:availabilityZone:Node' :: Node -&gt; Maybe Text
 -&gt; (Node -&gt; Maybe Text -&gt; Node)
 -&gt; Lens Node Node (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194335"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194344"><span class="annot"><span class="annottext">Maybe Text
 nodeId :: Maybe Text
 $sel:nodeId:Node' :: Node -&gt; Maybe Text
-</span><a href="#local-6989586621679194335"><span class="hs-identifier hs-var hs-var">nodeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194335"><span class="hs-identifier hs-var">nodeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194334"><span class="annot"><span class="annottext">s :: Node
-</span><a href="#local-6989586621679194334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194333"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Node
-</span><a href="#local-6989586621679194334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeId:Node' :: Maybe Text
+</span><a href="#local-6989586621679194344"><span class="hs-identifier hs-var hs-var">nodeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194344"><span class="hs-identifier hs-var">nodeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194343"><span class="annot"><span class="annottext">s :: Node
+</span><a href="#local-6989586621679194343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194342"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Node
+</span><a href="#local-6989586621679194343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeId:Node' :: Maybe Text
 </span><a href="Network.AWS.DAX.Types.Node.html#%24sel%3AnodeId%3ANode%27"><span class="hs-identifier hs-var">nodeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The endpoint for the node, consisting of a DNS name and a port number.</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- Client applications can connect directly to a node endpoint, if desired</span><span>
@@ -242,16 +242,16 @@ $sel:nodeId:Node' :: Node -&gt; Maybe Text
 -&gt; (Node -&gt; Maybe Endpoint -&gt; Node)
 -&gt; Lens Node Node (Maybe Endpoint) (Maybe Endpoint)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194331"><span class="annot"><span class="annottext">Maybe Endpoint
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194340"><span class="annot"><span class="annottext">Maybe Endpoint
 endpoint :: Maybe Endpoint
 $sel:endpoint:Node' :: Node -&gt; Maybe Endpoint
-</span><a href="#local-6989586621679194331"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
-</span><a href="#local-6989586621679194331"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194330"><span class="annot"><span class="annottext">s :: Node
-</span><a href="#local-6989586621679194330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194329"><span class="annot"><span class="annottext">Maybe Endpoint
-</span><a href="#local-6989586621679194329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Node
-</span><a href="#local-6989586621679194330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:Node' :: Maybe Endpoint
+</span><a href="#local-6989586621679194340"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621679194340"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194339"><span class="annot"><span class="annottext">s :: Node
+</span><a href="#local-6989586621679194339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194338"><span class="annot"><span class="annottext">Maybe Endpoint
+</span><a href="#local-6989586621679194338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Node
+</span><a href="#local-6989586621679194339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:Node' :: Maybe Endpoint
 </span><a href="Network.AWS.DAX.Types.Node.html#%24sel%3Aendpoint%3ANode%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Endpoint
-</span><a href="#local-6989586621679194329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The date and time (in UNIX epoch format) when the node was launched.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#node_nodeCreateTime"><span class="hs-identifier hs-type">node_nodeCreateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -260,16 +260,16 @@ $sel:endpoint:Node' :: Node -&gt; Maybe Endpoint
 -&gt; (Node -&gt; Maybe POSIX -&gt; Node)
 -&gt; Lens Node Node (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194327"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194336"><span class="annot"><span class="annottext">Maybe POSIX
 nodeCreateTime :: Maybe POSIX
 $sel:nodeCreateTime:Node' :: Node -&gt; Maybe POSIX
-</span><a href="#local-6989586621679194327"><span class="hs-identifier hs-var hs-var">nodeCreateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679194327"><span class="hs-identifier hs-var">nodeCreateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194326"><span class="annot"><span class="annottext">s :: Node
-</span><a href="#local-6989586621679194326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194325"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679194325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Node
-</span><a href="#local-6989586621679194326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeCreateTime:Node' :: Maybe POSIX
+</span><a href="#local-6989586621679194336"><span class="hs-identifier hs-var hs-var">nodeCreateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679194336"><span class="hs-identifier hs-var">nodeCreateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194335"><span class="annot"><span class="annottext">s :: Node
+</span><a href="#local-6989586621679194335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node%27"><span class="hs-identifier hs-type">Node'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194334"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679194334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Node
+</span><a href="#local-6989586621679194335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeCreateTime:Node' :: Maybe POSIX
 </span><a href="Network.AWS.DAX.Types.Node.html#%24sel%3AnodeCreateTime%3ANode%27"><span class="hs-identifier hs-var">nodeCreateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679194325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Node -&gt; f Node)
+</span><a href="#local-6989586621679194334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Node -&gt; f Node)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -285,16 +285,16 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194319"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679194317"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Node
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194328"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679194326"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Node
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Node) -&gt; Value -&gt; Parser Node
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Node&quot;</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679194314"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194314"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679194323"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194323"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -320,7 +320,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Node)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679194323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NodeStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -336,7 +336,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Endpoint -&gt; Maybe POSIX -&gt; Node)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679194323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParameterGroupStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -346,7 +346,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Endpoint -&gt; Maybe POSIX -&gt; Node)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679194323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span class="hs-special">)</span><span>
@@ -355,7 +355,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Endpoint -&gt; Maybe POSIX -&gt; Node)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679194323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NodeId&quot;</span></span><span class="hs-special">)</span><span>
@@ -363,20 +363,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Endpoint) -&gt; Parser (Maybe POSIX -&gt; Node)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Endpoint)
+</span><a href="#local-6989586621679194323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Endpoint)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Endpoint&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Node) -&gt; Parser (Maybe POSIX) -&gt; Parser Node
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679194323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NodeCreateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194308"><span id="local-6989586621679194310"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194317"><span id="local-6989586621679194319"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194305"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194314"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Node.html#Node"><span class="hs-identifier hs-type">Node</span></a></span></span><span>
 </span><span id="line-130"></span></pre></body></html>

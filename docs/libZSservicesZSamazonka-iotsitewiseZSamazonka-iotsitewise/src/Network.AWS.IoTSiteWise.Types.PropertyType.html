@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTSiteWise.Types.PropertyType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.PropertyType</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Attribute.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.Attribute</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Measurement.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.Measurement</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Metric.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.Metric</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.Transform</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Contains a property type, which can be one of @attribute@,</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- @measurement@, @metric@, or @transform@.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newPropertyType' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679346044"><span id="local-6989586621679346045"></span></span><span class="hs-keyword">data</span><span> </span><span id="PropertyType"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType"><span class="hs-identifier hs-var">PropertyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PropertyType%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType%27"><span class="hs-identifier hs-var">PropertyType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies an asset attribute property. An attribute generally contains</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- static information, such as the serial number of an</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications IIoT&gt;</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- wind turbine.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aattribute%3APropertyType%27"><span class="annot"><span class="annottext">PropertyType -&gt; Maybe Attribute
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#%24sel%3Aattribute%3APropertyType%27"><span class="hs-identifier hs-var hs-var">attribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Specifies an asset transform property. A transform contains a</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- mathematical expression that maps a property\'s data points from one</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- form to another, such as a unit conversion from Celsius to Fahrenheit.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atransform%3APropertyType%27"><span class="annot"><span class="annottext">PropertyType -&gt; Maybe Transform
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#%24sel%3Atransform%3APropertyType%27"><span class="hs-identifier hs-var hs-var">transform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform"><span class="hs-identifier hs-type">Transform</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Specifies an asset metric property. A metric contains a mathematical</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- expression that uses aggregate functions to process all input data</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- points over a time interval and output a single data point, such as to</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- calculate the average hourly temperature.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Ametric%3APropertyType%27"><span class="annot"><span class="annottext">PropertyType -&gt; Maybe Metric
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#%24sel%3Ametric%3APropertyType%27"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Specifies an asset measurement property. A measurement represents a</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- device\'s raw sensor data stream, such as timestamped temperature values</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- or timestamped power values.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Ameasurement%3APropertyType%27"><span class="annot"><span class="annottext">PropertyType -&gt; Maybe Measurement
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#%24sel%3Ameasurement%3APropertyType%27"><span class="hs-identifier hs-var hs-var">measurement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Measurement.html#Measurement"><span class="hs-identifier hs-type">Measurement</span></a></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346035"><span id="local-6989586621679346037"><span class="annot"><span class="annottext">PropertyType -&gt; PropertyType -&gt; Bool
+(PropertyType -&gt; PropertyType -&gt; Bool)
+-&gt; (PropertyType -&gt; PropertyType -&gt; Bool) -&gt; Eq PropertyType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PropertyType -&gt; PropertyType -&gt; Bool
+$c/= :: PropertyType -&gt; PropertyType -&gt; Bool
+== :: PropertyType -&gt; PropertyType -&gt; Bool
+$c== :: PropertyType -&gt; PropertyType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346026"><span id="local-6989586621679346028"><span id="local-6989586621679346030"><span id="local-6989586621679346032"><span class="annot"><span class="annottext">ReadPrec [PropertyType]
+ReadPrec PropertyType
+Int -&gt; ReadS PropertyType
+ReadS [PropertyType]
+(Int -&gt; ReadS PropertyType)
+-&gt; ReadS [PropertyType]
+-&gt; ReadPrec PropertyType
+-&gt; ReadPrec [PropertyType]
+-&gt; Read PropertyType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PropertyType]
+$creadListPrec :: ReadPrec [PropertyType]
+readPrec :: ReadPrec PropertyType
+$creadPrec :: ReadPrec PropertyType
+readList :: ReadS [PropertyType]
+$creadList :: ReadS [PropertyType]
+readsPrec :: Int -&gt; ReadS PropertyType
+$creadsPrec :: Int -&gt; ReadS PropertyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346019"><span id="local-6989586621679346021"><span id="local-6989586621679346023"><span class="annot"><span class="annottext">Int -&gt; PropertyType -&gt; ShowS
+[PropertyType] -&gt; ShowS
+PropertyType -&gt; String
+(Int -&gt; PropertyType -&gt; ShowS)
+-&gt; (PropertyType -&gt; String)
+-&gt; ([PropertyType] -&gt; ShowS)
+-&gt; Show PropertyType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PropertyType] -&gt; ShowS
+$cshowList :: [PropertyType] -&gt; ShowS
+show :: PropertyType -&gt; String
+$cshow :: PropertyType -&gt; String
+showsPrec :: Int -&gt; PropertyType -&gt; ShowS
+$cshowsPrec :: Int -&gt; PropertyType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PropertyType -&gt; Rep PropertyType x)
+-&gt; (forall x. Rep PropertyType x -&gt; PropertyType)
+-&gt; Generic PropertyType
+forall x. Rep PropertyType x -&gt; PropertyType
+forall x. PropertyType -&gt; Rep PropertyType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PropertyType x -&gt; PropertyType
+$cfrom :: forall x. PropertyType -&gt; Rep PropertyType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'PropertyType' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'attribute', 'propertyType_attribute' - Specifies an asset attribute property. An attribute generally contains</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- static information, such as the serial number of an</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications IIoT&gt;</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- wind turbine.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'transform', 'propertyType_transform' - Specifies an asset transform property. A transform contains a</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- mathematical expression that maps a property\'s data points from one</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- form to another, such as a unit conversion from Celsius to Fahrenheit.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'metric', 'propertyType_metric' - Specifies an asset metric property. A metric contains a mathematical</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- expression that uses aggregate functions to process all input data</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- points over a time interval and output a single data point, such as to</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- calculate the average hourly temperature.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'measurement', 'propertyType_measurement' - Specifies an asset measurement property. A measurement represents a</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- device\'s raw sensor data stream, such as timestamped temperature values</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- or timestamped power values.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#newPropertyType"><span class="hs-identifier hs-type">newPropertyType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType"><span class="hs-identifier hs-type">PropertyType</span></a></span><span>
+</span><span id="line-83"></span><span id="newPropertyType"><span class="annot"><span class="annottext">newPropertyType :: PropertyType
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#newPropertyType"><span class="hs-identifier hs-var hs-var">newPropertyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">PropertyType' :: Maybe Attribute
+-&gt; Maybe Transform
+-&gt; Maybe Metric
+-&gt; Maybe Measurement
+-&gt; PropertyType
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType%27"><span class="hs-identifier hs-type">PropertyType'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attribute:PropertyType' :: Maybe Attribute
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#%24sel%3Aattribute%3APropertyType%27"><span class="hs-identifier hs-var">attribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Attribute
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:transform:PropertyType' :: Maybe Transform
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#%24sel%3Atransform%3APropertyType%27"><span class="hs-identifier hs-var">transform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Transform
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:metric:PropertyType' :: Maybe Metric
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#%24sel%3Ametric%3APropertyType%27"><span class="hs-identifier hs-var">metric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Metric
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:measurement:PropertyType' :: Maybe Measurement
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#%24sel%3Ameasurement%3APropertyType%27"><span class="hs-identifier hs-var">measurement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Measurement
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Specifies an asset attribute property. An attribute generally contains</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- static information, such as the serial number of an</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications IIoT&gt;</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- wind turbine.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#propertyType_attribute"><span class="hs-identifier hs-type">propertyType_attribute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType"><span class="hs-identifier hs-type">PropertyType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="propertyType_attribute"><span class="annot"><span class="annottext">propertyType_attribute :: (Maybe Attribute -&gt; f (Maybe Attribute))
+-&gt; PropertyType -&gt; f PropertyType
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#propertyType_attribute"><span class="hs-identifier hs-var hs-var">propertyType_attribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PropertyType -&gt; Maybe Attribute)
+-&gt; (PropertyType -&gt; Maybe Attribute -&gt; PropertyType)
+-&gt; Lens
+     PropertyType PropertyType (Maybe Attribute) (Maybe Attribute)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType%27"><span class="hs-identifier hs-type">PropertyType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346010"><span class="annot"><span class="annottext">Maybe Attribute
+attribute :: Maybe Attribute
+$sel:attribute:PropertyType' :: PropertyType -&gt; Maybe Attribute
+</span><a href="#local-6989586621679346010"><span class="hs-identifier hs-var hs-var">attribute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Attribute
+</span><a href="#local-6989586621679346010"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346009"><span class="annot"><span class="annottext">s :: PropertyType
+</span><a href="#local-6989586621679346009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType%27"><span class="hs-identifier hs-type">PropertyType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346008"><span class="annot"><span class="annottext">Maybe Attribute
+</span><a href="#local-6989586621679346008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyType
+</span><a href="#local-6989586621679346009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attribute:PropertyType' :: Maybe Attribute
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#%24sel%3Aattribute%3APropertyType%27"><span class="hs-identifier hs-var">attribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Attribute
+</span><a href="#local-6989586621679346008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType"><span class="hs-identifier hs-type">PropertyType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Specifies an asset transform property. A transform contains a</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- mathematical expression that maps a property\'s data points from one</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- form to another, such as a unit conversion from Celsius to Fahrenheit.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#propertyType_transform"><span class="hs-identifier hs-type">propertyType_transform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType"><span class="hs-identifier hs-type">PropertyType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Transform.html#Transform"><span class="hs-identifier hs-type">Transform</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="propertyType_transform"><span class="annot"><span class="annottext">propertyType_transform :: (Maybe Transform -&gt; f (Maybe Transform))
+-&gt; PropertyType -&gt; f PropertyType
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#propertyType_transform"><span class="hs-identifier hs-var hs-var">propertyType_transform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PropertyType -&gt; Maybe Transform)
+-&gt; (PropertyType -&gt; Maybe Transform -&gt; PropertyType)
+-&gt; Lens
+     PropertyType PropertyType (Maybe Transform) (Maybe Transform)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType%27"><span class="hs-identifier hs-type">PropertyType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346006"><span class="annot"><span class="annottext">Maybe Transform
+transform :: Maybe Transform
+$sel:transform:PropertyType' :: PropertyType -&gt; Maybe Transform
+</span><a href="#local-6989586621679346006"><span class="hs-identifier hs-var hs-var">transform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Transform
+</span><a href="#local-6989586621679346006"><span class="hs-identifier hs-var">transform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346005"><span class="annot"><span class="annottext">s :: PropertyType
+</span><a href="#local-6989586621679346005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType%27"><span class="hs-identifier hs-type">PropertyType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346004"><span class="annot"><span class="annottext">Maybe Transform
+</span><a href="#local-6989586621679346004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyType
+</span><a href="#local-6989586621679346005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transform:PropertyType' :: Maybe Transform
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#%24sel%3Atransform%3APropertyType%27"><span class="hs-identifier hs-var">transform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Transform
+</span><a href="#local-6989586621679346004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType"><span class="hs-identifier hs-type">PropertyType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | Specifies an asset metric property. A metric contains a mathematical</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- expression that uses aggregate functions to process all input data</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- points over a time interval and output a single data point, such as to</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- calculate the average hourly temperature.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#propertyType_metric"><span class="hs-identifier hs-type">propertyType_metric</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType"><span class="hs-identifier hs-type">PropertyType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="propertyType_metric"><span class="annot"><span class="annottext">propertyType_metric :: (Maybe Metric -&gt; f (Maybe Metric))
+-&gt; PropertyType -&gt; f PropertyType
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#propertyType_metric"><span class="hs-identifier hs-var hs-var">propertyType_metric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PropertyType -&gt; Maybe Metric)
+-&gt; (PropertyType -&gt; Maybe Metric -&gt; PropertyType)
+-&gt; Lens PropertyType PropertyType (Maybe Metric) (Maybe Metric)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType%27"><span class="hs-identifier hs-type">PropertyType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346002"><span class="annot"><span class="annottext">Maybe Metric
+metric :: Maybe Metric
+$sel:metric:PropertyType' :: PropertyType -&gt; Maybe Metric
+</span><a href="#local-6989586621679346002"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Metric
+</span><a href="#local-6989586621679346002"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346001"><span class="annot"><span class="annottext">s :: PropertyType
+</span><a href="#local-6989586621679346001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType%27"><span class="hs-identifier hs-type">PropertyType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346000"><span class="annot"><span class="annottext">Maybe Metric
+</span><a href="#local-6989586621679346000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyType
+</span><a href="#local-6989586621679346001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metric:PropertyType' :: Maybe Metric
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#%24sel%3Ametric%3APropertyType%27"><span class="hs-identifier hs-var">metric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Metric
+</span><a href="#local-6989586621679346000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType"><span class="hs-identifier hs-type">PropertyType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Specifies an asset measurement property. A measurement represents a</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- device\'s raw sensor data stream, such as timestamped temperature values</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- or timestamped power values.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#propertyType_measurement"><span class="hs-identifier hs-type">propertyType_measurement</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType"><span class="hs-identifier hs-type">PropertyType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.Measurement.html#Measurement"><span class="hs-identifier hs-type">Measurement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="propertyType_measurement"><span class="annot"><span class="annottext">propertyType_measurement :: (Maybe Measurement -&gt; f (Maybe Measurement))
+-&gt; PropertyType -&gt; f PropertyType
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#propertyType_measurement"><span class="hs-identifier hs-var hs-var">propertyType_measurement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PropertyType -&gt; Maybe Measurement)
+-&gt; (PropertyType -&gt; Maybe Measurement -&gt; PropertyType)
+-&gt; Lens
+     PropertyType PropertyType (Maybe Measurement) (Maybe Measurement)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType%27"><span class="hs-identifier hs-type">PropertyType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345998"><span class="annot"><span class="annottext">Maybe Measurement
+measurement :: Maybe Measurement
+$sel:measurement:PropertyType' :: PropertyType -&gt; Maybe Measurement
+</span><a href="#local-6989586621679345998"><span class="hs-identifier hs-var hs-var">measurement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Measurement
+</span><a href="#local-6989586621679345998"><span class="hs-identifier hs-var">measurement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345997"><span class="annot"><span class="annottext">s :: PropertyType
+</span><a href="#local-6989586621679345997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType%27"><span class="hs-identifier hs-type">PropertyType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345996"><span class="annot"><span class="annottext">Maybe Measurement
+</span><a href="#local-6989586621679345996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyType
+</span><a href="#local-6989586621679345997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:measurement:PropertyType' :: Maybe Measurement
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#%24sel%3Ameasurement%3APropertyType%27"><span class="hs-identifier hs-var">measurement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Measurement
+</span><a href="#local-6989586621679345996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType"><span class="hs-identifier hs-type">PropertyType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345993"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType"><span class="hs-identifier hs-type">PropertyType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679345991"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PropertyType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PropertyType) -&gt; Value -&gt; Parser PropertyType
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PropertyType&quot;</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679345988"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345988"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe Attribute
+-&gt; Maybe Transform
+-&gt; Maybe Metric
+-&gt; Maybe Measurement
+-&gt; PropertyType
+</span><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType%27"><span class="hs-identifier hs-var">PropertyType'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Attribute
+ -&gt; Maybe Transform
+ -&gt; Maybe Metric
+ -&gt; Maybe Measurement
+ -&gt; PropertyType)
+-&gt; Parser (Maybe Attribute)
+-&gt; Parser
+     (Maybe Transform
+      -&gt; Maybe Metric -&gt; Maybe Measurement -&gt; PropertyType)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Attribute)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attribute&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Transform
+   -&gt; Maybe Metric -&gt; Maybe Measurement -&gt; PropertyType)
+-&gt; Parser (Maybe Transform)
+-&gt; Parser (Maybe Metric -&gt; Maybe Measurement -&gt; PropertyType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Transform)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;transform&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Metric -&gt; Maybe Measurement -&gt; PropertyType)
+-&gt; Parser (Maybe Metric)
+-&gt; Parser (Maybe Measurement -&gt; PropertyType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Metric)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metric&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Measurement -&gt; PropertyType)
+-&gt; Parser (Maybe Measurement) -&gt; Parser PropertyType
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Measurement)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;measurement&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345982"><span id="local-6989586621679345984"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType"><span class="hs-identifier hs-type">PropertyType</span></a></span></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345979"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType"><span class="hs-identifier hs-type">PropertyType</span></a></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345971"><span id="local-6989586621679345973"><span id="local-6989586621679345975"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType"><span class="hs-identifier hs-type">PropertyType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679345969"><span class="annot"><span class="annottext">toJSON :: PropertyType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyType.html#PropertyType%27"><span class="hs-identifier hs-type">PropertyType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345964"><span id="local-6989586621679345965"><span id="local-6989586621679345966"><span id="local-6989586621679345967"><span class="annot"><span class="annottext">Maybe Attribute
+Maybe Measurement
+Maybe Transform
+Maybe Metric
+measurement :: Maybe Measurement
+metric :: Maybe Metric
+transform :: Maybe Transform
+attribute :: Maybe Attribute
+$sel:measurement:PropertyType' :: PropertyType -&gt; Maybe Measurement
+$sel:metric:PropertyType' :: PropertyType -&gt; Maybe Metric
+$sel:transform:PropertyType' :: PropertyType -&gt; Maybe Transform
+$sel:attribute:PropertyType' :: PropertyType -&gt; Maybe Attribute
+</span><a href="#local-6989586621679345964"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attribute&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Attribute -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Attribute -&gt; Pair) -&gt; Maybe Attribute -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Attribute
+</span><a href="#local-6989586621679345967"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;transform&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Transform -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Transform -&gt; Pair) -&gt; Maybe Transform -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Transform
+</span><a href="#local-6989586621679345966"><span class="hs-identifier hs-var">transform</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metric&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Metric -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Metric -&gt; Pair) -&gt; Maybe Metric -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Metric
+</span><a href="#local-6989586621679345965"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;measurement&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Measurement -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Measurement -&gt; Pair) -&gt; Maybe Measurement -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Measurement
+</span><a href="#local-6989586621679345964"><span class="hs-identifier hs-var">measurement</span></a></span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span></pre></body></html>

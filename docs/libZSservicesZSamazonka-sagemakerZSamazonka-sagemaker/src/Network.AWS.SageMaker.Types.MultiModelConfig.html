@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Specifies additional configuration for hosting multi-model endpoints.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMultiModelConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680322827"><span id="local-6989586621680322828"></span></span><span class="hs-keyword">data</span><span> </span><span id="MultiModelConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig"><span class="hs-identifier hs-var">MultiModelConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MultiModelConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig%27"><span class="hs-identifier hs-var">MultiModelConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680322836"><span id="local-6989586621680322837"></span></span><span class="hs-keyword">data</span><span> </span><span id="MultiModelConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig"><span class="hs-identifier hs-var">MultiModelConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MultiModelConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig%27"><span class="hs-identifier hs-var">MultiModelConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether to cache models for a multi-model endpoint. By default,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- multi-model endpoints cache models so that a model does not have to be</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- loaded into memory each time it is invoked. Some use cases do not</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AmodelCacheSetting%3AMultiModelConfig%27"><span class="annot"><span class="annottext">MultiModelConfig -&gt; Maybe ModelCacheSetting
 </span><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#%24sel%3AmodelCacheSetting%3AMultiModelConfig%27"><span class="hs-identifier hs-var hs-var">modelCacheSetting</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelCacheSetting.html#ModelCacheSetting"><span class="hs-identifier hs-type">ModelCacheSetting</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680322821"><span id="local-6989586621680322823"><span class="annot"><span class="annottext">MultiModelConfig -&gt; MultiModelConfig -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680322830"><span id="local-6989586621680322832"><span class="annot"><span class="annottext">MultiModelConfig -&gt; MultiModelConfig -&gt; Bool
 (MultiModelConfig -&gt; MultiModelConfig -&gt; Bool)
 -&gt; (MultiModelConfig -&gt; MultiModelConfig -&gt; Bool)
 -&gt; Eq MultiModelConfig
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MultiModelConfig -&gt; MultiModelConfig -&gt; Bool
 == :: MultiModelConfig -&gt; MultiModelConfig -&gt; Bool
 $c== :: MultiModelConfig -&gt; MultiModelConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680322812"><span id="local-6989586621680322814"><span id="local-6989586621680322816"><span id="local-6989586621680322818"><span class="annot"><span class="annottext">ReadPrec [MultiModelConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680322821"><span id="local-6989586621680322823"><span id="local-6989586621680322825"><span id="local-6989586621680322827"><span class="annot"><span class="annottext">ReadPrec [MultiModelConfig]
 ReadPrec MultiModelConfig
 Int -&gt; ReadS MultiModelConfig
 ReadS [MultiModelConfig]
@@ -67,7 +67,7 @@ readList :: ReadS [MultiModelConfig]
 $creadList :: ReadS [MultiModelConfig]
 readsPrec :: Int -&gt; ReadS MultiModelConfig
 $creadsPrec :: Int -&gt; ReadS MultiModelConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680322805"><span id="local-6989586621680322807"><span id="local-6989586621680322809"><span class="annot"><span class="annottext">Int -&gt; MultiModelConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680322814"><span id="local-6989586621680322816"><span id="local-6989586621680322818"><span class="annot"><span class="annottext">Int -&gt; MultiModelConfig -&gt; ShowS
 [MultiModelConfig] -&gt; ShowS
 MultiModelConfig -&gt; String
 (Int -&gt; MultiModelConfig -&gt; ShowS)
@@ -140,19 +140,19 @@ forall a. Maybe a
      (Maybe ModelCacheSetting)
      (Maybe ModelCacheSetting)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig%27"><span class="hs-identifier hs-type">MultiModelConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322796"><span class="annot"><span class="annottext">Maybe ModelCacheSetting
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig%27"><span class="hs-identifier hs-type">MultiModelConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322805"><span class="annot"><span class="annottext">Maybe ModelCacheSetting
 modelCacheSetting :: Maybe ModelCacheSetting
 $sel:modelCacheSetting:MultiModelConfig' :: MultiModelConfig -&gt; Maybe ModelCacheSetting
-</span><a href="#local-6989586621680322796"><span class="hs-identifier hs-var hs-var">modelCacheSetting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelCacheSetting
-</span><a href="#local-6989586621680322796"><span class="hs-identifier hs-var">modelCacheSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680322795"><span class="annot"><span class="annottext">s :: MultiModelConfig
-</span><a href="#local-6989586621680322795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig%27"><span class="hs-identifier hs-type">MultiModelConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680322794"><span class="annot"><span class="annottext">Maybe ModelCacheSetting
-</span><a href="#local-6989586621680322794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiModelConfig
-</span><a href="#local-6989586621680322795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelCacheSetting:MultiModelConfig' :: Maybe ModelCacheSetting
+</span><a href="#local-6989586621680322805"><span class="hs-identifier hs-var hs-var">modelCacheSetting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelCacheSetting
+</span><a href="#local-6989586621680322805"><span class="hs-identifier hs-var">modelCacheSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680322804"><span class="annot"><span class="annottext">s :: MultiModelConfig
+</span><a href="#local-6989586621680322804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig%27"><span class="hs-identifier hs-type">MultiModelConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680322803"><span class="annot"><span class="annottext">Maybe ModelCacheSetting
+</span><a href="#local-6989586621680322803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiModelConfig
+</span><a href="#local-6989586621680322804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelCacheSetting:MultiModelConfig' :: Maybe ModelCacheSetting
 </span><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#%24sel%3AmodelCacheSetting%3AMultiModelConfig%27"><span class="hs-identifier hs-var">modelCacheSetting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelCacheSetting
-</span><a href="#local-6989586621680322794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig"><span class="hs-identifier hs-type">MultiModelConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680322803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig"><span class="hs-identifier hs-type">MultiModelConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680322791"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig"><span class="hs-identifier hs-type">MultiModelConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621680322789"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MultiModelConfig
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680322800"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig"><span class="hs-identifier hs-type">MultiModelConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621680322798"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MultiModelConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MultiModelConfig)
@@ -162,30 +162,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MultiModelConfig&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680322786"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680322786"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680322795"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680322795"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe ModelCacheSetting -&gt; MultiModelConfig
 </span><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig%27"><span class="hs-identifier hs-var">MultiModelConfig'</span></a></span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ModelCacheSetting -&gt; MultiModelConfig)
 -&gt; Parser (Maybe ModelCacheSetting) -&gt; Parser MultiModelConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680322786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ModelCacheSetting)
+</span><a href="#local-6989586621680322795"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ModelCacheSetting)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelCacheSetting&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680322780"><span id="local-6989586621680322782"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig"><span class="hs-identifier hs-type">MultiModelConfig</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680322789"><span id="local-6989586621680322791"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig"><span class="hs-identifier hs-type">MultiModelConfig</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680322777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig"><span class="hs-identifier hs-type">MultiModelConfig</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680322786"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig"><span class="hs-identifier hs-type">MultiModelConfig</span></a></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680322769"><span id="local-6989586621680322771"><span id="local-6989586621680322773"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig"><span class="hs-identifier hs-type">MultiModelConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621680322767"><span class="annot"><span class="annottext">toJSON :: MultiModelConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig%27"><span class="hs-identifier hs-type">MultiModelConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322765"><span class="annot"><span class="annottext">Maybe ModelCacheSetting
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680322778"><span id="local-6989586621680322780"><span id="local-6989586621680322782"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig"><span class="hs-identifier hs-type">MultiModelConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621680322776"><span class="annot"><span class="annottext">toJSON :: MultiModelConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig%27"><span class="hs-identifier hs-type">MultiModelConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322774"><span class="annot"><span class="annottext">Maybe ModelCacheSetting
 modelCacheSetting :: Maybe ModelCacheSetting
 $sel:modelCacheSetting:MultiModelConfig' :: MultiModelConfig -&gt; Maybe ModelCacheSetting
-</span><a href="#local-6989586621680322765"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680322774"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -199,7 +199,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ModelCacheSetting -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ModelCacheSetting
-</span><a href="#local-6989586621680322765"><span class="hs-identifier hs-var">modelCacheSetting</span></a></span><span>
+</span><a href="#local-6989586621680322774"><span class="hs-identifier hs-var">modelCacheSetting</span></a></span><span>
 </span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span></pre></body></html>

@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679433487"><span id="local-6989586621679433488"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameSessionPlacementState"><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState"><span class="hs-identifier hs-var">GameSessionPlacementState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameSessionPlacementState%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState%27"><span class="hs-identifier hs-var">GameSessionPlacementState'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679433496"><span id="local-6989586621679433497"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameSessionPlacementState"><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState"><span class="hs-identifier hs-var">GameSessionPlacementState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameSessionPlacementState%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#GameSessionPlacementState%27"><span class="hs-identifier hs-var">GameSessionPlacementState'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGameSessionPlacementState"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; Text
 </span><a href="Network.AWS.GameLift.Types.GameSessionPlacementState.html#fromGameSessionPlacementState"><span class="hs-identifier hs-var hs-var">fromGameSessionPlacementState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433479"><span id="local-6989586621679433481"><span id="local-6989586621679433483"><span class="annot"><span class="annottext">Int -&gt; GameSessionPlacementState -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433488"><span id="local-6989586621679433490"><span id="local-6989586621679433492"><span class="annot"><span class="annottext">Int -&gt; GameSessionPlacementState -&gt; ShowS
 [GameSessionPlacementState] -&gt; ShowS
 GameSessionPlacementState -&gt; String
 (Int -&gt; GameSessionPlacementState -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: GameSessionPlacementState -&gt; String
 showsPrec :: Int -&gt; GameSessionPlacementState -&gt; ShowS
 $cshowsPrec :: Int -&gt; GameSessionPlacementState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679433470"><span id="local-6989586621679433472"><span id="local-6989586621679433474"><span id="local-6989586621679433476"><span class="annot"><span class="annottext">ReadPrec [GameSessionPlacementState]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679433479"><span id="local-6989586621679433481"><span id="local-6989586621679433483"><span id="local-6989586621679433485"><span class="annot"><span class="annottext">ReadPrec [GameSessionPlacementState]
 ReadPrec GameSessionPlacementState
 Int -&gt; ReadS GameSessionPlacementState
 ReadS [GameSessionPlacementState]
@@ -75,7 +75,7 @@ $creadList :: ReadS [GameSessionPlacementState]
 readsPrec :: Int -&gt; ReadS GameSessionPlacementState
 $creadsPrec :: Int -&gt; ReadS GameSessionPlacementState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679433465"><span id="local-6989586621679433467"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679433474"><span id="local-6989586621679433476"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
 (GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool)
 -&gt; (GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool)
 -&gt; Eq GameSessionPlacementState
@@ -85,7 +85,7 @@ $c/= :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
 == :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
 $c== :: GameSessionPlacementState -&gt; GameSessionPlacementState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679433449"><span id="local-6989586621679433451"><span id="local-6989586621679433453"><span id="local-6989586621679433455"><span id="local-6989586621679433457"><span id="local-6989586621679433459"><span id="local-6989586621679433461"><span class="annot"><span class="annottext">Eq GameSessionPlacementState
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679433458"><span id="local-6989586621679433460"><span id="local-6989586621679433462"><span id="local-6989586621679433464"><span id="local-6989586621679433466"><span id="local-6989586621679433468"><span id="local-6989586621679433470"><span class="annot"><span class="annottext">Eq GameSessionPlacementState
 Eq GameSessionPlacementState
 -&gt; (GameSessionPlacementState
     -&gt; GameSessionPlacementState -&gt; Ordering)
@@ -150,7 +150,7 @@ GameSessionPlacementState -&gt; Rep GameSessionPlacementState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433441"><span id="local-6989586621679433443"><span class="annot"><span class="annottext">Int -&gt; GameSessionPlacementState -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679433450"><span id="local-6989586621679433452"><span class="annot"><span class="annottext">Int -&gt; GameSessionPlacementState -&gt; Int
 GameSessionPlacementState -&gt; Int
 (Int -&gt; GameSessionPlacementState -&gt; Int)
 -&gt; (GameSessionPlacementState -&gt; Int)
@@ -161,56 +161,56 @@ $chash :: GameSessionPlacementState -&gt; Int
 hashWithSalt :: Int -&gt; GameSessionPlacementState -&gt; Int
 $chashWithSalt :: Int -&gt; GameSessionPlacementState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679433438"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679433447"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; ()
 (GameSessionPlacementState -&gt; ())
 -&gt; NFData GameSessionPlacementState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: GameSessionPlacementState -&gt; ()
 $crnf :: GameSessionPlacementState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679433435"><span class="annot"><span class="annottext">Text -&gt; Either String GameSessionPlacementState
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679433444"><span class="annot"><span class="annottext">Text -&gt; Either String GameSessionPlacementState
 (Text -&gt; Either String GameSessionPlacementState)
 -&gt; FromText GameSessionPlacementState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String GameSessionPlacementState
 $cfromText :: Text -&gt; Either String GameSessionPlacementState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679433432"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679433441"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; Text
 (GameSessionPlacementState -&gt; Text)
 -&gt; ToText GameSessionPlacementState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: GameSessionPlacementState -&gt; Text
 $ctoText :: GameSessionPlacementState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679433429"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679433438"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; ByteString
 (GameSessionPlacementState -&gt; ByteString)
 -&gt; ToByteString GameSessionPlacementState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: GameSessionPlacementState -&gt; ByteString
 $ctoBS :: GameSessionPlacementState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679433426"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679433435"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; ByteStringBuilder
 (GameSessionPlacementState -&gt; ByteStringBuilder)
 -&gt; ToLog GameSessionPlacementState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: GameSessionPlacementState -&gt; ByteStringBuilder
 $cbuild :: GameSessionPlacementState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679433423"><span class="annot"><span class="annottext">HeaderName -&gt; GameSessionPlacementState -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679433432"><span class="annot"><span class="annottext">HeaderName -&gt; GameSessionPlacementState -&gt; [Header]
 (HeaderName -&gt; GameSessionPlacementState -&gt; [Header])
 -&gt; ToHeader GameSessionPlacementState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; GameSessionPlacementState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; GameSessionPlacementState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679433420"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679433429"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; QueryString
 (GameSessionPlacementState -&gt; QueryString)
 -&gt; ToQuery GameSessionPlacementState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: GameSessionPlacementState -&gt; QueryString
 $ctoQuery :: GameSessionPlacementState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679433415"><span id="local-6989586621679433417"><span class="annot"><span class="annottext">Value -&gt; Parser [GameSessionPlacementState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679433424"><span id="local-6989586621679433426"><span class="annot"><span class="annottext">Value -&gt; Parser [GameSessionPlacementState]
 Value -&gt; Parser GameSessionPlacementState
 (Value -&gt; Parser GameSessionPlacementState)
 -&gt; (Value -&gt; Parser [GameSessionPlacementState])
@@ -222,7 +222,7 @@ $cparseJSONList :: Value -&gt; Parser [GameSessionPlacementState]
 parseJSON :: Value -&gt; Parser GameSessionPlacementState
 $cparseJSON :: Value -&gt; Parser GameSessionPlacementState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679433410"><span id="local-6989586621679433412"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameSessionPlacementState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679433419"><span id="local-6989586621679433421"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameSessionPlacementState]
 FromJSONKeyFunction GameSessionPlacementState
 FromJSONKeyFunction GameSessionPlacementState
 -&gt; FromJSONKeyFunction [GameSessionPlacementState]
@@ -234,7 +234,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [GameSessionPlacementState]
 fromJSONKey :: FromJSONKeyFunction GameSessionPlacementState
 $cfromJSONKey :: FromJSONKeyFunction GameSessionPlacementState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679433401"><span id="local-6989586621679433403"><span id="local-6989586621679433405"><span id="local-6989586621679433407"><span class="annot"><span class="annottext">[GameSessionPlacementState] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679433410"><span id="local-6989586621679433412"><span id="local-6989586621679433414"><span id="local-6989586621679433416"><span class="annot"><span class="annottext">[GameSessionPlacementState] -&gt; Encoding
 [GameSessionPlacementState] -&gt; Value
 GameSessionPlacementState -&gt; Encoding
 GameSessionPlacementState -&gt; Value
@@ -258,7 +258,7 @@ $ctoEncoding :: GameSessionPlacementState -&gt; Encoding
 toJSON :: GameSessionPlacementState -&gt; Value
 $ctoJSON :: GameSessionPlacementState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679433396"><span id="local-6989586621679433398"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameSessionPlacementState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679433405"><span id="local-6989586621679433407"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameSessionPlacementState]
 ToJSONKeyFunction GameSessionPlacementState
 ToJSONKeyFunction GameSessionPlacementState
 -&gt; ToJSONKeyFunction [GameSessionPlacementState]
@@ -270,14 +270,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [GameSessionPlacementState]
 toJSONKey :: ToJSONKeyFunction GameSessionPlacementState
 $ctoJSONKey :: ToJSONKeyFunction GameSessionPlacementState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679433393"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameSessionPlacementState
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679433402"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameSessionPlacementState
 ([Node] -&gt; Either String GameSessionPlacementState)
 -&gt; FromXML GameSessionPlacementState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String GameSessionPlacementState
 $cparseXML :: [Node] -&gt; Either String GameSessionPlacementState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679433390"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679433399"><span class="annot"><span class="annottext">GameSessionPlacementState -&gt; XML
 (GameSessionPlacementState -&gt; XML)
 -&gt; ToXML GameSessionPlacementState
 forall a. (a -&gt; XML) -&gt; ToXML a

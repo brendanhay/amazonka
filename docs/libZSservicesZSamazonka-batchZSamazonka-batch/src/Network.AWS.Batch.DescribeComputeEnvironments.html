@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-comment">-- | Contains the parameters for @DescribeComputeEnvironments@.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newDescribeComputeEnvironments' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679270312"><span id="local-6989586621679270313"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeComputeEnvironments"><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-var">DescribeComputeEnvironments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeComputeEnvironments%27"><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments%27"><span class="hs-identifier hs-var">DescribeComputeEnvironments'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679270321"><span id="local-6989586621679270322"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeComputeEnvironments"><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-var">DescribeComputeEnvironments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeComputeEnvironments%27"><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments%27"><span class="hs-identifier hs-var">DescribeComputeEnvironments'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of up to 100 compute environment names or full Amazon Resource</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Name (ARN) entries.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AcomputeEnvironments%3ADescribeComputeEnvironments%27"><span class="annot"><span class="annottext">DescribeComputeEnvironments -&gt; Maybe [Text]
@@ -86,7 +86,7 @@
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeComputeEnvironments%27"><span class="annot"><span class="annottext">DescribeComputeEnvironments -&gt; Maybe Int
 </span><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#%24sel%3AmaxResults%3ADescribeComputeEnvironments%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270304"><span id="local-6989586621679270306"><span class="annot"><span class="annottext">DescribeComputeEnvironments -&gt; DescribeComputeEnvironments -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270313"><span id="local-6989586621679270315"><span class="annot"><span class="annottext">DescribeComputeEnvironments -&gt; DescribeComputeEnvironments -&gt; Bool
 (DescribeComputeEnvironments
  -&gt; DescribeComputeEnvironments -&gt; Bool)
 -&gt; (DescribeComputeEnvironments
@@ -97,7 +97,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeComputeEnvironments -&gt; DescribeComputeEnvironments -&gt; Bool
 == :: DescribeComputeEnvironments -&gt; DescribeComputeEnvironments -&gt; Bool
 $c== :: DescribeComputeEnvironments -&gt; DescribeComputeEnvironments -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270295"><span id="local-6989586621679270297"><span id="local-6989586621679270299"><span id="local-6989586621679270301"><span class="annot"><span class="annottext">ReadPrec [DescribeComputeEnvironments]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270304"><span id="local-6989586621679270306"><span id="local-6989586621679270308"><span id="local-6989586621679270310"><span class="annot"><span class="annottext">ReadPrec [DescribeComputeEnvironments]
 ReadPrec DescribeComputeEnvironments
 Int -&gt; ReadS DescribeComputeEnvironments
 ReadS [DescribeComputeEnvironments]
@@ -117,7 +117,7 @@ readList :: ReadS [DescribeComputeEnvironments]
 $creadList :: ReadS [DescribeComputeEnvironments]
 readsPrec :: Int -&gt; ReadS DescribeComputeEnvironments
 $creadsPrec :: Int -&gt; ReadS DescribeComputeEnvironments
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270288"><span id="local-6989586621679270290"><span id="local-6989586621679270292"><span class="annot"><span class="annottext">Int -&gt; DescribeComputeEnvironments -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270297"><span id="local-6989586621679270299"><span id="local-6989586621679270301"><span class="annot"><span class="annottext">Int -&gt; DescribeComputeEnvironments -&gt; ShowS
 [DescribeComputeEnvironments] -&gt; ShowS
 DescribeComputeEnvironments -&gt; String
 (Int -&gt; DescribeComputeEnvironments -&gt; ShowS)
@@ -215,16 +215,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments%27"><span class="hs-identifier hs-type">DescribeComputeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270282"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments%27"><span class="hs-identifier hs-type">DescribeComputeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270291"><span class="annot"><span class="annottext">Maybe [Text]
 computeEnvironments :: Maybe [Text]
 $sel:computeEnvironments:DescribeComputeEnvironments' :: DescribeComputeEnvironments -&gt; Maybe [Text]
-</span><a href="#local-6989586621679270282"><span class="hs-identifier hs-var hs-var">computeEnvironments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679270282"><span class="hs-identifier hs-var">computeEnvironments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270281"><span class="annot"><span class="annottext">s :: DescribeComputeEnvironments
-</span><a href="#local-6989586621679270281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments%27"><span class="hs-identifier hs-type">DescribeComputeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270280"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679270280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComputeEnvironments
-</span><a href="#local-6989586621679270281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeEnvironments:DescribeComputeEnvironments' :: Maybe [Text]
+</span><a href="#local-6989586621679270291"><span class="hs-identifier hs-var hs-var">computeEnvironments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679270291"><span class="hs-identifier hs-var">computeEnvironments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270290"><span class="annot"><span class="annottext">s :: DescribeComputeEnvironments
+</span><a href="#local-6989586621679270290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments%27"><span class="hs-identifier hs-type">DescribeComputeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270289"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679270289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComputeEnvironments
+</span><a href="#local-6989586621679270290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeEnvironments:DescribeComputeEnvironments' :: Maybe [Text]
 </span><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#%24sel%3AcomputeEnvironments%3ADescribeComputeEnvironments%27"><span class="hs-identifier hs-var">computeEnvironments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679270280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679270289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeComputeEnvironments -&gt; f DescribeComputeEnvironments)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -262,16 +262,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments%27"><span class="hs-identifier hs-type">DescribeComputeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270276"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments%27"><span class="hs-identifier hs-type">DescribeComputeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270285"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeComputeEnvironments' :: DescribeComputeEnvironments -&gt; Maybe Text
-</span><a href="#local-6989586621679270276"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270276"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270275"><span class="annot"><span class="annottext">s :: DescribeComputeEnvironments
-</span><a href="#local-6989586621679270275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments%27"><span class="hs-identifier hs-type">DescribeComputeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270274"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComputeEnvironments
-</span><a href="#local-6989586621679270275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeComputeEnvironments' :: Maybe Text
+</span><a href="#local-6989586621679270285"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270285"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270284"><span class="annot"><span class="annottext">s :: DescribeComputeEnvironments
+</span><a href="#local-6989586621679270284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments%27"><span class="hs-identifier hs-type">DescribeComputeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270283"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComputeEnvironments
+</span><a href="#local-6989586621679270284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeComputeEnvironments' :: Maybe Text
 </span><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#%24sel%3AnextToken%3ADescribeComputeEnvironments%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The maximum number of cluster results returned by</span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- @DescribeComputeEnvironments@ in paginated output. When this parameter</span><span>
@@ -294,30 +294,30 @@ $sel:nextToken:DescribeComputeEnvironments' :: DescribeComputeEnvironments -&gt;
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments%27"><span class="hs-identifier hs-type">DescribeComputeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270273"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments%27"><span class="hs-identifier hs-type">DescribeComputeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270282"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:DescribeComputeEnvironments' :: DescribeComputeEnvironments -&gt; Maybe Int
-</span><a href="#local-6989586621679270273"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679270273"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270272"><span class="annot"><span class="annottext">s :: DescribeComputeEnvironments
-</span><a href="#local-6989586621679270272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments%27"><span class="hs-identifier hs-type">DescribeComputeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270271"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679270271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComputeEnvironments
-</span><a href="#local-6989586621679270272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeComputeEnvironments' :: Maybe Int
+</span><a href="#local-6989586621679270282"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679270282"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270281"><span class="annot"><span class="annottext">s :: DescribeComputeEnvironments
+</span><a href="#local-6989586621679270281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments%27"><span class="hs-identifier hs-type">DescribeComputeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270280"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679270280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComputeEnvironments
+</span><a href="#local-6989586621679270281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeComputeEnvironments' :: Maybe Int
 </span><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#%24sel%3AmaxResults%3ADescribeComputeEnvironments%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679270271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679270267"><span class="annot"><span class="annottext">page :: DescribeComputeEnvironments
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679270276"><span class="annot"><span class="annottext">page :: DescribeComputeEnvironments
 -&gt; AWSResponse DescribeComputeEnvironments
 -&gt; Maybe DescribeComputeEnvironments
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679270265"><span class="annot"><span class="annottext">DescribeComputeEnvironments
-</span><a href="#local-6989586621679270265"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679270264"><span class="annot"><span class="annottext">AWSResponse DescribeComputeEnvironments
-</span><a href="#local-6989586621679270264"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679270274"><span class="annot"><span class="annottext">DescribeComputeEnvironments
+</span><a href="#local-6989586621679270274"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679270273"><span class="annot"><span class="annottext">AWSResponse DescribeComputeEnvironments
+</span><a href="#local-6989586621679270273"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-160"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeComputeEnvironments
 DescribeComputeEnvironmentsResponse
-</span><a href="#local-6989586621679270264"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679270273"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">DescribeComputeEnvironmentsResponse
 -&gt; Getting (First Text) DescribeComputeEnvironmentsResponse Text
 -&gt; Maybe Text
@@ -347,7 +347,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-166"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeComputeEnvironments
 DescribeComputeEnvironmentsResponse
-</span><a href="#local-6989586621679270264"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679270273"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">DescribeComputeEnvironmentsResponse
 -&gt; Getting
      (First [ComputeEnvironmentDetail])
@@ -409,7 +409,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">DescribeComputeEnvironments
-</span><a href="#local-6989586621679270265"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679270274"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">DescribeComputeEnvironments
 -&gt; (DescribeComputeEnvironments -&gt; DescribeComputeEnvironments)
 -&gt; DescribeComputeEnvironments
@@ -432,7 +432,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeComputeEnvironments
 DescribeComputeEnvironmentsResponse
-</span><a href="#local-6989586621679270264"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679270273"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">DescribeComputeEnvironmentsResponse
 -&gt; Getting (First Text) DescribeComputeEnvironmentsResponse Text
 -&gt; Maybe Text
@@ -458,14 +458,14 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-180"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-181"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>      </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse</span></a></span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679270255"><span class="annot"><span class="annottext">request :: DescribeComputeEnvironments -&gt; Request DescribeComputeEnvironments
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679270264"><span class="annot"><span class="annottext">request :: DescribeComputeEnvironments -&gt; Request DescribeComputeEnvironments
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeComputeEnvironments
 -&gt; Request DescribeComputeEnvironments
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Batch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679270251"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679270260"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeComputeEnvironments
 -&gt; ClientResponse ClientBody
@@ -491,10 +491,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270248"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270248"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679270247"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679270247"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679270246"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270246"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270257"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270257"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679270256"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679270256"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679270255"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270255"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ComputeEnvironmentDetail]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeComputeEnvironmentsResponse
 </span><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-var">DescribeComputeEnvironmentsResponse'</span></a></span><span>
@@ -505,7 +505,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; DescribeComputeEnvironmentsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [ComputeEnvironmentDetail]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -524,7 +524,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; DescribeComputeEnvironmentsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679270255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -537,15 +537,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270248"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270257"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270237"><span id="local-6989586621679270239"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270246"><span id="local-6989586621679270248"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span></span></span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270234"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679270230"><span class="annot"><span class="annottext">toHeaders :: DescribeComputeEnvironments -&gt; ResponseHeaders
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679270239"><span class="annot"><span class="annottext">toHeaders :: DescribeComputeEnvironments -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeComputeEnvironments -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -564,9 +564,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-207"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-208"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270220"><span id="local-6989586621679270222"><span id="local-6989586621679270224"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679270218"><span class="annot"><span class="annottext">toJSON :: DescribeComputeEnvironments -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments%27"><span class="hs-identifier hs-type">DescribeComputeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270214"><span id="local-6989586621679270215"><span id="local-6989586621679270216"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270229"><span id="local-6989586621679270231"><span id="local-6989586621679270233"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679270227"><span class="annot"><span class="annottext">toJSON :: DescribeComputeEnvironments -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments%27"><span class="hs-identifier hs-type">DescribeComputeEnvironments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270223"><span id="local-6989586621679270224"><span id="local-6989586621679270225"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
 Maybe Text
 maxResults :: Maybe Int
@@ -575,7 +575,7 @@ computeEnvironments :: Maybe [Text]
 $sel:maxResults:DescribeComputeEnvironments' :: DescribeComputeEnvironments -&gt; Maybe Int
 $sel:nextToken:DescribeComputeEnvironments' :: DescribeComputeEnvironments -&gt; Maybe Text
 $sel:computeEnvironments:DescribeComputeEnvironments' :: DescribeComputeEnvironments -&gt; Maybe [Text]
-</span><a href="#local-6989586621679270214"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679270223"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-213"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -588,26 +588,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679270216"><span class="hs-identifier hs-var">computeEnvironments</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270225"><span class="hs-identifier hs-var">computeEnvironments</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270215"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270224"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679270214"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679270223"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-218"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-219"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-222"></span><span>  </span><span id="local-6989586621679270208"><span class="annot"><span class="annottext">toPath :: DescribeComputeEnvironments -&gt; ByteString
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679270217"><span class="annot"><span class="annottext">toPath :: DescribeComputeEnvironments -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeComputeEnvironments -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -615,7 +615,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/v1/describecomputeenvironments&quot;</span></span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironments"><span class="hs-identifier hs-type">DescribeComputeEnvironments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621679270204"><span class="annot"><span class="annottext">toQuery :: DescribeComputeEnvironments -&gt; QueryString
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679270213"><span class="annot"><span class="annottext">toQuery :: DescribeComputeEnvironments -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeComputeEnvironments -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -623,7 +623,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | /See:/ 'newDescribeComputeEnvironmentsResponse' smart constructor.</span><span>
-</span><span id="line-229"></span><span id="local-6989586621679270201"><span id="local-6989586621679270202"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeComputeEnvironmentsResponse"><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse"><span class="hs-identifier hs-var">DescribeComputeEnvironmentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeComputeEnvironmentsResponse%27"><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-var">DescribeComputeEnvironmentsResponse'</span></a></span></span><span>
+</span><span id="line-229"></span><span id="local-6989586621679270210"><span id="local-6989586621679270211"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeComputeEnvironmentsResponse"><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse"><span class="hs-identifier hs-var">DescribeComputeEnvironmentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeComputeEnvironmentsResponse%27"><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-var">DescribeComputeEnvironmentsResponse'</span></a></span></span><span>
 </span><span id="line-230"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of compute environments.</span><span>
 </span><span id="line-231"></span><span>    </span><span id="%24sel%3AcomputeEnvironments%3ADescribeComputeEnvironmentsResponse%27"><span class="annot"><span class="annottext">DescribeComputeEnvironmentsResponse
 -&gt; Maybe [ComputeEnvironmentDetail]
@@ -639,7 +639,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-239"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeComputeEnvironmentsResponse%27"><span class="annot"><span class="annottext">DescribeComputeEnvironmentsResponse -&gt; Int
 </span><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#%24sel%3AhttpStatus%3ADescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-240"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-241"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270194"><span id="local-6989586621679270196"><span class="annot"><span class="annottext">DescribeComputeEnvironmentsResponse
+</span><span id="line-241"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270203"><span id="local-6989586621679270205"><span class="annot"><span class="annottext">DescribeComputeEnvironmentsResponse
 -&gt; DescribeComputeEnvironmentsResponse -&gt; Bool
 (DescribeComputeEnvironmentsResponse
  -&gt; DescribeComputeEnvironmentsResponse -&gt; Bool)
@@ -655,7 +655,7 @@ $c/= :: DescribeComputeEnvironmentsResponse
 -&gt; DescribeComputeEnvironmentsResponse -&gt; Bool
 $c== :: DescribeComputeEnvironmentsResponse
 -&gt; DescribeComputeEnvironmentsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270186"><span id="local-6989586621679270188"><span id="local-6989586621679270190"><span id="local-6989586621679270192"><span class="annot"><span class="annottext">ReadPrec [DescribeComputeEnvironmentsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270195"><span id="local-6989586621679270197"><span id="local-6989586621679270199"><span id="local-6989586621679270201"><span class="annot"><span class="annottext">ReadPrec [DescribeComputeEnvironmentsResponse]
 ReadPrec DescribeComputeEnvironmentsResponse
 Int -&gt; ReadS DescribeComputeEnvironmentsResponse
 ReadS [DescribeComputeEnvironmentsResponse]
@@ -675,7 +675,7 @@ readList :: ReadS [DescribeComputeEnvironmentsResponse]
 $creadList :: ReadS [DescribeComputeEnvironmentsResponse]
 readsPrec :: Int -&gt; ReadS DescribeComputeEnvironmentsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeComputeEnvironmentsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270180"><span id="local-6989586621679270182"><span id="local-6989586621679270184"><span class="annot"><span class="annottext">Int -&gt; DescribeComputeEnvironmentsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270189"><span id="local-6989586621679270191"><span id="local-6989586621679270193"><span class="annot"><span class="annottext">Int -&gt; DescribeComputeEnvironmentsResponse -&gt; ShowS
 [DescribeComputeEnvironmentsResponse] -&gt; ShowS
 DescribeComputeEnvironmentsResponse -&gt; String
 (Int -&gt; DescribeComputeEnvironmentsResponse -&gt; ShowS)
@@ -735,8 +735,8 @@ DescribeComputeEnvironmentsResponse
 </span><span id="line-262"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-263"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse</span></a></span><span>
 </span><span id="line-264"></span><span id="newDescribeComputeEnvironmentsResponse"><span class="annot"><span class="annottext">newDescribeComputeEnvironmentsResponse :: Int -&gt; DescribeComputeEnvironmentsResponse
-</span><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#newDescribeComputeEnvironmentsResponse"><span class="hs-identifier hs-var hs-var">newDescribeComputeEnvironmentsResponse</span></a></span></span><span> </span><span id="local-6989586621679270177"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270177"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#newDescribeComputeEnvironmentsResponse"><span class="hs-identifier hs-var hs-var">newDescribeComputeEnvironmentsResponse</span></a></span></span><span> </span><span id="local-6989586621679270186"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270186"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-265"></span><span>  </span><span class="annot"><span class="annottext">DescribeComputeEnvironmentsResponse' :: Maybe [ComputeEnvironmentDetail]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeComputeEnvironmentsResponse
 </span><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse'</span></a></span><span>
@@ -751,7 +751,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeComputeEnvironmentsResponse' :: Int
 </span><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#%24sel%3AhttpStatus%3ADescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270177"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679270186"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-270"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-271"></span><span>
 </span><span id="line-272"></span><span class="hs-comment">-- | The list of compute environments.</span><span>
@@ -769,17 +769,17 @@ forall a. Maybe a
      DescribeComputeEnvironmentsResponse
      (Maybe [ComputeEnvironmentDetail])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270176"><span class="annot"><span class="annottext">Maybe [ComputeEnvironmentDetail]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270185"><span class="annot"><span class="annottext">Maybe [ComputeEnvironmentDetail]
 computeEnvironments :: Maybe [ComputeEnvironmentDetail]
 $sel:computeEnvironments:DescribeComputeEnvironmentsResponse' :: DescribeComputeEnvironmentsResponse
 -&gt; Maybe [ComputeEnvironmentDetail]
-</span><a href="#local-6989586621679270176"><span class="hs-identifier hs-var hs-var">computeEnvironments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ComputeEnvironmentDetail]
-</span><a href="#local-6989586621679270176"><span class="hs-identifier hs-var">computeEnvironments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270175"><span class="annot"><span class="annottext">s :: DescribeComputeEnvironmentsResponse
-</span><a href="#local-6989586621679270175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270174"><span class="annot"><span class="annottext">Maybe [ComputeEnvironmentDetail]
-</span><a href="#local-6989586621679270174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComputeEnvironmentsResponse
-</span><a href="#local-6989586621679270175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeEnvironments:DescribeComputeEnvironmentsResponse' :: Maybe [ComputeEnvironmentDetail]
+</span><a href="#local-6989586621679270185"><span class="hs-identifier hs-var hs-var">computeEnvironments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ComputeEnvironmentDetail]
+</span><a href="#local-6989586621679270185"><span class="hs-identifier hs-var">computeEnvironments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270184"><span class="annot"><span class="annottext">s :: DescribeComputeEnvironmentsResponse
+</span><a href="#local-6989586621679270184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270183"><span class="annot"><span class="annottext">Maybe [ComputeEnvironmentDetail]
+</span><a href="#local-6989586621679270183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComputeEnvironmentsResponse
+</span><a href="#local-6989586621679270184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeEnvironments:DescribeComputeEnvironmentsResponse' :: Maybe [ComputeEnvironmentDetail]
 </span><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#%24sel%3AcomputeEnvironments%3ADescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-var">computeEnvironments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComputeEnvironmentDetail]
-</span><a href="#local-6989586621679270174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ComputeEnvironmentDetail]
+</span><a href="#local-6989586621679270183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ComputeEnvironmentDetail]
   -&gt; f (Maybe [ComputeEnvironmentDetail]))
  -&gt; DescribeComputeEnvironmentsResponse
  -&gt; f DescribeComputeEnvironmentsResponse)
@@ -827,16 +827,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; DescribeComputeEnvironmentsResponse)
 -&gt; Lens' DescribeComputeEnvironmentsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270173"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270182"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeComputeEnvironmentsResponse' :: DescribeComputeEnvironmentsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679270173"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270173"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270172"><span class="annot"><span class="annottext">s :: DescribeComputeEnvironmentsResponse
-</span><a href="#local-6989586621679270172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270171"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComputeEnvironmentsResponse
-</span><a href="#local-6989586621679270172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeComputeEnvironmentsResponse' :: Maybe Text
+</span><a href="#local-6989586621679270182"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270182"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270181"><span class="annot"><span class="annottext">s :: DescribeComputeEnvironmentsResponse
+</span><a href="#local-6989586621679270181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270180"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComputeEnvironmentsResponse
+</span><a href="#local-6989586621679270181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeComputeEnvironmentsResponse' :: Maybe Text
 </span><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#%24sel%3AnextToken%3ADescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-285"></span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#describeComputeEnvironmentsResponse_httpStatus"><span class="hs-identifier hs-type">describeComputeEnvironmentsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -852,18 +852,18 @@ $sel:nextToken:DescribeComputeEnvironmentsResponse' :: DescribeComputeEnvironmen
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270170"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270179"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeComputeEnvironmentsResponse' :: DescribeComputeEnvironmentsResponse -&gt; Int
-</span><a href="#local-6989586621679270170"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270170"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270169"><span class="annot"><span class="annottext">s :: DescribeComputeEnvironmentsResponse
-</span><a href="#local-6989586621679270169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270168"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComputeEnvironmentsResponse
-</span><a href="#local-6989586621679270169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeComputeEnvironmentsResponse' :: Int
+</span><a href="#local-6989586621679270179"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270179"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270178"><span class="annot"><span class="annottext">s :: DescribeComputeEnvironmentsResponse
+</span><a href="#local-6989586621679270178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270177"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeComputeEnvironmentsResponse
+</span><a href="#local-6989586621679270178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeComputeEnvironmentsResponse' :: Int
 </span><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#%24sel%3AhttpStatus%3ADescribeComputeEnvironmentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-287"></span><span>
 </span><span id="line-288"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-289"></span><span>  </span><span id="local-6989586621679270166"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-289"></span><span>  </span><span id="local-6989586621679270175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-290"></span><span>    </span><span class="annot"><a href="Network.AWS.Batch.DescribeComputeEnvironments.html#DescribeComputeEnvironmentsResponse"><span class="hs-identifier hs-type">DescribeComputeEnvironmentsResponse</span></a></span></span><span>
 </span><span id="line-291"></span></pre></body></html>

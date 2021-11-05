@@ -72,7 +72,7 @@
 </span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | /See:/ 'newDescribeVoices' smart constructor.</span><span>
-</span><span id="line-75"></span><span id="local-6989586621679175001"><span id="local-6989586621679175002"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVoices"><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-var">DescribeVoices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVoices%27"><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-var">DescribeVoices'</span></a></span></span><span>
+</span><span id="line-75"></span><span id="local-6989586621679175010"><span id="local-6989586621679175011"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVoices"><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-var">DescribeVoices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVoices%27"><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-var">DescribeVoices'</span></a></span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The language identification tag (ISO 639 code for the language name-ISO</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- 3166 country code) for filtering the list of voices returned. If you</span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-comment">-- don\'t specify this optional parameter, all available voices are</span><span>
@@ -95,7 +95,7 @@
 </span><span id="line-92"></span><span>    </span><span id="%24sel%3AincludeAdditionalLanguageCodes%3ADescribeVoices%27"><span class="annot"><span class="annottext">DescribeVoices -&gt; Maybe Bool
 </span><a href="Network.AWS.Polly.DescribeVoices.html#%24sel%3AincludeAdditionalLanguageCodes%3ADescribeVoices%27"><span class="hs-identifier hs-var hs-var">includeAdditionalLanguageCodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174992"><span id="local-6989586621679174994"><span class="annot"><span class="annottext">DescribeVoices -&gt; DescribeVoices -&gt; Bool
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175001"><span id="local-6989586621679175003"><span class="annot"><span class="annottext">DescribeVoices -&gt; DescribeVoices -&gt; Bool
 (DescribeVoices -&gt; DescribeVoices -&gt; Bool)
 -&gt; (DescribeVoices -&gt; DescribeVoices -&gt; Bool) -&gt; Eq DescribeVoices
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -103,7 +103,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeVoices -&gt; DescribeVoices -&gt; Bool
 == :: DescribeVoices -&gt; DescribeVoices -&gt; Bool
 $c== :: DescribeVoices -&gt; DescribeVoices -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174983"><span id="local-6989586621679174985"><span id="local-6989586621679174987"><span id="local-6989586621679174989"><span class="annot"><span class="annottext">ReadPrec [DescribeVoices]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174992"><span id="local-6989586621679174994"><span id="local-6989586621679174996"><span id="local-6989586621679174998"><span class="annot"><span class="annottext">ReadPrec [DescribeVoices]
 ReadPrec DescribeVoices
 Int -&gt; ReadS DescribeVoices
 ReadS [DescribeVoices]
@@ -123,7 +123,7 @@ readList :: ReadS [DescribeVoices]
 $creadList :: ReadS [DescribeVoices]
 readsPrec :: Int -&gt; ReadS DescribeVoices
 $creadsPrec :: Int -&gt; ReadS DescribeVoices
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174976"><span id="local-6989586621679174978"><span id="local-6989586621679174980"><span class="annot"><span class="annottext">Int -&gt; DescribeVoices -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174985"><span id="local-6989586621679174987"><span id="local-6989586621679174989"><span class="annot"><span class="annottext">Int -&gt; DescribeVoices -&gt; ShowS
 [DescribeVoices] -&gt; ShowS
 DescribeVoices -&gt; String
 (Int -&gt; DescribeVoices -&gt; ShowS)
@@ -213,16 +213,16 @@ forall a. Maybe a
      (Maybe LanguageCode)
      (Maybe LanguageCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174970"><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174979"><span class="annot"><span class="annottext">Maybe LanguageCode
 languageCode :: Maybe LanguageCode
 $sel:languageCode:DescribeVoices' :: DescribeVoices -&gt; Maybe LanguageCode
-</span><a href="#local-6989586621679174970"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
-</span><a href="#local-6989586621679174970"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174969"><span class="annot"><span class="annottext">s :: DescribeVoices
-</span><a href="#local-6989586621679174969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174968"><span class="annot"><span class="annottext">Maybe LanguageCode
-</span><a href="#local-6989586621679174968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVoices
-</span><a href="#local-6989586621679174969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:DescribeVoices' :: Maybe LanguageCode
+</span><a href="#local-6989586621679174979"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679174979"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174978"><span class="annot"><span class="annottext">s :: DescribeVoices
+</span><a href="#local-6989586621679174978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174977"><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679174977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVoices
+</span><a href="#local-6989586621679174978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:DescribeVoices' :: Maybe LanguageCode
 </span><a href="Network.AWS.Polly.DescribeVoices.html#%24sel%3AlanguageCode%3ADescribeVoices%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
-</span><a href="#local-6989586621679174968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | Specifies the engine (@standard@ or @neural@) used by Amazon Polly when</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- processing input text for speech synthesis.</span><span>
@@ -233,16 +233,16 @@ $sel:languageCode:DescribeVoices' :: DescribeVoices -&gt; Maybe LanguageCode
 -&gt; (DescribeVoices -&gt; Maybe Engine -&gt; DescribeVoices)
 -&gt; Lens DescribeVoices DescribeVoices (Maybe Engine) (Maybe Engine)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174967"><span class="annot"><span class="annottext">Maybe Engine
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174976"><span class="annot"><span class="annottext">Maybe Engine
 engine :: Maybe Engine
 $sel:engine:DescribeVoices' :: DescribeVoices -&gt; Maybe Engine
-</span><a href="#local-6989586621679174967"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Engine
-</span><a href="#local-6989586621679174967"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174966"><span class="annot"><span class="annottext">s :: DescribeVoices
-</span><a href="#local-6989586621679174966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174965"><span class="annot"><span class="annottext">Maybe Engine
-</span><a href="#local-6989586621679174965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVoices
-</span><a href="#local-6989586621679174966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engine:DescribeVoices' :: Maybe Engine
+</span><a href="#local-6989586621679174976"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Engine
+</span><a href="#local-6989586621679174976"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174975"><span class="annot"><span class="annottext">s :: DescribeVoices
+</span><a href="#local-6989586621679174975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174974"><span class="annot"><span class="annottext">Maybe Engine
+</span><a href="#local-6989586621679174974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVoices
+</span><a href="#local-6989586621679174975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engine:DescribeVoices' :: Maybe Engine
 </span><a href="Network.AWS.Polly.DescribeVoices.html#%24sel%3Aengine%3ADescribeVoices%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Engine
-</span><a href="#local-6989586621679174965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | An opaque pagination token returned from the previous @DescribeVoices@</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- operation. If present, this indicates where to continue the listing.</span><span>
@@ -253,16 +253,16 @@ $sel:engine:DescribeVoices' :: DescribeVoices -&gt; Maybe Engine
 -&gt; (DescribeVoices -&gt; Maybe Text -&gt; DescribeVoices)
 -&gt; Lens DescribeVoices DescribeVoices (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174964"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174973"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeVoices' :: DescribeVoices -&gt; Maybe Text
-</span><a href="#local-6989586621679174964"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174964"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174963"><span class="annot"><span class="annottext">s :: DescribeVoices
-</span><a href="#local-6989586621679174963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174962"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVoices
-</span><a href="#local-6989586621679174963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeVoices' :: Maybe Text
+</span><a href="#local-6989586621679174973"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174973"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174972"><span class="annot"><span class="annottext">s :: DescribeVoices
+</span><a href="#local-6989586621679174972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVoices
+</span><a href="#local-6989586621679174972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeVoices' :: Maybe Text
 </span><a href="Network.AWS.Polly.DescribeVoices.html#%24sel%3AnextToken%3ADescribeVoices%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | Boolean value indicating whether to return any bilingual voices that use</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- the specified language as an additional language. For instance, if you</span><span>
@@ -276,29 +276,29 @@ $sel:nextToken:DescribeVoices' :: DescribeVoices -&gt; Maybe Text
 -&gt; (DescribeVoices -&gt; Maybe Bool -&gt; DescribeVoices)
 -&gt; Lens DescribeVoices DescribeVoices (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174961"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174970"><span class="annot"><span class="annottext">Maybe Bool
 includeAdditionalLanguageCodes :: Maybe Bool
 $sel:includeAdditionalLanguageCodes:DescribeVoices' :: DescribeVoices -&gt; Maybe Bool
-</span><a href="#local-6989586621679174961"><span class="hs-identifier hs-var hs-var">includeAdditionalLanguageCodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679174961"><span class="hs-identifier hs-var">includeAdditionalLanguageCodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174960"><span class="annot"><span class="annottext">s :: DescribeVoices
-</span><a href="#local-6989586621679174960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174959"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679174959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVoices
-</span><a href="#local-6989586621679174960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeAdditionalLanguageCodes:DescribeVoices' :: Maybe Bool
+</span><a href="#local-6989586621679174970"><span class="hs-identifier hs-var hs-var">includeAdditionalLanguageCodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679174970"><span class="hs-identifier hs-var">includeAdditionalLanguageCodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174969"><span class="annot"><span class="annottext">s :: DescribeVoices
+</span><a href="#local-6989586621679174969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174968"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679174968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVoices
+</span><a href="#local-6989586621679174969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeAdditionalLanguageCodes:DescribeVoices' :: Maybe Bool
 </span><a href="Network.AWS.Polly.DescribeVoices.html#%24sel%3AincludeAdditionalLanguageCodes%3ADescribeVoices%27"><span class="hs-identifier hs-var">includeAdditionalLanguageCodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679174959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679174955"><span class="annot"><span class="annottext">page :: DescribeVoices
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679174964"><span class="annot"><span class="annottext">page :: DescribeVoices
 -&gt; AWSResponse DescribeVoices -&gt; Maybe DescribeVoices
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679174953"><span class="annot"><span class="annottext">DescribeVoices
-</span><a href="#local-6989586621679174953"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679174952"><span class="annot"><span class="annottext">AWSResponse DescribeVoices
-</span><a href="#local-6989586621679174952"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679174962"><span class="annot"><span class="annottext">DescribeVoices
+</span><a href="#local-6989586621679174962"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679174961"><span class="annot"><span class="annottext">AWSResponse DescribeVoices
+</span><a href="#local-6989586621679174961"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-158"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeVoices
 DescribeVoicesResponse
-</span><a href="#local-6989586621679174952"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679174961"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">DescribeVoicesResponse
 -&gt; Getting (First Text) DescribeVoicesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -327,7 +327,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-164"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeVoices
 DescribeVoicesResponse
-</span><a href="#local-6989586621679174952"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679174961"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">DescribeVoicesResponse
 -&gt; Getting (First [Voice]) DescribeVoicesResponse [Voice]
 -&gt; Maybe [Voice]
@@ -360,7 +360,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">DescribeVoices
-</span><a href="#local-6989586621679174953"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679174962"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">DescribeVoices
 -&gt; (DescribeVoices -&gt; DescribeVoices) -&gt; DescribeVoices
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -374,7 +374,7 @@ Lens DescribeVoices DescribeVoices (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeVoices
 DescribeVoicesResponse
-</span><a href="#local-6989586621679174952"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679174961"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">DescribeVoicesResponse
 -&gt; Getting (First Text) DescribeVoicesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -398,12 +398,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-176"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-177"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse"><span class="hs-identifier hs-type">DescribeVoicesResponse</span></a></span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679174942"><span class="annot"><span class="annottext">request :: DescribeVoices -&gt; Request DescribeVoices
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679174951"><span class="annot"><span class="annottext">request :: DescribeVoices -&gt; Request DescribeVoices
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeVoices -&gt; Request DescribeVoices
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Polly.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679174938"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679174947"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeVoices
 -&gt; ClientResponse ClientBody
@@ -427,10 +427,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174935"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174935"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679174934"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679174934"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679174933"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174933"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174944"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174944"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679174943"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679174943"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679174942"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174942"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Voice] -&gt; Int -&gt; DescribeVoicesResponse
 </span><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier hs-var">DescribeVoicesResponse'</span></a></span><span>
 </span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Voice] -&gt; Int -&gt; DescribeVoicesResponse)
@@ -438,7 +438,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Voice] -&gt; Int -&gt; DescribeVoicesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679174942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -447,7 +447,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeVoicesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Voice]))
+</span><a href="#local-6989586621679174942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Voice]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Voices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Voice]))
@@ -464,15 +464,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174935"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174944"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174924"><span id="local-6989586621679174926"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174933"><span id="local-6989586621679174935"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span></span></span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174921"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174930"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span></span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679174917"><span class="annot"><span class="annottext">toHeaders :: DescribeVoices -&gt; ResponseHeaders
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679174926"><span class="annot"><span class="annottext">toHeaders :: DescribeVoices -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeVoices -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -480,15 +480,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679174912"><span class="annot"><span class="annottext">toPath :: DescribeVoices -&gt; ByteString
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679174921"><span class="annot"><span class="annottext">toPath :: DescribeVoices -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeVoices -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/v1/voices&quot;</span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices"><span class="hs-identifier hs-type">DescribeVoices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679174908"><span class="annot"><span class="annottext">toQuery :: DescribeVoices -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174903"><span id="local-6989586621679174904"><span id="local-6989586621679174905"><span id="local-6989586621679174906"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679174917"><span class="annot"><span class="annottext">toQuery :: DescribeVoices -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoices%27"><span class="hs-identifier hs-type">DescribeVoices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174912"><span id="local-6989586621679174913"><span id="local-6989586621679174914"><span id="local-6989586621679174915"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe Engine
 Maybe LanguageCode
@@ -500,7 +500,7 @@ $sel:includeAdditionalLanguageCodes:DescribeVoices' :: DescribeVoices -&gt; Mayb
 $sel:nextToken:DescribeVoices' :: DescribeVoices -&gt; Maybe Text
 $sel:engine:DescribeVoices' :: DescribeVoices -&gt; Maybe Engine
 $sel:languageCode:DescribeVoices' :: DescribeVoices -&gt; Maybe LanguageCode
-</span><a href="#local-6989586621679174903"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679174912"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -508,27 +508,27 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe LanguageCode -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
-</span><a href="#local-6989586621679174906"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679174915"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Engine&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Engine -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Engine
-</span><a href="#local-6989586621679174905"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679174914"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174904"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679174913"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;IncludeAdditionalLanguageCodes&quot;</span></span><span>
 </span><span id="line-206"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679174903"><span class="hs-identifier hs-var">includeAdditionalLanguageCodes</span></a></span><span>
+</span><a href="#local-6989586621679174912"><span class="hs-identifier hs-var">includeAdditionalLanguageCodes</span></a></span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | /See:/ 'newDescribeVoicesResponse' smart constructor.</span><span>
-</span><span id="line-210"></span><span id="local-6989586621679174900"><span id="local-6989586621679174901"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVoicesResponse"><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse"><span class="hs-identifier hs-var">DescribeVoicesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVoicesResponse%27"><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier hs-var">DescribeVoicesResponse'</span></a></span></span><span>
+</span><span id="line-210"></span><span id="local-6989586621679174909"><span id="local-6989586621679174910"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVoicesResponse"><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse"><span class="hs-identifier hs-var">DescribeVoicesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVoicesResponse%27"><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier hs-var">DescribeVoicesResponse'</span></a></span></span><span>
 </span><span id="line-211"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token to use in the next request to continue the listing</span><span>
 </span><span id="line-212"></span><span>    </span><span class="hs-comment">-- of voices. @NextToken@ is returned only if the response is truncated.</span><span>
 </span><span id="line-213"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeVoicesResponse%27"><span class="annot"><span class="annottext">DescribeVoicesResponse -&gt; Maybe Text
@@ -540,7 +540,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-217"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeVoicesResponse%27"><span class="annot"><span class="annottext">DescribeVoicesResponse -&gt; Int
 </span><a href="Network.AWS.Polly.DescribeVoices.html#%24sel%3AhttpStatus%3ADescribeVoicesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-218"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174893"><span id="local-6989586621679174895"><span class="annot"><span class="annottext">DescribeVoicesResponse -&gt; DescribeVoicesResponse -&gt; Bool
+</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174902"><span id="local-6989586621679174904"><span class="annot"><span class="annottext">DescribeVoicesResponse -&gt; DescribeVoicesResponse -&gt; Bool
 (DescribeVoicesResponse -&gt; DescribeVoicesResponse -&gt; Bool)
 -&gt; (DescribeVoicesResponse -&gt; DescribeVoicesResponse -&gt; Bool)
 -&gt; Eq DescribeVoicesResponse
@@ -549,7 +549,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeVoicesResponse -&gt; DescribeVoicesResponse -&gt; Bool
 == :: DescribeVoicesResponse -&gt; DescribeVoicesResponse -&gt; Bool
 $c== :: DescribeVoicesResponse -&gt; DescribeVoicesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174885"><span id="local-6989586621679174887"><span id="local-6989586621679174889"><span id="local-6989586621679174891"><span class="annot"><span class="annottext">ReadPrec [DescribeVoicesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174894"><span id="local-6989586621679174896"><span id="local-6989586621679174898"><span id="local-6989586621679174900"><span class="annot"><span class="annottext">ReadPrec [DescribeVoicesResponse]
 ReadPrec DescribeVoicesResponse
 Int -&gt; ReadS DescribeVoicesResponse
 ReadS [DescribeVoicesResponse]
@@ -569,7 +569,7 @@ readList :: ReadS [DescribeVoicesResponse]
 $creadList :: ReadS [DescribeVoicesResponse]
 readsPrec :: Int -&gt; ReadS DescribeVoicesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeVoicesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174879"><span id="local-6989586621679174881"><span id="local-6989586621679174883"><span class="annot"><span class="annottext">Int -&gt; DescribeVoicesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174888"><span id="local-6989586621679174890"><span id="local-6989586621679174892"><span class="annot"><span class="annottext">Int -&gt; DescribeVoicesResponse -&gt; ShowS
 [DescribeVoicesResponse] -&gt; ShowS
 DescribeVoicesResponse -&gt; String
 (Int -&gt; DescribeVoicesResponse -&gt; ShowS)
@@ -615,8 +615,8 @@ $cfrom :: forall x. DescribeVoicesResponse -&gt; Rep DescribeVoicesResponse x
 </span><span id="line-237"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-238"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse"><span class="hs-identifier hs-type">DescribeVoicesResponse</span></a></span><span>
 </span><span id="line-239"></span><span id="newDescribeVoicesResponse"><span class="annot"><span class="annottext">newDescribeVoicesResponse :: Int -&gt; DescribeVoicesResponse
-</span><a href="Network.AWS.Polly.DescribeVoices.html#newDescribeVoicesResponse"><span class="hs-identifier hs-var hs-var">newDescribeVoicesResponse</span></a></span></span><span> </span><span id="local-6989586621679174876"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174876"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Polly.DescribeVoices.html#newDescribeVoicesResponse"><span class="hs-identifier hs-var hs-var">newDescribeVoicesResponse</span></a></span></span><span> </span><span id="local-6989586621679174885"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174885"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-240"></span><span>  </span><span class="annot"><span class="annottext">DescribeVoicesResponse' :: Maybe Text -&gt; Maybe [Voice] -&gt; Int -&gt; DescribeVoicesResponse
 </span><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier hs-type">DescribeVoicesResponse'</span></a></span><span>
 </span><span id="line-241"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeVoicesResponse' :: Maybe Text
@@ -630,7 +630,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVoicesResponse' :: Int
 </span><a href="Network.AWS.Polly.DescribeVoices.html#%24sel%3AhttpStatus%3ADescribeVoicesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174876"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679174885"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-245"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-246"></span><span>
 </span><span id="line-247"></span><span class="hs-comment">-- | The pagination token to use in the next request to continue the listing</span><span>
@@ -642,16 +642,16 @@ forall a. Maybe a
 -&gt; (DescribeVoicesResponse -&gt; Maybe Text -&gt; DescribeVoicesResponse)
 -&gt; Lens' DescribeVoicesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier hs-type">DescribeVoicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174875"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier hs-type">DescribeVoicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174884"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeVoicesResponse' :: DescribeVoicesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679174875"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174875"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174874"><span class="annot"><span class="annottext">s :: DescribeVoicesResponse
-</span><a href="#local-6989586621679174874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier hs-type">DescribeVoicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174873"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVoicesResponse
-</span><a href="#local-6989586621679174874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeVoicesResponse' :: Maybe Text
+</span><a href="#local-6989586621679174884"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174884"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174883"><span class="annot"><span class="annottext">s :: DescribeVoicesResponse
+</span><a href="#local-6989586621679174883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier hs-type">DescribeVoicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174882"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVoicesResponse
+</span><a href="#local-6989586621679174883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeVoicesResponse' :: Maybe Text
 </span><a href="Network.AWS.Polly.DescribeVoices.html#%24sel%3AnextToken%3ADescribeVoicesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse"><span class="hs-identifier hs-type">DescribeVoicesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse"><span class="hs-identifier hs-type">DescribeVoicesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | A list of voices with their properties.</span><span>
 </span><span id="line-253"></span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#describeVoicesResponse_voices"><span class="hs-identifier hs-type">describeVoicesResponse_voices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse"><span class="hs-identifier hs-type">DescribeVoicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -662,16 +662,16 @@ $sel:nextToken:DescribeVoicesResponse' :: DescribeVoicesResponse -&gt; Maybe Tex
     -&gt; Maybe [Voice] -&gt; DescribeVoicesResponse)
 -&gt; Lens' DescribeVoicesResponse (Maybe [Voice])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier hs-type">DescribeVoicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174872"><span class="annot"><span class="annottext">Maybe [Voice]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier hs-type">DescribeVoicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174881"><span class="annot"><span class="annottext">Maybe [Voice]
 voices :: Maybe [Voice]
 $sel:voices:DescribeVoicesResponse' :: DescribeVoicesResponse -&gt; Maybe [Voice]
-</span><a href="#local-6989586621679174872"><span class="hs-identifier hs-var hs-var">voices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Voice]
-</span><a href="#local-6989586621679174872"><span class="hs-identifier hs-var">voices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174871"><span class="annot"><span class="annottext">s :: DescribeVoicesResponse
-</span><a href="#local-6989586621679174871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier hs-type">DescribeVoicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174870"><span class="annot"><span class="annottext">Maybe [Voice]
-</span><a href="#local-6989586621679174870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVoicesResponse
-</span><a href="#local-6989586621679174871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:voices:DescribeVoicesResponse' :: Maybe [Voice]
+</span><a href="#local-6989586621679174881"><span class="hs-identifier hs-var hs-var">voices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Voice]
+</span><a href="#local-6989586621679174881"><span class="hs-identifier hs-var">voices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174880"><span class="annot"><span class="annottext">s :: DescribeVoicesResponse
+</span><a href="#local-6989586621679174880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier hs-type">DescribeVoicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174879"><span class="annot"><span class="annottext">Maybe [Voice]
+</span><a href="#local-6989586621679174879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVoicesResponse
+</span><a href="#local-6989586621679174880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:voices:DescribeVoicesResponse' :: Maybe [Voice]
 </span><a href="Network.AWS.Polly.DescribeVoices.html#%24sel%3Avoices%3ADescribeVoicesResponse%27"><span class="hs-identifier hs-var">voices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Voice]
-</span><a href="#local-6989586621679174870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse"><span class="hs-identifier hs-type">DescribeVoicesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Voice] -&gt; f (Maybe [Voice]))
+</span><a href="#local-6989586621679174879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse"><span class="hs-identifier hs-type">DescribeVoicesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Voice] -&gt; f (Maybe [Voice]))
  -&gt; DescribeVoicesResponse -&gt; f DescribeVoicesResponse)
 -&gt; ((Maybe [Voice] -&gt; f (Maybe [Voice]))
     -&gt; Maybe [Voice] -&gt; f (Maybe [Voice]))
@@ -697,16 +697,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeVoicesResponse -&gt; Int -&gt; DescribeVoicesResponse)
 -&gt; Lens DescribeVoicesResponse DescribeVoicesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier hs-type">DescribeVoicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174867"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier hs-type">DescribeVoicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174876"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeVoicesResponse' :: DescribeVoicesResponse -&gt; Int
-</span><a href="#local-6989586621679174867"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174867"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174866"><span class="annot"><span class="annottext">s :: DescribeVoicesResponse
-</span><a href="#local-6989586621679174866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier hs-type">DescribeVoicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174865"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVoicesResponse
-</span><a href="#local-6989586621679174866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVoicesResponse' :: Int
+</span><a href="#local-6989586621679174876"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174876"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174875"><span class="annot"><span class="annottext">s :: DescribeVoicesResponse
+</span><a href="#local-6989586621679174875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse%27"><span class="hs-identifier hs-type">DescribeVoicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174874"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVoicesResponse
+</span><a href="#local-6989586621679174875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVoicesResponse' :: Int
 </span><a href="Network.AWS.Polly.DescribeVoices.html#%24sel%3AhttpStatus%3ADescribeVoicesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse"><span class="hs-identifier hs-type">DescribeVoicesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse"><span class="hs-identifier hs-type">DescribeVoicesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
-</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174863"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse"><span class="hs-identifier hs-type">DescribeVoicesResponse</span></a></span></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174872"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DescribeVoices.html#DescribeVoicesResponse"><span class="hs-identifier hs-type">DescribeVoicesResponse</span></a></span></span><span>
 </span><span id="line-261"></span></pre></body></html>

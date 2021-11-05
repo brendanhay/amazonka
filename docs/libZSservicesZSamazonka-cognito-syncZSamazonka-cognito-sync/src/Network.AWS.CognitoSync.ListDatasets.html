@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-comment">-- | Request for a list of datasets for an identity.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- /See:/ 'newListDatasets' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679177121"><span id="local-6989586621679177122"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDatasets"><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-var">ListDatasets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDatasets%27"><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-var">ListDatasets'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679177130"><span id="local-6989586621679177131"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDatasets"><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-var">ListDatasets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDatasets%27"><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-var">ListDatasets'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token for obtaining the next page of results.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3AListDatasets%27"><span class="annot"><span class="annottext">ListDatasets -&gt; Maybe Text
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#%24sel%3AnextToken%3AListDatasets%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AidentityPoolId%3AListDatasets%27"><span class="annot"><span class="annottext">ListDatasets -&gt; Text
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#%24sel%3AidentityPoolId%3AListDatasets%27"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177112"><span id="local-6989586621679177114"><span class="annot"><span class="annottext">ListDatasets -&gt; ListDatasets -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177121"><span id="local-6989586621679177123"><span class="annot"><span class="annottext">ListDatasets -&gt; ListDatasets -&gt; Bool
 (ListDatasets -&gt; ListDatasets -&gt; Bool)
 -&gt; (ListDatasets -&gt; ListDatasets -&gt; Bool) -&gt; Eq ListDatasets
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDatasets -&gt; ListDatasets -&gt; Bool
 == :: ListDatasets -&gt; ListDatasets -&gt; Bool
 $c== :: ListDatasets -&gt; ListDatasets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177103"><span id="local-6989586621679177105"><span id="local-6989586621679177107"><span id="local-6989586621679177109"><span class="annot"><span class="annottext">ReadPrec [ListDatasets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177112"><span id="local-6989586621679177114"><span id="local-6989586621679177116"><span id="local-6989586621679177118"><span class="annot"><span class="annottext">ReadPrec [ListDatasets]
 ReadPrec ListDatasets
 Int -&gt; ReadS ListDatasets
 ReadS [ListDatasets]
@@ -106,7 +106,7 @@ readList :: ReadS [ListDatasets]
 $creadList :: ReadS [ListDatasets]
 readsPrec :: Int -&gt; ReadS ListDatasets
 $creadsPrec :: Int -&gt; ReadS ListDatasets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177096"><span id="local-6989586621679177098"><span id="local-6989586621679177100"><span class="annot"><span class="annottext">Int -&gt; ListDatasets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177105"><span id="local-6989586621679177107"><span id="local-6989586621679177109"><span class="annot"><span class="annottext">Int -&gt; ListDatasets -&gt; ShowS
 [ListDatasets] -&gt; ShowS
 ListDatasets -&gt; String
 (Int -&gt; ListDatasets -&gt; ShowS)
@@ -158,9 +158,9 @@ $cfrom :: forall x. ListDatasets -&gt; Rep ListDatasets x
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span>
 </span><span id="line-104"></span><span id="newListDatasets"><span class="annot"><span class="annottext">newListDatasets :: Text -&gt; Text -&gt; ListDatasets
-</span><a href="Network.AWS.CognitoSync.ListDatasets.html#newListDatasets"><span class="hs-identifier hs-var hs-var">newListDatasets</span></a></span></span><span> </span><span id="local-6989586621679177091"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177091"><span class="hs-identifier hs-var">pIdentityId_</span></a></span></span><span> </span><span id="local-6989586621679177090"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177090"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoSync.ListDatasets.html#newListDatasets"><span class="hs-identifier hs-var hs-var">newListDatasets</span></a></span></span><span> </span><span id="local-6989586621679177100"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177100"><span class="hs-identifier hs-var">pIdentityId_</span></a></span></span><span> </span><span id="local-6989586621679177099"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177099"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">ListDatasets' :: Maybe Text -&gt; Maybe Int -&gt; Text -&gt; Text -&gt; ListDatasets
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListDatasets' :: Maybe Text
@@ -173,10 +173,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityId:ListDatasets' :: Text
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#%24sel%3AidentityId%3AListDatasets%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177091"><span class="hs-identifier hs-var">pIdentityId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177100"><span class="hs-identifier hs-var">pIdentityId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityPoolId:ListDatasets' :: Text
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#%24sel%3AidentityPoolId%3AListDatasets%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177090"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span>
+</span><a href="#local-6989586621679177099"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | A pagination token for obtaining the next page of results.</span><span>
@@ -186,16 +186,16 @@ forall a. Maybe a
 -&gt; (ListDatasets -&gt; Maybe Text -&gt; ListDatasets)
 -&gt; Lens ListDatasets ListDatasets (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177087"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177096"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListDatasets' :: ListDatasets -&gt; Maybe Text
-</span><a href="#local-6989586621679177087"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177087"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177086"><span class="annot"><span class="annottext">s :: ListDatasets
-</span><a href="#local-6989586621679177086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177085"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasets
-</span><a href="#local-6989586621679177086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDatasets' :: Maybe Text
+</span><a href="#local-6989586621679177096"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177096"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177095"><span class="annot"><span class="annottext">s :: ListDatasets
+</span><a href="#local-6989586621679177095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177094"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasets
+</span><a href="#local-6989586621679177095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDatasets' :: Maybe Text
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#%24sel%3AnextToken%3AListDatasets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The maximum number of results to be returned.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#listDatasets_maxResults"><span class="hs-identifier hs-type">listDatasets_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -204,16 +204,16 @@ $sel:nextToken:ListDatasets' :: ListDatasets -&gt; Maybe Text
 -&gt; (ListDatasets -&gt; Maybe Int -&gt; ListDatasets)
 -&gt; Lens ListDatasets ListDatasets (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177084"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177093"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:ListDatasets' :: ListDatasets -&gt; Maybe Int
-</span><a href="#local-6989586621679177084"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679177084"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177083"><span class="annot"><span class="annottext">s :: ListDatasets
-</span><a href="#local-6989586621679177083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177082"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679177082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasets
-</span><a href="#local-6989586621679177083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDatasets' :: Maybe Int
+</span><a href="#local-6989586621679177093"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679177093"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177092"><span class="annot"><span class="annottext">s :: ListDatasets
+</span><a href="#local-6989586621679177092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177091"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679177091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasets
+</span><a href="#local-6989586621679177092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDatasets' :: Maybe Int
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#%24sel%3AmaxResults%3AListDatasets%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679177082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
@@ -224,16 +224,16 @@ $sel:maxResults:ListDatasets' :: ListDatasets -&gt; Maybe Int
 -&gt; (ListDatasets -&gt; Text -&gt; ListDatasets)
 -&gt; Lens ListDatasets ListDatasets Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177081"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177090"><span class="annot"><span class="annottext">Text
 identityId :: Text
 $sel:identityId:ListDatasets' :: ListDatasets -&gt; Text
-</span><a href="#local-6989586621679177081"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177081"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177080"><span class="annot"><span class="annottext">s :: ListDatasets
-</span><a href="#local-6989586621679177080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177079"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasets
-</span><a href="#local-6989586621679177080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:ListDatasets' :: Text
+</span><a href="#local-6989586621679177090"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177090"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177089"><span class="annot"><span class="annottext">s :: ListDatasets
+</span><a href="#local-6989586621679177089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177088"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasets
+</span><a href="#local-6989586621679177089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:ListDatasets' :: Text
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#%24sel%3AidentityId%3AListDatasets%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
@@ -244,25 +244,25 @@ $sel:identityId:ListDatasets' :: ListDatasets -&gt; Text
 -&gt; (ListDatasets -&gt; Text -&gt; ListDatasets)
 -&gt; Lens ListDatasets ListDatasets Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177078"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177087"><span class="annot"><span class="annottext">Text
 identityPoolId :: Text
 $sel:identityPoolId:ListDatasets' :: ListDatasets -&gt; Text
-</span><a href="#local-6989586621679177078"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177078"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177077"><span class="annot"><span class="annottext">s :: ListDatasets
-</span><a href="#local-6989586621679177077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177076"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasets
-</span><a href="#local-6989586621679177077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:ListDatasets' :: Text
+</span><a href="#local-6989586621679177087"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177087"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177086"><span class="annot"><span class="annottext">s :: ListDatasets
+</span><a href="#local-6989586621679177086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177085"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasets
+</span><a href="#local-6989586621679177086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:ListDatasets' :: Text
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#%24sel%3AidentityPoolId%3AListDatasets%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679177072"><span class="annot"><span class="annottext">request :: ListDatasets -&gt; Request ListDatasets
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679177081"><span class="annot"><span class="annottext">request :: ListDatasets -&gt; Request ListDatasets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDatasets -&gt; Request ListDatasets
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679177068"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679177077"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListDatasets
 -&gt; ClientResponse ClientBody
@@ -286,10 +286,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177065"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177065"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177064"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679177064"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177063"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177063"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177074"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177074"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177073"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679177073"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177072"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177072"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Text -&gt; Maybe [Dataset] -&gt; Int -&gt; ListDatasetsResponse
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-var">ListDatasetsResponse'</span></a></span><span>
@@ -301,7 +301,7 @@ MonadResource m =&gt;
      (Maybe Text -&gt; Maybe [Dataset] -&gt; Int -&gt; ListDatasetsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679177072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Count&quot;</span></span><span class="hs-special">)</span><span>
@@ -312,7 +312,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe [Dataset] -&gt; Int -&gt; ListDatasetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679177072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -321,7 +321,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListDatasetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Dataset]))
+</span><a href="#local-6989586621679177072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Dataset]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Datasets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Dataset]))
@@ -338,15 +338,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177065"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177074"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177054"><span id="local-6989586621679177056"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177063"><span id="local-6989586621679177065"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177051"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177060"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679177047"><span class="annot"><span class="annottext">toHeaders :: ListDatasets -&gt; ResponseHeaders
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679177056"><span class="annot"><span class="annottext">toHeaders :: ListDatasets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDatasets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -366,8 +366,41 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679177041"><span class="annot"><span class="annottext">toPath :: ListDatasets -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177036"><span id="local-6989586621679177037"><span id="local-6989586621679177038"><span id="local-6989586621679177039"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679177050"><span class="annot"><span class="annottext">toPath :: ListDatasets -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177045"><span id="local-6989586621679177046"><span id="local-6989586621679177047"><span id="local-6989586621679177048"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Text
+identityPoolId :: Text
+identityId :: Text
+maxResults :: Maybe Int
+nextToken :: Maybe Text
+$sel:identityPoolId:ListDatasets' :: ListDatasets -&gt; Text
+$sel:identityId:ListDatasets' :: ListDatasets -&gt; Text
+$sel:maxResults:ListDatasets' :: ListDatasets -&gt; Maybe Int
+$sel:nextToken:ListDatasets' :: ListDatasets -&gt; Maybe Text
+</span><a href="#local-6989586621679177045"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/identitypools/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177045"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/identities/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177046"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/datasets&quot;</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679177041"><span class="annot"><span class="annottext">toQuery :: ListDatasets -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177036"><span id="local-6989586621679177037"><span id="local-6989586621679177038"><span id="local-6989586621679177039"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Text
 identityPoolId :: Text
@@ -379,39 +412,6 @@ $sel:identityId:ListDatasets' :: ListDatasets -&gt; Text
 $sel:maxResults:ListDatasets' :: ListDatasets -&gt; Maybe Int
 $sel:nextToken:ListDatasets' :: ListDatasets -&gt; Maybe Text
 </span><a href="#local-6989586621679177036"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
-forall a. Monoid a =&gt; [a] -&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-163"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;/identitypools/&quot;</span></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
-forall a. ToByteString a =&gt; a -&gt; ByteString
-</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177036"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;/identities/&quot;</span></span><span class="hs-special">,</span><span>
-</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
-forall a. ToByteString a =&gt; a -&gt; ByteString
-</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177037"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;/datasets&quot;</span></span><span>
-</span><span id="line-168"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets"><span class="hs-identifier hs-type">ListDatasets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679177032"><span class="annot"><span class="annottext">toQuery :: ListDatasets -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasets%27"><span class="hs-identifier hs-type">ListDatasets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177027"><span id="local-6989586621679177028"><span id="local-6989586621679177029"><span id="local-6989586621679177030"><span class="annot"><span class="annottext">Maybe Int
-Maybe Text
-Text
-identityPoolId :: Text
-identityId :: Text
-maxResults :: Maybe Int
-nextToken :: Maybe Text
-$sel:identityPoolId:ListDatasets' :: ListDatasets -&gt; Text
-$sel:identityId:ListDatasets' :: ListDatasets -&gt; Text
-$sel:maxResults:ListDatasets' :: ListDatasets -&gt; Maybe Int
-$sel:nextToken:ListDatasets' :: ListDatasets -&gt; Maybe Text
-</span><a href="#local-6989586621679177027"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -419,18 +419,18 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177030"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177039"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679177029"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679177038"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | Returned for a successful ListDatasets request.</span><span>
 </span><span id="line-178"></span><span class="hs-comment">--</span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- /See:/ 'newListDatasetsResponse' smart constructor.</span><span>
-</span><span id="line-180"></span><span id="local-6989586621679177024"><span id="local-6989586621679177025"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDatasetsResponse"><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-var">ListDatasetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDatasetsResponse%27"><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-var">ListDatasetsResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span id="local-6989586621679177033"><span id="local-6989586621679177034"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDatasetsResponse"><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-var">ListDatasetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDatasetsResponse%27"><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-var">ListDatasetsResponse'</span></a></span></span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Number of datasets returned.</span><span>
 </span><span id="line-182"></span><span>    </span><span id="%24sel%3Acount%3AListDatasetsResponse%27"><span class="annot"><span class="annottext">ListDatasetsResponse -&gt; Maybe Int
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#%24sel%3Acount%3AListDatasetsResponse%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -444,7 +444,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-188"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListDatasetsResponse%27"><span class="annot"><span class="annottext">ListDatasetsResponse -&gt; Int
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#%24sel%3AhttpStatus%3AListDatasetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177016"><span id="local-6989586621679177018"><span class="annot"><span class="annottext">ListDatasetsResponse -&gt; ListDatasetsResponse -&gt; Bool
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177025"><span id="local-6989586621679177027"><span class="annot"><span class="annottext">ListDatasetsResponse -&gt; ListDatasetsResponse -&gt; Bool
 (ListDatasetsResponse -&gt; ListDatasetsResponse -&gt; Bool)
 -&gt; (ListDatasetsResponse -&gt; ListDatasetsResponse -&gt; Bool)
 -&gt; Eq ListDatasetsResponse
@@ -453,7 +453,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDatasetsResponse -&gt; ListDatasetsResponse -&gt; Bool
 == :: ListDatasetsResponse -&gt; ListDatasetsResponse -&gt; Bool
 $c== :: ListDatasetsResponse -&gt; ListDatasetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177008"><span id="local-6989586621679177010"><span id="local-6989586621679177012"><span id="local-6989586621679177014"><span class="annot"><span class="annottext">ReadPrec [ListDatasetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177017"><span id="local-6989586621679177019"><span id="local-6989586621679177021"><span id="local-6989586621679177023"><span class="annot"><span class="annottext">ReadPrec [ListDatasetsResponse]
 ReadPrec ListDatasetsResponse
 Int -&gt; ReadS ListDatasetsResponse
 ReadS [ListDatasetsResponse]
@@ -473,7 +473,7 @@ readList :: ReadS [ListDatasetsResponse]
 $creadList :: ReadS [ListDatasetsResponse]
 readsPrec :: Int -&gt; ReadS ListDatasetsResponse
 $creadsPrec :: Int -&gt; ReadS ListDatasetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177002"><span id="local-6989586621679177004"><span id="local-6989586621679177006"><span class="annot"><span class="annottext">Int -&gt; ListDatasetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177011"><span id="local-6989586621679177013"><span id="local-6989586621679177015"><span class="annot"><span class="annottext">Int -&gt; ListDatasetsResponse -&gt; ShowS
 [ListDatasetsResponse] -&gt; ShowS
 ListDatasetsResponse -&gt; String
 (Int -&gt; ListDatasetsResponse -&gt; ShowS)
@@ -519,8 +519,8 @@ $cfrom :: forall x. ListDatasetsResponse -&gt; Rep ListDatasetsResponse x
 </span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span>
 </span><span id="line-211"></span><span id="newListDatasetsResponse"><span class="annot"><span class="annottext">newListDatasetsResponse :: Int -&gt; ListDatasetsResponse
-</span><a href="Network.AWS.CognitoSync.ListDatasets.html#newListDatasetsResponse"><span class="hs-identifier hs-var hs-var">newListDatasetsResponse</span></a></span></span><span> </span><span id="local-6989586621679176999"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176999"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoSync.ListDatasets.html#newListDatasetsResponse"><span class="hs-identifier hs-var hs-var">newListDatasetsResponse</span></a></span></span><span> </span><span id="local-6989586621679177008"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177008"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">ListDatasetsResponse' :: Maybe Int
 -&gt; Maybe Text -&gt; Maybe [Dataset] -&gt; Int -&gt; ListDatasetsResponse
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span>
@@ -538,7 +538,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDatasetsResponse' :: Int
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#%24sel%3AhttpStatus%3AListDatasetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176999"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679177008"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-217"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | Number of datasets returned.</span><span>
@@ -550,16 +550,16 @@ forall a. Maybe a
 -&gt; Lens
      ListDatasetsResponse ListDatasetsResponse (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176998"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177007"><span class="annot"><span class="annottext">Maybe Int
 count :: Maybe Int
 $sel:count:ListDatasetsResponse' :: ListDatasetsResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679176998"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679176998"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176997"><span class="annot"><span class="annottext">s :: ListDatasetsResponse
-</span><a href="#local-6989586621679176997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176996"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679176996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasetsResponse
-</span><a href="#local-6989586621679176997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:ListDatasetsResponse' :: Maybe Int
+</span><a href="#local-6989586621679177007"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679177007"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177006"><span class="annot"><span class="annottext">s :: ListDatasetsResponse
+</span><a href="#local-6989586621679177006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177005"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679177005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasetsResponse
+</span><a href="#local-6989586621679177006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:ListDatasetsResponse' :: Maybe Int
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#%24sel%3Acount%3AListDatasetsResponse%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679176996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | A pagination token for obtaining the next page of results.</span><span>
 </span><span id="line-224"></span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#listDatasetsResponse_nextToken"><span class="hs-identifier hs-type">listDatasetsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -570,16 +570,16 @@ $sel:count:ListDatasetsResponse' :: ListDatasetsResponse -&gt; Maybe Int
 -&gt; Lens
      ListDatasetsResponse ListDatasetsResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176995"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177004"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListDatasetsResponse' :: ListDatasetsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679176995"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176995"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176994"><span class="annot"><span class="annottext">s :: ListDatasetsResponse
-</span><a href="#local-6989586621679176994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176993"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasetsResponse
-</span><a href="#local-6989586621679176994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDatasetsResponse' :: Maybe Text
+</span><a href="#local-6989586621679177004"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177004"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177003"><span class="annot"><span class="annottext">s :: ListDatasetsResponse
+</span><a href="#local-6989586621679177003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177002"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasetsResponse
+</span><a href="#local-6989586621679177003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDatasetsResponse' :: Maybe Text
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#%24sel%3AnextToken%3AListDatasetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | A set of datasets.</span><span>
 </span><span id="line-228"></span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#listDatasetsResponse_datasets"><span class="hs-identifier hs-type">listDatasetsResponse_datasets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoSync.Types.Dataset.html#Dataset"><span class="hs-identifier hs-type">Dataset</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -594,16 +594,16 @@ $sel:nextToken:ListDatasetsResponse' :: ListDatasetsResponse -&gt; Maybe Text
      (Maybe [Dataset])
      (Maybe [Dataset])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176992"><span class="annot"><span class="annottext">Maybe [Dataset]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177001"><span class="annot"><span class="annottext">Maybe [Dataset]
 datasets :: Maybe [Dataset]
 $sel:datasets:ListDatasetsResponse' :: ListDatasetsResponse -&gt; Maybe [Dataset]
-</span><a href="#local-6989586621679176992"><span class="hs-identifier hs-var hs-var">datasets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Dataset]
-</span><a href="#local-6989586621679176992"><span class="hs-identifier hs-var">datasets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176991"><span class="annot"><span class="annottext">s :: ListDatasetsResponse
-</span><a href="#local-6989586621679176991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176990"><span class="annot"><span class="annottext">Maybe [Dataset]
-</span><a href="#local-6989586621679176990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasetsResponse
-</span><a href="#local-6989586621679176991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasets:ListDatasetsResponse' :: Maybe [Dataset]
+</span><a href="#local-6989586621679177001"><span class="hs-identifier hs-var hs-var">datasets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Dataset]
+</span><a href="#local-6989586621679177001"><span class="hs-identifier hs-var">datasets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177000"><span class="annot"><span class="annottext">s :: ListDatasetsResponse
+</span><a href="#local-6989586621679177000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176999"><span class="annot"><span class="annottext">Maybe [Dataset]
+</span><a href="#local-6989586621679176999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasetsResponse
+</span><a href="#local-6989586621679177000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasets:ListDatasetsResponse' :: Maybe [Dataset]
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#%24sel%3Adatasets%3AListDatasetsResponse%27"><span class="hs-identifier hs-var">datasets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Dataset]
-</span><a href="#local-6989586621679176990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Dataset] -&gt; f (Maybe [Dataset]))
+</span><a href="#local-6989586621679176999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Dataset] -&gt; f (Maybe [Dataset]))
  -&gt; ListDatasetsResponse -&gt; f ListDatasetsResponse)
 -&gt; ((Maybe [Dataset] -&gt; f (Maybe [Dataset]))
     -&gt; Maybe [Dataset] -&gt; f (Maybe [Dataset]))
@@ -631,16 +631,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListDatasetsResponse -&gt; Int -&gt; ListDatasetsResponse)
 -&gt; Lens ListDatasetsResponse ListDatasetsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176986"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176995"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListDatasetsResponse' :: ListDatasetsResponse -&gt; Int
-</span><a href="#local-6989586621679176986"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176986"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176985"><span class="annot"><span class="annottext">s :: ListDatasetsResponse
-</span><a href="#local-6989586621679176985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176984"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasetsResponse
-</span><a href="#local-6989586621679176985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDatasetsResponse' :: Int
+</span><a href="#local-6989586621679176995"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176995"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176994"><span class="annot"><span class="annottext">s :: ListDatasetsResponse
+</span><a href="#local-6989586621679176994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse%27"><span class="hs-identifier hs-type">ListDatasetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176993"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679176993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDatasetsResponse
+</span><a href="#local-6989586621679176994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDatasetsResponse' :: Int
 </span><a href="Network.AWS.CognitoSync.ListDatasets.html#%24sel%3AhttpStatus%3AListDatasetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679176984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176982"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176991"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.ListDatasets.html#ListDatasetsResponse"><span class="hs-identifier hs-type">ListDatasetsResponse</span></a></span></span><span>
 </span><span id="line-236"></span></pre></body></html>

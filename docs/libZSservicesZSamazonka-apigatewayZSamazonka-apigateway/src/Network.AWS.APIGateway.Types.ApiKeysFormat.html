@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679364232"><span id="local-6989586621679364233"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApiKeysFormat"><span class="annot"><a href="Network.AWS.APIGateway.Types.ApiKeysFormat.html#ApiKeysFormat"><span class="hs-identifier hs-var">ApiKeysFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiKeysFormat%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.ApiKeysFormat.html#ApiKeysFormat%27"><span class="hs-identifier hs-var">ApiKeysFormat'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679364241"><span id="local-6989586621679364242"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApiKeysFormat"><span class="annot"><a href="Network.AWS.APIGateway.Types.ApiKeysFormat.html#ApiKeysFormat"><span class="hs-identifier hs-var">ApiKeysFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiKeysFormat%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.ApiKeysFormat.html#ApiKeysFormat%27"><span class="hs-identifier hs-var">ApiKeysFormat'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromApiKeysFormat"><span class="annot"><span class="annottext">ApiKeysFormat -&gt; Text
 </span><a href="Network.AWS.APIGateway.Types.ApiKeysFormat.html#fromApiKeysFormat"><span class="hs-identifier hs-var hs-var">fromApiKeysFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364224"><span id="local-6989586621679364226"><span id="local-6989586621679364228"><span class="annot"><span class="annottext">Int -&gt; ApiKeysFormat -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364233"><span id="local-6989586621679364235"><span id="local-6989586621679364237"><span class="annot"><span class="annottext">Int -&gt; ApiKeysFormat -&gt; ShowS
 [ApiKeysFormat] -&gt; ShowS
 ApiKeysFormat -&gt; String
 (Int -&gt; ApiKeysFormat -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: ApiKeysFormat -&gt; String
 showsPrec :: Int -&gt; ApiKeysFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; ApiKeysFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679364215"><span id="local-6989586621679364217"><span id="local-6989586621679364219"><span id="local-6989586621679364221"><span class="annot"><span class="annottext">ReadPrec [ApiKeysFormat]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679364224"><span id="local-6989586621679364226"><span id="local-6989586621679364228"><span id="local-6989586621679364230"><span class="annot"><span class="annottext">ReadPrec [ApiKeysFormat]
 ReadPrec ApiKeysFormat
 Int -&gt; ReadS ApiKeysFormat
 ReadS [ApiKeysFormat]
@@ -71,7 +71,7 @@ $creadList :: ReadS [ApiKeysFormat]
 readsPrec :: Int -&gt; ReadS ApiKeysFormat
 $creadsPrec :: Int -&gt; ReadS ApiKeysFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679364210"><span id="local-6989586621679364212"><span class="annot"><span class="annottext">ApiKeysFormat -&gt; ApiKeysFormat -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679364219"><span id="local-6989586621679364221"><span class="annot"><span class="annottext">ApiKeysFormat -&gt; ApiKeysFormat -&gt; Bool
 (ApiKeysFormat -&gt; ApiKeysFormat -&gt; Bool)
 -&gt; (ApiKeysFormat -&gt; ApiKeysFormat -&gt; Bool) -&gt; Eq ApiKeysFormat
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: ApiKeysFormat -&gt; ApiKeysFormat -&gt; Bool
 == :: ApiKeysFormat -&gt; ApiKeysFormat -&gt; Bool
 $c== :: ApiKeysFormat -&gt; ApiKeysFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679364194"><span id="local-6989586621679364196"><span id="local-6989586621679364198"><span id="local-6989586621679364200"><span id="local-6989586621679364202"><span id="local-6989586621679364204"><span id="local-6989586621679364206"><span class="annot"><span class="annottext">Eq ApiKeysFormat
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679364203"><span id="local-6989586621679364205"><span id="local-6989586621679364207"><span id="local-6989586621679364209"><span id="local-6989586621679364211"><span id="local-6989586621679364213"><span id="local-6989586621679364215"><span class="annot"><span class="annottext">Eq ApiKeysFormat
 Eq ApiKeysFormat
 -&gt; (ApiKeysFormat -&gt; ApiKeysFormat -&gt; Ordering)
 -&gt; (ApiKeysFormat -&gt; ApiKeysFormat -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. ApiKeysFormat -&gt; Rep ApiKeysFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364186"><span id="local-6989586621679364188"><span class="annot"><span class="annottext">Int -&gt; ApiKeysFormat -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364195"><span id="local-6989586621679364197"><span class="annot"><span class="annottext">Int -&gt; ApiKeysFormat -&gt; Int
 ApiKeysFormat -&gt; Int
 (Int -&gt; ApiKeysFormat -&gt; Int)
 -&gt; (ApiKeysFormat -&gt; Int) -&gt; Hashable ApiKeysFormat
@@ -141,49 +141,49 @@ $chash :: ApiKeysFormat -&gt; Int
 hashWithSalt :: Int -&gt; ApiKeysFormat -&gt; Int
 $chashWithSalt :: Int -&gt; ApiKeysFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679364183"><span class="annot"><span class="annottext">ApiKeysFormat -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679364192"><span class="annot"><span class="annottext">ApiKeysFormat -&gt; ()
 (ApiKeysFormat -&gt; ()) -&gt; NFData ApiKeysFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ApiKeysFormat -&gt; ()
 $crnf :: ApiKeysFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679364180"><span class="annot"><span class="annottext">Text -&gt; Either String ApiKeysFormat
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679364189"><span class="annot"><span class="annottext">Text -&gt; Either String ApiKeysFormat
 (Text -&gt; Either String ApiKeysFormat) -&gt; FromText ApiKeysFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ApiKeysFormat
 $cfromText :: Text -&gt; Either String ApiKeysFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679364177"><span class="annot"><span class="annottext">ApiKeysFormat -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679364186"><span class="annot"><span class="annottext">ApiKeysFormat -&gt; Text
 (ApiKeysFormat -&gt; Text) -&gt; ToText ApiKeysFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ApiKeysFormat -&gt; Text
 $ctoText :: ApiKeysFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679364174"><span class="annot"><span class="annottext">ApiKeysFormat -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679364183"><span class="annot"><span class="annottext">ApiKeysFormat -&gt; ByteString
 (ApiKeysFormat -&gt; ByteString) -&gt; ToByteString ApiKeysFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ApiKeysFormat -&gt; ByteString
 $ctoBS :: ApiKeysFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679364171"><span class="annot"><span class="annottext">ApiKeysFormat -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679364180"><span class="annot"><span class="annottext">ApiKeysFormat -&gt; ByteStringBuilder
 (ApiKeysFormat -&gt; ByteStringBuilder) -&gt; ToLog ApiKeysFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ApiKeysFormat -&gt; ByteStringBuilder
 $cbuild :: ApiKeysFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679364168"><span class="annot"><span class="annottext">HeaderName -&gt; ApiKeysFormat -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679364177"><span class="annot"><span class="annottext">HeaderName -&gt; ApiKeysFormat -&gt; [Header]
 (HeaderName -&gt; ApiKeysFormat -&gt; [Header]) -&gt; ToHeader ApiKeysFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ApiKeysFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ApiKeysFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679364165"><span class="annot"><span class="annottext">ApiKeysFormat -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679364174"><span class="annot"><span class="annottext">ApiKeysFormat -&gt; QueryString
 (ApiKeysFormat -&gt; QueryString) -&gt; ToQuery ApiKeysFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ApiKeysFormat -&gt; QueryString
 $ctoQuery :: ApiKeysFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679364160"><span id="local-6989586621679364162"><span class="annot"><span class="annottext">Value -&gt; Parser [ApiKeysFormat]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679364169"><span id="local-6989586621679364171"><span class="annot"><span class="annottext">Value -&gt; Parser [ApiKeysFormat]
 Value -&gt; Parser ApiKeysFormat
 (Value -&gt; Parser ApiKeysFormat)
 -&gt; (Value -&gt; Parser [ApiKeysFormat]) -&gt; FromJSON ApiKeysFormat
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [ApiKeysFormat]
 parseJSON :: Value -&gt; Parser ApiKeysFormat
 $cparseJSON :: Value -&gt; Parser ApiKeysFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679364155"><span id="local-6989586621679364157"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApiKeysFormat]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679364164"><span id="local-6989586621679364166"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApiKeysFormat]
 FromJSONKeyFunction ApiKeysFormat
 FromJSONKeyFunction ApiKeysFormat
 -&gt; FromJSONKeyFunction [ApiKeysFormat] -&gt; FromJSONKey ApiKeysFormat
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ApiKeysFormat]
 fromJSONKey :: FromJSONKeyFunction ApiKeysFormat
 $cfromJSONKey :: FromJSONKeyFunction ApiKeysFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679364146"><span id="local-6989586621679364148"><span id="local-6989586621679364150"><span id="local-6989586621679364152"><span class="annot"><span class="annottext">[ApiKeysFormat] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679364155"><span id="local-6989586621679364157"><span id="local-6989586621679364159"><span id="local-6989586621679364161"><span class="annot"><span class="annottext">[ApiKeysFormat] -&gt; Encoding
 [ApiKeysFormat] -&gt; Value
 ApiKeysFormat -&gt; Encoding
 ApiKeysFormat -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: ApiKeysFormat -&gt; Encoding
 toJSON :: ApiKeysFormat -&gt; Value
 $ctoJSON :: ApiKeysFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679364141"><span id="local-6989586621679364143"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApiKeysFormat]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679364150"><span id="local-6989586621679364152"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApiKeysFormat]
 ToJSONKeyFunction ApiKeysFormat
 ToJSONKeyFunction ApiKeysFormat
 -&gt; ToJSONKeyFunction [ApiKeysFormat] -&gt; ToJSONKey ApiKeysFormat
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ApiKeysFormat]
 toJSONKey :: ToJSONKeyFunction ApiKeysFormat
 $ctoJSONKey :: ToJSONKeyFunction ApiKeysFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679364138"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApiKeysFormat
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679364147"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApiKeysFormat
 ([Node] -&gt; Either String ApiKeysFormat) -&gt; FromXML ApiKeysFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ApiKeysFormat
 $cparseXML :: [Node] -&gt; Either String ApiKeysFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679364135"><span class="annot"><span class="annottext">ApiKeysFormat -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679364144"><span class="annot"><span class="annottext">ApiKeysFormat -&gt; XML
 (ApiKeysFormat -&gt; XML) -&gt; ToXML ApiKeysFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ApiKeysFormat -&gt; XML

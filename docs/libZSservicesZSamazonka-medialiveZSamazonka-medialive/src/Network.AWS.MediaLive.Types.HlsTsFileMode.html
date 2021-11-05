@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Hls Ts File Mode</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679889643"><span id="local-6989586621679889644"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsTsFileMode"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTsFileMode.html#HlsTsFileMode"><span class="hs-identifier hs-var">HlsTsFileMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsTsFileMode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTsFileMode.html#HlsTsFileMode%27"><span class="hs-identifier hs-var">HlsTsFileMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679889652"><span id="local-6989586621679889653"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsTsFileMode"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTsFileMode.html#HlsTsFileMode"><span class="hs-identifier hs-var">HlsTsFileMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsTsFileMode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsTsFileMode.html#HlsTsFileMode%27"><span class="hs-identifier hs-var">HlsTsFileMode'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsTsFileMode"><span class="annot"><span class="annottext">HlsTsFileMode -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.HlsTsFileMode.html#fromHlsTsFileMode"><span class="hs-identifier hs-var hs-var">fromHlsTsFileMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679889635"><span id="local-6989586621679889637"><span id="local-6989586621679889639"><span class="annot"><span class="annottext">Int -&gt; HlsTsFileMode -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679889644"><span id="local-6989586621679889646"><span id="local-6989586621679889648"><span class="annot"><span class="annottext">Int -&gt; HlsTsFileMode -&gt; ShowS
 [HlsTsFileMode] -&gt; ShowS
 HlsTsFileMode -&gt; String
 (Int -&gt; HlsTsFileMode -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: HlsTsFileMode -&gt; String
 showsPrec :: Int -&gt; HlsTsFileMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; HlsTsFileMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679889626"><span id="local-6989586621679889628"><span id="local-6989586621679889630"><span id="local-6989586621679889632"><span class="annot"><span class="annottext">ReadPrec [HlsTsFileMode]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679889635"><span id="local-6989586621679889637"><span id="local-6989586621679889639"><span id="local-6989586621679889641"><span class="annot"><span class="annottext">ReadPrec [HlsTsFileMode]
 ReadPrec HlsTsFileMode
 Int -&gt; ReadS HlsTsFileMode
 ReadS [HlsTsFileMode]
@@ -73,7 +73,7 @@ $creadList :: ReadS [HlsTsFileMode]
 readsPrec :: Int -&gt; ReadS HlsTsFileMode
 $creadsPrec :: Int -&gt; ReadS HlsTsFileMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679889621"><span id="local-6989586621679889623"><span class="annot"><span class="annottext">HlsTsFileMode -&gt; HlsTsFileMode -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679889630"><span id="local-6989586621679889632"><span class="annot"><span class="annottext">HlsTsFileMode -&gt; HlsTsFileMode -&gt; Bool
 (HlsTsFileMode -&gt; HlsTsFileMode -&gt; Bool)
 -&gt; (HlsTsFileMode -&gt; HlsTsFileMode -&gt; Bool) -&gt; Eq HlsTsFileMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: HlsTsFileMode -&gt; HlsTsFileMode -&gt; Bool
 == :: HlsTsFileMode -&gt; HlsTsFileMode -&gt; Bool
 $c== :: HlsTsFileMode -&gt; HlsTsFileMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679889605"><span id="local-6989586621679889607"><span id="local-6989586621679889609"><span id="local-6989586621679889611"><span id="local-6989586621679889613"><span id="local-6989586621679889615"><span id="local-6989586621679889617"><span class="annot"><span class="annottext">Eq HlsTsFileMode
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679889614"><span id="local-6989586621679889616"><span id="local-6989586621679889618"><span id="local-6989586621679889620"><span id="local-6989586621679889622"><span id="local-6989586621679889624"><span id="local-6989586621679889626"><span class="annot"><span class="annottext">Eq HlsTsFileMode
 Eq HlsTsFileMode
 -&gt; (HlsTsFileMode -&gt; HlsTsFileMode -&gt; Ordering)
 -&gt; (HlsTsFileMode -&gt; HlsTsFileMode -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. HlsTsFileMode -&gt; Rep HlsTsFileMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679889597"><span id="local-6989586621679889599"><span class="annot"><span class="annottext">Int -&gt; HlsTsFileMode -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679889606"><span id="local-6989586621679889608"><span class="annot"><span class="annottext">Int -&gt; HlsTsFileMode -&gt; Int
 HlsTsFileMode -&gt; Int
 (Int -&gt; HlsTsFileMode -&gt; Int)
 -&gt; (HlsTsFileMode -&gt; Int) -&gt; Hashable HlsTsFileMode
@@ -143,49 +143,49 @@ $chash :: HlsTsFileMode -&gt; Int
 hashWithSalt :: Int -&gt; HlsTsFileMode -&gt; Int
 $chashWithSalt :: Int -&gt; HlsTsFileMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679889594"><span class="annot"><span class="annottext">HlsTsFileMode -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679889603"><span class="annot"><span class="annottext">HlsTsFileMode -&gt; ()
 (HlsTsFileMode -&gt; ()) -&gt; NFData HlsTsFileMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HlsTsFileMode -&gt; ()
 $crnf :: HlsTsFileMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679889591"><span class="annot"><span class="annottext">Text -&gt; Either String HlsTsFileMode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679889600"><span class="annot"><span class="annottext">Text -&gt; Either String HlsTsFileMode
 (Text -&gt; Either String HlsTsFileMode) -&gt; FromText HlsTsFileMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HlsTsFileMode
 $cfromText :: Text -&gt; Either String HlsTsFileMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679889588"><span class="annot"><span class="annottext">HlsTsFileMode -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679889597"><span class="annot"><span class="annottext">HlsTsFileMode -&gt; Text
 (HlsTsFileMode -&gt; Text) -&gt; ToText HlsTsFileMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HlsTsFileMode -&gt; Text
 $ctoText :: HlsTsFileMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679889585"><span class="annot"><span class="annottext">HlsTsFileMode -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679889594"><span class="annot"><span class="annottext">HlsTsFileMode -&gt; ByteString
 (HlsTsFileMode -&gt; ByteString) -&gt; ToByteString HlsTsFileMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HlsTsFileMode -&gt; ByteString
 $ctoBS :: HlsTsFileMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679889582"><span class="annot"><span class="annottext">HlsTsFileMode -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679889591"><span class="annot"><span class="annottext">HlsTsFileMode -&gt; ByteStringBuilder
 (HlsTsFileMode -&gt; ByteStringBuilder) -&gt; ToLog HlsTsFileMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HlsTsFileMode -&gt; ByteStringBuilder
 $cbuild :: HlsTsFileMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679889579"><span class="annot"><span class="annottext">HeaderName -&gt; HlsTsFileMode -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679889588"><span class="annot"><span class="annottext">HeaderName -&gt; HlsTsFileMode -&gt; [Header]
 (HeaderName -&gt; HlsTsFileMode -&gt; [Header]) -&gt; ToHeader HlsTsFileMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HlsTsFileMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HlsTsFileMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679889576"><span class="annot"><span class="annottext">HlsTsFileMode -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679889585"><span class="annot"><span class="annottext">HlsTsFileMode -&gt; QueryString
 (HlsTsFileMode -&gt; QueryString) -&gt; ToQuery HlsTsFileMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HlsTsFileMode -&gt; QueryString
 $ctoQuery :: HlsTsFileMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679889571"><span id="local-6989586621679889573"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsTsFileMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679889580"><span id="local-6989586621679889582"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsTsFileMode]
 Value -&gt; Parser HlsTsFileMode
 (Value -&gt; Parser HlsTsFileMode)
 -&gt; (Value -&gt; Parser [HlsTsFileMode]) -&gt; FromJSON HlsTsFileMode
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [HlsTsFileMode]
 parseJSON :: Value -&gt; Parser HlsTsFileMode
 $cparseJSON :: Value -&gt; Parser HlsTsFileMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679889566"><span id="local-6989586621679889568"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsTsFileMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679889575"><span id="local-6989586621679889577"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsTsFileMode]
 FromJSONKeyFunction HlsTsFileMode
 FromJSONKeyFunction HlsTsFileMode
 -&gt; FromJSONKeyFunction [HlsTsFileMode] -&gt; FromJSONKey HlsTsFileMode
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HlsTsFileMode]
 fromJSONKey :: FromJSONKeyFunction HlsTsFileMode
 $cfromJSONKey :: FromJSONKeyFunction HlsTsFileMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679889557"><span id="local-6989586621679889559"><span id="local-6989586621679889561"><span id="local-6989586621679889563"><span class="annot"><span class="annottext">[HlsTsFileMode] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679889566"><span id="local-6989586621679889568"><span id="local-6989586621679889570"><span id="local-6989586621679889572"><span class="annot"><span class="annottext">[HlsTsFileMode] -&gt; Encoding
 [HlsTsFileMode] -&gt; Value
 HlsTsFileMode -&gt; Encoding
 HlsTsFileMode -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: HlsTsFileMode -&gt; Encoding
 toJSON :: HlsTsFileMode -&gt; Value
 $ctoJSON :: HlsTsFileMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679889552"><span id="local-6989586621679889554"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsTsFileMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679889561"><span id="local-6989586621679889563"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsTsFileMode]
 ToJSONKeyFunction HlsTsFileMode
 ToJSONKeyFunction HlsTsFileMode
 -&gt; ToJSONKeyFunction [HlsTsFileMode] -&gt; ToJSONKey HlsTsFileMode
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HlsTsFileMode]
 toJSONKey :: ToJSONKeyFunction HlsTsFileMode
 $ctoJSONKey :: ToJSONKeyFunction HlsTsFileMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679889549"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsTsFileMode
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679889558"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsTsFileMode
 ([Node] -&gt; Either String HlsTsFileMode) -&gt; FromXML HlsTsFileMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HlsTsFileMode
 $cparseXML :: [Node] -&gt; Either String HlsTsFileMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679889546"><span class="annot"><span class="annottext">HlsTsFileMode -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679889555"><span class="annot"><span class="annottext">HlsTsFileMode -&gt; XML
 (HlsTsFileMode -&gt; XML) -&gt; ToXML HlsTsFileMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HlsTsFileMode -&gt; XML

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681150517"><span id="local-6989586621681150518"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SnapshotAttributeName"><span class="annot"><a href="Network.AWS.EC2.Types.SnapshotAttributeName.html#SnapshotAttributeName"><span class="hs-identifier hs-var">SnapshotAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SnapshotAttributeName%27"><span class="annot"><a href="Network.AWS.EC2.Types.SnapshotAttributeName.html#SnapshotAttributeName%27"><span class="hs-identifier hs-var">SnapshotAttributeName'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681150526"><span id="local-6989586621681150527"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SnapshotAttributeName"><span class="annot"><a href="Network.AWS.EC2.Types.SnapshotAttributeName.html#SnapshotAttributeName"><span class="hs-identifier hs-var">SnapshotAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SnapshotAttributeName%27"><span class="annot"><a href="Network.AWS.EC2.Types.SnapshotAttributeName.html#SnapshotAttributeName%27"><span class="hs-identifier hs-var">SnapshotAttributeName'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSnapshotAttributeName"><span class="annot"><span class="annottext">SnapshotAttributeName -&gt; Text
 </span><a href="Network.AWS.EC2.Types.SnapshotAttributeName.html#fromSnapshotAttributeName"><span class="hs-identifier hs-var hs-var">fromSnapshotAttributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681150509"><span id="local-6989586621681150511"><span id="local-6989586621681150513"><span class="annot"><span class="annottext">Int -&gt; SnapshotAttributeName -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681150518"><span id="local-6989586621681150520"><span id="local-6989586621681150522"><span class="annot"><span class="annottext">Int -&gt; SnapshotAttributeName -&gt; ShowS
 [SnapshotAttributeName] -&gt; ShowS
 SnapshotAttributeName -&gt; String
 (Int -&gt; SnapshotAttributeName -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: SnapshotAttributeName -&gt; String
 showsPrec :: Int -&gt; SnapshotAttributeName -&gt; ShowS
 $cshowsPrec :: Int -&gt; SnapshotAttributeName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681150500"><span id="local-6989586621681150502"><span id="local-6989586621681150504"><span id="local-6989586621681150506"><span class="annot"><span class="annottext">ReadPrec [SnapshotAttributeName]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681150509"><span id="local-6989586621681150511"><span id="local-6989586621681150513"><span id="local-6989586621681150515"><span class="annot"><span class="annottext">ReadPrec [SnapshotAttributeName]
 ReadPrec SnapshotAttributeName
 Int -&gt; ReadS SnapshotAttributeName
 ReadS [SnapshotAttributeName]
@@ -73,7 +73,7 @@ $creadList :: ReadS [SnapshotAttributeName]
 readsPrec :: Int -&gt; ReadS SnapshotAttributeName
 $creadsPrec :: Int -&gt; ReadS SnapshotAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681150495"><span id="local-6989586621681150497"><span class="annot"><span class="annottext">SnapshotAttributeName -&gt; SnapshotAttributeName -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681150504"><span id="local-6989586621681150506"><span class="annot"><span class="annottext">SnapshotAttributeName -&gt; SnapshotAttributeName -&gt; Bool
 (SnapshotAttributeName -&gt; SnapshotAttributeName -&gt; Bool)
 -&gt; (SnapshotAttributeName -&gt; SnapshotAttributeName -&gt; Bool)
 -&gt; Eq SnapshotAttributeName
@@ -83,7 +83,7 @@ $c/= :: SnapshotAttributeName -&gt; SnapshotAttributeName -&gt; Bool
 == :: SnapshotAttributeName -&gt; SnapshotAttributeName -&gt; Bool
 $c== :: SnapshotAttributeName -&gt; SnapshotAttributeName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681150479"><span id="local-6989586621681150481"><span id="local-6989586621681150483"><span id="local-6989586621681150485"><span id="local-6989586621681150487"><span id="local-6989586621681150489"><span id="local-6989586621681150491"><span class="annot"><span class="annottext">Eq SnapshotAttributeName
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681150488"><span id="local-6989586621681150490"><span id="local-6989586621681150492"><span id="local-6989586621681150494"><span id="local-6989586621681150496"><span id="local-6989586621681150498"><span id="local-6989586621681150500"><span class="annot"><span class="annottext">Eq SnapshotAttributeName
 Eq SnapshotAttributeName
 -&gt; (SnapshotAttributeName -&gt; SnapshotAttributeName -&gt; Ordering)
 -&gt; (SnapshotAttributeName -&gt; SnapshotAttributeName -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. SnapshotAttributeName -&gt; Rep SnapshotAttributeName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681150471"><span id="local-6989586621681150473"><span class="annot"><span class="annottext">Int -&gt; SnapshotAttributeName -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681150480"><span id="local-6989586621681150482"><span class="annot"><span class="annottext">Int -&gt; SnapshotAttributeName -&gt; Int
 SnapshotAttributeName -&gt; Int
 (Int -&gt; SnapshotAttributeName -&gt; Int)
 -&gt; (SnapshotAttributeName -&gt; Int) -&gt; Hashable SnapshotAttributeName
@@ -151,54 +151,54 @@ $chash :: SnapshotAttributeName -&gt; Int
 hashWithSalt :: Int -&gt; SnapshotAttributeName -&gt; Int
 $chashWithSalt :: Int -&gt; SnapshotAttributeName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681150468"><span class="annot"><span class="annottext">SnapshotAttributeName -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681150477"><span class="annot"><span class="annottext">SnapshotAttributeName -&gt; ()
 (SnapshotAttributeName -&gt; ()) -&gt; NFData SnapshotAttributeName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SnapshotAttributeName -&gt; ()
 $crnf :: SnapshotAttributeName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681150465"><span class="annot"><span class="annottext">Text -&gt; Either String SnapshotAttributeName
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681150474"><span class="annot"><span class="annottext">Text -&gt; Either String SnapshotAttributeName
 (Text -&gt; Either String SnapshotAttributeName)
 -&gt; FromText SnapshotAttributeName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SnapshotAttributeName
 $cfromText :: Text -&gt; Either String SnapshotAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681150462"><span class="annot"><span class="annottext">SnapshotAttributeName -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681150471"><span class="annot"><span class="annottext">SnapshotAttributeName -&gt; Text
 (SnapshotAttributeName -&gt; Text) -&gt; ToText SnapshotAttributeName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SnapshotAttributeName -&gt; Text
 $ctoText :: SnapshotAttributeName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681150459"><span class="annot"><span class="annottext">SnapshotAttributeName -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681150468"><span class="annot"><span class="annottext">SnapshotAttributeName -&gt; ByteString
 (SnapshotAttributeName -&gt; ByteString)
 -&gt; ToByteString SnapshotAttributeName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SnapshotAttributeName -&gt; ByteString
 $ctoBS :: SnapshotAttributeName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681150456"><span class="annot"><span class="annottext">SnapshotAttributeName -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681150465"><span class="annot"><span class="annottext">SnapshotAttributeName -&gt; ByteStringBuilder
 (SnapshotAttributeName -&gt; ByteStringBuilder)
 -&gt; ToLog SnapshotAttributeName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SnapshotAttributeName -&gt; ByteStringBuilder
 $cbuild :: SnapshotAttributeName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681150453"><span class="annot"><span class="annottext">HeaderName -&gt; SnapshotAttributeName -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681150462"><span class="annot"><span class="annottext">HeaderName -&gt; SnapshotAttributeName -&gt; [Header]
 (HeaderName -&gt; SnapshotAttributeName -&gt; [Header])
 -&gt; ToHeader SnapshotAttributeName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SnapshotAttributeName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SnapshotAttributeName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681150450"><span class="annot"><span class="annottext">SnapshotAttributeName -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681150459"><span class="annot"><span class="annottext">SnapshotAttributeName -&gt; QueryString
 (SnapshotAttributeName -&gt; QueryString)
 -&gt; ToQuery SnapshotAttributeName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SnapshotAttributeName -&gt; QueryString
 $ctoQuery :: SnapshotAttributeName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681150445"><span id="local-6989586621681150447"><span class="annot"><span class="annottext">Value -&gt; Parser [SnapshotAttributeName]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681150454"><span id="local-6989586621681150456"><span class="annot"><span class="annottext">Value -&gt; Parser [SnapshotAttributeName]
 Value -&gt; Parser SnapshotAttributeName
 (Value -&gt; Parser SnapshotAttributeName)
 -&gt; (Value -&gt; Parser [SnapshotAttributeName])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [SnapshotAttributeName]
 parseJSON :: Value -&gt; Parser SnapshotAttributeName
 $cparseJSON :: Value -&gt; Parser SnapshotAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681150440"><span id="local-6989586621681150442"><span class="annot"><span class="annottext">FromJSONKeyFunction [SnapshotAttributeName]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681150449"><span id="local-6989586621681150451"><span class="annot"><span class="annottext">FromJSONKeyFunction [SnapshotAttributeName]
 FromJSONKeyFunction SnapshotAttributeName
 FromJSONKeyFunction SnapshotAttributeName
 -&gt; FromJSONKeyFunction [SnapshotAttributeName]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SnapshotAttributeName]
 fromJSONKey :: FromJSONKeyFunction SnapshotAttributeName
 $cfromJSONKey :: FromJSONKeyFunction SnapshotAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681150431"><span id="local-6989586621681150433"><span id="local-6989586621681150435"><span id="local-6989586621681150437"><span class="annot"><span class="annottext">[SnapshotAttributeName] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681150440"><span id="local-6989586621681150442"><span id="local-6989586621681150444"><span id="local-6989586621681150446"><span class="annot"><span class="annottext">[SnapshotAttributeName] -&gt; Encoding
 [SnapshotAttributeName] -&gt; Value
 SnapshotAttributeName -&gt; Encoding
 SnapshotAttributeName -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: SnapshotAttributeName -&gt; Encoding
 toJSON :: SnapshotAttributeName -&gt; Value
 $ctoJSON :: SnapshotAttributeName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681150426"><span id="local-6989586621681150428"><span class="annot"><span class="annottext">ToJSONKeyFunction [SnapshotAttributeName]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681150435"><span id="local-6989586621681150437"><span class="annot"><span class="annottext">ToJSONKeyFunction [SnapshotAttributeName]
 ToJSONKeyFunction SnapshotAttributeName
 ToJSONKeyFunction SnapshotAttributeName
 -&gt; ToJSONKeyFunction [SnapshotAttributeName]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SnapshotAttributeName]
 toJSONKey :: ToJSONKeyFunction SnapshotAttributeName
 $ctoJSONKey :: ToJSONKeyFunction SnapshotAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681150423"><span class="annot"><span class="annottext">[Node] -&gt; Either String SnapshotAttributeName
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681150432"><span class="annot"><span class="annottext">[Node] -&gt; Either String SnapshotAttributeName
 ([Node] -&gt; Either String SnapshotAttributeName)
 -&gt; FromXML SnapshotAttributeName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SnapshotAttributeName
 $cparseXML :: [Node] -&gt; Either String SnapshotAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681150420"><span class="annot"><span class="annottext">SnapshotAttributeName -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681150429"><span class="annot"><span class="annottext">SnapshotAttributeName -&gt; XML
 (SnapshotAttributeName -&gt; XML) -&gt; ToXML SnapshotAttributeName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SnapshotAttributeName -&gt; XML

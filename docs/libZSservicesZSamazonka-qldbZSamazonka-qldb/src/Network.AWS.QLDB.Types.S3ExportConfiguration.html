@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- journal export job writes the journal contents.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newS3ExportConfiguration' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679183160"><span id="local-6989586621679183161"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3ExportConfiguration"><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-var">S3ExportConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ExportConfiguration%27"><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-var">S3ExportConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679183169"><span id="local-6989586621679183170"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3ExportConfiguration"><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-var">S3ExportConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ExportConfiguration%27"><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-var">S3ExportConfiguration'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon S3 bucket name in which a journal export job writes the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- journal contents.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AencryptionConfiguration%3AS3ExportConfiguration%27"><span class="annot"><span class="annottext">S3ExportConfiguration -&gt; S3EncryptionConfiguration
 </span><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#%24sel%3AencryptionConfiguration%3AS3ExportConfiguration%27"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3EncryptionConfiguration.html#S3EncryptionConfiguration"><span class="hs-identifier hs-type">S3EncryptionConfiguration</span></a></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183152"><span id="local-6989586621679183154"><span class="annot"><span class="annottext">S3ExportConfiguration -&gt; S3ExportConfiguration -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183161"><span id="local-6989586621679183163"><span class="annot"><span class="annottext">S3ExportConfiguration -&gt; S3ExportConfiguration -&gt; Bool
 (S3ExportConfiguration -&gt; S3ExportConfiguration -&gt; Bool)
 -&gt; (S3ExportConfiguration -&gt; S3ExportConfiguration -&gt; Bool)
 -&gt; Eq S3ExportConfiguration
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3ExportConfiguration -&gt; S3ExportConfiguration -&gt; Bool
 == :: S3ExportConfiguration -&gt; S3ExportConfiguration -&gt; Bool
 $c== :: S3ExportConfiguration -&gt; S3ExportConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183143"><span id="local-6989586621679183145"><span id="local-6989586621679183147"><span id="local-6989586621679183149"><span class="annot"><span class="annottext">ReadPrec [S3ExportConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183152"><span id="local-6989586621679183154"><span id="local-6989586621679183156"><span id="local-6989586621679183158"><span class="annot"><span class="annottext">ReadPrec [S3ExportConfiguration]
 ReadPrec S3ExportConfiguration
 Int -&gt; ReadS S3ExportConfiguration
 ReadS [S3ExportConfiguration]
@@ -89,7 +89,7 @@ readList :: ReadS [S3ExportConfiguration]
 $creadList :: ReadS [S3ExportConfiguration]
 readsPrec :: Int -&gt; ReadS S3ExportConfiguration
 $creadsPrec :: Int -&gt; ReadS S3ExportConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183136"><span id="local-6989586621679183138"><span id="local-6989586621679183140"><span class="annot"><span class="annottext">Int -&gt; S3ExportConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183145"><span id="local-6989586621679183147"><span id="local-6989586621679183149"><span class="annot"><span class="annottext">Int -&gt; S3ExportConfiguration -&gt; ShowS
 [S3ExportConfiguration] -&gt; ShowS
 S3ExportConfiguration -&gt; String
 (Int -&gt; S3ExportConfiguration -&gt; ShowS)
@@ -159,23 +159,23 @@ $cfrom :: forall x. S3ExportConfiguration -&gt; Rep S3ExportConfiguration x
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-type">S3ExportConfiguration</span></a></span><span>
 </span><span id="line-104"></span><span id="newS3ExportConfiguration"><span class="annot"><span class="annottext">newS3ExportConfiguration :: Text -&gt; Text -&gt; S3EncryptionConfiguration -&gt; S3ExportConfiguration
 </span><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#newS3ExportConfiguration"><span class="hs-identifier hs-var hs-var">newS3ExportConfiguration</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679183130"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183130"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679183129"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183129"><span class="hs-identifier hs-var">pPrefix_</span></a></span></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679183128"><span class="annot"><span class="annottext">S3EncryptionConfiguration
-</span><a href="#local-6989586621679183128"><span class="hs-identifier hs-var">pEncryptionConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679183139"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183139"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679183138"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183138"><span class="hs-identifier hs-var">pPrefix_</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679183137"><span class="annot"><span class="annottext">S3EncryptionConfiguration
+</span><a href="#local-6989586621679183137"><span class="hs-identifier hs-var">pEncryptionConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">S3ExportConfiguration' :: Text -&gt; Text -&gt; S3EncryptionConfiguration -&gt; S3ExportConfiguration
 </span><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-type">S3ExportConfiguration'</span></a></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bucket:S3ExportConfiguration' :: Text
 </span><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#%24sel%3Abucket%3AS3ExportConfiguration%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183130"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183139"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:prefix:S3ExportConfiguration' :: Text
 </span><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#%24sel%3Aprefix%3AS3ExportConfiguration%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183129"><span class="hs-identifier hs-var">pPrefix_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183138"><span class="hs-identifier hs-var">pPrefix_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:S3ExportConfiguration' :: S3EncryptionConfiguration
 </span><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#%24sel%3AencryptionConfiguration%3AS3ExportConfiguration%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3EncryptionConfiguration
-</span><a href="#local-6989586621679183128"><span class="hs-identifier hs-var">pEncryptionConfiguration_</span></a></span><span>
+</span><a href="#local-6989586621679183137"><span class="hs-identifier hs-var">pEncryptionConfiguration_</span></a></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The Amazon S3 bucket name in which a journal export job writes the</span><span>
@@ -192,16 +192,16 @@ $cfrom :: forall x. S3ExportConfiguration -&gt; Rep S3ExportConfiguration x
 -&gt; (S3ExportConfiguration -&gt; Text -&gt; S3ExportConfiguration)
 -&gt; Lens S3ExportConfiguration S3ExportConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-type">S3ExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183124"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-type">S3ExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183133"><span class="annot"><span class="annottext">Text
 bucket :: Text
 $sel:bucket:S3ExportConfiguration' :: S3ExportConfiguration -&gt; Text
-</span><a href="#local-6989586621679183124"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183124"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183123"><span class="annot"><span class="annottext">s :: S3ExportConfiguration
-</span><a href="#local-6989586621679183123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-type">S3ExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183122"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ExportConfiguration
-</span><a href="#local-6989586621679183123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:S3ExportConfiguration' :: Text
+</span><a href="#local-6989586621679183133"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183133"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183132"><span class="annot"><span class="annottext">s :: S3ExportConfiguration
+</span><a href="#local-6989586621679183132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-type">S3ExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183131"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ExportConfiguration
+</span><a href="#local-6989586621679183132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:S3ExportConfiguration' :: Text
 </span><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#%24sel%3Abucket%3AS3ExportConfiguration%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-type">S3ExportConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-type">S3ExportConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The prefix for the Amazon S3 bucket in which a journal export job writes</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- the journal contents.</span><span>
@@ -225,16 +225,16 @@ $sel:bucket:S3ExportConfiguration' :: S3ExportConfiguration -&gt; Text
 -&gt; (S3ExportConfiguration -&gt; Text -&gt; S3ExportConfiguration)
 -&gt; Lens S3ExportConfiguration S3ExportConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-type">S3ExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183120"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-type">S3ExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183129"><span class="annot"><span class="annottext">Text
 prefix :: Text
 $sel:prefix:S3ExportConfiguration' :: S3ExportConfiguration -&gt; Text
-</span><a href="#local-6989586621679183120"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183120"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183119"><span class="annot"><span class="annottext">s :: S3ExportConfiguration
-</span><a href="#local-6989586621679183119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-type">S3ExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183118"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ExportConfiguration
-</span><a href="#local-6989586621679183119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:S3ExportConfiguration' :: Text
+</span><a href="#local-6989586621679183129"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183129"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183128"><span class="annot"><span class="annottext">s :: S3ExportConfiguration
+</span><a href="#local-6989586621679183128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-type">S3ExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183127"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ExportConfiguration
+</span><a href="#local-6989586621679183128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:S3ExportConfiguration' :: Text
 </span><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#%24sel%3Aprefix%3AS3ExportConfiguration%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-type">S3ExportConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-type">S3ExportConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The encryption settings that are used by a journal export job to write</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- data in an Amazon S3 bucket.</span><span>
@@ -250,19 +250,19 @@ $sel:prefix:S3ExportConfiguration' :: S3ExportConfiguration -&gt; Text
      S3EncryptionConfiguration
      S3EncryptionConfiguration
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-type">S3ExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183116"><span class="annot"><span class="annottext">S3EncryptionConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-type">S3ExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183125"><span class="annot"><span class="annottext">S3EncryptionConfiguration
 encryptionConfiguration :: S3EncryptionConfiguration
 $sel:encryptionConfiguration:S3ExportConfiguration' :: S3ExportConfiguration -&gt; S3EncryptionConfiguration
-</span><a href="#local-6989586621679183116"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3EncryptionConfiguration
-</span><a href="#local-6989586621679183116"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183115"><span class="annot"><span class="annottext">s :: S3ExportConfiguration
-</span><a href="#local-6989586621679183115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-type">S3ExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183114"><span class="annot"><span class="annottext">S3EncryptionConfiguration
-</span><a href="#local-6989586621679183114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ExportConfiguration
-</span><a href="#local-6989586621679183115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:S3ExportConfiguration' :: S3EncryptionConfiguration
+</span><a href="#local-6989586621679183125"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3EncryptionConfiguration
+</span><a href="#local-6989586621679183125"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183124"><span class="annot"><span class="annottext">s :: S3ExportConfiguration
+</span><a href="#local-6989586621679183124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-type">S3ExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183123"><span class="annot"><span class="annottext">S3EncryptionConfiguration
+</span><a href="#local-6989586621679183123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ExportConfiguration
+</span><a href="#local-6989586621679183124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:S3ExportConfiguration' :: S3EncryptionConfiguration
 </span><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#%24sel%3AencryptionConfiguration%3AS3ExportConfiguration%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3EncryptionConfiguration
-</span><a href="#local-6989586621679183114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-type">S3ExportConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679183123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-type">S3ExportConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183111"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-type">S3ExportConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679183109"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3ExportConfiguration
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183120"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-type">S3ExportConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679183118"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3ExportConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser S3ExportConfiguration)
@@ -272,8 +272,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;S3ExportConfiguration&quot;</span></span><span>
-</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183106"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183106"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183115"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679183115"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; S3EncryptionConfiguration -&gt; S3ExportConfiguration
 </span><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-var">S3ExportConfiguration'</span></a></span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Text
@@ -283,7 +283,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Text -&gt; S3EncryptionConfiguration -&gt; S3ExportConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679183115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Bucket&quot;</span></span><span class="hs-special">)</span><span>
@@ -292,7 +292,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (S3EncryptionConfiguration -&gt; S3ExportConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679183115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Prefix&quot;</span></span><span class="hs-special">)</span><span>
@@ -300,19 +300,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser S3EncryptionConfiguration -&gt; Parser S3ExportConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser S3EncryptionConfiguration
+</span><a href="#local-6989586621679183115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser S3EncryptionConfiguration
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncryptionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183100"><span id="local-6989586621679183102"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-type">S3ExportConfiguration</span></a></span></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183109"><span id="local-6989586621679183111"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-type">S3ExportConfiguration</span></a></span></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183097"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-type">S3ExportConfiguration</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183106"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-type">S3ExportConfiguration</span></a></span></span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183089"><span id="local-6989586621679183091"><span id="local-6989586621679183093"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-type">S3ExportConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679183087"><span class="annot"><span class="annottext">toJSON :: S3ExportConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-type">S3ExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183083"><span id="local-6989586621679183084"><span id="local-6989586621679183085"><span class="annot"><span class="annottext">Text
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183098"><span id="local-6989586621679183100"><span id="local-6989586621679183102"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration"><span class="hs-identifier hs-type">S3ExportConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679183096"><span class="annot"><span class="annottext">toJSON :: S3ExportConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.S3ExportConfiguration.html#S3ExportConfiguration%27"><span class="hs-identifier hs-type">S3ExportConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183092"><span id="local-6989586621679183093"><span id="local-6989586621679183094"><span class="annot"><span class="annottext">Text
 S3EncryptionConfiguration
 encryptionConfiguration :: S3EncryptionConfiguration
 prefix :: Text
@@ -320,7 +320,7 @@ bucket :: Text
 $sel:encryptionConfiguration:S3ExportConfiguration' :: S3ExportConfiguration -&gt; S3EncryptionConfiguration
 $sel:prefix:S3ExportConfiguration' :: S3ExportConfiguration -&gt; Text
 $sel:bucket:S3ExportConfiguration' :: S3ExportConfiguration -&gt; Text
-</span><a href="#local-6989586621679183083"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679183092"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -332,14 +332,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183085"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183094"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679183084"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679183093"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -348,7 +348,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-170"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; S3EncryptionConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">S3EncryptionConfiguration
-</span><a href="#local-6989586621679183083"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679183092"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span>
 </span><span id="line-171"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>

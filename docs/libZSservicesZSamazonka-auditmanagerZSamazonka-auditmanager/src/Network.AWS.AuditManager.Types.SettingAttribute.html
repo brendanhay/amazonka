@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AuditManager.Types.SettingAttribute</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AuditManager.Types.SettingAttribute</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute"><span class="hs-identifier">SettingAttribute</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute_ALL"><span class="hs-identifier">SettingAttribute_ALL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION"><span class="hs-identifier">SettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute_DEFAULT_PROCESS_OWNERS"><span class="hs-identifier">SettingAttribute_DEFAULT_PROCESS_OWNERS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute_IS_AWS_ORG_ENABLED"><span class="hs-identifier">SettingAttribute_IS_AWS_ORG_ENABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute_SNS_TOPIC"><span class="hs-identifier">SettingAttribute_SNS_TOPIC</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679296067"><span id="local-6989586621679296068"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SettingAttribute"><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute"><span class="hs-identifier hs-var">SettingAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SettingAttribute%27"><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute%27"><span class="hs-identifier hs-var">SettingAttribute'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSettingAttribute"><span class="annot"><span class="annottext">SettingAttribute -&gt; Text
+</span><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#fromSettingAttribute"><span class="hs-identifier hs-var hs-var">fromSettingAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679296059"><span id="local-6989586621679296061"><span id="local-6989586621679296063"><span class="annot"><span class="annottext">Int -&gt; SettingAttribute -&gt; ShowS
+[SettingAttribute] -&gt; ShowS
+SettingAttribute -&gt; String
+(Int -&gt; SettingAttribute -&gt; ShowS)
+-&gt; (SettingAttribute -&gt; String)
+-&gt; ([SettingAttribute] -&gt; ShowS)
+-&gt; Show SettingAttribute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SettingAttribute] -&gt; ShowS
+$cshowList :: [SettingAttribute] -&gt; ShowS
+show :: SettingAttribute -&gt; String
+$cshow :: SettingAttribute -&gt; String
+showsPrec :: Int -&gt; SettingAttribute -&gt; ShowS
+$cshowsPrec :: Int -&gt; SettingAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679296050"><span id="local-6989586621679296052"><span id="local-6989586621679296054"><span id="local-6989586621679296056"><span class="annot"><span class="annottext">ReadPrec [SettingAttribute]
+ReadPrec SettingAttribute
+Int -&gt; ReadS SettingAttribute
+ReadS [SettingAttribute]
+(Int -&gt; ReadS SettingAttribute)
+-&gt; ReadS [SettingAttribute]
+-&gt; ReadPrec SettingAttribute
+-&gt; ReadPrec [SettingAttribute]
+-&gt; Read SettingAttribute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SettingAttribute]
+$creadListPrec :: ReadPrec [SettingAttribute]
+readPrec :: ReadPrec SettingAttribute
+$creadPrec :: ReadPrec SettingAttribute
+readList :: ReadS [SettingAttribute]
+$creadList :: ReadS [SettingAttribute]
+readsPrec :: Int -&gt; ReadS SettingAttribute
+$creadsPrec :: Int -&gt; ReadS SettingAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679296045"><span id="local-6989586621679296047"><span class="annot"><span class="annottext">SettingAttribute -&gt; SettingAttribute -&gt; Bool
+(SettingAttribute -&gt; SettingAttribute -&gt; Bool)
+-&gt; (SettingAttribute -&gt; SettingAttribute -&gt; Bool)
+-&gt; Eq SettingAttribute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SettingAttribute -&gt; SettingAttribute -&gt; Bool
+$c/= :: SettingAttribute -&gt; SettingAttribute -&gt; Bool
+== :: SettingAttribute -&gt; SettingAttribute -&gt; Bool
+$c== :: SettingAttribute -&gt; SettingAttribute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679296029"><span id="local-6989586621679296031"><span id="local-6989586621679296033"><span id="local-6989586621679296035"><span id="local-6989586621679296037"><span id="local-6989586621679296039"><span id="local-6989586621679296041"><span class="annot"><span class="annottext">Eq SettingAttribute
+Eq SettingAttribute
+-&gt; (SettingAttribute -&gt; SettingAttribute -&gt; Ordering)
+-&gt; (SettingAttribute -&gt; SettingAttribute -&gt; Bool)
+-&gt; (SettingAttribute -&gt; SettingAttribute -&gt; Bool)
+-&gt; (SettingAttribute -&gt; SettingAttribute -&gt; Bool)
+-&gt; (SettingAttribute -&gt; SettingAttribute -&gt; Bool)
+-&gt; (SettingAttribute -&gt; SettingAttribute -&gt; SettingAttribute)
+-&gt; (SettingAttribute -&gt; SettingAttribute -&gt; SettingAttribute)
+-&gt; Ord SettingAttribute
+SettingAttribute -&gt; SettingAttribute -&gt; Bool
+SettingAttribute -&gt; SettingAttribute -&gt; Ordering
+SettingAttribute -&gt; SettingAttribute -&gt; SettingAttribute
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SettingAttribute -&gt; SettingAttribute -&gt; SettingAttribute
+$cmin :: SettingAttribute -&gt; SettingAttribute -&gt; SettingAttribute
+max :: SettingAttribute -&gt; SettingAttribute -&gt; SettingAttribute
+$cmax :: SettingAttribute -&gt; SettingAttribute -&gt; SettingAttribute
+&gt;= :: SettingAttribute -&gt; SettingAttribute -&gt; Bool
+$c&gt;= :: SettingAttribute -&gt; SettingAttribute -&gt; Bool
+&gt; :: SettingAttribute -&gt; SettingAttribute -&gt; Bool
+$c&gt; :: SettingAttribute -&gt; SettingAttribute -&gt; Bool
+&lt;= :: SettingAttribute -&gt; SettingAttribute -&gt; Bool
+$c&lt;= :: SettingAttribute -&gt; SettingAttribute -&gt; Bool
+&lt; :: SettingAttribute -&gt; SettingAttribute -&gt; Bool
+$c&lt; :: SettingAttribute -&gt; SettingAttribute -&gt; Bool
+compare :: SettingAttribute -&gt; SettingAttribute -&gt; Ordering
+$ccompare :: SettingAttribute -&gt; SettingAttribute -&gt; Ordering
+$cp1Ord :: Eq SettingAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SettingAttribute -&gt; Rep SettingAttribute x)
+-&gt; (forall x. Rep SettingAttribute x -&gt; SettingAttribute)
+-&gt; Generic SettingAttribute
+forall x. Rep SettingAttribute x -&gt; SettingAttribute
+forall x. SettingAttribute -&gt; Rep SettingAttribute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SettingAttribute x -&gt; SettingAttribute
+$cfrom :: forall x. SettingAttribute -&gt; Rep SettingAttribute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679296021"><span id="local-6989586621679296023"><span class="annot"><span class="annottext">Int -&gt; SettingAttribute -&gt; Int
+SettingAttribute -&gt; Int
+(Int -&gt; SettingAttribute -&gt; Int)
+-&gt; (SettingAttribute -&gt; Int) -&gt; Hashable SettingAttribute
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SettingAttribute -&gt; Int
+$chash :: SettingAttribute -&gt; Int
+hashWithSalt :: Int -&gt; SettingAttribute -&gt; Int
+$chashWithSalt :: Int -&gt; SettingAttribute -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679296018"><span class="annot"><span class="annottext">SettingAttribute -&gt; ()
+(SettingAttribute -&gt; ()) -&gt; NFData SettingAttribute
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SettingAttribute -&gt; ()
+$crnf :: SettingAttribute -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679296015"><span class="annot"><span class="annottext">Text -&gt; Either String SettingAttribute
+(Text -&gt; Either String SettingAttribute)
+-&gt; FromText SettingAttribute
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SettingAttribute
+$cfromText :: Text -&gt; Either String SettingAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679296012"><span class="annot"><span class="annottext">SettingAttribute -&gt; Text
+(SettingAttribute -&gt; Text) -&gt; ToText SettingAttribute
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SettingAttribute -&gt; Text
+$ctoText :: SettingAttribute -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679296009"><span class="annot"><span class="annottext">SettingAttribute -&gt; ByteString
+(SettingAttribute -&gt; ByteString) -&gt; ToByteString SettingAttribute
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SettingAttribute -&gt; ByteString
+$ctoBS :: SettingAttribute -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679296006"><span class="annot"><span class="annottext">SettingAttribute -&gt; ByteStringBuilder
+(SettingAttribute -&gt; ByteStringBuilder) -&gt; ToLog SettingAttribute
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SettingAttribute -&gt; ByteStringBuilder
+$cbuild :: SettingAttribute -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679296003"><span class="annot"><span class="annottext">HeaderName -&gt; SettingAttribute -&gt; [Header]
+(HeaderName -&gt; SettingAttribute -&gt; [Header])
+-&gt; ToHeader SettingAttribute
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SettingAttribute -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SettingAttribute -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679296000"><span class="annot"><span class="annottext">SettingAttribute -&gt; QueryString
+(SettingAttribute -&gt; QueryString) -&gt; ToQuery SettingAttribute
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SettingAttribute -&gt; QueryString
+$ctoQuery :: SettingAttribute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295995"><span id="local-6989586621679295997"><span class="annot"><span class="annottext">Value -&gt; Parser [SettingAttribute]
+Value -&gt; Parser SettingAttribute
+(Value -&gt; Parser SettingAttribute)
+-&gt; (Value -&gt; Parser [SettingAttribute])
+-&gt; FromJSON SettingAttribute
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SettingAttribute]
+$cparseJSONList :: Value -&gt; Parser [SettingAttribute]
+parseJSON :: Value -&gt; Parser SettingAttribute
+$cparseJSON :: Value -&gt; Parser SettingAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295990"><span id="local-6989586621679295992"><span class="annot"><span class="annottext">FromJSONKeyFunction [SettingAttribute]
+FromJSONKeyFunction SettingAttribute
+FromJSONKeyFunction SettingAttribute
+-&gt; FromJSONKeyFunction [SettingAttribute]
+-&gt; FromJSONKey SettingAttribute
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SettingAttribute]
+$cfromJSONKeyList :: FromJSONKeyFunction [SettingAttribute]
+fromJSONKey :: FromJSONKeyFunction SettingAttribute
+$cfromJSONKey :: FromJSONKeyFunction SettingAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295981"><span id="local-6989586621679295983"><span id="local-6989586621679295985"><span id="local-6989586621679295987"><span class="annot"><span class="annottext">[SettingAttribute] -&gt; Encoding
+[SettingAttribute] -&gt; Value
+SettingAttribute -&gt; Encoding
+SettingAttribute -&gt; Value
+(SettingAttribute -&gt; Value)
+-&gt; (SettingAttribute -&gt; Encoding)
+-&gt; ([SettingAttribute] -&gt; Value)
+-&gt; ([SettingAttribute] -&gt; Encoding)
+-&gt; ToJSON SettingAttribute
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SettingAttribute] -&gt; Encoding
+$ctoEncodingList :: [SettingAttribute] -&gt; Encoding
+toJSONList :: [SettingAttribute] -&gt; Value
+$ctoJSONList :: [SettingAttribute] -&gt; Value
+toEncoding :: SettingAttribute -&gt; Encoding
+$ctoEncoding :: SettingAttribute -&gt; Encoding
+toJSON :: SettingAttribute -&gt; Value
+$ctoJSON :: SettingAttribute -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679295976"><span id="local-6989586621679295978"><span class="annot"><span class="annottext">ToJSONKeyFunction [SettingAttribute]
+ToJSONKeyFunction SettingAttribute
+ToJSONKeyFunction SettingAttribute
+-&gt; ToJSONKeyFunction [SettingAttribute]
+-&gt; ToJSONKey SettingAttribute
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SettingAttribute]
+$ctoJSONKeyList :: ToJSONKeyFunction [SettingAttribute]
+toJSONKey :: ToJSONKeyFunction SettingAttribute
+$ctoJSONKey :: ToJSONKeyFunction SettingAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679295973"><span class="annot"><span class="annottext">[Node] -&gt; Either String SettingAttribute
+([Node] -&gt; Either String SettingAttribute)
+-&gt; FromXML SettingAttribute
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SettingAttribute
+$cparseXML :: [Node] -&gt; Either String SettingAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679295970"><span class="annot"><span class="annottext">SettingAttribute -&gt; XML
+(SettingAttribute -&gt; XML) -&gt; ToXML SettingAttribute
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SettingAttribute -&gt; XML
+$ctoXML :: SettingAttribute -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute_ALL"><span class="hs-identifier hs-type">SettingAttribute_ALL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute"><span class="hs-identifier hs-type">SettingAttribute</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSettingAttribute_ALL"><span id="%24mSettingAttribute_ALL"><span id="SettingAttribute_ALL"><span class="annot"><span class="annottext">$bSettingAttribute_ALL :: SettingAttribute
+$mSettingAttribute_ALL :: forall r. SettingAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#%24bSettingAttribute_ALL"><span class="hs-identifier hs-var hs-var hs-var">SettingAttribute_ALL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute%27"><span class="hs-identifier hs-type">SettingAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALL&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION"><span class="hs-identifier hs-type">SettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute"><span class="hs-identifier hs-type">SettingAttribute</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION"><span id="%24mSettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION"><span id="SettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION"><span class="annot"><span class="annottext">$bSettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION :: SettingAttribute
+$mSettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION :: forall r. SettingAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#%24bSettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION"><span class="hs-identifier hs-var hs-var hs-var">SettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute%27"><span class="hs-identifier hs-type">SettingAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEFAULT_ASSESSMENT_REPORTS_DESTINATION&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute_DEFAULT_PROCESS_OWNERS"><span class="hs-identifier hs-type">SettingAttribute_DEFAULT_PROCESS_OWNERS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute"><span class="hs-identifier hs-type">SettingAttribute</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSettingAttribute_DEFAULT_PROCESS_OWNERS"><span id="%24mSettingAttribute_DEFAULT_PROCESS_OWNERS"><span id="SettingAttribute_DEFAULT_PROCESS_OWNERS"><span class="annot"><span class="annottext">$bSettingAttribute_DEFAULT_PROCESS_OWNERS :: SettingAttribute
+$mSettingAttribute_DEFAULT_PROCESS_OWNERS :: forall r. SettingAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#%24bSettingAttribute_DEFAULT_PROCESS_OWNERS"><span class="hs-identifier hs-var hs-var hs-var">SettingAttribute_DEFAULT_PROCESS_OWNERS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute%27"><span class="hs-identifier hs-type">SettingAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEFAULT_PROCESS_OWNERS&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute_IS_AWS_ORG_ENABLED"><span class="hs-identifier hs-type">SettingAttribute_IS_AWS_ORG_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute"><span class="hs-identifier hs-type">SettingAttribute</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSettingAttribute_IS_AWS_ORG_ENABLED"><span id="%24mSettingAttribute_IS_AWS_ORG_ENABLED"><span id="SettingAttribute_IS_AWS_ORG_ENABLED"><span class="annot"><span class="annottext">$bSettingAttribute_IS_AWS_ORG_ENABLED :: SettingAttribute
+$mSettingAttribute_IS_AWS_ORG_ENABLED :: forall r. SettingAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#%24bSettingAttribute_IS_AWS_ORG_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">SettingAttribute_IS_AWS_ORG_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute%27"><span class="hs-identifier hs-type">SettingAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IS_AWS_ORG_ENABLED&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute_SNS_TOPIC"><span class="hs-identifier hs-type">SettingAttribute_SNS_TOPIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute"><span class="hs-identifier hs-type">SettingAttribute</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSettingAttribute_SNS_TOPIC"><span id="%24mSettingAttribute_SNS_TOPIC"><span id="SettingAttribute_SNS_TOPIC"><span class="annot"><span class="annottext">$bSettingAttribute_SNS_TOPIC :: SettingAttribute
+$mSettingAttribute_SNS_TOPIC :: forall r. SettingAttribute -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#%24bSettingAttribute_SNS_TOPIC"><span class="hs-identifier hs-var hs-var hs-var">SettingAttribute_SNS_TOPIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute%27"><span class="hs-identifier hs-type">SettingAttribute'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SNS_TOPIC&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute_ALL"><span class="hs-pragma hs-type">SettingAttribute_ALL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION"><span class="hs-pragma hs-type">SettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute_DEFAULT_PROCESS_OWNERS"><span class="hs-pragma hs-type">SettingAttribute_DEFAULT_PROCESS_OWNERS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute_IS_AWS_ORG_ENABLED"><span class="hs-pragma hs-type">SettingAttribute_IS_AWS_ORG_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute_SNS_TOPIC"><span class="hs-pragma hs-type">SettingAttribute_SNS_TOPIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SettingAttribute.html#SettingAttribute%27"><span class="hs-pragma hs-type">SettingAttribute'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

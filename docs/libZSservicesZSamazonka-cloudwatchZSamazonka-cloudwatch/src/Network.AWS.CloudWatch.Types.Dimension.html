@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- new variation of that metric.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDimension' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679253939"><span id="local-6989586621679253940"></span></span><span class="hs-keyword">data</span><span> </span><span id="Dimension"><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-var">Dimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Dimension%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-var">Dimension'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679253948"><span id="local-6989586621679253949"></span></span><span class="hs-keyword">data</span><span> </span><span id="Dimension"><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-var">Dimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Dimension%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-var">Dimension'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the dimension. Dimension names must contain only ASCII</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- characters and must include at least one non-whitespace character.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aname%3ADimension%27"><span class="annot"><span class="annottext">Dimension -&gt; Text
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Avalue%3ADimension%27"><span class="annot"><span class="annottext">Dimension -&gt; Text
 </span><a href="Network.AWS.CloudWatch.Types.Dimension.html#%24sel%3Avalue%3ADimension%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253932"><span id="local-6989586621679253934"><span class="annot"><span class="annottext">Dimension -&gt; Dimension -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253941"><span id="local-6989586621679253943"><span class="annot"><span class="annottext">Dimension -&gt; Dimension -&gt; Bool
 (Dimension -&gt; Dimension -&gt; Bool)
 -&gt; (Dimension -&gt; Dimension -&gt; Bool) -&gt; Eq Dimension
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Dimension -&gt; Dimension -&gt; Bool
 == :: Dimension -&gt; Dimension -&gt; Bool
 $c== :: Dimension -&gt; Dimension -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253923"><span id="local-6989586621679253925"><span id="local-6989586621679253927"><span id="local-6989586621679253929"><span class="annot"><span class="annottext">ReadPrec [Dimension]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253932"><span id="local-6989586621679253934"><span id="local-6989586621679253936"><span id="local-6989586621679253938"><span class="annot"><span class="annottext">ReadPrec [Dimension]
 ReadPrec Dimension
 Int -&gt; ReadS Dimension
 ReadS [Dimension]
@@ -68,7 +68,7 @@ readList :: ReadS [Dimension]
 $creadList :: ReadS [Dimension]
 readsPrec :: Int -&gt; ReadS Dimension
 $creadsPrec :: Int -&gt; ReadS Dimension
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253916"><span id="local-6989586621679253918"><span id="local-6989586621679253920"><span class="annot"><span class="annottext">Int -&gt; Dimension -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253925"><span id="local-6989586621679253927"><span id="local-6989586621679253929"><span class="annot"><span class="annottext">Int -&gt; Dimension -&gt; ShowS
 [Dimension] -&gt; ShowS
 Dimension -&gt; String
 (Int -&gt; Dimension -&gt; ShowS)
@@ -113,15 +113,15 @@ $cfrom :: forall x. Dimension -&gt; Rep Dimension x
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span>
 </span><span id="line-62"></span><span id="newDimension"><span class="annot"><span class="annottext">newDimension :: Text -&gt; Text -&gt; Dimension
-</span><a href="Network.AWS.CloudWatch.Types.Dimension.html#newDimension"><span class="hs-identifier hs-var hs-var">newDimension</span></a></span></span><span> </span><span id="local-6989586621679253910"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253910"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679253909"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253909"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatch.Types.Dimension.html#newDimension"><span class="hs-identifier hs-var hs-var">newDimension</span></a></span></span><span> </span><span id="local-6989586621679253919"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253919"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679253918"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253918"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">Dimension' :: Text -&gt; Text -&gt; Dimension
 </span><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Dimension' :: Text
 </span><a href="Network.AWS.CloudWatch.Types.Dimension.html#%24sel%3Aname%3ADimension%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253910"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:Dimension' :: Text
+</span><a href="#local-6989586621679253919"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:Dimension' :: Text
 </span><a href="Network.AWS.CloudWatch.Types.Dimension.html#%24sel%3Avalue%3ADimension%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253909"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679253918"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The name of the dimension. Dimension names must contain only ASCII</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- characters and must include at least one non-whitespace character.</span><span>
@@ -131,16 +131,16 @@ $cfrom :: forall x. Dimension -&gt; Rep Dimension x
 -&gt; (Dimension -&gt; Text -&gt; Dimension)
 -&gt; Lens Dimension Dimension Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253905"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253914"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:Dimension' :: Dimension -&gt; Text
-</span><a href="#local-6989586621679253905"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253905"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253904"><span class="annot"><span class="annottext">s :: Dimension
-</span><a href="#local-6989586621679253904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253903"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dimension
-</span><a href="#local-6989586621679253904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Dimension' :: Text
+</span><a href="#local-6989586621679253914"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253914"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253913"><span class="annot"><span class="annottext">s :: Dimension
+</span><a href="#local-6989586621679253913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253912"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dimension
+</span><a href="#local-6989586621679253913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Dimension' :: Text
 </span><a href="Network.AWS.CloudWatch.Types.Dimension.html#%24sel%3Aname%3ADimension%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The value of the dimension. Dimension values must contain only ASCII</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- characters and must include at least one non-whitespace character.</span><span>
@@ -150,51 +150,51 @@ $sel:name:Dimension' :: Dimension -&gt; Text
 -&gt; (Dimension -&gt; Text -&gt; Dimension)
 -&gt; Lens Dimension Dimension Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253901"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253910"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:Dimension' :: Dimension -&gt; Text
-</span><a href="#local-6989586621679253901"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253901"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253900"><span class="annot"><span class="annottext">s :: Dimension
-</span><a href="#local-6989586621679253900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253899"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dimension
-</span><a href="#local-6989586621679253900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Dimension' :: Text
+</span><a href="#local-6989586621679253910"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253910"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253909"><span class="annot"><span class="annottext">s :: Dimension
+</span><a href="#local-6989586621679253909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253908"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dimension
+</span><a href="#local-6989586621679253909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Dimension' :: Text
 </span><a href="Network.AWS.CloudWatch.Types.Dimension.html#%24sel%3Avalue%3ADimension%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679253896"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Dimension
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679253894"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679253894"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679253905"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Dimension
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679253903"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679253903"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Dimension
 </span><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-var">Dimension'</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Dimension)
 -&gt; Either String Text -&gt; Either String (Text -&gt; Dimension)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679253894"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679253903"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Text -&gt; Dimension)
 -&gt; Either String Text -&gt; Either String Dimension
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679253894"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679253903"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253888"><span id="local-6989586621679253890"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253897"><span id="local-6989586621679253899"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253885"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253894"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679253881"><span class="annot"><span class="annottext">toQuery :: Dimension -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253878"><span id="local-6989586621679253879"><span class="annot"><span class="annottext">Text
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679253890"><span class="annot"><span class="annottext">toQuery :: Dimension -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253887"><span id="local-6989586621679253888"><span class="annot"><span class="annottext">Text
 value :: Text
 name :: Text
 $sel:value:Dimension' :: Dimension -&gt; Text
 $sel:name:Dimension' :: Dimension -&gt; Text
-</span><a href="#local-6989586621679253878"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679253887"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -202,9 +202,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253879"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679253888"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253878"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679253887"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679399654"><span id="local-6989586621679399655"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OrganizationNodeType"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNodeType.html#OrganizationNodeType"><span class="hs-identifier hs-var">OrganizationNodeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationNodeType%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNodeType.html#OrganizationNodeType%27"><span class="hs-identifier hs-var">OrganizationNodeType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679399663"><span id="local-6989586621679399664"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OrganizationNodeType"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNodeType.html#OrganizationNodeType"><span class="hs-identifier hs-var">OrganizationNodeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationNodeType%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNodeType.html#OrganizationNodeType%27"><span class="hs-identifier hs-var">OrganizationNodeType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOrganizationNodeType"><span class="annot"><span class="annottext">OrganizationNodeType -&gt; Text
 </span><a href="Network.AWS.ServiceCatalog.Types.OrganizationNodeType.html#fromOrganizationNodeType"><span class="hs-identifier hs-var hs-var">fromOrganizationNodeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679399646"><span id="local-6989586621679399648"><span id="local-6989586621679399650"><span class="annot"><span class="annottext">Int -&gt; OrganizationNodeType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679399655"><span id="local-6989586621679399657"><span id="local-6989586621679399659"><span class="annot"><span class="annottext">Int -&gt; OrganizationNodeType -&gt; ShowS
 [OrganizationNodeType] -&gt; ShowS
 OrganizationNodeType -&gt; String
 (Int -&gt; OrganizationNodeType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: OrganizationNodeType -&gt; String
 showsPrec :: Int -&gt; OrganizationNodeType -&gt; ShowS
 $cshowsPrec :: Int -&gt; OrganizationNodeType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679399637"><span id="local-6989586621679399639"><span id="local-6989586621679399641"><span id="local-6989586621679399643"><span class="annot"><span class="annottext">ReadPrec [OrganizationNodeType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679399646"><span id="local-6989586621679399648"><span id="local-6989586621679399650"><span id="local-6989586621679399652"><span class="annot"><span class="annottext">ReadPrec [OrganizationNodeType]
 ReadPrec OrganizationNodeType
 Int -&gt; ReadS OrganizationNodeType
 ReadS [OrganizationNodeType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [OrganizationNodeType]
 readsPrec :: Int -&gt; ReadS OrganizationNodeType
 $creadsPrec :: Int -&gt; ReadS OrganizationNodeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679399632"><span id="local-6989586621679399634"><span class="annot"><span class="annottext">OrganizationNodeType -&gt; OrganizationNodeType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679399641"><span id="local-6989586621679399643"><span class="annot"><span class="annottext">OrganizationNodeType -&gt; OrganizationNodeType -&gt; Bool
 (OrganizationNodeType -&gt; OrganizationNodeType -&gt; Bool)
 -&gt; (OrganizationNodeType -&gt; OrganizationNodeType -&gt; Bool)
 -&gt; Eq OrganizationNodeType
@@ -83,7 +83,7 @@ $c/= :: OrganizationNodeType -&gt; OrganizationNodeType -&gt; Bool
 == :: OrganizationNodeType -&gt; OrganizationNodeType -&gt; Bool
 $c== :: OrganizationNodeType -&gt; OrganizationNodeType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679399616"><span id="local-6989586621679399618"><span id="local-6989586621679399620"><span id="local-6989586621679399622"><span id="local-6989586621679399624"><span id="local-6989586621679399626"><span id="local-6989586621679399628"><span class="annot"><span class="annottext">Eq OrganizationNodeType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679399625"><span id="local-6989586621679399627"><span id="local-6989586621679399629"><span id="local-6989586621679399631"><span id="local-6989586621679399633"><span id="local-6989586621679399635"><span id="local-6989586621679399637"><span class="annot"><span class="annottext">Eq OrganizationNodeType
 Eq OrganizationNodeType
 -&gt; (OrganizationNodeType -&gt; OrganizationNodeType -&gt; Ordering)
 -&gt; (OrganizationNodeType -&gt; OrganizationNodeType -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. OrganizationNodeType -&gt; Rep OrganizationNodeType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679399608"><span id="local-6989586621679399610"><span class="annot"><span class="annottext">Int -&gt; OrganizationNodeType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679399617"><span id="local-6989586621679399619"><span class="annot"><span class="annottext">Int -&gt; OrganizationNodeType -&gt; Int
 OrganizationNodeType -&gt; Int
 (Int -&gt; OrganizationNodeType -&gt; Int)
 -&gt; (OrganizationNodeType -&gt; Int) -&gt; Hashable OrganizationNodeType
@@ -151,54 +151,54 @@ $chash :: OrganizationNodeType -&gt; Int
 hashWithSalt :: Int -&gt; OrganizationNodeType -&gt; Int
 $chashWithSalt :: Int -&gt; OrganizationNodeType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679399605"><span class="annot"><span class="annottext">OrganizationNodeType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679399614"><span class="annot"><span class="annottext">OrganizationNodeType -&gt; ()
 (OrganizationNodeType -&gt; ()) -&gt; NFData OrganizationNodeType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OrganizationNodeType -&gt; ()
 $crnf :: OrganizationNodeType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679399602"><span class="annot"><span class="annottext">Text -&gt; Either String OrganizationNodeType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679399611"><span class="annot"><span class="annottext">Text -&gt; Either String OrganizationNodeType
 (Text -&gt; Either String OrganizationNodeType)
 -&gt; FromText OrganizationNodeType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OrganizationNodeType
 $cfromText :: Text -&gt; Either String OrganizationNodeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679399599"><span class="annot"><span class="annottext">OrganizationNodeType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679399608"><span class="annot"><span class="annottext">OrganizationNodeType -&gt; Text
 (OrganizationNodeType -&gt; Text) -&gt; ToText OrganizationNodeType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OrganizationNodeType -&gt; Text
 $ctoText :: OrganizationNodeType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679399596"><span class="annot"><span class="annottext">OrganizationNodeType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679399605"><span class="annot"><span class="annottext">OrganizationNodeType -&gt; ByteString
 (OrganizationNodeType -&gt; ByteString)
 -&gt; ToByteString OrganizationNodeType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OrganizationNodeType -&gt; ByteString
 $ctoBS :: OrganizationNodeType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679399593"><span class="annot"><span class="annottext">OrganizationNodeType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679399602"><span class="annot"><span class="annottext">OrganizationNodeType -&gt; ByteStringBuilder
 (OrganizationNodeType -&gt; ByteStringBuilder)
 -&gt; ToLog OrganizationNodeType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OrganizationNodeType -&gt; ByteStringBuilder
 $cbuild :: OrganizationNodeType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679399590"><span class="annot"><span class="annottext">HeaderName -&gt; OrganizationNodeType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679399599"><span class="annot"><span class="annottext">HeaderName -&gt; OrganizationNodeType -&gt; [Header]
 (HeaderName -&gt; OrganizationNodeType -&gt; [Header])
 -&gt; ToHeader OrganizationNodeType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OrganizationNodeType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OrganizationNodeType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679399587"><span class="annot"><span class="annottext">OrganizationNodeType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679399596"><span class="annot"><span class="annottext">OrganizationNodeType -&gt; QueryString
 (OrganizationNodeType -&gt; QueryString)
 -&gt; ToQuery OrganizationNodeType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OrganizationNodeType -&gt; QueryString
 $ctoQuery :: OrganizationNodeType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679399582"><span id="local-6989586621679399584"><span class="annot"><span class="annottext">Value -&gt; Parser [OrganizationNodeType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679399591"><span id="local-6989586621679399593"><span class="annot"><span class="annottext">Value -&gt; Parser [OrganizationNodeType]
 Value -&gt; Parser OrganizationNodeType
 (Value -&gt; Parser OrganizationNodeType)
 -&gt; (Value -&gt; Parser [OrganizationNodeType])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [OrganizationNodeType]
 parseJSON :: Value -&gt; Parser OrganizationNodeType
 $cparseJSON :: Value -&gt; Parser OrganizationNodeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679399577"><span id="local-6989586621679399579"><span class="annot"><span class="annottext">FromJSONKeyFunction [OrganizationNodeType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679399586"><span id="local-6989586621679399588"><span class="annot"><span class="annottext">FromJSONKeyFunction [OrganizationNodeType]
 FromJSONKeyFunction OrganizationNodeType
 FromJSONKeyFunction OrganizationNodeType
 -&gt; FromJSONKeyFunction [OrganizationNodeType]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OrganizationNodeType]
 fromJSONKey :: FromJSONKeyFunction OrganizationNodeType
 $cfromJSONKey :: FromJSONKeyFunction OrganizationNodeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679399568"><span id="local-6989586621679399570"><span id="local-6989586621679399572"><span id="local-6989586621679399574"><span class="annot"><span class="annottext">[OrganizationNodeType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679399577"><span id="local-6989586621679399579"><span id="local-6989586621679399581"><span id="local-6989586621679399583"><span class="annot"><span class="annottext">[OrganizationNodeType] -&gt; Encoding
 [OrganizationNodeType] -&gt; Value
 OrganizationNodeType -&gt; Encoding
 OrganizationNodeType -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: OrganizationNodeType -&gt; Encoding
 toJSON :: OrganizationNodeType -&gt; Value
 $ctoJSON :: OrganizationNodeType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679399563"><span id="local-6989586621679399565"><span class="annot"><span class="annottext">ToJSONKeyFunction [OrganizationNodeType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679399572"><span id="local-6989586621679399574"><span class="annot"><span class="annottext">ToJSONKeyFunction [OrganizationNodeType]
 ToJSONKeyFunction OrganizationNodeType
 ToJSONKeyFunction OrganizationNodeType
 -&gt; ToJSONKeyFunction [OrganizationNodeType]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OrganizationNodeType]
 toJSONKey :: ToJSONKeyFunction OrganizationNodeType
 $ctoJSONKey :: ToJSONKeyFunction OrganizationNodeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679399560"><span class="annot"><span class="annottext">[Node] -&gt; Either String OrganizationNodeType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679399569"><span class="annot"><span class="annottext">[Node] -&gt; Either String OrganizationNodeType
 ([Node] -&gt; Either String OrganizationNodeType)
 -&gt; FromXML OrganizationNodeType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OrganizationNodeType
 $cparseXML :: [Node] -&gt; Either String OrganizationNodeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679399557"><span class="annot"><span class="annottext">OrganizationNodeType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679399566"><span class="annot"><span class="annottext">OrganizationNodeType -&gt; XML
 (OrganizationNodeType -&gt; XML) -&gt; ToXML OrganizationNodeType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OrganizationNodeType -&gt; XML

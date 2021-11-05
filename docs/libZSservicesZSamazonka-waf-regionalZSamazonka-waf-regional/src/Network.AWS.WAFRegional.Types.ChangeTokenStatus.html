@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679302726"><span id="local-6989586621679302727"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChangeTokenStatus"><span class="annot"><a href="Network.AWS.WAFRegional.Types.ChangeTokenStatus.html#ChangeTokenStatus"><span class="hs-identifier hs-var">ChangeTokenStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeTokenStatus%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.ChangeTokenStatus.html#ChangeTokenStatus%27"><span class="hs-identifier hs-var">ChangeTokenStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679302735"><span id="local-6989586621679302736"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChangeTokenStatus"><span class="annot"><a href="Network.AWS.WAFRegional.Types.ChangeTokenStatus.html#ChangeTokenStatus"><span class="hs-identifier hs-var">ChangeTokenStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeTokenStatus%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.ChangeTokenStatus.html#ChangeTokenStatus%27"><span class="hs-identifier hs-var">ChangeTokenStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromChangeTokenStatus"><span class="annot"><span class="annottext">ChangeTokenStatus -&gt; Text
 </span><a href="Network.AWS.WAFRegional.Types.ChangeTokenStatus.html#fromChangeTokenStatus"><span class="hs-identifier hs-var hs-var">fromChangeTokenStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679302718"><span id="local-6989586621679302720"><span id="local-6989586621679302722"><span class="annot"><span class="annottext">Int -&gt; ChangeTokenStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679302727"><span id="local-6989586621679302729"><span id="local-6989586621679302731"><span class="annot"><span class="annottext">Int -&gt; ChangeTokenStatus -&gt; ShowS
 [ChangeTokenStatus] -&gt; ShowS
 ChangeTokenStatus -&gt; String
 (Int -&gt; ChangeTokenStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ChangeTokenStatus -&gt; String
 showsPrec :: Int -&gt; ChangeTokenStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ChangeTokenStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679302709"><span id="local-6989586621679302711"><span id="local-6989586621679302713"><span id="local-6989586621679302715"><span class="annot"><span class="annottext">ReadPrec [ChangeTokenStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679302718"><span id="local-6989586621679302720"><span id="local-6989586621679302722"><span id="local-6989586621679302724"><span class="annot"><span class="annottext">ReadPrec [ChangeTokenStatus]
 ReadPrec ChangeTokenStatus
 Int -&gt; ReadS ChangeTokenStatus
 ReadS [ChangeTokenStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ChangeTokenStatus]
 readsPrec :: Int -&gt; ReadS ChangeTokenStatus
 $creadsPrec :: Int -&gt; ReadS ChangeTokenStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679302704"><span id="local-6989586621679302706"><span class="annot"><span class="annottext">ChangeTokenStatus -&gt; ChangeTokenStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679302713"><span id="local-6989586621679302715"><span class="annot"><span class="annottext">ChangeTokenStatus -&gt; ChangeTokenStatus -&gt; Bool
 (ChangeTokenStatus -&gt; ChangeTokenStatus -&gt; Bool)
 -&gt; (ChangeTokenStatus -&gt; ChangeTokenStatus -&gt; Bool)
 -&gt; Eq ChangeTokenStatus
@@ -83,7 +83,7 @@ $c/= :: ChangeTokenStatus -&gt; ChangeTokenStatus -&gt; Bool
 == :: ChangeTokenStatus -&gt; ChangeTokenStatus -&gt; Bool
 $c== :: ChangeTokenStatus -&gt; ChangeTokenStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679302688"><span id="local-6989586621679302690"><span id="local-6989586621679302692"><span id="local-6989586621679302694"><span id="local-6989586621679302696"><span id="local-6989586621679302698"><span id="local-6989586621679302700"><span class="annot"><span class="annottext">Eq ChangeTokenStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679302697"><span id="local-6989586621679302699"><span id="local-6989586621679302701"><span id="local-6989586621679302703"><span id="local-6989586621679302705"><span id="local-6989586621679302707"><span id="local-6989586621679302709"><span class="annot"><span class="annottext">Eq ChangeTokenStatus
 Eq ChangeTokenStatus
 -&gt; (ChangeTokenStatus -&gt; ChangeTokenStatus -&gt; Ordering)
 -&gt; (ChangeTokenStatus -&gt; ChangeTokenStatus -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ChangeTokenStatus -&gt; Rep ChangeTokenStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679302680"><span id="local-6989586621679302682"><span class="annot"><span class="annottext">Int -&gt; ChangeTokenStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679302689"><span id="local-6989586621679302691"><span class="annot"><span class="annottext">Int -&gt; ChangeTokenStatus -&gt; Int
 ChangeTokenStatus -&gt; Int
 (Int -&gt; ChangeTokenStatus -&gt; Int)
 -&gt; (ChangeTokenStatus -&gt; Int) -&gt; Hashable ChangeTokenStatus
@@ -144,51 +144,51 @@ $chash :: ChangeTokenStatus -&gt; Int
 hashWithSalt :: Int -&gt; ChangeTokenStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ChangeTokenStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679302677"><span class="annot"><span class="annottext">ChangeTokenStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679302686"><span class="annot"><span class="annottext">ChangeTokenStatus -&gt; ()
 (ChangeTokenStatus -&gt; ()) -&gt; NFData ChangeTokenStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ChangeTokenStatus -&gt; ()
 $crnf :: ChangeTokenStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679302674"><span class="annot"><span class="annottext">Text -&gt; Either String ChangeTokenStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679302683"><span class="annot"><span class="annottext">Text -&gt; Either String ChangeTokenStatus
 (Text -&gt; Either String ChangeTokenStatus)
 -&gt; FromText ChangeTokenStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ChangeTokenStatus
 $cfromText :: Text -&gt; Either String ChangeTokenStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679302671"><span class="annot"><span class="annottext">ChangeTokenStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679302680"><span class="annot"><span class="annottext">ChangeTokenStatus -&gt; Text
 (ChangeTokenStatus -&gt; Text) -&gt; ToText ChangeTokenStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ChangeTokenStatus -&gt; Text
 $ctoText :: ChangeTokenStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679302668"><span class="annot"><span class="annottext">ChangeTokenStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679302677"><span class="annot"><span class="annottext">ChangeTokenStatus -&gt; ByteString
 (ChangeTokenStatus -&gt; ByteString) -&gt; ToByteString ChangeTokenStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ChangeTokenStatus -&gt; ByteString
 $ctoBS :: ChangeTokenStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679302665"><span class="annot"><span class="annottext">ChangeTokenStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679302674"><span class="annot"><span class="annottext">ChangeTokenStatus -&gt; ByteStringBuilder
 (ChangeTokenStatus -&gt; ByteStringBuilder) -&gt; ToLog ChangeTokenStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ChangeTokenStatus -&gt; ByteStringBuilder
 $cbuild :: ChangeTokenStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679302662"><span class="annot"><span class="annottext">HeaderName -&gt; ChangeTokenStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679302671"><span class="annot"><span class="annottext">HeaderName -&gt; ChangeTokenStatus -&gt; [Header]
 (HeaderName -&gt; ChangeTokenStatus -&gt; [Header])
 -&gt; ToHeader ChangeTokenStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ChangeTokenStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ChangeTokenStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679302659"><span class="annot"><span class="annottext">ChangeTokenStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679302668"><span class="annot"><span class="annottext">ChangeTokenStatus -&gt; QueryString
 (ChangeTokenStatus -&gt; QueryString) -&gt; ToQuery ChangeTokenStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ChangeTokenStatus -&gt; QueryString
 $ctoQuery :: ChangeTokenStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679302654"><span id="local-6989586621679302656"><span class="annot"><span class="annottext">Value -&gt; Parser [ChangeTokenStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679302663"><span id="local-6989586621679302665"><span class="annot"><span class="annottext">Value -&gt; Parser [ChangeTokenStatus]
 Value -&gt; Parser ChangeTokenStatus
 (Value -&gt; Parser ChangeTokenStatus)
 -&gt; (Value -&gt; Parser [ChangeTokenStatus])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [ChangeTokenStatus]
 parseJSON :: Value -&gt; Parser ChangeTokenStatus
 $cparseJSON :: Value -&gt; Parser ChangeTokenStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679302649"><span id="local-6989586621679302651"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChangeTokenStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679302658"><span id="local-6989586621679302660"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChangeTokenStatus]
 FromJSONKeyFunction ChangeTokenStatus
 FromJSONKeyFunction ChangeTokenStatus
 -&gt; FromJSONKeyFunction [ChangeTokenStatus]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ChangeTokenStatus]
 fromJSONKey :: FromJSONKeyFunction ChangeTokenStatus
 $cfromJSONKey :: FromJSONKeyFunction ChangeTokenStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679302640"><span id="local-6989586621679302642"><span id="local-6989586621679302644"><span id="local-6989586621679302646"><span class="annot"><span class="annottext">[ChangeTokenStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679302649"><span id="local-6989586621679302651"><span id="local-6989586621679302653"><span id="local-6989586621679302655"><span class="annot"><span class="annottext">[ChangeTokenStatus] -&gt; Encoding
 [ChangeTokenStatus] -&gt; Value
 ChangeTokenStatus -&gt; Encoding
 ChangeTokenStatus -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: ChangeTokenStatus -&gt; Encoding
 toJSON :: ChangeTokenStatus -&gt; Value
 $ctoJSON :: ChangeTokenStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679302635"><span id="local-6989586621679302637"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChangeTokenStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679302644"><span id="local-6989586621679302646"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChangeTokenStatus]
 ToJSONKeyFunction ChangeTokenStatus
 ToJSONKeyFunction ChangeTokenStatus
 -&gt; ToJSONKeyFunction [ChangeTokenStatus]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ChangeTokenStatus]
 toJSONKey :: ToJSONKeyFunction ChangeTokenStatus
 $ctoJSONKey :: ToJSONKeyFunction ChangeTokenStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679302632"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChangeTokenStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679302641"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChangeTokenStatus
 ([Node] -&gt; Either String ChangeTokenStatus)
 -&gt; FromXML ChangeTokenStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ChangeTokenStatus
 $cparseXML :: [Node] -&gt; Either String ChangeTokenStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679302629"><span class="annot"><span class="annottext">ChangeTokenStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679302638"><span class="annot"><span class="annottext">ChangeTokenStatus -&gt; XML
 (ChangeTokenStatus -&gt; XML) -&gt; ToXML ChangeTokenStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ChangeTokenStatus -&gt; XML

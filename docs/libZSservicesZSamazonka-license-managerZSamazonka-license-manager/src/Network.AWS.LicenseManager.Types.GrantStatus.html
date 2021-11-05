@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.LicenseManager.Types.GrantStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LicenseManager.Types.GrantStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus"><span class="hs-identifier">GrantStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_ACTIVE"><span class="hs-identifier">GrantStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_DELETED"><span class="hs-identifier">GrantStatus_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_DISABLED"><span class="hs-identifier">GrantStatus_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_FAILED_WORKFLOW"><span class="hs-identifier">GrantStatus_FAILED_WORKFLOW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_PENDING_ACCEPT"><span class="hs-identifier">GrantStatus_PENDING_ACCEPT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_PENDING_DELETE"><span class="hs-identifier">GrantStatus_PENDING_DELETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_PENDING_WORKFLOW"><span class="hs-identifier">GrantStatus_PENDING_WORKFLOW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_REJECTED"><span class="hs-identifier">GrantStatus_REJECTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_WORKFLOW_COMPLETED"><span class="hs-identifier">GrantStatus_WORKFLOW_COMPLETED</span></a></span><span>
+</span><span id="line-32"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679297291"><span id="local-6989586621679297292"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GrantStatus"><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus"><span class="hs-identifier hs-var">GrantStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrantStatus%27"><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus%27"><span class="hs-identifier hs-var">GrantStatus'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGrantStatus"><span class="annot"><span class="annottext">GrantStatus -&gt; Text
+</span><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#fromGrantStatus"><span class="hs-identifier hs-var hs-var">fromGrantStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297283"><span id="local-6989586621679297285"><span id="local-6989586621679297287"><span class="annot"><span class="annottext">Int -&gt; GrantStatus -&gt; ShowS
+[GrantStatus] -&gt; ShowS
+GrantStatus -&gt; String
+(Int -&gt; GrantStatus -&gt; ShowS)
+-&gt; (GrantStatus -&gt; String)
+-&gt; ([GrantStatus] -&gt; ShowS)
+-&gt; Show GrantStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GrantStatus] -&gt; ShowS
+$cshowList :: [GrantStatus] -&gt; ShowS
+show :: GrantStatus -&gt; String
+$cshow :: GrantStatus -&gt; String
+showsPrec :: Int -&gt; GrantStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; GrantStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679297274"><span id="local-6989586621679297276"><span id="local-6989586621679297278"><span id="local-6989586621679297280"><span class="annot"><span class="annottext">ReadPrec [GrantStatus]
+ReadPrec GrantStatus
+Int -&gt; ReadS GrantStatus
+ReadS [GrantStatus]
+(Int -&gt; ReadS GrantStatus)
+-&gt; ReadS [GrantStatus]
+-&gt; ReadPrec GrantStatus
+-&gt; ReadPrec [GrantStatus]
+-&gt; Read GrantStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GrantStatus]
+$creadListPrec :: ReadPrec [GrantStatus]
+readPrec :: ReadPrec GrantStatus
+$creadPrec :: ReadPrec GrantStatus
+readList :: ReadS [GrantStatus]
+$creadList :: ReadS [GrantStatus]
+readsPrec :: Int -&gt; ReadS GrantStatus
+$creadsPrec :: Int -&gt; ReadS GrantStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679297269"><span id="local-6989586621679297271"><span class="annot"><span class="annottext">GrantStatus -&gt; GrantStatus -&gt; Bool
+(GrantStatus -&gt; GrantStatus -&gt; Bool)
+-&gt; (GrantStatus -&gt; GrantStatus -&gt; Bool) -&gt; Eq GrantStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GrantStatus -&gt; GrantStatus -&gt; Bool
+$c/= :: GrantStatus -&gt; GrantStatus -&gt; Bool
+== :: GrantStatus -&gt; GrantStatus -&gt; Bool
+$c== :: GrantStatus -&gt; GrantStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679297253"><span id="local-6989586621679297255"><span id="local-6989586621679297257"><span id="local-6989586621679297259"><span id="local-6989586621679297261"><span id="local-6989586621679297263"><span id="local-6989586621679297265"><span class="annot"><span class="annottext">Eq GrantStatus
+Eq GrantStatus
+-&gt; (GrantStatus -&gt; GrantStatus -&gt; Ordering)
+-&gt; (GrantStatus -&gt; GrantStatus -&gt; Bool)
+-&gt; (GrantStatus -&gt; GrantStatus -&gt; Bool)
+-&gt; (GrantStatus -&gt; GrantStatus -&gt; Bool)
+-&gt; (GrantStatus -&gt; GrantStatus -&gt; Bool)
+-&gt; (GrantStatus -&gt; GrantStatus -&gt; GrantStatus)
+-&gt; (GrantStatus -&gt; GrantStatus -&gt; GrantStatus)
+-&gt; Ord GrantStatus
+GrantStatus -&gt; GrantStatus -&gt; Bool
+GrantStatus -&gt; GrantStatus -&gt; Ordering
+GrantStatus -&gt; GrantStatus -&gt; GrantStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: GrantStatus -&gt; GrantStatus -&gt; GrantStatus
+$cmin :: GrantStatus -&gt; GrantStatus -&gt; GrantStatus
+max :: GrantStatus -&gt; GrantStatus -&gt; GrantStatus
+$cmax :: GrantStatus -&gt; GrantStatus -&gt; GrantStatus
+&gt;= :: GrantStatus -&gt; GrantStatus -&gt; Bool
+$c&gt;= :: GrantStatus -&gt; GrantStatus -&gt; Bool
+&gt; :: GrantStatus -&gt; GrantStatus -&gt; Bool
+$c&gt; :: GrantStatus -&gt; GrantStatus -&gt; Bool
+&lt;= :: GrantStatus -&gt; GrantStatus -&gt; Bool
+$c&lt;= :: GrantStatus -&gt; GrantStatus -&gt; Bool
+&lt; :: GrantStatus -&gt; GrantStatus -&gt; Bool
+$c&lt; :: GrantStatus -&gt; GrantStatus -&gt; Bool
+compare :: GrantStatus -&gt; GrantStatus -&gt; Ordering
+$ccompare :: GrantStatus -&gt; GrantStatus -&gt; Ordering
+$cp1Ord :: Eq GrantStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x. GrantStatus -&gt; Rep GrantStatus x)
+-&gt; (forall x. Rep GrantStatus x -&gt; GrantStatus)
+-&gt; Generic GrantStatus
+forall x. Rep GrantStatus x -&gt; GrantStatus
+forall x. GrantStatus -&gt; Rep GrantStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GrantStatus x -&gt; GrantStatus
+$cfrom :: forall x. GrantStatus -&gt; Rep GrantStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297245"><span id="local-6989586621679297247"><span class="annot"><span class="annottext">Int -&gt; GrantStatus -&gt; Int
+GrantStatus -&gt; Int
+(Int -&gt; GrantStatus -&gt; Int)
+-&gt; (GrantStatus -&gt; Int) -&gt; Hashable GrantStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: GrantStatus -&gt; Int
+$chash :: GrantStatus -&gt; Int
+hashWithSalt :: Int -&gt; GrantStatus -&gt; Int
+$chashWithSalt :: Int -&gt; GrantStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679297242"><span class="annot"><span class="annottext">GrantStatus -&gt; ()
+(GrantStatus -&gt; ()) -&gt; NFData GrantStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: GrantStatus -&gt; ()
+$crnf :: GrantStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679297239"><span class="annot"><span class="annottext">Text -&gt; Either String GrantStatus
+(Text -&gt; Either String GrantStatus) -&gt; FromText GrantStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String GrantStatus
+$cfromText :: Text -&gt; Either String GrantStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679297236"><span class="annot"><span class="annottext">GrantStatus -&gt; Text
+(GrantStatus -&gt; Text) -&gt; ToText GrantStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: GrantStatus -&gt; Text
+$ctoText :: GrantStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679297233"><span class="annot"><span class="annottext">GrantStatus -&gt; ByteString
+(GrantStatus -&gt; ByteString) -&gt; ToByteString GrantStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: GrantStatus -&gt; ByteString
+$ctoBS :: GrantStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679297230"><span class="annot"><span class="annottext">GrantStatus -&gt; ByteStringBuilder
+(GrantStatus -&gt; ByteStringBuilder) -&gt; ToLog GrantStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: GrantStatus -&gt; ByteStringBuilder
+$cbuild :: GrantStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679297227"><span class="annot"><span class="annottext">HeaderName -&gt; GrantStatus -&gt; [Header]
+(HeaderName -&gt; GrantStatus -&gt; [Header]) -&gt; ToHeader GrantStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; GrantStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; GrantStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679297224"><span class="annot"><span class="annottext">GrantStatus -&gt; QueryString
+(GrantStatus -&gt; QueryString) -&gt; ToQuery GrantStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: GrantStatus -&gt; QueryString
+$ctoQuery :: GrantStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679297219"><span id="local-6989586621679297221"><span class="annot"><span class="annottext">Value -&gt; Parser [GrantStatus]
+Value -&gt; Parser GrantStatus
+(Value -&gt; Parser GrantStatus)
+-&gt; (Value -&gt; Parser [GrantStatus]) -&gt; FromJSON GrantStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [GrantStatus]
+$cparseJSONList :: Value -&gt; Parser [GrantStatus]
+parseJSON :: Value -&gt; Parser GrantStatus
+$cparseJSON :: Value -&gt; Parser GrantStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679297214"><span id="local-6989586621679297216"><span class="annot"><span class="annottext">FromJSONKeyFunction [GrantStatus]
+FromJSONKeyFunction GrantStatus
+FromJSONKeyFunction GrantStatus
+-&gt; FromJSONKeyFunction [GrantStatus] -&gt; FromJSONKey GrantStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [GrantStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [GrantStatus]
+fromJSONKey :: FromJSONKeyFunction GrantStatus
+$cfromJSONKey :: FromJSONKeyFunction GrantStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679297205"><span id="local-6989586621679297207"><span id="local-6989586621679297209"><span id="local-6989586621679297211"><span class="annot"><span class="annottext">[GrantStatus] -&gt; Encoding
+[GrantStatus] -&gt; Value
+GrantStatus -&gt; Encoding
+GrantStatus -&gt; Value
+(GrantStatus -&gt; Value)
+-&gt; (GrantStatus -&gt; Encoding)
+-&gt; ([GrantStatus] -&gt; Value)
+-&gt; ([GrantStatus] -&gt; Encoding)
+-&gt; ToJSON GrantStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [GrantStatus] -&gt; Encoding
+$ctoEncodingList :: [GrantStatus] -&gt; Encoding
+toJSONList :: [GrantStatus] -&gt; Value
+$ctoJSONList :: [GrantStatus] -&gt; Value
+toEncoding :: GrantStatus -&gt; Encoding
+$ctoEncoding :: GrantStatus -&gt; Encoding
+toJSON :: GrantStatus -&gt; Value
+$ctoJSON :: GrantStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679297200"><span id="local-6989586621679297202"><span class="annot"><span class="annottext">ToJSONKeyFunction [GrantStatus]
+ToJSONKeyFunction GrantStatus
+ToJSONKeyFunction GrantStatus
+-&gt; ToJSONKeyFunction [GrantStatus] -&gt; ToJSONKey GrantStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [GrantStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [GrantStatus]
+toJSONKey :: ToJSONKeyFunction GrantStatus
+$ctoJSONKey :: ToJSONKeyFunction GrantStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679297197"><span class="annot"><span class="annottext">[Node] -&gt; Either String GrantStatus
+([Node] -&gt; Either String GrantStatus) -&gt; FromXML GrantStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String GrantStatus
+$cparseXML :: [Node] -&gt; Either String GrantStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679297194"><span class="annot"><span class="annottext">GrantStatus -&gt; XML
+(GrantStatus -&gt; XML) -&gt; ToXML GrantStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: GrantStatus -&gt; XML
+$ctoXML :: GrantStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_ACTIVE"><span class="hs-identifier hs-type">GrantStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus"><span class="hs-identifier hs-type">GrantStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantStatus_ACTIVE"><span id="%24mGrantStatus_ACTIVE"><span id="GrantStatus_ACTIVE"><span class="annot"><span class="annottext">$bGrantStatus_ACTIVE :: GrantStatus
+$mGrantStatus_ACTIVE :: forall r. GrantStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#%24bGrantStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">GrantStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus%27"><span class="hs-identifier hs-type">GrantStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_DELETED"><span class="hs-identifier hs-type">GrantStatus_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus"><span class="hs-identifier hs-type">GrantStatus</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantStatus_DELETED"><span id="%24mGrantStatus_DELETED"><span id="GrantStatus_DELETED"><span class="annot"><span class="annottext">$bGrantStatus_DELETED :: GrantStatus
+$mGrantStatus_DELETED :: forall r. GrantStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#%24bGrantStatus_DELETED"><span class="hs-identifier hs-var hs-var hs-var">GrantStatus_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus%27"><span class="hs-identifier hs-type">GrantStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_DISABLED"><span class="hs-identifier hs-type">GrantStatus_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus"><span class="hs-identifier hs-type">GrantStatus</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantStatus_DISABLED"><span id="%24mGrantStatus_DISABLED"><span id="GrantStatus_DISABLED"><span class="annot"><span class="annottext">$bGrantStatus_DISABLED :: GrantStatus
+$mGrantStatus_DISABLED :: forall r. GrantStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#%24bGrantStatus_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">GrantStatus_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus%27"><span class="hs-identifier hs-type">GrantStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_FAILED_WORKFLOW"><span class="hs-identifier hs-type">GrantStatus_FAILED_WORKFLOW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus"><span class="hs-identifier hs-type">GrantStatus</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantStatus_FAILED_WORKFLOW"><span id="%24mGrantStatus_FAILED_WORKFLOW"><span id="GrantStatus_FAILED_WORKFLOW"><span class="annot"><span class="annottext">$bGrantStatus_FAILED_WORKFLOW :: GrantStatus
+$mGrantStatus_FAILED_WORKFLOW :: forall r. GrantStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#%24bGrantStatus_FAILED_WORKFLOW"><span class="hs-identifier hs-var hs-var hs-var">GrantStatus_FAILED_WORKFLOW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus%27"><span class="hs-identifier hs-type">GrantStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED_WORKFLOW&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_PENDING_ACCEPT"><span class="hs-identifier hs-type">GrantStatus_PENDING_ACCEPT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus"><span class="hs-identifier hs-type">GrantStatus</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantStatus_PENDING_ACCEPT"><span id="%24mGrantStatus_PENDING_ACCEPT"><span id="GrantStatus_PENDING_ACCEPT"><span class="annot"><span class="annottext">$bGrantStatus_PENDING_ACCEPT :: GrantStatus
+$mGrantStatus_PENDING_ACCEPT :: forall r. GrantStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#%24bGrantStatus_PENDING_ACCEPT"><span class="hs-identifier hs-var hs-var hs-var">GrantStatus_PENDING_ACCEPT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus%27"><span class="hs-identifier hs-type">GrantStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING_ACCEPT&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_PENDING_DELETE"><span class="hs-identifier hs-type">GrantStatus_PENDING_DELETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus"><span class="hs-identifier hs-type">GrantStatus</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantStatus_PENDING_DELETE"><span id="%24mGrantStatus_PENDING_DELETE"><span id="GrantStatus_PENDING_DELETE"><span class="annot"><span class="annottext">$bGrantStatus_PENDING_DELETE :: GrantStatus
+$mGrantStatus_PENDING_DELETE :: forall r. GrantStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#%24bGrantStatus_PENDING_DELETE"><span class="hs-identifier hs-var hs-var hs-var">GrantStatus_PENDING_DELETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus%27"><span class="hs-identifier hs-type">GrantStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING_DELETE&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_PENDING_WORKFLOW"><span class="hs-identifier hs-type">GrantStatus_PENDING_WORKFLOW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus"><span class="hs-identifier hs-type">GrantStatus</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantStatus_PENDING_WORKFLOW"><span id="%24mGrantStatus_PENDING_WORKFLOW"><span id="GrantStatus_PENDING_WORKFLOW"><span class="annot"><span class="annottext">$bGrantStatus_PENDING_WORKFLOW :: GrantStatus
+$mGrantStatus_PENDING_WORKFLOW :: forall r. GrantStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#%24bGrantStatus_PENDING_WORKFLOW"><span class="hs-identifier hs-var hs-var hs-var">GrantStatus_PENDING_WORKFLOW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus%27"><span class="hs-identifier hs-type">GrantStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING_WORKFLOW&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_REJECTED"><span class="hs-identifier hs-type">GrantStatus_REJECTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus"><span class="hs-identifier hs-type">GrantStatus</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantStatus_REJECTED"><span id="%24mGrantStatus_REJECTED"><span id="GrantStatus_REJECTED"><span class="annot"><span class="annottext">$bGrantStatus_REJECTED :: GrantStatus
+$mGrantStatus_REJECTED :: forall r. GrantStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#%24bGrantStatus_REJECTED"><span class="hs-identifier hs-var hs-var hs-var">GrantStatus_REJECTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus%27"><span class="hs-identifier hs-type">GrantStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REJECTED&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_WORKFLOW_COMPLETED"><span class="hs-identifier hs-type">GrantStatus_WORKFLOW_COMPLETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus"><span class="hs-identifier hs-type">GrantStatus</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrantStatus_WORKFLOW_COMPLETED"><span id="%24mGrantStatus_WORKFLOW_COMPLETED"><span id="GrantStatus_WORKFLOW_COMPLETED"><span class="annot"><span class="annottext">$bGrantStatus_WORKFLOW_COMPLETED :: GrantStatus
+$mGrantStatus_WORKFLOW_COMPLETED :: forall r. GrantStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#%24bGrantStatus_WORKFLOW_COMPLETED"><span class="hs-identifier hs-var hs-var hs-var">GrantStatus_WORKFLOW_COMPLETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus%27"><span class="hs-identifier hs-type">GrantStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WORKFLOW_COMPLETED&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_ACTIVE"><span class="hs-pragma hs-type">GrantStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_DELETED"><span class="hs-pragma hs-type">GrantStatus_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_DISABLED"><span class="hs-pragma hs-type">GrantStatus_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_FAILED_WORKFLOW"><span class="hs-pragma hs-type">GrantStatus_FAILED_WORKFLOW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_PENDING_ACCEPT"><span class="hs-pragma hs-type">GrantStatus_PENDING_ACCEPT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_PENDING_DELETE"><span class="hs-pragma hs-type">GrantStatus_PENDING_DELETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_PENDING_WORKFLOW"><span class="hs-pragma hs-type">GrantStatus_PENDING_WORKFLOW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_REJECTED"><span class="hs-pragma hs-type">GrantStatus_REJECTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus_WORKFLOW_COMPLETED"><span class="hs-pragma hs-type">GrantStatus_WORKFLOW_COMPLETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.GrantStatus.html#GrantStatus%27"><span class="hs-pragma hs-type">GrantStatus'</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-106"></span></pre></body></html>

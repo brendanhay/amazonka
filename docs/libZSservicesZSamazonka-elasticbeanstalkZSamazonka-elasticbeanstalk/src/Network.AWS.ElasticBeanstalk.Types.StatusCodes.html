@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- &lt;http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html Status Code Definitions&gt;.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newStatusCodes' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679307666"><span id="local-6989586621679307667"></span></span><span class="hs-keyword">data</span><span> </span><span id="StatusCodes"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-var">StatusCodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StatusCodes%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-var">StatusCodes'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679307675"><span id="local-6989586621679307676"></span></span><span class="hs-keyword">data</span><span> </span><span id="StatusCodes"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-var">StatusCodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StatusCodes%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-var">StatusCodes'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The percentage of requests over the last 10 seconds that resulted in a</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- 2xx (200, 201, etc.) status code.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus2xx%3AStatusCodes%27"><span class="annot"><span class="annottext">StatusCodes -&gt; Maybe Int
@@ -46,7 +46,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Astatus5xx%3AStatusCodes%27"><span class="annot"><span class="annottext">StatusCodes -&gt; Maybe Int
 </span><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#%24sel%3Astatus5xx%3AStatusCodes%27"><span class="hs-identifier hs-var hs-var">status5xx</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307657"><span id="local-6989586621679307659"><span class="annot"><span class="annottext">StatusCodes -&gt; StatusCodes -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307666"><span id="local-6989586621679307668"><span class="annot"><span class="annottext">StatusCodes -&gt; StatusCodes -&gt; Bool
 (StatusCodes -&gt; StatusCodes -&gt; Bool)
 -&gt; (StatusCodes -&gt; StatusCodes -&gt; Bool) -&gt; Eq StatusCodes
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StatusCodes -&gt; StatusCodes -&gt; Bool
 == :: StatusCodes -&gt; StatusCodes -&gt; Bool
 $c== :: StatusCodes -&gt; StatusCodes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307648"><span id="local-6989586621679307650"><span id="local-6989586621679307652"><span id="local-6989586621679307654"><span class="annot"><span class="annottext">ReadPrec [StatusCodes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307657"><span id="local-6989586621679307659"><span id="local-6989586621679307661"><span id="local-6989586621679307663"><span class="annot"><span class="annottext">ReadPrec [StatusCodes]
 ReadPrec StatusCodes
 Int -&gt; ReadS StatusCodes
 ReadS [StatusCodes]
@@ -74,7 +74,7 @@ readList :: ReadS [StatusCodes]
 $creadList :: ReadS [StatusCodes]
 readsPrec :: Int -&gt; ReadS StatusCodes
 $creadsPrec :: Int -&gt; ReadS StatusCodes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307641"><span id="local-6989586621679307643"><span id="local-6989586621679307645"><span class="annot"><span class="annottext">Int -&gt; StatusCodes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307650"><span id="local-6989586621679307652"><span id="local-6989586621679307654"><span class="annot"><span class="annottext">Int -&gt; StatusCodes -&gt; ShowS
 [StatusCodes] -&gt; ShowS
 StatusCodes -&gt; String
 (Int -&gt; StatusCodes -&gt; ShowS)
@@ -151,16 +151,16 @@ forall a. Maybe a
 -&gt; (StatusCodes -&gt; Maybe Int -&gt; StatusCodes)
 -&gt; Lens StatusCodes StatusCodes (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307632"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307641"><span class="annot"><span class="annottext">Maybe Int
 status2xx :: Maybe Int
 $sel:status2xx:StatusCodes' :: StatusCodes -&gt; Maybe Int
-</span><a href="#local-6989586621679307632"><span class="hs-identifier hs-var hs-var">status2xx</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679307632"><span class="hs-identifier hs-var">status2xx</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307631"><span class="annot"><span class="annottext">s :: StatusCodes
-</span><a href="#local-6989586621679307631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307630"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679307630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusCodes
-</span><a href="#local-6989586621679307631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status2xx:StatusCodes' :: Maybe Int
+</span><a href="#local-6989586621679307641"><span class="hs-identifier hs-var hs-var">status2xx</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307641"><span class="hs-identifier hs-var">status2xx</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307640"><span class="annot"><span class="annottext">s :: StatusCodes
+</span><a href="#local-6989586621679307640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307639"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusCodes
+</span><a href="#local-6989586621679307640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status2xx:StatusCodes' :: Maybe Int
 </span><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#%24sel%3Astatus2xx%3AStatusCodes%27"><span class="hs-identifier hs-var">status2xx</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679307630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The percentage of requests over the last 10 seconds that resulted in a</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- 3xx (300, 301, etc.) status code.</span><span>
@@ -170,16 +170,16 @@ $sel:status2xx:StatusCodes' :: StatusCodes -&gt; Maybe Int
 -&gt; (StatusCodes -&gt; Maybe Int -&gt; StatusCodes)
 -&gt; Lens StatusCodes StatusCodes (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307628"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307637"><span class="annot"><span class="annottext">Maybe Int
 status3xx :: Maybe Int
 $sel:status3xx:StatusCodes' :: StatusCodes -&gt; Maybe Int
-</span><a href="#local-6989586621679307628"><span class="hs-identifier hs-var hs-var">status3xx</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679307628"><span class="hs-identifier hs-var">status3xx</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307627"><span class="annot"><span class="annottext">s :: StatusCodes
-</span><a href="#local-6989586621679307627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307626"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679307626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusCodes
-</span><a href="#local-6989586621679307627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status3xx:StatusCodes' :: Maybe Int
+</span><a href="#local-6989586621679307637"><span class="hs-identifier hs-var hs-var">status3xx</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307637"><span class="hs-identifier hs-var">status3xx</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307636"><span class="annot"><span class="annottext">s :: StatusCodes
+</span><a href="#local-6989586621679307636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307635"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusCodes
+</span><a href="#local-6989586621679307636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status3xx:StatusCodes' :: Maybe Int
 </span><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#%24sel%3Astatus3xx%3AStatusCodes%27"><span class="hs-identifier hs-var">status3xx</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679307626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The percentage of requests over the last 10 seconds that resulted in a</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- 4xx (400, 401, etc.) status code.</span><span>
@@ -189,16 +189,16 @@ $sel:status3xx:StatusCodes' :: StatusCodes -&gt; Maybe Int
 -&gt; (StatusCodes -&gt; Maybe Int -&gt; StatusCodes)
 -&gt; Lens StatusCodes StatusCodes (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307624"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307633"><span class="annot"><span class="annottext">Maybe Int
 status4xx :: Maybe Int
 $sel:status4xx:StatusCodes' :: StatusCodes -&gt; Maybe Int
-</span><a href="#local-6989586621679307624"><span class="hs-identifier hs-var hs-var">status4xx</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679307624"><span class="hs-identifier hs-var">status4xx</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307623"><span class="annot"><span class="annottext">s :: StatusCodes
-</span><a href="#local-6989586621679307623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307622"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679307622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusCodes
-</span><a href="#local-6989586621679307623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status4xx:StatusCodes' :: Maybe Int
+</span><a href="#local-6989586621679307633"><span class="hs-identifier hs-var hs-var">status4xx</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307633"><span class="hs-identifier hs-var">status4xx</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307632"><span class="annot"><span class="annottext">s :: StatusCodes
+</span><a href="#local-6989586621679307632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307631"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusCodes
+</span><a href="#local-6989586621679307632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status4xx:StatusCodes' :: Maybe Int
 </span><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#%24sel%3Astatus4xx%3AStatusCodes%27"><span class="hs-identifier hs-var">status4xx</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679307622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The percentage of requests over the last 10 seconds that resulted in a</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- 5xx (500, 501, etc.) status code.</span><span>
@@ -208,21 +208,21 @@ $sel:status4xx:StatusCodes' :: StatusCodes -&gt; Maybe Int
 -&gt; (StatusCodes -&gt; Maybe Int -&gt; StatusCodes)
 -&gt; Lens StatusCodes StatusCodes (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307620"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307629"><span class="annot"><span class="annottext">Maybe Int
 status5xx :: Maybe Int
 $sel:status5xx:StatusCodes' :: StatusCodes -&gt; Maybe Int
-</span><a href="#local-6989586621679307620"><span class="hs-identifier hs-var hs-var">status5xx</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679307620"><span class="hs-identifier hs-var">status5xx</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307619"><span class="annot"><span class="annottext">s :: StatusCodes
-</span><a href="#local-6989586621679307619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307618"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679307618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusCodes
-</span><a href="#local-6989586621679307619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status5xx:StatusCodes' :: Maybe Int
+</span><a href="#local-6989586621679307629"><span class="hs-identifier hs-var hs-var">status5xx</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307629"><span class="hs-identifier hs-var">status5xx</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307628"><span class="annot"><span class="annottext">s :: StatusCodes
+</span><a href="#local-6989586621679307628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307627"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679307627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusCodes
+</span><a href="#local-6989586621679307628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status5xx:StatusCodes' :: Maybe Int
 </span><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#%24sel%3Astatus5xx%3AStatusCodes%27"><span class="hs-identifier hs-var">status5xx</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679307618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679307615"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StatusCodes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679307613"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679307613"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679307624"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StatusCodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679307622"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307622"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; StatusCodes
 </span><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-var">StatusCodes'</span></a></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; StatusCodes)
@@ -231,7 +231,7 @@ $sel:status5xx:StatusCodes' :: StatusCodes -&gt; Maybe Int
      String (Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; StatusCodes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679307613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679307622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status2xx&quot;</span></span><span class="hs-special">)</span><span>
@@ -240,7 +240,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Int -&gt; Maybe Int -&gt; StatusCodes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679307613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679307622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status3xx&quot;</span></span><span class="hs-special">)</span><span>
@@ -249,7 +249,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Int -&gt; StatusCodes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679307613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679307622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status4xx&quot;</span></span><span class="hs-special">)</span><span>
@@ -257,12 +257,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Int) -&gt; Either String StatusCodes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679307613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679307622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status5xx&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307607"><span id="local-6989586621679307609"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307616"><span id="local-6989586621679307618"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span></span><span>
 </span><span id="line-107"></span></pre></body></html>

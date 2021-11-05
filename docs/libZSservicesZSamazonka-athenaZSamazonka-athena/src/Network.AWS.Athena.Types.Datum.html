@@ -26,19 +26,19 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A piece of data (a field in the table).</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDatum' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679216637"><span id="local-6989586621679216638"></span></span><span class="hs-keyword">data</span><span> </span><span id="Datum"><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum"><span class="hs-identifier hs-var">Datum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Datum%27"><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum%27"><span class="hs-identifier hs-var">Datum'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679216646"><span id="local-6989586621679216647"></span></span><span class="hs-keyword">data</span><span> </span><span id="Datum"><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum"><span class="hs-identifier hs-var">Datum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Datum%27"><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum%27"><span class="hs-identifier hs-var">Datum'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the datum.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AvarCharValue%3ADatum%27"><span class="annot"><span class="annottext">Datum -&gt; Maybe Text
 </span><a href="Network.AWS.Athena.Types.Datum.html#%24sel%3AvarCharValue%3ADatum%27"><span class="hs-identifier hs-var hs-var">varCharValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216631"><span id="local-6989586621679216633"><span class="annot"><span class="annottext">Datum -&gt; Datum -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216640"><span id="local-6989586621679216642"><span class="annot"><span class="annottext">Datum -&gt; Datum -&gt; Bool
 (Datum -&gt; Datum -&gt; Bool) -&gt; (Datum -&gt; Datum -&gt; Bool) -&gt; Eq Datum
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Datum -&gt; Datum -&gt; Bool
 $c/= :: Datum -&gt; Datum -&gt; Bool
 == :: Datum -&gt; Datum -&gt; Bool
 $c== :: Datum -&gt; Datum -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216622"><span id="local-6989586621679216624"><span id="local-6989586621679216626"><span id="local-6989586621679216628"><span class="annot"><span class="annottext">ReadPrec [Datum]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216631"><span id="local-6989586621679216633"><span id="local-6989586621679216635"><span id="local-6989586621679216637"><span class="annot"><span class="annottext">ReadPrec [Datum]
 ReadPrec Datum
 Int -&gt; ReadS Datum
 ReadS [Datum]
@@ -58,7 +58,7 @@ readList :: ReadS [Datum]
 $creadList :: ReadS [Datum]
 readsPrec :: Int -&gt; ReadS Datum
 $creadsPrec :: Int -&gt; ReadS Datum
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216615"><span id="local-6989586621679216617"><span id="local-6989586621679216619"><span class="annot"><span class="annottext">Int -&gt; Datum -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216624"><span id="local-6989586621679216626"><span id="local-6989586621679216628"><span class="annot"><span class="annottext">Int -&gt; Datum -&gt; ShowS
 [Datum] -&gt; ShowS
 Datum -&gt; String
 (Int -&gt; Datum -&gt; ShowS)
@@ -106,38 +106,38 @@ forall a. Maybe a
 -&gt; (Datum -&gt; Maybe Text -&gt; Datum)
 -&gt; Lens Datum Datum (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum%27"><span class="hs-identifier hs-type">Datum'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216606"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum%27"><span class="hs-identifier hs-type">Datum'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216615"><span class="annot"><span class="annottext">Maybe Text
 varCharValue :: Maybe Text
 $sel:varCharValue:Datum' :: Datum -&gt; Maybe Text
-</span><a href="#local-6989586621679216606"><span class="hs-identifier hs-var hs-var">varCharValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216606"><span class="hs-identifier hs-var">varCharValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216605"><span class="annot"><span class="annottext">s :: Datum
-</span><a href="#local-6989586621679216605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum%27"><span class="hs-identifier hs-type">Datum'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216604"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Datum
-</span><a href="#local-6989586621679216605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:varCharValue:Datum' :: Maybe Text
+</span><a href="#local-6989586621679216615"><span class="hs-identifier hs-var hs-var">varCharValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216615"><span class="hs-identifier hs-var">varCharValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216614"><span class="annot"><span class="annottext">s :: Datum
+</span><a href="#local-6989586621679216614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum%27"><span class="hs-identifier hs-type">Datum'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216613"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Datum
+</span><a href="#local-6989586621679216614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:varCharValue:Datum' :: Maybe Text
 </span><a href="Network.AWS.Athena.Types.Datum.html#%24sel%3AvarCharValue%3ADatum%27"><span class="hs-identifier hs-var">varCharValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum"><span class="hs-identifier hs-type">Datum</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum"><span class="hs-identifier hs-type">Datum</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>
-</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216601"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum"><span class="hs-identifier hs-type">Datum</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-53"></span><span>  </span><span id="local-6989586621679216599"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Datum
+</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216610"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum"><span class="hs-identifier hs-type">Datum</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>  </span><span id="local-6989586621679216608"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Datum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Datum) -&gt; Value -&gt; Parser Datum
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Datum&quot;</span></span><span>
-</span><span id="line-56"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216596"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216596"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216605"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216605"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Datum
 </span><a href="Network.AWS.Athena.Types.Datum.html#Datum%27"><span class="hs-identifier hs-var">Datum'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Datum) -&gt; Parser (Maybe Text) -&gt; Parser Datum
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679216605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VarCharValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216590"><span id="local-6989586621679216592"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum"><span class="hs-identifier hs-type">Datum</span></a></span></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216599"><span id="local-6989586621679216601"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum"><span class="hs-identifier hs-type">Datum</span></a></span></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216587"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum"><span class="hs-identifier hs-type">Datum</span></a></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216596"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Datum.html#Datum"><span class="hs-identifier hs-type">Datum</span></a></span></span><span>
 </span><span id="line-63"></span></pre></body></html>

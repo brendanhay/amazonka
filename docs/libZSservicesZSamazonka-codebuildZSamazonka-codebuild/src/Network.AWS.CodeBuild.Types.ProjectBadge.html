@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about the build badge for the build project.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newProjectBadge' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679373434"><span id="local-6989586621679373435"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectBadge"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge"><span class="hs-identifier hs-var">ProjectBadge</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectBadge%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge%27"><span class="hs-identifier hs-var">ProjectBadge'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679373443"><span id="local-6989586621679373444"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectBadge"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge"><span class="hs-identifier hs-var">ProjectBadge</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectBadge%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge%27"><span class="hs-identifier hs-var">ProjectBadge'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set this to true to generate a publicly accessible URL for your</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- project\'s build badge.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AbadgeEnabled%3AProjectBadge%27"><span class="annot"><span class="annottext">ProjectBadge -&gt; Maybe Bool
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AbadgeRequestUrl%3AProjectBadge%27"><span class="annot"><span class="annottext">ProjectBadge -&gt; Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#%24sel%3AbadgeRequestUrl%3AProjectBadge%27"><span class="hs-identifier hs-var hs-var">badgeRequestUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373427"><span id="local-6989586621679373429"><span class="annot"><span class="annottext">ProjectBadge -&gt; ProjectBadge -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373436"><span id="local-6989586621679373438"><span class="annot"><span class="annottext">ProjectBadge -&gt; ProjectBadge -&gt; Bool
 (ProjectBadge -&gt; ProjectBadge -&gt; Bool)
 -&gt; (ProjectBadge -&gt; ProjectBadge -&gt; Bool) -&gt; Eq ProjectBadge
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProjectBadge -&gt; ProjectBadge -&gt; Bool
 == :: ProjectBadge -&gt; ProjectBadge -&gt; Bool
 $c== :: ProjectBadge -&gt; ProjectBadge -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373418"><span id="local-6989586621679373420"><span id="local-6989586621679373422"><span id="local-6989586621679373424"><span class="annot"><span class="annottext">ReadPrec [ProjectBadge]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373427"><span id="local-6989586621679373429"><span id="local-6989586621679373431"><span id="local-6989586621679373433"><span class="annot"><span class="annottext">ReadPrec [ProjectBadge]
 ReadPrec ProjectBadge
 Int -&gt; ReadS ProjectBadge
 ReadS [ProjectBadge]
@@ -64,7 +64,7 @@ readList :: ReadS [ProjectBadge]
 $creadList :: ReadS [ProjectBadge]
 readsPrec :: Int -&gt; ReadS ProjectBadge
 $creadsPrec :: Int -&gt; ReadS ProjectBadge
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373411"><span id="local-6989586621679373413"><span id="local-6989586621679373415"><span class="annot"><span class="annottext">Int -&gt; ProjectBadge -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373420"><span id="local-6989586621679373422"><span id="local-6989586621679373424"><span class="annot"><span class="annottext">Int -&gt; ProjectBadge -&gt; ShowS
 [ProjectBadge] -&gt; ShowS
 ProjectBadge -&gt; String
 (Int -&gt; ProjectBadge -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; (ProjectBadge -&gt; Maybe Bool -&gt; ProjectBadge)
 -&gt; Lens ProjectBadge ProjectBadge (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge%27"><span class="hs-identifier hs-type">ProjectBadge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373402"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge%27"><span class="hs-identifier hs-type">ProjectBadge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373411"><span class="annot"><span class="annottext">Maybe Bool
 badgeEnabled :: Maybe Bool
 $sel:badgeEnabled:ProjectBadge' :: ProjectBadge -&gt; Maybe Bool
-</span><a href="#local-6989586621679373402"><span class="hs-identifier hs-var hs-var">badgeEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679373402"><span class="hs-identifier hs-var">badgeEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373401"><span class="annot"><span class="annottext">s :: ProjectBadge
-</span><a href="#local-6989586621679373401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge%27"><span class="hs-identifier hs-type">ProjectBadge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373400"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679373400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectBadge
-</span><a href="#local-6989586621679373401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:badgeEnabled:ProjectBadge' :: Maybe Bool
+</span><a href="#local-6989586621679373411"><span class="hs-identifier hs-var hs-var">badgeEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679373411"><span class="hs-identifier hs-var">badgeEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373410"><span class="annot"><span class="annottext">s :: ProjectBadge
+</span><a href="#local-6989586621679373410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge%27"><span class="hs-identifier hs-type">ProjectBadge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373409"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679373409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectBadge
+</span><a href="#local-6989586621679373410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:badgeEnabled:ProjectBadge' :: Maybe Bool
 </span><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#%24sel%3AbadgeEnabled%3AProjectBadge%27"><span class="hs-identifier hs-var">badgeEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679373400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge"><span class="hs-identifier hs-type">ProjectBadge</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge"><span class="hs-identifier hs-type">ProjectBadge</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The publicly-accessible URL through which you can access the build badge</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- for your project.</span><span>
@@ -146,19 +146,19 @@ $sel:badgeEnabled:ProjectBadge' :: ProjectBadge -&gt; Maybe Bool
 -&gt; (ProjectBadge -&gt; Maybe Text -&gt; ProjectBadge)
 -&gt; Lens ProjectBadge ProjectBadge (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge%27"><span class="hs-identifier hs-type">ProjectBadge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373398"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge%27"><span class="hs-identifier hs-type">ProjectBadge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373407"><span class="annot"><span class="annottext">Maybe Text
 badgeRequestUrl :: Maybe Text
 $sel:badgeRequestUrl:ProjectBadge' :: ProjectBadge -&gt; Maybe Text
-</span><a href="#local-6989586621679373398"><span class="hs-identifier hs-var hs-var">badgeRequestUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373398"><span class="hs-identifier hs-var">badgeRequestUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373397"><span class="annot"><span class="annottext">s :: ProjectBadge
-</span><a href="#local-6989586621679373397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge%27"><span class="hs-identifier hs-type">ProjectBadge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373396"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectBadge
-</span><a href="#local-6989586621679373397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:badgeRequestUrl:ProjectBadge' :: Maybe Text
+</span><a href="#local-6989586621679373407"><span class="hs-identifier hs-var hs-var">badgeRequestUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373407"><span class="hs-identifier hs-var">badgeRequestUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373406"><span class="annot"><span class="annottext">s :: ProjectBadge
+</span><a href="#local-6989586621679373406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge%27"><span class="hs-identifier hs-type">ProjectBadge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373405"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectBadge
+</span><a href="#local-6989586621679373406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:badgeRequestUrl:ProjectBadge' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#%24sel%3AbadgeRequestUrl%3AProjectBadge%27"><span class="hs-identifier hs-var">badgeRequestUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge"><span class="hs-identifier hs-type">ProjectBadge</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge"><span class="hs-identifier hs-type">ProjectBadge</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373393"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge"><span class="hs-identifier hs-type">ProjectBadge</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679373391"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectBadge
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373402"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge"><span class="hs-identifier hs-type">ProjectBadge</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679373400"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectBadge
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProjectBadge) -&gt; Value -&gt; Parser ProjectBadge
@@ -166,15 +166,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProjectBadge&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373388"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373388"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373397"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373397"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Text -&gt; ProjectBadge
 </span><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge%27"><span class="hs-identifier hs-var">ProjectBadge'</span></a></span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Text -&gt; ProjectBadge)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Text -&gt; ProjectBadge)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679373397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;badgeEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -182,13 +182,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ProjectBadge
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679373397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;badgeRequestUrl&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373382"><span id="local-6989586621679373384"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge"><span class="hs-identifier hs-type">ProjectBadge</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373391"><span id="local-6989586621679373393"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge"><span class="hs-identifier hs-type">ProjectBadge</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373379"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge"><span class="hs-identifier hs-type">ProjectBadge</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373388"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectBadge.html#ProjectBadge"><span class="hs-identifier hs-type">ProjectBadge</span></a></span></span><span>
 </span><span id="line-83"></span></pre></body></html>

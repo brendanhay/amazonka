@@ -1,0 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Personalize.CreateDatasetImportJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a job that imports training data from your data source (an</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Amazon S3 bucket) to an Amazon Personalize dataset. To allow Amazon</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Personalize to import the training data, you must specify an IAM service</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- role that has permission to read from the data source, as Amazon</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Personalize makes a copy of your data and processes it internally. For</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- information on granting access to your Amazon S3 bucket, see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html Giving Amazon Personalize Access to Amazon S3 Resources&gt;.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- The dataset import job replaces any existing data in the dataset that</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- you imported in bulk.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- __Status__</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- A dataset import job can be in one of the following states:</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- To get the status of the import job, call DescribeDatasetImportJob,</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- providing the Amazon Resource Name (ARN) of the dataset import job. The</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- dataset import is complete when the status shows as ACTIVE. If the</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- status shows as CREATE FAILED, the response includes a @failureReason@</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- key, which describes why the job failed.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Importing takes time. You must wait until the status shows as ACTIVE</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- before training a model using the dataset.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- __Related APIs__</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- -   ListDatasetImportJobs</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- -   DescribeDatasetImportJob</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Personalize.CreateDatasetImportJob</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier">CreateDatasetImportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#newCreateDatasetImportJob"><span class="hs-identifier">newCreateDatasetImportJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJob_jobName"><span class="hs-identifier">createDatasetImportJob_jobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJob_datasetArn"><span class="hs-identifier">createDatasetImportJob_datasetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJob_dataSource"><span class="hs-identifier">createDatasetImportJob_dataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJob_roleArn"><span class="hs-identifier">createDatasetImportJob_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJobResponse"><span class="hs-identifier">CreateDatasetImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#newCreateDatasetImportJobResponse"><span class="hs-identifier">newCreateDatasetImportJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJobResponse_datasetImportJobArn"><span class="hs-identifier">createDatasetImportJobResponse_datasetImportJobArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJobResponse_httpStatus"><span class="hs-identifier">createDatasetImportJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.html"><span class="hs-identifier">Network.AWS.Personalize.Types</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | /See:/ 'newCreateDatasetImportJob' smart constructor.</span><span>
+</span><span id="line-83"></span><span id="local-6989586621679284654"><span id="local-6989586621679284655"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDatasetImportJob"><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-var">CreateDatasetImportJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDatasetImportJob%27"><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob%27"><span class="hs-identifier hs-var">CreateDatasetImportJob'</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name for the dataset import job.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AjobName%3ACreateDatasetImportJob%27"><span class="annot"><span class="annottext">CreateDatasetImportJob -&gt; Text
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AjobName%3ACreateDatasetImportJob%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The ARN of the dataset that receives the imported data.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AdatasetArn%3ACreateDatasetImportJob%27"><span class="annot"><span class="annottext">CreateDatasetImportJob -&gt; Text
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AdatasetArn%3ACreateDatasetImportJob%27"><span class="hs-identifier hs-var hs-var">datasetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 bucket that contains the training data to import.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AdataSource%3ACreateDatasetImportJob%27"><span class="annot"><span class="annottext">CreateDatasetImportJob -&gt; DataSource
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AdataSource%3ACreateDatasetImportJob%27"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The ARN of the IAM role that has permissions to read from the Amazon S3</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- data source.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AroleArn%3ACreateDatasetImportJob%27"><span class="annot"><span class="annottext">CreateDatasetImportJob -&gt; Text
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AroleArn%3ACreateDatasetImportJob%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284645"><span id="local-6989586621679284647"><span class="annot"><span class="annottext">CreateDatasetImportJob -&gt; CreateDatasetImportJob -&gt; Bool
+(CreateDatasetImportJob -&gt; CreateDatasetImportJob -&gt; Bool)
+-&gt; (CreateDatasetImportJob -&gt; CreateDatasetImportJob -&gt; Bool)
+-&gt; Eq CreateDatasetImportJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDatasetImportJob -&gt; CreateDatasetImportJob -&gt; Bool
+$c/= :: CreateDatasetImportJob -&gt; CreateDatasetImportJob -&gt; Bool
+== :: CreateDatasetImportJob -&gt; CreateDatasetImportJob -&gt; Bool
+$c== :: CreateDatasetImportJob -&gt; CreateDatasetImportJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284636"><span id="local-6989586621679284638"><span id="local-6989586621679284640"><span id="local-6989586621679284642"><span class="annot"><span class="annottext">ReadPrec [CreateDatasetImportJob]
+ReadPrec CreateDatasetImportJob
+Int -&gt; ReadS CreateDatasetImportJob
+ReadS [CreateDatasetImportJob]
+(Int -&gt; ReadS CreateDatasetImportJob)
+-&gt; ReadS [CreateDatasetImportJob]
+-&gt; ReadPrec CreateDatasetImportJob
+-&gt; ReadPrec [CreateDatasetImportJob]
+-&gt; Read CreateDatasetImportJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDatasetImportJob]
+$creadListPrec :: ReadPrec [CreateDatasetImportJob]
+readPrec :: ReadPrec CreateDatasetImportJob
+$creadPrec :: ReadPrec CreateDatasetImportJob
+readList :: ReadS [CreateDatasetImportJob]
+$creadList :: ReadS [CreateDatasetImportJob]
+readsPrec :: Int -&gt; ReadS CreateDatasetImportJob
+$creadsPrec :: Int -&gt; ReadS CreateDatasetImportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284629"><span id="local-6989586621679284631"><span id="local-6989586621679284633"><span class="annot"><span class="annottext">Int -&gt; CreateDatasetImportJob -&gt; ShowS
+[CreateDatasetImportJob] -&gt; ShowS
+CreateDatasetImportJob -&gt; String
+(Int -&gt; CreateDatasetImportJob -&gt; ShowS)
+-&gt; (CreateDatasetImportJob -&gt; String)
+-&gt; ([CreateDatasetImportJob] -&gt; ShowS)
+-&gt; Show CreateDatasetImportJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDatasetImportJob] -&gt; ShowS
+$cshowList :: [CreateDatasetImportJob] -&gt; ShowS
+show :: CreateDatasetImportJob -&gt; String
+$cshow :: CreateDatasetImportJob -&gt; String
+showsPrec :: Int -&gt; CreateDatasetImportJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDatasetImportJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateDatasetImportJob -&gt; Rep CreateDatasetImportJob x)
+-&gt; (forall x.
+    Rep CreateDatasetImportJob x -&gt; CreateDatasetImportJob)
+-&gt; Generic CreateDatasetImportJob
+forall x. Rep CreateDatasetImportJob x -&gt; CreateDatasetImportJob
+forall x. CreateDatasetImportJob -&gt; Rep CreateDatasetImportJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateDatasetImportJob x -&gt; CreateDatasetImportJob
+$cfrom :: forall x. CreateDatasetImportJob -&gt; Rep CreateDatasetImportJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Create a value of 'CreateDatasetImportJob' with all optional fields omitted.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'jobName', 'createDatasetImportJob_jobName' - The name for the dataset import job.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'datasetArn', 'createDatasetImportJob_datasetArn' - The ARN of the dataset that receives the imported data.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'dataSource', 'createDatasetImportJob_dataSource' - The Amazon S3 bucket that contains the training data to import.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'roleArn', 'createDatasetImportJob_roleArn' - The ARN of the IAM role that has permissions to read from the Amazon S3</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- data source.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#newCreateDatasetImportJob"><span class="hs-identifier hs-type">newCreateDatasetImportJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-comment">-- | 'jobName'</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-comment">-- | 'datasetArn'</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-comment">-- | 'dataSource'</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span><span>
+</span><span id="line-122"></span><span id="newCreateDatasetImportJob"><span class="annot"><span class="annottext">newCreateDatasetImportJob :: Text -&gt; Text -&gt; DataSource -&gt; Text -&gt; CreateDatasetImportJob
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#newCreateDatasetImportJob"><span class="hs-identifier hs-var hs-var">newCreateDatasetImportJob</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679284624"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284624"><span class="hs-identifier hs-var">pJobName_</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679284623"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284623"><span class="hs-identifier hs-var">pDatasetArn_</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679284622"><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679284622"><span class="hs-identifier hs-var">pDataSource_</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679284621"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284621"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">CreateDatasetImportJob' :: Text -&gt; Text -&gt; DataSource -&gt; Text -&gt; CreateDatasetImportJob
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob%27"><span class="hs-identifier hs-type">CreateDatasetImportJob'</span></a></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobName:CreateDatasetImportJob' :: Text
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AjobName%3ACreateDatasetImportJob%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284624"><span class="hs-identifier hs-var">pJobName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:datasetArn:CreateDatasetImportJob' :: Text
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AdatasetArn%3ACreateDatasetImportJob%27"><span class="hs-identifier hs-var">datasetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284623"><span class="hs-identifier hs-var">pDatasetArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSource:CreateDatasetImportJob' :: DataSource
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AdataSource%3ACreateDatasetImportJob%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679284622"><span class="hs-identifier hs-var">pDataSource_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:CreateDatasetImportJob' :: Text
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AroleArn%3ACreateDatasetImportJob%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284621"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The name for the dataset import job.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJob_jobName"><span class="hs-identifier hs-type">createDatasetImportJob_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-136"></span><span id="createDatasetImportJob_jobName"><span class="annot"><span class="annottext">createDatasetImportJob_jobName :: (Text -&gt; f Text)
+-&gt; CreateDatasetImportJob -&gt; f CreateDatasetImportJob
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJob_jobName"><span class="hs-identifier hs-var hs-var">createDatasetImportJob_jobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDatasetImportJob -&gt; Text)
+-&gt; (CreateDatasetImportJob -&gt; Text -&gt; CreateDatasetImportJob)
+-&gt; Lens CreateDatasetImportJob CreateDatasetImportJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob%27"><span class="hs-identifier hs-type">CreateDatasetImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284618"><span class="annot"><span class="annottext">Text
+jobName :: Text
+$sel:jobName:CreateDatasetImportJob' :: CreateDatasetImportJob -&gt; Text
+</span><a href="#local-6989586621679284618"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284618"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284617"><span class="annot"><span class="annottext">s :: CreateDatasetImportJob
+</span><a href="#local-6989586621679284617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob%27"><span class="hs-identifier hs-type">CreateDatasetImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284616"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDatasetImportJob
+</span><a href="#local-6989586621679284617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:CreateDatasetImportJob' :: Text
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AjobName%3ACreateDatasetImportJob%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The ARN of the dataset that receives the imported data.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJob_datasetArn"><span class="hs-identifier hs-type">createDatasetImportJob_datasetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-140"></span><span id="createDatasetImportJob_datasetArn"><span class="annot"><span class="annottext">createDatasetImportJob_datasetArn :: (Text -&gt; f Text)
+-&gt; CreateDatasetImportJob -&gt; f CreateDatasetImportJob
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJob_datasetArn"><span class="hs-identifier hs-var hs-var">createDatasetImportJob_datasetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDatasetImportJob -&gt; Text)
+-&gt; (CreateDatasetImportJob -&gt; Text -&gt; CreateDatasetImportJob)
+-&gt; Lens CreateDatasetImportJob CreateDatasetImportJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob%27"><span class="hs-identifier hs-type">CreateDatasetImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284615"><span class="annot"><span class="annottext">Text
+datasetArn :: Text
+$sel:datasetArn:CreateDatasetImportJob' :: CreateDatasetImportJob -&gt; Text
+</span><a href="#local-6989586621679284615"><span class="hs-identifier hs-var hs-var">datasetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284615"><span class="hs-identifier hs-var">datasetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284614"><span class="annot"><span class="annottext">s :: CreateDatasetImportJob
+</span><a href="#local-6989586621679284614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob%27"><span class="hs-identifier hs-type">CreateDatasetImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284613"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDatasetImportJob
+</span><a href="#local-6989586621679284614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetArn:CreateDatasetImportJob' :: Text
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AdatasetArn%3ACreateDatasetImportJob%27"><span class="hs-identifier hs-var">datasetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The Amazon S3 bucket that contains the training data to import.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJob_dataSource"><span class="hs-identifier hs-type">createDatasetImportJob_dataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span>
+</span><span id="line-144"></span><span id="createDatasetImportJob_dataSource"><span class="annot"><span class="annottext">createDatasetImportJob_dataSource :: (DataSource -&gt; f DataSource)
+-&gt; CreateDatasetImportJob -&gt; f CreateDatasetImportJob
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJob_dataSource"><span class="hs-identifier hs-var hs-var">createDatasetImportJob_dataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDatasetImportJob -&gt; DataSource)
+-&gt; (CreateDatasetImportJob -&gt; DataSource -&gt; CreateDatasetImportJob)
+-&gt; Lens
+     CreateDatasetImportJob CreateDatasetImportJob DataSource DataSource
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob%27"><span class="hs-identifier hs-type">CreateDatasetImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284612"><span class="annot"><span class="annottext">DataSource
+dataSource :: DataSource
+$sel:dataSource:CreateDatasetImportJob' :: CreateDatasetImportJob -&gt; DataSource
+</span><a href="#local-6989586621679284612"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679284612"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284611"><span class="annot"><span class="annottext">s :: CreateDatasetImportJob
+</span><a href="#local-6989586621679284611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob%27"><span class="hs-identifier hs-type">CreateDatasetImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284610"><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679284610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDatasetImportJob
+</span><a href="#local-6989586621679284611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSource:CreateDatasetImportJob' :: DataSource
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AdataSource%3ACreateDatasetImportJob%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679284610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The ARN of the IAM role that has permissions to read from the Amazon S3</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- data source.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJob_roleArn"><span class="hs-identifier hs-type">createDatasetImportJob_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-149"></span><span id="createDatasetImportJob_roleArn"><span class="annot"><span class="annottext">createDatasetImportJob_roleArn :: (Text -&gt; f Text)
+-&gt; CreateDatasetImportJob -&gt; f CreateDatasetImportJob
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJob_roleArn"><span class="hs-identifier hs-var hs-var">createDatasetImportJob_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDatasetImportJob -&gt; Text)
+-&gt; (CreateDatasetImportJob -&gt; Text -&gt; CreateDatasetImportJob)
+-&gt; Lens CreateDatasetImportJob CreateDatasetImportJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob%27"><span class="hs-identifier hs-type">CreateDatasetImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284609"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:CreateDatasetImportJob' :: CreateDatasetImportJob -&gt; Text
+</span><a href="#local-6989586621679284609"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284609"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284608"><span class="annot"><span class="annottext">s :: CreateDatasetImportJob
+</span><a href="#local-6989586621679284608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob%27"><span class="hs-identifier hs-type">CreateDatasetImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284607"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDatasetImportJob
+</span><a href="#local-6989586621679284608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateDatasetImportJob' :: Text
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AroleArn%3ACreateDatasetImportJob%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-153"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJobResponse"><span class="hs-identifier hs-type">CreateDatasetImportJobResponse</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679284603"><span class="annot"><span class="annottext">request :: CreateDatasetImportJob -&gt; Request CreateDatasetImportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDatasetImportJob -&gt; Request CreateDatasetImportJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Personalize.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679284599"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateDatasetImportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateDatasetImportJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateDatasetImportJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateDatasetImportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateDatasetImportJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284596"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284596"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679284595"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679284595"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679284594"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284594"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateDatasetImportJobResponse
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJobResponse%27"><span class="hs-identifier hs-var">CreateDatasetImportJobResponse'</span></a></span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateDatasetImportJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateDatasetImportJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datasetImportJobArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateDatasetImportJobResponse)
+-&gt; Either String Int
+-&gt; Either String CreateDatasetImportJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284596"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284586"><span id="local-6989586621679284588"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284583"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679284579"><span class="annot"><span class="annottext">toHeaders :: CreateDatasetImportJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDatasetImportJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonPersonalize.CreateDatasetImportJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-174"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-175"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-178"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-179"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284569"><span id="local-6989586621679284571"><span id="local-6989586621679284573"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679284567"><span class="annot"><span class="annottext">toJSON :: CreateDatasetImportJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob%27"><span class="hs-identifier hs-type">CreateDatasetImportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284562"><span id="local-6989586621679284563"><span id="local-6989586621679284564"><span id="local-6989586621679284565"><span class="annot"><span class="annottext">Text
+DataSource
+roleArn :: Text
+dataSource :: DataSource
+datasetArn :: Text
+jobName :: Text
+$sel:roleArn:CreateDatasetImportJob' :: CreateDatasetImportJob -&gt; Text
+$sel:dataSource:CreateDatasetImportJob' :: CreateDatasetImportJob -&gt; DataSource
+$sel:datasetArn:CreateDatasetImportJob' :: CreateDatasetImportJob -&gt; Text
+$sel:jobName:CreateDatasetImportJob' :: CreateDatasetImportJob -&gt; Text
+</span><a href="#local-6989586621679284562"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-187"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284565"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datasetArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284564"><span class="hs-identifier hs-var">datasetArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataSource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DataSource
+</span><a href="#local-6989586621679284563"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284562"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679284556"><span class="annot"><span class="annottext">toPath :: CreateDatasetImportJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDatasetImportJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJob"><span class="hs-identifier hs-type">CreateDatasetImportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679284552"><span class="annot"><span class="annottext">toQuery :: CreateDatasetImportJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDatasetImportJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | /See:/ 'newCreateDatasetImportJobResponse' smart constructor.</span><span>
+</span><span id="line-201"></span><span id="local-6989586621679284549"><span id="local-6989586621679284550"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDatasetImportJobResponse"><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJobResponse"><span class="hs-identifier hs-var">CreateDatasetImportJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDatasetImportJobResponse%27"><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJobResponse%27"><span class="hs-identifier hs-var">CreateDatasetImportJobResponse'</span></a></span></span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the dataset import job.</span><span>
+</span><span id="line-203"></span><span>    </span><span id="%24sel%3AdatasetImportJobArn%3ACreateDatasetImportJobResponse%27"><span class="annot"><span class="annottext">CreateDatasetImportJobResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AdatasetImportJobArn%3ACreateDatasetImportJobResponse%27"><span class="hs-identifier hs-var hs-var">datasetImportJobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-205"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDatasetImportJobResponse%27"><span class="annot"><span class="annottext">CreateDatasetImportJobResponse -&gt; Int
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AhttpStatus%3ACreateDatasetImportJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284543"><span id="local-6989586621679284545"><span class="annot"><span class="annottext">CreateDatasetImportJobResponse
+-&gt; CreateDatasetImportJobResponse -&gt; Bool
+(CreateDatasetImportJobResponse
+ -&gt; CreateDatasetImportJobResponse -&gt; Bool)
+-&gt; (CreateDatasetImportJobResponse
+    -&gt; CreateDatasetImportJobResponse -&gt; Bool)
+-&gt; Eq CreateDatasetImportJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDatasetImportJobResponse
+-&gt; CreateDatasetImportJobResponse -&gt; Bool
+$c/= :: CreateDatasetImportJobResponse
+-&gt; CreateDatasetImportJobResponse -&gt; Bool
+== :: CreateDatasetImportJobResponse
+-&gt; CreateDatasetImportJobResponse -&gt; Bool
+$c== :: CreateDatasetImportJobResponse
+-&gt; CreateDatasetImportJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284535"><span id="local-6989586621679284537"><span id="local-6989586621679284539"><span id="local-6989586621679284541"><span class="annot"><span class="annottext">ReadPrec [CreateDatasetImportJobResponse]
+ReadPrec CreateDatasetImportJobResponse
+Int -&gt; ReadS CreateDatasetImportJobResponse
+ReadS [CreateDatasetImportJobResponse]
+(Int -&gt; ReadS CreateDatasetImportJobResponse)
+-&gt; ReadS [CreateDatasetImportJobResponse]
+-&gt; ReadPrec CreateDatasetImportJobResponse
+-&gt; ReadPrec [CreateDatasetImportJobResponse]
+-&gt; Read CreateDatasetImportJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDatasetImportJobResponse]
+$creadListPrec :: ReadPrec [CreateDatasetImportJobResponse]
+readPrec :: ReadPrec CreateDatasetImportJobResponse
+$creadPrec :: ReadPrec CreateDatasetImportJobResponse
+readList :: ReadS [CreateDatasetImportJobResponse]
+$creadList :: ReadS [CreateDatasetImportJobResponse]
+readsPrec :: Int -&gt; ReadS CreateDatasetImportJobResponse
+$creadsPrec :: Int -&gt; ReadS CreateDatasetImportJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284529"><span id="local-6989586621679284531"><span id="local-6989586621679284533"><span class="annot"><span class="annottext">Int -&gt; CreateDatasetImportJobResponse -&gt; ShowS
+[CreateDatasetImportJobResponse] -&gt; ShowS
+CreateDatasetImportJobResponse -&gt; String
+(Int -&gt; CreateDatasetImportJobResponse -&gt; ShowS)
+-&gt; (CreateDatasetImportJobResponse -&gt; String)
+-&gt; ([CreateDatasetImportJobResponse] -&gt; ShowS)
+-&gt; Show CreateDatasetImportJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDatasetImportJobResponse] -&gt; ShowS
+$cshowList :: [CreateDatasetImportJobResponse] -&gt; ShowS
+show :: CreateDatasetImportJobResponse -&gt; String
+$cshow :: CreateDatasetImportJobResponse -&gt; String
+showsPrec :: Int -&gt; CreateDatasetImportJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDatasetImportJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateDatasetImportJobResponse
+ -&gt; Rep CreateDatasetImportJobResponse x)
+-&gt; (forall x.
+    Rep CreateDatasetImportJobResponse x
+    -&gt; CreateDatasetImportJobResponse)
+-&gt; Generic CreateDatasetImportJobResponse
+forall x.
+Rep CreateDatasetImportJobResponse x
+-&gt; CreateDatasetImportJobResponse
+forall x.
+CreateDatasetImportJobResponse
+-&gt; Rep CreateDatasetImportJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateDatasetImportJobResponse x
+-&gt; CreateDatasetImportJobResponse
+$cfrom :: forall x.
+CreateDatasetImportJobResponse
+-&gt; Rep CreateDatasetImportJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- Create a value of 'CreateDatasetImportJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'datasetImportJobArn', 'createDatasetImportJobResponse_datasetImportJobArn' - The ARN of the dataset import job.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'httpStatus', 'createDatasetImportJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#newCreateDatasetImportJobResponse"><span class="hs-identifier hs-type">newCreateDatasetImportJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJobResponse"><span class="hs-identifier hs-type">CreateDatasetImportJobResponse</span></a></span><span>
+</span><span id="line-224"></span><span id="newCreateDatasetImportJobResponse"><span class="annot"><span class="annottext">newCreateDatasetImportJobResponse :: Int -&gt; CreateDatasetImportJobResponse
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#newCreateDatasetImportJobResponse"><span class="hs-identifier hs-var hs-var">newCreateDatasetImportJobResponse</span></a></span></span><span> </span><span id="local-6989586621679284526"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284526"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="annottext">CreateDatasetImportJobResponse' :: Maybe Text -&gt; Int -&gt; CreateDatasetImportJobResponse
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJobResponse%27"><span class="hs-identifier hs-type">CreateDatasetImportJobResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:datasetImportJobArn:CreateDatasetImportJobResponse' :: Maybe Text
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AdatasetImportJobArn%3ACreateDatasetImportJobResponse%27"><span class="hs-identifier hs-var">datasetImportJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDatasetImportJobResponse' :: Int
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AhttpStatus%3ACreateDatasetImportJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284526"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The ARN of the dataset import job.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJobResponse_datasetImportJobArn"><span class="hs-identifier hs-type">createDatasetImportJobResponse_datasetImportJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJobResponse"><span class="hs-identifier hs-type">CreateDatasetImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="createDatasetImportJobResponse_datasetImportJobArn"><span class="annot"><span class="annottext">createDatasetImportJobResponse_datasetImportJobArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDatasetImportJobResponse
+-&gt; f CreateDatasetImportJobResponse
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJobResponse_datasetImportJobArn"><span class="hs-identifier hs-var hs-var">createDatasetImportJobResponse_datasetImportJobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDatasetImportJobResponse -&gt; Maybe Text)
+-&gt; (CreateDatasetImportJobResponse
+    -&gt; Maybe Text -&gt; CreateDatasetImportJobResponse)
+-&gt; Lens
+     CreateDatasetImportJobResponse
+     CreateDatasetImportJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJobResponse%27"><span class="hs-identifier hs-type">CreateDatasetImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284525"><span class="annot"><span class="annottext">Maybe Text
+datasetImportJobArn :: Maybe Text
+$sel:datasetImportJobArn:CreateDatasetImportJobResponse' :: CreateDatasetImportJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679284525"><span class="hs-identifier hs-var hs-var">datasetImportJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284525"><span class="hs-identifier hs-var">datasetImportJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284524"><span class="annot"><span class="annottext">s :: CreateDatasetImportJobResponse
+</span><a href="#local-6989586621679284524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJobResponse%27"><span class="hs-identifier hs-type">CreateDatasetImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284523"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDatasetImportJobResponse
+</span><a href="#local-6989586621679284524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetImportJobArn:CreateDatasetImportJobResponse' :: Maybe Text
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AdatasetImportJobArn%3ACreateDatasetImportJobResponse%27"><span class="hs-identifier hs-var">datasetImportJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679284523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJobResponse"><span class="hs-identifier hs-type">CreateDatasetImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJobResponse_httpStatus"><span class="hs-identifier hs-type">createDatasetImportJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJobResponse"><span class="hs-identifier hs-type">CreateDatasetImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-237"></span><span id="createDatasetImportJobResponse_httpStatus"><span class="annot"><span class="annottext">createDatasetImportJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateDatasetImportJobResponse
+-&gt; f CreateDatasetImportJobResponse
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#createDatasetImportJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createDatasetImportJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDatasetImportJobResponse -&gt; Int)
+-&gt; (CreateDatasetImportJobResponse
+    -&gt; Int -&gt; CreateDatasetImportJobResponse)
+-&gt; Lens
+     CreateDatasetImportJobResponse
+     CreateDatasetImportJobResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJobResponse%27"><span class="hs-identifier hs-type">CreateDatasetImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284522"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateDatasetImportJobResponse' :: CreateDatasetImportJobResponse -&gt; Int
+</span><a href="#local-6989586621679284522"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284522"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284521"><span class="annot"><span class="annottext">s :: CreateDatasetImportJobResponse
+</span><a href="#local-6989586621679284521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJobResponse%27"><span class="hs-identifier hs-type">CreateDatasetImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284520"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDatasetImportJobResponse
+</span><a href="#local-6989586621679284521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDatasetImportJobResponse' :: Int
+</span><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#%24sel%3AhttpStatus%3ACreateDatasetImportJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJobResponse"><span class="hs-identifier hs-type">CreateDatasetImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679284518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateDatasetImportJob.html#CreateDatasetImportJobResponse"><span class="hs-identifier hs-type">CreateDatasetImportJobResponse</span></a></span></span><span>
+</span><span id="line-242"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679183551"><span id="local-6989586621679183552"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MetricAggregationType"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.html#MetricAggregationType"><span class="hs-identifier hs-var">MetricAggregationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricAggregationType%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.html#MetricAggregationType%27"><span class="hs-identifier hs-var">MetricAggregationType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679183560"><span id="local-6989586621679183561"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MetricAggregationType"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.html#MetricAggregationType"><span class="hs-identifier hs-var">MetricAggregationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricAggregationType%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.html#MetricAggregationType%27"><span class="hs-identifier hs-var">MetricAggregationType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMetricAggregationType"><span class="annot"><span class="annottext">MetricAggregationType -&gt; Text
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType.html#fromMetricAggregationType"><span class="hs-identifier hs-var hs-var">fromMetricAggregationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183543"><span id="local-6989586621679183545"><span id="local-6989586621679183547"><span class="annot"><span class="annottext">Int -&gt; MetricAggregationType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183552"><span id="local-6989586621679183554"><span id="local-6989586621679183556"><span class="annot"><span class="annottext">Int -&gt; MetricAggregationType -&gt; ShowS
 [MetricAggregationType] -&gt; ShowS
 MetricAggregationType -&gt; String
 (Int -&gt; MetricAggregationType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: MetricAggregationType -&gt; String
 showsPrec :: Int -&gt; MetricAggregationType -&gt; ShowS
 $cshowsPrec :: Int -&gt; MetricAggregationType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679183534"><span id="local-6989586621679183536"><span id="local-6989586621679183538"><span id="local-6989586621679183540"><span class="annot"><span class="annottext">ReadPrec [MetricAggregationType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679183543"><span id="local-6989586621679183545"><span id="local-6989586621679183547"><span id="local-6989586621679183549"><span class="annot"><span class="annottext">ReadPrec [MetricAggregationType]
 ReadPrec MetricAggregationType
 Int -&gt; ReadS MetricAggregationType
 ReadS [MetricAggregationType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [MetricAggregationType]
 readsPrec :: Int -&gt; ReadS MetricAggregationType
 $creadsPrec :: Int -&gt; ReadS MetricAggregationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679183529"><span id="local-6989586621679183531"><span class="annot"><span class="annottext">MetricAggregationType -&gt; MetricAggregationType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679183538"><span id="local-6989586621679183540"><span class="annot"><span class="annottext">MetricAggregationType -&gt; MetricAggregationType -&gt; Bool
 (MetricAggregationType -&gt; MetricAggregationType -&gt; Bool)
 -&gt; (MetricAggregationType -&gt; MetricAggregationType -&gt; Bool)
 -&gt; Eq MetricAggregationType
@@ -83,7 +83,7 @@ $c/= :: MetricAggregationType -&gt; MetricAggregationType -&gt; Bool
 == :: MetricAggregationType -&gt; MetricAggregationType -&gt; Bool
 $c== :: MetricAggregationType -&gt; MetricAggregationType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679183513"><span id="local-6989586621679183515"><span id="local-6989586621679183517"><span id="local-6989586621679183519"><span id="local-6989586621679183521"><span id="local-6989586621679183523"><span id="local-6989586621679183525"><span class="annot"><span class="annottext">Eq MetricAggregationType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679183522"><span id="local-6989586621679183524"><span id="local-6989586621679183526"><span id="local-6989586621679183528"><span id="local-6989586621679183530"><span id="local-6989586621679183532"><span id="local-6989586621679183534"><span class="annot"><span class="annottext">Eq MetricAggregationType
 Eq MetricAggregationType
 -&gt; (MetricAggregationType -&gt; MetricAggregationType -&gt; Ordering)
 -&gt; (MetricAggregationType -&gt; MetricAggregationType -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. MetricAggregationType -&gt; Rep MetricAggregationType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183505"><span id="local-6989586621679183507"><span class="annot"><span class="annottext">Int -&gt; MetricAggregationType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183514"><span id="local-6989586621679183516"><span class="annot"><span class="annottext">Int -&gt; MetricAggregationType -&gt; Int
 MetricAggregationType -&gt; Int
 (Int -&gt; MetricAggregationType -&gt; Int)
 -&gt; (MetricAggregationType -&gt; Int) -&gt; Hashable MetricAggregationType
@@ -151,54 +151,54 @@ $chash :: MetricAggregationType -&gt; Int
 hashWithSalt :: Int -&gt; MetricAggregationType -&gt; Int
 $chashWithSalt :: Int -&gt; MetricAggregationType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679183502"><span class="annot"><span class="annottext">MetricAggregationType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679183511"><span class="annot"><span class="annottext">MetricAggregationType -&gt; ()
 (MetricAggregationType -&gt; ()) -&gt; NFData MetricAggregationType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MetricAggregationType -&gt; ()
 $crnf :: MetricAggregationType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679183499"><span class="annot"><span class="annottext">Text -&gt; Either String MetricAggregationType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679183508"><span class="annot"><span class="annottext">Text -&gt; Either String MetricAggregationType
 (Text -&gt; Either String MetricAggregationType)
 -&gt; FromText MetricAggregationType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MetricAggregationType
 $cfromText :: Text -&gt; Either String MetricAggregationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679183496"><span class="annot"><span class="annottext">MetricAggregationType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679183505"><span class="annot"><span class="annottext">MetricAggregationType -&gt; Text
 (MetricAggregationType -&gt; Text) -&gt; ToText MetricAggregationType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MetricAggregationType -&gt; Text
 $ctoText :: MetricAggregationType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679183493"><span class="annot"><span class="annottext">MetricAggregationType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679183502"><span class="annot"><span class="annottext">MetricAggregationType -&gt; ByteString
 (MetricAggregationType -&gt; ByteString)
 -&gt; ToByteString MetricAggregationType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MetricAggregationType -&gt; ByteString
 $ctoBS :: MetricAggregationType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679183490"><span class="annot"><span class="annottext">MetricAggregationType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679183499"><span class="annot"><span class="annottext">MetricAggregationType -&gt; ByteStringBuilder
 (MetricAggregationType -&gt; ByteStringBuilder)
 -&gt; ToLog MetricAggregationType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MetricAggregationType -&gt; ByteStringBuilder
 $cbuild :: MetricAggregationType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679183487"><span class="annot"><span class="annottext">HeaderName -&gt; MetricAggregationType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679183496"><span class="annot"><span class="annottext">HeaderName -&gt; MetricAggregationType -&gt; [Header]
 (HeaderName -&gt; MetricAggregationType -&gt; [Header])
 -&gt; ToHeader MetricAggregationType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MetricAggregationType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MetricAggregationType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679183484"><span class="annot"><span class="annottext">MetricAggregationType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679183493"><span class="annot"><span class="annottext">MetricAggregationType -&gt; QueryString
 (MetricAggregationType -&gt; QueryString)
 -&gt; ToQuery MetricAggregationType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MetricAggregationType -&gt; QueryString
 $ctoQuery :: MetricAggregationType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679183479"><span id="local-6989586621679183481"><span class="annot"><span class="annottext">Value -&gt; Parser [MetricAggregationType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679183488"><span id="local-6989586621679183490"><span class="annot"><span class="annottext">Value -&gt; Parser [MetricAggregationType]
 Value -&gt; Parser MetricAggregationType
 (Value -&gt; Parser MetricAggregationType)
 -&gt; (Value -&gt; Parser [MetricAggregationType])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [MetricAggregationType]
 parseJSON :: Value -&gt; Parser MetricAggregationType
 $cparseJSON :: Value -&gt; Parser MetricAggregationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679183474"><span id="local-6989586621679183476"><span class="annot"><span class="annottext">FromJSONKeyFunction [MetricAggregationType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679183483"><span id="local-6989586621679183485"><span class="annot"><span class="annottext">FromJSONKeyFunction [MetricAggregationType]
 FromJSONKeyFunction MetricAggregationType
 FromJSONKeyFunction MetricAggregationType
 -&gt; FromJSONKeyFunction [MetricAggregationType]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MetricAggregationType]
 fromJSONKey :: FromJSONKeyFunction MetricAggregationType
 $cfromJSONKey :: FromJSONKeyFunction MetricAggregationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679183465"><span id="local-6989586621679183467"><span id="local-6989586621679183469"><span id="local-6989586621679183471"><span class="annot"><span class="annottext">[MetricAggregationType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679183474"><span id="local-6989586621679183476"><span id="local-6989586621679183478"><span id="local-6989586621679183480"><span class="annot"><span class="annottext">[MetricAggregationType] -&gt; Encoding
 [MetricAggregationType] -&gt; Value
 MetricAggregationType -&gt; Encoding
 MetricAggregationType -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: MetricAggregationType -&gt; Encoding
 toJSON :: MetricAggregationType -&gt; Value
 $ctoJSON :: MetricAggregationType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679183460"><span id="local-6989586621679183462"><span class="annot"><span class="annottext">ToJSONKeyFunction [MetricAggregationType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679183469"><span id="local-6989586621679183471"><span class="annot"><span class="annottext">ToJSONKeyFunction [MetricAggregationType]
 ToJSONKeyFunction MetricAggregationType
 ToJSONKeyFunction MetricAggregationType
 -&gt; ToJSONKeyFunction [MetricAggregationType]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MetricAggregationType]
 toJSONKey :: ToJSONKeyFunction MetricAggregationType
 $ctoJSONKey :: ToJSONKeyFunction MetricAggregationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679183457"><span class="annot"><span class="annottext">[Node] -&gt; Either String MetricAggregationType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679183466"><span class="annot"><span class="annottext">[Node] -&gt; Either String MetricAggregationType
 ([Node] -&gt; Either String MetricAggregationType)
 -&gt; FromXML MetricAggregationType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MetricAggregationType
 $cparseXML :: [Node] -&gt; Either String MetricAggregationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679183454"><span class="annot"><span class="annottext">MetricAggregationType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679183463"><span class="annot"><span class="annottext">MetricAggregationType -&gt; XML
 (MetricAggregationType -&gt; XML) -&gt; ToXML MetricAggregationType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MetricAggregationType -&gt; XML

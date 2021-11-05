@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MediaTailor.GetChannelSchedule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves information about your channel\'s schedule.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaTailor.GetChannelSchedule</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier">GetChannelSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#newGetChannelSchedule"><span class="hs-identifier">newGetChannelSchedule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelSchedule_nextToken"><span class="hs-identifier">getChannelSchedule_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelSchedule_durationMinutes"><span class="hs-identifier">getChannelSchedule_durationMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelSchedule_maxResults"><span class="hs-identifier">getChannelSchedule_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelSchedule_channelName"><span class="hs-identifier">getChannelSchedule_channelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse"><span class="hs-identifier">GetChannelScheduleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#newGetChannelScheduleResponse"><span class="hs-identifier">newGetChannelScheduleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelScheduleResponse_items"><span class="hs-identifier">getChannelScheduleResponse_items</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelScheduleResponse_nextToken"><span class="hs-identifier">getChannelScheduleResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelScheduleResponse_httpStatus"><span class="hs-identifier">getChannelScheduleResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.html"><span class="hs-identifier">Network.AWS.MediaTailor.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newGetChannelSchedule' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679273543"><span id="local-6989586621679273544"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetChannelSchedule"><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-var">GetChannelSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetChannelSchedule%27"><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule%27"><span class="hs-identifier hs-var">GetChannelSchedule'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Pagination token from the GET list request. Use the token to fetch the</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- next page of results.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AGetChannelSchedule%27"><span class="annot"><span class="annottext">GetChannelSchedule -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AnextToken%3AGetChannelSchedule%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The schedule duration in minutes. The maximum duration is 4320 minutes</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- (three days).</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AdurationMinutes%3AGetChannelSchedule%27"><span class="annot"><span class="annottext">GetChannelSchedule -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AdurationMinutes%3AGetChannelSchedule%27"><span class="hs-identifier hs-var hs-var">durationMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Upper bound on number of records to return. The maximum number of</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- results is 100.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetChannelSchedule%27"><span class="annot"><span class="annottext">GetChannelSchedule -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AmaxResults%3AGetChannelSchedule%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The identifier for the channel you are working on.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AchannelName%3AGetChannelSchedule%27"><span class="annot"><span class="annottext">GetChannelSchedule -&gt; Text
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AchannelName%3AGetChannelSchedule%27"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273534"><span id="local-6989586621679273536"><span class="annot"><span class="annottext">GetChannelSchedule -&gt; GetChannelSchedule -&gt; Bool
+(GetChannelSchedule -&gt; GetChannelSchedule -&gt; Bool)
+-&gt; (GetChannelSchedule -&gt; GetChannelSchedule -&gt; Bool)
+-&gt; Eq GetChannelSchedule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetChannelSchedule -&gt; GetChannelSchedule -&gt; Bool
+$c/= :: GetChannelSchedule -&gt; GetChannelSchedule -&gt; Bool
+== :: GetChannelSchedule -&gt; GetChannelSchedule -&gt; Bool
+$c== :: GetChannelSchedule -&gt; GetChannelSchedule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273525"><span id="local-6989586621679273527"><span id="local-6989586621679273529"><span id="local-6989586621679273531"><span class="annot"><span class="annottext">ReadPrec [GetChannelSchedule]
+ReadPrec GetChannelSchedule
+Int -&gt; ReadS GetChannelSchedule
+ReadS [GetChannelSchedule]
+(Int -&gt; ReadS GetChannelSchedule)
+-&gt; ReadS [GetChannelSchedule]
+-&gt; ReadPrec GetChannelSchedule
+-&gt; ReadPrec [GetChannelSchedule]
+-&gt; Read GetChannelSchedule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetChannelSchedule]
+$creadListPrec :: ReadPrec [GetChannelSchedule]
+readPrec :: ReadPrec GetChannelSchedule
+$creadPrec :: ReadPrec GetChannelSchedule
+readList :: ReadS [GetChannelSchedule]
+$creadList :: ReadS [GetChannelSchedule]
+readsPrec :: Int -&gt; ReadS GetChannelSchedule
+$creadsPrec :: Int -&gt; ReadS GetChannelSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273518"><span id="local-6989586621679273520"><span id="local-6989586621679273522"><span class="annot"><span class="annottext">Int -&gt; GetChannelSchedule -&gt; ShowS
+[GetChannelSchedule] -&gt; ShowS
+GetChannelSchedule -&gt; String
+(Int -&gt; GetChannelSchedule -&gt; ShowS)
+-&gt; (GetChannelSchedule -&gt; String)
+-&gt; ([GetChannelSchedule] -&gt; ShowS)
+-&gt; Show GetChannelSchedule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetChannelSchedule] -&gt; ShowS
+$cshowList :: [GetChannelSchedule] -&gt; ShowS
+show :: GetChannelSchedule -&gt; String
+$cshow :: GetChannelSchedule -&gt; String
+showsPrec :: Int -&gt; GetChannelSchedule -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetChannelSchedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetChannelSchedule -&gt; Rep GetChannelSchedule x)
+-&gt; (forall x. Rep GetChannelSchedule x -&gt; GetChannelSchedule)
+-&gt; Generic GetChannelSchedule
+forall x. Rep GetChannelSchedule x -&gt; GetChannelSchedule
+forall x. GetChannelSchedule -&gt; Rep GetChannelSchedule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetChannelSchedule x -&gt; GetChannelSchedule
+$cfrom :: forall x. GetChannelSchedule -&gt; Rep GetChannelSchedule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'GetChannelSchedule' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'nextToken', 'getChannelSchedule_nextToken' - Pagination token from the GET list request. Use the token to fetch the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- next page of results.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'durationMinutes', 'getChannelSchedule_durationMinutes' - The schedule duration in minutes. The maximum duration is 4320 minutes</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- (three days).</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'maxResults', 'getChannelSchedule_maxResults' - Upper bound on number of records to return. The maximum number of</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- results is 100.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'channelName', 'getChannelSchedule_channelName' - The identifier for the channel you are working on.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#newGetChannelSchedule"><span class="hs-identifier hs-type">newGetChannelSchedule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'channelName'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span><span>
+</span><span id="line-93"></span><span id="newGetChannelSchedule"><span class="annot"><span class="annottext">newGetChannelSchedule :: Text -&gt; GetChannelSchedule
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#newGetChannelSchedule"><span class="hs-identifier hs-var hs-var">newGetChannelSchedule</span></a></span></span><span> </span><span id="local-6989586621679273513"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273513"><span class="hs-identifier hs-var">pChannelName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">GetChannelSchedule' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; GetChannelSchedule
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule%27"><span class="hs-identifier hs-type">GetChannelSchedule'</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetChannelSchedule' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AnextToken%3AGetChannelSchedule%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:durationMinutes:GetChannelSchedule' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AdurationMinutes%3AGetChannelSchedule%27"><span class="hs-identifier hs-var">durationMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetChannelSchedule' :: Maybe Natural
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AmaxResults%3AGetChannelSchedule%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelName:GetChannelSchedule' :: Text
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AchannelName%3AGetChannelSchedule%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273513"><span class="hs-identifier hs-var">pChannelName_</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Pagination token from the GET list request. Use the token to fetch the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- next page of results.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelSchedule_nextToken"><span class="hs-identifier hs-type">getChannelSchedule_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="getChannelSchedule_nextToken"><span class="annot"><span class="annottext">getChannelSchedule_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetChannelSchedule -&gt; f GetChannelSchedule
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelSchedule_nextToken"><span class="hs-identifier hs-var hs-var">getChannelSchedule_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetChannelSchedule -&gt; Maybe Text)
+-&gt; (GetChannelSchedule -&gt; Maybe Text -&gt; GetChannelSchedule)
+-&gt; Lens
+     GetChannelSchedule GetChannelSchedule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule%27"><span class="hs-identifier hs-type">GetChannelSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273511"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetChannelSchedule' :: GetChannelSchedule -&gt; Maybe Text
+</span><a href="#local-6989586621679273511"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273511"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273510"><span class="annot"><span class="annottext">s :: GetChannelSchedule
+</span><a href="#local-6989586621679273510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule%27"><span class="hs-identifier hs-type">GetChannelSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273509"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChannelSchedule
+</span><a href="#local-6989586621679273510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetChannelSchedule' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AnextToken%3AGetChannelSchedule%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The schedule duration in minutes. The maximum duration is 4320 minutes</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- (three days).</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelSchedule_durationMinutes"><span class="hs-identifier hs-type">getChannelSchedule_durationMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="getChannelSchedule_durationMinutes"><span class="annot"><span class="annottext">getChannelSchedule_durationMinutes :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetChannelSchedule -&gt; f GetChannelSchedule
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelSchedule_durationMinutes"><span class="hs-identifier hs-var hs-var">getChannelSchedule_durationMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetChannelSchedule -&gt; Maybe Text)
+-&gt; (GetChannelSchedule -&gt; Maybe Text -&gt; GetChannelSchedule)
+-&gt; Lens
+     GetChannelSchedule GetChannelSchedule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule%27"><span class="hs-identifier hs-type">GetChannelSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273508"><span class="annot"><span class="annottext">Maybe Text
+durationMinutes :: Maybe Text
+$sel:durationMinutes:GetChannelSchedule' :: GetChannelSchedule -&gt; Maybe Text
+</span><a href="#local-6989586621679273508"><span class="hs-identifier hs-var hs-var">durationMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273508"><span class="hs-identifier hs-var">durationMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273507"><span class="annot"><span class="annottext">s :: GetChannelSchedule
+</span><a href="#local-6989586621679273507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule%27"><span class="hs-identifier hs-type">GetChannelSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273506"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChannelSchedule
+</span><a href="#local-6989586621679273507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationMinutes:GetChannelSchedule' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AdurationMinutes%3AGetChannelSchedule%27"><span class="hs-identifier hs-var">durationMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Upper bound on number of records to return. The maximum number of</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- results is 100.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelSchedule_maxResults"><span class="hs-identifier hs-type">getChannelSchedule_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="getChannelSchedule_maxResults"><span class="annot"><span class="annottext">getChannelSchedule_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetChannelSchedule -&gt; f GetChannelSchedule
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelSchedule_maxResults"><span class="hs-identifier hs-var hs-var">getChannelSchedule_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetChannelSchedule -&gt; Maybe Natural)
+-&gt; (GetChannelSchedule -&gt; Maybe Natural -&gt; GetChannelSchedule)
+-&gt; Lens
+     GetChannelSchedule
+     GetChannelSchedule
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule%27"><span class="hs-identifier hs-type">GetChannelSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273505"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetChannelSchedule' :: GetChannelSchedule -&gt; Maybe Natural
+</span><a href="#local-6989586621679273505"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679273505"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273504"><span class="annot"><span class="annottext">s :: GetChannelSchedule
+</span><a href="#local-6989586621679273504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule%27"><span class="hs-identifier hs-type">GetChannelSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273503"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679273503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChannelSchedule
+</span><a href="#local-6989586621679273504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetChannelSchedule' :: Maybe Natural
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AmaxResults%3AGetChannelSchedule%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679273503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The identifier for the channel you are working on.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelSchedule_channelName"><span class="hs-identifier hs-type">getChannelSchedule_channelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="getChannelSchedule_channelName"><span class="annot"><span class="annottext">getChannelSchedule_channelName :: (Text -&gt; f Text) -&gt; GetChannelSchedule -&gt; f GetChannelSchedule
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelSchedule_channelName"><span class="hs-identifier hs-var hs-var">getChannelSchedule_channelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetChannelSchedule -&gt; Text)
+-&gt; (GetChannelSchedule -&gt; Text -&gt; GetChannelSchedule)
+-&gt; Lens GetChannelSchedule GetChannelSchedule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule%27"><span class="hs-identifier hs-type">GetChannelSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273502"><span class="annot"><span class="annottext">Text
+channelName :: Text
+$sel:channelName:GetChannelSchedule' :: GetChannelSchedule -&gt; Text
+</span><a href="#local-6989586621679273502"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273502"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273501"><span class="annot"><span class="annottext">s :: GetChannelSchedule
+</span><a href="#local-6989586621679273501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule%27"><span class="hs-identifier hs-type">GetChannelSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273500"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChannelSchedule
+</span><a href="#local-6989586621679273501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelName:GetChannelSchedule' :: Text
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AchannelName%3AGetChannelSchedule%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679273496"><span class="annot"><span class="annottext">page :: GetChannelSchedule
+-&gt; AWSResponse GetChannelSchedule -&gt; Maybe GetChannelSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679273494"><span class="annot"><span class="annottext">GetChannelSchedule
+</span><a href="#local-6989586621679273494"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679273493"><span class="annot"><span class="annottext">AWSResponse GetChannelSchedule
+</span><a href="#local-6989586621679273493"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetChannelSchedule
+GetChannelScheduleResponse
+</span><a href="#local-6989586621679273493"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">GetChannelScheduleResponse
+-&gt; Getting (First Text) GetChannelScheduleResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetChannelScheduleResponse
+-&gt; Const (First Text) GetChannelScheduleResponse
+Lens' GetChannelScheduleResponse (Maybe Text)
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelScheduleResponse_nextToken"><span class="hs-identifier hs-var">getChannelScheduleResponse_nextToken</span></a></span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetChannelScheduleResponse
+ -&gt; Const (First Text) GetChannelScheduleResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetChannelScheduleResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-126"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetChannelSchedule
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduleEntry] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-129"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetChannelSchedule
+GetChannelScheduleResponse
+</span><a href="#local-6989586621679273493"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">GetChannelScheduleResponse
+-&gt; Getting
+     (First [ScheduleEntry]) GetChannelScheduleResponse [ScheduleEntry]
+-&gt; Maybe [ScheduleEntry]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ScheduleEntry]
+ -&gt; Const (First [ScheduleEntry]) (Maybe [ScheduleEntry]))
+-&gt; GetChannelScheduleResponse
+-&gt; Const (First [ScheduleEntry]) GetChannelScheduleResponse
+Lens' GetChannelScheduleResponse (Maybe [ScheduleEntry])
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelScheduleResponse_items"><span class="hs-identifier hs-var">getChannelScheduleResponse_items</span></a></span><span>
+</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ScheduleEntry]
+  -&gt; Const (First [ScheduleEntry]) (Maybe [ScheduleEntry]))
+ -&gt; GetChannelScheduleResponse
+ -&gt; Const (First [ScheduleEntry]) GetChannelScheduleResponse)
+-&gt; (([ScheduleEntry]
+     -&gt; Const (First [ScheduleEntry]) [ScheduleEntry])
+    -&gt; Maybe [ScheduleEntry]
+    -&gt; Const (First [ScheduleEntry]) (Maybe [ScheduleEntry]))
+-&gt; Getting
+     (First [ScheduleEntry]) GetChannelScheduleResponse [ScheduleEntry]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ScheduleEntry] -&gt; Const (First [ScheduleEntry]) [ScheduleEntry])
+-&gt; Maybe [ScheduleEntry]
+-&gt; Const (First [ScheduleEntry]) (Maybe [ScheduleEntry])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-132"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Maybe GetChannelSchedule
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">GetChannelSchedule -&gt; Maybe GetChannelSchedule
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(GetChannelSchedule -&gt; Maybe GetChannelSchedule)
+-&gt; GetChannelSchedule -&gt; Maybe GetChannelSchedule
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">GetChannelSchedule
+</span><a href="#local-6989586621679273494"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">GetChannelSchedule
+-&gt; (GetChannelSchedule -&gt; GetChannelSchedule) -&gt; GetChannelSchedule
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; GetChannelSchedule -&gt; Identity GetChannelSchedule
+Lens
+  GetChannelSchedule GetChannelSchedule (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelSchedule_nextToken"><span class="hs-identifier hs-var">getChannelSchedule_nextToken</span></a></span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; GetChannelSchedule -&gt; Identity GetChannelSchedule)
+-&gt; Maybe Text -&gt; GetChannelSchedule -&gt; GetChannelSchedule
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetChannelSchedule
+GetChannelScheduleResponse
+</span><a href="#local-6989586621679273493"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">GetChannelScheduleResponse
+-&gt; Getting (First Text) GetChannelScheduleResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; GetChannelScheduleResponse
+-&gt; Const (First Text) GetChannelScheduleResponse
+Lens' GetChannelScheduleResponse (Maybe Text)
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelScheduleResponse_nextToken"><span class="hs-identifier hs-var">getChannelScheduleResponse_nextToken</span></a></span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; GetChannelScheduleResponse
+ -&gt; Const (First Text) GetChannelScheduleResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) GetChannelScheduleResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-144"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse"><span class="hs-identifier hs-type">GetChannelScheduleResponse</span></a></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679273483"><span class="annot"><span class="annottext">request :: GetChannelSchedule -&gt; Request GetChannelSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetChannelSchedule -&gt; Request GetChannelSchedule
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MediaTailor.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679273479"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetChannelSchedule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetChannelSchedule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetChannelSchedule))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetChannelSchedule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetChannelSchedule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679273476"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273476"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679273475"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679273475"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679273474"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273474"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ScheduleEntry]
+-&gt; Maybe Text -&gt; Int -&gt; GetChannelScheduleResponse
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse%27"><span class="hs-identifier hs-var">GetChannelScheduleResponse'</span></a></span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ScheduleEntry]
+ -&gt; Maybe Text -&gt; Int -&gt; GetChannelScheduleResponse)
+-&gt; Either String (Maybe [ScheduleEntry])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetChannelScheduleResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ScheduleEntry]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ScheduleEntry]))
+-&gt; Maybe [ScheduleEntry] -&gt; Either String (Maybe [ScheduleEntry])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduleEntry]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetChannelScheduleResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetChannelScheduleResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetChannelScheduleResponse)
+-&gt; Either String Int -&gt; Either String GetChannelScheduleResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273476"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273465"><span id="local-6989586621679273467"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span></span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273462"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679273458"><span class="annot"><span class="annottext">toHeaders :: GetChannelSchedule -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetChannelSchedule -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-167"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679273452"><span class="annot"><span class="annottext">toPath :: GetChannelSchedule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule%27"><span class="hs-identifier hs-type">GetChannelSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273447"><span id="local-6989586621679273448"><span id="local-6989586621679273449"><span id="local-6989586621679273450"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+channelName :: Text
+maxResults :: Maybe Natural
+durationMinutes :: Maybe Text
+nextToken :: Maybe Text
+$sel:channelName:GetChannelSchedule' :: GetChannelSchedule -&gt; Text
+$sel:maxResults:GetChannelSchedule' :: GetChannelSchedule -&gt; Maybe Natural
+$sel:durationMinutes:GetChannelSchedule' :: GetChannelSchedule -&gt; Maybe Text
+$sel:nextToken:GetChannelSchedule' :: GetChannelSchedule -&gt; Maybe Text
+</span><a href="#local-6989586621679273447"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/channel/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273447"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/schedule&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule"><span class="hs-identifier hs-type">GetChannelSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679273443"><span class="annot"><span class="annottext">toQuery :: GetChannelSchedule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelSchedule%27"><span class="hs-identifier hs-type">GetChannelSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273438"><span id="local-6989586621679273439"><span id="local-6989586621679273440"><span id="local-6989586621679273441"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+channelName :: Text
+maxResults :: Maybe Natural
+durationMinutes :: Maybe Text
+nextToken :: Maybe Text
+$sel:channelName:GetChannelSchedule' :: GetChannelSchedule -&gt; Text
+$sel:maxResults:GetChannelSchedule' :: GetChannelSchedule -&gt; Maybe Natural
+$sel:durationMinutes:GetChannelSchedule' :: GetChannelSchedule -&gt; Maybe Text
+$sel:nextToken:GetChannelSchedule' :: GetChannelSchedule -&gt; Maybe Text
+</span><a href="#local-6989586621679273438"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273441"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;durationMinutes&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273440"><span class="hs-identifier hs-var">durationMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679273439"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | /See:/ 'newGetChannelScheduleResponse' smart constructor.</span><span>
+</span><span id="line-185"></span><span id="local-6989586621679273435"><span id="local-6989586621679273436"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetChannelScheduleResponse"><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse"><span class="hs-identifier hs-var">GetChannelScheduleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetChannelScheduleResponse%27"><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse%27"><span class="hs-identifier hs-var">GetChannelScheduleResponse'</span></a></span></span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of schedule entries for the channel.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3Aitems%3AGetChannelScheduleResponse%27"><span class="annot"><span class="annottext">GetChannelScheduleResponse -&gt; Maybe [ScheduleEntry]
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3Aitems%3AGetChannelScheduleResponse%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | Pagination token from the GET list request. Use the token to fetch the</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- next page of results.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AnextToken%3AGetChannelScheduleResponse%27"><span class="annot"><span class="annottext">GetChannelScheduleResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AnextToken%3AGetChannelScheduleResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetChannelScheduleResponse%27"><span class="annot"><span class="annottext">GetChannelScheduleResponse -&gt; Int
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AhttpStatus%3AGetChannelScheduleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273428"><span id="local-6989586621679273430"><span class="annot"><span class="annottext">GetChannelScheduleResponse -&gt; GetChannelScheduleResponse -&gt; Bool
+(GetChannelScheduleResponse -&gt; GetChannelScheduleResponse -&gt; Bool)
+-&gt; (GetChannelScheduleResponse
+    -&gt; GetChannelScheduleResponse -&gt; Bool)
+-&gt; Eq GetChannelScheduleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetChannelScheduleResponse -&gt; GetChannelScheduleResponse -&gt; Bool
+$c/= :: GetChannelScheduleResponse -&gt; GetChannelScheduleResponse -&gt; Bool
+== :: GetChannelScheduleResponse -&gt; GetChannelScheduleResponse -&gt; Bool
+$c== :: GetChannelScheduleResponse -&gt; GetChannelScheduleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273420"><span id="local-6989586621679273422"><span id="local-6989586621679273424"><span id="local-6989586621679273426"><span class="annot"><span class="annottext">ReadPrec [GetChannelScheduleResponse]
+ReadPrec GetChannelScheduleResponse
+Int -&gt; ReadS GetChannelScheduleResponse
+ReadS [GetChannelScheduleResponse]
+(Int -&gt; ReadS GetChannelScheduleResponse)
+-&gt; ReadS [GetChannelScheduleResponse]
+-&gt; ReadPrec GetChannelScheduleResponse
+-&gt; ReadPrec [GetChannelScheduleResponse]
+-&gt; Read GetChannelScheduleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetChannelScheduleResponse]
+$creadListPrec :: ReadPrec [GetChannelScheduleResponse]
+readPrec :: ReadPrec GetChannelScheduleResponse
+$creadPrec :: ReadPrec GetChannelScheduleResponse
+readList :: ReadS [GetChannelScheduleResponse]
+$creadList :: ReadS [GetChannelScheduleResponse]
+readsPrec :: Int -&gt; ReadS GetChannelScheduleResponse
+$creadsPrec :: Int -&gt; ReadS GetChannelScheduleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273414"><span id="local-6989586621679273416"><span id="local-6989586621679273418"><span class="annot"><span class="annottext">Int -&gt; GetChannelScheduleResponse -&gt; ShowS
+[GetChannelScheduleResponse] -&gt; ShowS
+GetChannelScheduleResponse -&gt; String
+(Int -&gt; GetChannelScheduleResponse -&gt; ShowS)
+-&gt; (GetChannelScheduleResponse -&gt; String)
+-&gt; ([GetChannelScheduleResponse] -&gt; ShowS)
+-&gt; Show GetChannelScheduleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetChannelScheduleResponse] -&gt; ShowS
+$cshowList :: [GetChannelScheduleResponse] -&gt; ShowS
+show :: GetChannelScheduleResponse -&gt; String
+$cshow :: GetChannelScheduleResponse -&gt; String
+showsPrec :: Int -&gt; GetChannelScheduleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetChannelScheduleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetChannelScheduleResponse -&gt; Rep GetChannelScheduleResponse x)
+-&gt; (forall x.
+    Rep GetChannelScheduleResponse x -&gt; GetChannelScheduleResponse)
+-&gt; Generic GetChannelScheduleResponse
+forall x.
+Rep GetChannelScheduleResponse x -&gt; GetChannelScheduleResponse
+forall x.
+GetChannelScheduleResponse -&gt; Rep GetChannelScheduleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetChannelScheduleResponse x -&gt; GetChannelScheduleResponse
+$cfrom :: forall x.
+GetChannelScheduleResponse -&gt; Rep GetChannelScheduleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Create a value of 'GetChannelScheduleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'items', 'getChannelScheduleResponse_items' - An array of schedule entries for the channel.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'nextToken', 'getChannelScheduleResponse_nextToken' - Pagination token from the GET list request. Use the token to fetch the</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- next page of results.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'httpStatus', 'getChannelScheduleResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#newGetChannelScheduleResponse"><span class="hs-identifier hs-type">newGetChannelScheduleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse"><span class="hs-identifier hs-type">GetChannelScheduleResponse</span></a></span><span>
+</span><span id="line-214"></span><span id="newGetChannelScheduleResponse"><span class="annot"><span class="annottext">newGetChannelScheduleResponse :: Int -&gt; GetChannelScheduleResponse
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#newGetChannelScheduleResponse"><span class="hs-identifier hs-var hs-var">newGetChannelScheduleResponse</span></a></span></span><span> </span><span id="local-6989586621679273411"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273411"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">GetChannelScheduleResponse' :: Maybe [ScheduleEntry]
+-&gt; Maybe Text -&gt; Int -&gt; GetChannelScheduleResponse
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse%27"><span class="hs-identifier hs-type">GetChannelScheduleResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:GetChannelScheduleResponse' :: Maybe [ScheduleEntry]
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3Aitems%3AGetChannelScheduleResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ScheduleEntry]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetChannelScheduleResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AnextToken%3AGetChannelScheduleResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetChannelScheduleResponse' :: Int
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AhttpStatus%3AGetChannelScheduleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273411"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | An array of schedule entries for the channel.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelScheduleResponse_items"><span class="hs-identifier hs-type">getChannelScheduleResponse_items</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse"><span class="hs-identifier hs-type">GetChannelScheduleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ScheduleEntry.html#ScheduleEntry"><span class="hs-identifier hs-type">ScheduleEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="getChannelScheduleResponse_items"><span class="annot"><span class="annottext">getChannelScheduleResponse_items :: (Maybe [ScheduleEntry] -&gt; f (Maybe [ScheduleEntry]))
+-&gt; GetChannelScheduleResponse -&gt; f GetChannelScheduleResponse
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelScheduleResponse_items"><span class="hs-identifier hs-var hs-var">getChannelScheduleResponse_items</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetChannelScheduleResponse -&gt; Maybe [ScheduleEntry])
+-&gt; (GetChannelScheduleResponse
+    -&gt; Maybe [ScheduleEntry] -&gt; GetChannelScheduleResponse)
+-&gt; Lens' GetChannelScheduleResponse (Maybe [ScheduleEntry])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse%27"><span class="hs-identifier hs-type">GetChannelScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273410"><span class="annot"><span class="annottext">Maybe [ScheduleEntry]
+items :: Maybe [ScheduleEntry]
+$sel:items:GetChannelScheduleResponse' :: GetChannelScheduleResponse -&gt; Maybe [ScheduleEntry]
+</span><a href="#local-6989586621679273410"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduleEntry]
+</span><a href="#local-6989586621679273410"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273409"><span class="annot"><span class="annottext">s :: GetChannelScheduleResponse
+</span><a href="#local-6989586621679273409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse%27"><span class="hs-identifier hs-type">GetChannelScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273408"><span class="annot"><span class="annottext">Maybe [ScheduleEntry]
+</span><a href="#local-6989586621679273408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChannelScheduleResponse
+</span><a href="#local-6989586621679273409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:GetChannelScheduleResponse' :: Maybe [ScheduleEntry]
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3Aitems%3AGetChannelScheduleResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduleEntry]
+</span><a href="#local-6989586621679273408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse"><span class="hs-identifier hs-type">GetChannelScheduleResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ScheduleEntry] -&gt; f (Maybe [ScheduleEntry]))
+ -&gt; GetChannelScheduleResponse -&gt; f GetChannelScheduleResponse)
+-&gt; ((Maybe [ScheduleEntry] -&gt; f (Maybe [ScheduleEntry]))
+    -&gt; Maybe [ScheduleEntry] -&gt; f (Maybe [ScheduleEntry]))
+-&gt; (Maybe [ScheduleEntry] -&gt; f (Maybe [ScheduleEntry]))
+-&gt; GetChannelScheduleResponse
+-&gt; f GetChannelScheduleResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ScheduleEntry] [ScheduleEntry] [ScheduleEntry] [ScheduleEntry]
+-&gt; Iso
+     (Maybe [ScheduleEntry])
+     (Maybe [ScheduleEntry])
+     (Maybe [ScheduleEntry])
+     (Maybe [ScheduleEntry])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ScheduleEntry] [ScheduleEntry] [ScheduleEntry] [ScheduleEntry]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | Pagination token from the GET list request. Use the token to fetch the</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- next page of results.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelScheduleResponse_nextToken"><span class="hs-identifier hs-type">getChannelScheduleResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse"><span class="hs-identifier hs-type">GetChannelScheduleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="getChannelScheduleResponse_nextToken"><span class="annot"><span class="annottext">getChannelScheduleResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetChannelScheduleResponse -&gt; f GetChannelScheduleResponse
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelScheduleResponse_nextToken"><span class="hs-identifier hs-var hs-var">getChannelScheduleResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetChannelScheduleResponse -&gt; Maybe Text)
+-&gt; (GetChannelScheduleResponse
+    -&gt; Maybe Text -&gt; GetChannelScheduleResponse)
+-&gt; Lens' GetChannelScheduleResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse%27"><span class="hs-identifier hs-type">GetChannelScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273405"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetChannelScheduleResponse' :: GetChannelScheduleResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679273405"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273405"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273404"><span class="annot"><span class="annottext">s :: GetChannelScheduleResponse
+</span><a href="#local-6989586621679273404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse%27"><span class="hs-identifier hs-type">GetChannelScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273403"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChannelScheduleResponse
+</span><a href="#local-6989586621679273404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetChannelScheduleResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AnextToken%3AGetChannelScheduleResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse"><span class="hs-identifier hs-type">GetChannelScheduleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelScheduleResponse_httpStatus"><span class="hs-identifier hs-type">getChannelScheduleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse"><span class="hs-identifier hs-type">GetChannelScheduleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-233"></span><span id="getChannelScheduleResponse_httpStatus"><span class="annot"><span class="annottext">getChannelScheduleResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetChannelScheduleResponse -&gt; f GetChannelScheduleResponse
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#getChannelScheduleResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getChannelScheduleResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetChannelScheduleResponse -&gt; Int)
+-&gt; (GetChannelScheduleResponse
+    -&gt; Int -&gt; GetChannelScheduleResponse)
+-&gt; Lens
+     GetChannelScheduleResponse GetChannelScheduleResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse%27"><span class="hs-identifier hs-type">GetChannelScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273402"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetChannelScheduleResponse' :: GetChannelScheduleResponse -&gt; Int
+</span><a href="#local-6989586621679273402"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273402"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273401"><span class="annot"><span class="annottext">s :: GetChannelScheduleResponse
+</span><a href="#local-6989586621679273401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse%27"><span class="hs-identifier hs-type">GetChannelScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273400"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetChannelScheduleResponse
+</span><a href="#local-6989586621679273401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetChannelScheduleResponse' :: Int
+</span><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#%24sel%3AhttpStatus%3AGetChannelScheduleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse"><span class="hs-identifier hs-type">GetChannelScheduleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273398"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.GetChannelSchedule.html#GetChannelScheduleResponse"><span class="hs-identifier hs-type">GetChannelScheduleResponse</span></a></span></span><span>
+</span><span id="line-236"></span></pre></body></html>

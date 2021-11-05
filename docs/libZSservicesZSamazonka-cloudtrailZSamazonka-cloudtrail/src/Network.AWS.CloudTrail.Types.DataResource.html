@@ -77,7 +77,7 @@
 </span><span id="line-77"></span><span class="hs-comment">--     the trail. The trail doesn&#8217;t log the event.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- /See:/ 'newDataResource' smart constructor.</span><span>
-</span><span id="line-80"></span><span id="local-6989586621679194968"><span id="local-6989586621679194969"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataResource"><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource"><span class="hs-identifier hs-var">DataResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataResource%27"><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource%27"><span class="hs-identifier hs-var">DataResource'</span></a></span></span><span>
+</span><span id="line-80"></span><span id="local-6989586621679194977"><span id="local-6989586621679194978"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataResource"><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource"><span class="hs-identifier hs-var">DataResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataResource%27"><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource%27"><span class="hs-identifier hs-var">DataResource'</span></a></span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of Amazon Resource Name (ARN) strings or partial ARN strings</span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-comment">-- for the specified objects.</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -132,7 +132,7 @@
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3Atype%27%3ADataResource%27"><span class="annot"><span class="annottext">DataResource -&gt; Maybe Text
 </span><a href="Network.AWS.CloudTrail.Types.DataResource.html#%24sel%3Atype%27%3ADataResource%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194961"><span id="local-6989586621679194963"><span class="annot"><span class="annottext">DataResource -&gt; DataResource -&gt; Bool
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194970"><span id="local-6989586621679194972"><span class="annot"><span class="annottext">DataResource -&gt; DataResource -&gt; Bool
 (DataResource -&gt; DataResource -&gt; Bool)
 -&gt; (DataResource -&gt; DataResource -&gt; Bool) -&gt; Eq DataResource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -140,7 +140,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DataResource -&gt; DataResource -&gt; Bool
 == :: DataResource -&gt; DataResource -&gt; Bool
 $c== :: DataResource -&gt; DataResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194952"><span id="local-6989586621679194954"><span id="local-6989586621679194956"><span id="local-6989586621679194958"><span class="annot"><span class="annottext">ReadPrec [DataResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194961"><span id="local-6989586621679194963"><span id="local-6989586621679194965"><span id="local-6989586621679194967"><span class="annot"><span class="annottext">ReadPrec [DataResource]
 ReadPrec DataResource
 Int -&gt; ReadS DataResource
 ReadS [DataResource]
@@ -160,7 +160,7 @@ readList :: ReadS [DataResource]
 $creadList :: ReadS [DataResource]
 readsPrec :: Int -&gt; ReadS DataResource
 $creadsPrec :: Int -&gt; ReadS DataResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194945"><span id="local-6989586621679194947"><span id="local-6989586621679194949"><span class="annot"><span class="annottext">Int -&gt; DataResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194954"><span id="local-6989586621679194956"><span id="local-6989586621679194958"><span class="annot"><span class="annottext">Int -&gt; DataResource -&gt; ShowS
 [DataResource] -&gt; ShowS
 DataResource -&gt; String
 (Int -&gt; DataResource -&gt; ShowS)
@@ -308,16 +308,16 @@ forall a. Maybe a
 -&gt; (DataResource -&gt; Maybe [Text] -&gt; DataResource)
 -&gt; Lens DataResource DataResource (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource%27"><span class="hs-identifier hs-type">DataResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194936"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource%27"><span class="hs-identifier hs-type">DataResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194945"><span class="annot"><span class="annottext">Maybe [Text]
 values :: Maybe [Text]
 $sel:values:DataResource' :: DataResource -&gt; Maybe [Text]
-</span><a href="#local-6989586621679194936"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679194936"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194935"><span class="annot"><span class="annottext">s :: DataResource
-</span><a href="#local-6989586621679194935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource%27"><span class="hs-identifier hs-type">DataResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194934"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679194934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataResource
-</span><a href="#local-6989586621679194935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:DataResource' :: Maybe [Text]
+</span><a href="#local-6989586621679194945"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679194945"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194944"><span class="annot"><span class="annottext">s :: DataResource
+</span><a href="#local-6989586621679194944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource%27"><span class="hs-identifier hs-type">DataResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194943"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679194943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataResource
+</span><a href="#local-6989586621679194944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:DataResource' :: Maybe [Text]
 </span><a href="Network.AWS.CloudTrail.Types.DataResource.html#%24sel%3Avalues%3ADataResource%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679194934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource"><span class="hs-identifier hs-type">DataResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679194943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource"><span class="hs-identifier hs-type">DataResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DataResource -&gt; f DataResource)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -348,19 +348,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DataResource -&gt; Maybe Text -&gt; DataResource)
 -&gt; Lens DataResource DataResource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource%27"><span class="hs-identifier hs-type">DataResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194929"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource%27"><span class="hs-identifier hs-type">DataResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194938"><span class="annot"><span class="annottext">Maybe Text
 type' :: Maybe Text
 $sel:type':DataResource' :: DataResource -&gt; Maybe Text
-</span><a href="#local-6989586621679194929"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194929"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194928"><span class="annot"><span class="annottext">s :: DataResource
-</span><a href="#local-6989586621679194928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource%27"><span class="hs-identifier hs-type">DataResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194927"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataResource
-</span><a href="#local-6989586621679194928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DataResource' :: Maybe Text
+</span><a href="#local-6989586621679194938"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194938"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194937"><span class="annot"><span class="annottext">s :: DataResource
+</span><a href="#local-6989586621679194937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource%27"><span class="hs-identifier hs-type">DataResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194936"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataResource
+</span><a href="#local-6989586621679194937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DataResource' :: Maybe Text
 </span><a href="Network.AWS.CloudTrail.Types.DataResource.html#%24sel%3Atype%27%3ADataResource%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource"><span class="hs-identifier hs-type">DataResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource"><span class="hs-identifier hs-type">DataResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>
-</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194924"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource"><span class="hs-identifier hs-type">DataResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-257"></span><span>  </span><span id="local-6989586621679194922"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataResource
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194933"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource"><span class="hs-identifier hs-type">DataResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679194931"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-258"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DataResource) -&gt; Value -&gt; Parser DataResource
@@ -368,15 +368,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DataResource&quot;</span></span><span>
-</span><span id="line-260"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679194919"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194919"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-260"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679194928"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194928"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-261"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; DataResource
 </span><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource%27"><span class="hs-identifier hs-var">DataResource'</span></a></span><span>
 </span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; DataResource)
 -&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe Text -&gt; DataResource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679194928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -389,25 +389,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser DataResource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679194919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679194928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-265"></span><span>
-</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194912"><span id="local-6989586621679194914"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource"><span class="hs-identifier hs-type">DataResource</span></a></span></span></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194921"><span id="local-6989586621679194923"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource"><span class="hs-identifier hs-type">DataResource</span></a></span></span></span><span>
 </span><span id="line-267"></span><span>
-</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194909"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource"><span class="hs-identifier hs-type">DataResource</span></a></span></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194918"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource"><span class="hs-identifier hs-type">DataResource</span></a></span></span><span>
 </span><span id="line-269"></span><span>
-</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194901"><span id="local-6989586621679194903"><span id="local-6989586621679194905"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource"><span class="hs-identifier hs-type">DataResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-271"></span><span>  </span><span id="local-6989586621679194899"><span class="annot"><span class="annottext">toJSON :: DataResource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource%27"><span class="hs-identifier hs-type">DataResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194896"><span id="local-6989586621679194897"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194910"><span id="local-6989586621679194912"><span id="local-6989586621679194914"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource"><span class="hs-identifier hs-type">DataResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679194908"><span class="annot"><span class="annottext">toJSON :: DataResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.DataResource.html#DataResource%27"><span class="hs-identifier hs-type">DataResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194905"><span id="local-6989586621679194906"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 type' :: Maybe Text
 values :: Maybe [Text]
 $sel:type':DataResource' :: DataResource -&gt; Maybe Text
 $sel:values:DataResource' :: DataResource -&gt; Maybe [Text]
-</span><a href="#local-6989586621679194896"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679194905"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-272"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-273"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -419,14 +419,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679194897"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679194906"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194896"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621679194905"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-276"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-277"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-278"></span></pre></body></html>

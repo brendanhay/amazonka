@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListOrganizationAdminAccounts' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679305626"><span id="local-6989586621679305627"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOrganizationAdminAccounts"><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts"><span class="hs-identifier hs-var">ListOrganizationAdminAccounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOrganizationAdminAccounts%27"><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts%27"><span class="hs-identifier hs-var">ListOrganizationAdminAccounts'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679305635"><span id="local-6989586621679305636"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOrganizationAdminAccounts"><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts"><span class="hs-identifier hs-var">ListOrganizationAdminAccounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOrganizationAdminAccounts%27"><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts%27"><span class="hs-identifier hs-var">ListOrganizationAdminAccounts'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to use for paginating results that are returned in the response.</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Set the value of this parameter to null for the first request to a list</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- action. For subsequent calls, use the @NextToken@ value returned from</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AmaxResults%3AListOrganizationAdminAccounts%27"><span class="annot"><span class="annottext">ListOrganizationAdminAccounts -&gt; Maybe Natural
 </span><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#%24sel%3AmaxResults%3AListOrganizationAdminAccounts%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305619"><span id="local-6989586621679305621"><span class="annot"><span class="annottext">ListOrganizationAdminAccounts
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305628"><span id="local-6989586621679305630"><span class="annot"><span class="annottext">ListOrganizationAdminAccounts
 -&gt; ListOrganizationAdminAccounts -&gt; Bool
 (ListOrganizationAdminAccounts
  -&gt; ListOrganizationAdminAccounts -&gt; Bool)
@@ -78,7 +78,7 @@ $c/= :: ListOrganizationAdminAccounts
 -&gt; ListOrganizationAdminAccounts -&gt; Bool
 $c== :: ListOrganizationAdminAccounts
 -&gt; ListOrganizationAdminAccounts -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305610"><span id="local-6989586621679305612"><span id="local-6989586621679305614"><span id="local-6989586621679305616"><span class="annot"><span class="annottext">ReadPrec [ListOrganizationAdminAccounts]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305619"><span id="local-6989586621679305621"><span id="local-6989586621679305623"><span id="local-6989586621679305625"><span class="annot"><span class="annottext">ReadPrec [ListOrganizationAdminAccounts]
 ReadPrec ListOrganizationAdminAccounts
 Int -&gt; ReadS ListOrganizationAdminAccounts
 ReadS [ListOrganizationAdminAccounts]
@@ -98,7 +98,7 @@ readList :: ReadS [ListOrganizationAdminAccounts]
 $creadList :: ReadS [ListOrganizationAdminAccounts]
 readsPrec :: Int -&gt; ReadS ListOrganizationAdminAccounts
 $creadsPrec :: Int -&gt; ReadS ListOrganizationAdminAccounts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305603"><span id="local-6989586621679305605"><span id="local-6989586621679305607"><span class="annot"><span class="annottext">Int -&gt; ListOrganizationAdminAccounts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305612"><span id="local-6989586621679305614"><span id="local-6989586621679305616"><span class="annot"><span class="annottext">Int -&gt; ListOrganizationAdminAccounts -&gt; ShowS
 [ListOrganizationAdminAccounts] -&gt; ShowS
 ListOrganizationAdminAccounts -&gt; String
 (Int -&gt; ListOrganizationAdminAccounts -&gt; ShowS)
@@ -183,16 +183,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305597"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305606"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListOrganizationAdminAccounts' :: ListOrganizationAdminAccounts -&gt; Maybe Text
-</span><a href="#local-6989586621679305597"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305597"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305596"><span class="annot"><span class="annottext">s :: ListOrganizationAdminAccounts
-</span><a href="#local-6989586621679305596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305595"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOrganizationAdminAccounts
-</span><a href="#local-6989586621679305596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOrganizationAdminAccounts' :: Maybe Text
+</span><a href="#local-6989586621679305606"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305606"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305605"><span class="annot"><span class="annottext">s :: ListOrganizationAdminAccounts
+</span><a href="#local-6989586621679305605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305604"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOrganizationAdminAccounts
+</span><a href="#local-6989586621679305605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOrganizationAdminAccounts' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#%24sel%3AnextToken%3AListOrganizationAdminAccounts%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The maximum number of results to return in the response.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#listOrganizationAdminAccounts_maxResults"><span class="hs-identifier hs-type">listOrganizationAdminAccounts_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -207,30 +207,30 @@ $sel:nextToken:ListOrganizationAdminAccounts' :: ListOrganizationAdminAccounts -
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305594"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305603"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListOrganizationAdminAccounts' :: ListOrganizationAdminAccounts -&gt; Maybe Natural
-</span><a href="#local-6989586621679305594"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679305594"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305593"><span class="annot"><span class="annottext">s :: ListOrganizationAdminAccounts
-</span><a href="#local-6989586621679305593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305592"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679305592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOrganizationAdminAccounts
-</span><a href="#local-6989586621679305593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListOrganizationAdminAccounts' :: Maybe Natural
+</span><a href="#local-6989586621679305603"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679305603"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305602"><span class="annot"><span class="annottext">s :: ListOrganizationAdminAccounts
+</span><a href="#local-6989586621679305602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305601"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679305601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOrganizationAdminAccounts
+</span><a href="#local-6989586621679305602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListOrganizationAdminAccounts' :: Maybe Natural
 </span><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#%24sel%3AmaxResults%3AListOrganizationAdminAccounts%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679305592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679305588"><span class="annot"><span class="annottext">page :: ListOrganizationAdminAccounts
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679305597"><span class="annot"><span class="annottext">page :: ListOrganizationAdminAccounts
 -&gt; AWSResponse ListOrganizationAdminAccounts
 -&gt; Maybe ListOrganizationAdminAccounts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679305586"><span class="annot"><span class="annottext">ListOrganizationAdminAccounts
-</span><a href="#local-6989586621679305586"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679305585"><span class="annot"><span class="annottext">AWSResponse ListOrganizationAdminAccounts
-</span><a href="#local-6989586621679305585"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679305595"><span class="annot"><span class="annottext">ListOrganizationAdminAccounts
+</span><a href="#local-6989586621679305595"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679305594"><span class="annot"><span class="annottext">AWSResponse ListOrganizationAdminAccounts
+</span><a href="#local-6989586621679305594"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-102"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOrganizationAdminAccounts
 ListOrganizationAdminAccountsResponse
-</span><a href="#local-6989586621679305585"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679305594"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">ListOrganizationAdminAccountsResponse
 -&gt; Getting (First Text) ListOrganizationAdminAccountsResponse Text
 -&gt; Maybe Text
@@ -260,7 +260,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-108"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOrganizationAdminAccounts
 ListOrganizationAdminAccountsResponse
-</span><a href="#local-6989586621679305585"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679305594"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">ListOrganizationAdminAccountsResponse
 -&gt; Getting
      (First [AdminAccount])
@@ -309,7 +309,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">ListOrganizationAdminAccounts
-</span><a href="#local-6989586621679305586"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679305595"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">ListOrganizationAdminAccounts
 -&gt; (ListOrganizationAdminAccounts -&gt; ListOrganizationAdminAccounts)
 -&gt; ListOrganizationAdminAccounts
@@ -332,7 +332,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListOrganizationAdminAccounts
 ListOrganizationAdminAccountsResponse
-</span><a href="#local-6989586621679305585"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679305594"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">ListOrganizationAdminAccountsResponse
 -&gt; Getting (First Text) ListOrganizationAdminAccountsResponse Text
 -&gt; Maybe Text
@@ -361,7 +361,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679305575"><span class="annot"><span class="annottext">request :: ListOrganizationAdminAccounts
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679305584"><span class="annot"><span class="annottext">request :: ListOrganizationAdminAccounts
 -&gt; Request ListOrganizationAdminAccounts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListOrganizationAdminAccounts
@@ -369,7 +369,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679305571"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679305580"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListOrganizationAdminAccounts
 -&gt; ClientResponse ClientBody
@@ -395,10 +395,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305568"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305568"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679305567"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679305567"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679305566"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305566"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305577"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305577"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679305576"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679305576"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679305575"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305575"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AdminAccount]
 -&gt; Maybe Text -&gt; Int -&gt; ListOrganizationAdminAccountsResponse
 </span><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-var">ListOrganizationAdminAccountsResponse'</span></a></span><span>
@@ -409,7 +409,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; ListOrganizationAdminAccountsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305566"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AdminAccount]))
+</span><a href="#local-6989586621679305575"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AdminAccount]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;adminAccounts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AdminAccount]))
@@ -424,7 +424,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListOrganizationAdminAccountsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305566"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679305575"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -437,17 +437,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305568"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305577"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679305557"><span id="local-6989586621679305559"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679305566"><span id="local-6989586621679305568"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305554"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305563"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679305550"><span class="annot"><span class="annottext">toHeaders :: ListOrganizationAdminAccounts -&gt; ResponseHeaders
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679305559"><span class="annot"><span class="annottext">toHeaders :: ListOrganizationAdminAccounts -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListOrganizationAdminAccounts -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -467,21 +467,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679305544"><span class="annot"><span class="annottext">toPath :: ListOrganizationAdminAccounts -&gt; ByteString
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679305553"><span class="annot"><span class="annottext">toPath :: ListOrganizationAdminAccounts -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListOrganizationAdminAccounts -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/admin&quot;</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679305540"><span class="annot"><span class="annottext">toQuery :: ListOrganizationAdminAccounts -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305537"><span id="local-6989586621679305538"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679305549"><span class="annot"><span class="annottext">toQuery :: ListOrganizationAdminAccounts -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccounts%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccounts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305546"><span id="local-6989586621679305547"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListOrganizationAdminAccounts' :: ListOrganizationAdminAccounts -&gt; Maybe Natural
 $sel:nextToken:ListOrganizationAdminAccounts' :: ListOrganizationAdminAccounts -&gt; Maybe Text
-</span><a href="#local-6989586621679305537"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679305546"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -489,16 +489,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305538"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679305547"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679305537"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679305546"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newListOrganizationAdminAccountsResponse' smart constructor.</span><span>
-</span><span id="line-166"></span><span id="local-6989586621679305534"><span id="local-6989586621679305535"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOrganizationAdminAccountsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse"><span class="hs-identifier hs-var">ListOrganizationAdminAccountsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOrganizationAdminAccountsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-var">ListOrganizationAdminAccountsResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span id="local-6989586621679305543"><span id="local-6989586621679305544"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListOrganizationAdminAccountsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse"><span class="hs-identifier hs-var">ListOrganizationAdminAccountsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListOrganizationAdminAccountsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-var">ListOrganizationAdminAccountsResponse'</span></a></span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of accounts configured as GuardDuty delegated administrators.</span><span>
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3AadminAccounts%3AListOrganizationAdminAccountsResponse%27"><span class="annot"><span class="annottext">ListOrganizationAdminAccountsResponse -&gt; Maybe [AdminAccount]
 </span><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#%24sel%3AadminAccounts%3AListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-var hs-var">adminAccounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.AdminAccount.html#AdminAccount"><span class="hs-identifier hs-type">AdminAccount</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -510,7 +510,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-173"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListOrganizationAdminAccountsResponse%27"><span class="annot"><span class="annottext">ListOrganizationAdminAccountsResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#%24sel%3AhttpStatus%3AListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305527"><span id="local-6989586621679305529"><span class="annot"><span class="annottext">ListOrganizationAdminAccountsResponse
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305536"><span id="local-6989586621679305538"><span class="annot"><span class="annottext">ListOrganizationAdminAccountsResponse
 -&gt; ListOrganizationAdminAccountsResponse -&gt; Bool
 (ListOrganizationAdminAccountsResponse
  -&gt; ListOrganizationAdminAccountsResponse -&gt; Bool)
@@ -526,7 +526,7 @@ $c/= :: ListOrganizationAdminAccountsResponse
 -&gt; ListOrganizationAdminAccountsResponse -&gt; Bool
 $c== :: ListOrganizationAdminAccountsResponse
 -&gt; ListOrganizationAdminAccountsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305519"><span id="local-6989586621679305521"><span id="local-6989586621679305523"><span id="local-6989586621679305525"><span class="annot"><span class="annottext">ReadPrec [ListOrganizationAdminAccountsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305528"><span id="local-6989586621679305530"><span id="local-6989586621679305532"><span id="local-6989586621679305534"><span class="annot"><span class="annottext">ReadPrec [ListOrganizationAdminAccountsResponse]
 ReadPrec ListOrganizationAdminAccountsResponse
 Int -&gt; ReadS ListOrganizationAdminAccountsResponse
 ReadS [ListOrganizationAdminAccountsResponse]
@@ -546,7 +546,7 @@ readList :: ReadS [ListOrganizationAdminAccountsResponse]
 $creadList :: ReadS [ListOrganizationAdminAccountsResponse]
 readsPrec :: Int -&gt; ReadS ListOrganizationAdminAccountsResponse
 $creadsPrec :: Int -&gt; ReadS ListOrganizationAdminAccountsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305513"><span id="local-6989586621679305515"><span id="local-6989586621679305517"><span class="annot"><span class="annottext">Int -&gt; ListOrganizationAdminAccountsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305522"><span id="local-6989586621679305524"><span id="local-6989586621679305526"><span class="annot"><span class="annottext">Int -&gt; ListOrganizationAdminAccountsResponse -&gt; ShowS
 [ListOrganizationAdminAccountsResponse] -&gt; ShowS
 ListOrganizationAdminAccountsResponse -&gt; String
 (Int -&gt; ListOrganizationAdminAccountsResponse -&gt; ShowS)
@@ -603,8 +603,8 @@ ListOrganizationAdminAccountsResponse
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse</span></a></span><span>
 </span><span id="line-195"></span><span id="newListOrganizationAdminAccountsResponse"><span class="annot"><span class="annottext">newListOrganizationAdminAccountsResponse :: Int -&gt; ListOrganizationAdminAccountsResponse
-</span><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#newListOrganizationAdminAccountsResponse"><span class="hs-identifier hs-var hs-var">newListOrganizationAdminAccountsResponse</span></a></span></span><span> </span><span id="local-6989586621679305510"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305510"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#newListOrganizationAdminAccountsResponse"><span class="hs-identifier hs-var hs-var">newListOrganizationAdminAccountsResponse</span></a></span></span><span> </span><span id="local-6989586621679305519"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305519"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">ListOrganizationAdminAccountsResponse' :: Maybe [AdminAccount]
 -&gt; Maybe Text -&gt; Int -&gt; ListOrganizationAdminAccountsResponse
 </span><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse'</span></a></span><span>
@@ -619,7 +619,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListOrganizationAdminAccountsResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#%24sel%3AhttpStatus%3AListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305510"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679305519"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-201"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | A list of accounts configured as GuardDuty delegated administrators.</span><span>
@@ -633,16 +633,16 @@ forall a. Maybe a
 -&gt; Lens'
      ListOrganizationAdminAccountsResponse (Maybe [AdminAccount])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305509"><span class="annot"><span class="annottext">Maybe [AdminAccount]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305518"><span class="annot"><span class="annottext">Maybe [AdminAccount]
 adminAccounts :: Maybe [AdminAccount]
 $sel:adminAccounts:ListOrganizationAdminAccountsResponse' :: ListOrganizationAdminAccountsResponse -&gt; Maybe [AdminAccount]
-</span><a href="#local-6989586621679305509"><span class="hs-identifier hs-var hs-var">adminAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AdminAccount]
-</span><a href="#local-6989586621679305509"><span class="hs-identifier hs-var">adminAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305508"><span class="annot"><span class="annottext">s :: ListOrganizationAdminAccountsResponse
-</span><a href="#local-6989586621679305508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305507"><span class="annot"><span class="annottext">Maybe [AdminAccount]
-</span><a href="#local-6989586621679305507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOrganizationAdminAccountsResponse
-</span><a href="#local-6989586621679305508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adminAccounts:ListOrganizationAdminAccountsResponse' :: Maybe [AdminAccount]
+</span><a href="#local-6989586621679305518"><span class="hs-identifier hs-var hs-var">adminAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AdminAccount]
+</span><a href="#local-6989586621679305518"><span class="hs-identifier hs-var">adminAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305517"><span class="annot"><span class="annottext">s :: ListOrganizationAdminAccountsResponse
+</span><a href="#local-6989586621679305517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305516"><span class="annot"><span class="annottext">Maybe [AdminAccount]
+</span><a href="#local-6989586621679305516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOrganizationAdminAccountsResponse
+</span><a href="#local-6989586621679305517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adminAccounts:ListOrganizationAdminAccountsResponse' :: Maybe [AdminAccount]
 </span><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#%24sel%3AadminAccounts%3AListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-var">adminAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AdminAccount]
-</span><a href="#local-6989586621679305507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AdminAccount] -&gt; f (Maybe [AdminAccount]))
+</span><a href="#local-6989586621679305516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AdminAccount] -&gt; f (Maybe [AdminAccount]))
  -&gt; ListOrganizationAdminAccountsResponse
  -&gt; f ListOrganizationAdminAccountsResponse)
 -&gt; ((Maybe [AdminAccount] -&gt; f (Maybe [AdminAccount]))
@@ -675,16 +675,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListOrganizationAdminAccountsResponse)
 -&gt; Lens' ListOrganizationAdminAccountsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305504"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305513"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListOrganizationAdminAccountsResponse' :: ListOrganizationAdminAccountsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679305504"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305504"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305503"><span class="annot"><span class="annottext">s :: ListOrganizationAdminAccountsResponse
-</span><a href="#local-6989586621679305503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305502"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOrganizationAdminAccountsResponse
-</span><a href="#local-6989586621679305503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOrganizationAdminAccountsResponse' :: Maybe Text
+</span><a href="#local-6989586621679305513"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305513"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305512"><span class="annot"><span class="annottext">s :: ListOrganizationAdminAccountsResponse
+</span><a href="#local-6989586621679305512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305511"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOrganizationAdminAccountsResponse
+</span><a href="#local-6989586621679305512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListOrganizationAdminAccountsResponse' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#%24sel%3AnextToken%3AListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-213"></span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#listOrganizationAdminAccountsResponse_httpStatus"><span class="hs-identifier hs-type">listOrganizationAdminAccountsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -700,18 +700,18 @@ $sel:nextToken:ListOrganizationAdminAccountsResponse' :: ListOrganizationAdminAc
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305501"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305510"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListOrganizationAdminAccountsResponse' :: ListOrganizationAdminAccountsResponse -&gt; Int
-</span><a href="#local-6989586621679305501"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305501"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305500"><span class="annot"><span class="annottext">s :: ListOrganizationAdminAccountsResponse
-</span><a href="#local-6989586621679305500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305499"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOrganizationAdminAccountsResponse
-</span><a href="#local-6989586621679305500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListOrganizationAdminAccountsResponse' :: Int
+</span><a href="#local-6989586621679305510"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305510"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305509"><span class="annot"><span class="annottext">s :: ListOrganizationAdminAccountsResponse
+</span><a href="#local-6989586621679305509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305508"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListOrganizationAdminAccountsResponse
+</span><a href="#local-6989586621679305509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListOrganizationAdminAccountsResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#%24sel%3AhttpStatus%3AListOrganizationAdminAccountsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679305497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679305506"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-218"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.ListOrganizationAdminAccounts.html#ListOrganizationAdminAccountsResponse"><span class="hs-identifier hs-type">ListOrganizationAdminAccountsResponse</span></a></span></span><span>
 </span><span id="line-219"></span></pre></body></html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.FraudDetector.Types.ModelInputConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FraudDetector.Types.ModelInputConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputDataFormat.html"><span class="hs-identifier">Network.AWS.FraudDetector.Types.ModelInputDataFormat</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The Amazon SageMaker model input configuration.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newModelInputConfiguration' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679305415"><span id="local-6989586621679305416"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelInputConfiguration"><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier hs-var">ModelInputConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelInputConfiguration%27"><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration%27"><span class="hs-identifier hs-var">ModelInputConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The format of the model input configuration. The format differs</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- depending on if it is passed through to SageMaker or constructed by</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Amazon Fraud Detector.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aformat%3AModelInputConfiguration%27"><span class="annot"><span class="annottext">ModelInputConfiguration -&gt; Maybe ModelInputDataFormat
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#%24sel%3Aformat%3AModelInputConfiguration%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputDataFormat.html#ModelInputDataFormat"><span class="hs-identifier hs-type">ModelInputDataFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The event type name.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AeventTypeName%3AModelInputConfiguration%27"><span class="annot"><span class="annottext">ModelInputConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#%24sel%3AeventTypeName%3AModelInputConfiguration%27"><span class="hs-identifier hs-var hs-var">eventTypeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Template for constructing the CSV input-data sent to SageMaker. At</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- event-evaluation, the placeholders for variable-names in the template</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- will be replaced with the variable values before being sent to</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- SageMaker.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcsvInputTemplate%3AModelInputConfiguration%27"><span class="annot"><span class="annottext">ModelInputConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#%24sel%3AcsvInputTemplate%3AModelInputConfiguration%27"><span class="hs-identifier hs-var hs-var">csvInputTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Template for constructing the JSON input-data sent to SageMaker. At</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- event-evaluation, the placeholders for variable names in the template</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- will be replaced with the variable values before being sent to</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- SageMaker.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AjsonInputTemplate%3AModelInputConfiguration%27"><span class="annot"><span class="annottext">ModelInputConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#%24sel%3AjsonInputTemplate%3AModelInputConfiguration%27"><span class="hs-identifier hs-var hs-var">jsonInputTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The event variables.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AuseEventVariables%3AModelInputConfiguration%27"><span class="annot"><span class="annottext">ModelInputConfiguration -&gt; Bool
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#%24sel%3AuseEventVariables%3AModelInputConfiguration%27"><span class="hs-identifier hs-var hs-var">useEventVariables</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305405"><span id="local-6989586621679305407"><span class="annot"><span class="annottext">ModelInputConfiguration -&gt; ModelInputConfiguration -&gt; Bool
+(ModelInputConfiguration -&gt; ModelInputConfiguration -&gt; Bool)
+-&gt; (ModelInputConfiguration -&gt; ModelInputConfiguration -&gt; Bool)
+-&gt; Eq ModelInputConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModelInputConfiguration -&gt; ModelInputConfiguration -&gt; Bool
+$c/= :: ModelInputConfiguration -&gt; ModelInputConfiguration -&gt; Bool
+== :: ModelInputConfiguration -&gt; ModelInputConfiguration -&gt; Bool
+$c== :: ModelInputConfiguration -&gt; ModelInputConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305396"><span id="local-6989586621679305398"><span id="local-6989586621679305400"><span id="local-6989586621679305402"><span class="annot"><span class="annottext">ReadPrec [ModelInputConfiguration]
+ReadPrec ModelInputConfiguration
+Int -&gt; ReadS ModelInputConfiguration
+ReadS [ModelInputConfiguration]
+(Int -&gt; ReadS ModelInputConfiguration)
+-&gt; ReadS [ModelInputConfiguration]
+-&gt; ReadPrec ModelInputConfiguration
+-&gt; ReadPrec [ModelInputConfiguration]
+-&gt; Read ModelInputConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModelInputConfiguration]
+$creadListPrec :: ReadPrec [ModelInputConfiguration]
+readPrec :: ReadPrec ModelInputConfiguration
+$creadPrec :: ReadPrec ModelInputConfiguration
+readList :: ReadS [ModelInputConfiguration]
+$creadList :: ReadS [ModelInputConfiguration]
+readsPrec :: Int -&gt; ReadS ModelInputConfiguration
+$creadsPrec :: Int -&gt; ReadS ModelInputConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305389"><span id="local-6989586621679305391"><span id="local-6989586621679305393"><span class="annot"><span class="annottext">Int -&gt; ModelInputConfiguration -&gt; ShowS
+[ModelInputConfiguration] -&gt; ShowS
+ModelInputConfiguration -&gt; String
+(Int -&gt; ModelInputConfiguration -&gt; ShowS)
+-&gt; (ModelInputConfiguration -&gt; String)
+-&gt; ([ModelInputConfiguration] -&gt; ShowS)
+-&gt; Show ModelInputConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModelInputConfiguration] -&gt; ShowS
+$cshowList :: [ModelInputConfiguration] -&gt; ShowS
+show :: ModelInputConfiguration -&gt; String
+$cshow :: ModelInputConfiguration -&gt; String
+showsPrec :: Int -&gt; ModelInputConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModelInputConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModelInputConfiguration -&gt; Rep ModelInputConfiguration x)
+-&gt; (forall x.
+    Rep ModelInputConfiguration x -&gt; ModelInputConfiguration)
+-&gt; Generic ModelInputConfiguration
+forall x. Rep ModelInputConfiguration x -&gt; ModelInputConfiguration
+forall x. ModelInputConfiguration -&gt; Rep ModelInputConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModelInputConfiguration x -&gt; ModelInputConfiguration
+$cfrom :: forall x. ModelInputConfiguration -&gt; Rep ModelInputConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'ModelInputConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'format', 'modelInputConfiguration_format' - The format of the model input configuration. The format differs</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- depending on if it is passed through to SageMaker or constructed by</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Amazon Fraud Detector.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'eventTypeName', 'modelInputConfiguration_eventTypeName' - The event type name.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'csvInputTemplate', 'modelInputConfiguration_csvInputTemplate' - Template for constructing the CSV input-data sent to SageMaker. At</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- event-evaluation, the placeholders for variable-names in the template</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- will be replaced with the variable values before being sent to</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- SageMaker.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'jsonInputTemplate', 'modelInputConfiguration_jsonInputTemplate' - Template for constructing the JSON input-data sent to SageMaker. At</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- event-evaluation, the placeholders for variable names in the template</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- will be replaced with the variable values before being sent to</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- SageMaker.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'useEventVariables', 'modelInputConfiguration_useEventVariables' - The event variables.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#newModelInputConfiguration"><span class="hs-identifier hs-type">newModelInputConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'useEventVariables'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier hs-type">ModelInputConfiguration</span></a></span><span>
+</span><span id="line-81"></span><span id="newModelInputConfiguration"><span class="annot"><span class="annottext">newModelInputConfiguration :: Bool -&gt; ModelInputConfiguration
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#newModelInputConfiguration"><span class="hs-identifier hs-var hs-var">newModelInputConfiguration</span></a></span></span><span> </span><span id="local-6989586621679305383"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679305383"><span class="hs-identifier hs-var">pUseEventVariables_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">ModelInputConfiguration' :: Maybe ModelInputDataFormat
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Bool
+-&gt; ModelInputConfiguration
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration%27"><span class="hs-identifier hs-type">ModelInputConfiguration'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:format:ModelInputConfiguration' :: Maybe ModelInputDataFormat
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#%24sel%3Aformat%3AModelInputConfiguration%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelInputDataFormat
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventTypeName:ModelInputConfiguration' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#%24sel%3AeventTypeName%3AModelInputConfiguration%27"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:csvInputTemplate:ModelInputConfiguration' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#%24sel%3AcsvInputTemplate%3AModelInputConfiguration%27"><span class="hs-identifier hs-var">csvInputTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:jsonInputTemplate:ModelInputConfiguration' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#%24sel%3AjsonInputTemplate%3AModelInputConfiguration%27"><span class="hs-identifier hs-var">jsonInputTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:useEventVariables:ModelInputConfiguration' :: Bool
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#%24sel%3AuseEventVariables%3AModelInputConfiguration%27"><span class="hs-identifier hs-var">useEventVariables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679305383"><span class="hs-identifier hs-var">pUseEventVariables_</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The format of the model input configuration. The format differs</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- depending on if it is passed through to SageMaker or constructed by</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Amazon Fraud Detector.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#modelInputConfiguration_format"><span class="hs-identifier hs-type">modelInputConfiguration_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier hs-type">ModelInputConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputDataFormat.html#ModelInputDataFormat"><span class="hs-identifier hs-type">ModelInputDataFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="modelInputConfiguration_format"><span class="annot"><span class="annottext">modelInputConfiguration_format :: (Maybe ModelInputDataFormat -&gt; f (Maybe ModelInputDataFormat))
+-&gt; ModelInputConfiguration -&gt; f ModelInputConfiguration
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#modelInputConfiguration_format"><span class="hs-identifier hs-var hs-var">modelInputConfiguration_format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelInputConfiguration -&gt; Maybe ModelInputDataFormat)
+-&gt; (ModelInputConfiguration
+    -&gt; Maybe ModelInputDataFormat -&gt; ModelInputConfiguration)
+-&gt; Lens
+     ModelInputConfiguration
+     ModelInputConfiguration
+     (Maybe ModelInputDataFormat)
+     (Maybe ModelInputDataFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration%27"><span class="hs-identifier hs-type">ModelInputConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305379"><span class="annot"><span class="annottext">Maybe ModelInputDataFormat
+format :: Maybe ModelInputDataFormat
+$sel:format:ModelInputConfiguration' :: ModelInputConfiguration -&gt; Maybe ModelInputDataFormat
+</span><a href="#local-6989586621679305379"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelInputDataFormat
+</span><a href="#local-6989586621679305379"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305378"><span class="annot"><span class="annottext">s :: ModelInputConfiguration
+</span><a href="#local-6989586621679305378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration%27"><span class="hs-identifier hs-type">ModelInputConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305377"><span class="annot"><span class="annottext">Maybe ModelInputDataFormat
+</span><a href="#local-6989586621679305377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelInputConfiguration
+</span><a href="#local-6989586621679305378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:ModelInputConfiguration' :: Maybe ModelInputDataFormat
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#%24sel%3Aformat%3AModelInputConfiguration%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelInputDataFormat
+</span><a href="#local-6989586621679305377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier hs-type">ModelInputConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The event type name.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#modelInputConfiguration_eventTypeName"><span class="hs-identifier hs-type">modelInputConfiguration_eventTypeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier hs-type">ModelInputConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="modelInputConfiguration_eventTypeName"><span class="annot"><span class="annottext">modelInputConfiguration_eventTypeName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModelInputConfiguration -&gt; f ModelInputConfiguration
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#modelInputConfiguration_eventTypeName"><span class="hs-identifier hs-var hs-var">modelInputConfiguration_eventTypeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelInputConfiguration -&gt; Maybe Text)
+-&gt; (ModelInputConfiguration
+    -&gt; Maybe Text -&gt; ModelInputConfiguration)
+-&gt; Lens
+     ModelInputConfiguration
+     ModelInputConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration%27"><span class="hs-identifier hs-type">ModelInputConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305375"><span class="annot"><span class="annottext">Maybe Text
+eventTypeName :: Maybe Text
+$sel:eventTypeName:ModelInputConfiguration' :: ModelInputConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679305375"><span class="hs-identifier hs-var hs-var">eventTypeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305375"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305374"><span class="annot"><span class="annottext">s :: ModelInputConfiguration
+</span><a href="#local-6989586621679305374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration%27"><span class="hs-identifier hs-type">ModelInputConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305373"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelInputConfiguration
+</span><a href="#local-6989586621679305374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventTypeName:ModelInputConfiguration' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#%24sel%3AeventTypeName%3AModelInputConfiguration%27"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier hs-type">ModelInputConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Template for constructing the CSV input-data sent to SageMaker. At</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- event-evaluation, the placeholders for variable-names in the template</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- will be replaced with the variable values before being sent to</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- SageMaker.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#modelInputConfiguration_csvInputTemplate"><span class="hs-identifier hs-type">modelInputConfiguration_csvInputTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier hs-type">ModelInputConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="modelInputConfiguration_csvInputTemplate"><span class="annot"><span class="annottext">modelInputConfiguration_csvInputTemplate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModelInputConfiguration -&gt; f ModelInputConfiguration
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#modelInputConfiguration_csvInputTemplate"><span class="hs-identifier hs-var hs-var">modelInputConfiguration_csvInputTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelInputConfiguration -&gt; Maybe Text)
+-&gt; (ModelInputConfiguration
+    -&gt; Maybe Text -&gt; ModelInputConfiguration)
+-&gt; Lens
+     ModelInputConfiguration
+     ModelInputConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration%27"><span class="hs-identifier hs-type">ModelInputConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305371"><span class="annot"><span class="annottext">Maybe Text
+csvInputTemplate :: Maybe Text
+$sel:csvInputTemplate:ModelInputConfiguration' :: ModelInputConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679305371"><span class="hs-identifier hs-var hs-var">csvInputTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305371"><span class="hs-identifier hs-var">csvInputTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305370"><span class="annot"><span class="annottext">s :: ModelInputConfiguration
+</span><a href="#local-6989586621679305370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration%27"><span class="hs-identifier hs-type">ModelInputConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305369"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelInputConfiguration
+</span><a href="#local-6989586621679305370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:csvInputTemplate:ModelInputConfiguration' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#%24sel%3AcsvInputTemplate%3AModelInputConfiguration%27"><span class="hs-identifier hs-var">csvInputTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier hs-type">ModelInputConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Template for constructing the JSON input-data sent to SageMaker. At</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- event-evaluation, the placeholders for variable names in the template</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- will be replaced with the variable values before being sent to</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- SageMaker.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#modelInputConfiguration_jsonInputTemplate"><span class="hs-identifier hs-type">modelInputConfiguration_jsonInputTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier hs-type">ModelInputConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="modelInputConfiguration_jsonInputTemplate"><span class="annot"><span class="annottext">modelInputConfiguration_jsonInputTemplate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModelInputConfiguration -&gt; f ModelInputConfiguration
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#modelInputConfiguration_jsonInputTemplate"><span class="hs-identifier hs-var hs-var">modelInputConfiguration_jsonInputTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelInputConfiguration -&gt; Maybe Text)
+-&gt; (ModelInputConfiguration
+    -&gt; Maybe Text -&gt; ModelInputConfiguration)
+-&gt; Lens
+     ModelInputConfiguration
+     ModelInputConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration%27"><span class="hs-identifier hs-type">ModelInputConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305367"><span class="annot"><span class="annottext">Maybe Text
+jsonInputTemplate :: Maybe Text
+$sel:jsonInputTemplate:ModelInputConfiguration' :: ModelInputConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679305367"><span class="hs-identifier hs-var hs-var">jsonInputTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305367"><span class="hs-identifier hs-var">jsonInputTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305366"><span class="annot"><span class="annottext">s :: ModelInputConfiguration
+</span><a href="#local-6989586621679305366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration%27"><span class="hs-identifier hs-type">ModelInputConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305365"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelInputConfiguration
+</span><a href="#local-6989586621679305366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jsonInputTemplate:ModelInputConfiguration' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#%24sel%3AjsonInputTemplate%3AModelInputConfiguration%27"><span class="hs-identifier hs-var">jsonInputTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier hs-type">ModelInputConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The event variables.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#modelInputConfiguration_useEventVariables"><span class="hs-identifier hs-type">modelInputConfiguration_useEventVariables</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier hs-type">ModelInputConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-116"></span><span id="modelInputConfiguration_useEventVariables"><span class="annot"><span class="annottext">modelInputConfiguration_useEventVariables :: (Bool -&gt; f Bool)
+-&gt; ModelInputConfiguration -&gt; f ModelInputConfiguration
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#modelInputConfiguration_useEventVariables"><span class="hs-identifier hs-var hs-var">modelInputConfiguration_useEventVariables</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelInputConfiguration -&gt; Bool)
+-&gt; (ModelInputConfiguration -&gt; Bool -&gt; ModelInputConfiguration)
+-&gt; Lens ModelInputConfiguration ModelInputConfiguration Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration%27"><span class="hs-identifier hs-type">ModelInputConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305363"><span class="annot"><span class="annottext">Bool
+useEventVariables :: Bool
+$sel:useEventVariables:ModelInputConfiguration' :: ModelInputConfiguration -&gt; Bool
+</span><a href="#local-6989586621679305363"><span class="hs-identifier hs-var hs-var">useEventVariables</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679305363"><span class="hs-identifier hs-var">useEventVariables</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305362"><span class="annot"><span class="annottext">s :: ModelInputConfiguration
+</span><a href="#local-6989586621679305362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration%27"><span class="hs-identifier hs-type">ModelInputConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305361"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679305361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelInputConfiguration
+</span><a href="#local-6989586621679305362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useEventVariables:ModelInputConfiguration' :: Bool
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#%24sel%3AuseEventVariables%3AModelInputConfiguration%27"><span class="hs-identifier hs-var">useEventVariables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679305361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier hs-type">ModelInputConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305358"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier hs-type">ModelInputConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679305356"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelInputConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ModelInputConfiguration)
+-&gt; Value
+-&gt; Parser ModelInputConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ModelInputConfiguration&quot;</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305353"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305353"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe ModelInputDataFormat
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Bool
+-&gt; ModelInputConfiguration
+</span><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration%27"><span class="hs-identifier hs-var">ModelInputConfiguration'</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ModelInputDataFormat
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Bool
+ -&gt; ModelInputConfiguration)
+-&gt; Parser (Maybe ModelInputDataFormat)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Bool -&gt; ModelInputConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ModelInputDataFormat)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;format&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Bool -&gt; ModelInputConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Bool -&gt; ModelInputConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventTypeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Bool -&gt; ModelInputConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Bool -&gt; ModelInputConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;csvInputTemplate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Bool -&gt; ModelInputConfiguration)
+-&gt; Parser (Maybe Text) -&gt; Parser (Bool -&gt; ModelInputConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jsonInputTemplate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser (Bool -&gt; ModelInputConfiguration)
+-&gt; Parser Bool -&gt; Parser ModelInputConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;useEventVariables&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305346"><span id="local-6989586621679305348"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier hs-type">ModelInputConfiguration</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305343"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier hs-type">ModelInputConfiguration</span></a></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305335"><span id="local-6989586621679305337"><span id="local-6989586621679305339"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier hs-type">ModelInputConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679305333"><span class="annot"><span class="annottext">toJSON :: ModelInputConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration%27"><span class="hs-identifier hs-type">ModelInputConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305327"><span id="local-6989586621679305328"><span id="local-6989586621679305329"><span id="local-6989586621679305330"><span id="local-6989586621679305331"><span class="annot"><span class="annottext">Bool
+Maybe Text
+Maybe ModelInputDataFormat
+useEventVariables :: Bool
+jsonInputTemplate :: Maybe Text
+csvInputTemplate :: Maybe Text
+eventTypeName :: Maybe Text
+format :: Maybe ModelInputDataFormat
+$sel:useEventVariables:ModelInputConfiguration' :: ModelInputConfiguration -&gt; Bool
+$sel:jsonInputTemplate:ModelInputConfiguration' :: ModelInputConfiguration -&gt; Maybe Text
+$sel:csvInputTemplate:ModelInputConfiguration' :: ModelInputConfiguration -&gt; Maybe Text
+$sel:eventTypeName:ModelInputConfiguration' :: ModelInputConfiguration -&gt; Maybe Text
+$sel:format:ModelInputConfiguration' :: ModelInputConfiguration -&gt; Maybe ModelInputDataFormat
+</span><a href="#local-6989586621679305327"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;format&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ModelInputDataFormat -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ModelInputDataFormat -&gt; Pair)
+-&gt; Maybe ModelInputDataFormat -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ModelInputDataFormat
+</span><a href="#local-6989586621679305331"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventTypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305330"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;csvInputTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305329"><span class="hs-identifier hs-var">csvInputTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jsonInputTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305328"><span class="hs-identifier hs-var">jsonInputTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-146"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;useEventVariables&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679305327"><span class="hs-identifier hs-var">useEventVariables</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span></pre></body></html>

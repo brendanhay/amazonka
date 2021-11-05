@@ -1,0 +1,612 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConnect.RemoveFlowVpcInterface</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Removes a VPC Interface from an existing flow. This request can be made</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- only on a VPC interface that does not have a Source or Output associated</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- with it. If the VPC interface is referenced by a Source or Output, you</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- must first delete or update the Source or Output to no longer reference</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- the VPC interface.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConnect.RemoveFlowVpcInterface</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface"><span class="hs-identifier">RemoveFlowVpcInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#newRemoveFlowVpcInterface"><span class="hs-identifier">newRemoveFlowVpcInterface</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterface_flowArn"><span class="hs-identifier">removeFlowVpcInterface_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterface_vpcInterfaceName"><span class="hs-identifier">removeFlowVpcInterface_vpcInterfaceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse"><span class="hs-identifier">RemoveFlowVpcInterfaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#newRemoveFlowVpcInterfaceResponse"><span class="hs-identifier">newRemoveFlowVpcInterfaceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterfaceResponse_flowArn"><span class="hs-identifier">removeFlowVpcInterfaceResponse_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterfaceResponse_nonDeletedNetworkInterfaceIds"><span class="hs-identifier">removeFlowVpcInterfaceResponse_nonDeletedNetworkInterfaceIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterfaceResponse_vpcInterfaceName"><span class="hs-identifier">removeFlowVpcInterfaceResponse_vpcInterfaceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterfaceResponse_httpStatus"><span class="hs-identifier">removeFlowVpcInterfaceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newRemoveFlowVpcInterface' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679275264"><span id="local-6989586621679275265"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveFlowVpcInterface"><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface"><span class="hs-identifier hs-var">RemoveFlowVpcInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveFlowVpcInterface%27"><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface%27"><span class="hs-identifier hs-var">RemoveFlowVpcInterface'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The flow that you want to remove a VPC interface from.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AflowArn%3ARemoveFlowVpcInterface%27"><span class="annot"><span class="annottext">RemoveFlowVpcInterface -&gt; Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AflowArn%3ARemoveFlowVpcInterface%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the VPC interface that you want to remove.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AvpcInterfaceName%3ARemoveFlowVpcInterface%27"><span class="annot"><span class="annottext">RemoveFlowVpcInterface -&gt; Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AvpcInterfaceName%3ARemoveFlowVpcInterface%27"><span class="hs-identifier hs-var hs-var">vpcInterfaceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275257"><span id="local-6989586621679275259"><span class="annot"><span class="annottext">RemoveFlowVpcInterface -&gt; RemoveFlowVpcInterface -&gt; Bool
+(RemoveFlowVpcInterface -&gt; RemoveFlowVpcInterface -&gt; Bool)
+-&gt; (RemoveFlowVpcInterface -&gt; RemoveFlowVpcInterface -&gt; Bool)
+-&gt; Eq RemoveFlowVpcInterface
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemoveFlowVpcInterface -&gt; RemoveFlowVpcInterface -&gt; Bool
+$c/= :: RemoveFlowVpcInterface -&gt; RemoveFlowVpcInterface -&gt; Bool
+== :: RemoveFlowVpcInterface -&gt; RemoveFlowVpcInterface -&gt; Bool
+$c== :: RemoveFlowVpcInterface -&gt; RemoveFlowVpcInterface -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275248"><span id="local-6989586621679275250"><span id="local-6989586621679275252"><span id="local-6989586621679275254"><span class="annot"><span class="annottext">ReadPrec [RemoveFlowVpcInterface]
+ReadPrec RemoveFlowVpcInterface
+Int -&gt; ReadS RemoveFlowVpcInterface
+ReadS [RemoveFlowVpcInterface]
+(Int -&gt; ReadS RemoveFlowVpcInterface)
+-&gt; ReadS [RemoveFlowVpcInterface]
+-&gt; ReadPrec RemoveFlowVpcInterface
+-&gt; ReadPrec [RemoveFlowVpcInterface]
+-&gt; Read RemoveFlowVpcInterface
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemoveFlowVpcInterface]
+$creadListPrec :: ReadPrec [RemoveFlowVpcInterface]
+readPrec :: ReadPrec RemoveFlowVpcInterface
+$creadPrec :: ReadPrec RemoveFlowVpcInterface
+readList :: ReadS [RemoveFlowVpcInterface]
+$creadList :: ReadS [RemoveFlowVpcInterface]
+readsPrec :: Int -&gt; ReadS RemoveFlowVpcInterface
+$creadsPrec :: Int -&gt; ReadS RemoveFlowVpcInterface
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275241"><span id="local-6989586621679275243"><span id="local-6989586621679275245"><span class="annot"><span class="annottext">Int -&gt; RemoveFlowVpcInterface -&gt; ShowS
+[RemoveFlowVpcInterface] -&gt; ShowS
+RemoveFlowVpcInterface -&gt; String
+(Int -&gt; RemoveFlowVpcInterface -&gt; ShowS)
+-&gt; (RemoveFlowVpcInterface -&gt; String)
+-&gt; ([RemoveFlowVpcInterface] -&gt; ShowS)
+-&gt; Show RemoveFlowVpcInterface
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemoveFlowVpcInterface] -&gt; ShowS
+$cshowList :: [RemoveFlowVpcInterface] -&gt; ShowS
+show :: RemoveFlowVpcInterface -&gt; String
+$cshow :: RemoveFlowVpcInterface -&gt; String
+showsPrec :: Int -&gt; RemoveFlowVpcInterface -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemoveFlowVpcInterface -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RemoveFlowVpcInterface -&gt; Rep RemoveFlowVpcInterface x)
+-&gt; (forall x.
+    Rep RemoveFlowVpcInterface x -&gt; RemoveFlowVpcInterface)
+-&gt; Generic RemoveFlowVpcInterface
+forall x. Rep RemoveFlowVpcInterface x -&gt; RemoveFlowVpcInterface
+forall x. RemoveFlowVpcInterface -&gt; Rep RemoveFlowVpcInterface x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RemoveFlowVpcInterface x -&gt; RemoveFlowVpcInterface
+$cfrom :: forall x. RemoveFlowVpcInterface -&gt; Rep RemoveFlowVpcInterface x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'RemoveFlowVpcInterface' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'flowArn', 'removeFlowVpcInterface_flowArn' - The flow that you want to remove a VPC interface from.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'vpcInterfaceName', 'removeFlowVpcInterface_vpcInterfaceName' - The name of the VPC interface that you want to remove.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#newRemoveFlowVpcInterface"><span class="hs-identifier hs-type">newRemoveFlowVpcInterface</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'flowArn'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'vpcInterfaceName'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface"><span class="hs-identifier hs-type">RemoveFlowVpcInterface</span></a></span><span>
+</span><span id="line-82"></span><span id="newRemoveFlowVpcInterface"><span class="annot"><span class="annottext">newRemoveFlowVpcInterface :: Text -&gt; Text -&gt; RemoveFlowVpcInterface
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#newRemoveFlowVpcInterface"><span class="hs-identifier hs-var hs-var">newRemoveFlowVpcInterface</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679275236"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275236"><span class="hs-identifier hs-var">pFlowArn_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679275235"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275235"><span class="hs-identifier hs-var">pVpcInterfaceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">RemoveFlowVpcInterface' :: Text -&gt; Text -&gt; RemoveFlowVpcInterface
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface%27"><span class="hs-identifier hs-type">RemoveFlowVpcInterface'</span></a></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:flowArn:RemoveFlowVpcInterface' :: Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AflowArn%3ARemoveFlowVpcInterface%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275236"><span class="hs-identifier hs-var">pFlowArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:vpcInterfaceName:RemoveFlowVpcInterface' :: Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AvpcInterfaceName%3ARemoveFlowVpcInterface%27"><span class="hs-identifier hs-var">vpcInterfaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275235"><span class="hs-identifier hs-var">pVpcInterfaceName_</span></a></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The flow that you want to remove a VPC interface from.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterface_flowArn"><span class="hs-identifier hs-type">removeFlowVpcInterface_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface"><span class="hs-identifier hs-type">RemoveFlowVpcInterface</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="removeFlowVpcInterface_flowArn"><span class="annot"><span class="annottext">removeFlowVpcInterface_flowArn :: (Text -&gt; f Text)
+-&gt; RemoveFlowVpcInterface -&gt; f RemoveFlowVpcInterface
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterface_flowArn"><span class="hs-identifier hs-var hs-var">removeFlowVpcInterface_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveFlowVpcInterface -&gt; Text)
+-&gt; (RemoveFlowVpcInterface -&gt; Text -&gt; RemoveFlowVpcInterface)
+-&gt; Lens RemoveFlowVpcInterface RemoveFlowVpcInterface Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface%27"><span class="hs-identifier hs-type">RemoveFlowVpcInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275232"><span class="annot"><span class="annottext">Text
+flowArn :: Text
+$sel:flowArn:RemoveFlowVpcInterface' :: RemoveFlowVpcInterface -&gt; Text
+</span><a href="#local-6989586621679275232"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275232"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275231"><span class="annot"><span class="annottext">s :: RemoveFlowVpcInterface
+</span><a href="#local-6989586621679275231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface%27"><span class="hs-identifier hs-type">RemoveFlowVpcInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275230"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFlowVpcInterface
+</span><a href="#local-6989586621679275231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:RemoveFlowVpcInterface' :: Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AflowArn%3ARemoveFlowVpcInterface%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface"><span class="hs-identifier hs-type">RemoveFlowVpcInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The name of the VPC interface that you want to remove.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterface_vpcInterfaceName"><span class="hs-identifier hs-type">removeFlowVpcInterface_vpcInterfaceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface"><span class="hs-identifier hs-type">RemoveFlowVpcInterface</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="removeFlowVpcInterface_vpcInterfaceName"><span class="annot"><span class="annottext">removeFlowVpcInterface_vpcInterfaceName :: (Text -&gt; f Text)
+-&gt; RemoveFlowVpcInterface -&gt; f RemoveFlowVpcInterface
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterface_vpcInterfaceName"><span class="hs-identifier hs-var hs-var">removeFlowVpcInterface_vpcInterfaceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveFlowVpcInterface -&gt; Text)
+-&gt; (RemoveFlowVpcInterface -&gt; Text -&gt; RemoveFlowVpcInterface)
+-&gt; Lens RemoveFlowVpcInterface RemoveFlowVpcInterface Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface%27"><span class="hs-identifier hs-type">RemoveFlowVpcInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275229"><span class="annot"><span class="annottext">Text
+vpcInterfaceName :: Text
+$sel:vpcInterfaceName:RemoveFlowVpcInterface' :: RemoveFlowVpcInterface -&gt; Text
+</span><a href="#local-6989586621679275229"><span class="hs-identifier hs-var hs-var">vpcInterfaceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275229"><span class="hs-identifier hs-var">vpcInterfaceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275228"><span class="annot"><span class="annottext">s :: RemoveFlowVpcInterface
+</span><a href="#local-6989586621679275228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface%27"><span class="hs-identifier hs-type">RemoveFlowVpcInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275227"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFlowVpcInterface
+</span><a href="#local-6989586621679275228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcInterfaceName:RemoveFlowVpcInterface' :: Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AvpcInterfaceName%3ARemoveFlowVpcInterface%27"><span class="hs-identifier hs-var">vpcInterfaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface"><span class="hs-identifier hs-type">RemoveFlowVpcInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface"><span class="hs-identifier hs-type">RemoveFlowVpcInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface"><span class="hs-identifier hs-type">RemoveFlowVpcInterface</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679275223"><span class="annot"><span class="annottext">request :: RemoveFlowVpcInterface -&gt; Request RemoveFlowVpcInterface
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RemoveFlowVpcInterface -&gt; Request RemoveFlowVpcInterface
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MediaConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679275219"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RemoveFlowVpcInterface
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RemoveFlowVpcInterface)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse RemoveFlowVpcInterface))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RemoveFlowVpcInterface
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RemoveFlowVpcInterface)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275216"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275216"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679275215"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679275215"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679275214"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275214"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; RemoveFlowVpcInterfaceResponse
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-var">RemoveFlowVpcInterfaceResponse'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; RemoveFlowVpcInterfaceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe Text -&gt; Int -&gt; RemoveFlowVpcInterfaceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;flowArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe Text -&gt; Int -&gt; RemoveFlowVpcInterfaceResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; RemoveFlowVpcInterfaceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nonDeletedNetworkInterfaceIds&quot;</span></span><span>
+</span><span id="line-109"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-110"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; RemoveFlowVpcInterfaceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; RemoveFlowVpcInterfaceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcInterfaceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; RemoveFlowVpcInterfaceResponse)
+-&gt; Either String Int
+-&gt; Either String RemoveFlowVpcInterfaceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275216"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275205"><span id="local-6989586621679275207"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface"><span class="hs-identifier hs-type">RemoveFlowVpcInterface</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275202"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface"><span class="hs-identifier hs-type">RemoveFlowVpcInterface</span></a></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface"><span class="hs-identifier hs-type">RemoveFlowVpcInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679275198"><span class="annot"><span class="annottext">toHeaders :: RemoveFlowVpcInterface -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RemoveFlowVpcInterface -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-125"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-126"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface"><span class="hs-identifier hs-type">RemoveFlowVpcInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679275192"><span class="annot"><span class="annottext">toPath :: RemoveFlowVpcInterface -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface%27"><span class="hs-identifier hs-type">RemoveFlowVpcInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275189"><span id="local-6989586621679275190"><span class="annot"><span class="annottext">Text
+vpcInterfaceName :: Text
+flowArn :: Text
+$sel:vpcInterfaceName:RemoveFlowVpcInterface' :: RemoveFlowVpcInterface -&gt; Text
+$sel:flowArn:RemoveFlowVpcInterface' :: RemoveFlowVpcInterface -&gt; Text
+</span><a href="#local-6989586621679275189"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/flows/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275190"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/vpcInterfaces/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275189"><span class="hs-identifier hs-var">vpcInterfaceName</span></a></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterface"><span class="hs-identifier hs-type">RemoveFlowVpcInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679275185"><span class="annot"><span class="annottext">toQuery :: RemoveFlowVpcInterface -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RemoveFlowVpcInterface -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newRemoveFlowVpcInterfaceResponse' smart constructor.</span><span>
+</span><span id="line-143"></span><span id="local-6989586621679275182"><span id="local-6989586621679275183"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveFlowVpcInterfaceResponse"><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse"><span class="hs-identifier hs-var">RemoveFlowVpcInterfaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveFlowVpcInterfaceResponse%27"><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-var">RemoveFlowVpcInterfaceResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the flow that is associated with the VPC interface you</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- removed.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AflowArn%3ARemoveFlowVpcInterfaceResponse%27"><span class="annot"><span class="annottext">RemoveFlowVpcInterfaceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AflowArn%3ARemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | IDs of network interfaces associated with the removed VPC interface that</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- Media Connect was unable to remove.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AnonDeletedNetworkInterfaceIds%3ARemoveFlowVpcInterfaceResponse%27"><span class="annot"><span class="annottext">RemoveFlowVpcInterfaceResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AnonDeletedNetworkInterfaceIds%3ARemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-var hs-var">nonDeletedNetworkInterfaceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The name of the VPC interface that was removed.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AvpcInterfaceName%3ARemoveFlowVpcInterfaceResponse%27"><span class="annot"><span class="annottext">RemoveFlowVpcInterfaceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AvpcInterfaceName%3ARemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-var hs-var">vpcInterfaceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARemoveFlowVpcInterfaceResponse%27"><span class="annot"><span class="annottext">RemoveFlowVpcInterfaceResponse -&gt; Int
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AhttpStatus%3ARemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275174"><span id="local-6989586621679275176"><span class="annot"><span class="annottext">RemoveFlowVpcInterfaceResponse
+-&gt; RemoveFlowVpcInterfaceResponse -&gt; Bool
+(RemoveFlowVpcInterfaceResponse
+ -&gt; RemoveFlowVpcInterfaceResponse -&gt; Bool)
+-&gt; (RemoveFlowVpcInterfaceResponse
+    -&gt; RemoveFlowVpcInterfaceResponse -&gt; Bool)
+-&gt; Eq RemoveFlowVpcInterfaceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemoveFlowVpcInterfaceResponse
+-&gt; RemoveFlowVpcInterfaceResponse -&gt; Bool
+$c/= :: RemoveFlowVpcInterfaceResponse
+-&gt; RemoveFlowVpcInterfaceResponse -&gt; Bool
+== :: RemoveFlowVpcInterfaceResponse
+-&gt; RemoveFlowVpcInterfaceResponse -&gt; Bool
+$c== :: RemoveFlowVpcInterfaceResponse
+-&gt; RemoveFlowVpcInterfaceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275166"><span id="local-6989586621679275168"><span id="local-6989586621679275170"><span id="local-6989586621679275172"><span class="annot"><span class="annottext">ReadPrec [RemoveFlowVpcInterfaceResponse]
+ReadPrec RemoveFlowVpcInterfaceResponse
+Int -&gt; ReadS RemoveFlowVpcInterfaceResponse
+ReadS [RemoveFlowVpcInterfaceResponse]
+(Int -&gt; ReadS RemoveFlowVpcInterfaceResponse)
+-&gt; ReadS [RemoveFlowVpcInterfaceResponse]
+-&gt; ReadPrec RemoveFlowVpcInterfaceResponse
+-&gt; ReadPrec [RemoveFlowVpcInterfaceResponse]
+-&gt; Read RemoveFlowVpcInterfaceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemoveFlowVpcInterfaceResponse]
+$creadListPrec :: ReadPrec [RemoveFlowVpcInterfaceResponse]
+readPrec :: ReadPrec RemoveFlowVpcInterfaceResponse
+$creadPrec :: ReadPrec RemoveFlowVpcInterfaceResponse
+readList :: ReadS [RemoveFlowVpcInterfaceResponse]
+$creadList :: ReadS [RemoveFlowVpcInterfaceResponse]
+readsPrec :: Int -&gt; ReadS RemoveFlowVpcInterfaceResponse
+$creadsPrec :: Int -&gt; ReadS RemoveFlowVpcInterfaceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275160"><span id="local-6989586621679275162"><span id="local-6989586621679275164"><span class="annot"><span class="annottext">Int -&gt; RemoveFlowVpcInterfaceResponse -&gt; ShowS
+[RemoveFlowVpcInterfaceResponse] -&gt; ShowS
+RemoveFlowVpcInterfaceResponse -&gt; String
+(Int -&gt; RemoveFlowVpcInterfaceResponse -&gt; ShowS)
+-&gt; (RemoveFlowVpcInterfaceResponse -&gt; String)
+-&gt; ([RemoveFlowVpcInterfaceResponse] -&gt; ShowS)
+-&gt; Show RemoveFlowVpcInterfaceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemoveFlowVpcInterfaceResponse] -&gt; ShowS
+$cshowList :: [RemoveFlowVpcInterfaceResponse] -&gt; ShowS
+show :: RemoveFlowVpcInterfaceResponse -&gt; String
+$cshow :: RemoveFlowVpcInterfaceResponse -&gt; String
+showsPrec :: Int -&gt; RemoveFlowVpcInterfaceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemoveFlowVpcInterfaceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RemoveFlowVpcInterfaceResponse
+ -&gt; Rep RemoveFlowVpcInterfaceResponse x)
+-&gt; (forall x.
+    Rep RemoveFlowVpcInterfaceResponse x
+    -&gt; RemoveFlowVpcInterfaceResponse)
+-&gt; Generic RemoveFlowVpcInterfaceResponse
+forall x.
+Rep RemoveFlowVpcInterfaceResponse x
+-&gt; RemoveFlowVpcInterfaceResponse
+forall x.
+RemoveFlowVpcInterfaceResponse
+-&gt; Rep RemoveFlowVpcInterfaceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RemoveFlowVpcInterfaceResponse x
+-&gt; RemoveFlowVpcInterfaceResponse
+$cfrom :: forall x.
+RemoveFlowVpcInterfaceResponse
+-&gt; Rep RemoveFlowVpcInterfaceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Create a value of 'RemoveFlowVpcInterfaceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'flowArn', 'removeFlowVpcInterfaceResponse_flowArn' - The ARN of the flow that is associated with the VPC interface you</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- removed.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'nonDeletedNetworkInterfaceIds', 'removeFlowVpcInterfaceResponse_nonDeletedNetworkInterfaceIds' - IDs of network interfaces associated with the removed VPC interface that</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Media Connect was unable to remove.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'vpcInterfaceName', 'removeFlowVpcInterfaceResponse_vpcInterfaceName' - The name of the VPC interface that was removed.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'httpStatus', 'removeFlowVpcInterfaceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#newRemoveFlowVpcInterfaceResponse"><span class="hs-identifier hs-type">newRemoveFlowVpcInterfaceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse</span></a></span><span>
+</span><span id="line-178"></span><span id="newRemoveFlowVpcInterfaceResponse"><span class="annot"><span class="annottext">newRemoveFlowVpcInterfaceResponse :: Int -&gt; RemoveFlowVpcInterfaceResponse
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#newRemoveFlowVpcInterfaceResponse"><span class="hs-identifier hs-var hs-var">newRemoveFlowVpcInterfaceResponse</span></a></span></span><span> </span><span id="local-6989586621679275157"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275157"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">RemoveFlowVpcInterfaceResponse' :: Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; RemoveFlowVpcInterfaceResponse
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse'</span></a></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:flowArn:RemoveFlowVpcInterfaceResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AflowArn%3ARemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:nonDeletedNetworkInterfaceIds:RemoveFlowVpcInterfaceResponse' :: Maybe [Text]
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AnonDeletedNetworkInterfaceIds%3ARemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-var">nonDeletedNetworkInterfaceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcInterfaceName:RemoveFlowVpcInterfaceResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AvpcInterfaceName%3ARemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-var">vpcInterfaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveFlowVpcInterfaceResponse' :: Int
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AhttpStatus%3ARemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275157"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The ARN of the flow that is associated with the VPC interface you</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- removed.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterfaceResponse_flowArn"><span class="hs-identifier hs-type">removeFlowVpcInterfaceResponse_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="removeFlowVpcInterfaceResponse_flowArn"><span class="annot"><span class="annottext">removeFlowVpcInterfaceResponse_flowArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RemoveFlowVpcInterfaceResponse
+-&gt; f RemoveFlowVpcInterfaceResponse
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterfaceResponse_flowArn"><span class="hs-identifier hs-var hs-var">removeFlowVpcInterfaceResponse_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveFlowVpcInterfaceResponse -&gt; Maybe Text)
+-&gt; (RemoveFlowVpcInterfaceResponse
+    -&gt; Maybe Text -&gt; RemoveFlowVpcInterfaceResponse)
+-&gt; Lens
+     RemoveFlowVpcInterfaceResponse
+     RemoveFlowVpcInterfaceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275156"><span class="annot"><span class="annottext">Maybe Text
+flowArn :: Maybe Text
+$sel:flowArn:RemoveFlowVpcInterfaceResponse' :: RemoveFlowVpcInterfaceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679275156"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275156"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275155"><span class="annot"><span class="annottext">s :: RemoveFlowVpcInterfaceResponse
+</span><a href="#local-6989586621679275155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275154"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFlowVpcInterfaceResponse
+</span><a href="#local-6989586621679275155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:RemoveFlowVpcInterfaceResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AflowArn%3ARemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | IDs of network interfaces associated with the removed VPC interface that</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Media Connect was unable to remove.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterfaceResponse_nonDeletedNetworkInterfaceIds"><span class="hs-identifier hs-type">removeFlowVpcInterfaceResponse_nonDeletedNetworkInterfaceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="removeFlowVpcInterfaceResponse_nonDeletedNetworkInterfaceIds"><span class="annot"><span class="annottext">removeFlowVpcInterfaceResponse_nonDeletedNetworkInterfaceIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; RemoveFlowVpcInterfaceResponse
+-&gt; f RemoveFlowVpcInterfaceResponse
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterfaceResponse_nonDeletedNetworkInterfaceIds"><span class="hs-identifier hs-var hs-var">removeFlowVpcInterfaceResponse_nonDeletedNetworkInterfaceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveFlowVpcInterfaceResponse -&gt; Maybe [Text])
+-&gt; (RemoveFlowVpcInterfaceResponse
+    -&gt; Maybe [Text] -&gt; RemoveFlowVpcInterfaceResponse)
+-&gt; Lens
+     RemoveFlowVpcInterfaceResponse
+     RemoveFlowVpcInterfaceResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275153"><span class="annot"><span class="annottext">Maybe [Text]
+nonDeletedNetworkInterfaceIds :: Maybe [Text]
+$sel:nonDeletedNetworkInterfaceIds:RemoveFlowVpcInterfaceResponse' :: RemoveFlowVpcInterfaceResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679275153"><span class="hs-identifier hs-var hs-var">nonDeletedNetworkInterfaceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679275153"><span class="hs-identifier hs-var">nonDeletedNetworkInterfaceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275152"><span class="annot"><span class="annottext">s :: RemoveFlowVpcInterfaceResponse
+</span><a href="#local-6989586621679275152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275151"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679275151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFlowVpcInterfaceResponse
+</span><a href="#local-6989586621679275152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonDeletedNetworkInterfaceIds:RemoveFlowVpcInterfaceResponse' :: Maybe [Text]
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AnonDeletedNetworkInterfaceIds%3ARemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-var">nonDeletedNetworkInterfaceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679275151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; RemoveFlowVpcInterfaceResponse
+ -&gt; f RemoveFlowVpcInterfaceResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; RemoveFlowVpcInterfaceResponse
+-&gt; f RemoveFlowVpcInterfaceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The name of the VPC interface that was removed.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterfaceResponse_vpcInterfaceName"><span class="hs-identifier hs-type">removeFlowVpcInterfaceResponse_vpcInterfaceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="removeFlowVpcInterfaceResponse_vpcInterfaceName"><span class="annot"><span class="annottext">removeFlowVpcInterfaceResponse_vpcInterfaceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RemoveFlowVpcInterfaceResponse
+-&gt; f RemoveFlowVpcInterfaceResponse
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterfaceResponse_vpcInterfaceName"><span class="hs-identifier hs-var hs-var">removeFlowVpcInterfaceResponse_vpcInterfaceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveFlowVpcInterfaceResponse -&gt; Maybe Text)
+-&gt; (RemoveFlowVpcInterfaceResponse
+    -&gt; Maybe Text -&gt; RemoveFlowVpcInterfaceResponse)
+-&gt; Lens
+     RemoveFlowVpcInterfaceResponse
+     RemoveFlowVpcInterfaceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275147"><span class="annot"><span class="annottext">Maybe Text
+vpcInterfaceName :: Maybe Text
+$sel:vpcInterfaceName:RemoveFlowVpcInterfaceResponse' :: RemoveFlowVpcInterfaceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679275147"><span class="hs-identifier hs-var hs-var">vpcInterfaceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275147"><span class="hs-identifier hs-var">vpcInterfaceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275146"><span class="annot"><span class="annottext">s :: RemoveFlowVpcInterfaceResponse
+</span><a href="#local-6989586621679275146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275145"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFlowVpcInterfaceResponse
+</span><a href="#local-6989586621679275146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcInterfaceName:RemoveFlowVpcInterfaceResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AvpcInterfaceName%3ARemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-var">vpcInterfaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterfaceResponse_httpStatus"><span class="hs-identifier hs-type">removeFlowVpcInterfaceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-204"></span><span id="removeFlowVpcInterfaceResponse_httpStatus"><span class="annot"><span class="annottext">removeFlowVpcInterfaceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RemoveFlowVpcInterfaceResponse
+-&gt; f RemoveFlowVpcInterfaceResponse
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#removeFlowVpcInterfaceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">removeFlowVpcInterfaceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveFlowVpcInterfaceResponse -&gt; Int)
+-&gt; (RemoveFlowVpcInterfaceResponse
+    -&gt; Int -&gt; RemoveFlowVpcInterfaceResponse)
+-&gt; Lens
+     RemoveFlowVpcInterfaceResponse
+     RemoveFlowVpcInterfaceResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275144"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RemoveFlowVpcInterfaceResponse' :: RemoveFlowVpcInterfaceResponse -&gt; Int
+</span><a href="#local-6989586621679275144"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275144"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275143"><span class="annot"><span class="annottext">s :: RemoveFlowVpcInterfaceResponse
+</span><a href="#local-6989586621679275143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275142"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFlowVpcInterfaceResponse
+</span><a href="#local-6989586621679275143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveFlowVpcInterfaceResponse' :: Int
+</span><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#%24sel%3AhttpStatus%3ARemoveFlowVpcInterfaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679275140"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowVpcInterface.html#RemoveFlowVpcInterfaceResponse"><span class="hs-identifier hs-type">RemoveFlowVpcInterfaceResponse</span></a></span></span><span>
+</span><span id="line-209"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A complex type that contains information about a geographic location.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGeoLocation' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679294145"><span id="local-6989586621679294146"></span></span><span class="hs-keyword">data</span><span> </span><span id="GeoLocation"><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation"><span class="hs-identifier hs-var">GeoLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GeoLocation%27"><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-var">GeoLocation'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679294154"><span id="local-6989586621679294155"></span></span><span class="hs-keyword">data</span><span> </span><span id="GeoLocation"><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation"><span class="hs-identifier hs-var">GeoLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GeoLocation%27"><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-var">GeoLocation'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For geolocation resource record sets, the two-letter code for a state of</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the United States. Route 53 doesn\'t support any other values for</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @SubdivisionCode@. For a list of state abbreviations, see</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AcontinentCode%3AGeoLocation%27"><span class="annot"><span class="annottext">GeoLocation -&gt; Maybe Text
 </span><a href="Network.AWS.Route53.Types.GeoLocation.html#%24sel%3AcontinentCode%3AGeoLocation%27"><span class="hs-identifier hs-var hs-var">continentCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294137"><span id="local-6989586621679294139"><span class="annot"><span class="annottext">GeoLocation -&gt; GeoLocation -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294146"><span id="local-6989586621679294148"><span class="annot"><span class="annottext">GeoLocation -&gt; GeoLocation -&gt; Bool
 (GeoLocation -&gt; GeoLocation -&gt; Bool)
 -&gt; (GeoLocation -&gt; GeoLocation -&gt; Bool) -&gt; Eq GeoLocation
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GeoLocation -&gt; GeoLocation -&gt; Bool
 == :: GeoLocation -&gt; GeoLocation -&gt; Bool
 $c== :: GeoLocation -&gt; GeoLocation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294128"><span id="local-6989586621679294130"><span id="local-6989586621679294132"><span id="local-6989586621679294134"><span class="annot"><span class="annottext">ReadPrec [GeoLocation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294137"><span id="local-6989586621679294139"><span id="local-6989586621679294141"><span id="local-6989586621679294143"><span class="annot"><span class="annottext">ReadPrec [GeoLocation]
 ReadPrec GeoLocation
 Int -&gt; ReadS GeoLocation
 ReadS [GeoLocation]
@@ -95,7 +95,7 @@ readList :: ReadS [GeoLocation]
 $creadList :: ReadS [GeoLocation]
 readsPrec :: Int -&gt; ReadS GeoLocation
 $creadsPrec :: Int -&gt; ReadS GeoLocation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294121"><span id="local-6989586621679294123"><span id="local-6989586621679294125"><span class="annot"><span class="annottext">Int -&gt; GeoLocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294130"><span id="local-6989586621679294132"><span id="local-6989586621679294134"><span class="annot"><span class="annottext">Int -&gt; GeoLocation -&gt; ShowS
 [GeoLocation] -&gt; ShowS
 GeoLocation -&gt; String
 (Int -&gt; GeoLocation -&gt; ShowS)
@@ -197,16 +197,16 @@ forall a. Maybe a
 -&gt; (GeoLocation -&gt; Maybe Text -&gt; GeoLocation)
 -&gt; Lens GeoLocation GeoLocation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-type">GeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294112"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-type">GeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294121"><span class="annot"><span class="annottext">Maybe Text
 subdivisionCode :: Maybe Text
 $sel:subdivisionCode:GeoLocation' :: GeoLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679294112"><span class="hs-identifier hs-var hs-var">subdivisionCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294112"><span class="hs-identifier hs-var">subdivisionCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294111"><span class="annot"><span class="annottext">s :: GeoLocation
-</span><a href="#local-6989586621679294111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-type">GeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294110"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoLocation
-</span><a href="#local-6989586621679294111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subdivisionCode:GeoLocation' :: Maybe Text
+</span><a href="#local-6989586621679294121"><span class="hs-identifier hs-var hs-var">subdivisionCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294121"><span class="hs-identifier hs-var">subdivisionCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294120"><span class="annot"><span class="annottext">s :: GeoLocation
+</span><a href="#local-6989586621679294120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-type">GeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294119"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoLocation
+</span><a href="#local-6989586621679294120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subdivisionCode:GeoLocation' :: Maybe Text
 </span><a href="Network.AWS.Route53.Types.GeoLocation.html#%24sel%3AsubdivisionCode%3AGeoLocation%27"><span class="hs-identifier hs-var">subdivisionCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation"><span class="hs-identifier hs-type">GeoLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation"><span class="hs-identifier hs-type">GeoLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | For geolocation resource record sets, the two-letter code for a country.</span><span>
 </span><span id="line-132"></span><span class="hs-comment">--</span><span>
@@ -218,16 +218,16 @@ $sel:subdivisionCode:GeoLocation' :: GeoLocation -&gt; Maybe Text
 -&gt; (GeoLocation -&gt; Maybe Text -&gt; GeoLocation)
 -&gt; Lens GeoLocation GeoLocation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-type">GeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294108"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-type">GeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294117"><span class="annot"><span class="annottext">Maybe Text
 countryCode :: Maybe Text
 $sel:countryCode:GeoLocation' :: GeoLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679294108"><span class="hs-identifier hs-var hs-var">countryCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294108"><span class="hs-identifier hs-var">countryCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294107"><span class="annot"><span class="annottext">s :: GeoLocation
-</span><a href="#local-6989586621679294107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-type">GeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294106"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoLocation
-</span><a href="#local-6989586621679294107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:countryCode:GeoLocation' :: Maybe Text
+</span><a href="#local-6989586621679294117"><span class="hs-identifier hs-var hs-var">countryCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294117"><span class="hs-identifier hs-var">countryCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294116"><span class="annot"><span class="annottext">s :: GeoLocation
+</span><a href="#local-6989586621679294116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-type">GeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294115"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoLocation
+</span><a href="#local-6989586621679294116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:countryCode:GeoLocation' :: Maybe Text
 </span><a href="Network.AWS.Route53.Types.GeoLocation.html#%24sel%3AcountryCode%3AGeoLocation%27"><span class="hs-identifier hs-var">countryCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation"><span class="hs-identifier hs-type">GeoLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation"><span class="hs-identifier hs-type">GeoLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The two-letter code for the continent.</span><span>
 </span><span id="line-139"></span><span class="hs-comment">--</span><span>
@@ -255,21 +255,21 @@ $sel:countryCode:GeoLocation' :: GeoLocation -&gt; Maybe Text
 -&gt; (GeoLocation -&gt; Maybe Text -&gt; GeoLocation)
 -&gt; Lens GeoLocation GeoLocation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-type">GeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294104"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-type">GeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294113"><span class="annot"><span class="annottext">Maybe Text
 continentCode :: Maybe Text
 $sel:continentCode:GeoLocation' :: GeoLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679294104"><span class="hs-identifier hs-var hs-var">continentCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294104"><span class="hs-identifier hs-var">continentCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294103"><span class="annot"><span class="annottext">s :: GeoLocation
-</span><a href="#local-6989586621679294103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-type">GeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294102"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoLocation
-</span><a href="#local-6989586621679294103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continentCode:GeoLocation' :: Maybe Text
+</span><a href="#local-6989586621679294113"><span class="hs-identifier hs-var hs-var">continentCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294113"><span class="hs-identifier hs-var">continentCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294112"><span class="annot"><span class="annottext">s :: GeoLocation
+</span><a href="#local-6989586621679294112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-type">GeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294111"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoLocation
+</span><a href="#local-6989586621679294112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continentCode:GeoLocation' :: Maybe Text
 </span><a href="Network.AWS.Route53.Types.GeoLocation.html#%24sel%3AcontinentCode%3AGeoLocation%27"><span class="hs-identifier hs-var">continentCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation"><span class="hs-identifier hs-type">GeoLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation"><span class="hs-identifier hs-type">GeoLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation"><span class="hs-identifier hs-type">GeoLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679294099"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String GeoLocation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679294097"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679294097"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679294108"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String GeoLocation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679294106"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679294106"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; GeoLocation
 </span><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-var">GeoLocation'</span></a></span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; GeoLocation)
@@ -277,7 +277,7 @@ $sel:continentCode:GeoLocation' :: GeoLocation -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; GeoLocation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679294097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679294106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubdivisionCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -286,7 +286,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; GeoLocation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679294097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679294106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CountryCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -294,25 +294,25 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String GeoLocation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679294097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679294106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContinentCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294091"><span id="local-6989586621679294093"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation"><span class="hs-identifier hs-type">GeoLocation</span></a></span></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294100"><span id="local-6989586621679294102"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation"><span class="hs-identifier hs-type">GeoLocation</span></a></span></span></span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation"><span class="hs-identifier hs-type">GeoLocation</span></a></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294097"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation"><span class="hs-identifier hs-type">GeoLocation</span></a></span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation"><span class="hs-identifier hs-type">GeoLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679294084"><span class="annot"><span class="annottext">toXML :: GeoLocation -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-type">GeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294080"><span id="local-6989586621679294081"><span id="local-6989586621679294082"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679294093"><span class="annot"><span class="annottext">toXML :: GeoLocation -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.GeoLocation.html#GeoLocation%27"><span class="hs-identifier hs-type">GeoLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294089"><span id="local-6989586621679294090"><span id="local-6989586621679294091"><span class="annot"><span class="annottext">Maybe Text
 continentCode :: Maybe Text
 countryCode :: Maybe Text
 subdivisionCode :: Maybe Text
 $sel:continentCode:GeoLocation' :: GeoLocation -&gt; Maybe Text
 $sel:countryCode:GeoLocation' :: GeoLocation -&gt; Maybe Text
 $sel:subdivisionCode:GeoLocation' :: GeoLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679294080"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679294089"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -320,16 +320,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;SubdivisionCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294082"><span class="hs-identifier hs-var">subdivisionCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294091"><span class="hs-identifier hs-var">subdivisionCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;CountryCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294081"><span class="hs-identifier hs-var">countryCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294090"><span class="hs-identifier hs-var">countryCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ContinentCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294080"><span class="hs-identifier hs-var">continentCode</span></a></span><span>
+</span><a href="#local-6989586621679294089"><span class="hs-identifier hs-var">continentCode</span></a></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-179"></span></pre></body></html>

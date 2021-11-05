@@ -1,0 +1,537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.DescribeVirtualService</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes an existing virtual service.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.DescribeVirtualService</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService"><span class="hs-identifier">DescribeVirtualService</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#newDescribeVirtualService"><span class="hs-identifier">newDescribeVirtualService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#describeVirtualService_meshOwner"><span class="hs-identifier">describeVirtualService_meshOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#describeVirtualService_meshName"><span class="hs-identifier">describeVirtualService_meshName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#describeVirtualService_virtualServiceName"><span class="hs-identifier">describeVirtualService_virtualServiceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualServiceResponse"><span class="hs-identifier">DescribeVirtualServiceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#newDescribeVirtualServiceResponse"><span class="hs-identifier">newDescribeVirtualServiceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#describeVirtualServiceResponse_httpStatus"><span class="hs-identifier">describeVirtualServiceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#describeVirtualServiceResponse_virtualService"><span class="hs-identifier">describeVirtualServiceResponse_virtualService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.html"><span class="hs-identifier">Network.AWS.AppMesh.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newDescribeVirtualService' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679347317"><span id="local-6989586621679347318"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVirtualService"><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService"><span class="hs-identifier hs-var">DescribeVirtualService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVirtualService%27"><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService%27"><span class="hs-identifier hs-var">DescribeVirtualService'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AmeshOwner%3ADescribeVirtualService%27"><span class="annot"><span class="annottext">DescribeVirtualService -&gt; Maybe Text
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#%24sel%3AmeshOwner%3ADescribeVirtualService%27"><span class="hs-identifier hs-var hs-var">meshOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the service mesh that the virtual service resides in.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmeshName%3ADescribeVirtualService%27"><span class="annot"><span class="annottext">DescribeVirtualService -&gt; Text
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#%24sel%3AmeshName%3ADescribeVirtualService%27"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The name of the virtual service to describe.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AvirtualServiceName%3ADescribeVirtualService%27"><span class="annot"><span class="annottext">DescribeVirtualService -&gt; Text
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#%24sel%3AvirtualServiceName%3ADescribeVirtualService%27"><span class="hs-identifier hs-var hs-var">virtualServiceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347309"><span id="local-6989586621679347311"><span class="annot"><span class="annottext">DescribeVirtualService -&gt; DescribeVirtualService -&gt; Bool
+(DescribeVirtualService -&gt; DescribeVirtualService -&gt; Bool)
+-&gt; (DescribeVirtualService -&gt; DescribeVirtualService -&gt; Bool)
+-&gt; Eq DescribeVirtualService
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeVirtualService -&gt; DescribeVirtualService -&gt; Bool
+$c/= :: DescribeVirtualService -&gt; DescribeVirtualService -&gt; Bool
+== :: DescribeVirtualService -&gt; DescribeVirtualService -&gt; Bool
+$c== :: DescribeVirtualService -&gt; DescribeVirtualService -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347300"><span id="local-6989586621679347302"><span id="local-6989586621679347304"><span id="local-6989586621679347306"><span class="annot"><span class="annottext">ReadPrec [DescribeVirtualService]
+ReadPrec DescribeVirtualService
+Int -&gt; ReadS DescribeVirtualService
+ReadS [DescribeVirtualService]
+(Int -&gt; ReadS DescribeVirtualService)
+-&gt; ReadS [DescribeVirtualService]
+-&gt; ReadPrec DescribeVirtualService
+-&gt; ReadPrec [DescribeVirtualService]
+-&gt; Read DescribeVirtualService
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeVirtualService]
+$creadListPrec :: ReadPrec [DescribeVirtualService]
+readPrec :: ReadPrec DescribeVirtualService
+$creadPrec :: ReadPrec DescribeVirtualService
+readList :: ReadS [DescribeVirtualService]
+$creadList :: ReadS [DescribeVirtualService]
+readsPrec :: Int -&gt; ReadS DescribeVirtualService
+$creadsPrec :: Int -&gt; ReadS DescribeVirtualService
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347293"><span id="local-6989586621679347295"><span id="local-6989586621679347297"><span class="annot"><span class="annottext">Int -&gt; DescribeVirtualService -&gt; ShowS
+[DescribeVirtualService] -&gt; ShowS
+DescribeVirtualService -&gt; String
+(Int -&gt; DescribeVirtualService -&gt; ShowS)
+-&gt; (DescribeVirtualService -&gt; String)
+-&gt; ([DescribeVirtualService] -&gt; ShowS)
+-&gt; Show DescribeVirtualService
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeVirtualService] -&gt; ShowS
+$cshowList :: [DescribeVirtualService] -&gt; ShowS
+show :: DescribeVirtualService -&gt; String
+$cshow :: DescribeVirtualService -&gt; String
+showsPrec :: Int -&gt; DescribeVirtualService -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeVirtualService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeVirtualService -&gt; Rep DescribeVirtualService x)
+-&gt; (forall x.
+    Rep DescribeVirtualService x -&gt; DescribeVirtualService)
+-&gt; Generic DescribeVirtualService
+forall x. Rep DescribeVirtualService x -&gt; DescribeVirtualService
+forall x. DescribeVirtualService -&gt; Rep DescribeVirtualService x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeVirtualService x -&gt; DescribeVirtualService
+$cfrom :: forall x. DescribeVirtualService -&gt; Rep DescribeVirtualService x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'DescribeVirtualService' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'meshOwner', 'describeVirtualService_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'meshName', 'describeVirtualService_meshName' - The name of the service mesh that the virtual service resides in.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'virtualServiceName', 'describeVirtualService_virtualServiceName' - The name of the virtual service to describe.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#newDescribeVirtualService"><span class="hs-identifier hs-type">newDescribeVirtualService</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'meshName'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'virtualServiceName'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService"><span class="hs-identifier hs-type">DescribeVirtualService</span></a></span><span>
+</span><span id="line-89"></span><span id="newDescribeVirtualService"><span class="annot"><span class="annottext">newDescribeVirtualService :: Text -&gt; Text -&gt; DescribeVirtualService
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#newDescribeVirtualService"><span class="hs-identifier hs-var hs-var">newDescribeVirtualService</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679347288"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347288"><span class="hs-identifier hs-var">pMeshName_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679347287"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347287"><span class="hs-identifier hs-var">pVirtualServiceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">DescribeVirtualService' :: Maybe Text -&gt; Text -&gt; Text -&gt; DescribeVirtualService
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService%27"><span class="hs-identifier hs-type">DescribeVirtualService'</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:meshOwner:DescribeVirtualService' :: Maybe Text
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#%24sel%3AmeshOwner%3ADescribeVirtualService%27"><span class="hs-identifier hs-var">meshOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:meshName:DescribeVirtualService' :: Text
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#%24sel%3AmeshName%3ADescribeVirtualService%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347288"><span class="hs-identifier hs-var">pMeshName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:virtualServiceName:DescribeVirtualService' :: Text
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#%24sel%3AvirtualServiceName%3ADescribeVirtualService%27"><span class="hs-identifier hs-var">virtualServiceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347287"><span class="hs-identifier hs-var">pVirtualServiceName_</span></a></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#describeVirtualService_meshOwner"><span class="hs-identifier hs-type">describeVirtualService_meshOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService"><span class="hs-identifier hs-type">DescribeVirtualService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="describeVirtualService_meshOwner"><span class="annot"><span class="annottext">describeVirtualService_meshOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeVirtualService -&gt; f DescribeVirtualService
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#describeVirtualService_meshOwner"><span class="hs-identifier hs-var hs-var">describeVirtualService_meshOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVirtualService -&gt; Maybe Text)
+-&gt; (DescribeVirtualService -&gt; Maybe Text -&gt; DescribeVirtualService)
+-&gt; Lens
+     DescribeVirtualService
+     DescribeVirtualService
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService%27"><span class="hs-identifier hs-type">DescribeVirtualService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347284"><span class="annot"><span class="annottext">Maybe Text
+meshOwner :: Maybe Text
+$sel:meshOwner:DescribeVirtualService' :: DescribeVirtualService -&gt; Maybe Text
+</span><a href="#local-6989586621679347284"><span class="hs-identifier hs-var hs-var">meshOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347284"><span class="hs-identifier hs-var">meshOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347283"><span class="annot"><span class="annottext">s :: DescribeVirtualService
+</span><a href="#local-6989586621679347283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService%27"><span class="hs-identifier hs-type">DescribeVirtualService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347282"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVirtualService
+</span><a href="#local-6989586621679347283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshOwner:DescribeVirtualService' :: Maybe Text
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#%24sel%3AmeshOwner%3ADescribeVirtualService%27"><span class="hs-identifier hs-var">meshOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService"><span class="hs-identifier hs-type">DescribeVirtualService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The name of the service mesh that the virtual service resides in.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#describeVirtualService_meshName"><span class="hs-identifier hs-type">describeVirtualService_meshName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService"><span class="hs-identifier hs-type">DescribeVirtualService</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="describeVirtualService_meshName"><span class="annot"><span class="annottext">describeVirtualService_meshName :: (Text -&gt; f Text)
+-&gt; DescribeVirtualService -&gt; f DescribeVirtualService
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#describeVirtualService_meshName"><span class="hs-identifier hs-var hs-var">describeVirtualService_meshName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVirtualService -&gt; Text)
+-&gt; (DescribeVirtualService -&gt; Text -&gt; DescribeVirtualService)
+-&gt; Lens DescribeVirtualService DescribeVirtualService Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService%27"><span class="hs-identifier hs-type">DescribeVirtualService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347281"><span class="annot"><span class="annottext">Text
+meshName :: Text
+$sel:meshName:DescribeVirtualService' :: DescribeVirtualService -&gt; Text
+</span><a href="#local-6989586621679347281"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347281"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347280"><span class="annot"><span class="annottext">s :: DescribeVirtualService
+</span><a href="#local-6989586621679347280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService%27"><span class="hs-identifier hs-type">DescribeVirtualService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347279"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVirtualService
+</span><a href="#local-6989586621679347280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshName:DescribeVirtualService' :: Text
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#%24sel%3AmeshName%3ADescribeVirtualService%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService"><span class="hs-identifier hs-type">DescribeVirtualService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The name of the virtual service to describe.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#describeVirtualService_virtualServiceName"><span class="hs-identifier hs-type">describeVirtualService_virtualServiceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService"><span class="hs-identifier hs-type">DescribeVirtualService</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="describeVirtualService_virtualServiceName"><span class="annot"><span class="annottext">describeVirtualService_virtualServiceName :: (Text -&gt; f Text)
+-&gt; DescribeVirtualService -&gt; f DescribeVirtualService
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#describeVirtualService_virtualServiceName"><span class="hs-identifier hs-var hs-var">describeVirtualService_virtualServiceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVirtualService -&gt; Text)
+-&gt; (DescribeVirtualService -&gt; Text -&gt; DescribeVirtualService)
+-&gt; Lens DescribeVirtualService DescribeVirtualService Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService%27"><span class="hs-identifier hs-type">DescribeVirtualService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347278"><span class="annot"><span class="annottext">Text
+virtualServiceName :: Text
+$sel:virtualServiceName:DescribeVirtualService' :: DescribeVirtualService -&gt; Text
+</span><a href="#local-6989586621679347278"><span class="hs-identifier hs-var hs-var">virtualServiceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347278"><span class="hs-identifier hs-var">virtualServiceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347277"><span class="annot"><span class="annottext">s :: DescribeVirtualService
+</span><a href="#local-6989586621679347277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService%27"><span class="hs-identifier hs-type">DescribeVirtualService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347276"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVirtualService
+</span><a href="#local-6989586621679347277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualServiceName:DescribeVirtualService' :: Text
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#%24sel%3AvirtualServiceName%3ADescribeVirtualService%27"><span class="hs-identifier hs-var">virtualServiceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService"><span class="hs-identifier hs-type">DescribeVirtualService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService"><span class="hs-identifier hs-type">DescribeVirtualService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService"><span class="hs-identifier hs-type">DescribeVirtualService</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualServiceResponse"><span class="hs-identifier hs-type">DescribeVirtualServiceResponse</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679347272"><span class="annot"><span class="annottext">request :: DescribeVirtualService -&gt; Request DescribeVirtualService
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeVirtualService -&gt; Request DescribeVirtualService
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppMesh.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679347268"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeVirtualService
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeVirtualService)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeVirtualService))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeVirtualService
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeVirtualService)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347265"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347265"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679347264"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679347264"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679347263"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679347263"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; VirtualServiceData -&gt; DescribeVirtualServiceResponse
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualServiceResponse%27"><span class="hs-identifier hs-var">DescribeVirtualServiceResponse'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; VirtualServiceData -&gt; DescribeVirtualServiceResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (VirtualServiceData -&gt; DescribeVirtualServiceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347265"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (VirtualServiceData -&gt; DescribeVirtualServiceResponse)
+-&gt; Either String VirtualServiceData
+-&gt; Either String DescribeVirtualServiceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String VirtualServiceData
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679347263"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347255"><span id="local-6989586621679347257"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService"><span class="hs-identifier hs-type">DescribeVirtualService</span></a></span></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService"><span class="hs-identifier hs-type">DescribeVirtualService</span></a></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService"><span class="hs-identifier hs-type">DescribeVirtualService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679347248"><span class="annot"><span class="annottext">toHeaders :: DescribeVirtualService -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeVirtualService -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-138"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService"><span class="hs-identifier hs-type">DescribeVirtualService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679347242"><span class="annot"><span class="annottext">toPath :: DescribeVirtualService -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService%27"><span class="hs-identifier hs-type">DescribeVirtualService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347238"><span id="local-6989586621679347239"><span id="local-6989586621679347240"><span class="annot"><span class="annottext">Maybe Text
+Text
+virtualServiceName :: Text
+meshName :: Text
+meshOwner :: Maybe Text
+$sel:virtualServiceName:DescribeVirtualService' :: DescribeVirtualService -&gt; Text
+$sel:meshName:DescribeVirtualService' :: DescribeVirtualService -&gt; Text
+$sel:meshOwner:DescribeVirtualService' :: DescribeVirtualService -&gt; Maybe Text
+</span><a href="#local-6989586621679347238"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v20190125/meshes/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347239"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/virtualServices/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347238"><span class="hs-identifier hs-var">virtualServiceName</span></a></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService"><span class="hs-identifier hs-type">DescribeVirtualService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679347234"><span class="annot"><span class="annottext">toQuery :: DescribeVirtualService -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualService%27"><span class="hs-identifier hs-type">DescribeVirtualService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347230"><span id="local-6989586621679347231"><span id="local-6989586621679347232"><span class="annot"><span class="annottext">Maybe Text
+Text
+virtualServiceName :: Text
+meshName :: Text
+meshOwner :: Maybe Text
+$sel:virtualServiceName:DescribeVirtualService' :: DescribeVirtualService -&gt; Text
+$sel:meshName:DescribeVirtualService' :: DescribeVirtualService -&gt; Text
+$sel:meshOwner:DescribeVirtualService' :: DescribeVirtualService -&gt; Maybe Text
+</span><a href="#local-6989586621679347230"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;meshOwner&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347232"><span class="hs-identifier hs-var">meshOwner</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- /See:/ 'newDescribeVirtualServiceResponse' smart constructor.</span><span>
+</span><span id="line-158"></span><span id="local-6989586621679347227"><span id="local-6989586621679347228"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVirtualServiceResponse"><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualServiceResponse"><span class="hs-identifier hs-var">DescribeVirtualServiceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVirtualServiceResponse%27"><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualServiceResponse%27"><span class="hs-identifier hs-var">DescribeVirtualServiceResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeVirtualServiceResponse%27"><span class="annot"><span class="annottext">DescribeVirtualServiceResponse -&gt; Int
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#%24sel%3AhttpStatus%3ADescribeVirtualServiceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The full description of your virtual service.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AvirtualService%3ADescribeVirtualServiceResponse%27"><span class="annot"><span class="annottext">DescribeVirtualServiceResponse -&gt; VirtualServiceData
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#%24sel%3AvirtualService%3ADescribeVirtualServiceResponse%27"><span class="hs-identifier hs-var hs-var">virtualService</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347221"><span id="local-6989586621679347223"><span class="annot"><span class="annottext">DescribeVirtualServiceResponse
+-&gt; DescribeVirtualServiceResponse -&gt; Bool
+(DescribeVirtualServiceResponse
+ -&gt; DescribeVirtualServiceResponse -&gt; Bool)
+-&gt; (DescribeVirtualServiceResponse
+    -&gt; DescribeVirtualServiceResponse -&gt; Bool)
+-&gt; Eq DescribeVirtualServiceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeVirtualServiceResponse
+-&gt; DescribeVirtualServiceResponse -&gt; Bool
+$c/= :: DescribeVirtualServiceResponse
+-&gt; DescribeVirtualServiceResponse -&gt; Bool
+== :: DescribeVirtualServiceResponse
+-&gt; DescribeVirtualServiceResponse -&gt; Bool
+$c== :: DescribeVirtualServiceResponse
+-&gt; DescribeVirtualServiceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347213"><span id="local-6989586621679347215"><span id="local-6989586621679347217"><span id="local-6989586621679347219"><span class="annot"><span class="annottext">ReadPrec [DescribeVirtualServiceResponse]
+ReadPrec DescribeVirtualServiceResponse
+Int -&gt; ReadS DescribeVirtualServiceResponse
+ReadS [DescribeVirtualServiceResponse]
+(Int -&gt; ReadS DescribeVirtualServiceResponse)
+-&gt; ReadS [DescribeVirtualServiceResponse]
+-&gt; ReadPrec DescribeVirtualServiceResponse
+-&gt; ReadPrec [DescribeVirtualServiceResponse]
+-&gt; Read DescribeVirtualServiceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeVirtualServiceResponse]
+$creadListPrec :: ReadPrec [DescribeVirtualServiceResponse]
+readPrec :: ReadPrec DescribeVirtualServiceResponse
+$creadPrec :: ReadPrec DescribeVirtualServiceResponse
+readList :: ReadS [DescribeVirtualServiceResponse]
+$creadList :: ReadS [DescribeVirtualServiceResponse]
+readsPrec :: Int -&gt; ReadS DescribeVirtualServiceResponse
+$creadsPrec :: Int -&gt; ReadS DescribeVirtualServiceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347207"><span id="local-6989586621679347209"><span id="local-6989586621679347211"><span class="annot"><span class="annottext">Int -&gt; DescribeVirtualServiceResponse -&gt; ShowS
+[DescribeVirtualServiceResponse] -&gt; ShowS
+DescribeVirtualServiceResponse -&gt; String
+(Int -&gt; DescribeVirtualServiceResponse -&gt; ShowS)
+-&gt; (DescribeVirtualServiceResponse -&gt; String)
+-&gt; ([DescribeVirtualServiceResponse] -&gt; ShowS)
+-&gt; Show DescribeVirtualServiceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeVirtualServiceResponse] -&gt; ShowS
+$cshowList :: [DescribeVirtualServiceResponse] -&gt; ShowS
+show :: DescribeVirtualServiceResponse -&gt; String
+$cshow :: DescribeVirtualServiceResponse -&gt; String
+showsPrec :: Int -&gt; DescribeVirtualServiceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeVirtualServiceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeVirtualServiceResponse
+ -&gt; Rep DescribeVirtualServiceResponse x)
+-&gt; (forall x.
+    Rep DescribeVirtualServiceResponse x
+    -&gt; DescribeVirtualServiceResponse)
+-&gt; Generic DescribeVirtualServiceResponse
+forall x.
+Rep DescribeVirtualServiceResponse x
+-&gt; DescribeVirtualServiceResponse
+forall x.
+DescribeVirtualServiceResponse
+-&gt; Rep DescribeVirtualServiceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeVirtualServiceResponse x
+-&gt; DescribeVirtualServiceResponse
+$cfrom :: forall x.
+DescribeVirtualServiceResponse
+-&gt; Rep DescribeVirtualServiceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Create a value of 'DescribeVirtualServiceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'httpStatus', 'describeVirtualServiceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'virtualService', 'describeVirtualServiceResponse_virtualService' - The full description of your virtual service.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#newDescribeVirtualServiceResponse"><span class="hs-identifier hs-type">newDescribeVirtualServiceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-comment">-- | 'virtualService'</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualServiceResponse"><span class="hs-identifier hs-type">DescribeVirtualServiceResponse</span></a></span><span>
+</span><span id="line-183"></span><span id="newDescribeVirtualServiceResponse"><span class="annot"><span class="annottext">newDescribeVirtualServiceResponse :: Int -&gt; VirtualServiceData -&gt; DescribeVirtualServiceResponse
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#newDescribeVirtualServiceResponse"><span class="hs-identifier hs-var hs-var">newDescribeVirtualServiceResponse</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679347204"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347204"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679347203"><span class="annot"><span class="annottext">VirtualServiceData
+</span><a href="#local-6989586621679347203"><span class="hs-identifier hs-var">pVirtualService_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">DescribeVirtualServiceResponse' :: Int -&gt; VirtualServiceData -&gt; DescribeVirtualServiceResponse
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualServiceResponse%27"><span class="hs-identifier hs-type">DescribeVirtualServiceResponse'</span></a></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVirtualServiceResponse' :: Int
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#%24sel%3AhttpStatus%3ADescribeVirtualServiceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347204"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">$sel:virtualService:DescribeVirtualServiceResponse' :: VirtualServiceData
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#%24sel%3AvirtualService%3ADescribeVirtualServiceResponse%27"><span class="hs-identifier hs-var">virtualService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualServiceData
+</span><a href="#local-6989586621679347203"><span class="hs-identifier hs-var">pVirtualService_</span></a></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#describeVirtualServiceResponse_httpStatus"><span class="hs-identifier hs-type">describeVirtualServiceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualServiceResponse"><span class="hs-identifier hs-type">DescribeVirtualServiceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span id="describeVirtualServiceResponse_httpStatus"><span class="annot"><span class="annottext">describeVirtualServiceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeVirtualServiceResponse
+-&gt; f DescribeVirtualServiceResponse
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#describeVirtualServiceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeVirtualServiceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVirtualServiceResponse -&gt; Int)
+-&gt; (DescribeVirtualServiceResponse
+    -&gt; Int -&gt; DescribeVirtualServiceResponse)
+-&gt; Lens
+     DescribeVirtualServiceResponse
+     DescribeVirtualServiceResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualServiceResponse%27"><span class="hs-identifier hs-type">DescribeVirtualServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347202"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeVirtualServiceResponse' :: DescribeVirtualServiceResponse -&gt; Int
+</span><a href="#local-6989586621679347202"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347202"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347201"><span class="annot"><span class="annottext">s :: DescribeVirtualServiceResponse
+</span><a href="#local-6989586621679347201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualServiceResponse%27"><span class="hs-identifier hs-type">DescribeVirtualServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347200"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVirtualServiceResponse
+</span><a href="#local-6989586621679347201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVirtualServiceResponse' :: Int
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#%24sel%3AhttpStatus%3ADescribeVirtualServiceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualServiceResponse"><span class="hs-identifier hs-type">DescribeVirtualServiceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The full description of your virtual service.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#describeVirtualServiceResponse_virtualService"><span class="hs-identifier hs-type">describeVirtualServiceResponse_virtualService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualServiceResponse"><span class="hs-identifier hs-type">DescribeVirtualServiceResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualServiceData.html#VirtualServiceData"><span class="hs-identifier hs-type">VirtualServiceData</span></a></span><span>
+</span><span id="line-198"></span><span id="describeVirtualServiceResponse_virtualService"><span class="annot"><span class="annottext">describeVirtualServiceResponse_virtualService :: (VirtualServiceData -&gt; f VirtualServiceData)
+-&gt; DescribeVirtualServiceResponse
+-&gt; f DescribeVirtualServiceResponse
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#describeVirtualServiceResponse_virtualService"><span class="hs-identifier hs-var hs-var">describeVirtualServiceResponse_virtualService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVirtualServiceResponse -&gt; VirtualServiceData)
+-&gt; (DescribeVirtualServiceResponse
+    -&gt; VirtualServiceData -&gt; DescribeVirtualServiceResponse)
+-&gt; Lens
+     DescribeVirtualServiceResponse
+     DescribeVirtualServiceResponse
+     VirtualServiceData
+     VirtualServiceData
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualServiceResponse%27"><span class="hs-identifier hs-type">DescribeVirtualServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347199"><span class="annot"><span class="annottext">VirtualServiceData
+virtualService :: VirtualServiceData
+$sel:virtualService:DescribeVirtualServiceResponse' :: DescribeVirtualServiceResponse -&gt; VirtualServiceData
+</span><a href="#local-6989586621679347199"><span class="hs-identifier hs-var hs-var">virtualService</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualServiceData
+</span><a href="#local-6989586621679347199"><span class="hs-identifier hs-var">virtualService</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347198"><span class="annot"><span class="annottext">s :: DescribeVirtualServiceResponse
+</span><a href="#local-6989586621679347198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualServiceResponse%27"><span class="hs-identifier hs-type">DescribeVirtualServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347197"><span class="annot"><span class="annottext">VirtualServiceData
+</span><a href="#local-6989586621679347197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVirtualServiceResponse
+</span><a href="#local-6989586621679347198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualService:DescribeVirtualServiceResponse' :: VirtualServiceData
+</span><a href="Network.AWS.AppMesh.DescribeVirtualService.html#%24sel%3AvirtualService%3ADescribeVirtualServiceResponse%27"><span class="hs-identifier hs-var">virtualService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualServiceData
+</span><a href="#local-6989586621679347197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualServiceResponse"><span class="hs-identifier hs-type">DescribeVirtualServiceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679347195"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DescribeVirtualService.html#DescribeVirtualServiceResponse"><span class="hs-identifier hs-type">DescribeVirtualServiceResponse</span></a></span></span><span>
+</span><span id="line-203"></span></pre></body></html>

@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeJobExecution' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679837314"><span id="local-6989586621679837315"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeJobExecution"><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-var">DescribeJobExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeJobExecution%27"><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-var">DescribeJobExecution'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679837323"><span id="local-6989586621679837324"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeJobExecution"><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-var">DescribeJobExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeJobExecution%27"><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-var">DescribeJobExecution'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string (consisting of the digits \&quot;0\&quot; through \&quot;9\&quot; which is used to</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- specify a particular job execution on a particular device.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AexecutionNumber%3ADescribeJobExecution%27"><span class="annot"><span class="annottext">DescribeJobExecution -&gt; Maybe Integer
@@ -65,7 +65,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AthingName%3ADescribeJobExecution%27"><span class="annot"><span class="annottext">DescribeJobExecution -&gt; Text
 </span><a href="Network.AWS.IoT.DescribeJobExecution.html#%24sel%3AthingName%3ADescribeJobExecution%27"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679837306"><span id="local-6989586621679837308"><span class="annot"><span class="annottext">DescribeJobExecution -&gt; DescribeJobExecution -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679837315"><span id="local-6989586621679837317"><span class="annot"><span class="annottext">DescribeJobExecution -&gt; DescribeJobExecution -&gt; Bool
 (DescribeJobExecution -&gt; DescribeJobExecution -&gt; Bool)
 -&gt; (DescribeJobExecution -&gt; DescribeJobExecution -&gt; Bool)
 -&gt; Eq DescribeJobExecution
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeJobExecution -&gt; DescribeJobExecution -&gt; Bool
 == :: DescribeJobExecution -&gt; DescribeJobExecution -&gt; Bool
 $c== :: DescribeJobExecution -&gt; DescribeJobExecution -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837297"><span id="local-6989586621679837299"><span id="local-6989586621679837301"><span id="local-6989586621679837303"><span class="annot"><span class="annottext">ReadPrec [DescribeJobExecution]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837306"><span id="local-6989586621679837308"><span id="local-6989586621679837310"><span id="local-6989586621679837312"><span class="annot"><span class="annottext">ReadPrec [DescribeJobExecution]
 ReadPrec DescribeJobExecution
 Int -&gt; ReadS DescribeJobExecution
 ReadS [DescribeJobExecution]
@@ -94,7 +94,7 @@ readList :: ReadS [DescribeJobExecution]
 $creadList :: ReadS [DescribeJobExecution]
 readsPrec :: Int -&gt; ReadS DescribeJobExecution
 $creadsPrec :: Int -&gt; ReadS DescribeJobExecution
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837290"><span id="local-6989586621679837292"><span id="local-6989586621679837294"><span class="annot"><span class="annottext">Int -&gt; DescribeJobExecution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837299"><span id="local-6989586621679837301"><span id="local-6989586621679837303"><span class="annot"><span class="annottext">Int -&gt; DescribeJobExecution -&gt; ShowS
 [DescribeJobExecution] -&gt; ShowS
 DescribeJobExecution -&gt; String
 (Int -&gt; DescribeJobExecution -&gt; ShowS)
@@ -141,9 +141,9 @@ $cfrom :: forall x. DescribeJobExecution -&gt; Rep DescribeJobExecution x
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span><span>
 </span><span id="line-87"></span><span id="newDescribeJobExecution"><span class="annot"><span class="annottext">newDescribeJobExecution :: Text -&gt; Text -&gt; DescribeJobExecution
-</span><a href="Network.AWS.IoT.DescribeJobExecution.html#newDescribeJobExecution"><span class="hs-identifier hs-var hs-var">newDescribeJobExecution</span></a></span></span><span> </span><span id="local-6989586621679837285"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837285"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span id="local-6989586621679837284"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837284"><span class="hs-identifier hs-var">pThingName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DescribeJobExecution.html#newDescribeJobExecution"><span class="hs-identifier hs-var hs-var">newDescribeJobExecution</span></a></span></span><span> </span><span id="local-6989586621679837294"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679837294"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span id="local-6989586621679837293"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679837293"><span class="hs-identifier hs-var">pThingName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">DescribeJobExecution' :: Maybe Integer -&gt; Text -&gt; Text -&gt; DescribeJobExecution
 </span><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:executionNumber:DescribeJobExecution' :: Maybe Integer
@@ -153,10 +153,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:DescribeJobExecution' :: Text
 </span><a href="Network.AWS.IoT.DescribeJobExecution.html#%24sel%3AjobId%3ADescribeJobExecution%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837285"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679837294"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingName:DescribeJobExecution' :: Text
 </span><a href="Network.AWS.IoT.DescribeJobExecution.html#%24sel%3AthingName%3ADescribeJobExecution%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837284"><span class="hs-identifier hs-var">pThingName_</span></a></span><span>
+</span><a href="#local-6989586621679837293"><span class="hs-identifier hs-var">pThingName_</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | A string (consisting of the digits \&quot;0\&quot; through \&quot;9\&quot; which is used to</span><span>
@@ -172,16 +172,16 @@ forall a. Maybe a
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837281"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837290"><span class="annot"><span class="annottext">Maybe Integer
 executionNumber :: Maybe Integer
 $sel:executionNumber:DescribeJobExecution' :: DescribeJobExecution -&gt; Maybe Integer
-</span><a href="#local-6989586621679837281"><span class="hs-identifier hs-var hs-var">executionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679837281"><span class="hs-identifier hs-var">executionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837280"><span class="annot"><span class="annottext">s :: DescribeJobExecution
-</span><a href="#local-6989586621679837280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837279"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679837279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeJobExecution
-</span><a href="#local-6989586621679837280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionNumber:DescribeJobExecution' :: Maybe Integer
+</span><a href="#local-6989586621679837290"><span class="hs-identifier hs-var hs-var">executionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679837290"><span class="hs-identifier hs-var">executionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837289"><span class="annot"><span class="annottext">s :: DescribeJobExecution
+</span><a href="#local-6989586621679837289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837288"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679837288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeJobExecution
+</span><a href="#local-6989586621679837289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionNumber:DescribeJobExecution' :: Maybe Integer
 </span><a href="Network.AWS.IoT.DescribeJobExecution.html#%24sel%3AexecutionNumber%3ADescribeJobExecution%27"><span class="hs-identifier hs-var">executionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679837279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679837288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The unique identifier you assigned to this job when it was created.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#describeJobExecution_jobId"><span class="hs-identifier hs-type">describeJobExecution_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -190,16 +190,16 @@ $sel:executionNumber:DescribeJobExecution' :: DescribeJobExecution -&gt; Maybe I
 -&gt; (DescribeJobExecution -&gt; Text -&gt; DescribeJobExecution)
 -&gt; Lens DescribeJobExecution DescribeJobExecution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837278"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837287"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:DescribeJobExecution' :: DescribeJobExecution -&gt; Text
-</span><a href="#local-6989586621679837278"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837278"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837277"><span class="annot"><span class="annottext">s :: DescribeJobExecution
-</span><a href="#local-6989586621679837277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837276"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeJobExecution
-</span><a href="#local-6989586621679837277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DescribeJobExecution' :: Text
+</span><a href="#local-6989586621679837287"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679837287"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837286"><span class="annot"><span class="annottext">s :: DescribeJobExecution
+</span><a href="#local-6989586621679837286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837285"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679837285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeJobExecution
+</span><a href="#local-6989586621679837286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DescribeJobExecution' :: Text
 </span><a href="Network.AWS.IoT.DescribeJobExecution.html#%24sel%3AjobId%3ADescribeJobExecution%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679837285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The name of the thing on which the job execution is running.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#describeJobExecution_thingName"><span class="hs-identifier hs-type">describeJobExecution_thingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -208,27 +208,27 @@ $sel:jobId:DescribeJobExecution' :: DescribeJobExecution -&gt; Text
 -&gt; (DescribeJobExecution -&gt; Text -&gt; DescribeJobExecution)
 -&gt; Lens DescribeJobExecution DescribeJobExecution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837275"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837284"><span class="annot"><span class="annottext">Text
 thingName :: Text
 $sel:thingName:DescribeJobExecution' :: DescribeJobExecution -&gt; Text
-</span><a href="#local-6989586621679837275"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837275"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837274"><span class="annot"><span class="annottext">s :: DescribeJobExecution
-</span><a href="#local-6989586621679837274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837273"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeJobExecution
-</span><a href="#local-6989586621679837274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:DescribeJobExecution' :: Text
+</span><a href="#local-6989586621679837284"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679837284"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837283"><span class="annot"><span class="annottext">s :: DescribeJobExecution
+</span><a href="#local-6989586621679837283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837282"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679837282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeJobExecution
+</span><a href="#local-6989586621679837283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:DescribeJobExecution' :: Text
 </span><a href="Network.AWS.IoT.DescribeJobExecution.html#%24sel%3AthingName%3ADescribeJobExecution%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679837282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-110"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse"><span class="hs-identifier hs-type">DescribeJobExecutionResponse</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679837269"><span class="annot"><span class="annottext">request :: DescribeJobExecution -&gt; Request DescribeJobExecution
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679837278"><span class="annot"><span class="annottext">request :: DescribeJobExecution -&gt; Request DescribeJobExecution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeJobExecution -&gt; Request DescribeJobExecution
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679837265"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679837274"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeJobExecution
 -&gt; ClientResponse ClientBody
@@ -254,10 +254,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679837262"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837262"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679837261"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679837261"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679837260"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679837260"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679837271"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837271"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679837270"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679837270"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679837269"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679837269"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe JobExecution -&gt; Int -&gt; DescribeJobExecutionResponse
 </span><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse%27"><span class="hs-identifier hs-var">DescribeJobExecutionResponse'</span></a></span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe JobExecution -&gt; Int -&gt; DescribeJobExecutionResponse)
@@ -265,7 +265,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeJobExecutionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679837260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe JobExecution)
+</span><a href="#local-6989586621679837269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe JobExecution)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;execution&quot;</span></span><span class="hs-special">)</span><span>
@@ -277,15 +277,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837262"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679837271"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837252"><span id="local-6989586621679837254"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837261"><span id="local-6989586621679837263"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837249"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837258"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679837245"><span class="annot"><span class="annottext">toHeaders :: DescribeJobExecution -&gt; ResponseHeaders
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679837254"><span class="annot"><span class="annottext">toHeaders :: DescribeJobExecution -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeJobExecution -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -293,8 +293,8 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679837240"><span class="annot"><span class="annottext">toPath :: DescribeJobExecution -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837236"><span id="local-6989586621679837237"><span id="local-6989586621679837238"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679837249"><span class="annot"><span class="annottext">toPath :: DescribeJobExecution -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837245"><span id="local-6989586621679837246"><span id="local-6989586621679837247"><span class="annot"><span class="annottext">Maybe Integer
 Text
 thingName :: Text
 jobId :: Text
@@ -302,7 +302,7 @@ executionNumber :: Maybe Integer
 $sel:thingName:DescribeJobExecution' :: DescribeJobExecution -&gt; Text
 $sel:jobId:DescribeJobExecution' :: DescribeJobExecution -&gt; Text
 $sel:executionNumber:DescribeJobExecution' :: DescribeJobExecution -&gt; Maybe Integer
-</span><a href="#local-6989586621679837236"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679837245"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -311,18 +311,18 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837236"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679837245"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/jobs/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837237"><span class="hs-identifier hs-var">jobId</span></a></span><span>
+</span><a href="#local-6989586621679837246"><span class="hs-identifier hs-var">jobId</span></a></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution"><span class="hs-identifier hs-type">DescribeJobExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679837232"><span class="annot"><span class="annottext">toQuery :: DescribeJobExecution -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837228"><span id="local-6989586621679837229"><span id="local-6989586621679837230"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679837241"><span class="annot"><span class="annottext">toQuery :: DescribeJobExecution -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecution%27"><span class="hs-identifier hs-type">DescribeJobExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837237"><span id="local-6989586621679837238"><span id="local-6989586621679837239"><span class="annot"><span class="annottext">Maybe Integer
 Text
 thingName :: Text
 jobId :: Text
@@ -330,7 +330,7 @@ executionNumber :: Maybe Integer
 $sel:thingName:DescribeJobExecution' :: DescribeJobExecution -&gt; Text
 $sel:jobId:DescribeJobExecution' :: DescribeJobExecution -&gt; Text
 $sel:executionNumber:DescribeJobExecution' :: DescribeJobExecution -&gt; Maybe Integer
-</span><a href="#local-6989586621679837228"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679837237"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -338,10 +338,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;executionNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Integer -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679837230"><span class="hs-identifier hs-var">executionNumber</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679837239"><span class="hs-identifier hs-var">executionNumber</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newDescribeJobExecutionResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679837225"><span id="local-6989586621679837226"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeJobExecutionResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse"><span class="hs-identifier hs-var">DescribeJobExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeJobExecutionResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse%27"><span class="hs-identifier hs-var">DescribeJobExecutionResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679837234"><span id="local-6989586621679837235"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeJobExecutionResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse"><span class="hs-identifier hs-var">DescribeJobExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeJobExecutionResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse%27"><span class="hs-identifier hs-var">DescribeJobExecutionResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the job execution.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3Aexecution%3ADescribeJobExecutionResponse%27"><span class="annot"><span class="annottext">DescribeJobExecutionResponse -&gt; Maybe JobExecution
 </span><a href="Network.AWS.IoT.DescribeJobExecution.html#%24sel%3Aexecution%3ADescribeJobExecutionResponse%27"><span class="hs-identifier hs-var hs-var">execution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecution.html#JobExecution"><span class="hs-identifier hs-type">JobExecution</span></a></span><span class="hs-special">,</span><span>
@@ -349,7 +349,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeJobExecutionResponse%27"><span class="annot"><span class="annottext">DescribeJobExecutionResponse -&gt; Int
 </span><a href="Network.AWS.IoT.DescribeJobExecution.html#%24sel%3AhttpStatus%3ADescribeJobExecutionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679837219"><span id="local-6989586621679837221"><span class="annot"><span class="annottext">DescribeJobExecutionResponse
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679837228"><span id="local-6989586621679837230"><span class="annot"><span class="annottext">DescribeJobExecutionResponse
 -&gt; DescribeJobExecutionResponse -&gt; Bool
 (DescribeJobExecutionResponse
  -&gt; DescribeJobExecutionResponse -&gt; Bool)
@@ -365,7 +365,7 @@ $c/= :: DescribeJobExecutionResponse
 -&gt; DescribeJobExecutionResponse -&gt; Bool
 $c== :: DescribeJobExecutionResponse
 -&gt; DescribeJobExecutionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837211"><span id="local-6989586621679837213"><span id="local-6989586621679837215"><span id="local-6989586621679837217"><span class="annot"><span class="annottext">ReadPrec [DescribeJobExecutionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837220"><span id="local-6989586621679837222"><span id="local-6989586621679837224"><span id="local-6989586621679837226"><span class="annot"><span class="annottext">ReadPrec [DescribeJobExecutionResponse]
 ReadPrec DescribeJobExecutionResponse
 Int -&gt; ReadS DescribeJobExecutionResponse
 ReadS [DescribeJobExecutionResponse]
@@ -385,7 +385,7 @@ readList :: ReadS [DescribeJobExecutionResponse]
 $creadList :: ReadS [DescribeJobExecutionResponse]
 readsPrec :: Int -&gt; ReadS DescribeJobExecutionResponse
 $creadsPrec :: Int -&gt; ReadS DescribeJobExecutionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837205"><span id="local-6989586621679837207"><span id="local-6989586621679837209"><span class="annot"><span class="annottext">Int -&gt; DescribeJobExecutionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837214"><span id="local-6989586621679837216"><span id="local-6989586621679837218"><span class="annot"><span class="annottext">Int -&gt; DescribeJobExecutionResponse -&gt; ShowS
 [DescribeJobExecutionResponse] -&gt; ShowS
 DescribeJobExecutionResponse -&gt; String
 (Int -&gt; DescribeJobExecutionResponse -&gt; ShowS)
@@ -433,8 +433,8 @@ DescribeJobExecutionResponse -&gt; Rep DescribeJobExecutionResponse x
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse"><span class="hs-identifier hs-type">DescribeJobExecutionResponse</span></a></span><span>
 </span><span id="line-166"></span><span id="newDescribeJobExecutionResponse"><span class="annot"><span class="annottext">newDescribeJobExecutionResponse :: Int -&gt; DescribeJobExecutionResponse
-</span><a href="Network.AWS.IoT.DescribeJobExecution.html#newDescribeJobExecutionResponse"><span class="hs-identifier hs-var hs-var">newDescribeJobExecutionResponse</span></a></span></span><span> </span><span id="local-6989586621679837202"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837202"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DescribeJobExecution.html#newDescribeJobExecutionResponse"><span class="hs-identifier hs-var hs-var">newDescribeJobExecutionResponse</span></a></span></span><span> </span><span id="local-6989586621679837211"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837211"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">DescribeJobExecutionResponse' :: Maybe JobExecution -&gt; Int -&gt; DescribeJobExecutionResponse
 </span><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse%27"><span class="hs-identifier hs-type">DescribeJobExecutionResponse'</span></a></span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:execution:DescribeJobExecutionResponse' :: Maybe JobExecution
@@ -444,7 +444,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeJobExecutionResponse' :: Int
 </span><a href="Network.AWS.IoT.DescribeJobExecution.html#%24sel%3AhttpStatus%3ADescribeJobExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837202"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679837211"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | Information about the job execution.</span><span>
@@ -460,16 +460,16 @@ forall a. Maybe a
      (Maybe JobExecution)
      (Maybe JobExecution)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse%27"><span class="hs-identifier hs-type">DescribeJobExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837201"><span class="annot"><span class="annottext">Maybe JobExecution
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse%27"><span class="hs-identifier hs-type">DescribeJobExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837210"><span class="annot"><span class="annottext">Maybe JobExecution
 execution :: Maybe JobExecution
 $sel:execution:DescribeJobExecutionResponse' :: DescribeJobExecutionResponse -&gt; Maybe JobExecution
-</span><a href="#local-6989586621679837201"><span class="hs-identifier hs-var hs-var">execution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobExecution
-</span><a href="#local-6989586621679837201"><span class="hs-identifier hs-var">execution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837200"><span class="annot"><span class="annottext">s :: DescribeJobExecutionResponse
-</span><a href="#local-6989586621679837200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse%27"><span class="hs-identifier hs-type">DescribeJobExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837199"><span class="annot"><span class="annottext">Maybe JobExecution
-</span><a href="#local-6989586621679837199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeJobExecutionResponse
-</span><a href="#local-6989586621679837200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:execution:DescribeJobExecutionResponse' :: Maybe JobExecution
+</span><a href="#local-6989586621679837210"><span class="hs-identifier hs-var hs-var">execution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobExecution
+</span><a href="#local-6989586621679837210"><span class="hs-identifier hs-var">execution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837209"><span class="annot"><span class="annottext">s :: DescribeJobExecutionResponse
+</span><a href="#local-6989586621679837209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse%27"><span class="hs-identifier hs-type">DescribeJobExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837208"><span class="annot"><span class="annottext">Maybe JobExecution
+</span><a href="#local-6989586621679837208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeJobExecutionResponse
+</span><a href="#local-6989586621679837209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:execution:DescribeJobExecutionResponse' :: Maybe JobExecution
 </span><a href="Network.AWS.IoT.DescribeJobExecution.html#%24sel%3Aexecution%3ADescribeJobExecutionResponse%27"><span class="hs-identifier hs-var">execution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobExecution
-</span><a href="#local-6989586621679837199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse"><span class="hs-identifier hs-type">DescribeJobExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679837208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse"><span class="hs-identifier hs-type">DescribeJobExecutionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#describeJobExecutionResponse_httpStatus"><span class="hs-identifier hs-type">describeJobExecutionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse"><span class="hs-identifier hs-type">DescribeJobExecutionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -481,16 +481,16 @@ $sel:execution:DescribeJobExecutionResponse' :: DescribeJobExecutionResponse -&g
 -&gt; Lens
      DescribeJobExecutionResponse DescribeJobExecutionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse%27"><span class="hs-identifier hs-type">DescribeJobExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837198"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse%27"><span class="hs-identifier hs-type">DescribeJobExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837207"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeJobExecutionResponse' :: DescribeJobExecutionResponse -&gt; Int
-</span><a href="#local-6989586621679837198"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837198"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837197"><span class="annot"><span class="annottext">s :: DescribeJobExecutionResponse
-</span><a href="#local-6989586621679837197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse%27"><span class="hs-identifier hs-type">DescribeJobExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837196"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeJobExecutionResponse
-</span><a href="#local-6989586621679837197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeJobExecutionResponse' :: Int
+</span><a href="#local-6989586621679837207"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837207"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837206"><span class="annot"><span class="annottext">s :: DescribeJobExecutionResponse
+</span><a href="#local-6989586621679837206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse%27"><span class="hs-identifier hs-type">DescribeJobExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837205"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeJobExecutionResponse
+</span><a href="#local-6989586621679837206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeJobExecutionResponse' :: Int
 </span><a href="Network.AWS.IoT.DescribeJobExecution.html#%24sel%3AhttpStatus%3ADescribeJobExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse"><span class="hs-identifier hs-type">DescribeJobExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679837205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse"><span class="hs-identifier hs-type">DescribeJobExecutionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837194"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse"><span class="hs-identifier hs-type">DescribeJobExecutionResponse</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837203"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeJobExecution.html#DescribeJobExecutionResponse"><span class="hs-identifier hs-type">DescribeJobExecutionResponse</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

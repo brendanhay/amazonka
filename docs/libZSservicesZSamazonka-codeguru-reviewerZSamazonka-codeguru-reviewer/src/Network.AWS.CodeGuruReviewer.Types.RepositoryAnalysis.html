@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.html"><span class="hs-identifier">Network.AWS.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.SourceCodeType.html"><span class="hs-identifier">Network.AWS.CodeGuruReviewer.Types.SourceCodeType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A code review type that analyzes all code under a specified branch in an</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- associated repository. The associated repository is specified using its</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- ARN when you call</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview CreateCodeReview&gt;</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- .</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newRepositoryAnalysis' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679201779"><span id="local-6989586621679201780"></span></span><span class="hs-keyword">data</span><span> </span><span id="RepositoryAnalysis"><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#RepositoryAnalysis"><span class="hs-identifier hs-var">RepositoryAnalysis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RepositoryAnalysis%27"><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#RepositoryAnalysis%27"><span class="hs-identifier hs-var">RepositoryAnalysis'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType&gt;</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- that specifies the tip of a branch in an associated repository.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3ArepositoryHead%3ARepositoryAnalysis%27"><span class="annot"><span class="annottext">RepositoryAnalysis -&gt; Maybe RepositoryHeadSourceCodeType
+</span><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#%24sel%3ArepositoryHead%3ARepositoryAnalysis%27"><span class="hs-identifier hs-var hs-var">repositoryHead</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.html#RepositoryHeadSourceCodeType"><span class="hs-identifier hs-type">RepositoryHeadSourceCodeType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsourceCodeType%3ARepositoryAnalysis%27"><span class="annot"><span class="annottext">RepositoryAnalysis -&gt; Maybe SourceCodeType
+</span><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#%24sel%3AsourceCodeType%3ARepositoryAnalysis%27"><span class="hs-identifier hs-var hs-var">sourceCodeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.SourceCodeType.html#SourceCodeType"><span class="hs-identifier hs-type">SourceCodeType</span></a></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201772"><span id="local-6989586621679201774"><span class="annot"><span class="annottext">RepositoryAnalysis -&gt; RepositoryAnalysis -&gt; Bool
+(RepositoryAnalysis -&gt; RepositoryAnalysis -&gt; Bool)
+-&gt; (RepositoryAnalysis -&gt; RepositoryAnalysis -&gt; Bool)
+-&gt; Eq RepositoryAnalysis
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RepositoryAnalysis -&gt; RepositoryAnalysis -&gt; Bool
+$c/= :: RepositoryAnalysis -&gt; RepositoryAnalysis -&gt; Bool
+== :: RepositoryAnalysis -&gt; RepositoryAnalysis -&gt; Bool
+$c== :: RepositoryAnalysis -&gt; RepositoryAnalysis -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201763"><span id="local-6989586621679201765"><span id="local-6989586621679201767"><span id="local-6989586621679201769"><span class="annot"><span class="annottext">ReadPrec [RepositoryAnalysis]
+ReadPrec RepositoryAnalysis
+Int -&gt; ReadS RepositoryAnalysis
+ReadS [RepositoryAnalysis]
+(Int -&gt; ReadS RepositoryAnalysis)
+-&gt; ReadS [RepositoryAnalysis]
+-&gt; ReadPrec RepositoryAnalysis
+-&gt; ReadPrec [RepositoryAnalysis]
+-&gt; Read RepositoryAnalysis
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RepositoryAnalysis]
+$creadListPrec :: ReadPrec [RepositoryAnalysis]
+readPrec :: ReadPrec RepositoryAnalysis
+$creadPrec :: ReadPrec RepositoryAnalysis
+readList :: ReadS [RepositoryAnalysis]
+$creadList :: ReadS [RepositoryAnalysis]
+readsPrec :: Int -&gt; ReadS RepositoryAnalysis
+$creadsPrec :: Int -&gt; ReadS RepositoryAnalysis
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201756"><span id="local-6989586621679201758"><span id="local-6989586621679201760"><span class="annot"><span class="annottext">Int -&gt; RepositoryAnalysis -&gt; ShowS
+[RepositoryAnalysis] -&gt; ShowS
+RepositoryAnalysis -&gt; String
+(Int -&gt; RepositoryAnalysis -&gt; ShowS)
+-&gt; (RepositoryAnalysis -&gt; String)
+-&gt; ([RepositoryAnalysis] -&gt; ShowS)
+-&gt; Show RepositoryAnalysis
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RepositoryAnalysis] -&gt; ShowS
+$cshowList :: [RepositoryAnalysis] -&gt; ShowS
+show :: RepositoryAnalysis -&gt; String
+$cshow :: RepositoryAnalysis -&gt; String
+showsPrec :: Int -&gt; RepositoryAnalysis -&gt; ShowS
+$cshowsPrec :: Int -&gt; RepositoryAnalysis -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RepositoryAnalysis -&gt; Rep RepositoryAnalysis x)
+-&gt; (forall x. Rep RepositoryAnalysis x -&gt; RepositoryAnalysis)
+-&gt; Generic RepositoryAnalysis
+forall x. Rep RepositoryAnalysis x -&gt; RepositoryAnalysis
+forall x. RepositoryAnalysis -&gt; Rep RepositoryAnalysis x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RepositoryAnalysis x -&gt; RepositoryAnalysis
+$cfrom :: forall x. RepositoryAnalysis -&gt; Rep RepositoryAnalysis x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'RepositoryAnalysis' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'repositoryHead', 'repositoryAnalysis_repositoryHead' - A</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType&gt;</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- that specifies the tip of a branch in an associated repository.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'sourceCodeType', 'repositoryAnalysis_sourceCodeType' - Undocumented member.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#newRepositoryAnalysis"><span class="hs-identifier hs-type">newRepositoryAnalysis</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#RepositoryAnalysis"><span class="hs-identifier hs-type">RepositoryAnalysis</span></a></span><span>
+</span><span id="line-59"></span><span id="newRepositoryAnalysis"><span class="annot"><span class="annottext">newRepositoryAnalysis :: RepositoryAnalysis
+</span><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#newRepositoryAnalysis"><span class="hs-identifier hs-var hs-var">newRepositoryAnalysis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">RepositoryAnalysis' :: Maybe RepositoryHeadSourceCodeType
+-&gt; Maybe SourceCodeType -&gt; RepositoryAnalysis
+</span><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#RepositoryAnalysis%27"><span class="hs-identifier hs-type">RepositoryAnalysis'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:repositoryHead:RepositoryAnalysis' :: Maybe RepositoryHeadSourceCodeType
+</span><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#%24sel%3ArepositoryHead%3ARepositoryAnalysis%27"><span class="hs-identifier hs-var">repositoryHead</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe RepositoryHeadSourceCodeType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceCodeType:RepositoryAnalysis' :: Maybe SourceCodeType
+</span><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#%24sel%3AsourceCodeType%3ARepositoryAnalysis%27"><span class="hs-identifier hs-var">sourceCodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceCodeType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | A</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType&gt;</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- that specifies the tip of a branch in an associated repository.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#repositoryAnalysis_repositoryHead"><span class="hs-identifier hs-type">repositoryAnalysis_repositoryHead</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#RepositoryAnalysis"><span class="hs-identifier hs-type">RepositoryAnalysis</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryHeadSourceCodeType.html#RepositoryHeadSourceCodeType"><span class="hs-identifier hs-type">RepositoryHeadSourceCodeType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="repositoryAnalysis_repositoryHead"><span class="annot"><span class="annottext">repositoryAnalysis_repositoryHead :: (Maybe RepositoryHeadSourceCodeType
+ -&gt; f (Maybe RepositoryHeadSourceCodeType))
+-&gt; RepositoryAnalysis -&gt; f RepositoryAnalysis
+</span><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#repositoryAnalysis_repositoryHead"><span class="hs-identifier hs-var hs-var">repositoryAnalysis_repositoryHead</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RepositoryAnalysis -&gt; Maybe RepositoryHeadSourceCodeType)
+-&gt; (RepositoryAnalysis
+    -&gt; Maybe RepositoryHeadSourceCodeType -&gt; RepositoryAnalysis)
+-&gt; Lens
+     RepositoryAnalysis
+     RepositoryAnalysis
+     (Maybe RepositoryHeadSourceCodeType)
+     (Maybe RepositoryHeadSourceCodeType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#RepositoryAnalysis%27"><span class="hs-identifier hs-type">RepositoryAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201747"><span class="annot"><span class="annottext">Maybe RepositoryHeadSourceCodeType
+repositoryHead :: Maybe RepositoryHeadSourceCodeType
+$sel:repositoryHead:RepositoryAnalysis' :: RepositoryAnalysis -&gt; Maybe RepositoryHeadSourceCodeType
+</span><a href="#local-6989586621679201747"><span class="hs-identifier hs-var hs-var">repositoryHead</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RepositoryHeadSourceCodeType
+</span><a href="#local-6989586621679201747"><span class="hs-identifier hs-var">repositoryHead</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201746"><span class="annot"><span class="annottext">s :: RepositoryAnalysis
+</span><a href="#local-6989586621679201746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#RepositoryAnalysis%27"><span class="hs-identifier hs-type">RepositoryAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201745"><span class="annot"><span class="annottext">Maybe RepositoryHeadSourceCodeType
+</span><a href="#local-6989586621679201745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryAnalysis
+</span><a href="#local-6989586621679201746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryHead:RepositoryAnalysis' :: Maybe RepositoryHeadSourceCodeType
+</span><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#%24sel%3ArepositoryHead%3ARepositoryAnalysis%27"><span class="hs-identifier hs-var">repositoryHead</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RepositoryHeadSourceCodeType
+</span><a href="#local-6989586621679201745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#RepositoryAnalysis"><span class="hs-identifier hs-type">RepositoryAnalysis</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#repositoryAnalysis_sourceCodeType"><span class="hs-identifier hs-type">repositoryAnalysis_sourceCodeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#RepositoryAnalysis"><span class="hs-identifier hs-type">RepositoryAnalysis</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.SourceCodeType.html#SourceCodeType"><span class="hs-identifier hs-type">SourceCodeType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="repositoryAnalysis_sourceCodeType"><span class="annot"><span class="annottext">repositoryAnalysis_sourceCodeType :: (Maybe SourceCodeType -&gt; f (Maybe SourceCodeType))
+-&gt; RepositoryAnalysis -&gt; f RepositoryAnalysis
+</span><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#repositoryAnalysis_sourceCodeType"><span class="hs-identifier hs-var hs-var">repositoryAnalysis_sourceCodeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RepositoryAnalysis -&gt; Maybe SourceCodeType)
+-&gt; (RepositoryAnalysis
+    -&gt; Maybe SourceCodeType -&gt; RepositoryAnalysis)
+-&gt; Lens
+     RepositoryAnalysis
+     RepositoryAnalysis
+     (Maybe SourceCodeType)
+     (Maybe SourceCodeType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#RepositoryAnalysis%27"><span class="hs-identifier hs-type">RepositoryAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201743"><span class="annot"><span class="annottext">Maybe SourceCodeType
+sourceCodeType :: Maybe SourceCodeType
+$sel:sourceCodeType:RepositoryAnalysis' :: RepositoryAnalysis -&gt; Maybe SourceCodeType
+</span><a href="#local-6989586621679201743"><span class="hs-identifier hs-var hs-var">sourceCodeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceCodeType
+</span><a href="#local-6989586621679201743"><span class="hs-identifier hs-var">sourceCodeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201742"><span class="annot"><span class="annottext">s :: RepositoryAnalysis
+</span><a href="#local-6989586621679201742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#RepositoryAnalysis%27"><span class="hs-identifier hs-type">RepositoryAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201741"><span class="annot"><span class="annottext">Maybe SourceCodeType
+</span><a href="#local-6989586621679201741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryAnalysis
+</span><a href="#local-6989586621679201742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCodeType:RepositoryAnalysis' :: Maybe SourceCodeType
+</span><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#%24sel%3AsourceCodeType%3ARepositoryAnalysis%27"><span class="hs-identifier hs-var">sourceCodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceCodeType
+</span><a href="#local-6989586621679201741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#RepositoryAnalysis"><span class="hs-identifier hs-type">RepositoryAnalysis</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201737"><span id="local-6989586621679201739"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#RepositoryAnalysis"><span class="hs-identifier hs-type">RepositoryAnalysis</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201734"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#RepositoryAnalysis"><span class="hs-identifier hs-type">RepositoryAnalysis</span></a></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201726"><span id="local-6989586621679201728"><span id="local-6989586621679201730"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#RepositoryAnalysis"><span class="hs-identifier hs-type">RepositoryAnalysis</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679201724"><span class="annot"><span class="annottext">toJSON :: RepositoryAnalysis -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.RepositoryAnalysis.html#RepositoryAnalysis%27"><span class="hs-identifier hs-type">RepositoryAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201721"><span id="local-6989586621679201722"><span class="annot"><span class="annottext">Maybe RepositoryHeadSourceCodeType
+Maybe SourceCodeType
+sourceCodeType :: Maybe SourceCodeType
+repositoryHead :: Maybe RepositoryHeadSourceCodeType
+$sel:sourceCodeType:RepositoryAnalysis' :: RepositoryAnalysis -&gt; Maybe SourceCodeType
+$sel:repositoryHead:RepositoryAnalysis' :: RepositoryAnalysis -&gt; Maybe RepositoryHeadSourceCodeType
+</span><a href="#local-6989586621679201721"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-84"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RepositoryHead&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RepositoryHeadSourceCodeType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>              </span><span class="annot"><span class="annottext">(RepositoryHeadSourceCodeType -&gt; Pair)
+-&gt; Maybe RepositoryHeadSourceCodeType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RepositoryHeadSourceCodeType
+</span><a href="#local-6989586621679201722"><span class="hs-identifier hs-var">repositoryHead</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceCodeType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SourceCodeType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>              </span><span class="annot"><span class="annottext">(SourceCodeType -&gt; Pair) -&gt; Maybe SourceCodeType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SourceCodeType
+</span><a href="#local-6989586621679201721"><span class="hs-identifier hs-var">sourceCodeType</span></a></span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span></pre></body></html>

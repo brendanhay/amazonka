@@ -83,7 +83,7 @@
 </span><span id="line-83"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- /See:/ 'newViewerCertificate' smart constructor.</span><span>
-</span><span id="line-86"></span><span id="local-6989586621679405081"><span id="local-6989586621679405082"></span></span><span class="hs-keyword">data</span><span> </span><span id="ViewerCertificate"><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-var">ViewerCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ViewerCertificate%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-var">ViewerCertificate'</span></a></span></span><span>
+</span><span id="line-86"></span><span id="local-6989586621679405090"><span id="local-6989586621679405091"></span></span><span class="hs-keyword">data</span><span> </span><span id="ViewerCertificate"><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-var">ViewerCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ViewerCertificate%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-var">ViewerCertificate'</span></a></span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs),</span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-comment">-- specify which viewers the distribution accepts HTTPS connections from.</span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -186,7 +186,7 @@
 </span><span id="line-180"></span><span>    </span><span id="%24sel%3AcloudFrontDefaultCertificate%3AViewerCertificate%27"><span class="annot"><span class="annottext">ViewerCertificate -&gt; Maybe Bool
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AcloudFrontDefaultCertificate%3AViewerCertificate%27"><span class="hs-identifier hs-var hs-var">cloudFrontDefaultCertificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405069"><span id="local-6989586621679405071"><span class="annot"><span class="annottext">ViewerCertificate -&gt; ViewerCertificate -&gt; Bool
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405078"><span id="local-6989586621679405080"><span class="annot"><span class="annottext">ViewerCertificate -&gt; ViewerCertificate -&gt; Bool
 (ViewerCertificate -&gt; ViewerCertificate -&gt; Bool)
 -&gt; (ViewerCertificate -&gt; ViewerCertificate -&gt; Bool)
 -&gt; Eq ViewerCertificate
@@ -195,7 +195,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ViewerCertificate -&gt; ViewerCertificate -&gt; Bool
 == :: ViewerCertificate -&gt; ViewerCertificate -&gt; Bool
 $c== :: ViewerCertificate -&gt; ViewerCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405060"><span id="local-6989586621679405062"><span id="local-6989586621679405064"><span id="local-6989586621679405066"><span class="annot"><span class="annottext">ReadPrec [ViewerCertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405069"><span id="local-6989586621679405071"><span id="local-6989586621679405073"><span id="local-6989586621679405075"><span class="annot"><span class="annottext">ReadPrec [ViewerCertificate]
 ReadPrec ViewerCertificate
 Int -&gt; ReadS ViewerCertificate
 ReadS [ViewerCertificate]
@@ -215,7 +215,7 @@ readList :: ReadS [ViewerCertificate]
 $creadList :: ReadS [ViewerCertificate]
 readsPrec :: Int -&gt; ReadS ViewerCertificate
 $creadsPrec :: Int -&gt; ReadS ViewerCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405053"><span id="local-6989586621679405055"><span id="local-6989586621679405057"><span class="annot"><span class="annottext">Int -&gt; ViewerCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405062"><span id="local-6989586621679405064"><span id="local-6989586621679405066"><span class="annot"><span class="annottext">Int -&gt; ViewerCertificate -&gt; ShowS
 [ViewerCertificate] -&gt; ShowS
 ViewerCertificate -&gt; String
 (Int -&gt; ViewerCertificate -&gt; ShowS)
@@ -418,16 +418,16 @@ forall a. Maybe a
      (Maybe SSLSupportMethod)
      (Maybe SSLSupportMethod)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405044"><span class="annot"><span class="annottext">Maybe SSLSupportMethod
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405053"><span class="annot"><span class="annottext">Maybe SSLSupportMethod
 sSLSupportMethod :: Maybe SSLSupportMethod
 $sel:sSLSupportMethod:ViewerCertificate' :: ViewerCertificate -&gt; Maybe SSLSupportMethod
-</span><a href="#local-6989586621679405044"><span class="hs-identifier hs-var hs-var">sSLSupportMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSLSupportMethod
-</span><a href="#local-6989586621679405044"><span class="hs-identifier hs-var">sSLSupportMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405043"><span class="annot"><span class="annottext">s :: ViewerCertificate
-</span><a href="#local-6989586621679405043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405042"><span class="annot"><span class="annottext">Maybe SSLSupportMethod
-</span><a href="#local-6989586621679405042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
-</span><a href="#local-6989586621679405043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSLSupportMethod:ViewerCertificate' :: Maybe SSLSupportMethod
+</span><a href="#local-6989586621679405053"><span class="hs-identifier hs-var hs-var">sSLSupportMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSLSupportMethod
+</span><a href="#local-6989586621679405053"><span class="hs-identifier hs-var">sSLSupportMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405052"><span class="annot"><span class="annottext">s :: ViewerCertificate
+</span><a href="#local-6989586621679405052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405051"><span class="annot"><span class="annottext">Maybe SSLSupportMethod
+</span><a href="#local-6989586621679405051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSLSupportMethod:ViewerCertificate' :: Maybe SSLSupportMethod
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AsSLSupportMethod%3AViewerCertificate%27"><span class="hs-identifier hs-var">sSLSupportMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSLSupportMethod
-</span><a href="#local-6989586621679405042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-321"></span><span>
 </span><span id="line-322"></span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)</span><span>
 </span><span id="line-323"></span><span class="hs-comment">-- and the SSL\/TLS certificate is stored in</span><span>
@@ -446,16 +446,16 @@ $sel:sSLSupportMethod:ViewerCertificate' :: ViewerCertificate -&gt; Maybe SSLSup
 -&gt; Lens
      ViewerCertificate ViewerCertificate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405040"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405049"><span class="annot"><span class="annottext">Maybe Text
 aCMCertificateArn :: Maybe Text
 $sel:aCMCertificateArn:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679405040"><span class="hs-identifier hs-var hs-var">aCMCertificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405040"><span class="hs-identifier hs-var">aCMCertificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405039"><span class="annot"><span class="annottext">s :: ViewerCertificate
-</span><a href="#local-6989586621679405039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405038"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
-</span><a href="#local-6989586621679405039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aCMCertificateArn:ViewerCertificate' :: Maybe Text
+</span><a href="#local-6989586621679405049"><span class="hs-identifier hs-var hs-var">aCMCertificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405049"><span class="hs-identifier hs-var">aCMCertificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405048"><span class="annot"><span class="annottext">s :: ViewerCertificate
+</span><a href="#local-6989586621679405048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405047"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aCMCertificateArn:ViewerCertificate' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AaCMCertificateArn%3AViewerCertificate%27"><span class="hs-identifier hs-var">aCMCertificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-333"></span><span>
 </span><span id="line-334"></span><span class="hs-comment">-- | This field is deprecated. Use one of the following fields instead:</span><span>
 </span><span id="line-335"></span><span class="hs-comment">--</span><span>
@@ -476,16 +476,16 @@ $sel:aCMCertificateArn:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
      (Maybe CertificateSource)
      (Maybe CertificateSource)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405036"><span class="annot"><span class="annottext">Maybe CertificateSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405045"><span class="annot"><span class="annottext">Maybe CertificateSource
 certificateSource :: Maybe CertificateSource
 $sel:certificateSource:ViewerCertificate' :: ViewerCertificate -&gt; Maybe CertificateSource
-</span><a href="#local-6989586621679405036"><span class="hs-identifier hs-var hs-var">certificateSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateSource
-</span><a href="#local-6989586621679405036"><span class="hs-identifier hs-var">certificateSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405035"><span class="annot"><span class="annottext">s :: ViewerCertificate
-</span><a href="#local-6989586621679405035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405034"><span class="annot"><span class="annottext">Maybe CertificateSource
-</span><a href="#local-6989586621679405034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
-</span><a href="#local-6989586621679405035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateSource:ViewerCertificate' :: Maybe CertificateSource
+</span><a href="#local-6989586621679405045"><span class="hs-identifier hs-var hs-var">certificateSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateSource
+</span><a href="#local-6989586621679405045"><span class="hs-identifier hs-var">certificateSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405044"><span class="annot"><span class="annottext">s :: ViewerCertificate
+</span><a href="#local-6989586621679405044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405043"><span class="annot"><span class="annottext">Maybe CertificateSource
+</span><a href="#local-6989586621679405043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateSource:ViewerCertificate' :: Maybe CertificateSource
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AcertificateSource%3AViewerCertificate%27"><span class="hs-identifier hs-var">certificateSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateSource
-</span><a href="#local-6989586621679405034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-343"></span><span>
 </span><span id="line-344"></span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs),</span><span>
 </span><span id="line-345"></span><span class="hs-comment">-- specify the security policy that you want CloudFront to use for HTTPS</span><span>
@@ -524,16 +524,16 @@ $sel:certificateSource:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Certi
      (Maybe MinimumProtocolVersion)
      (Maybe MinimumProtocolVersion)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405032"><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405041"><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
 minimumProtocolVersion :: Maybe MinimumProtocolVersion
 $sel:minimumProtocolVersion:ViewerCertificate' :: ViewerCertificate -&gt; Maybe MinimumProtocolVersion
-</span><a href="#local-6989586621679405032"><span class="hs-identifier hs-var hs-var">minimumProtocolVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
-</span><a href="#local-6989586621679405032"><span class="hs-identifier hs-var">minimumProtocolVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405031"><span class="annot"><span class="annottext">s :: ViewerCertificate
-</span><a href="#local-6989586621679405031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405030"><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
-</span><a href="#local-6989586621679405030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
-</span><a href="#local-6989586621679405031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumProtocolVersion:ViewerCertificate' :: Maybe MinimumProtocolVersion
+</span><a href="#local-6989586621679405041"><span class="hs-identifier hs-var hs-var">minimumProtocolVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
+</span><a href="#local-6989586621679405041"><span class="hs-identifier hs-var">minimumProtocolVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405040"><span class="annot"><span class="annottext">s :: ViewerCertificate
+</span><a href="#local-6989586621679405040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405039"><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
+</span><a href="#local-6989586621679405039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumProtocolVersion:ViewerCertificate' :: Maybe MinimumProtocolVersion
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AminimumProtocolVersion%3AViewerCertificate%27"><span class="hs-identifier hs-var">minimumProtocolVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
-</span><a href="#local-6989586621679405030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-371"></span><span>
 </span><span id="line-372"></span><span class="hs-comment">-- | This field is deprecated. Use one of the following fields instead:</span><span>
 </span><span id="line-373"></span><span class="hs-comment">--</span><span>
@@ -550,16 +550,16 @@ $sel:minimumProtocolVersion:ViewerCertificate' :: ViewerCertificate -&gt; Maybe 
 -&gt; Lens
      ViewerCertificate ViewerCertificate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405028"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405037"><span class="annot"><span class="annottext">Maybe Text
 certificate :: Maybe Text
 $sel:certificate:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679405028"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405028"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405027"><span class="annot"><span class="annottext">s :: ViewerCertificate
-</span><a href="#local-6989586621679405027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405026"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
-</span><a href="#local-6989586621679405027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:ViewerCertificate' :: Maybe Text
+</span><a href="#local-6989586621679405037"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405037"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405036"><span class="annot"><span class="annottext">s :: ViewerCertificate
+</span><a href="#local-6989586621679405036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405035"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:ViewerCertificate' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3Acertificate%3AViewerCertificate%27"><span class="hs-identifier hs-var">certificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-381"></span><span>
 </span><span id="line-382"></span><span class="hs-comment">-- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs)</span><span>
 </span><span id="line-383"></span><span class="hs-comment">-- and the SSL\/TLS certificate is stored in</span><span>
@@ -576,16 +576,16 @@ $sel:certificate:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
 -&gt; Lens
      ViewerCertificate ViewerCertificate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405024"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405033"><span class="annot"><span class="annottext">Maybe Text
 iAMCertificateId :: Maybe Text
 $sel:iAMCertificateId:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679405024"><span class="hs-identifier hs-var hs-var">iAMCertificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405024"><span class="hs-identifier hs-var">iAMCertificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405023"><span class="annot"><span class="annottext">s :: ViewerCertificate
-</span><a href="#local-6989586621679405023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405022"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
-</span><a href="#local-6989586621679405023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iAMCertificateId:ViewerCertificate' :: Maybe Text
+</span><a href="#local-6989586621679405033"><span class="hs-identifier hs-var hs-var">iAMCertificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405033"><span class="hs-identifier hs-var">iAMCertificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405032"><span class="annot"><span class="annottext">s :: ViewerCertificate
+</span><a href="#local-6989586621679405032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405031"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iAMCertificateId:ViewerCertificate' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AiAMCertificateId%3AViewerCertificate%27"><span class="hs-identifier hs-var">iAMCertificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-391"></span><span>
 </span><span id="line-392"></span><span class="hs-comment">-- | If the distribution uses the CloudFront domain name such as</span><span>
 </span><span id="line-393"></span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@, set this field to @true@.</span><span>
@@ -607,21 +607,21 @@ $sel:iAMCertificateId:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
 -&gt; Lens
      ViewerCertificate ViewerCertificate (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405020"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405029"><span class="annot"><span class="annottext">Maybe Bool
 cloudFrontDefaultCertificate :: Maybe Bool
 $sel:cloudFrontDefaultCertificate:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Bool
-</span><a href="#local-6989586621679405020"><span class="hs-identifier hs-var hs-var">cloudFrontDefaultCertificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679405020"><span class="hs-identifier hs-var">cloudFrontDefaultCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405019"><span class="annot"><span class="annottext">s :: ViewerCertificate
-</span><a href="#local-6989586621679405019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405018"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679405018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
-</span><a href="#local-6989586621679405019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudFrontDefaultCertificate:ViewerCertificate' :: Maybe Bool
+</span><a href="#local-6989586621679405029"><span class="hs-identifier hs-var hs-var">cloudFrontDefaultCertificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405029"><span class="hs-identifier hs-var">cloudFrontDefaultCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405028"><span class="annot"><span class="annottext">s :: ViewerCertificate
+</span><a href="#local-6989586621679405028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405027"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679405027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewerCertificate
+</span><a href="#local-6989586621679405028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudFrontDefaultCertificate:ViewerCertificate' :: Maybe Bool
 </span><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#%24sel%3AcloudFrontDefaultCertificate%3AViewerCertificate%27"><span class="hs-identifier hs-var">cloudFrontDefaultCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679405018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-406"></span><span>
 </span><span id="line-407"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-408"></span><span>  </span><span id="local-6989586621679405015"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ViewerCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679405013"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405013"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-408"></span><span>  </span><span id="local-6989586621679405024"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ViewerCertificate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679405022"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405022"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-409"></span><span>    </span><span class="annot"><span class="annottext">Maybe SSLSupportMethod
 -&gt; Maybe Text
 -&gt; Maybe CertificateSource
@@ -651,7 +651,7 @@ $sel:cloudFrontDefaultCertificate:ViewerCertificate' :: ViewerCertificate -&gt; 
       -&gt; ViewerCertificate)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SSLSupportMethod)
+</span><a href="#local-6989586621679405022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SSLSupportMethod)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SSLSupportMethod&quot;</span></span><span class="hs-special">)</span><span>
@@ -675,7 +675,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ViewerCertificate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679405022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ACMCertificateArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -694,7 +694,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; ViewerCertificate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CertificateSource)
+</span><a href="#local-6989586621679405022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CertificateSource)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CertificateSource&quot;</span></span><span class="hs-special">)</span><span>
@@ -708,7 +708,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; ViewerCertificate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe MinimumProtocolVersion)
+</span><a href="#local-6989586621679405022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe MinimumProtocolVersion)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinimumProtocolVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -719,7 +719,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Maybe Bool -&gt; ViewerCertificate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679405022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Certificate&quot;</span></span><span class="hs-special">)</span><span>
@@ -728,7 +728,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Bool -&gt; ViewerCertificate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679405022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IAMCertificateId&quot;</span></span><span class="hs-special">)</span><span>
@@ -736,18 +736,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Bool) -&gt; Either String ViewerCertificate
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679405022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CloudFrontDefaultCertificate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-417"></span><span>
-</span><span id="line-418"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405007"><span id="local-6989586621679405009"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span></span></span><span>
+</span><span id="line-418"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405016"><span id="local-6989586621679405018"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span></span></span><span>
 </span><span id="line-419"></span><span>
-</span><span id="line-420"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span></span><span>
+</span><span id="line-420"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405013"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span></span><span>
 </span><span id="line-421"></span><span>
 </span><span id="line-422"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate"><span class="hs-identifier hs-type">ViewerCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-423"></span><span>  </span><span id="local-6989586621679405000"><span class="annot"><span class="annottext">toXML :: ViewerCertificate -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404992"><span id="local-6989586621679404993"><span id="local-6989586621679404994"><span id="local-6989586621679404995"><span id="local-6989586621679404996"><span id="local-6989586621679404997"><span id="local-6989586621679404998"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-423"></span><span>  </span><span id="local-6989586621679405009"><span class="annot"><span class="annottext">toXML :: ViewerCertificate -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ViewerCertificate.html#ViewerCertificate%27"><span class="hs-identifier hs-type">ViewerCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405001"><span id="local-6989586621679405002"><span id="local-6989586621679405003"><span id="local-6989586621679405004"><span id="local-6989586621679405005"><span id="local-6989586621679405006"><span id="local-6989586621679405007"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe CertificateSource
 Maybe MinimumProtocolVersion
@@ -766,7 +766,7 @@ $sel:minimumProtocolVersion:ViewerCertificate' :: ViewerCertificate -&gt; Maybe 
 $sel:certificateSource:ViewerCertificate' :: ViewerCertificate -&gt; Maybe CertificateSource
 $sel:aCMCertificateArn:ViewerCertificate' :: ViewerCertificate -&gt; Maybe Text
 $sel:sSLSupportMethod:ViewerCertificate' :: ViewerCertificate -&gt; Maybe SSLSupportMethod
-</span><a href="#local-6989586621679404992"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679405001"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-424"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -774,38 +774,38 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;SSLSupportMethod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe SSLSupportMethod -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe SSLSupportMethod
-</span><a href="#local-6989586621679404998"><span class="hs-identifier hs-var">sSLSupportMethod</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405007"><span class="hs-identifier hs-var">sSLSupportMethod</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-426"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ACMCertificateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404997"><span class="hs-identifier hs-var">aCMCertificateArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405006"><span class="hs-identifier hs-var">aCMCertificateArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-427"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;CertificateSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe CertificateSource -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe CertificateSource
-</span><a href="#local-6989586621679404996"><span class="hs-identifier hs-var">certificateSource</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405005"><span class="hs-identifier hs-var">certificateSource</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-428"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;MinimumProtocolVersion&quot;</span></span><span>
 </span><span id="line-429"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe MinimumProtocolVersion -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe MinimumProtocolVersion
-</span><a href="#local-6989586621679404995"><span class="hs-identifier hs-var">minimumProtocolVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405004"><span class="hs-identifier hs-var">minimumProtocolVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-430"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Certificate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404994"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405003"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-431"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;IAMCertificateId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404993"><span class="hs-identifier hs-var">iAMCertificateId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679405002"><span class="hs-identifier hs-var">iAMCertificateId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-432"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;CloudFrontDefaultCertificate&quot;</span></span><span>
 </span><span id="line-433"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe Bool -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679404992"><span class="hs-identifier hs-var">cloudFrontDefaultCertificate</span></a></span><span>
+</span><a href="#local-6989586621679405001"><span class="hs-identifier hs-var">cloudFrontDefaultCertificate</span></a></span><span>
 </span><span id="line-434"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-435"></span></pre></body></html>

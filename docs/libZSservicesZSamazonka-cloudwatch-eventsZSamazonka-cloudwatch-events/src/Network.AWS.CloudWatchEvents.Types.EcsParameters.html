@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- | The custom parameters to be used when the target is an Amazon ECS task.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newEcsParameters' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679307015"><span id="local-6989586621679307016"></span></span><span class="hs-keyword">data</span><span> </span><span id="EcsParameters"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-var">EcsParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EcsParameters%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-var">EcsParameters'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679307024"><span id="local-6989586621679307025"></span></span><span class="hs-keyword">data</span><span> </span><span id="EcsParameters"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-var">EcsParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EcsParameters%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-var">EcsParameters'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies an ECS task group for the task. The maximum length is 255</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- characters.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Agroup%27%3AEcsParameters%27"><span class="annot"><span class="annottext">EcsParameters -&gt; Maybe Text
@@ -119,7 +119,7 @@
 </span><span id="line-106"></span><span>    </span><span id="%24sel%3AtaskDefinitionArn%3AEcsParameters%27"><span class="annot"><span class="annottext">EcsParameters -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#%24sel%3AtaskDefinitionArn%3AEcsParameters%27"><span class="hs-identifier hs-var hs-var">taskDefinitionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306996"><span id="local-6989586621679306998"><span class="annot"><span class="annottext">EcsParameters -&gt; EcsParameters -&gt; Bool
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307005"><span id="local-6989586621679307007"><span class="annot"><span class="annottext">EcsParameters -&gt; EcsParameters -&gt; Bool
 (EcsParameters -&gt; EcsParameters -&gt; Bool)
 -&gt; (EcsParameters -&gt; EcsParameters -&gt; Bool) -&gt; Eq EcsParameters
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -127,7 +127,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EcsParameters -&gt; EcsParameters -&gt; Bool
 == :: EcsParameters -&gt; EcsParameters -&gt; Bool
 $c== :: EcsParameters -&gt; EcsParameters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306987"><span id="local-6989586621679306989"><span id="local-6989586621679306991"><span id="local-6989586621679306993"><span class="annot"><span class="annottext">ReadPrec [EcsParameters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306996"><span id="local-6989586621679306998"><span id="local-6989586621679307000"><span id="local-6989586621679307002"><span class="annot"><span class="annottext">ReadPrec [EcsParameters]
 ReadPrec EcsParameters
 Int -&gt; ReadS EcsParameters
 ReadS [EcsParameters]
@@ -147,7 +147,7 @@ readList :: ReadS [EcsParameters]
 $creadList :: ReadS [EcsParameters]
 readsPrec :: Int -&gt; ReadS EcsParameters
 $creadsPrec :: Int -&gt; ReadS EcsParameters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306980"><span id="local-6989586621679306982"><span id="local-6989586621679306984"><span class="annot"><span class="annottext">Int -&gt; EcsParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306989"><span id="local-6989586621679306991"><span id="local-6989586621679306993"><span class="annot"><span class="annottext">Int -&gt; EcsParameters -&gt; ShowS
 [EcsParameters] -&gt; ShowS
 EcsParameters -&gt; String
 (Int -&gt; EcsParameters -&gt; ShowS)
@@ -255,8 +255,8 @@ $cfrom :: forall x. EcsParameters -&gt; Rep EcsParameters x
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span>
 </span><span id="line-191"></span><span id="newEcsParameters"><span class="annot"><span class="annottext">newEcsParameters :: Text -&gt; EcsParameters
-</span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#newEcsParameters"><span class="hs-identifier hs-var hs-var">newEcsParameters</span></a></span></span><span> </span><span id="local-6989586621679306974"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306974"><span class="hs-identifier hs-var">pTaskDefinitionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#newEcsParameters"><span class="hs-identifier hs-var hs-var">newEcsParameters</span></a></span></span><span> </span><span id="local-6989586621679306983"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306983"><span class="hs-identifier hs-var">pTaskDefinitionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="annottext">EcsParameters' :: Maybe Text
 -&gt; Maybe PropagateTags
 -&gt; Maybe Text
@@ -327,7 +327,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskDefinitionArn:EcsParameters' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#%24sel%3AtaskDefinitionArn%3AEcsParameters%27"><span class="hs-identifier hs-var">taskDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306974"><span class="hs-identifier hs-var">pTaskDefinitionArn_</span></a></span><span>
+</span><a href="#local-6989586621679306983"><span class="hs-identifier hs-var">pTaskDefinitionArn_</span></a></span><span>
 </span><span id="line-207"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | Specifies an ECS task group for the task. The maximum length is 255</span><span>
@@ -338,16 +338,16 @@ forall a. Maybe a
 -&gt; (EcsParameters -&gt; Maybe Text -&gt; EcsParameters)
 -&gt; Lens EcsParameters EcsParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306970"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306979"><span class="annot"><span class="annottext">Maybe Text
 group' :: Maybe Text
 $sel:group':EcsParameters' :: EcsParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679306970"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306970"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306969"><span class="annot"><span class="annottext">s :: EcsParameters
-</span><a href="#local-6989586621679306969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306968"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
-</span><a href="#local-6989586621679306969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':EcsParameters' :: Maybe Text
+</span><a href="#local-6989586621679306979"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306979"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306978"><span class="annot"><span class="annottext">s :: EcsParameters
+</span><a href="#local-6989586621679306978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306977"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
+</span><a href="#local-6989586621679306978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':EcsParameters' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#%24sel%3Agroup%27%3AEcsParameters%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | Specifies whether to propagate the tags from the task definition to the</span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- task. If no value is specified, the tags are not propagated. Tags can</span><span>
@@ -364,16 +364,16 @@ $sel:group':EcsParameters' :: EcsParameters -&gt; Maybe Text
      (Maybe PropagateTags)
      (Maybe PropagateTags)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306966"><span class="annot"><span class="annottext">Maybe PropagateTags
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306975"><span class="annot"><span class="annottext">Maybe PropagateTags
 propagateTags :: Maybe PropagateTags
 $sel:propagateTags:EcsParameters' :: EcsParameters -&gt; Maybe PropagateTags
-</span><a href="#local-6989586621679306966"><span class="hs-identifier hs-var hs-var">propagateTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PropagateTags
-</span><a href="#local-6989586621679306966"><span class="hs-identifier hs-var">propagateTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306965"><span class="annot"><span class="annottext">s :: EcsParameters
-</span><a href="#local-6989586621679306965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306964"><span class="annot"><span class="annottext">Maybe PropagateTags
-</span><a href="#local-6989586621679306964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
-</span><a href="#local-6989586621679306965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propagateTags:EcsParameters' :: Maybe PropagateTags
+</span><a href="#local-6989586621679306975"><span class="hs-identifier hs-var hs-var">propagateTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PropagateTags
+</span><a href="#local-6989586621679306975"><span class="hs-identifier hs-var">propagateTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306974"><span class="annot"><span class="annottext">s :: EcsParameters
+</span><a href="#local-6989586621679306974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306973"><span class="annot"><span class="annottext">Maybe PropagateTags
+</span><a href="#local-6989586621679306973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
+</span><a href="#local-6989586621679306974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propagateTags:EcsParameters' :: Maybe PropagateTags
 </span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#%24sel%3ApropagateTags%3AEcsParameters%27"><span class="hs-identifier hs-var">propagateTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PropagateTags
-</span><a href="#local-6989586621679306964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | Specifies the platform version for the task. Specify only the numeric</span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- portion of the platform version, such as @1.1.0@.</span><span>
@@ -388,16 +388,16 @@ $sel:propagateTags:EcsParameters' :: EcsParameters -&gt; Maybe PropagateTags
 -&gt; (EcsParameters -&gt; Maybe Text -&gt; EcsParameters)
 -&gt; Lens EcsParameters EcsParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306962"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306971"><span class="annot"><span class="annottext">Maybe Text
 platformVersion :: Maybe Text
 $sel:platformVersion:EcsParameters' :: EcsParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679306962"><span class="hs-identifier hs-var hs-var">platformVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306962"><span class="hs-identifier hs-var">platformVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306961"><span class="annot"><span class="annottext">s :: EcsParameters
-</span><a href="#local-6989586621679306961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306960"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
-</span><a href="#local-6989586621679306961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformVersion:EcsParameters' :: Maybe Text
+</span><a href="#local-6989586621679306971"><span class="hs-identifier hs-var hs-var">platformVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306971"><span class="hs-identifier hs-var">platformVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306970"><span class="annot"><span class="annottext">s :: EcsParameters
+</span><a href="#local-6989586621679306970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306969"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
+</span><a href="#local-6989586621679306970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformVersion:EcsParameters' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#%24sel%3AplatformVersion%3AEcsParameters%27"><span class="hs-identifier hs-var">platformVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | Specifies whether to enable Amazon ECS managed tags for the task. For</span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- more information, see</span><span>
@@ -409,16 +409,16 @@ $sel:platformVersion:EcsParameters' :: EcsParameters -&gt; Maybe Text
 -&gt; (EcsParameters -&gt; Maybe Bool -&gt; EcsParameters)
 -&gt; Lens EcsParameters EcsParameters (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306958"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306967"><span class="annot"><span class="annottext">Maybe Bool
 enableECSManagedTags :: Maybe Bool
 $sel:enableECSManagedTags:EcsParameters' :: EcsParameters -&gt; Maybe Bool
-</span><a href="#local-6989586621679306958"><span class="hs-identifier hs-var hs-var">enableECSManagedTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679306958"><span class="hs-identifier hs-var">enableECSManagedTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306957"><span class="annot"><span class="annottext">s :: EcsParameters
-</span><a href="#local-6989586621679306957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306956"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679306956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
-</span><a href="#local-6989586621679306957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableECSManagedTags:EcsParameters' :: Maybe Bool
+</span><a href="#local-6989586621679306967"><span class="hs-identifier hs-var hs-var">enableECSManagedTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679306967"><span class="hs-identifier hs-var">enableECSManagedTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306966"><span class="annot"><span class="annottext">s :: EcsParameters
+</span><a href="#local-6989586621679306966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306965"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679306965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
+</span><a href="#local-6989586621679306966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableECSManagedTags:EcsParameters' :: Maybe Bool
 </span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#%24sel%3AenableECSManagedTags%3AEcsParameters%27"><span class="hs-identifier hs-var">enableECSManagedTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679306956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | The reference ID to use for the task.</span><span>
 </span><span id="line-239"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#ecsParameters_referenceId"><span class="hs-identifier hs-type">ecsParameters_referenceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -427,16 +427,16 @@ $sel:enableECSManagedTags:EcsParameters' :: EcsParameters -&gt; Maybe Bool
 -&gt; (EcsParameters -&gt; Maybe Text -&gt; EcsParameters)
 -&gt; Lens EcsParameters EcsParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306954"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306963"><span class="annot"><span class="annottext">Maybe Text
 referenceId :: Maybe Text
 $sel:referenceId:EcsParameters' :: EcsParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679306954"><span class="hs-identifier hs-var hs-var">referenceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306954"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306953"><span class="annot"><span class="annottext">s :: EcsParameters
-</span><a href="#local-6989586621679306953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306952"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
-</span><a href="#local-6989586621679306953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceId:EcsParameters' :: Maybe Text
+</span><a href="#local-6989586621679306963"><span class="hs-identifier hs-var hs-var">referenceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306963"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306962"><span class="annot"><span class="annottext">s :: EcsParameters
+</span><a href="#local-6989586621679306962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306961"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
+</span><a href="#local-6989586621679306962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceId:EcsParameters' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#%24sel%3AreferenceId%3AEcsParameters%27"><span class="hs-identifier hs-var">referenceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- | An array of placement constraint objects to use for the task. You can</span><span>
 </span><span id="line-243"></span><span class="hs-comment">-- specify up to 10 constraints per task (including constraints in the task</span><span>
@@ -452,16 +452,16 @@ $sel:referenceId:EcsParameters' :: EcsParameters -&gt; Maybe Text
      (Maybe [PlacementConstraint])
      (Maybe [PlacementConstraint])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306950"><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306959"><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
 placementConstraints :: Maybe [PlacementConstraint]
 $sel:placementConstraints:EcsParameters' :: EcsParameters -&gt; Maybe [PlacementConstraint]
-</span><a href="#local-6989586621679306950"><span class="hs-identifier hs-var hs-var">placementConstraints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
-</span><a href="#local-6989586621679306950"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306949"><span class="annot"><span class="annottext">s :: EcsParameters
-</span><a href="#local-6989586621679306949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306948"><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
-</span><a href="#local-6989586621679306948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
-</span><a href="#local-6989586621679306949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementConstraints:EcsParameters' :: Maybe [PlacementConstraint]
+</span><a href="#local-6989586621679306959"><span class="hs-identifier hs-var hs-var">placementConstraints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
+</span><a href="#local-6989586621679306959"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306958"><span class="annot"><span class="annottext">s :: EcsParameters
+</span><a href="#local-6989586621679306958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306957"><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
+</span><a href="#local-6989586621679306957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
+</span><a href="#local-6989586621679306958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementConstraints:EcsParameters' :: Maybe [PlacementConstraint]
 </span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#%24sel%3AplacementConstraints%3AEcsParameters%27"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
-</span><a href="#local-6989586621679306948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlacementConstraint] -&gt; f (Maybe [PlacementConstraint]))
+</span><a href="#local-6989586621679306957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlacementConstraint] -&gt; f (Maybe [PlacementConstraint]))
  -&gt; EcsParameters -&gt; f EcsParameters)
 -&gt; ((Maybe [PlacementConstraint]
      -&gt; f (Maybe [PlacementConstraint]))
@@ -504,16 +504,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [PlacementStrategy])
      (Maybe [PlacementStrategy])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306943"><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306952"><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
 placementStrategy :: Maybe [PlacementStrategy]
 $sel:placementStrategy:EcsParameters' :: EcsParameters -&gt; Maybe [PlacementStrategy]
-</span><a href="#local-6989586621679306943"><span class="hs-identifier hs-var hs-var">placementStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
-</span><a href="#local-6989586621679306943"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306942"><span class="annot"><span class="annottext">s :: EcsParameters
-</span><a href="#local-6989586621679306942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306941"><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
-</span><a href="#local-6989586621679306941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
-</span><a href="#local-6989586621679306942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementStrategy:EcsParameters' :: Maybe [PlacementStrategy]
+</span><a href="#local-6989586621679306952"><span class="hs-identifier hs-var hs-var">placementStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
+</span><a href="#local-6989586621679306952"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306951"><span class="annot"><span class="annottext">s :: EcsParameters
+</span><a href="#local-6989586621679306951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306950"><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
+</span><a href="#local-6989586621679306950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
+</span><a href="#local-6989586621679306951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementStrategy:EcsParameters' :: Maybe [PlacementStrategy]
 </span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#%24sel%3AplacementStrategy%3AEcsParameters%27"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
-</span><a href="#local-6989586621679306941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlacementStrategy] -&gt; f (Maybe [PlacementStrategy]))
+</span><a href="#local-6989586621679306950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlacementStrategy] -&gt; f (Maybe [PlacementStrategy]))
  -&gt; EcsParameters -&gt; f EcsParameters)
 -&gt; ((Maybe [PlacementStrategy] -&gt; f (Maybe [PlacementStrategy]))
     -&gt; Maybe [PlacementStrategy] -&gt; f (Maybe [PlacementStrategy]))
@@ -557,16 +557,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      EcsParameters EcsParameters (Maybe LaunchType) (Maybe LaunchType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306939"><span class="annot"><span class="annottext">Maybe LaunchType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306948"><span class="annot"><span class="annottext">Maybe LaunchType
 launchType :: Maybe LaunchType
 $sel:launchType:EcsParameters' :: EcsParameters -&gt; Maybe LaunchType
-</span><a href="#local-6989586621679306939"><span class="hs-identifier hs-var hs-var">launchType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchType
-</span><a href="#local-6989586621679306939"><span class="hs-identifier hs-var">launchType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306938"><span class="annot"><span class="annottext">s :: EcsParameters
-</span><a href="#local-6989586621679306938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306937"><span class="annot"><span class="annottext">Maybe LaunchType
-</span><a href="#local-6989586621679306937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
-</span><a href="#local-6989586621679306938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchType:EcsParameters' :: Maybe LaunchType
+</span><a href="#local-6989586621679306948"><span class="hs-identifier hs-var hs-var">launchType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchType
+</span><a href="#local-6989586621679306948"><span class="hs-identifier hs-var">launchType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306947"><span class="annot"><span class="annottext">s :: EcsParameters
+</span><a href="#local-6989586621679306947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306946"><span class="annot"><span class="annottext">Maybe LaunchType
+</span><a href="#local-6989586621679306946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
+</span><a href="#local-6989586621679306947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchType:EcsParameters' :: Maybe LaunchType
 </span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#%24sel%3AlaunchType%3AEcsParameters%27"><span class="hs-identifier hs-var">launchType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchType
-</span><a href="#local-6989586621679306937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- | The capacity provider strategy to use for the task.</span><span>
 </span><span id="line-264"></span><span class="hs-comment">--</span><span>
@@ -587,16 +587,16 @@ $sel:launchType:EcsParameters' :: EcsParameters -&gt; Maybe LaunchType
      (Maybe [CapacityProviderStrategyItem])
      (Maybe [CapacityProviderStrategyItem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306935"><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306944"><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
 capacityProviderStrategy :: Maybe [CapacityProviderStrategyItem]
 $sel:capacityProviderStrategy:EcsParameters' :: EcsParameters -&gt; Maybe [CapacityProviderStrategyItem]
-</span><a href="#local-6989586621679306935"><span class="hs-identifier hs-var hs-var">capacityProviderStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
-</span><a href="#local-6989586621679306935"><span class="hs-identifier hs-var">capacityProviderStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306934"><span class="annot"><span class="annottext">s :: EcsParameters
-</span><a href="#local-6989586621679306934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306933"><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
-</span><a href="#local-6989586621679306933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
-</span><a href="#local-6989586621679306934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityProviderStrategy:EcsParameters' :: Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679306944"><span class="hs-identifier hs-var hs-var">capacityProviderStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679306944"><span class="hs-identifier hs-var">capacityProviderStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306943"><span class="annot"><span class="annottext">s :: EcsParameters
+</span><a href="#local-6989586621679306943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306942"><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679306942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
+</span><a href="#local-6989586621679306943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityProviderStrategy:EcsParameters' :: Maybe [CapacityProviderStrategyItem]
 </span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#%24sel%3AcapacityProviderStrategy%3AEcsParameters%27"><span class="hs-identifier hs-var">capacityProviderStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
-</span><a href="#local-6989586621679306933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679306942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CapacityProviderStrategyItem]
   -&gt; f (Maybe [CapacityProviderStrategyItem]))
  -&gt; EcsParameters -&gt; f EcsParameters)
 -&gt; ((Maybe [CapacityProviderStrategyItem]
@@ -638,16 +638,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (EcsParameters -&gt; Maybe Natural -&gt; EcsParameters)
 -&gt; Lens EcsParameters EcsParameters (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306931"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306940"><span class="annot"><span class="annottext">Maybe Natural
 taskCount :: Maybe Natural
 $sel:taskCount:EcsParameters' :: EcsParameters -&gt; Maybe Natural
-</span><a href="#local-6989586621679306931"><span class="hs-identifier hs-var hs-var">taskCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679306931"><span class="hs-identifier hs-var">taskCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306930"><span class="annot"><span class="annottext">s :: EcsParameters
-</span><a href="#local-6989586621679306930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306929"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679306929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
-</span><a href="#local-6989586621679306930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskCount:EcsParameters' :: Maybe Natural
+</span><a href="#local-6989586621679306940"><span class="hs-identifier hs-var hs-var">taskCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679306940"><span class="hs-identifier hs-var">taskCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306939"><span class="annot"><span class="annottext">s :: EcsParameters
+</span><a href="#local-6989586621679306939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306938"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679306938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
+</span><a href="#local-6989586621679306939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskCount:EcsParameters' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#%24sel%3AtaskCount%3AEcsParameters%27"><span class="hs-identifier hs-var">taskCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679306929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-276"></span><span>
 </span><span id="line-277"></span><span class="hs-comment">-- | Use this structure if the Amazon ECS task uses the @awsvpc@ network</span><span>
 </span><span id="line-278"></span><span class="hs-comment">-- mode. This structure specifies the VPC subnets and security groups</span><span>
@@ -668,16 +668,16 @@ $sel:taskCount:EcsParameters' :: EcsParameters -&gt; Maybe Natural
      (Maybe NetworkConfiguration)
      (Maybe NetworkConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306927"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306936"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
 networkConfiguration :: Maybe NetworkConfiguration
 $sel:networkConfiguration:EcsParameters' :: EcsParameters -&gt; Maybe NetworkConfiguration
-</span><a href="#local-6989586621679306927"><span class="hs-identifier hs-var hs-var">networkConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
-</span><a href="#local-6989586621679306927"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306926"><span class="annot"><span class="annottext">s :: EcsParameters
-</span><a href="#local-6989586621679306926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306925"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
-</span><a href="#local-6989586621679306925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
-</span><a href="#local-6989586621679306926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkConfiguration:EcsParameters' :: Maybe NetworkConfiguration
+</span><a href="#local-6989586621679306936"><span class="hs-identifier hs-var hs-var">networkConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+</span><a href="#local-6989586621679306936"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306935"><span class="annot"><span class="annottext">s :: EcsParameters
+</span><a href="#local-6989586621679306935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306934"><span class="annot"><span class="annottext">Maybe NetworkConfiguration
+</span><a href="#local-6989586621679306934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
+</span><a href="#local-6989586621679306935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkConfiguration:EcsParameters' :: Maybe NetworkConfiguration
 </span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#%24sel%3AnetworkConfiguration%3AEcsParameters%27"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
-</span><a href="#local-6989586621679306925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-287"></span><span>
 </span><span id="line-288"></span><span class="hs-comment">-- | The metadata that you apply to the task to help you categorize and</span><span>
 </span><span id="line-289"></span><span class="hs-comment">-- organize them. Each tag consists of a key and an optional value, both of</span><span>
@@ -691,16 +691,16 @@ $sel:networkConfiguration:EcsParameters' :: EcsParameters -&gt; Maybe NetworkCon
 -&gt; (EcsParameters -&gt; Maybe [Tag] -&gt; EcsParameters)
 -&gt; Lens EcsParameters EcsParameters (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306923"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306932"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:EcsParameters' :: EcsParameters -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679306923"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679306923"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306922"><span class="annot"><span class="annottext">s :: EcsParameters
-</span><a href="#local-6989586621679306922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306921"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679306921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
-</span><a href="#local-6989586621679306922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:EcsParameters' :: Maybe [Tag]
+</span><a href="#local-6989586621679306932"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679306932"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306931"><span class="annot"><span class="annottext">s :: EcsParameters
+</span><a href="#local-6989586621679306931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306930"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679306930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
+</span><a href="#local-6989586621679306931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:EcsParameters' :: Maybe [Tag]
 </span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#%24sel%3Atags%3AEcsParameters%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679306921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679306930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; EcsParameters -&gt; f EcsParameters)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -726,16 +726,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (EcsParameters -&gt; Maybe Bool -&gt; EcsParameters)
 -&gt; Lens EcsParameters EcsParameters (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306919"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306928"><span class="annot"><span class="annottext">Maybe Bool
 enableExecuteCommand :: Maybe Bool
 $sel:enableExecuteCommand:EcsParameters' :: EcsParameters -&gt; Maybe Bool
-</span><a href="#local-6989586621679306919"><span class="hs-identifier hs-var hs-var">enableExecuteCommand</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679306919"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306918"><span class="annot"><span class="annottext">s :: EcsParameters
-</span><a href="#local-6989586621679306918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306917"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679306917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
-</span><a href="#local-6989586621679306918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableExecuteCommand:EcsParameters' :: Maybe Bool
+</span><a href="#local-6989586621679306928"><span class="hs-identifier hs-var hs-var">enableExecuteCommand</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679306928"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306927"><span class="annot"><span class="annottext">s :: EcsParameters
+</span><a href="#local-6989586621679306927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306926"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679306926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
+</span><a href="#local-6989586621679306927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableExecuteCommand:EcsParameters' :: Maybe Bool
 </span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#%24sel%3AenableExecuteCommand%3AEcsParameters%27"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679306917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-301"></span><span>
 </span><span id="line-302"></span><span class="hs-comment">-- | The ARN of the task definition to use if the event target is an Amazon</span><span>
 </span><span id="line-303"></span><span class="hs-comment">-- ECS task.</span><span>
@@ -745,19 +745,19 @@ $sel:enableExecuteCommand:EcsParameters' :: EcsParameters -&gt; Maybe Bool
 -&gt; (EcsParameters -&gt; Text -&gt; EcsParameters)
 -&gt; Lens EcsParameters EcsParameters Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306915"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306924"><span class="annot"><span class="annottext">Text
 taskDefinitionArn :: Text
 $sel:taskDefinitionArn:EcsParameters' :: EcsParameters -&gt; Text
-</span><a href="#local-6989586621679306915"><span class="hs-identifier hs-var hs-var">taskDefinitionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306915"><span class="hs-identifier hs-var">taskDefinitionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306914"><span class="annot"><span class="annottext">s :: EcsParameters
-</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306913"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
-</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskDefinitionArn:EcsParameters' :: Text
+</span><a href="#local-6989586621679306924"><span class="hs-identifier hs-var hs-var">taskDefinitionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306924"><span class="hs-identifier hs-var">taskDefinitionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306923"><span class="annot"><span class="annottext">s :: EcsParameters
+</span><a href="#local-6989586621679306923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306922"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EcsParameters
+</span><a href="#local-6989586621679306923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskDefinitionArn:EcsParameters' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#%24sel%3AtaskDefinitionArn%3AEcsParameters%27"><span class="hs-identifier hs-var">taskDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-306"></span><span>
-</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306910"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-308"></span><span>  </span><span id="local-6989586621679306908"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EcsParameters
+</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306919"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-308"></span><span>  </span><span id="local-6989586621679306917"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EcsParameters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-309"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EcsParameters)
@@ -767,8 +767,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-310"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EcsParameters&quot;</span></span><span>
-</span><span id="line-311"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306905"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-311"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306914"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-312"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe PropagateTags
 -&gt; Maybe Text
@@ -818,7 +818,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; EcsParameters)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Group&quot;</span></span><span class="hs-special">)</span><span>
@@ -854,7 +854,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; EcsParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PropagateTags)
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PropagateTags)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PropagateTags&quot;</span></span><span class="hs-special">)</span><span>
@@ -888,7 +888,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; EcsParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlatformVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -920,7 +920,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; EcsParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnableECSManagedTags&quot;</span></span><span class="hs-special">)</span><span>
@@ -950,7 +950,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; EcsParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReferenceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -978,7 +978,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; EcsParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PlacementConstraint]))
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PlacementConstraint]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlacementConstraints&quot;</span></span><span>
@@ -1012,7 +1012,7 @@ forall a. Monoid a =&gt; a
       -&gt; EcsParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PlacementStrategy]))
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PlacementStrategy]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlacementStrategy&quot;</span></span><span>
@@ -1043,7 +1043,7 @@ forall a. Monoid a =&gt; a
       -&gt; EcsParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LaunchType)
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LaunchType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LaunchType&quot;</span></span><span class="hs-special">)</span><span>
@@ -1065,7 +1065,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; EcsParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [CapacityProviderStrategyItem]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -1091,7 +1091,7 @@ forall a. Monoid a =&gt; a
       -&gt; Maybe [Tag] -&gt; Maybe Bool -&gt; Text -&gt; EcsParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TaskCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -1102,7 +1102,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Tag] -&gt; Maybe Bool -&gt; Text -&gt; EcsParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NetworkConfiguration)
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NetworkConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NetworkConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -1111,7 +1111,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool -&gt; Text -&gt; EcsParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
@@ -1123,7 +1123,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Bool) -&gt; Parser (Text -&gt; EcsParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnableExecuteCommand&quot;</span></span><span class="hs-special">)</span><span>
@@ -1131,19 +1131,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser EcsParameters
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679306914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TaskDefinitionArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-333"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-334"></span><span>
-</span><span id="line-335"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306897"><span id="local-6989586621679306899"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span></span></span><span>
+</span><span id="line-335"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306906"><span id="local-6989586621679306908"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span></span></span><span>
 </span><span id="line-336"></span><span>
-</span><span id="line-337"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306894"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span></span><span>
+</span><span id="line-337"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306903"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span></span><span>
 </span><span id="line-338"></span><span>
-</span><span id="line-339"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306886"><span id="local-6989586621679306888"><span id="local-6989586621679306890"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-340"></span><span>  </span><span id="local-6989586621679306884"><span class="annot"><span class="annottext">toJSON :: EcsParameters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306869"><span id="local-6989586621679306870"><span id="local-6989586621679306871"><span id="local-6989586621679306872"><span id="local-6989586621679306873"><span id="local-6989586621679306874"><span id="local-6989586621679306875"><span id="local-6989586621679306876"><span id="local-6989586621679306877"><span id="local-6989586621679306878"><span id="local-6989586621679306879"><span id="local-6989586621679306880"><span id="local-6989586621679306881"><span id="local-6989586621679306882"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-339"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306895"><span id="local-6989586621679306897"><span id="local-6989586621679306899"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters"><span class="hs-identifier hs-type">EcsParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-340"></span><span>  </span><span id="local-6989586621679306893"><span class="annot"><span class="annottext">toJSON :: EcsParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EcsParameters.html#EcsParameters%27"><span class="hs-identifier hs-type">EcsParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306878"><span id="local-6989586621679306879"><span id="local-6989586621679306880"><span id="local-6989586621679306881"><span id="local-6989586621679306882"><span id="local-6989586621679306883"><span id="local-6989586621679306884"><span id="local-6989586621679306885"><span id="local-6989586621679306886"><span id="local-6989586621679306887"><span id="local-6989586621679306888"><span id="local-6989586621679306889"><span id="local-6989586621679306890"><span id="local-6989586621679306891"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe [CapacityProviderStrategyItem]
 Maybe [PlacementConstraint]
@@ -1182,7 +1182,7 @@ $sel:enableECSManagedTags:EcsParameters' :: EcsParameters -&gt; Maybe Bool
 $sel:platformVersion:EcsParameters' :: EcsParameters -&gt; Maybe Text
 $sel:propagateTags:EcsParameters' :: EcsParameters -&gt; Maybe PropagateTags
 $sel:group':EcsParameters' :: EcsParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679306869"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679306878"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-341"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-342"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1194,14 +1194,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306882"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306891"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-344"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PropagateTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PropagateTags -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(PropagateTags -&gt; Pair) -&gt; Maybe PropagateTags -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PropagateTags
-</span><a href="#local-6989586621679306881"><span class="hs-identifier hs-var">propagateTags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306890"><span class="hs-identifier hs-var">propagateTags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-345"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlatformVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1209,7 +1209,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-346"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306880"><span class="hs-identifier hs-var">platformVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306889"><span class="hs-identifier hs-var">platformVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-347"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnableECSManagedTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1217,14 +1217,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-348"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679306879"><span class="hs-identifier hs-var">enableECSManagedTags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306888"><span class="hs-identifier hs-var">enableECSManagedTags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-349"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReferenceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306878"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306887"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-350"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlacementConstraints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PlacementConstraint] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1233,7 +1233,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [PlacementConstraint] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementConstraint]
-</span><a href="#local-6989586621679306877"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306886"><span class="hs-identifier hs-var">placementConstraints</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-352"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlacementStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PlacementStrategy] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1242,14 +1242,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [PlacementStrategy] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementStrategy]
-</span><a href="#local-6989586621679306876"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306885"><span class="hs-identifier hs-var">placementStrategy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-354"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LaunchType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LaunchType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LaunchType -&gt; Pair) -&gt; Maybe LaunchType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LaunchType
-</span><a href="#local-6989586621679306875"><span class="hs-identifier hs-var">launchType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306884"><span class="hs-identifier hs-var">launchType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-355"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CapacityProviderStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CapacityProviderStrategyItem] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1258,14 +1258,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [CapacityProviderStrategyItem] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CapacityProviderStrategyItem]
-</span><a href="#local-6989586621679306874"><span class="hs-identifier hs-var">capacityProviderStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306883"><span class="hs-identifier hs-var">capacityProviderStrategy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-357"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TaskCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679306873"><span class="hs-identifier hs-var">taskCount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306882"><span class="hs-identifier hs-var">taskCount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-358"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NetworkConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NetworkConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1274,14 +1274,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe NetworkConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NetworkConfiguration
-</span><a href="#local-6989586621679306872"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306881"><span class="hs-identifier hs-var">networkConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-360"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679306871"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306880"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-361"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnableExecuteCommand&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1289,7 +1289,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-362"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679306870"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306879"><span class="hs-identifier hs-var">enableExecuteCommand</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-363"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -1297,7 +1297,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TaskDefinitionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306869"><span class="hs-identifier hs-var">taskDefinitionArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306878"><span class="hs-identifier hs-var">taskDefinitionArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-365"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-366"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-367"></span></pre></body></html>

@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | Represents the input of the register on-premises instance operation.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newRegisterOnPremisesInstance' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679318893"><span id="local-6989586621679318894"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterOnPremisesInstance"><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-var">RegisterOnPremisesInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterOnPremisesInstance%27"><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-var">RegisterOnPremisesInstance'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679318902"><span id="local-6989586621679318903"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterOnPremisesInstance"><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-var">RegisterOnPremisesInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterOnPremisesInstance%27"><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-var">RegisterOnPremisesInstance'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the IAM user to associate with the on-premises instance.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AiamUserArn%3ARegisterOnPremisesInstance%27"><span class="annot"><span class="annottext">RegisterOnPremisesInstance -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#%24sel%3AiamUserArn%3ARegisterOnPremisesInstance%27"><span class="hs-identifier hs-var hs-var">iamUserArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AinstanceName%3ARegisterOnPremisesInstance%27"><span class="annot"><span class="annottext">RegisterOnPremisesInstance -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#%24sel%3AinstanceName%3ARegisterOnPremisesInstance%27"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318885"><span id="local-6989586621679318887"><span class="annot"><span class="annottext">RegisterOnPremisesInstance -&gt; RegisterOnPremisesInstance -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318894"><span id="local-6989586621679318896"><span class="annot"><span class="annottext">RegisterOnPremisesInstance -&gt; RegisterOnPremisesInstance -&gt; Bool
 (RegisterOnPremisesInstance -&gt; RegisterOnPremisesInstance -&gt; Bool)
 -&gt; (RegisterOnPremisesInstance
     -&gt; RegisterOnPremisesInstance -&gt; Bool)
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegisterOnPremisesInstance -&gt; RegisterOnPremisesInstance -&gt; Bool
 == :: RegisterOnPremisesInstance -&gt; RegisterOnPremisesInstance -&gt; Bool
 $c== :: RegisterOnPremisesInstance -&gt; RegisterOnPremisesInstance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318876"><span id="local-6989586621679318878"><span id="local-6989586621679318880"><span id="local-6989586621679318882"><span class="annot"><span class="annottext">ReadPrec [RegisterOnPremisesInstance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318885"><span id="local-6989586621679318887"><span id="local-6989586621679318889"><span id="local-6989586621679318891"><span class="annot"><span class="annottext">ReadPrec [RegisterOnPremisesInstance]
 ReadPrec RegisterOnPremisesInstance
 Int -&gt; ReadS RegisterOnPremisesInstance
 ReadS [RegisterOnPremisesInstance]
@@ -91,7 +91,7 @@ readList :: ReadS [RegisterOnPremisesInstance]
 $creadList :: ReadS [RegisterOnPremisesInstance]
 readsPrec :: Int -&gt; ReadS RegisterOnPremisesInstance
 $creadsPrec :: Int -&gt; ReadS RegisterOnPremisesInstance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318869"><span id="local-6989586621679318871"><span id="local-6989586621679318873"><span class="annot"><span class="annottext">Int -&gt; RegisterOnPremisesInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318878"><span id="local-6989586621679318880"><span id="local-6989586621679318882"><span class="annot"><span class="annottext">Int -&gt; RegisterOnPremisesInstance -&gt; ShowS
 [RegisterOnPremisesInstance] -&gt; ShowS
 RegisterOnPremisesInstance -&gt; String
 (Int -&gt; RegisterOnPremisesInstance -&gt; ShowS)
@@ -141,8 +141,8 @@ RegisterOnPremisesInstance -&gt; Rep RegisterOnPremisesInstance x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span><span>
 </span><span id="line-80"></span><span id="newRegisterOnPremisesInstance"><span class="annot"><span class="annottext">newRegisterOnPremisesInstance :: Text -&gt; RegisterOnPremisesInstance
-</span><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#newRegisterOnPremisesInstance"><span class="hs-identifier hs-var hs-var">newRegisterOnPremisesInstance</span></a></span></span><span> </span><span id="local-6989586621679318864"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318864"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#newRegisterOnPremisesInstance"><span class="hs-identifier hs-var hs-var">newRegisterOnPremisesInstance</span></a></span></span><span> </span><span id="local-6989586621679318873"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318873"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">RegisterOnPremisesInstance' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; RegisterOnPremisesInstance
 </span><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-type">RegisterOnPremisesInstance'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:iamUserArn:RegisterOnPremisesInstance' :: Maybe Text
@@ -156,7 +156,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceName:RegisterOnPremisesInstance' :: Text
 </span><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#%24sel%3AinstanceName%3ARegisterOnPremisesInstance%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318864"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span>
+</span><a href="#local-6989586621679318873"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The ARN of the IAM user to associate with the on-premises instance.</span><span>
@@ -172,16 +172,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-type">RegisterOnPremisesInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318861"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-type">RegisterOnPremisesInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318870"><span class="annot"><span class="annottext">Maybe Text
 iamUserArn :: Maybe Text
 $sel:iamUserArn:RegisterOnPremisesInstance' :: RegisterOnPremisesInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679318861"><span class="hs-identifier hs-var hs-var">iamUserArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318861"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318860"><span class="annot"><span class="annottext">s :: RegisterOnPremisesInstance
-</span><a href="#local-6989586621679318860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-type">RegisterOnPremisesInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318859"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterOnPremisesInstance
-</span><a href="#local-6989586621679318860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamUserArn:RegisterOnPremisesInstance' :: Maybe Text
+</span><a href="#local-6989586621679318870"><span class="hs-identifier hs-var hs-var">iamUserArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318870"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318869"><span class="annot"><span class="annottext">s :: RegisterOnPremisesInstance
+</span><a href="#local-6989586621679318869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-type">RegisterOnPremisesInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318868"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterOnPremisesInstance
+</span><a href="#local-6989586621679318869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamUserArn:RegisterOnPremisesInstance' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#%24sel%3AiamUserArn%3ARegisterOnPremisesInstance%27"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The ARN of the IAM session to associate with the on-premises instance.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#registerOnPremisesInstance_iamSessionArn"><span class="hs-identifier hs-type">registerOnPremisesInstance_iamSessionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -196,16 +196,16 @@ $sel:iamUserArn:RegisterOnPremisesInstance' :: RegisterOnPremisesInstance -&gt; 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-type">RegisterOnPremisesInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318858"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-type">RegisterOnPremisesInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318867"><span class="annot"><span class="annottext">Maybe Text
 iamSessionArn :: Maybe Text
 $sel:iamSessionArn:RegisterOnPremisesInstance' :: RegisterOnPremisesInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679318858"><span class="hs-identifier hs-var hs-var">iamSessionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318858"><span class="hs-identifier hs-var">iamSessionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318857"><span class="annot"><span class="annottext">s :: RegisterOnPremisesInstance
-</span><a href="#local-6989586621679318857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-type">RegisterOnPremisesInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318856"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterOnPremisesInstance
-</span><a href="#local-6989586621679318857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamSessionArn:RegisterOnPremisesInstance' :: Maybe Text
+</span><a href="#local-6989586621679318867"><span class="hs-identifier hs-var hs-var">iamSessionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318867"><span class="hs-identifier hs-var">iamSessionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318866"><span class="annot"><span class="annottext">s :: RegisterOnPremisesInstance
+</span><a href="#local-6989586621679318866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-type">RegisterOnPremisesInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318865"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterOnPremisesInstance
+</span><a href="#local-6989586621679318866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamSessionArn:RegisterOnPremisesInstance' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#%24sel%3AiamSessionArn%3ARegisterOnPremisesInstance%27"><span class="hs-identifier hs-var">iamSessionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The name of the on-premises instance to register.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#registerOnPremisesInstance_instanceName"><span class="hs-identifier hs-type">registerOnPremisesInstance_instanceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -217,28 +217,28 @@ $sel:iamSessionArn:RegisterOnPremisesInstance' :: RegisterOnPremisesInstance -&g
 -&gt; Lens
      RegisterOnPremisesInstance RegisterOnPremisesInstance Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-type">RegisterOnPremisesInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318855"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-type">RegisterOnPremisesInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318864"><span class="annot"><span class="annottext">Text
 instanceName :: Text
 $sel:instanceName:RegisterOnPremisesInstance' :: RegisterOnPremisesInstance -&gt; Text
-</span><a href="#local-6989586621679318855"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318855"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318854"><span class="annot"><span class="annottext">s :: RegisterOnPremisesInstance
-</span><a href="#local-6989586621679318854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-type">RegisterOnPremisesInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318853"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterOnPremisesInstance
-</span><a href="#local-6989586621679318854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:RegisterOnPremisesInstance' :: Text
+</span><a href="#local-6989586621679318864"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318864"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318863"><span class="annot"><span class="annottext">s :: RegisterOnPremisesInstance
+</span><a href="#local-6989586621679318863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-type">RegisterOnPremisesInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318862"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterOnPremisesInstance
+</span><a href="#local-6989586621679318863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:RegisterOnPremisesInstance' :: Text
 </span><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#%24sel%3AinstanceName%3ARegisterOnPremisesInstance%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstanceResponse"><span class="hs-identifier hs-type">RegisterOnPremisesInstanceResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679318849"><span class="annot"><span class="annottext">request :: RegisterOnPremisesInstance -&gt; Request RegisterOnPremisesInstance
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679318858"><span class="annot"><span class="annottext">request :: RegisterOnPremisesInstance -&gt; Request RegisterOnPremisesInstance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; RegisterOnPremisesInstance -&gt; Request RegisterOnPremisesInstance
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679318845"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679318854"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RegisterOnPremisesInstance
 -&gt; ClientResponse ClientBody
@@ -265,12 +265,12 @@ AWSResponse a
 RegisterOnPremisesInstanceResponse
 </span><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstanceResponse%27"><span class="hs-identifier hs-var">RegisterOnPremisesInstanceResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318838"><span id="local-6989586621679318840"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318847"><span id="local-6989586621679318849"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318835"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318844"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679318831"><span class="annot"><span class="annottext">toHeaders :: RegisterOnPremisesInstance -&gt; [Header]
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679318840"><span class="annot"><span class="annottext">toHeaders :: RegisterOnPremisesInstance -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; RegisterOnPremisesInstance -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -297,9 +297,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318821"><span id="local-6989586621679318823"><span id="local-6989586621679318825"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679318819"><span class="annot"><span class="annottext">toJSON :: RegisterOnPremisesInstance -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-type">RegisterOnPremisesInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318815"><span id="local-6989586621679318816"><span id="local-6989586621679318817"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318830"><span id="local-6989586621679318832"><span id="local-6989586621679318834"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679318828"><span class="annot"><span class="annottext">toJSON :: RegisterOnPremisesInstance -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance%27"><span class="hs-identifier hs-type">RegisterOnPremisesInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318824"><span id="local-6989586621679318825"><span id="local-6989586621679318826"><span class="annot"><span class="annottext">Maybe Text
 Text
 instanceName :: Text
 iamSessionArn :: Maybe Text
@@ -307,7 +307,7 @@ iamUserArn :: Maybe Text
 $sel:instanceName:RegisterOnPremisesInstance' :: RegisterOnPremisesInstance -&gt; Text
 $sel:iamSessionArn:RegisterOnPremisesInstance' :: RegisterOnPremisesInstance -&gt; Maybe Text
 $sel:iamUserArn:RegisterOnPremisesInstance' :: RegisterOnPremisesInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679318815"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679318824"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -319,33 +319,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318817"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679318826"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iamSessionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318816"><span class="hs-identifier hs-var">iamSessionArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679318825"><span class="hs-identifier hs-var">iamSessionArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318815"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318824"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679318808"><span class="annot"><span class="annottext">toPath :: RegisterOnPremisesInstance -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679318817"><span class="annot"><span class="annottext">toPath :: RegisterOnPremisesInstance -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterOnPremisesInstance -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstance"><span class="hs-identifier hs-type">RegisterOnPremisesInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679318804"><span class="annot"><span class="annottext">toQuery :: RegisterOnPremisesInstance -&gt; QueryString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679318813"><span class="annot"><span class="annottext">toQuery :: RegisterOnPremisesInstance -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterOnPremisesInstance -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -353,10 +353,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newRegisterOnPremisesInstanceResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679318801"><span id="local-6989586621679318802"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterOnPremisesInstanceResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstanceResponse"><span class="hs-identifier hs-var">RegisterOnPremisesInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterOnPremisesInstanceResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstanceResponse%27"><span class="hs-identifier hs-var">RegisterOnPremisesInstanceResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679318810"><span id="local-6989586621679318811"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterOnPremisesInstanceResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstanceResponse"><span class="hs-identifier hs-var">RegisterOnPremisesInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterOnPremisesInstanceResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstanceResponse%27"><span class="hs-identifier hs-var">RegisterOnPremisesInstanceResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318797"><span id="local-6989586621679318799"><span class="annot"><span class="annottext">RegisterOnPremisesInstanceResponse
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318806"><span id="local-6989586621679318808"><span class="annot"><span class="annottext">RegisterOnPremisesInstanceResponse
 -&gt; RegisterOnPremisesInstanceResponse -&gt; Bool
 (RegisterOnPremisesInstanceResponse
  -&gt; RegisterOnPremisesInstanceResponse -&gt; Bool)
@@ -372,7 +372,7 @@ $c/= :: RegisterOnPremisesInstanceResponse
 -&gt; RegisterOnPremisesInstanceResponse -&gt; Bool
 $c== :: RegisterOnPremisesInstanceResponse
 -&gt; RegisterOnPremisesInstanceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318789"><span id="local-6989586621679318791"><span id="local-6989586621679318793"><span id="local-6989586621679318795"><span class="annot"><span class="annottext">ReadPrec [RegisterOnPremisesInstanceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318798"><span id="local-6989586621679318800"><span id="local-6989586621679318802"><span id="local-6989586621679318804"><span class="annot"><span class="annottext">ReadPrec [RegisterOnPremisesInstanceResponse]
 ReadPrec RegisterOnPremisesInstanceResponse
 Int -&gt; ReadS RegisterOnPremisesInstanceResponse
 ReadS [RegisterOnPremisesInstanceResponse]
@@ -392,7 +392,7 @@ readList :: ReadS [RegisterOnPremisesInstanceResponse]
 $creadList :: ReadS [RegisterOnPremisesInstanceResponse]
 readsPrec :: Int -&gt; ReadS RegisterOnPremisesInstanceResponse
 $creadsPrec :: Int -&gt; ReadS RegisterOnPremisesInstanceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318783"><span id="local-6989586621679318785"><span id="local-6989586621679318787"><span class="annot"><span class="annottext">Int -&gt; RegisterOnPremisesInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318792"><span id="local-6989586621679318794"><span id="local-6989586621679318796"><span class="annot"><span class="annottext">Int -&gt; RegisterOnPremisesInstanceResponse -&gt; ShowS
 [RegisterOnPremisesInstanceResponse] -&gt; ShowS
 RegisterOnPremisesInstanceResponse -&gt; String
 (Int -&gt; RegisterOnPremisesInstanceResponse -&gt; ShowS)
@@ -442,6 +442,6 @@ RegisterOnPremisesInstanceResponse
 </span><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstanceResponse%27"><span class="hs-identifier hs-var">RegisterOnPremisesInstanceResponse'</span></a></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679318779"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679318788"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.RegisterOnPremisesInstance.html#RegisterOnPremisesInstanceResponse"><span class="hs-identifier hs-type">RegisterOnPremisesInstanceResponse</span></a></span></span><span>
 </span><span id="line-162"></span></pre></body></html>

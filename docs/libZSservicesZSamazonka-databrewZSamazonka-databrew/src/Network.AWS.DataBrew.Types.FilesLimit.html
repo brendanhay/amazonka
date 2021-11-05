@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DataBrew.Types.FilesLimit</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataBrew.Types.FilesLimit</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.Order.html"><span class="hs-identifier">Network.AWS.DataBrew.Types.Order</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.OrderedBy.html"><span class="hs-identifier">Network.AWS.DataBrew.Types.OrderedBy</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Represents a limit imposed on number of Amazon S3 files that should be</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- selected for a dataset from a connected Amazon S3 path.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newFilesLimit' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679295485"><span id="local-6989586621679295486"></span></span><span class="hs-keyword">data</span><span> </span><span id="FilesLimit"><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit"><span class="hs-identifier hs-var">FilesLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FilesLimit%27"><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit%27"><span class="hs-identifier hs-var">FilesLimit'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A criteria to use for Amazon S3 files sorting before their selection. By</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- default uses LAST_MODIFIED_DATE as a sorting criteria. Currently it\'s</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the only allowed value.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AorderedBy%3AFilesLimit%27"><span class="annot"><span class="annottext">FilesLimit -&gt; Maybe OrderedBy
+</span><a href="Network.AWS.DataBrew.Types.FilesLimit.html#%24sel%3AorderedBy%3AFilesLimit%27"><span class="hs-identifier hs-var hs-var">orderedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.OrderedBy.html#OrderedBy"><span class="hs-identifier hs-type">OrderedBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A criteria to use for Amazon S3 files sorting before their selection. By</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- default uses DESCENDING order, i.e. most recent files are selected</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- first. Anotherpossible value is ASCENDING.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aorder%3AFilesLimit%27"><span class="annot"><span class="annottext">FilesLimit -&gt; Maybe Order
+</span><a href="Network.AWS.DataBrew.Types.FilesLimit.html#%24sel%3Aorder%3AFilesLimit%27"><span class="hs-identifier hs-var hs-var">order</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.Order.html#Order"><span class="hs-identifier hs-type">Order</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The number of Amazon S3 files to select.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AmaxFiles%3AFilesLimit%27"><span class="annot"><span class="annottext">FilesLimit -&gt; Natural
+</span><a href="Network.AWS.DataBrew.Types.FilesLimit.html#%24sel%3AmaxFiles%3AFilesLimit%27"><span class="hs-identifier hs-var hs-var">maxFiles</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295477"><span id="local-6989586621679295479"><span class="annot"><span class="annottext">FilesLimit -&gt; FilesLimit -&gt; Bool
+(FilesLimit -&gt; FilesLimit -&gt; Bool)
+-&gt; (FilesLimit -&gt; FilesLimit -&gt; Bool) -&gt; Eq FilesLimit
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FilesLimit -&gt; FilesLimit -&gt; Bool
+$c/= :: FilesLimit -&gt; FilesLimit -&gt; Bool
+== :: FilesLimit -&gt; FilesLimit -&gt; Bool
+$c== :: FilesLimit -&gt; FilesLimit -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295468"><span id="local-6989586621679295470"><span id="local-6989586621679295472"><span id="local-6989586621679295474"><span class="annot"><span class="annottext">ReadPrec [FilesLimit]
+ReadPrec FilesLimit
+Int -&gt; ReadS FilesLimit
+ReadS [FilesLimit]
+(Int -&gt; ReadS FilesLimit)
+-&gt; ReadS [FilesLimit]
+-&gt; ReadPrec FilesLimit
+-&gt; ReadPrec [FilesLimit]
+-&gt; Read FilesLimit
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FilesLimit]
+$creadListPrec :: ReadPrec [FilesLimit]
+readPrec :: ReadPrec FilesLimit
+$creadPrec :: ReadPrec FilesLimit
+readList :: ReadS [FilesLimit]
+$creadList :: ReadS [FilesLimit]
+readsPrec :: Int -&gt; ReadS FilesLimit
+$creadsPrec :: Int -&gt; ReadS FilesLimit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295461"><span id="local-6989586621679295463"><span id="local-6989586621679295465"><span class="annot"><span class="annottext">Int -&gt; FilesLimit -&gt; ShowS
+[FilesLimit] -&gt; ShowS
+FilesLimit -&gt; String
+(Int -&gt; FilesLimit -&gt; ShowS)
+-&gt; (FilesLimit -&gt; String)
+-&gt; ([FilesLimit] -&gt; ShowS)
+-&gt; Show FilesLimit
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FilesLimit] -&gt; ShowS
+$cshowList :: [FilesLimit] -&gt; ShowS
+show :: FilesLimit -&gt; String
+$cshow :: FilesLimit -&gt; String
+showsPrec :: Int -&gt; FilesLimit -&gt; ShowS
+$cshowsPrec :: Int -&gt; FilesLimit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FilesLimit -&gt; Rep FilesLimit x)
+-&gt; (forall x. Rep FilesLimit x -&gt; FilesLimit) -&gt; Generic FilesLimit
+forall x. Rep FilesLimit x -&gt; FilesLimit
+forall x. FilesLimit -&gt; Rep FilesLimit x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FilesLimit x -&gt; FilesLimit
+$cfrom :: forall x. FilesLimit -&gt; Rep FilesLimit x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'FilesLimit' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'orderedBy', 'filesLimit_orderedBy' - A criteria to use for Amazon S3 files sorting before their selection. By</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- default uses LAST_MODIFIED_DATE as a sorting criteria. Currently it\'s</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- the only allowed value.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'order', 'filesLimit_order' - A criteria to use for Amazon S3 files sorting before their selection. By</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- default uses DESCENDING order, i.e. most recent files are selected</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- first. Anotherpossible value is ASCENDING.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'maxFiles', 'filesLimit_maxFiles' - The number of Amazon S3 files to select.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#newFilesLimit"><span class="hs-identifier hs-type">newFilesLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-comment">-- | 'maxFiles'</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit"><span class="hs-identifier hs-type">FilesLimit</span></a></span><span>
+</span><span id="line-67"></span><span id="newFilesLimit"><span class="annot"><span class="annottext">newFilesLimit :: Natural -&gt; FilesLimit
+</span><a href="Network.AWS.DataBrew.Types.FilesLimit.html#newFilesLimit"><span class="hs-identifier hs-var hs-var">newFilesLimit</span></a></span></span><span> </span><span id="local-6989586621679295455"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679295455"><span class="hs-identifier hs-var">pMaxFiles_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">FilesLimit' :: Maybe OrderedBy -&gt; Maybe Order -&gt; Natural -&gt; FilesLimit
+</span><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit%27"><span class="hs-identifier hs-type">FilesLimit'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:orderedBy:FilesLimit' :: Maybe OrderedBy
+</span><a href="Network.AWS.DataBrew.Types.FilesLimit.html#%24sel%3AorderedBy%3AFilesLimit%27"><span class="hs-identifier hs-var">orderedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrderedBy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:order:FilesLimit' :: Maybe Order
+</span><a href="Network.AWS.DataBrew.Types.FilesLimit.html#%24sel%3Aorder%3AFilesLimit%27"><span class="hs-identifier hs-var">order</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Order
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxFiles:FilesLimit' :: Natural
+</span><a href="Network.AWS.DataBrew.Types.FilesLimit.html#%24sel%3AmaxFiles%3AFilesLimit%27"><span class="hs-identifier hs-var">maxFiles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679295455"><span class="hs-identifier hs-var">pMaxFiles_</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | A criteria to use for Amazon S3 files sorting before their selection. By</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- default uses LAST_MODIFIED_DATE as a sorting criteria. Currently it\'s</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- the only allowed value.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#filesLimit_orderedBy"><span class="hs-identifier hs-type">filesLimit_orderedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit"><span class="hs-identifier hs-type">FilesLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.OrderedBy.html#OrderedBy"><span class="hs-identifier hs-type">OrderedBy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="filesLimit_orderedBy"><span class="annot"><span class="annottext">filesLimit_orderedBy :: (Maybe OrderedBy -&gt; f (Maybe OrderedBy))
+-&gt; FilesLimit -&gt; f FilesLimit
+</span><a href="Network.AWS.DataBrew.Types.FilesLimit.html#filesLimit_orderedBy"><span class="hs-identifier hs-var hs-var">filesLimit_orderedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FilesLimit -&gt; Maybe OrderedBy)
+-&gt; (FilesLimit -&gt; Maybe OrderedBy -&gt; FilesLimit)
+-&gt; Lens FilesLimit FilesLimit (Maybe OrderedBy) (Maybe OrderedBy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit%27"><span class="hs-identifier hs-type">FilesLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295451"><span class="annot"><span class="annottext">Maybe OrderedBy
+orderedBy :: Maybe OrderedBy
+$sel:orderedBy:FilesLimit' :: FilesLimit -&gt; Maybe OrderedBy
+</span><a href="#local-6989586621679295451"><span class="hs-identifier hs-var hs-var">orderedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrderedBy
+</span><a href="#local-6989586621679295451"><span class="hs-identifier hs-var">orderedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295450"><span class="annot"><span class="annottext">s :: FilesLimit
+</span><a href="#local-6989586621679295450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit%27"><span class="hs-identifier hs-type">FilesLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295449"><span class="annot"><span class="annottext">Maybe OrderedBy
+</span><a href="#local-6989586621679295449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilesLimit
+</span><a href="#local-6989586621679295450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orderedBy:FilesLimit' :: Maybe OrderedBy
+</span><a href="Network.AWS.DataBrew.Types.FilesLimit.html#%24sel%3AorderedBy%3AFilesLimit%27"><span class="hs-identifier hs-var">orderedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrderedBy
+</span><a href="#local-6989586621679295449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit"><span class="hs-identifier hs-type">FilesLimit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | A criteria to use for Amazon S3 files sorting before their selection. By</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- default uses DESCENDING order, i.e. most recent files are selected</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- first. Anotherpossible value is ASCENDING.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#filesLimit_order"><span class="hs-identifier hs-type">filesLimit_order</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit"><span class="hs-identifier hs-type">FilesLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.Order.html#Order"><span class="hs-identifier hs-type">Order</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="filesLimit_order"><span class="annot"><span class="annottext">filesLimit_order :: (Maybe Order -&gt; f (Maybe Order)) -&gt; FilesLimit -&gt; f FilesLimit
+</span><a href="Network.AWS.DataBrew.Types.FilesLimit.html#filesLimit_order"><span class="hs-identifier hs-var hs-var">filesLimit_order</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FilesLimit -&gt; Maybe Order)
+-&gt; (FilesLimit -&gt; Maybe Order -&gt; FilesLimit)
+-&gt; Lens FilesLimit FilesLimit (Maybe Order) (Maybe Order)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit%27"><span class="hs-identifier hs-type">FilesLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295447"><span class="annot"><span class="annottext">Maybe Order
+order :: Maybe Order
+$sel:order:FilesLimit' :: FilesLimit -&gt; Maybe Order
+</span><a href="#local-6989586621679295447"><span class="hs-identifier hs-var hs-var">order</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Order
+</span><a href="#local-6989586621679295447"><span class="hs-identifier hs-var">order</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295446"><span class="annot"><span class="annottext">s :: FilesLimit
+</span><a href="#local-6989586621679295446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit%27"><span class="hs-identifier hs-type">FilesLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295445"><span class="annot"><span class="annottext">Maybe Order
+</span><a href="#local-6989586621679295445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilesLimit
+</span><a href="#local-6989586621679295446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:order:FilesLimit' :: Maybe Order
+</span><a href="Network.AWS.DataBrew.Types.FilesLimit.html#%24sel%3Aorder%3AFilesLimit%27"><span class="hs-identifier hs-var">order</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Order
+</span><a href="#local-6989586621679295445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit"><span class="hs-identifier hs-type">FilesLimit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The number of Amazon S3 files to select.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#filesLimit_maxFiles"><span class="hs-identifier hs-type">filesLimit_maxFiles</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit"><span class="hs-identifier hs-type">FilesLimit</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-88"></span><span id="filesLimit_maxFiles"><span class="annot"><span class="annottext">filesLimit_maxFiles :: (Natural -&gt; f Natural) -&gt; FilesLimit -&gt; f FilesLimit
+</span><a href="Network.AWS.DataBrew.Types.FilesLimit.html#filesLimit_maxFiles"><span class="hs-identifier hs-var hs-var">filesLimit_maxFiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FilesLimit -&gt; Natural)
+-&gt; (FilesLimit -&gt; Natural -&gt; FilesLimit)
+-&gt; Lens FilesLimit FilesLimit Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit%27"><span class="hs-identifier hs-type">FilesLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295443"><span class="annot"><span class="annottext">Natural
+maxFiles :: Natural
+$sel:maxFiles:FilesLimit' :: FilesLimit -&gt; Natural
+</span><a href="#local-6989586621679295443"><span class="hs-identifier hs-var hs-var">maxFiles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679295443"><span class="hs-identifier hs-var">maxFiles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295442"><span class="annot"><span class="annottext">s :: FilesLimit
+</span><a href="#local-6989586621679295442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit%27"><span class="hs-identifier hs-type">FilesLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295441"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679295441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilesLimit
+</span><a href="#local-6989586621679295442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxFiles:FilesLimit' :: Natural
+</span><a href="Network.AWS.DataBrew.Types.FilesLimit.html#%24sel%3AmaxFiles%3AFilesLimit%27"><span class="hs-identifier hs-var">maxFiles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679295441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit"><span class="hs-identifier hs-type">FilesLimit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295438"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit"><span class="hs-identifier hs-type">FilesLimit</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679295436"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FilesLimit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FilesLimit) -&gt; Value -&gt; Parser FilesLimit
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FilesLimit&quot;</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295433"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295433"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe OrderedBy -&gt; Maybe Order -&gt; Natural -&gt; FilesLimit
+</span><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit%27"><span class="hs-identifier hs-var">FilesLimit'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OrderedBy -&gt; Maybe Order -&gt; Natural -&gt; FilesLimit)
+-&gt; Parser (Maybe OrderedBy)
+-&gt; Parser (Maybe Order -&gt; Natural -&gt; FilesLimit)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OrderedBy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrderedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Order -&gt; Natural -&gt; FilesLimit)
+-&gt; Parser (Maybe Order) -&gt; Parser (Natural -&gt; FilesLimit)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Order)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Order&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (Natural -&gt; FilesLimit)
+-&gt; Parser Natural -&gt; Parser FilesLimit
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxFiles&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295426"><span id="local-6989586621679295428"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit"><span class="hs-identifier hs-type">FilesLimit</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295423"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit"><span class="hs-identifier hs-type">FilesLimit</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295415"><span id="local-6989586621679295417"><span id="local-6989586621679295419"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit"><span class="hs-identifier hs-type">FilesLimit</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679295413"><span class="annot"><span class="annottext">toJSON :: FilesLimit -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit%27"><span class="hs-identifier hs-type">FilesLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295409"><span id="local-6989586621679295410"><span id="local-6989586621679295411"><span class="annot"><span class="annottext">Natural
+Maybe Order
+Maybe OrderedBy
+maxFiles :: Natural
+order :: Maybe Order
+orderedBy :: Maybe OrderedBy
+$sel:maxFiles:FilesLimit' :: FilesLimit -&gt; Natural
+$sel:order:FilesLimit' :: FilesLimit -&gt; Maybe Order
+$sel:orderedBy:FilesLimit' :: FilesLimit -&gt; Maybe OrderedBy
+</span><a href="#local-6989586621679295409"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrderedBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OrderedBy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OrderedBy -&gt; Pair) -&gt; Maybe OrderedBy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrderedBy
+</span><a href="#local-6989586621679295411"><span class="hs-identifier hs-var">orderedBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Order&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Order -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Order -&gt; Pair) -&gt; Maybe Order -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Order
+</span><a href="#local-6989586621679295410"><span class="hs-identifier hs-var">order</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxFiles&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679295409"><span class="hs-identifier hs-var">maxFiles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span></pre></body></html>

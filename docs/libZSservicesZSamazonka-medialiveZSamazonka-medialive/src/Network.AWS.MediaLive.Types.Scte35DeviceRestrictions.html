@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- | Corresponds to the device_restrictions parameter in a</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- segmentation_descriptor. If you include one of the \&quot;restriction\&quot; flags</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- then you must include all four of them.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679918029"><span id="local-6989586621679918030"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Scte35DeviceRestrictions"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35DeviceRestrictions.html#Scte35DeviceRestrictions"><span class="hs-identifier hs-var">Scte35DeviceRestrictions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte35DeviceRestrictions%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35DeviceRestrictions.html#Scte35DeviceRestrictions%27"><span class="hs-identifier hs-var">Scte35DeviceRestrictions'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679918038"><span id="local-6989586621679918039"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Scte35DeviceRestrictions"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35DeviceRestrictions.html#Scte35DeviceRestrictions"><span class="hs-identifier hs-var">Scte35DeviceRestrictions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte35DeviceRestrictions%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35DeviceRestrictions.html#Scte35DeviceRestrictions%27"><span class="hs-identifier hs-var">Scte35DeviceRestrictions'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScte35DeviceRestrictions"><span class="annot"><span class="annottext">Scte35DeviceRestrictions -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.Scte35DeviceRestrictions.html#fromScte35DeviceRestrictions"><span class="hs-identifier hs-var hs-var">fromScte35DeviceRestrictions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679918021"><span id="local-6989586621679918023"><span id="local-6989586621679918025"><span class="annot"><span class="annottext">Int -&gt; Scte35DeviceRestrictions -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679918030"><span id="local-6989586621679918032"><span id="local-6989586621679918034"><span class="annot"><span class="annottext">Int -&gt; Scte35DeviceRestrictions -&gt; ShowS
 [Scte35DeviceRestrictions] -&gt; ShowS
 Scte35DeviceRestrictions -&gt; String
 (Int -&gt; Scte35DeviceRestrictions -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: Scte35DeviceRestrictions -&gt; String
 showsPrec :: Int -&gt; Scte35DeviceRestrictions -&gt; ShowS
 $cshowsPrec :: Int -&gt; Scte35DeviceRestrictions -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679918012"><span id="local-6989586621679918014"><span id="local-6989586621679918016"><span id="local-6989586621679918018"><span class="annot"><span class="annottext">ReadPrec [Scte35DeviceRestrictions]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679918021"><span id="local-6989586621679918023"><span id="local-6989586621679918025"><span id="local-6989586621679918027"><span class="annot"><span class="annottext">ReadPrec [Scte35DeviceRestrictions]
 ReadPrec Scte35DeviceRestrictions
 Int -&gt; ReadS Scte35DeviceRestrictions
 ReadS [Scte35DeviceRestrictions]
@@ -77,7 +77,7 @@ $creadList :: ReadS [Scte35DeviceRestrictions]
 readsPrec :: Int -&gt; ReadS Scte35DeviceRestrictions
 $creadsPrec :: Int -&gt; ReadS Scte35DeviceRestrictions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679918007"><span id="local-6989586621679918009"><span class="annot"><span class="annottext">Scte35DeviceRestrictions -&gt; Scte35DeviceRestrictions -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679918016"><span id="local-6989586621679918018"><span class="annot"><span class="annottext">Scte35DeviceRestrictions -&gt; Scte35DeviceRestrictions -&gt; Bool
 (Scte35DeviceRestrictions -&gt; Scte35DeviceRestrictions -&gt; Bool)
 -&gt; (Scte35DeviceRestrictions -&gt; Scte35DeviceRestrictions -&gt; Bool)
 -&gt; Eq Scte35DeviceRestrictions
@@ -87,7 +87,7 @@ $c/= :: Scte35DeviceRestrictions -&gt; Scte35DeviceRestrictions -&gt; Bool
 == :: Scte35DeviceRestrictions -&gt; Scte35DeviceRestrictions -&gt; Bool
 $c== :: Scte35DeviceRestrictions -&gt; Scte35DeviceRestrictions -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679917991"><span id="local-6989586621679917993"><span id="local-6989586621679917995"><span id="local-6989586621679917997"><span id="local-6989586621679917999"><span id="local-6989586621679918001"><span id="local-6989586621679918003"><span class="annot"><span class="annottext">Eq Scte35DeviceRestrictions
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679918000"><span id="local-6989586621679918002"><span id="local-6989586621679918004"><span id="local-6989586621679918006"><span id="local-6989586621679918008"><span id="local-6989586621679918010"><span id="local-6989586621679918012"><span class="annot"><span class="annottext">Eq Scte35DeviceRestrictions
 Eq Scte35DeviceRestrictions
 -&gt; (Scte35DeviceRestrictions
     -&gt; Scte35DeviceRestrictions -&gt; Ordering)
@@ -152,7 +152,7 @@ Scte35DeviceRestrictions -&gt; Rep Scte35DeviceRestrictions x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679917983"><span id="local-6989586621679917985"><span class="annot"><span class="annottext">Int -&gt; Scte35DeviceRestrictions -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679917992"><span id="local-6989586621679917994"><span class="annot"><span class="annottext">Int -&gt; Scte35DeviceRestrictions -&gt; Int
 Scte35DeviceRestrictions -&gt; Int
 (Int -&gt; Scte35DeviceRestrictions -&gt; Int)
 -&gt; (Scte35DeviceRestrictions -&gt; Int)
@@ -163,55 +163,55 @@ $chash :: Scte35DeviceRestrictions -&gt; Int
 hashWithSalt :: Int -&gt; Scte35DeviceRestrictions -&gt; Int
 $chashWithSalt :: Int -&gt; Scte35DeviceRestrictions -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679917980"><span class="annot"><span class="annottext">Scte35DeviceRestrictions -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679917989"><span class="annot"><span class="annottext">Scte35DeviceRestrictions -&gt; ()
 (Scte35DeviceRestrictions -&gt; ()) -&gt; NFData Scte35DeviceRestrictions
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Scte35DeviceRestrictions -&gt; ()
 $crnf :: Scte35DeviceRestrictions -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679917977"><span class="annot"><span class="annottext">Text -&gt; Either String Scte35DeviceRestrictions
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679917986"><span class="annot"><span class="annottext">Text -&gt; Either String Scte35DeviceRestrictions
 (Text -&gt; Either String Scte35DeviceRestrictions)
 -&gt; FromText Scte35DeviceRestrictions
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Scte35DeviceRestrictions
 $cfromText :: Text -&gt; Either String Scte35DeviceRestrictions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679917974"><span class="annot"><span class="annottext">Scte35DeviceRestrictions -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679917983"><span class="annot"><span class="annottext">Scte35DeviceRestrictions -&gt; Text
 (Scte35DeviceRestrictions -&gt; Text)
 -&gt; ToText Scte35DeviceRestrictions
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Scte35DeviceRestrictions -&gt; Text
 $ctoText :: Scte35DeviceRestrictions -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679917971"><span class="annot"><span class="annottext">Scte35DeviceRestrictions -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679917980"><span class="annot"><span class="annottext">Scte35DeviceRestrictions -&gt; ByteString
 (Scte35DeviceRestrictions -&gt; ByteString)
 -&gt; ToByteString Scte35DeviceRestrictions
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Scte35DeviceRestrictions -&gt; ByteString
 $ctoBS :: Scte35DeviceRestrictions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679917968"><span class="annot"><span class="annottext">Scte35DeviceRestrictions -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679917977"><span class="annot"><span class="annottext">Scte35DeviceRestrictions -&gt; ByteStringBuilder
 (Scte35DeviceRestrictions -&gt; ByteStringBuilder)
 -&gt; ToLog Scte35DeviceRestrictions
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Scte35DeviceRestrictions -&gt; ByteStringBuilder
 $cbuild :: Scte35DeviceRestrictions -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679917965"><span class="annot"><span class="annottext">HeaderName -&gt; Scte35DeviceRestrictions -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679917974"><span class="annot"><span class="annottext">HeaderName -&gt; Scte35DeviceRestrictions -&gt; [Header]
 (HeaderName -&gt; Scte35DeviceRestrictions -&gt; [Header])
 -&gt; ToHeader Scte35DeviceRestrictions
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Scte35DeviceRestrictions -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Scte35DeviceRestrictions -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679917962"><span class="annot"><span class="annottext">Scte35DeviceRestrictions -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679917971"><span class="annot"><span class="annottext">Scte35DeviceRestrictions -&gt; QueryString
 (Scte35DeviceRestrictions -&gt; QueryString)
 -&gt; ToQuery Scte35DeviceRestrictions
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Scte35DeviceRestrictions -&gt; QueryString
 $ctoQuery :: Scte35DeviceRestrictions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679917957"><span id="local-6989586621679917959"><span class="annot"><span class="annottext">Value -&gt; Parser [Scte35DeviceRestrictions]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679917966"><span id="local-6989586621679917968"><span class="annot"><span class="annottext">Value -&gt; Parser [Scte35DeviceRestrictions]
 Value -&gt; Parser Scte35DeviceRestrictions
 (Value -&gt; Parser Scte35DeviceRestrictions)
 -&gt; (Value -&gt; Parser [Scte35DeviceRestrictions])
@@ -223,7 +223,7 @@ $cparseJSONList :: Value -&gt; Parser [Scte35DeviceRestrictions]
 parseJSON :: Value -&gt; Parser Scte35DeviceRestrictions
 $cparseJSON :: Value -&gt; Parser Scte35DeviceRestrictions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679917952"><span id="local-6989586621679917954"><span class="annot"><span class="annottext">FromJSONKeyFunction [Scte35DeviceRestrictions]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679917961"><span id="local-6989586621679917963"><span class="annot"><span class="annottext">FromJSONKeyFunction [Scte35DeviceRestrictions]
 FromJSONKeyFunction Scte35DeviceRestrictions
 FromJSONKeyFunction Scte35DeviceRestrictions
 -&gt; FromJSONKeyFunction [Scte35DeviceRestrictions]
@@ -235,7 +235,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Scte35DeviceRestrictions]
 fromJSONKey :: FromJSONKeyFunction Scte35DeviceRestrictions
 $cfromJSONKey :: FromJSONKeyFunction Scte35DeviceRestrictions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679917943"><span id="local-6989586621679917945"><span id="local-6989586621679917947"><span id="local-6989586621679917949"><span class="annot"><span class="annottext">[Scte35DeviceRestrictions] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679917952"><span id="local-6989586621679917954"><span id="local-6989586621679917956"><span id="local-6989586621679917958"><span class="annot"><span class="annottext">[Scte35DeviceRestrictions] -&gt; Encoding
 [Scte35DeviceRestrictions] -&gt; Value
 Scte35DeviceRestrictions -&gt; Encoding
 Scte35DeviceRestrictions -&gt; Value
@@ -259,7 +259,7 @@ $ctoEncoding :: Scte35DeviceRestrictions -&gt; Encoding
 toJSON :: Scte35DeviceRestrictions -&gt; Value
 $ctoJSON :: Scte35DeviceRestrictions -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679917938"><span id="local-6989586621679917940"><span class="annot"><span class="annottext">ToJSONKeyFunction [Scte35DeviceRestrictions]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679917947"><span id="local-6989586621679917949"><span class="annot"><span class="annottext">ToJSONKeyFunction [Scte35DeviceRestrictions]
 ToJSONKeyFunction Scte35DeviceRestrictions
 ToJSONKeyFunction Scte35DeviceRestrictions
 -&gt; ToJSONKeyFunction [Scte35DeviceRestrictions]
@@ -271,14 +271,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Scte35DeviceRestrictions]
 toJSONKey :: ToJSONKeyFunction Scte35DeviceRestrictions
 $ctoJSONKey :: ToJSONKeyFunction Scte35DeviceRestrictions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679917935"><span class="annot"><span class="annottext">[Node] -&gt; Either String Scte35DeviceRestrictions
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679917944"><span class="annot"><span class="annottext">[Node] -&gt; Either String Scte35DeviceRestrictions
 ([Node] -&gt; Either String Scte35DeviceRestrictions)
 -&gt; FromXML Scte35DeviceRestrictions
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Scte35DeviceRestrictions
 $cparseXML :: [Node] -&gt; Either String Scte35DeviceRestrictions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679917932"><span class="annot"><span class="annottext">Scte35DeviceRestrictions -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679917941"><span class="annot"><span class="annottext">Scte35DeviceRestrictions -&gt; XML
 (Scte35DeviceRestrictions -&gt; XML) -&gt; ToXML Scte35DeviceRestrictions
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Scte35DeviceRestrictions -&gt; XML

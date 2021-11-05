@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- the scan type for the output: Progressive, Interlaced, Hard Telecine or</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft:</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- produces 23.976; the player converts this output to 29.97i.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679974733"><span id="local-6989586621679974734"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265Telecine"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265Telecine.html#H265Telecine"><span class="hs-identifier hs-var">H265Telecine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265Telecine%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265Telecine.html#H265Telecine%27"><span class="hs-identifier hs-var">H265Telecine'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679974742"><span id="local-6989586621679974743"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265Telecine"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265Telecine.html#H265Telecine"><span class="hs-identifier hs-var">H265Telecine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265Telecine%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265Telecine.html#H265Telecine%27"><span class="hs-identifier hs-var">H265Telecine'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265Telecine"><span class="annot"><span class="annottext">H265Telecine -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H265Telecine.html#fromH265Telecine"><span class="hs-identifier hs-var hs-var">fromH265Telecine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679974725"><span id="local-6989586621679974727"><span id="local-6989586621679974729"><span class="annot"><span class="annottext">Int -&gt; H265Telecine -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679974734"><span id="local-6989586621679974736"><span id="local-6989586621679974738"><span class="annot"><span class="annottext">Int -&gt; H265Telecine -&gt; ShowS
 [H265Telecine] -&gt; ShowS
 H265Telecine -&gt; String
 (Int -&gt; H265Telecine -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: H265Telecine -&gt; String
 showsPrec :: Int -&gt; H265Telecine -&gt; ShowS
 $cshowsPrec :: Int -&gt; H265Telecine -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679974716"><span id="local-6989586621679974718"><span id="local-6989586621679974720"><span id="local-6989586621679974722"><span class="annot"><span class="annottext">ReadPrec [H265Telecine]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679974725"><span id="local-6989586621679974727"><span id="local-6989586621679974729"><span id="local-6989586621679974731"><span class="annot"><span class="annottext">ReadPrec [H265Telecine]
 ReadPrec H265Telecine
 Int -&gt; ReadS H265Telecine
 ReadS [H265Telecine]
@@ -80,7 +80,7 @@ $creadList :: ReadS [H265Telecine]
 readsPrec :: Int -&gt; ReadS H265Telecine
 $creadsPrec :: Int -&gt; ReadS H265Telecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679974711"><span id="local-6989586621679974713"><span class="annot"><span class="annottext">H265Telecine -&gt; H265Telecine -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679974720"><span id="local-6989586621679974722"><span class="annot"><span class="annottext">H265Telecine -&gt; H265Telecine -&gt; Bool
 (H265Telecine -&gt; H265Telecine -&gt; Bool)
 -&gt; (H265Telecine -&gt; H265Telecine -&gt; Bool) -&gt; Eq H265Telecine
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ $c/= :: H265Telecine -&gt; H265Telecine -&gt; Bool
 == :: H265Telecine -&gt; H265Telecine -&gt; Bool
 $c== :: H265Telecine -&gt; H265Telecine -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679974695"><span id="local-6989586621679974697"><span id="local-6989586621679974699"><span id="local-6989586621679974701"><span id="local-6989586621679974703"><span id="local-6989586621679974705"><span id="local-6989586621679974707"><span class="annot"><span class="annottext">Eq H265Telecine
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679974704"><span id="local-6989586621679974706"><span id="local-6989586621679974708"><span id="local-6989586621679974710"><span id="local-6989586621679974712"><span id="local-6989586621679974714"><span id="local-6989586621679974716"><span class="annot"><span class="annottext">Eq H265Telecine
 Eq H265Telecine
 -&gt; (H265Telecine -&gt; H265Telecine -&gt; Ordering)
 -&gt; (H265Telecine -&gt; H265Telecine -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. H265Telecine -&gt; Rep H265Telecine x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679974687"><span id="local-6989586621679974689"><span class="annot"><span class="annottext">Int -&gt; H265Telecine -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679974696"><span id="local-6989586621679974698"><span class="annot"><span class="annottext">Int -&gt; H265Telecine -&gt; Int
 H265Telecine -&gt; Int
 (Int -&gt; H265Telecine -&gt; Int)
 -&gt; (H265Telecine -&gt; Int) -&gt; Hashable H265Telecine
@@ -150,49 +150,49 @@ $chash :: H265Telecine -&gt; Int
 hashWithSalt :: Int -&gt; H265Telecine -&gt; Int
 $chashWithSalt :: Int -&gt; H265Telecine -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679974684"><span class="annot"><span class="annottext">H265Telecine -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679974693"><span class="annot"><span class="annottext">H265Telecine -&gt; ()
 (H265Telecine -&gt; ()) -&gt; NFData H265Telecine
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H265Telecine -&gt; ()
 $crnf :: H265Telecine -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679974681"><span class="annot"><span class="annottext">Text -&gt; Either String H265Telecine
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679974690"><span class="annot"><span class="annottext">Text -&gt; Either String H265Telecine
 (Text -&gt; Either String H265Telecine) -&gt; FromText H265Telecine
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H265Telecine
 $cfromText :: Text -&gt; Either String H265Telecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679974678"><span class="annot"><span class="annottext">H265Telecine -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679974687"><span class="annot"><span class="annottext">H265Telecine -&gt; Text
 (H265Telecine -&gt; Text) -&gt; ToText H265Telecine
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H265Telecine -&gt; Text
 $ctoText :: H265Telecine -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679974675"><span class="annot"><span class="annottext">H265Telecine -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679974684"><span class="annot"><span class="annottext">H265Telecine -&gt; ByteString
 (H265Telecine -&gt; ByteString) -&gt; ToByteString H265Telecine
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H265Telecine -&gt; ByteString
 $ctoBS :: H265Telecine -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679974672"><span class="annot"><span class="annottext">H265Telecine -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679974681"><span class="annot"><span class="annottext">H265Telecine -&gt; ByteStringBuilder
 (H265Telecine -&gt; ByteStringBuilder) -&gt; ToLog H265Telecine
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H265Telecine -&gt; ByteStringBuilder
 $cbuild :: H265Telecine -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679974669"><span class="annot"><span class="annottext">HeaderName -&gt; H265Telecine -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679974678"><span class="annot"><span class="annottext">HeaderName -&gt; H265Telecine -&gt; [Header]
 (HeaderName -&gt; H265Telecine -&gt; [Header]) -&gt; ToHeader H265Telecine
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H265Telecine -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H265Telecine -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679974666"><span class="annot"><span class="annottext">H265Telecine -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679974675"><span class="annot"><span class="annottext">H265Telecine -&gt; QueryString
 (H265Telecine -&gt; QueryString) -&gt; ToQuery H265Telecine
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H265Telecine -&gt; QueryString
 $ctoQuery :: H265Telecine -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679974661"><span id="local-6989586621679974663"><span class="annot"><span class="annottext">Value -&gt; Parser [H265Telecine]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679974670"><span id="local-6989586621679974672"><span class="annot"><span class="annottext">Value -&gt; Parser [H265Telecine]
 Value -&gt; Parser H265Telecine
 (Value -&gt; Parser H265Telecine)
 -&gt; (Value -&gt; Parser [H265Telecine]) -&gt; FromJSON H265Telecine
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [H265Telecine]
 parseJSON :: Value -&gt; Parser H265Telecine
 $cparseJSON :: Value -&gt; Parser H265Telecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679974656"><span id="local-6989586621679974658"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265Telecine]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679974665"><span id="local-6989586621679974667"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265Telecine]
 FromJSONKeyFunction H265Telecine
 FromJSONKeyFunction H265Telecine
 -&gt; FromJSONKeyFunction [H265Telecine] -&gt; FromJSONKey H265Telecine
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H265Telecine]
 fromJSONKey :: FromJSONKeyFunction H265Telecine
 $cfromJSONKey :: FromJSONKeyFunction H265Telecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679974647"><span id="local-6989586621679974649"><span id="local-6989586621679974651"><span id="local-6989586621679974653"><span class="annot"><span class="annottext">[H265Telecine] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679974656"><span id="local-6989586621679974658"><span id="local-6989586621679974660"><span id="local-6989586621679974662"><span class="annot"><span class="annottext">[H265Telecine] -&gt; Encoding
 [H265Telecine] -&gt; Value
 H265Telecine -&gt; Encoding
 H265Telecine -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: H265Telecine -&gt; Encoding
 toJSON :: H265Telecine -&gt; Value
 $ctoJSON :: H265Telecine -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679974642"><span id="local-6989586621679974644"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265Telecine]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679974651"><span id="local-6989586621679974653"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265Telecine]
 ToJSONKeyFunction H265Telecine
 ToJSONKeyFunction H265Telecine
 -&gt; ToJSONKeyFunction [H265Telecine] -&gt; ToJSONKey H265Telecine
@@ -249,13 +249,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H265Telecine]
 toJSONKey :: ToJSONKeyFunction H265Telecine
 $ctoJSONKey :: ToJSONKeyFunction H265Telecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679974639"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265Telecine
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679974648"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265Telecine
 ([Node] -&gt; Either String H265Telecine) -&gt; FromXML H265Telecine
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H265Telecine
 $cparseXML :: [Node] -&gt; Either String H265Telecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679974636"><span class="annot"><span class="annottext">H265Telecine -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679974645"><span class="annot"><span class="annottext">H265Telecine -&gt; XML
 (H265Telecine -&gt; XML) -&gt; ToXML H265Telecine
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H265Telecine -&gt; XML

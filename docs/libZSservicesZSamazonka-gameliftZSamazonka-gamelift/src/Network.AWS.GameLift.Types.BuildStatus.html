@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679428620"><span id="local-6989586621679428621"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BuildStatus"><span class="annot"><a href="Network.AWS.GameLift.Types.BuildStatus.html#BuildStatus"><span class="hs-identifier hs-var">BuildStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuildStatus%27"><span class="annot"><a href="Network.AWS.GameLift.Types.BuildStatus.html#BuildStatus%27"><span class="hs-identifier hs-var">BuildStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679428629"><span id="local-6989586621679428630"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BuildStatus"><span class="annot"><a href="Network.AWS.GameLift.Types.BuildStatus.html#BuildStatus"><span class="hs-identifier hs-var">BuildStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuildStatus%27"><span class="annot"><a href="Network.AWS.GameLift.Types.BuildStatus.html#BuildStatus%27"><span class="hs-identifier hs-var">BuildStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBuildStatus"><span class="annot"><span class="annottext">BuildStatus -&gt; Text
 </span><a href="Network.AWS.GameLift.Types.BuildStatus.html#fromBuildStatus"><span class="hs-identifier hs-var hs-var">fromBuildStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428612"><span id="local-6989586621679428614"><span id="local-6989586621679428616"><span class="annot"><span class="annottext">Int -&gt; BuildStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428621"><span id="local-6989586621679428623"><span id="local-6989586621679428625"><span class="annot"><span class="annottext">Int -&gt; BuildStatus -&gt; ShowS
 [BuildStatus] -&gt; ShowS
 BuildStatus -&gt; String
 (Int -&gt; BuildStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: BuildStatus -&gt; String
 showsPrec :: Int -&gt; BuildStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; BuildStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679428603"><span id="local-6989586621679428605"><span id="local-6989586621679428607"><span id="local-6989586621679428609"><span class="annot"><span class="annottext">ReadPrec [BuildStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679428612"><span id="local-6989586621679428614"><span id="local-6989586621679428616"><span id="local-6989586621679428618"><span class="annot"><span class="annottext">ReadPrec [BuildStatus]
 ReadPrec BuildStatus
 Int -&gt; ReadS BuildStatus
 ReadS [BuildStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [BuildStatus]
 readsPrec :: Int -&gt; ReadS BuildStatus
 $creadsPrec :: Int -&gt; ReadS BuildStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679428598"><span id="local-6989586621679428600"><span class="annot"><span class="annottext">BuildStatus -&gt; BuildStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679428607"><span id="local-6989586621679428609"><span class="annot"><span class="annottext">BuildStatus -&gt; BuildStatus -&gt; Bool
 (BuildStatus -&gt; BuildStatus -&gt; Bool)
 -&gt; (BuildStatus -&gt; BuildStatus -&gt; Bool) -&gt; Eq BuildStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: BuildStatus -&gt; BuildStatus -&gt; Bool
 == :: BuildStatus -&gt; BuildStatus -&gt; Bool
 $c== :: BuildStatus -&gt; BuildStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679428582"><span id="local-6989586621679428584"><span id="local-6989586621679428586"><span id="local-6989586621679428588"><span id="local-6989586621679428590"><span id="local-6989586621679428592"><span id="local-6989586621679428594"><span class="annot"><span class="annottext">Eq BuildStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679428591"><span id="local-6989586621679428593"><span id="local-6989586621679428595"><span id="local-6989586621679428597"><span id="local-6989586621679428599"><span id="local-6989586621679428601"><span id="local-6989586621679428603"><span class="annot"><span class="annottext">Eq BuildStatus
 Eq BuildStatus
 -&gt; (BuildStatus -&gt; BuildStatus -&gt; Ordering)
 -&gt; (BuildStatus -&gt; BuildStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. BuildStatus -&gt; Rep BuildStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428574"><span id="local-6989586621679428576"><span class="annot"><span class="annottext">Int -&gt; BuildStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428583"><span id="local-6989586621679428585"><span class="annot"><span class="annottext">Int -&gt; BuildStatus -&gt; Int
 BuildStatus -&gt; Int
 (Int -&gt; BuildStatus -&gt; Int)
 -&gt; (BuildStatus -&gt; Int) -&gt; Hashable BuildStatus
@@ -143,49 +143,49 @@ $chash :: BuildStatus -&gt; Int
 hashWithSalt :: Int -&gt; BuildStatus -&gt; Int
 $chashWithSalt :: Int -&gt; BuildStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679428571"><span class="annot"><span class="annottext">BuildStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679428580"><span class="annot"><span class="annottext">BuildStatus -&gt; ()
 (BuildStatus -&gt; ()) -&gt; NFData BuildStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BuildStatus -&gt; ()
 $crnf :: BuildStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679428568"><span class="annot"><span class="annottext">Text -&gt; Either String BuildStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679428577"><span class="annot"><span class="annottext">Text -&gt; Either String BuildStatus
 (Text -&gt; Either String BuildStatus) -&gt; FromText BuildStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BuildStatus
 $cfromText :: Text -&gt; Either String BuildStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679428565"><span class="annot"><span class="annottext">BuildStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679428574"><span class="annot"><span class="annottext">BuildStatus -&gt; Text
 (BuildStatus -&gt; Text) -&gt; ToText BuildStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BuildStatus -&gt; Text
 $ctoText :: BuildStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679428562"><span class="annot"><span class="annottext">BuildStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679428571"><span class="annot"><span class="annottext">BuildStatus -&gt; ByteString
 (BuildStatus -&gt; ByteString) -&gt; ToByteString BuildStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BuildStatus -&gt; ByteString
 $ctoBS :: BuildStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679428559"><span class="annot"><span class="annottext">BuildStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679428568"><span class="annot"><span class="annottext">BuildStatus -&gt; ByteStringBuilder
 (BuildStatus -&gt; ByteStringBuilder) -&gt; ToLog BuildStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BuildStatus -&gt; ByteStringBuilder
 $cbuild :: BuildStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679428556"><span class="annot"><span class="annottext">HeaderName -&gt; BuildStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679428565"><span class="annot"><span class="annottext">HeaderName -&gt; BuildStatus -&gt; [Header]
 (HeaderName -&gt; BuildStatus -&gt; [Header]) -&gt; ToHeader BuildStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BuildStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BuildStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679428553"><span class="annot"><span class="annottext">BuildStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679428562"><span class="annot"><span class="annottext">BuildStatus -&gt; QueryString
 (BuildStatus -&gt; QueryString) -&gt; ToQuery BuildStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BuildStatus -&gt; QueryString
 $ctoQuery :: BuildStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679428548"><span id="local-6989586621679428550"><span class="annot"><span class="annottext">Value -&gt; Parser [BuildStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679428557"><span id="local-6989586621679428559"><span class="annot"><span class="annottext">Value -&gt; Parser [BuildStatus]
 Value -&gt; Parser BuildStatus
 (Value -&gt; Parser BuildStatus)
 -&gt; (Value -&gt; Parser [BuildStatus]) -&gt; FromJSON BuildStatus
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [BuildStatus]
 parseJSON :: Value -&gt; Parser BuildStatus
 $cparseJSON :: Value -&gt; Parser BuildStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679428543"><span id="local-6989586621679428545"><span class="annot"><span class="annottext">FromJSONKeyFunction [BuildStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679428552"><span id="local-6989586621679428554"><span class="annot"><span class="annottext">FromJSONKeyFunction [BuildStatus]
 FromJSONKeyFunction BuildStatus
 FromJSONKeyFunction BuildStatus
 -&gt; FromJSONKeyFunction [BuildStatus] -&gt; FromJSONKey BuildStatus
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BuildStatus]
 fromJSONKey :: FromJSONKeyFunction BuildStatus
 $cfromJSONKey :: FromJSONKeyFunction BuildStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679428534"><span id="local-6989586621679428536"><span id="local-6989586621679428538"><span id="local-6989586621679428540"><span class="annot"><span class="annottext">[BuildStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679428543"><span id="local-6989586621679428545"><span id="local-6989586621679428547"><span id="local-6989586621679428549"><span class="annot"><span class="annottext">[BuildStatus] -&gt; Encoding
 [BuildStatus] -&gt; Value
 BuildStatus -&gt; Encoding
 BuildStatus -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: BuildStatus -&gt; Encoding
 toJSON :: BuildStatus -&gt; Value
 $ctoJSON :: BuildStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679428529"><span id="local-6989586621679428531"><span class="annot"><span class="annottext">ToJSONKeyFunction [BuildStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679428538"><span id="local-6989586621679428540"><span class="annot"><span class="annottext">ToJSONKeyFunction [BuildStatus]
 ToJSONKeyFunction BuildStatus
 ToJSONKeyFunction BuildStatus
 -&gt; ToJSONKeyFunction [BuildStatus] -&gt; ToJSONKey BuildStatus
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BuildStatus]
 toJSONKey :: ToJSONKeyFunction BuildStatus
 $ctoJSONKey :: ToJSONKeyFunction BuildStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679428526"><span class="annot"><span class="annottext">[Node] -&gt; Either String BuildStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679428535"><span class="annot"><span class="annottext">[Node] -&gt; Either String BuildStatus
 ([Node] -&gt; Either String BuildStatus) -&gt; FromXML BuildStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BuildStatus
 $cparseXML :: [Node] -&gt; Either String BuildStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679428523"><span class="annot"><span class="annottext">BuildStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679428532"><span class="annot"><span class="annottext">BuildStatus -&gt; XML
 (BuildStatus -&gt; XML) -&gt; ToXML BuildStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BuildStatus -&gt; XML

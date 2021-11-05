@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newCreateStream' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679848366"><span id="local-6989586621679848367"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStream"><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-var">CreateStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStream%27"><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-var">CreateStream'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679848375"><span id="local-6989586621679848376"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStream"><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-var">CreateStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStream%27"><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-var">CreateStream'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the stream.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3Adescription%3ACreateStream%27"><span class="annot"><span class="annottext">CreateStream -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3Adescription%3ACreateStream%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -79,7 +79,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AroleArn%3ACreateStream%27"><span class="annot"><span class="annottext">CreateStream -&gt; Text
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3AroleArn%3ACreateStream%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679848356"><span id="local-6989586621679848358"><span class="annot"><span class="annottext">CreateStream -&gt; CreateStream -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679848365"><span id="local-6989586621679848367"><span class="annot"><span class="annottext">CreateStream -&gt; CreateStream -&gt; Bool
 (CreateStream -&gt; CreateStream -&gt; Bool)
 -&gt; (CreateStream -&gt; CreateStream -&gt; Bool) -&gt; Eq CreateStream
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateStream -&gt; CreateStream -&gt; Bool
 == :: CreateStream -&gt; CreateStream -&gt; Bool
 $c== :: CreateStream -&gt; CreateStream -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848347"><span id="local-6989586621679848349"><span id="local-6989586621679848351"><span id="local-6989586621679848353"><span class="annot"><span class="annottext">ReadPrec [CreateStream]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848356"><span id="local-6989586621679848358"><span id="local-6989586621679848360"><span id="local-6989586621679848362"><span class="annot"><span class="annottext">ReadPrec [CreateStream]
 ReadPrec CreateStream
 Int -&gt; ReadS CreateStream
 ReadS [CreateStream]
@@ -107,7 +107,7 @@ readList :: ReadS [CreateStream]
 $creadList :: ReadS [CreateStream]
 readsPrec :: Int -&gt; ReadS CreateStream
 $creadsPrec :: Int -&gt; ReadS CreateStream
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848340"><span id="local-6989586621679848342"><span id="local-6989586621679848344"><span class="annot"><span class="annottext">Int -&gt; CreateStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848349"><span id="local-6989586621679848351"><span id="local-6989586621679848353"><span class="annot"><span class="annottext">Int -&gt; CreateStream -&gt; ShowS
 [CreateStream] -&gt; ShowS
 CreateStream -&gt; String
 (Int -&gt; CreateStream -&gt; ShowS)
@@ -160,10 +160,10 @@ $cfrom :: forall x. CreateStream -&gt; Rep CreateStream x
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span>
 </span><span id="line-105"></span><span id="newCreateStream"><span class="annot"><span class="annottext">newCreateStream :: Text -&gt; NonEmpty StreamFile -&gt; Text -&gt; CreateStream
-</span><a href="Network.AWS.IoT.CreateStream.html#newCreateStream"><span class="hs-identifier hs-var hs-var">newCreateStream</span></a></span></span><span> </span><span id="local-6989586621679848335"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848335"><span class="hs-identifier hs-var">pStreamId_</span></a></span></span><span> </span><span id="local-6989586621679848334"><span class="annot"><span class="annottext">NonEmpty StreamFile
-</span><a href="#local-6989586621679848334"><span class="hs-identifier hs-var">pFiles_</span></a></span></span><span> </span><span id="local-6989586621679848333"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848333"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.CreateStream.html#newCreateStream"><span class="hs-identifier hs-var hs-var">newCreateStream</span></a></span></span><span> </span><span id="local-6989586621679848344"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679848344"><span class="hs-identifier hs-var">pStreamId_</span></a></span></span><span> </span><span id="local-6989586621679848343"><span class="annot"><span class="annottext">NonEmpty StreamFile
+</span><a href="#local-6989586621679848343"><span class="hs-identifier hs-var">pFiles_</span></a></span></span><span> </span><span id="local-6989586621679848342"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679848342"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">CreateStream' :: Maybe Text
 -&gt; Maybe [Tag]
 -&gt; Text
@@ -181,7 +181,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamId:CreateStream' :: Text
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3AstreamId%3ACreateStream%27"><span class="hs-identifier hs-var">streamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848335"><span class="hs-identifier hs-var">pStreamId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679848344"><span class="hs-identifier hs-var">pStreamId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:files:CreateStream' :: NonEmpty StreamFile
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3Afiles%3ACreateStream%27"><span class="hs-identifier hs-var">files</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty StreamFile) (Identity (NonEmpty StreamFile))
 -&gt; Tagged (NonEmpty StreamFile) (Identity (NonEmpty StreamFile))
@@ -191,10 +191,10 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty StreamFile -&gt; NonEmpty StreamFile
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty StreamFile
-</span><a href="#local-6989586621679848334"><span class="hs-identifier hs-var">pFiles_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679848343"><span class="hs-identifier hs-var">pFiles_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:CreateStream' :: Text
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3AroleArn%3ACreateStream%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848333"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621679848342"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | A description of the stream.</span><span>
@@ -204,16 +204,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (CreateStream -&gt; Maybe Text -&gt; CreateStream)
 -&gt; Lens CreateStream CreateStream (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848328"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848337"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CreateStream' :: CreateStream -&gt; Maybe Text
-</span><a href="#local-6989586621679848328"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848328"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848327"><span class="annot"><span class="annottext">s :: CreateStream
-</span><a href="#local-6989586621679848327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848326"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStream
-</span><a href="#local-6989586621679848327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateStream' :: Maybe Text
+</span><a href="#local-6989586621679848337"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679848337"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848336"><span class="annot"><span class="annottext">s :: CreateStream
+</span><a href="#local-6989586621679848336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848335"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679848335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStream
+</span><a href="#local-6989586621679848336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateStream' :: Maybe Text
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3Adescription%3ACreateStream%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679848335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | Metadata which can be used to manage streams.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#createStream_tags"><span class="hs-identifier hs-type">createStream_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -222,16 +222,16 @@ $sel:description:CreateStream' :: CreateStream -&gt; Maybe Text
 -&gt; (CreateStream -&gt; Maybe [Tag] -&gt; CreateStream)
 -&gt; Lens CreateStream CreateStream (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848325"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848334"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateStream' :: CreateStream -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679848325"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679848325"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848324"><span class="annot"><span class="annottext">s :: CreateStream
-</span><a href="#local-6989586621679848324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848323"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679848323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStream
-</span><a href="#local-6989586621679848324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateStream' :: Maybe [Tag]
+</span><a href="#local-6989586621679848334"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679848334"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848333"><span class="annot"><span class="annottext">s :: CreateStream
+</span><a href="#local-6989586621679848333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848332"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679848332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStream
+</span><a href="#local-6989586621679848333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateStream' :: Maybe [Tag]
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3Atags%3ACreateStream%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679848323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679848332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateStream -&gt; f CreateStream)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -255,16 +255,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateStream -&gt; Text -&gt; CreateStream)
 -&gt; Lens CreateStream CreateStream Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848320"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848329"><span class="annot"><span class="annottext">Text
 streamId :: Text
 $sel:streamId:CreateStream' :: CreateStream -&gt; Text
-</span><a href="#local-6989586621679848320"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848320"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848319"><span class="annot"><span class="annottext">s :: CreateStream
-</span><a href="#local-6989586621679848319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848318"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStream
-</span><a href="#local-6989586621679848319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamId:CreateStream' :: Text
+</span><a href="#local-6989586621679848329"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679848329"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848328"><span class="annot"><span class="annottext">s :: CreateStream
+</span><a href="#local-6989586621679848328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848327"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679848327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStream
+</span><a href="#local-6989586621679848328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamId:CreateStream' :: Text
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3AstreamId%3ACreateStream%27"><span class="hs-identifier hs-var">streamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679848327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The files to stream.</span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#createStream_files"><span class="hs-identifier hs-type">createStream_files</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile"><span class="hs-identifier hs-type">StreamFile</span></a></span><span class="hs-special">)</span><span>
@@ -278,16 +278,16 @@ $sel:streamId:CreateStream' :: CreateStream -&gt; Text
      (NonEmpty StreamFile)
      (NonEmpty StreamFile)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848317"><span class="annot"><span class="annottext">NonEmpty StreamFile
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848326"><span class="annot"><span class="annottext">NonEmpty StreamFile
 files :: NonEmpty StreamFile
 $sel:files:CreateStream' :: CreateStream -&gt; NonEmpty StreamFile
-</span><a href="#local-6989586621679848317"><span class="hs-identifier hs-var hs-var">files</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty StreamFile
-</span><a href="#local-6989586621679848317"><span class="hs-identifier hs-var">files</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848316"><span class="annot"><span class="annottext">s :: CreateStream
-</span><a href="#local-6989586621679848316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848315"><span class="annot"><span class="annottext">NonEmpty StreamFile
-</span><a href="#local-6989586621679848315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStream
-</span><a href="#local-6989586621679848316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:files:CreateStream' :: NonEmpty StreamFile
+</span><a href="#local-6989586621679848326"><span class="hs-identifier hs-var hs-var">files</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty StreamFile
+</span><a href="#local-6989586621679848326"><span class="hs-identifier hs-var">files</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848325"><span class="annot"><span class="annottext">s :: CreateStream
+</span><a href="#local-6989586621679848325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848324"><span class="annot"><span class="annottext">NonEmpty StreamFile
+</span><a href="#local-6989586621679848324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStream
+</span><a href="#local-6989586621679848325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:files:CreateStream' :: NonEmpty StreamFile
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3Afiles%3ACreateStream%27"><span class="hs-identifier hs-var">files</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty StreamFile
-</span><a href="#local-6989586621679848315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty StreamFile -&gt; f (NonEmpty StreamFile))
+</span><a href="#local-6989586621679848324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty StreamFile -&gt; f (NonEmpty StreamFile))
  -&gt; CreateStream -&gt; f CreateStream)
 -&gt; ((NonEmpty StreamFile -&gt; f (NonEmpty StreamFile))
     -&gt; NonEmpty StreamFile -&gt; f (NonEmpty StreamFile))
@@ -308,25 +308,25 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateStream -&gt; Text -&gt; CreateStream)
 -&gt; Lens CreateStream CreateStream Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848314"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848323"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:CreateStream' :: CreateStream -&gt; Text
-</span><a href="#local-6989586621679848314"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848314"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848313"><span class="annot"><span class="annottext">s :: CreateStream
-</span><a href="#local-6989586621679848313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848312"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStream
-</span><a href="#local-6989586621679848313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateStream' :: Text
+</span><a href="#local-6989586621679848323"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679848323"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848322"><span class="annot"><span class="annottext">s :: CreateStream
+</span><a href="#local-6989586621679848322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848321"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679848321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStream
+</span><a href="#local-6989586621679848322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateStream' :: Text
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3AroleArn%3ACreateStream%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679848321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679848308"><span class="annot"><span class="annottext">request :: CreateStream -&gt; Request CreateStream
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679848317"><span class="annot"><span class="annottext">request :: CreateStream -&gt; Request CreateStream
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateStream -&gt; Request CreateStream
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679848304"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679848313"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateStream
 -&gt; ClientResponse ClientBody
@@ -350,10 +350,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679848301"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848301"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679848300"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679848300"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679848299"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679848299"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679848310"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679848310"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679848309"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679848309"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679848308"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679848308"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -374,7 +374,7 @@ MonadResource m =&gt;
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateStreamResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679848299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679848308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;streamVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -387,7 +387,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateStreamResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679848299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679848308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;streamArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -397,7 +397,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; CreateStreamResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679848299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679848308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
@@ -406,7 +406,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; CreateStreamResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679848299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679848308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;streamId&quot;</span></span><span class="hs-special">)</span><span>
@@ -418,24 +418,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848301"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679848310"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848291"><span id="local-6989586621679848293"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848300"><span id="local-6989586621679848302"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span></span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848288"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848297"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679848284"><span class="annot"><span class="annottext">toHeaders :: CreateStream -&gt; ResponseHeaders
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679848293"><span class="annot"><span class="annottext">toHeaders :: CreateStream -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateStream -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848275"><span id="local-6989586621679848277"><span id="local-6989586621679848279"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679848273"><span class="annot"><span class="annottext">toJSON :: CreateStream -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848267"><span id="local-6989586621679848268"><span id="local-6989586621679848269"><span id="local-6989586621679848270"><span id="local-6989586621679848271"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848284"><span id="local-6989586621679848286"><span id="local-6989586621679848288"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679848282"><span class="annot"><span class="annottext">toJSON :: CreateStream -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848276"><span id="local-6989586621679848277"><span id="local-6989586621679848278"><span id="local-6989586621679848279"><span id="local-6989586621679848280"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe Text
 NonEmpty StreamFile
 Text
@@ -449,7 +449,7 @@ $sel:files:CreateStream' :: CreateStream -&gt; NonEmpty StreamFile
 $sel:streamId:CreateStream' :: CreateStream -&gt; Text
 $sel:tags:CreateStream' :: CreateStream -&gt; Maybe [Tag]
 $sel:description:CreateStream' :: CreateStream -&gt; Maybe Text
-</span><a href="#local-6989586621679848267"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679848276"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -461,34 +461,34 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848271"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679848280"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679848270"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679848279"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;files&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty StreamFile -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty StreamFile
-</span><a href="#local-6989586621679848268"><span class="hs-identifier hs-var">files</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679848277"><span class="hs-identifier hs-var">files</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848267"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679848276"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679848261"><span class="annot"><span class="annottext">toPath :: CreateStream -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848255"><span id="local-6989586621679848256"><span id="local-6989586621679848257"><span id="local-6989586621679848258"><span id="local-6989586621679848259"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679848270"><span class="annot"><span class="annottext">toPath :: CreateStream -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream%27"><span class="hs-identifier hs-type">CreateStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848264"><span id="local-6989586621679848265"><span id="local-6989586621679848266"><span id="local-6989586621679848267"><span id="local-6989586621679848268"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe Text
 NonEmpty StreamFile
 Text
@@ -502,17 +502,17 @@ $sel:files:CreateStream' :: CreateStream -&gt; NonEmpty StreamFile
 $sel:streamId:CreateStream' :: CreateStream -&gt; Text
 $sel:tags:CreateStream' :: CreateStream -&gt; Maybe [Tag]
 $sel:description:CreateStream' :: CreateStream -&gt; Maybe Text
-</span><a href="#local-6989586621679848255"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679848264"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/streams/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848257"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679848266"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStream"><span class="hs-identifier hs-type">CreateStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679848251"><span class="annot"><span class="annottext">toQuery :: CreateStream -&gt; QueryString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679848260"><span class="annot"><span class="annottext">toQuery :: CreateStream -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateStream -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -520,7 +520,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newCreateStreamResponse' smart constructor.</span><span>
-</span><span id="line-175"></span><span id="local-6989586621679848248"><span id="local-6989586621679848249"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStreamResponse"><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-var">CreateStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStreamResponse%27"><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-var">CreateStreamResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span id="local-6989586621679848257"><span id="local-6989586621679848258"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStreamResponse"><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-var">CreateStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStreamResponse%27"><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-var">CreateStreamResponse'</span></a></span></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the stream.</span><span>
 </span><span id="line-177"></span><span>    </span><span id="%24sel%3AstreamVersion%3ACreateStreamResponse%27"><span class="annot"><span class="annottext">CreateStreamResponse -&gt; Maybe Natural
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3AstreamVersion%3ACreateStreamResponse%27"><span class="hs-identifier hs-var hs-var">streamVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -537,7 +537,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-185"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateStreamResponse%27"><span class="annot"><span class="annottext">CreateStreamResponse -&gt; Int
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3AhttpStatus%3ACreateStreamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679848239"><span id="local-6989586621679848241"><span class="annot"><span class="annottext">CreateStreamResponse -&gt; CreateStreamResponse -&gt; Bool
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679848248"><span id="local-6989586621679848250"><span class="annot"><span class="annottext">CreateStreamResponse -&gt; CreateStreamResponse -&gt; Bool
 (CreateStreamResponse -&gt; CreateStreamResponse -&gt; Bool)
 -&gt; (CreateStreamResponse -&gt; CreateStreamResponse -&gt; Bool)
 -&gt; Eq CreateStreamResponse
@@ -546,7 +546,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateStreamResponse -&gt; CreateStreamResponse -&gt; Bool
 == :: CreateStreamResponse -&gt; CreateStreamResponse -&gt; Bool
 $c== :: CreateStreamResponse -&gt; CreateStreamResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848231"><span id="local-6989586621679848233"><span id="local-6989586621679848235"><span id="local-6989586621679848237"><span class="annot"><span class="annottext">ReadPrec [CreateStreamResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848240"><span id="local-6989586621679848242"><span id="local-6989586621679848244"><span id="local-6989586621679848246"><span class="annot"><span class="annottext">ReadPrec [CreateStreamResponse]
 ReadPrec CreateStreamResponse
 Int -&gt; ReadS CreateStreamResponse
 ReadS [CreateStreamResponse]
@@ -566,7 +566,7 @@ readList :: ReadS [CreateStreamResponse]
 $creadList :: ReadS [CreateStreamResponse]
 readsPrec :: Int -&gt; ReadS CreateStreamResponse
 $creadsPrec :: Int -&gt; ReadS CreateStreamResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848225"><span id="local-6989586621679848227"><span id="local-6989586621679848229"><span class="annot"><span class="annottext">Int -&gt; CreateStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848234"><span id="local-6989586621679848236"><span id="local-6989586621679848238"><span class="annot"><span class="annottext">Int -&gt; CreateStreamResponse -&gt; ShowS
 [CreateStreamResponse] -&gt; ShowS
 CreateStreamResponse -&gt; String
 (Int -&gt; CreateStreamResponse -&gt; ShowS)
@@ -614,8 +614,8 @@ $cfrom :: forall x. CreateStreamResponse -&gt; Rep CreateStreamResponse x
 </span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-209"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span>
 </span><span id="line-210"></span><span id="newCreateStreamResponse"><span class="annot"><span class="annottext">newCreateStreamResponse :: Int -&gt; CreateStreamResponse
-</span><a href="Network.AWS.IoT.CreateStream.html#newCreateStreamResponse"><span class="hs-identifier hs-var hs-var">newCreateStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679848222"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848222"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.CreateStream.html#newCreateStreamResponse"><span class="hs-identifier hs-var hs-var">newCreateStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679848231"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679848231"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-211"></span><span>  </span><span class="annot"><span class="annottext">CreateStreamResponse' :: Maybe Natural
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -642,7 +642,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateStreamResponse' :: Int
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3AhttpStatus%3ACreateStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848222"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679848231"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | The version of the stream.</span><span>
@@ -657,16 +657,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848221"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848230"><span class="annot"><span class="annottext">Maybe Natural
 streamVersion :: Maybe Natural
 $sel:streamVersion:CreateStreamResponse' :: CreateStreamResponse -&gt; Maybe Natural
-</span><a href="#local-6989586621679848221"><span class="hs-identifier hs-var hs-var">streamVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679848221"><span class="hs-identifier hs-var">streamVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848220"><span class="annot"><span class="annottext">s :: CreateStreamResponse
-</span><a href="#local-6989586621679848220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848219"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679848219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamResponse
-</span><a href="#local-6989586621679848220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamVersion:CreateStreamResponse' :: Maybe Natural
+</span><a href="#local-6989586621679848230"><span class="hs-identifier hs-var hs-var">streamVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679848230"><span class="hs-identifier hs-var">streamVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848229"><span class="annot"><span class="annottext">s :: CreateStreamResponse
+</span><a href="#local-6989586621679848229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848228"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679848228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamResponse
+</span><a href="#local-6989586621679848229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamVersion:CreateStreamResponse' :: Maybe Natural
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3AstreamVersion%3ACreateStreamResponse%27"><span class="hs-identifier hs-var">streamVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679848219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679848228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | The stream ARN.</span><span>
 </span><span id="line-225"></span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#createStreamResponse_streamArn"><span class="hs-identifier hs-type">createStreamResponse_streamArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -677,16 +677,16 @@ $sel:streamVersion:CreateStreamResponse' :: CreateStreamResponse -&gt; Maybe Nat
 -&gt; Lens
      CreateStreamResponse CreateStreamResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848218"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848227"><span class="annot"><span class="annottext">Maybe Text
 streamArn :: Maybe Text
 $sel:streamArn:CreateStreamResponse' :: CreateStreamResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679848218"><span class="hs-identifier hs-var hs-var">streamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848218"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848217"><span class="annot"><span class="annottext">s :: CreateStreamResponse
-</span><a href="#local-6989586621679848217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848216"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamResponse
-</span><a href="#local-6989586621679848217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamArn:CreateStreamResponse' :: Maybe Text
+</span><a href="#local-6989586621679848227"><span class="hs-identifier hs-var hs-var">streamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679848227"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848226"><span class="annot"><span class="annottext">s :: CreateStreamResponse
+</span><a href="#local-6989586621679848226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848225"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679848225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamResponse
+</span><a href="#local-6989586621679848226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamArn:CreateStreamResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3AstreamArn%3ACreateStreamResponse%27"><span class="hs-identifier hs-var">streamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679848225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | A description of the stream.</span><span>
 </span><span id="line-229"></span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#createStreamResponse_description"><span class="hs-identifier hs-type">createStreamResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -697,16 +697,16 @@ $sel:streamArn:CreateStreamResponse' :: CreateStreamResponse -&gt; Maybe Text
 -&gt; Lens
      CreateStreamResponse CreateStreamResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848215"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848224"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CreateStreamResponse' :: CreateStreamResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679848215"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848215"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848214"><span class="annot"><span class="annottext">s :: CreateStreamResponse
-</span><a href="#local-6989586621679848214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848213"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamResponse
-</span><a href="#local-6989586621679848214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateStreamResponse' :: Maybe Text
+</span><a href="#local-6989586621679848224"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679848224"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848223"><span class="annot"><span class="annottext">s :: CreateStreamResponse
+</span><a href="#local-6989586621679848223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848222"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679848222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamResponse
+</span><a href="#local-6989586621679848223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateStreamResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3Adescription%3ACreateStreamResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679848222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- | The stream ID.</span><span>
 </span><span id="line-233"></span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#createStreamResponse_streamId"><span class="hs-identifier hs-type">createStreamResponse_streamId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -717,16 +717,16 @@ $sel:description:CreateStreamResponse' :: CreateStreamResponse -&gt; Maybe Text
 -&gt; Lens
      CreateStreamResponse CreateStreamResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848212"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848221"><span class="annot"><span class="annottext">Maybe Text
 streamId :: Maybe Text
 $sel:streamId:CreateStreamResponse' :: CreateStreamResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679848212"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848212"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848211"><span class="annot"><span class="annottext">s :: CreateStreamResponse
-</span><a href="#local-6989586621679848211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848210"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamResponse
-</span><a href="#local-6989586621679848211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamId:CreateStreamResponse' :: Maybe Text
+</span><a href="#local-6989586621679848221"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679848221"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848220"><span class="annot"><span class="annottext">s :: CreateStreamResponse
+</span><a href="#local-6989586621679848220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848219"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679848219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamResponse
+</span><a href="#local-6989586621679848220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamId:CreateStreamResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3AstreamId%3ACreateStreamResponse%27"><span class="hs-identifier hs-var">streamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679848219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-237"></span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#createStreamResponse_httpStatus"><span class="hs-identifier hs-type">createStreamResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -735,16 +735,16 @@ $sel:streamId:CreateStreamResponse' :: CreateStreamResponse -&gt; Maybe Text
 -&gt; (CreateStreamResponse -&gt; Int -&gt; CreateStreamResponse)
 -&gt; Lens CreateStreamResponse CreateStreamResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848209"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848218"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateStreamResponse' :: CreateStreamResponse -&gt; Int
-</span><a href="#local-6989586621679848209"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848209"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848208"><span class="annot"><span class="annottext">s :: CreateStreamResponse
-</span><a href="#local-6989586621679848208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848207"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamResponse
-</span><a href="#local-6989586621679848208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateStreamResponse' :: Int
+</span><a href="#local-6989586621679848218"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679848218"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848217"><span class="annot"><span class="annottext">s :: CreateStreamResponse
+</span><a href="#local-6989586621679848217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse%27"><span class="hs-identifier hs-type">CreateStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848216"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679848216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStreamResponse
+</span><a href="#local-6989586621679848217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateStreamResponse' :: Int
 </span><a href="Network.AWS.IoT.CreateStream.html#%24sel%3AhttpStatus%3ACreateStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679848216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848214"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateStream.html#CreateStreamResponse"><span class="hs-identifier hs-type">CreateStreamResponse</span></a></span></span><span>
 </span><span id="line-241"></span></pre></body></html>

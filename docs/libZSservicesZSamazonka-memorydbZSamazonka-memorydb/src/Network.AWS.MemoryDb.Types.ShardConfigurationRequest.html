@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MemoryDb.Types.ShardConfigurationRequest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MemoryDb.Types.ShardConfigurationRequest</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A request to configure the sharding properties of a cluster</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newShardConfigurationRequest' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679244327"><span id="local-6989586621679244328"></span></span><span class="hs-keyword">data</span><span> </span><span id="ShardConfigurationRequest"><span class="annot"><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#ShardConfigurationRequest"><span class="hs-identifier hs-var">ShardConfigurationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShardConfigurationRequest%27"><span class="annot"><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#ShardConfigurationRequest%27"><span class="hs-identifier hs-var">ShardConfigurationRequest'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of shards in the cluster</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AshardCount%3AShardConfigurationRequest%27"><span class="annot"><span class="annottext">ShardConfigurationRequest -&gt; Maybe Int
+</span><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#%24sel%3AshardCount%3AShardConfigurationRequest%27"><span class="hs-identifier hs-var hs-var">shardCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244321"><span id="local-6989586621679244323"><span class="annot"><span class="annottext">ShardConfigurationRequest -&gt; ShardConfigurationRequest -&gt; Bool
+(ShardConfigurationRequest -&gt; ShardConfigurationRequest -&gt; Bool)
+-&gt; (ShardConfigurationRequest -&gt; ShardConfigurationRequest -&gt; Bool)
+-&gt; Eq ShardConfigurationRequest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ShardConfigurationRequest -&gt; ShardConfigurationRequest -&gt; Bool
+$c/= :: ShardConfigurationRequest -&gt; ShardConfigurationRequest -&gt; Bool
+== :: ShardConfigurationRequest -&gt; ShardConfigurationRequest -&gt; Bool
+$c== :: ShardConfigurationRequest -&gt; ShardConfigurationRequest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244312"><span id="local-6989586621679244314"><span id="local-6989586621679244316"><span id="local-6989586621679244318"><span class="annot"><span class="annottext">ReadPrec [ShardConfigurationRequest]
+ReadPrec ShardConfigurationRequest
+Int -&gt; ReadS ShardConfigurationRequest
+ReadS [ShardConfigurationRequest]
+(Int -&gt; ReadS ShardConfigurationRequest)
+-&gt; ReadS [ShardConfigurationRequest]
+-&gt; ReadPrec ShardConfigurationRequest
+-&gt; ReadPrec [ShardConfigurationRequest]
+-&gt; Read ShardConfigurationRequest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ShardConfigurationRequest]
+$creadListPrec :: ReadPrec [ShardConfigurationRequest]
+readPrec :: ReadPrec ShardConfigurationRequest
+$creadPrec :: ReadPrec ShardConfigurationRequest
+readList :: ReadS [ShardConfigurationRequest]
+$creadList :: ReadS [ShardConfigurationRequest]
+readsPrec :: Int -&gt; ReadS ShardConfigurationRequest
+$creadsPrec :: Int -&gt; ReadS ShardConfigurationRequest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244305"><span id="local-6989586621679244307"><span id="local-6989586621679244309"><span class="annot"><span class="annottext">Int -&gt; ShardConfigurationRequest -&gt; ShowS
+[ShardConfigurationRequest] -&gt; ShowS
+ShardConfigurationRequest -&gt; String
+(Int -&gt; ShardConfigurationRequest -&gt; ShowS)
+-&gt; (ShardConfigurationRequest -&gt; String)
+-&gt; ([ShardConfigurationRequest] -&gt; ShowS)
+-&gt; Show ShardConfigurationRequest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ShardConfigurationRequest] -&gt; ShowS
+$cshowList :: [ShardConfigurationRequest] -&gt; ShowS
+show :: ShardConfigurationRequest -&gt; String
+$cshow :: ShardConfigurationRequest -&gt; String
+showsPrec :: Int -&gt; ShardConfigurationRequest -&gt; ShowS
+$cshowsPrec :: Int -&gt; ShardConfigurationRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ShardConfigurationRequest -&gt; Rep ShardConfigurationRequest x)
+-&gt; (forall x.
+    Rep ShardConfigurationRequest x -&gt; ShardConfigurationRequest)
+-&gt; Generic ShardConfigurationRequest
+forall x.
+Rep ShardConfigurationRequest x -&gt; ShardConfigurationRequest
+forall x.
+ShardConfigurationRequest -&gt; Rep ShardConfigurationRequest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ShardConfigurationRequest x -&gt; ShardConfigurationRequest
+$cfrom :: forall x.
+ShardConfigurationRequest -&gt; Rep ShardConfigurationRequest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Create a value of 'ShardConfigurationRequest' with all optional fields omitted.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- 'shardCount', 'shardConfigurationRequest_shardCount' - The number of shards in the cluster</span><span>
+</span><span id="line-44"></span><span class="annot"><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#newShardConfigurationRequest"><span class="hs-identifier hs-type">newShardConfigurationRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-45"></span><span>  </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#ShardConfigurationRequest"><span class="hs-identifier hs-type">ShardConfigurationRequest</span></a></span><span>
+</span><span id="line-46"></span><span id="newShardConfigurationRequest"><span class="annot"><span class="annottext">newShardConfigurationRequest :: ShardConfigurationRequest
+</span><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#newShardConfigurationRequest"><span class="hs-identifier hs-var hs-var">newShardConfigurationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-47"></span><span>  </span><span class="annot"><span class="annottext">ShardConfigurationRequest' :: Maybe Int -&gt; ShardConfigurationRequest
+</span><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#ShardConfigurationRequest%27"><span class="hs-identifier hs-type">ShardConfigurationRequest'</span></a></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:shardCount:ShardConfigurationRequest' :: Maybe Int
+</span><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#%24sel%3AshardCount%3AShardConfigurationRequest%27"><span class="hs-identifier hs-var">shardCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-49"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | The number of shards in the cluster</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#shardConfigurationRequest_shardCount"><span class="hs-identifier hs-type">shardConfigurationRequest_shardCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#ShardConfigurationRequest"><span class="hs-identifier hs-type">ShardConfigurationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span id="shardConfigurationRequest_shardCount"><span class="annot"><span class="annottext">shardConfigurationRequest_shardCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ShardConfigurationRequest -&gt; f ShardConfigurationRequest
+</span><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#shardConfigurationRequest_shardCount"><span class="hs-identifier hs-var hs-var">shardConfigurationRequest_shardCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ShardConfigurationRequest -&gt; Maybe Int)
+-&gt; (ShardConfigurationRequest
+    -&gt; Maybe Int -&gt; ShardConfigurationRequest)
+-&gt; Lens
+     ShardConfigurationRequest
+     ShardConfigurationRequest
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#ShardConfigurationRequest%27"><span class="hs-identifier hs-type">ShardConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244296"><span class="annot"><span class="annottext">Maybe Int
+shardCount :: Maybe Int
+$sel:shardCount:ShardConfigurationRequest' :: ShardConfigurationRequest -&gt; Maybe Int
+</span><a href="#local-6989586621679244296"><span class="hs-identifier hs-var hs-var">shardCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679244296"><span class="hs-identifier hs-var">shardCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244295"><span class="annot"><span class="annottext">s :: ShardConfigurationRequest
+</span><a href="#local-6989586621679244295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#ShardConfigurationRequest%27"><span class="hs-identifier hs-type">ShardConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244294"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679244294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShardConfigurationRequest
+</span><a href="#local-6989586621679244295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardCount:ShardConfigurationRequest' :: Maybe Int
+</span><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#%24sel%3AshardCount%3AShardConfigurationRequest%27"><span class="hs-identifier hs-var">shardCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679244294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#ShardConfigurationRequest"><span class="hs-identifier hs-type">ShardConfigurationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244290"><span id="local-6989586621679244292"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#ShardConfigurationRequest"><span class="hs-identifier hs-type">ShardConfigurationRequest</span></a></span></span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244287"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#ShardConfigurationRequest"><span class="hs-identifier hs-type">ShardConfigurationRequest</span></a></span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244279"><span id="local-6989586621679244281"><span id="local-6989586621679244283"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#ShardConfigurationRequest"><span class="hs-identifier hs-type">ShardConfigurationRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679244277"><span class="annot"><span class="annottext">toJSON :: ShardConfigurationRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.ShardConfigurationRequest.html#ShardConfigurationRequest%27"><span class="hs-identifier hs-type">ShardConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244275"><span class="annot"><span class="annottext">Maybe Int
+shardCount :: Maybe Int
+$sel:shardCount:ShardConfigurationRequest' :: ShardConfigurationRequest -&gt; Maybe Int
+</span><a href="#local-6989586621679244275"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-64"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ShardCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679244275"><span class="hs-identifier hs-var">shardCount</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span></pre></body></html>

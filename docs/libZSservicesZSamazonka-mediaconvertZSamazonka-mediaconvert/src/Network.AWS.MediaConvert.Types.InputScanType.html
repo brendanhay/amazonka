@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- Auto is the correct setting for all inputs that are not PsF. Don\'t set</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- this value to PsF when your input is interlaced. Doing so creates</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- horizontal interlacing artifacts.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679982908"><span id="local-6989586621679982909"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputScanType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputScanType.html#InputScanType"><span class="hs-identifier hs-var">InputScanType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputScanType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputScanType.html#InputScanType%27"><span class="hs-identifier hs-var">InputScanType'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679982917"><span id="local-6989586621679982918"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputScanType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputScanType.html#InputScanType"><span class="hs-identifier hs-var">InputScanType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputScanType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputScanType.html#InputScanType%27"><span class="hs-identifier hs-var">InputScanType'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInputScanType"><span class="annot"><span class="annottext">InputScanType -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.InputScanType.html#fromInputScanType"><span class="hs-identifier hs-var hs-var">fromInputScanType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679982900"><span id="local-6989586621679982902"><span id="local-6989586621679982904"><span class="annot"><span class="annottext">Int -&gt; InputScanType -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679982909"><span id="local-6989586621679982911"><span id="local-6989586621679982913"><span class="annot"><span class="annottext">Int -&gt; InputScanType -&gt; ShowS
 [InputScanType] -&gt; ShowS
 InputScanType -&gt; String
 (Int -&gt; InputScanType -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: InputScanType -&gt; String
 showsPrec :: Int -&gt; InputScanType -&gt; ShowS
 $cshowsPrec :: Int -&gt; InputScanType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679982891"><span id="local-6989586621679982893"><span id="local-6989586621679982895"><span id="local-6989586621679982897"><span class="annot"><span class="annottext">ReadPrec [InputScanType]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679982900"><span id="local-6989586621679982902"><span id="local-6989586621679982904"><span id="local-6989586621679982906"><span class="annot"><span class="annottext">ReadPrec [InputScanType]
 ReadPrec InputScanType
 Int -&gt; ReadS InputScanType
 ReadS [InputScanType]
@@ -80,7 +80,7 @@ $creadList :: ReadS [InputScanType]
 readsPrec :: Int -&gt; ReadS InputScanType
 $creadsPrec :: Int -&gt; ReadS InputScanType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679982886"><span id="local-6989586621679982888"><span class="annot"><span class="annottext">InputScanType -&gt; InputScanType -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679982895"><span id="local-6989586621679982897"><span class="annot"><span class="annottext">InputScanType -&gt; InputScanType -&gt; Bool
 (InputScanType -&gt; InputScanType -&gt; Bool)
 -&gt; (InputScanType -&gt; InputScanType -&gt; Bool) -&gt; Eq InputScanType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ $c/= :: InputScanType -&gt; InputScanType -&gt; Bool
 == :: InputScanType -&gt; InputScanType -&gt; Bool
 $c== :: InputScanType -&gt; InputScanType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679982870"><span id="local-6989586621679982872"><span id="local-6989586621679982874"><span id="local-6989586621679982876"><span id="local-6989586621679982878"><span id="local-6989586621679982880"><span id="local-6989586621679982882"><span class="annot"><span class="annottext">Eq InputScanType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679982879"><span id="local-6989586621679982881"><span id="local-6989586621679982883"><span id="local-6989586621679982885"><span id="local-6989586621679982887"><span id="local-6989586621679982889"><span id="local-6989586621679982891"><span class="annot"><span class="annottext">Eq InputScanType
 Eq InputScanType
 -&gt; (InputScanType -&gt; InputScanType -&gt; Ordering)
 -&gt; (InputScanType -&gt; InputScanType -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. InputScanType -&gt; Rep InputScanType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679982862"><span id="local-6989586621679982864"><span class="annot"><span class="annottext">Int -&gt; InputScanType -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679982871"><span id="local-6989586621679982873"><span class="annot"><span class="annottext">Int -&gt; InputScanType -&gt; Int
 InputScanType -&gt; Int
 (Int -&gt; InputScanType -&gt; Int)
 -&gt; (InputScanType -&gt; Int) -&gt; Hashable InputScanType
@@ -150,49 +150,49 @@ $chash :: InputScanType -&gt; Int
 hashWithSalt :: Int -&gt; InputScanType -&gt; Int
 $chashWithSalt :: Int -&gt; InputScanType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679982859"><span class="annot"><span class="annottext">InputScanType -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679982868"><span class="annot"><span class="annottext">InputScanType -&gt; ()
 (InputScanType -&gt; ()) -&gt; NFData InputScanType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InputScanType -&gt; ()
 $crnf :: InputScanType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679982856"><span class="annot"><span class="annottext">Text -&gt; Either String InputScanType
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679982865"><span class="annot"><span class="annottext">Text -&gt; Either String InputScanType
 (Text -&gt; Either String InputScanType) -&gt; FromText InputScanType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InputScanType
 $cfromText :: Text -&gt; Either String InputScanType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679982853"><span class="annot"><span class="annottext">InputScanType -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679982862"><span class="annot"><span class="annottext">InputScanType -&gt; Text
 (InputScanType -&gt; Text) -&gt; ToText InputScanType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InputScanType -&gt; Text
 $ctoText :: InputScanType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679982850"><span class="annot"><span class="annottext">InputScanType -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679982859"><span class="annot"><span class="annottext">InputScanType -&gt; ByteString
 (InputScanType -&gt; ByteString) -&gt; ToByteString InputScanType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InputScanType -&gt; ByteString
 $ctoBS :: InputScanType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679982847"><span class="annot"><span class="annottext">InputScanType -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679982856"><span class="annot"><span class="annottext">InputScanType -&gt; ByteStringBuilder
 (InputScanType -&gt; ByteStringBuilder) -&gt; ToLog InputScanType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InputScanType -&gt; ByteStringBuilder
 $cbuild :: InputScanType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679982844"><span class="annot"><span class="annottext">HeaderName -&gt; InputScanType -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679982853"><span class="annot"><span class="annottext">HeaderName -&gt; InputScanType -&gt; [Header]
 (HeaderName -&gt; InputScanType -&gt; [Header]) -&gt; ToHeader InputScanType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InputScanType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InputScanType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679982841"><span class="annot"><span class="annottext">InputScanType -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679982850"><span class="annot"><span class="annottext">InputScanType -&gt; QueryString
 (InputScanType -&gt; QueryString) -&gt; ToQuery InputScanType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InputScanType -&gt; QueryString
 $ctoQuery :: InputScanType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679982836"><span id="local-6989586621679982838"><span class="annot"><span class="annottext">Value -&gt; Parser [InputScanType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679982845"><span id="local-6989586621679982847"><span class="annot"><span class="annottext">Value -&gt; Parser [InputScanType]
 Value -&gt; Parser InputScanType
 (Value -&gt; Parser InputScanType)
 -&gt; (Value -&gt; Parser [InputScanType]) -&gt; FromJSON InputScanType
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [InputScanType]
 parseJSON :: Value -&gt; Parser InputScanType
 $cparseJSON :: Value -&gt; Parser InputScanType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679982831"><span id="local-6989586621679982833"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputScanType]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679982840"><span id="local-6989586621679982842"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputScanType]
 FromJSONKeyFunction InputScanType
 FromJSONKeyFunction InputScanType
 -&gt; FromJSONKeyFunction [InputScanType] -&gt; FromJSONKey InputScanType
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InputScanType]
 fromJSONKey :: FromJSONKeyFunction InputScanType
 $cfromJSONKey :: FromJSONKeyFunction InputScanType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679982822"><span id="local-6989586621679982824"><span id="local-6989586621679982826"><span id="local-6989586621679982828"><span class="annot"><span class="annottext">[InputScanType] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679982831"><span id="local-6989586621679982833"><span id="local-6989586621679982835"><span id="local-6989586621679982837"><span class="annot"><span class="annottext">[InputScanType] -&gt; Encoding
 [InputScanType] -&gt; Value
 InputScanType -&gt; Encoding
 InputScanType -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: InputScanType -&gt; Encoding
 toJSON :: InputScanType -&gt; Value
 $ctoJSON :: InputScanType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679982817"><span id="local-6989586621679982819"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputScanType]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679982826"><span id="local-6989586621679982828"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputScanType]
 ToJSONKeyFunction InputScanType
 ToJSONKeyFunction InputScanType
 -&gt; ToJSONKeyFunction [InputScanType] -&gt; ToJSONKey InputScanType
@@ -249,13 +249,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InputScanType]
 toJSONKey :: ToJSONKeyFunction InputScanType
 $ctoJSONKey :: ToJSONKeyFunction InputScanType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679982814"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputScanType
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679982823"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputScanType
 ([Node] -&gt; Either String InputScanType) -&gt; FromXML InputScanType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InputScanType
 $cparseXML :: [Node] -&gt; Either String InputScanType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679982811"><span class="annot"><span class="annottext">InputScanType -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679982820"><span class="annot"><span class="annottext">InputScanType -&gt; XML
 (InputScanType -&gt; XML) -&gt; ToXML InputScanType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InputScanType -&gt; XML

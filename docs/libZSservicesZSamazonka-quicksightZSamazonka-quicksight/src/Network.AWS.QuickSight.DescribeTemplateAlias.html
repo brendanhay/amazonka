@@ -1,0 +1,568 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.DescribeTemplateAlias</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the template alias for a template.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.DescribeTemplateAlias</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias"><span class="hs-identifier">DescribeTemplateAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#newDescribeTemplateAlias"><span class="hs-identifier">newDescribeTemplateAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAlias_awsAccountId"><span class="hs-identifier">describeTemplateAlias_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAlias_templateId"><span class="hs-identifier">describeTemplateAlias_templateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAlias_aliasName"><span class="hs-identifier">describeTemplateAlias_aliasName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse"><span class="hs-identifier">DescribeTemplateAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#newDescribeTemplateAliasResponse"><span class="hs-identifier">newDescribeTemplateAliasResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAliasResponse_requestId"><span class="hs-identifier">describeTemplateAliasResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAliasResponse_templateAlias"><span class="hs-identifier">describeTemplateAliasResponse_templateAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAliasResponse_status"><span class="hs-identifier">describeTemplateAliasResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.html"><span class="hs-identifier">Network.AWS.QuickSight.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDescribeTemplateAlias' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679584670"><span id="local-6989586621679584671"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTemplateAlias"><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias"><span class="hs-identifier hs-var">DescribeTemplateAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTemplateAlias%27"><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias%27"><span class="hs-identifier hs-var">DescribeTemplateAlias'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the template</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- alias that you\'re describing.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AawsAccountId%3ADescribeTemplateAlias%27"><span class="annot"><span class="annottext">DescribeTemplateAlias -&gt; Text
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3AawsAccountId%3ADescribeTemplateAlias%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The ID for the template.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AtemplateId%3ADescribeTemplateAlias%27"><span class="annot"><span class="annottext">DescribeTemplateAlias -&gt; Text
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3AtemplateId%3ADescribeTemplateAlias%27"><span class="hs-identifier hs-var hs-var">templateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the template alias that you want to describe. If you name a</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- specific alias, you describe the version that the alias points to. You</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- can specify the latest version of the template by providing the keyword</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @$LATEST@ in the @AliasName@ parameter. The keyword @$PUBLISHED@</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- doesn\'t apply to templates.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AaliasName%3ADescribeTemplateAlias%27"><span class="annot"><span class="annottext">DescribeTemplateAlias -&gt; Text
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3AaliasName%3ADescribeTemplateAlias%27"><span class="hs-identifier hs-var hs-var">aliasName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679584662"><span id="local-6989586621679584664"><span class="annot"><span class="annottext">DescribeTemplateAlias -&gt; DescribeTemplateAlias -&gt; Bool
+(DescribeTemplateAlias -&gt; DescribeTemplateAlias -&gt; Bool)
+-&gt; (DescribeTemplateAlias -&gt; DescribeTemplateAlias -&gt; Bool)
+-&gt; Eq DescribeTemplateAlias
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeTemplateAlias -&gt; DescribeTemplateAlias -&gt; Bool
+$c/= :: DescribeTemplateAlias -&gt; DescribeTemplateAlias -&gt; Bool
+== :: DescribeTemplateAlias -&gt; DescribeTemplateAlias -&gt; Bool
+$c== :: DescribeTemplateAlias -&gt; DescribeTemplateAlias -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679584653"><span id="local-6989586621679584655"><span id="local-6989586621679584657"><span id="local-6989586621679584659"><span class="annot"><span class="annottext">ReadPrec [DescribeTemplateAlias]
+ReadPrec DescribeTemplateAlias
+Int -&gt; ReadS DescribeTemplateAlias
+ReadS [DescribeTemplateAlias]
+(Int -&gt; ReadS DescribeTemplateAlias)
+-&gt; ReadS [DescribeTemplateAlias]
+-&gt; ReadPrec DescribeTemplateAlias
+-&gt; ReadPrec [DescribeTemplateAlias]
+-&gt; Read DescribeTemplateAlias
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeTemplateAlias]
+$creadListPrec :: ReadPrec [DescribeTemplateAlias]
+readPrec :: ReadPrec DescribeTemplateAlias
+$creadPrec :: ReadPrec DescribeTemplateAlias
+readList :: ReadS [DescribeTemplateAlias]
+$creadList :: ReadS [DescribeTemplateAlias]
+readsPrec :: Int -&gt; ReadS DescribeTemplateAlias
+$creadsPrec :: Int -&gt; ReadS DescribeTemplateAlias
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679584646"><span id="local-6989586621679584648"><span id="local-6989586621679584650"><span class="annot"><span class="annottext">Int -&gt; DescribeTemplateAlias -&gt; ShowS
+[DescribeTemplateAlias] -&gt; ShowS
+DescribeTemplateAlias -&gt; String
+(Int -&gt; DescribeTemplateAlias -&gt; ShowS)
+-&gt; (DescribeTemplateAlias -&gt; String)
+-&gt; ([DescribeTemplateAlias] -&gt; ShowS)
+-&gt; Show DescribeTemplateAlias
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeTemplateAlias] -&gt; ShowS
+$cshowList :: [DescribeTemplateAlias] -&gt; ShowS
+show :: DescribeTemplateAlias -&gt; String
+$cshow :: DescribeTemplateAlias -&gt; String
+showsPrec :: Int -&gt; DescribeTemplateAlias -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeTemplateAlias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeTemplateAlias -&gt; Rep DescribeTemplateAlias x)
+-&gt; (forall x. Rep DescribeTemplateAlias x -&gt; DescribeTemplateAlias)
+-&gt; Generic DescribeTemplateAlias
+forall x. Rep DescribeTemplateAlias x -&gt; DescribeTemplateAlias
+forall x. DescribeTemplateAlias -&gt; Rep DescribeTemplateAlias x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeTemplateAlias x -&gt; DescribeTemplateAlias
+$cfrom :: forall x. DescribeTemplateAlias -&gt; Rep DescribeTemplateAlias x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'DescribeTemplateAlias' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'awsAccountId', 'describeTemplateAlias_awsAccountId' - The ID of the Amazon Web Services account that contains the template</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- alias that you\'re describing.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'templateId', 'describeTemplateAlias_templateId' - The ID for the template.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'aliasName', 'describeTemplateAlias_aliasName' - The name of the template alias that you want to describe. If you name a</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- specific alias, you describe the version that the alias points to. You</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- can specify the latest version of the template by providing the keyword</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- @$LATEST@ in the @AliasName@ parameter. The keyword @$PUBLISHED@</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- doesn\'t apply to templates.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#newDescribeTemplateAlias"><span class="hs-identifier hs-type">newDescribeTemplateAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'templateId'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'aliasName'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias"><span class="hs-identifier hs-type">DescribeTemplateAlias</span></a></span><span>
+</span><span id="line-94"></span><span id="newDescribeTemplateAlias"><span class="annot"><span class="annottext">newDescribeTemplateAlias :: Text -&gt; Text -&gt; Text -&gt; DescribeTemplateAlias
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#newDescribeTemplateAlias"><span class="hs-identifier hs-var hs-var">newDescribeTemplateAlias</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679584641"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584641"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679584640"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584640"><span class="hs-identifier hs-var">pTemplateId_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679584639"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584639"><span class="hs-identifier hs-var">pAliasName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">DescribeTemplateAlias' :: Text -&gt; Text -&gt; Text -&gt; DescribeTemplateAlias
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias%27"><span class="hs-identifier hs-type">DescribeTemplateAlias'</span></a></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeTemplateAlias' :: Text
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3AawsAccountId%3ADescribeTemplateAlias%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584641"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateId:DescribeTemplateAlias' :: Text
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3AtemplateId%3ADescribeTemplateAlias%27"><span class="hs-identifier hs-var">templateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584640"><span class="hs-identifier hs-var">pTemplateId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:aliasName:DescribeTemplateAlias' :: Text
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3AaliasName%3ADescribeTemplateAlias%27"><span class="hs-identifier hs-var">aliasName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584639"><span class="hs-identifier hs-var">pAliasName_</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the template</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- alias that you\'re describing.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAlias_awsAccountId"><span class="hs-identifier hs-type">describeTemplateAlias_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias"><span class="hs-identifier hs-type">DescribeTemplateAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="describeTemplateAlias_awsAccountId"><span class="annot"><span class="annottext">describeTemplateAlias_awsAccountId :: (Text -&gt; f Text)
+-&gt; DescribeTemplateAlias -&gt; f DescribeTemplateAlias
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAlias_awsAccountId"><span class="hs-identifier hs-var hs-var">describeTemplateAlias_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTemplateAlias -&gt; Text)
+-&gt; (DescribeTemplateAlias -&gt; Text -&gt; DescribeTemplateAlias)
+-&gt; Lens DescribeTemplateAlias DescribeTemplateAlias Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias%27"><span class="hs-identifier hs-type">DescribeTemplateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679584636"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:DescribeTemplateAlias' :: DescribeTemplateAlias -&gt; Text
+</span><a href="#local-6989586621679584636"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584636"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679584635"><span class="annot"><span class="annottext">s :: DescribeTemplateAlias
+</span><a href="#local-6989586621679584635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias%27"><span class="hs-identifier hs-type">DescribeTemplateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679584634"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTemplateAlias
+</span><a href="#local-6989586621679584635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeTemplateAlias' :: Text
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3AawsAccountId%3ADescribeTemplateAlias%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias"><span class="hs-identifier hs-type">DescribeTemplateAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The ID for the template.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAlias_templateId"><span class="hs-identifier hs-type">describeTemplateAlias_templateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias"><span class="hs-identifier hs-type">DescribeTemplateAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="describeTemplateAlias_templateId"><span class="annot"><span class="annottext">describeTemplateAlias_templateId :: (Text -&gt; f Text)
+-&gt; DescribeTemplateAlias -&gt; f DescribeTemplateAlias
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAlias_templateId"><span class="hs-identifier hs-var hs-var">describeTemplateAlias_templateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTemplateAlias -&gt; Text)
+-&gt; (DescribeTemplateAlias -&gt; Text -&gt; DescribeTemplateAlias)
+-&gt; Lens DescribeTemplateAlias DescribeTemplateAlias Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias%27"><span class="hs-identifier hs-type">DescribeTemplateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679584633"><span class="annot"><span class="annottext">Text
+templateId :: Text
+$sel:templateId:DescribeTemplateAlias' :: DescribeTemplateAlias -&gt; Text
+</span><a href="#local-6989586621679584633"><span class="hs-identifier hs-var hs-var">templateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584633"><span class="hs-identifier hs-var">templateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679584632"><span class="annot"><span class="annottext">s :: DescribeTemplateAlias
+</span><a href="#local-6989586621679584632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias%27"><span class="hs-identifier hs-type">DescribeTemplateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679584631"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTemplateAlias
+</span><a href="#local-6989586621679584632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateId:DescribeTemplateAlias' :: Text
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3AtemplateId%3ADescribeTemplateAlias%27"><span class="hs-identifier hs-var">templateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias"><span class="hs-identifier hs-type">DescribeTemplateAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The name of the template alias that you want to describe. If you name a</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- specific alias, you describe the version that the alias points to. You</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- can specify the latest version of the template by providing the keyword</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- @$LATEST@ in the @AliasName@ parameter. The keyword @$PUBLISHED@</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- doesn\'t apply to templates.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAlias_aliasName"><span class="hs-identifier hs-type">describeTemplateAlias_aliasName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias"><span class="hs-identifier hs-type">DescribeTemplateAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="describeTemplateAlias_aliasName"><span class="annot"><span class="annottext">describeTemplateAlias_aliasName :: (Text -&gt; f Text)
+-&gt; DescribeTemplateAlias -&gt; f DescribeTemplateAlias
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAlias_aliasName"><span class="hs-identifier hs-var hs-var">describeTemplateAlias_aliasName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTemplateAlias -&gt; Text)
+-&gt; (DescribeTemplateAlias -&gt; Text -&gt; DescribeTemplateAlias)
+-&gt; Lens DescribeTemplateAlias DescribeTemplateAlias Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias%27"><span class="hs-identifier hs-type">DescribeTemplateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679584630"><span class="annot"><span class="annottext">Text
+aliasName :: Text
+$sel:aliasName:DescribeTemplateAlias' :: DescribeTemplateAlias -&gt; Text
+</span><a href="#local-6989586621679584630"><span class="hs-identifier hs-var hs-var">aliasName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584630"><span class="hs-identifier hs-var">aliasName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679584629"><span class="annot"><span class="annottext">s :: DescribeTemplateAlias
+</span><a href="#local-6989586621679584629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias%27"><span class="hs-identifier hs-type">DescribeTemplateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679584628"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTemplateAlias
+</span><a href="#local-6989586621679584629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasName:DescribeTemplateAlias' :: Text
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3AaliasName%3ADescribeTemplateAlias%27"><span class="hs-identifier hs-var">aliasName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias"><span class="hs-identifier hs-type">DescribeTemplateAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias"><span class="hs-identifier hs-type">DescribeTemplateAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias"><span class="hs-identifier hs-type">DescribeTemplateAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse"><span class="hs-identifier hs-type">DescribeTemplateAliasResponse</span></a></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679584624"><span class="annot"><span class="annottext">request :: DescribeTemplateAlias -&gt; Request DescribeTemplateAlias
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeTemplateAlias -&gt; Request DescribeTemplateAlias
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679584620"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeTemplateAlias
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeTemplateAlias)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeTemplateAlias))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeTemplateAlias
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeTemplateAlias)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679584617"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679584617"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679584616"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679584616"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679584615"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679584615"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe TemplateAlias -&gt; Int -&gt; DescribeTemplateAliasResponse
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse%27"><span class="hs-identifier hs-var">DescribeTemplateAliasResponse'</span></a></span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe TemplateAlias -&gt; Int -&gt; DescribeTemplateAliasResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe TemplateAlias -&gt; Int -&gt; DescribeTemplateAliasResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679584615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe TemplateAlias -&gt; Int -&gt; DescribeTemplateAliasResponse)
+-&gt; Either String (Maybe TemplateAlias)
+-&gt; Either String (Int -&gt; DescribeTemplateAliasResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679584615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TemplateAlias)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemplateAlias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeTemplateAliasResponse)
+-&gt; Either String Int -&gt; Either String DescribeTemplateAliasResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679584617"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679584607"><span id="local-6989586621679584609"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias"><span class="hs-identifier hs-type">DescribeTemplateAlias</span></a></span></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679584604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias"><span class="hs-identifier hs-type">DescribeTemplateAlias</span></a></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias"><span class="hs-identifier hs-type">DescribeTemplateAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679584600"><span class="annot"><span class="annottext">toHeaders :: DescribeTemplateAlias -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeTemplateAlias -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-147"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias"><span class="hs-identifier hs-type">DescribeTemplateAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679584594"><span class="annot"><span class="annottext">toPath :: DescribeTemplateAlias -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias%27"><span class="hs-identifier hs-type">DescribeTemplateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679584590"><span id="local-6989586621679584591"><span id="local-6989586621679584592"><span class="annot"><span class="annottext">Text
+aliasName :: Text
+templateId :: Text
+awsAccountId :: Text
+$sel:aliasName:DescribeTemplateAlias' :: DescribeTemplateAlias -&gt; Text
+$sel:templateId:DescribeTemplateAlias' :: DescribeTemplateAlias -&gt; Text
+$sel:awsAccountId:DescribeTemplateAlias' :: DescribeTemplateAlias -&gt; Text
+</span><a href="#local-6989586621679584590"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584592"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/templates/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584591"><span class="hs-identifier hs-var">templateId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/aliases/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679584590"><span class="hs-identifier hs-var">aliasName</span></a></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAlias"><span class="hs-identifier hs-type">DescribeTemplateAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679584586"><span class="annot"><span class="annottext">toQuery :: DescribeTemplateAlias -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeTemplateAlias -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newDescribeTemplateAliasResponse' smart constructor.</span><span>
+</span><span id="line-166"></span><span id="local-6989586621679584583"><span id="local-6989586621679584584"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTemplateAliasResponse"><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse"><span class="hs-identifier hs-var">DescribeTemplateAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTemplateAliasResponse%27"><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse%27"><span class="hs-identifier hs-var">DescribeTemplateAliasResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3ArequestId%3ADescribeTemplateAliasResponse%27"><span class="annot"><span class="annottext">DescribeTemplateAliasResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3ArequestId%3ADescribeTemplateAliasResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | Information about the template alias.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AtemplateAlias%3ADescribeTemplateAliasResponse%27"><span class="annot"><span class="annottext">DescribeTemplateAliasResponse -&gt; Maybe TemplateAlias
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3AtemplateAlias%3ADescribeTemplateAliasResponse%27"><span class="hs-identifier hs-var hs-var">templateAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateAlias.html#TemplateAlias"><span class="hs-identifier hs-type">TemplateAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3Astatus%3ADescribeTemplateAliasResponse%27"><span class="annot"><span class="annottext">DescribeTemplateAliasResponse -&gt; Int
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3Astatus%3ADescribeTemplateAliasResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679584576"><span id="local-6989586621679584578"><span class="annot"><span class="annottext">DescribeTemplateAliasResponse
+-&gt; DescribeTemplateAliasResponse -&gt; Bool
+(DescribeTemplateAliasResponse
+ -&gt; DescribeTemplateAliasResponse -&gt; Bool)
+-&gt; (DescribeTemplateAliasResponse
+    -&gt; DescribeTemplateAliasResponse -&gt; Bool)
+-&gt; Eq DescribeTemplateAliasResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeTemplateAliasResponse
+-&gt; DescribeTemplateAliasResponse -&gt; Bool
+$c/= :: DescribeTemplateAliasResponse
+-&gt; DescribeTemplateAliasResponse -&gt; Bool
+== :: DescribeTemplateAliasResponse
+-&gt; DescribeTemplateAliasResponse -&gt; Bool
+$c== :: DescribeTemplateAliasResponse
+-&gt; DescribeTemplateAliasResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679584568"><span id="local-6989586621679584570"><span id="local-6989586621679584572"><span id="local-6989586621679584574"><span class="annot"><span class="annottext">ReadPrec [DescribeTemplateAliasResponse]
+ReadPrec DescribeTemplateAliasResponse
+Int -&gt; ReadS DescribeTemplateAliasResponse
+ReadS [DescribeTemplateAliasResponse]
+(Int -&gt; ReadS DescribeTemplateAliasResponse)
+-&gt; ReadS [DescribeTemplateAliasResponse]
+-&gt; ReadPrec DescribeTemplateAliasResponse
+-&gt; ReadPrec [DescribeTemplateAliasResponse]
+-&gt; Read DescribeTemplateAliasResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeTemplateAliasResponse]
+$creadListPrec :: ReadPrec [DescribeTemplateAliasResponse]
+readPrec :: ReadPrec DescribeTemplateAliasResponse
+$creadPrec :: ReadPrec DescribeTemplateAliasResponse
+readList :: ReadS [DescribeTemplateAliasResponse]
+$creadList :: ReadS [DescribeTemplateAliasResponse]
+readsPrec :: Int -&gt; ReadS DescribeTemplateAliasResponse
+$creadsPrec :: Int -&gt; ReadS DescribeTemplateAliasResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679584562"><span id="local-6989586621679584564"><span id="local-6989586621679584566"><span class="annot"><span class="annottext">Int -&gt; DescribeTemplateAliasResponse -&gt; ShowS
+[DescribeTemplateAliasResponse] -&gt; ShowS
+DescribeTemplateAliasResponse -&gt; String
+(Int -&gt; DescribeTemplateAliasResponse -&gt; ShowS)
+-&gt; (DescribeTemplateAliasResponse -&gt; String)
+-&gt; ([DescribeTemplateAliasResponse] -&gt; ShowS)
+-&gt; Show DescribeTemplateAliasResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeTemplateAliasResponse] -&gt; ShowS
+$cshowList :: [DescribeTemplateAliasResponse] -&gt; ShowS
+show :: DescribeTemplateAliasResponse -&gt; String
+$cshow :: DescribeTemplateAliasResponse -&gt; String
+showsPrec :: Int -&gt; DescribeTemplateAliasResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeTemplateAliasResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeTemplateAliasResponse
+ -&gt; Rep DescribeTemplateAliasResponse x)
+-&gt; (forall x.
+    Rep DescribeTemplateAliasResponse x
+    -&gt; DescribeTemplateAliasResponse)
+-&gt; Generic DescribeTemplateAliasResponse
+forall x.
+Rep DescribeTemplateAliasResponse x
+-&gt; DescribeTemplateAliasResponse
+forall x.
+DescribeTemplateAliasResponse
+-&gt; Rep DescribeTemplateAliasResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeTemplateAliasResponse x
+-&gt; DescribeTemplateAliasResponse
+$cfrom :: forall x.
+DescribeTemplateAliasResponse
+-&gt; Rep DescribeTemplateAliasResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Create a value of 'DescribeTemplateAliasResponse' with all optional fields omitted.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'requestId', 'describeTemplateAliasResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'templateAlias', 'describeTemplateAliasResponse_templateAlias' - Information about the template alias.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'status', 'describeTemplateAliasResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#newDescribeTemplateAliasResponse"><span class="hs-identifier hs-type">newDescribeTemplateAliasResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse"><span class="hs-identifier hs-type">DescribeTemplateAliasResponse</span></a></span><span>
+</span><span id="line-193"></span><span id="newDescribeTemplateAliasResponse"><span class="annot"><span class="annottext">newDescribeTemplateAliasResponse :: Int -&gt; DescribeTemplateAliasResponse
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#newDescribeTemplateAliasResponse"><span class="hs-identifier hs-var hs-var">newDescribeTemplateAliasResponse</span></a></span></span><span> </span><span id="local-6989586621679584559"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679584559"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">DescribeTemplateAliasResponse' :: Maybe Text
+-&gt; Maybe TemplateAlias -&gt; Int -&gt; DescribeTemplateAliasResponse
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse%27"><span class="hs-identifier hs-type">DescribeTemplateAliasResponse'</span></a></span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:DescribeTemplateAliasResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3ArequestId%3ADescribeTemplateAliasResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateAlias:DescribeTemplateAliasResponse' :: Maybe TemplateAlias
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3AtemplateAlias%3ADescribeTemplateAliasResponse%27"><span class="hs-identifier hs-var">templateAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TemplateAlias
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DescribeTemplateAliasResponse' :: Int
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3Astatus%3ADescribeTemplateAliasResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679584559"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAliasResponse_requestId"><span class="hs-identifier hs-type">describeTemplateAliasResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse"><span class="hs-identifier hs-type">DescribeTemplateAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="describeTemplateAliasResponse_requestId"><span class="annot"><span class="annottext">describeTemplateAliasResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeTemplateAliasResponse -&gt; f DescribeTemplateAliasResponse
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAliasResponse_requestId"><span class="hs-identifier hs-var hs-var">describeTemplateAliasResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTemplateAliasResponse -&gt; Maybe Text)
+-&gt; (DescribeTemplateAliasResponse
+    -&gt; Maybe Text -&gt; DescribeTemplateAliasResponse)
+-&gt; Lens
+     DescribeTemplateAliasResponse
+     DescribeTemplateAliasResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse%27"><span class="hs-identifier hs-type">DescribeTemplateAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679584558"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:DescribeTemplateAliasResponse' :: DescribeTemplateAliasResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679584558"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679584558"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679584557"><span class="annot"><span class="annottext">s :: DescribeTemplateAliasResponse
+</span><a href="#local-6989586621679584557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse%27"><span class="hs-identifier hs-type">DescribeTemplateAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679584556"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679584556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTemplateAliasResponse
+</span><a href="#local-6989586621679584557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:DescribeTemplateAliasResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3ArequestId%3ADescribeTemplateAliasResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679584556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse"><span class="hs-identifier hs-type">DescribeTemplateAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | Information about the template alias.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAliasResponse_templateAlias"><span class="hs-identifier hs-type">describeTemplateAliasResponse_templateAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse"><span class="hs-identifier hs-type">DescribeTemplateAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TemplateAlias.html#TemplateAlias"><span class="hs-identifier hs-type">TemplateAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="describeTemplateAliasResponse_templateAlias"><span class="annot"><span class="annottext">describeTemplateAliasResponse_templateAlias :: (Maybe TemplateAlias -&gt; f (Maybe TemplateAlias))
+-&gt; DescribeTemplateAliasResponse -&gt; f DescribeTemplateAliasResponse
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAliasResponse_templateAlias"><span class="hs-identifier hs-var hs-var">describeTemplateAliasResponse_templateAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTemplateAliasResponse -&gt; Maybe TemplateAlias)
+-&gt; (DescribeTemplateAliasResponse
+    -&gt; Maybe TemplateAlias -&gt; DescribeTemplateAliasResponse)
+-&gt; Lens
+     DescribeTemplateAliasResponse
+     DescribeTemplateAliasResponse
+     (Maybe TemplateAlias)
+     (Maybe TemplateAlias)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse%27"><span class="hs-identifier hs-type">DescribeTemplateAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679584555"><span class="annot"><span class="annottext">Maybe TemplateAlias
+templateAlias :: Maybe TemplateAlias
+$sel:templateAlias:DescribeTemplateAliasResponse' :: DescribeTemplateAliasResponse -&gt; Maybe TemplateAlias
+</span><a href="#local-6989586621679584555"><span class="hs-identifier hs-var hs-var">templateAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TemplateAlias
+</span><a href="#local-6989586621679584555"><span class="hs-identifier hs-var">templateAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679584554"><span class="annot"><span class="annottext">s :: DescribeTemplateAliasResponse
+</span><a href="#local-6989586621679584554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse%27"><span class="hs-identifier hs-type">DescribeTemplateAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679584553"><span class="annot"><span class="annottext">Maybe TemplateAlias
+</span><a href="#local-6989586621679584553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTemplateAliasResponse
+</span><a href="#local-6989586621679584554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateAlias:DescribeTemplateAliasResponse' :: Maybe TemplateAlias
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3AtemplateAlias%3ADescribeTemplateAliasResponse%27"><span class="hs-identifier hs-var">templateAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TemplateAlias
+</span><a href="#local-6989586621679584553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse"><span class="hs-identifier hs-type">DescribeTemplateAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAliasResponse_status"><span class="hs-identifier hs-type">describeTemplateAliasResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse"><span class="hs-identifier hs-type">DescribeTemplateAliasResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-211"></span><span id="describeTemplateAliasResponse_status"><span class="annot"><span class="annottext">describeTemplateAliasResponse_status :: (Int -&gt; f Int)
+-&gt; DescribeTemplateAliasResponse -&gt; f DescribeTemplateAliasResponse
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#describeTemplateAliasResponse_status"><span class="hs-identifier hs-var hs-var">describeTemplateAliasResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTemplateAliasResponse -&gt; Int)
+-&gt; (DescribeTemplateAliasResponse
+    -&gt; Int -&gt; DescribeTemplateAliasResponse)
+-&gt; Lens
+     DescribeTemplateAliasResponse DescribeTemplateAliasResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse%27"><span class="hs-identifier hs-type">DescribeTemplateAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679584552"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:DescribeTemplateAliasResponse' :: DescribeTemplateAliasResponse -&gt; Int
+</span><a href="#local-6989586621679584552"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679584552"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679584551"><span class="annot"><span class="annottext">s :: DescribeTemplateAliasResponse
+</span><a href="#local-6989586621679584551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse%27"><span class="hs-identifier hs-type">DescribeTemplateAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679584550"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679584550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTemplateAliasResponse
+</span><a href="#local-6989586621679584551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DescribeTemplateAliasResponse' :: Int
+</span><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#%24sel%3Astatus%3ADescribeTemplateAliasResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679584550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse"><span class="hs-identifier hs-type">DescribeTemplateAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679584548"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DescribeTemplateAlias.html#DescribeTemplateAliasResponse"><span class="hs-identifier hs-type">DescribeTemplateAliasResponse</span></a></span></span><span>
+</span><span id="line-214"></span></pre></body></html>

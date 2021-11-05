@@ -67,7 +67,7 @@
 </span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newGetUserPolicy' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679447551"><span id="local-6989586621679447552"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUserPolicy"><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy"><span class="hs-identifier hs-var">GetUserPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUserPolicy%27"><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy%27"><span class="hs-identifier hs-var">GetUserPolicy'</span></a></span></span><span>
+</span><span id="line-70"></span><span id="local-6989586621679447560"><span id="local-6989586621679447561"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUserPolicy"><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy"><span class="hs-identifier hs-var">GetUserPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUserPolicy%27"><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy%27"><span class="hs-identifier hs-var">GetUserPolicy'</span></a></span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the user who the policy is associated with.</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
@@ -85,7 +85,7 @@
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3ApolicyName%3AGetUserPolicy%27"><span class="annot"><span class="annottext">GetUserPolicy -&gt; Text
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#%24sel%3ApolicyName%3AGetUserPolicy%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447544"><span id="local-6989586621679447546"><span class="annot"><span class="annottext">GetUserPolicy -&gt; GetUserPolicy -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447553"><span id="local-6989586621679447555"><span class="annot"><span class="annottext">GetUserPolicy -&gt; GetUserPolicy -&gt; Bool
 (GetUserPolicy -&gt; GetUserPolicy -&gt; Bool)
 -&gt; (GetUserPolicy -&gt; GetUserPolicy -&gt; Bool) -&gt; Eq GetUserPolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetUserPolicy -&gt; GetUserPolicy -&gt; Bool
 == :: GetUserPolicy -&gt; GetUserPolicy -&gt; Bool
 $c== :: GetUserPolicy -&gt; GetUserPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447535"><span id="local-6989586621679447537"><span id="local-6989586621679447539"><span id="local-6989586621679447541"><span class="annot"><span class="annottext">ReadPrec [GetUserPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447544"><span id="local-6989586621679447546"><span id="local-6989586621679447548"><span id="local-6989586621679447550"><span class="annot"><span class="annottext">ReadPrec [GetUserPolicy]
 ReadPrec GetUserPolicy
 Int -&gt; ReadS GetUserPolicy
 ReadS [GetUserPolicy]
@@ -113,7 +113,7 @@ readList :: ReadS [GetUserPolicy]
 $creadList :: ReadS [GetUserPolicy]
 readsPrec :: Int -&gt; ReadS GetUserPolicy
 $creadsPrec :: Int -&gt; ReadS GetUserPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447528"><span id="local-6989586621679447530"><span id="local-6989586621679447532"><span class="annot"><span class="annottext">Int -&gt; GetUserPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447537"><span id="local-6989586621679447539"><span id="local-6989586621679447541"><span class="annot"><span class="annottext">Int -&gt; GetUserPolicy -&gt; ShowS
 [GetUserPolicy] -&gt; ShowS
 GetUserPolicy -&gt; String
 (Int -&gt; GetUserPolicy -&gt; ShowS)
@@ -167,17 +167,17 @@ $cfrom :: forall x. GetUserPolicy -&gt; Rep GetUserPolicy x
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy"><span class="hs-identifier hs-type">GetUserPolicy</span></a></span><span>
 </span><span id="line-115"></span><span id="newGetUserPolicy"><span class="annot"><span class="annottext">newGetUserPolicy :: Text -&gt; Text -&gt; GetUserPolicy
-</span><a href="Network.AWS.IAM.GetUserPolicy.html#newGetUserPolicy"><span class="hs-identifier hs-var hs-var">newGetUserPolicy</span></a></span></span><span> </span><span id="local-6989586621679447523"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447523"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span id="local-6989586621679447522"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447522"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.GetUserPolicy.html#newGetUserPolicy"><span class="hs-identifier hs-var hs-var">newGetUserPolicy</span></a></span></span><span> </span><span id="local-6989586621679447532"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447532"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span id="local-6989586621679447531"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447531"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">GetUserPolicy' :: Text -&gt; Text -&gt; GetUserPolicy
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy%27"><span class="hs-identifier hs-type">GetUserPolicy'</span></a></span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userName:GetUserPolicy' :: Text
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#%24sel%3AuserName%3AGetUserPolicy%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447523"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679447532"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyName:GetUserPolicy' :: Text
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#%24sel%3ApolicyName%3AGetUserPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447522"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span>
+</span><a href="#local-6989586621679447531"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The name of the user who the policy is associated with.</span><span>
@@ -192,16 +192,16 @@ $cfrom :: forall x. GetUserPolicy -&gt; Rep GetUserPolicy x
 -&gt; (GetUserPolicy -&gt; Text -&gt; GetUserPolicy)
 -&gt; Lens GetUserPolicy GetUserPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy%27"><span class="hs-identifier hs-type">GetUserPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447519"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy%27"><span class="hs-identifier hs-type">GetUserPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447528"><span class="annot"><span class="annottext">Text
 userName :: Text
 $sel:userName:GetUserPolicy' :: GetUserPolicy -&gt; Text
-</span><a href="#local-6989586621679447519"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447519"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447518"><span class="annot"><span class="annottext">s :: GetUserPolicy
-</span><a href="#local-6989586621679447518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy%27"><span class="hs-identifier hs-type">GetUserPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447517"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserPolicy
-</span><a href="#local-6989586621679447518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:GetUserPolicy' :: Text
+</span><a href="#local-6989586621679447528"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447528"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447527"><span class="annot"><span class="annottext">s :: GetUserPolicy
+</span><a href="#local-6989586621679447527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy%27"><span class="hs-identifier hs-type">GetUserPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447526"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserPolicy
+</span><a href="#local-6989586621679447527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:GetUserPolicy' :: Text
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#%24sel%3AuserName%3AGetUserPolicy%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy"><span class="hs-identifier hs-type">GetUserPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy"><span class="hs-identifier hs-type">GetUserPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The name of the policy document to get.</span><span>
 </span><span id="line-131"></span><span class="hs-comment">--</span><span>
@@ -215,27 +215,27 @@ $sel:userName:GetUserPolicy' :: GetUserPolicy -&gt; Text
 -&gt; (GetUserPolicy -&gt; Text -&gt; GetUserPolicy)
 -&gt; Lens GetUserPolicy GetUserPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy%27"><span class="hs-identifier hs-type">GetUserPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447516"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy%27"><span class="hs-identifier hs-type">GetUserPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447525"><span class="annot"><span class="annottext">Text
 policyName :: Text
 $sel:policyName:GetUserPolicy' :: GetUserPolicy -&gt; Text
-</span><a href="#local-6989586621679447516"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447516"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447515"><span class="annot"><span class="annottext">s :: GetUserPolicy
-</span><a href="#local-6989586621679447515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy%27"><span class="hs-identifier hs-type">GetUserPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447514"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserPolicy
-</span><a href="#local-6989586621679447515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:GetUserPolicy' :: Text
+</span><a href="#local-6989586621679447525"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447525"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447524"><span class="annot"><span class="annottext">s :: GetUserPolicy
+</span><a href="#local-6989586621679447524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy%27"><span class="hs-identifier hs-type">GetUserPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447523"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserPolicy
+</span><a href="#local-6989586621679447524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:GetUserPolicy' :: Text
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#%24sel%3ApolicyName%3AGetUserPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy"><span class="hs-identifier hs-type">GetUserPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy"><span class="hs-identifier hs-type">GetUserPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy"><span class="hs-identifier hs-type">GetUserPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy"><span class="hs-identifier hs-type">GetUserPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse"><span class="hs-identifier hs-type">GetUserPolicyResponse</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679447510"><span class="annot"><span class="annottext">request :: GetUserPolicy -&gt; Request GetUserPolicy
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679447519"><span class="annot"><span class="annottext">request :: GetUserPolicy -&gt; Request GetUserPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetUserPolicy -&gt; Request GetUserPolicy
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679447506"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679447515"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetUserPolicy
 -&gt; ClientResponse ClientBody
@@ -264,10 +264,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GetUserPolicyResult&quot;</span></span><span>
-</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679447503"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447503"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679447502"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679447502"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679447501"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679447501"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679447512"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447512"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679447511"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679447511"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679447510"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679447510"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; Text -&gt; Text -&gt; GetUserPolicyResponse
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-var">GetUserPolicyResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; Text -&gt; Text -&gt; GetUserPolicyResponse)
@@ -279,13 +279,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447503"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447512"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; Text -&gt; GetUserPolicyResponse)
 -&gt; Either String Text
 -&gt; Either String (Text -&gt; Text -&gt; GetUserPolicyResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679447501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679447510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span class="hs-special">)</span><span>
@@ -294,7 +294,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; GetUserPolicyResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679447501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679447510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyName&quot;</span></span><span class="hs-special">)</span><span>
@@ -302,18 +302,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String GetUserPolicyResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679447501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679447510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyDocument&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447493"><span id="local-6989586621679447495"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy"><span class="hs-identifier hs-type">GetUserPolicy</span></a></span></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447502"><span id="local-6989586621679447504"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy"><span class="hs-identifier hs-type">GetUserPolicy</span></a></span></span></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447490"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy"><span class="hs-identifier hs-type">GetUserPolicy</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy"><span class="hs-identifier hs-type">GetUserPolicy</span></a></span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy"><span class="hs-identifier hs-type">GetUserPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679447486"><span class="annot"><span class="annottext">toHeaders :: GetUserPolicy -&gt; ResponseHeaders
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679447495"><span class="annot"><span class="annottext">toHeaders :: GetUserPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetUserPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -321,20 +321,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy"><span class="hs-identifier hs-type">GetUserPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679447481"><span class="annot"><span class="annottext">toPath :: GetUserPolicy -&gt; ByteString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679447490"><span class="annot"><span class="annottext">toPath :: GetUserPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetUserPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy"><span class="hs-identifier hs-type">GetUserPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679447477"><span class="annot"><span class="annottext">toQuery :: GetUserPolicy -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy%27"><span class="hs-identifier hs-type">GetUserPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447474"><span id="local-6989586621679447475"><span class="annot"><span class="annottext">Text
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679447486"><span class="annot"><span class="annottext">toQuery :: GetUserPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicy%27"><span class="hs-identifier hs-type">GetUserPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447483"><span id="local-6989586621679447484"><span class="annot"><span class="annottext">Text
 policyName :: Text
 userName :: Text
 $sel:policyName:GetUserPolicy' :: GetUserPolicy -&gt; Text
 $sel:userName:GetUserPolicy' :: GetUserPolicy -&gt; Text
-</span><a href="#local-6989586621679447474"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679447483"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -354,18 +354,18 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447475"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679447484"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PolicyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447474"><span class="hs-identifier hs-var">policyName</span></a></span><span>
+</span><a href="#local-6989586621679447483"><span class="hs-identifier hs-var">policyName</span></a></span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | Contains the response to a successful GetUserPolicy request.</span><span>
 </span><span id="line-177"></span><span class="hs-comment">--</span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- /See:/ 'newGetUserPolicyResponse' smart constructor.</span><span>
-</span><span id="line-179"></span><span id="local-6989586621679447471"><span id="local-6989586621679447472"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUserPolicyResponse"><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse"><span class="hs-identifier hs-var">GetUserPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUserPolicyResponse%27"><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-var">GetUserPolicyResponse'</span></a></span></span><span>
+</span><span id="line-179"></span><span id="local-6989586621679447480"><span id="local-6989586621679447481"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUserPolicyResponse"><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse"><span class="hs-identifier hs-var">GetUserPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUserPolicyResponse%27"><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-var">GetUserPolicyResponse'</span></a></span></span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetUserPolicyResponse%27"><span class="annot"><span class="annottext">GetUserPolicyResponse -&gt; Int
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#%24sel%3AhttpStatus%3AGetUserPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -384,7 +384,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-192"></span><span>    </span><span id="%24sel%3ApolicyDocument%3AGetUserPolicyResponse%27"><span class="annot"><span class="annottext">GetUserPolicyResponse -&gt; Text
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#%24sel%3ApolicyDocument%3AGetUserPolicyResponse%27"><span class="hs-identifier hs-var hs-var">policyDocument</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447463"><span id="local-6989586621679447465"><span class="annot"><span class="annottext">GetUserPolicyResponse -&gt; GetUserPolicyResponse -&gt; Bool
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447472"><span id="local-6989586621679447474"><span class="annot"><span class="annottext">GetUserPolicyResponse -&gt; GetUserPolicyResponse -&gt; Bool
 (GetUserPolicyResponse -&gt; GetUserPolicyResponse -&gt; Bool)
 -&gt; (GetUserPolicyResponse -&gt; GetUserPolicyResponse -&gt; Bool)
 -&gt; Eq GetUserPolicyResponse
@@ -393,7 +393,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetUserPolicyResponse -&gt; GetUserPolicyResponse -&gt; Bool
 == :: GetUserPolicyResponse -&gt; GetUserPolicyResponse -&gt; Bool
 $c== :: GetUserPolicyResponse -&gt; GetUserPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447455"><span id="local-6989586621679447457"><span id="local-6989586621679447459"><span id="local-6989586621679447461"><span class="annot"><span class="annottext">ReadPrec [GetUserPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447464"><span id="local-6989586621679447466"><span id="local-6989586621679447468"><span id="local-6989586621679447470"><span class="annot"><span class="annottext">ReadPrec [GetUserPolicyResponse]
 ReadPrec GetUserPolicyResponse
 Int -&gt; ReadS GetUserPolicyResponse
 ReadS [GetUserPolicyResponse]
@@ -413,7 +413,7 @@ readList :: ReadS [GetUserPolicyResponse]
 $creadList :: ReadS [GetUserPolicyResponse]
 readsPrec :: Int -&gt; ReadS GetUserPolicyResponse
 $creadsPrec :: Int -&gt; ReadS GetUserPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447449"><span id="local-6989586621679447451"><span id="local-6989586621679447453"><span class="annot"><span class="annottext">Int -&gt; GetUserPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447458"><span id="local-6989586621679447460"><span id="local-6989586621679447462"><span class="annot"><span class="annottext">Int -&gt; GetUserPolicyResponse -&gt; ShowS
 [GetUserPolicyResponse] -&gt; ShowS
 GetUserPolicyResponse -&gt; String
 (Int -&gt; GetUserPolicyResponse -&gt; ShowS)
@@ -471,28 +471,28 @@ $cfrom :: forall x. GetUserPolicyResponse -&gt; Rep GetUserPolicyResponse x
 </span><span id="line-225"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse"><span class="hs-identifier hs-type">GetUserPolicyResponse</span></a></span><span>
 </span><span id="line-226"></span><span id="newGetUserPolicyResponse"><span class="annot"><span class="annottext">newGetUserPolicyResponse :: Int -&gt; Text -&gt; Text -&gt; Text -&gt; GetUserPolicyResponse
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#newGetUserPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetUserPolicyResponse</span></a></span></span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679447446"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447446"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621679447445"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447445"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679447444"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447444"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621679447443"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447443"><span class="hs-identifier hs-var">pPolicyDocument_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679447455"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447455"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679447454"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447454"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679447453"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447453"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679447452"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447452"><span class="hs-identifier hs-var">pPolicyDocument_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-231"></span><span>    </span><span class="annot"><span class="annottext">GetUserPolicyResponse' :: Int -&gt; Text -&gt; Text -&gt; Text -&gt; GetUserPolicyResponse
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span>
 </span><span id="line-232"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetUserPolicyResponse' :: Int
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#%24sel%3AhttpStatus%3AGetUserPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447446"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679447455"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">$sel:userName:GetUserPolicyResponse' :: Text
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#%24sel%3AuserName%3AGetUserPolicyResponse%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447445"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679447454"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">$sel:policyName:GetUserPolicyResponse' :: Text
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#%24sel%3ApolicyName%3AGetUserPolicyResponse%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447444"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679447453"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">$sel:policyDocument:GetUserPolicyResponse' :: Text
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#%24sel%3ApolicyDocument%3AGetUserPolicyResponse%27"><span class="hs-identifier hs-var">policyDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447443"><span class="hs-identifier hs-var">pPolicyDocument_</span></a></span><span>
+</span><a href="#local-6989586621679447452"><span class="hs-identifier hs-var">pPolicyDocument_</span></a></span><span>
 </span><span id="line-236"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -502,16 +502,16 @@ $cfrom :: forall x. GetUserPolicyResponse -&gt; Rep GetUserPolicyResponse x
 -&gt; (GetUserPolicyResponse -&gt; Int -&gt; GetUserPolicyResponse)
 -&gt; Lens GetUserPolicyResponse GetUserPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447442"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447451"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetUserPolicyResponse' :: GetUserPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679447442"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447442"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447441"><span class="annot"><span class="annottext">s :: GetUserPolicyResponse
-</span><a href="#local-6989586621679447441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447440"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserPolicyResponse
-</span><a href="#local-6989586621679447441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetUserPolicyResponse' :: Int
+</span><a href="#local-6989586621679447451"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447451"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447450"><span class="annot"><span class="annottext">s :: GetUserPolicyResponse
+</span><a href="#local-6989586621679447450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447449"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserPolicyResponse
+</span><a href="#local-6989586621679447450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetUserPolicyResponse' :: Int
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#%24sel%3AhttpStatus%3AGetUserPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse"><span class="hs-identifier hs-type">GetUserPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse"><span class="hs-identifier hs-type">GetUserPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- | The user the policy is associated with.</span><span>
 </span><span id="line-243"></span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#getUserPolicyResponse_userName"><span class="hs-identifier hs-type">getUserPolicyResponse_userName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse"><span class="hs-identifier hs-type">GetUserPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -521,16 +521,16 @@ $sel:httpStatus:GetUserPolicyResponse' :: GetUserPolicyResponse -&gt; Int
 -&gt; (GetUserPolicyResponse -&gt; Text -&gt; GetUserPolicyResponse)
 -&gt; Lens GetUserPolicyResponse GetUserPolicyResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447439"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447448"><span class="annot"><span class="annottext">Text
 userName :: Text
 $sel:userName:GetUserPolicyResponse' :: GetUserPolicyResponse -&gt; Text
-</span><a href="#local-6989586621679447439"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447439"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447438"><span class="annot"><span class="annottext">s :: GetUserPolicyResponse
-</span><a href="#local-6989586621679447438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447437"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserPolicyResponse
-</span><a href="#local-6989586621679447438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:GetUserPolicyResponse' :: Text
+</span><a href="#local-6989586621679447448"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447448"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447447"><span class="annot"><span class="annottext">s :: GetUserPolicyResponse
+</span><a href="#local-6989586621679447447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447446"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserPolicyResponse
+</span><a href="#local-6989586621679447447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:GetUserPolicyResponse' :: Text
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#%24sel%3AuserName%3AGetUserPolicyResponse%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse"><span class="hs-identifier hs-type">GetUserPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse"><span class="hs-identifier hs-type">GetUserPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- | The name of the policy.</span><span>
 </span><span id="line-247"></span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#getUserPolicyResponse_policyName"><span class="hs-identifier hs-type">getUserPolicyResponse_policyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse"><span class="hs-identifier hs-type">GetUserPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -540,16 +540,16 @@ $sel:userName:GetUserPolicyResponse' :: GetUserPolicyResponse -&gt; Text
 -&gt; (GetUserPolicyResponse -&gt; Text -&gt; GetUserPolicyResponse)
 -&gt; Lens GetUserPolicyResponse GetUserPolicyResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447436"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447445"><span class="annot"><span class="annottext">Text
 policyName :: Text
 $sel:policyName:GetUserPolicyResponse' :: GetUserPolicyResponse -&gt; Text
-</span><a href="#local-6989586621679447436"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447436"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447435"><span class="annot"><span class="annottext">s :: GetUserPolicyResponse
-</span><a href="#local-6989586621679447435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447434"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserPolicyResponse
-</span><a href="#local-6989586621679447435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:GetUserPolicyResponse' :: Text
+</span><a href="#local-6989586621679447445"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447445"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447444"><span class="annot"><span class="annottext">s :: GetUserPolicyResponse
+</span><a href="#local-6989586621679447444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447443"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserPolicyResponse
+</span><a href="#local-6989586621679447444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:GetUserPolicyResponse' :: Text
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#%24sel%3ApolicyName%3AGetUserPolicyResponse%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse"><span class="hs-identifier hs-type">GetUserPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse"><span class="hs-identifier hs-type">GetUserPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- | The policy document.</span><span>
 </span><span id="line-251"></span><span class="hs-comment">--</span><span>
@@ -564,16 +564,16 @@ $sel:policyName:GetUserPolicyResponse' :: GetUserPolicyResponse -&gt; Text
 -&gt; (GetUserPolicyResponse -&gt; Text -&gt; GetUserPolicyResponse)
 -&gt; Lens GetUserPolicyResponse GetUserPolicyResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447433"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447442"><span class="annot"><span class="annottext">Text
 policyDocument :: Text
 $sel:policyDocument:GetUserPolicyResponse' :: GetUserPolicyResponse -&gt; Text
-</span><a href="#local-6989586621679447433"><span class="hs-identifier hs-var hs-var">policyDocument</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447433"><span class="hs-identifier hs-var">policyDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447432"><span class="annot"><span class="annottext">s :: GetUserPolicyResponse
-</span><a href="#local-6989586621679447432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447431"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserPolicyResponse
-</span><a href="#local-6989586621679447432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyDocument:GetUserPolicyResponse' :: Text
+</span><a href="#local-6989586621679447442"><span class="hs-identifier hs-var hs-var">policyDocument</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447442"><span class="hs-identifier hs-var">policyDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447441"><span class="annot"><span class="annottext">s :: GetUserPolicyResponse
+</span><a href="#local-6989586621679447441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse%27"><span class="hs-identifier hs-type">GetUserPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447440"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserPolicyResponse
+</span><a href="#local-6989586621679447441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyDocument:GetUserPolicyResponse' :: Text
 </span><a href="Network.AWS.IAM.GetUserPolicy.html#%24sel%3ApolicyDocument%3AGetUserPolicyResponse%27"><span class="hs-identifier hs-var">policyDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse"><span class="hs-identifier hs-type">GetUserPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse"><span class="hs-identifier hs-type">GetUserPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>
-</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447429"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse"><span class="hs-identifier hs-type">GetUserPolicyResponse</span></a></span></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetUserPolicy.html#GetUserPolicyResponse"><span class="hs-identifier hs-type">GetUserPolicyResponse</span></a></span></span><span>
 </span><span id="line-260"></span></pre></body></html>

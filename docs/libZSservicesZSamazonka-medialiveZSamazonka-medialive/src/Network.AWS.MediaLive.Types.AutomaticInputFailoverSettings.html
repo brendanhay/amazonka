@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The settings for Automatic Input Failover.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAutomaticInputFailoverSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679929447"><span id="local-6989586621679929448"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutomaticInputFailoverSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-var">AutomaticInputFailoverSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutomaticInputFailoverSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-var">AutomaticInputFailoverSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679929456"><span id="local-6989586621679929457"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutomaticInputFailoverSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-var">AutomaticInputFailoverSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutomaticInputFailoverSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-var">AutomaticInputFailoverSettings'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of failover conditions. If any of these conditions occur,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- MediaLive will perform a failover to the other input.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AfailoverConditions%3AAutomaticInputFailoverSettings%27"><span class="annot"><span class="annottext">AutomaticInputFailoverSettings -&gt; Maybe [FailoverCondition]
@@ -50,7 +50,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3AsecondaryInputId%3AAutomaticInputFailoverSettings%27"><span class="annot"><span class="annottext">AutomaticInputFailoverSettings -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#%24sel%3AsecondaryInputId%3AAutomaticInputFailoverSettings%27"><span class="hs-identifier hs-var hs-var">secondaryInputId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679929438"><span id="local-6989586621679929440"><span class="annot"><span class="annottext">AutomaticInputFailoverSettings
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679929447"><span id="local-6989586621679929449"><span class="annot"><span class="annottext">AutomaticInputFailoverSettings
 -&gt; AutomaticInputFailoverSettings -&gt; Bool
 (AutomaticInputFailoverSettings
  -&gt; AutomaticInputFailoverSettings -&gt; Bool)
@@ -66,7 +66,7 @@ $c/= :: AutomaticInputFailoverSettings
 -&gt; AutomaticInputFailoverSettings -&gt; Bool
 $c== :: AutomaticInputFailoverSettings
 -&gt; AutomaticInputFailoverSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679929429"><span id="local-6989586621679929431"><span id="local-6989586621679929433"><span id="local-6989586621679929435"><span class="annot"><span class="annottext">ReadPrec [AutomaticInputFailoverSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679929438"><span id="local-6989586621679929440"><span id="local-6989586621679929442"><span id="local-6989586621679929444"><span class="annot"><span class="annottext">ReadPrec [AutomaticInputFailoverSettings]
 ReadPrec AutomaticInputFailoverSettings
 Int -&gt; ReadS AutomaticInputFailoverSettings
 ReadS [AutomaticInputFailoverSettings]
@@ -86,7 +86,7 @@ readList :: ReadS [AutomaticInputFailoverSettings]
 $creadList :: ReadS [AutomaticInputFailoverSettings]
 readsPrec :: Int -&gt; ReadS AutomaticInputFailoverSettings
 $creadsPrec :: Int -&gt; ReadS AutomaticInputFailoverSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679929422"><span id="local-6989586621679929424"><span id="local-6989586621679929426"><span class="annot"><span class="annottext">Int -&gt; AutomaticInputFailoverSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679929431"><span id="local-6989586621679929433"><span id="local-6989586621679929435"><span class="annot"><span class="annottext">Int -&gt; AutomaticInputFailoverSettings -&gt; ShowS
 [AutomaticInputFailoverSettings] -&gt; ShowS
 AutomaticInputFailoverSettings -&gt; String
 (Int -&gt; AutomaticInputFailoverSettings -&gt; ShowS)
@@ -152,8 +152,8 @@ AutomaticInputFailoverSettings
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings</span></a></span><span>
 </span><span id="line-78"></span><span id="newAutomaticInputFailoverSettings"><span class="annot"><span class="annottext">newAutomaticInputFailoverSettings :: Text -&gt; AutomaticInputFailoverSettings
-</span><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#newAutomaticInputFailoverSettings"><span class="hs-identifier hs-var hs-var">newAutomaticInputFailoverSettings</span></a></span></span><span> </span><span id="local-6989586621679929416"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679929416"><span class="hs-identifier hs-var">pSecondaryInputId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#newAutomaticInputFailoverSettings"><span class="hs-identifier hs-var hs-var">newAutomaticInputFailoverSettings</span></a></span></span><span> </span><span id="local-6989586621679929425"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679929425"><span class="hs-identifier hs-var">pSecondaryInputId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">AutomaticInputFailoverSettings' :: Maybe [FailoverCondition]
 -&gt; Maybe Natural
 -&gt; Maybe InputPreference
@@ -175,7 +175,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:secondaryInputId:AutomaticInputFailoverSettings' :: Text
 </span><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#%24sel%3AsecondaryInputId%3AAutomaticInputFailoverSettings%27"><span class="hs-identifier hs-var">secondaryInputId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679929416"><span class="hs-identifier hs-var">pSecondaryInputId_</span></a></span><span>
+</span><a href="#local-6989586621679929425"><span class="hs-identifier hs-var">pSecondaryInputId_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | A list of failover conditions. If any of these conditions occur,</span><span>
@@ -193,16 +193,16 @@ forall a. Maybe a
      (Maybe [FailoverCondition])
      (Maybe [FailoverCondition])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929412"><span class="annot"><span class="annottext">Maybe [FailoverCondition]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929421"><span class="annot"><span class="annottext">Maybe [FailoverCondition]
 failoverConditions :: Maybe [FailoverCondition]
 $sel:failoverConditions:AutomaticInputFailoverSettings' :: AutomaticInputFailoverSettings -&gt; Maybe [FailoverCondition]
-</span><a href="#local-6989586621679929412"><span class="hs-identifier hs-var hs-var">failoverConditions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailoverCondition]
-</span><a href="#local-6989586621679929412"><span class="hs-identifier hs-var">failoverConditions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679929411"><span class="annot"><span class="annottext">s :: AutomaticInputFailoverSettings
-</span><a href="#local-6989586621679929411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679929410"><span class="annot"><span class="annottext">Maybe [FailoverCondition]
-</span><a href="#local-6989586621679929410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticInputFailoverSettings
-</span><a href="#local-6989586621679929411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failoverConditions:AutomaticInputFailoverSettings' :: Maybe [FailoverCondition]
+</span><a href="#local-6989586621679929421"><span class="hs-identifier hs-var hs-var">failoverConditions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailoverCondition]
+</span><a href="#local-6989586621679929421"><span class="hs-identifier hs-var">failoverConditions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679929420"><span class="annot"><span class="annottext">s :: AutomaticInputFailoverSettings
+</span><a href="#local-6989586621679929420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679929419"><span class="annot"><span class="annottext">Maybe [FailoverCondition]
+</span><a href="#local-6989586621679929419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticInputFailoverSettings
+</span><a href="#local-6989586621679929420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failoverConditions:AutomaticInputFailoverSettings' :: Maybe [FailoverCondition]
 </span><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#%24sel%3AfailoverConditions%3AAutomaticInputFailoverSettings%27"><span class="hs-identifier hs-var">failoverConditions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FailoverCondition]
-</span><a href="#local-6989586621679929410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailoverCondition] -&gt; f (Maybe [FailoverCondition]))
+</span><a href="#local-6989586621679929419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailoverCondition] -&gt; f (Maybe [FailoverCondition]))
  -&gt; AutomaticInputFailoverSettings
  -&gt; f AutomaticInputFailoverSettings)
 -&gt; ((Maybe [FailoverCondition] -&gt; f (Maybe [FailoverCondition]))
@@ -251,16 +251,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929405"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929414"><span class="annot"><span class="annottext">Maybe Natural
 errorClearTimeMsec :: Maybe Natural
 $sel:errorClearTimeMsec:AutomaticInputFailoverSettings' :: AutomaticInputFailoverSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679929405"><span class="hs-identifier hs-var hs-var">errorClearTimeMsec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679929405"><span class="hs-identifier hs-var">errorClearTimeMsec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679929404"><span class="annot"><span class="annottext">s :: AutomaticInputFailoverSettings
-</span><a href="#local-6989586621679929404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679929403"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679929403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticInputFailoverSettings
-</span><a href="#local-6989586621679929404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorClearTimeMsec:AutomaticInputFailoverSettings' :: Maybe Natural
+</span><a href="#local-6989586621679929414"><span class="hs-identifier hs-var hs-var">errorClearTimeMsec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679929414"><span class="hs-identifier hs-var">errorClearTimeMsec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679929413"><span class="annot"><span class="annottext">s :: AutomaticInputFailoverSettings
+</span><a href="#local-6989586621679929413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679929412"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679929412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticInputFailoverSettings
+</span><a href="#local-6989586621679929413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorClearTimeMsec:AutomaticInputFailoverSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#%24sel%3AerrorClearTimeMsec%3AAutomaticInputFailoverSettings%27"><span class="hs-identifier hs-var">errorClearTimeMsec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679929403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679929412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | Input preference when deciding which input to make active when a</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- previously failed input has recovered.</span><span>
@@ -277,16 +277,16 @@ $sel:errorClearTimeMsec:AutomaticInputFailoverSettings' :: AutomaticInputFailove
      (Maybe InputPreference)
      (Maybe InputPreference)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929401"><span class="annot"><span class="annottext">Maybe InputPreference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929410"><span class="annot"><span class="annottext">Maybe InputPreference
 inputPreference :: Maybe InputPreference
 $sel:inputPreference:AutomaticInputFailoverSettings' :: AutomaticInputFailoverSettings -&gt; Maybe InputPreference
-</span><a href="#local-6989586621679929401"><span class="hs-identifier hs-var hs-var">inputPreference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputPreference
-</span><a href="#local-6989586621679929401"><span class="hs-identifier hs-var">inputPreference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679929400"><span class="annot"><span class="annottext">s :: AutomaticInputFailoverSettings
-</span><a href="#local-6989586621679929400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679929399"><span class="annot"><span class="annottext">Maybe InputPreference
-</span><a href="#local-6989586621679929399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticInputFailoverSettings
-</span><a href="#local-6989586621679929400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputPreference:AutomaticInputFailoverSettings' :: Maybe InputPreference
+</span><a href="#local-6989586621679929410"><span class="hs-identifier hs-var hs-var">inputPreference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputPreference
+</span><a href="#local-6989586621679929410"><span class="hs-identifier hs-var">inputPreference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679929409"><span class="annot"><span class="annottext">s :: AutomaticInputFailoverSettings
+</span><a href="#local-6989586621679929409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679929408"><span class="annot"><span class="annottext">Maybe InputPreference
+</span><a href="#local-6989586621679929408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticInputFailoverSettings
+</span><a href="#local-6989586621679929409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputPreference:AutomaticInputFailoverSettings' :: Maybe InputPreference
 </span><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#%24sel%3AinputPreference%3AAutomaticInputFailoverSettings%27"><span class="hs-identifier hs-var">inputPreference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputPreference
-</span><a href="#local-6989586621679929399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679929408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The input ID of the secondary input in the automatic input failover</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- pair.</span><span>
@@ -303,19 +303,19 @@ $sel:inputPreference:AutomaticInputFailoverSettings' :: AutomaticInputFailoverSe
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929397"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929406"><span class="annot"><span class="annottext">Text
 secondaryInputId :: Text
 $sel:secondaryInputId:AutomaticInputFailoverSettings' :: AutomaticInputFailoverSettings -&gt; Text
-</span><a href="#local-6989586621679929397"><span class="hs-identifier hs-var hs-var">secondaryInputId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679929397"><span class="hs-identifier hs-var">secondaryInputId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679929396"><span class="annot"><span class="annottext">s :: AutomaticInputFailoverSettings
-</span><a href="#local-6989586621679929396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679929395"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679929395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticInputFailoverSettings
-</span><a href="#local-6989586621679929396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secondaryInputId:AutomaticInputFailoverSettings' :: Text
+</span><a href="#local-6989586621679929406"><span class="hs-identifier hs-var hs-var">secondaryInputId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679929406"><span class="hs-identifier hs-var">secondaryInputId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679929405"><span class="annot"><span class="annottext">s :: AutomaticInputFailoverSettings
+</span><a href="#local-6989586621679929405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679929404"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679929404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutomaticInputFailoverSettings
+</span><a href="#local-6989586621679929405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secondaryInputId:AutomaticInputFailoverSettings' :: Text
 </span><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#%24sel%3AsecondaryInputId%3AAutomaticInputFailoverSettings%27"><span class="hs-identifier hs-var">secondaryInputId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679929395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679929404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929392"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679929390"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutomaticInputFailoverSettings
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929401"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679929399"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutomaticInputFailoverSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AutomaticInputFailoverSettings)
@@ -325,8 +325,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AutomaticInputFailoverSettings&quot;</span></span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679929387"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679929387"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679929396"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679929396"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe [FailoverCondition]
 -&gt; Maybe Natural
 -&gt; Maybe InputPreference
@@ -344,7 +344,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe InputPreference -&gt; Text -&gt; AutomaticInputFailoverSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679929387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [FailoverCondition]))
+</span><a href="#local-6989586621679929396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [FailoverCondition]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;failoverConditions&quot;</span></span><span>
@@ -363,7 +363,7 @@ forall a. Monoid a =&gt; a
      (Maybe InputPreference -&gt; Text -&gt; AutomaticInputFailoverSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679929387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679929396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;errorClearTimeMsec&quot;</span></span><span class="hs-special">)</span><span>
@@ -373,7 +373,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; AutomaticInputFailoverSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679929387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputPreference)
+</span><a href="#local-6989586621679929396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputPreference)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputPreference&quot;</span></span><span class="hs-special">)</span><span>
@@ -381,23 +381,23 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser AutomaticInputFailoverSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679929387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679929396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;secondaryInputId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679929379"><span id="local-6989586621679929381"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679929388"><span id="local-6989586621679929390"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679929376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679929385"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings</span></a></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929368"><span id="local-6989586621679929370"><span id="local-6989586621679929372"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679929366"><span class="annot"><span class="annottext">toJSON :: AutomaticInputFailoverSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929361"><span id="local-6989586621679929362"><span id="local-6989586621679929363"><span id="local-6989586621679929364"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929377"><span id="local-6989586621679929379"><span id="local-6989586621679929381"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679929375"><span class="annot"><span class="annottext">toJSON :: AutomaticInputFailoverSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings.html#AutomaticInputFailoverSettings%27"><span class="hs-identifier hs-type">AutomaticInputFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929370"><span id="local-6989586621679929371"><span id="local-6989586621679929372"><span id="local-6989586621679929373"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [FailoverCondition]
 Maybe InputPreference
 Text
@@ -409,7 +409,7 @@ $sel:secondaryInputId:AutomaticInputFailoverSettings' :: AutomaticInputFailoverS
 $sel:inputPreference:AutomaticInputFailoverSettings' :: AutomaticInputFailoverSettings -&gt; Maybe InputPreference
 $sel:errorClearTimeMsec:AutomaticInputFailoverSettings' :: AutomaticInputFailoverSettings -&gt; Maybe Natural
 $sel:failoverConditions:AutomaticInputFailoverSettings' :: AutomaticInputFailoverSettings -&gt; Maybe [FailoverCondition]
-</span><a href="#local-6989586621679929361"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679929370"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -423,7 +423,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [FailoverCondition] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FailoverCondition]
-</span><a href="#local-6989586621679929364"><span class="hs-identifier hs-var">failoverConditions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679929373"><span class="hs-identifier hs-var">failoverConditions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;errorClearTimeMsec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -431,7 +431,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679929363"><span class="hs-identifier hs-var">errorClearTimeMsec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679929372"><span class="hs-identifier hs-var">errorClearTimeMsec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputPreference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputPreference -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -439,7 +439,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">(InputPreference -&gt; Pair) -&gt; Maybe InputPreference -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputPreference
-</span><a href="#local-6989586621679929362"><span class="hs-identifier hs-var">inputPreference</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679929371"><span class="hs-identifier hs-var">inputPreference</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -447,7 +447,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;secondaryInputId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679929361"><span class="hs-identifier hs-var">secondaryInputId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679929370"><span class="hs-identifier hs-var">secondaryInputId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span></pre></body></html>

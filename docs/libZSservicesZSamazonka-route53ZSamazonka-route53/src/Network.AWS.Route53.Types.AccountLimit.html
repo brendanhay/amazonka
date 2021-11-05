@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- request and the current value for that limit.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAccountLimit' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679292650"><span id="local-6989586621679292651"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountLimit"><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-var">AccountLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountLimit%27"><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-var">AccountLimit'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679292659"><span id="local-6989586621679292660"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountLimit"><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-var">AccountLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountLimit%27"><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-var">AccountLimit'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The limit that you requested. Valid values include the following:</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   __MAX_HEALTH_CHECKS_BY_OWNER__: The maximum number of health checks</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Avalue%3AAccountLimit%27"><span class="annot"><span class="annottext">AccountLimit -&gt; Natural
 </span><a href="Network.AWS.Route53.Types.AccountLimit.html#%24sel%3Avalue%3AAccountLimit%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292643"><span id="local-6989586621679292645"><span class="annot"><span class="annottext">AccountLimit -&gt; AccountLimit -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292652"><span id="local-6989586621679292654"><span class="annot"><span class="annottext">AccountLimit -&gt; AccountLimit -&gt; Bool
 (AccountLimit -&gt; AccountLimit -&gt; Bool)
 -&gt; (AccountLimit -&gt; AccountLimit -&gt; Bool) -&gt; Eq AccountLimit
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccountLimit -&gt; AccountLimit -&gt; Bool
 == :: AccountLimit -&gt; AccountLimit -&gt; Bool
 $c== :: AccountLimit -&gt; AccountLimit -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292634"><span id="local-6989586621679292636"><span id="local-6989586621679292638"><span id="local-6989586621679292640"><span class="annot"><span class="annottext">ReadPrec [AccountLimit]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292643"><span id="local-6989586621679292645"><span id="local-6989586621679292647"><span id="local-6989586621679292649"><span class="annot"><span class="annottext">ReadPrec [AccountLimit]
 ReadPrec AccountLimit
 Int -&gt; ReadS AccountLimit
 ReadS [AccountLimit]
@@ -84,7 +84,7 @@ readList :: ReadS [AccountLimit]
 $creadList :: ReadS [AccountLimit]
 readsPrec :: Int -&gt; ReadS AccountLimit
 $creadsPrec :: Int -&gt; ReadS AccountLimit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292627"><span id="local-6989586621679292629"><span id="local-6989586621679292631"><span class="annot"><span class="annottext">Int -&gt; AccountLimit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292636"><span id="local-6989586621679292638"><span id="local-6989586621679292640"><span class="annot"><span class="annottext">Int -&gt; AccountLimit -&gt; ShowS
 [AccountLimit] -&gt; ShowS
 AccountLimit -&gt; String
 (Int -&gt; AccountLimit -&gt; ShowS)
@@ -147,15 +147,15 @@ $cfrom :: forall x. AccountLimit -&gt; Rep AccountLimit x
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span><span>
 </span><span id="line-95"></span><span id="newAccountLimit"><span class="annot"><span class="annottext">newAccountLimit :: AccountLimitType -&gt; Natural -&gt; AccountLimit
-</span><a href="Network.AWS.Route53.Types.AccountLimit.html#newAccountLimit"><span class="hs-identifier hs-var hs-var">newAccountLimit</span></a></span></span><span> </span><span id="local-6989586621679292621"><span class="annot"><span class="annottext">AccountLimitType
-</span><a href="#local-6989586621679292621"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679292620"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679292620"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53.Types.AccountLimit.html#newAccountLimit"><span class="hs-identifier hs-var hs-var">newAccountLimit</span></a></span></span><span> </span><span id="local-6989586621679292630"><span class="annot"><span class="annottext">AccountLimitType
+</span><a href="#local-6989586621679292630"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679292629"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679292629"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">AccountLimit' :: AccountLimitType -&gt; Natural -&gt; AccountLimit
 </span><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':AccountLimit' :: AccountLimitType
 </span><a href="Network.AWS.Route53.Types.AccountLimit.html#%24sel%3Atype%27%3AAccountLimit%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccountLimitType
-</span><a href="#local-6989586621679292621"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:AccountLimit' :: Natural
+</span><a href="#local-6989586621679292630"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:AccountLimit' :: Natural
 </span><a href="Network.AWS.Route53.Types.AccountLimit.html#%24sel%3Avalue%3AAccountLimit%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679292620"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679292629"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The limit that you requested. Valid values include the following:</span><span>
 </span><span id="line-99"></span><span class="hs-comment">--</span><span>
@@ -183,16 +183,16 @@ $cfrom :: forall x. AccountLimit -&gt; Rep AccountLimit x
 -&gt; (AccountLimit -&gt; AccountLimitType -&gt; AccountLimit)
 -&gt; Lens AccountLimit AccountLimit AccountLimitType AccountLimitType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292616"><span class="annot"><span class="annottext">AccountLimitType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292625"><span class="annot"><span class="annottext">AccountLimitType
 type' :: AccountLimitType
 $sel:type':AccountLimit' :: AccountLimit -&gt; AccountLimitType
-</span><a href="#local-6989586621679292616"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountLimitType
-</span><a href="#local-6989586621679292616"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292615"><span class="annot"><span class="annottext">s :: AccountLimit
-</span><a href="#local-6989586621679292615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292614"><span class="annot"><span class="annottext">AccountLimitType
-</span><a href="#local-6989586621679292614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountLimit
-</span><a href="#local-6989586621679292615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':AccountLimit' :: AccountLimitType
+</span><a href="#local-6989586621679292625"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountLimitType
+</span><a href="#local-6989586621679292625"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292624"><span class="annot"><span class="annottext">s :: AccountLimit
+</span><a href="#local-6989586621679292624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292623"><span class="annot"><span class="annottext">AccountLimitType
+</span><a href="#local-6989586621679292623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountLimit
+</span><a href="#local-6989586621679292624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':AccountLimit' :: AccountLimitType
 </span><a href="Network.AWS.Route53.Types.AccountLimit.html#%24sel%3Atype%27%3AAccountLimit%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccountLimitType
-</span><a href="#local-6989586621679292614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679292623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The current value for the limit that is specified by</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/APIReference/API_AccountLimit.html#Route53-Type-AccountLimit-Type Type&gt;.</span><span>
@@ -202,21 +202,21 @@ $sel:type':AccountLimit' :: AccountLimit -&gt; AccountLimitType
 -&gt; (AccountLimit -&gt; Natural -&gt; AccountLimit)
 -&gt; Lens AccountLimit AccountLimit Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292612"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292621"><span class="annot"><span class="annottext">Natural
 value :: Natural
 $sel:value:AccountLimit' :: AccountLimit -&gt; Natural
-</span><a href="#local-6989586621679292612"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679292612"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292611"><span class="annot"><span class="annottext">s :: AccountLimit
-</span><a href="#local-6989586621679292611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292610"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679292610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountLimit
-</span><a href="#local-6989586621679292611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:AccountLimit' :: Natural
+</span><a href="#local-6989586621679292621"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679292621"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292620"><span class="annot"><span class="annottext">s :: AccountLimit
+</span><a href="#local-6989586621679292620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-type">AccountLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292619"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679292619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountLimit
+</span><a href="#local-6989586621679292620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:AccountLimit' :: Natural
 </span><a href="Network.AWS.Route53.Types.AccountLimit.html#%24sel%3Avalue%3AAccountLimit%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679292610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679292619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679292607"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AccountLimit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679292605"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679292605"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679292616"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AccountLimit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679292614"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679292614"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">AccountLimitType -&gt; Natural -&gt; AccountLimit
 </span><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit%27"><span class="hs-identifier hs-var">AccountLimit'</span></a></span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">(AccountLimitType -&gt; Natural -&gt; AccountLimit)
@@ -224,19 +224,19 @@ $sel:value:AccountLimit' :: AccountLimit -&gt; Natural
 -&gt; Either String (Natural -&gt; AccountLimit)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679292605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String AccountLimitType
+</span><a href="#local-6989586621679292614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String AccountLimitType
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Natural -&gt; AccountLimit)
 -&gt; Either String Natural -&gt; Either String AccountLimit
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679292605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
+</span><a href="#local-6989586621679292614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292599"><span id="local-6989586621679292601"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292608"><span id="local-6989586621679292610"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292596"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292605"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimit.html#AccountLimit"><span class="hs-identifier hs-type">AccountLimit</span></a></span></span><span>
 </span><span id="line-133"></span></pre></body></html>

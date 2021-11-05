@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span class="hs-comment">-- -   @\'{Name:\&quot;InputDataConfig.DataSource.S3DataSource.S3Uri\&quot;, \&quot;Operator\&quot;:\&quot;Contains\&quot;, \&quot;Value\&quot;:\&quot;mybucket\/catdata\&quot;}\'@</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newNestedFilters' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621680326713"><span id="local-6989586621680326714"></span></span><span class="hs-keyword">data</span><span> </span><span id="NestedFilters"><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters"><span class="hs-identifier hs-var">NestedFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NestedFilters%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters%27"><span class="hs-identifier hs-var">NestedFilters'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621680326722"><span id="local-6989586621680326723"></span></span><span class="hs-keyword">data</span><span> </span><span id="NestedFilters"><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters"><span class="hs-identifier hs-var">NestedFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NestedFilters%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters%27"><span class="hs-identifier hs-var">NestedFilters'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the property to use in the nested filters. The value must</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- match a listed property name, such as @InputDataConfig@.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AnestedPropertyName%3ANestedFilters%27"><span class="annot"><span class="annottext">NestedFilters -&gt; Text
@@ -50,7 +50,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Afilters%3ANestedFilters%27"><span class="annot"><span class="annottext">NestedFilters -&gt; NonEmpty Filter
 </span><a href="Network.AWS.SageMaker.Types.NestedFilters.html#%24sel%3Afilters%3ANestedFilters%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680326706"><span id="local-6989586621680326708"><span class="annot"><span class="annottext">NestedFilters -&gt; NestedFilters -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680326715"><span id="local-6989586621680326717"><span class="annot"><span class="annottext">NestedFilters -&gt; NestedFilters -&gt; Bool
 (NestedFilters -&gt; NestedFilters -&gt; Bool)
 -&gt; (NestedFilters -&gt; NestedFilters -&gt; Bool) -&gt; Eq NestedFilters
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NestedFilters -&gt; NestedFilters -&gt; Bool
 == :: NestedFilters -&gt; NestedFilters -&gt; Bool
 $c== :: NestedFilters -&gt; NestedFilters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680326697"><span id="local-6989586621680326699"><span id="local-6989586621680326701"><span id="local-6989586621680326703"><span class="annot"><span class="annottext">ReadPrec [NestedFilters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680326706"><span id="local-6989586621680326708"><span id="local-6989586621680326710"><span id="local-6989586621680326712"><span class="annot"><span class="annottext">ReadPrec [NestedFilters]
 ReadPrec NestedFilters
 Int -&gt; ReadS NestedFilters
 ReadS [NestedFilters]
@@ -78,7 +78,7 @@ readList :: ReadS [NestedFilters]
 $creadList :: ReadS [NestedFilters]
 readsPrec :: Int -&gt; ReadS NestedFilters
 $creadsPrec :: Int -&gt; ReadS NestedFilters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680326690"><span id="local-6989586621680326692"><span id="local-6989586621680326694"><span class="annot"><span class="annottext">Int -&gt; NestedFilters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680326699"><span id="local-6989586621680326701"><span id="local-6989586621680326703"><span class="annot"><span class="annottext">Int -&gt; NestedFilters -&gt; ShowS
 [NestedFilters] -&gt; ShowS
 NestedFilters -&gt; String
 (Int -&gt; NestedFilters -&gt; ShowS)
@@ -127,15 +127,15 @@ $cfrom :: forall x. NestedFilters -&gt; Rep NestedFilters x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters"><span class="hs-identifier hs-type">NestedFilters</span></a></span><span>
 </span><span id="line-75"></span><span id="newNestedFilters"><span class="annot"><span class="annottext">newNestedFilters :: Text -&gt; NonEmpty Filter -&gt; NestedFilters
-</span><a href="Network.AWS.SageMaker.Types.NestedFilters.html#newNestedFilters"><span class="hs-identifier hs-var hs-var">newNestedFilters</span></a></span></span><span> </span><span id="local-6989586621680326684"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680326684"><span class="hs-identifier hs-var">pNestedPropertyName_</span></a></span></span><span> </span><span id="local-6989586621680326683"><span class="annot"><span class="annottext">NonEmpty Filter
-</span><a href="#local-6989586621680326683"><span class="hs-identifier hs-var">pFilters_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.NestedFilters.html#newNestedFilters"><span class="hs-identifier hs-var hs-var">newNestedFilters</span></a></span></span><span> </span><span id="local-6989586621680326693"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680326693"><span class="hs-identifier hs-var">pNestedPropertyName_</span></a></span></span><span> </span><span id="local-6989586621680326692"><span class="annot"><span class="annottext">NonEmpty Filter
+</span><a href="#local-6989586621680326692"><span class="hs-identifier hs-var">pFilters_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">NestedFilters' :: Text -&gt; NonEmpty Filter -&gt; NestedFilters
 </span><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters%27"><span class="hs-identifier hs-type">NestedFilters'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nestedPropertyName:NestedFilters' :: Text
 </span><a href="Network.AWS.SageMaker.Types.NestedFilters.html#%24sel%3AnestedPropertyName%3ANestedFilters%27"><span class="hs-identifier hs-var">nestedPropertyName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680326684"><span class="hs-identifier hs-var">pNestedPropertyName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680326693"><span class="hs-identifier hs-var">pNestedPropertyName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:NestedFilters' :: NonEmpty Filter
 </span><a href="Network.AWS.SageMaker.Types.NestedFilters.html#%24sel%3Afilters%3ANestedFilters%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Filter) (Identity (NonEmpty Filter))
 -&gt; Tagged (NonEmpty Filter) (Identity (NonEmpty Filter))
@@ -145,7 +145,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Filter -&gt; NonEmpty Filter
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Filter
-</span><a href="#local-6989586621680326683"><span class="hs-identifier hs-var">pFilters_</span></a></span><span>
+</span><a href="#local-6989586621680326692"><span class="hs-identifier hs-var">pFilters_</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The name of the property to use in the nested filters. The value must</span><span>
@@ -156,16 +156,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (NestedFilters -&gt; Text -&gt; NestedFilters)
 -&gt; Lens NestedFilters NestedFilters Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters%27"><span class="hs-identifier hs-type">NestedFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680326677"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters%27"><span class="hs-identifier hs-type">NestedFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680326686"><span class="annot"><span class="annottext">Text
 nestedPropertyName :: Text
 $sel:nestedPropertyName:NestedFilters' :: NestedFilters -&gt; Text
-</span><a href="#local-6989586621680326677"><span class="hs-identifier hs-var hs-var">nestedPropertyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680326677"><span class="hs-identifier hs-var">nestedPropertyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680326676"><span class="annot"><span class="annottext">s :: NestedFilters
-</span><a href="#local-6989586621680326676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters%27"><span class="hs-identifier hs-type">NestedFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680326675"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680326675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NestedFilters
-</span><a href="#local-6989586621680326676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nestedPropertyName:NestedFilters' :: Text
+</span><a href="#local-6989586621680326686"><span class="hs-identifier hs-var hs-var">nestedPropertyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680326686"><span class="hs-identifier hs-var">nestedPropertyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680326685"><span class="annot"><span class="annottext">s :: NestedFilters
+</span><a href="#local-6989586621680326685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters%27"><span class="hs-identifier hs-type">NestedFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680326684"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680326684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NestedFilters
+</span><a href="#local-6989586621680326685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nestedPropertyName:NestedFilters' :: Text
 </span><a href="Network.AWS.SageMaker.Types.NestedFilters.html#%24sel%3AnestedPropertyName%3ANestedFilters%27"><span class="hs-identifier hs-var">nestedPropertyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680326675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters"><span class="hs-identifier hs-type">NestedFilters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680326684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters"><span class="hs-identifier hs-type">NestedFilters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | A list of filters. Each filter acts on a property. Filters must contain</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- at least one @Filters@ value. For example, a @NestedFilters@ call might</span><span>
@@ -180,16 +180,16 @@ $sel:nestedPropertyName:NestedFilters' :: NestedFilters -&gt; Text
 -&gt; Lens
      NestedFilters NestedFilters (NonEmpty Filter) (NonEmpty Filter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters%27"><span class="hs-identifier hs-type">NestedFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680326673"><span class="annot"><span class="annottext">NonEmpty Filter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters%27"><span class="hs-identifier hs-type">NestedFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680326682"><span class="annot"><span class="annottext">NonEmpty Filter
 filters :: NonEmpty Filter
 $sel:filters:NestedFilters' :: NestedFilters -&gt; NonEmpty Filter
-</span><a href="#local-6989586621680326673"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Filter
-</span><a href="#local-6989586621680326673"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680326672"><span class="annot"><span class="annottext">s :: NestedFilters
-</span><a href="#local-6989586621680326672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters%27"><span class="hs-identifier hs-type">NestedFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680326671"><span class="annot"><span class="annottext">NonEmpty Filter
-</span><a href="#local-6989586621680326671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NestedFilters
-</span><a href="#local-6989586621680326672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:NestedFilters' :: NonEmpty Filter
+</span><a href="#local-6989586621680326682"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Filter
+</span><a href="#local-6989586621680326682"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680326681"><span class="annot"><span class="annottext">s :: NestedFilters
+</span><a href="#local-6989586621680326681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters%27"><span class="hs-identifier hs-type">NestedFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680326680"><span class="annot"><span class="annottext">NonEmpty Filter
+</span><a href="#local-6989586621680326680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NestedFilters
+</span><a href="#local-6989586621680326681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:NestedFilters' :: NonEmpty Filter
 </span><a href="Network.AWS.SageMaker.Types.NestedFilters.html#%24sel%3Afilters%3ANestedFilters%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Filter
-</span><a href="#local-6989586621680326671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters"><span class="hs-identifier hs-type">NestedFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Filter -&gt; f (NonEmpty Filter))
+</span><a href="#local-6989586621680326680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters"><span class="hs-identifier hs-type">NestedFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Filter -&gt; f (NonEmpty Filter))
  -&gt; NestedFilters -&gt; f NestedFilters)
 -&gt; ((NonEmpty Filter -&gt; f (NonEmpty Filter))
     -&gt; NonEmpty Filter -&gt; f (NonEmpty Filter))
@@ -202,19 +202,19 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680326666"><span id="local-6989586621680326668"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters"><span class="hs-identifier hs-type">NestedFilters</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680326675"><span id="local-6989586621680326677"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters"><span class="hs-identifier hs-type">NestedFilters</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680326663"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters"><span class="hs-identifier hs-type">NestedFilters</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680326672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters"><span class="hs-identifier hs-type">NestedFilters</span></a></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680326655"><span id="local-6989586621680326657"><span id="local-6989586621680326659"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters"><span class="hs-identifier hs-type">NestedFilters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621680326653"><span class="annot"><span class="annottext">toJSON :: NestedFilters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters%27"><span class="hs-identifier hs-type">NestedFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680326650"><span id="local-6989586621680326651"><span class="annot"><span class="annottext">NonEmpty Filter
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680326664"><span id="local-6989586621680326666"><span id="local-6989586621680326668"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters"><span class="hs-identifier hs-type">NestedFilters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621680326662"><span class="annot"><span class="annottext">toJSON :: NestedFilters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NestedFilters.html#NestedFilters%27"><span class="hs-identifier hs-type">NestedFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680326659"><span id="local-6989586621680326660"><span class="annot"><span class="annottext">NonEmpty Filter
 Text
 filters :: NonEmpty Filter
 nestedPropertyName :: Text
 $sel:filters:NestedFilters' :: NestedFilters -&gt; NonEmpty Filter
 $sel:nestedPropertyName:NestedFilters' :: NestedFilters -&gt; Text
-</span><a href="#local-6989586621680326650"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680326659"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -227,14 +227,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;NestedPropertyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680326651"><span class="hs-identifier hs-var">nestedPropertyName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680326660"><span class="hs-identifier hs-var">nestedPropertyName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Filter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Filter
-</span><a href="#local-6989586621680326650"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680326659"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span></pre></body></html>

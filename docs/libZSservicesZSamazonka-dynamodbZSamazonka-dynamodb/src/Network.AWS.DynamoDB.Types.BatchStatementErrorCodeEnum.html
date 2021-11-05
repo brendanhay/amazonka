@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-40"></span><span>
-</span><span id="line-41"></span><span id="local-6989586621679369370"><span id="local-6989586621679369371"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BatchStatementErrorCodeEnum"><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementErrorCodeEnum.html#BatchStatementErrorCodeEnum"><span class="hs-identifier hs-var">BatchStatementErrorCodeEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchStatementErrorCodeEnum%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementErrorCodeEnum.html#BatchStatementErrorCodeEnum%27"><span class="hs-identifier hs-var">BatchStatementErrorCodeEnum'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679369379"><span id="local-6989586621679369380"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BatchStatementErrorCodeEnum"><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementErrorCodeEnum.html#BatchStatementErrorCodeEnum"><span class="hs-identifier hs-var">BatchStatementErrorCodeEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchStatementErrorCodeEnum%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementErrorCodeEnum.html#BatchStatementErrorCodeEnum%27"><span class="hs-identifier hs-var">BatchStatementErrorCodeEnum'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBatchStatementErrorCodeEnum"><span class="annot"><span class="annottext">BatchStatementErrorCodeEnum -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.BatchStatementErrorCodeEnum.html#fromBatchStatementErrorCodeEnum"><span class="hs-identifier hs-var hs-var">fromBatchStatementErrorCodeEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369362"><span id="local-6989586621679369364"><span id="local-6989586621679369366"><span class="annot"><span class="annottext">Int -&gt; BatchStatementErrorCodeEnum -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369371"><span id="local-6989586621679369373"><span id="local-6989586621679369375"><span class="annot"><span class="annottext">Int -&gt; BatchStatementErrorCodeEnum -&gt; ShowS
 [BatchStatementErrorCodeEnum] -&gt; ShowS
 BatchStatementErrorCodeEnum -&gt; String
 (Int -&gt; BatchStatementErrorCodeEnum -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: BatchStatementErrorCodeEnum -&gt; String
 showsPrec :: Int -&gt; BatchStatementErrorCodeEnum -&gt; ShowS
 $cshowsPrec :: Int -&gt; BatchStatementErrorCodeEnum -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679369353"><span id="local-6989586621679369355"><span id="local-6989586621679369357"><span id="local-6989586621679369359"><span class="annot"><span class="annottext">ReadPrec [BatchStatementErrorCodeEnum]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679369362"><span id="local-6989586621679369364"><span id="local-6989586621679369366"><span id="local-6989586621679369368"><span class="annot"><span class="annottext">ReadPrec [BatchStatementErrorCodeEnum]
 ReadPrec BatchStatementErrorCodeEnum
 Int -&gt; ReadS BatchStatementErrorCodeEnum
 ReadS [BatchStatementErrorCodeEnum]
@@ -81,7 +81,7 @@ $creadList :: ReadS [BatchStatementErrorCodeEnum]
 readsPrec :: Int -&gt; ReadS BatchStatementErrorCodeEnum
 $creadsPrec :: Int -&gt; ReadS BatchStatementErrorCodeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679369348"><span id="local-6989586621679369350"><span class="annot"><span class="annottext">BatchStatementErrorCodeEnum -&gt; BatchStatementErrorCodeEnum -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679369357"><span id="local-6989586621679369359"><span class="annot"><span class="annottext">BatchStatementErrorCodeEnum -&gt; BatchStatementErrorCodeEnum -&gt; Bool
 (BatchStatementErrorCodeEnum
  -&gt; BatchStatementErrorCodeEnum -&gt; Bool)
 -&gt; (BatchStatementErrorCodeEnum
@@ -93,7 +93,7 @@ $c/= :: BatchStatementErrorCodeEnum -&gt; BatchStatementErrorCodeEnum -&gt; Bool
 == :: BatchStatementErrorCodeEnum -&gt; BatchStatementErrorCodeEnum -&gt; Bool
 $c== :: BatchStatementErrorCodeEnum -&gt; BatchStatementErrorCodeEnum -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679369332"><span id="local-6989586621679369334"><span id="local-6989586621679369336"><span id="local-6989586621679369338"><span id="local-6989586621679369340"><span id="local-6989586621679369342"><span id="local-6989586621679369344"><span class="annot"><span class="annottext">Eq BatchStatementErrorCodeEnum
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679369341"><span id="local-6989586621679369343"><span id="local-6989586621679369345"><span id="local-6989586621679369347"><span id="local-6989586621679369349"><span id="local-6989586621679369351"><span id="local-6989586621679369353"><span class="annot"><span class="annottext">Eq BatchStatementErrorCodeEnum
 Eq BatchStatementErrorCodeEnum
 -&gt; (BatchStatementErrorCodeEnum
     -&gt; BatchStatementErrorCodeEnum -&gt; Ordering)
@@ -165,7 +165,7 @@ BatchStatementErrorCodeEnum -&gt; Rep BatchStatementErrorCodeEnum x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369324"><span id="local-6989586621679369326"><span class="annot"><span class="annottext">Int -&gt; BatchStatementErrorCodeEnum -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369333"><span id="local-6989586621679369335"><span class="annot"><span class="annottext">Int -&gt; BatchStatementErrorCodeEnum -&gt; Int
 BatchStatementErrorCodeEnum -&gt; Int
 (Int -&gt; BatchStatementErrorCodeEnum -&gt; Int)
 -&gt; (BatchStatementErrorCodeEnum -&gt; Int)
@@ -176,56 +176,56 @@ $chash :: BatchStatementErrorCodeEnum -&gt; Int
 hashWithSalt :: Int -&gt; BatchStatementErrorCodeEnum -&gt; Int
 $chashWithSalt :: Int -&gt; BatchStatementErrorCodeEnum -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679369321"><span class="annot"><span class="annottext">BatchStatementErrorCodeEnum -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679369330"><span class="annot"><span class="annottext">BatchStatementErrorCodeEnum -&gt; ()
 (BatchStatementErrorCodeEnum -&gt; ())
 -&gt; NFData BatchStatementErrorCodeEnum
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BatchStatementErrorCodeEnum -&gt; ()
 $crnf :: BatchStatementErrorCodeEnum -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679369318"><span class="annot"><span class="annottext">Text -&gt; Either String BatchStatementErrorCodeEnum
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679369327"><span class="annot"><span class="annottext">Text -&gt; Either String BatchStatementErrorCodeEnum
 (Text -&gt; Either String BatchStatementErrorCodeEnum)
 -&gt; FromText BatchStatementErrorCodeEnum
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BatchStatementErrorCodeEnum
 $cfromText :: Text -&gt; Either String BatchStatementErrorCodeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679369315"><span class="annot"><span class="annottext">BatchStatementErrorCodeEnum -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679369324"><span class="annot"><span class="annottext">BatchStatementErrorCodeEnum -&gt; Text
 (BatchStatementErrorCodeEnum -&gt; Text)
 -&gt; ToText BatchStatementErrorCodeEnum
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BatchStatementErrorCodeEnum -&gt; Text
 $ctoText :: BatchStatementErrorCodeEnum -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679369312"><span class="annot"><span class="annottext">BatchStatementErrorCodeEnum -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679369321"><span class="annot"><span class="annottext">BatchStatementErrorCodeEnum -&gt; ByteString
 (BatchStatementErrorCodeEnum -&gt; ByteString)
 -&gt; ToByteString BatchStatementErrorCodeEnum
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BatchStatementErrorCodeEnum -&gt; ByteString
 $ctoBS :: BatchStatementErrorCodeEnum -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679369309"><span class="annot"><span class="annottext">BatchStatementErrorCodeEnum -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679369318"><span class="annot"><span class="annottext">BatchStatementErrorCodeEnum -&gt; ByteStringBuilder
 (BatchStatementErrorCodeEnum -&gt; ByteStringBuilder)
 -&gt; ToLog BatchStatementErrorCodeEnum
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BatchStatementErrorCodeEnum -&gt; ByteStringBuilder
 $cbuild :: BatchStatementErrorCodeEnum -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679369306"><span class="annot"><span class="annottext">HeaderName -&gt; BatchStatementErrorCodeEnum -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679369315"><span class="annot"><span class="annottext">HeaderName -&gt; BatchStatementErrorCodeEnum -&gt; [Header]
 (HeaderName -&gt; BatchStatementErrorCodeEnum -&gt; [Header])
 -&gt; ToHeader BatchStatementErrorCodeEnum
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BatchStatementErrorCodeEnum -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BatchStatementErrorCodeEnum -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679369303"><span class="annot"><span class="annottext">BatchStatementErrorCodeEnum -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679369312"><span class="annot"><span class="annottext">BatchStatementErrorCodeEnum -&gt; QueryString
 (BatchStatementErrorCodeEnum -&gt; QueryString)
 -&gt; ToQuery BatchStatementErrorCodeEnum
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BatchStatementErrorCodeEnum -&gt; QueryString
 $ctoQuery :: BatchStatementErrorCodeEnum -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679369298"><span id="local-6989586621679369300"><span class="annot"><span class="annottext">Value -&gt; Parser [BatchStatementErrorCodeEnum]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679369307"><span id="local-6989586621679369309"><span class="annot"><span class="annottext">Value -&gt; Parser [BatchStatementErrorCodeEnum]
 Value -&gt; Parser BatchStatementErrorCodeEnum
 (Value -&gt; Parser BatchStatementErrorCodeEnum)
 -&gt; (Value -&gt; Parser [BatchStatementErrorCodeEnum])
@@ -237,7 +237,7 @@ $cparseJSONList :: Value -&gt; Parser [BatchStatementErrorCodeEnum]
 parseJSON :: Value -&gt; Parser BatchStatementErrorCodeEnum
 $cparseJSON :: Value -&gt; Parser BatchStatementErrorCodeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679369293"><span id="local-6989586621679369295"><span class="annot"><span class="annottext">FromJSONKeyFunction [BatchStatementErrorCodeEnum]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679369302"><span id="local-6989586621679369304"><span class="annot"><span class="annottext">FromJSONKeyFunction [BatchStatementErrorCodeEnum]
 FromJSONKeyFunction BatchStatementErrorCodeEnum
 FromJSONKeyFunction BatchStatementErrorCodeEnum
 -&gt; FromJSONKeyFunction [BatchStatementErrorCodeEnum]
@@ -249,7 +249,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BatchStatementErrorCodeEnum]
 fromJSONKey :: FromJSONKeyFunction BatchStatementErrorCodeEnum
 $cfromJSONKey :: FromJSONKeyFunction BatchStatementErrorCodeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679369284"><span id="local-6989586621679369286"><span id="local-6989586621679369288"><span id="local-6989586621679369290"><span class="annot"><span class="annottext">[BatchStatementErrorCodeEnum] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679369293"><span id="local-6989586621679369295"><span id="local-6989586621679369297"><span id="local-6989586621679369299"><span class="annot"><span class="annottext">[BatchStatementErrorCodeEnum] -&gt; Encoding
 [BatchStatementErrorCodeEnum] -&gt; Value
 BatchStatementErrorCodeEnum -&gt; Encoding
 BatchStatementErrorCodeEnum -&gt; Value
@@ -273,7 +273,7 @@ $ctoEncoding :: BatchStatementErrorCodeEnum -&gt; Encoding
 toJSON :: BatchStatementErrorCodeEnum -&gt; Value
 $ctoJSON :: BatchStatementErrorCodeEnum -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679369279"><span id="local-6989586621679369281"><span class="annot"><span class="annottext">ToJSONKeyFunction [BatchStatementErrorCodeEnum]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679369288"><span id="local-6989586621679369290"><span class="annot"><span class="annottext">ToJSONKeyFunction [BatchStatementErrorCodeEnum]
 ToJSONKeyFunction BatchStatementErrorCodeEnum
 ToJSONKeyFunction BatchStatementErrorCodeEnum
 -&gt; ToJSONKeyFunction [BatchStatementErrorCodeEnum]
@@ -285,14 +285,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BatchStatementErrorCodeEnum]
 toJSONKey :: ToJSONKeyFunction BatchStatementErrorCodeEnum
 $ctoJSONKey :: ToJSONKeyFunction BatchStatementErrorCodeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679369276"><span class="annot"><span class="annottext">[Node] -&gt; Either String BatchStatementErrorCodeEnum
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679369285"><span class="annot"><span class="annottext">[Node] -&gt; Either String BatchStatementErrorCodeEnum
 ([Node] -&gt; Either String BatchStatementErrorCodeEnum)
 -&gt; FromXML BatchStatementErrorCodeEnum
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BatchStatementErrorCodeEnum
 $cparseXML :: [Node] -&gt; Either String BatchStatementErrorCodeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679369273"><span class="annot"><span class="annottext">BatchStatementErrorCodeEnum -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679369282"><span class="annot"><span class="annottext">BatchStatementErrorCodeEnum -&gt; XML
 (BatchStatementErrorCodeEnum -&gt; XML)
 -&gt; ToXML BatchStatementErrorCodeEnum
 forall a. (a -&gt; XML) -&gt; ToXML a

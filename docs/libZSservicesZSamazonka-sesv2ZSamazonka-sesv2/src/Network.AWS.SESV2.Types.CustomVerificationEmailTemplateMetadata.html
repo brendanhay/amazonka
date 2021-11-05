@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains information about a custom verification email template.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCustomVerificationEmailTemplateMetadata' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679325606"><span id="local-6989586621679325607"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomVerificationEmailTemplateMetadata"><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-var">CustomVerificationEmailTemplateMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomVerificationEmailTemplateMetadata%27"><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var">CustomVerificationEmailTemplateMetadata'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The email address that the custom verification email is sent from.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AfromEmailAddress%3ACustomVerificationEmailTemplateMetadata%27"><span class="annot"><span class="annottext">CustomVerificationEmailTemplateMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#%24sel%3AfromEmailAddress%3ACustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var hs-var">fromEmailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The name of the custom verification email template.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AtemplateName%3ACustomVerificationEmailTemplateMetadata%27"><span class="annot"><span class="annottext">CustomVerificationEmailTemplateMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#%24sel%3AtemplateName%3ACustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The URL that the recipient of the verification email is sent to if his</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- or her address is not successfully verified.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AfailureRedirectionURL%3ACustomVerificationEmailTemplateMetadata%27"><span class="annot"><span class="annottext">CustomVerificationEmailTemplateMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#%24sel%3AfailureRedirectionURL%3ACustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var hs-var">failureRedirectionURL</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The subject line of the custom verification email.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtemplateSubject%3ACustomVerificationEmailTemplateMetadata%27"><span class="annot"><span class="annottext">CustomVerificationEmailTemplateMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#%24sel%3AtemplateSubject%3ACustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var hs-var">templateSubject</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The URL that the recipient of the verification email is sent to if his</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- or her address is successfully verified.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AsuccessRedirectionURL%3ACustomVerificationEmailTemplateMetadata%27"><span class="annot"><span class="annottext">CustomVerificationEmailTemplateMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#%24sel%3AsuccessRedirectionURL%3ACustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var hs-var">successRedirectionURL</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325596"><span id="local-6989586621679325598"><span class="annot"><span class="annottext">CustomVerificationEmailTemplateMetadata
+-&gt; CustomVerificationEmailTemplateMetadata -&gt; Bool
+(CustomVerificationEmailTemplateMetadata
+ -&gt; CustomVerificationEmailTemplateMetadata -&gt; Bool)
+-&gt; (CustomVerificationEmailTemplateMetadata
+    -&gt; CustomVerificationEmailTemplateMetadata -&gt; Bool)
+-&gt; Eq CustomVerificationEmailTemplateMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CustomVerificationEmailTemplateMetadata
+-&gt; CustomVerificationEmailTemplateMetadata -&gt; Bool
+$c/= :: CustomVerificationEmailTemplateMetadata
+-&gt; CustomVerificationEmailTemplateMetadata -&gt; Bool
+== :: CustomVerificationEmailTemplateMetadata
+-&gt; CustomVerificationEmailTemplateMetadata -&gt; Bool
+$c== :: CustomVerificationEmailTemplateMetadata
+-&gt; CustomVerificationEmailTemplateMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325587"><span id="local-6989586621679325589"><span id="local-6989586621679325591"><span id="local-6989586621679325593"><span class="annot"><span class="annottext">ReadPrec [CustomVerificationEmailTemplateMetadata]
+ReadPrec CustomVerificationEmailTemplateMetadata
+Int -&gt; ReadS CustomVerificationEmailTemplateMetadata
+ReadS [CustomVerificationEmailTemplateMetadata]
+(Int -&gt; ReadS CustomVerificationEmailTemplateMetadata)
+-&gt; ReadS [CustomVerificationEmailTemplateMetadata]
+-&gt; ReadPrec CustomVerificationEmailTemplateMetadata
+-&gt; ReadPrec [CustomVerificationEmailTemplateMetadata]
+-&gt; Read CustomVerificationEmailTemplateMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CustomVerificationEmailTemplateMetadata]
+$creadListPrec :: ReadPrec [CustomVerificationEmailTemplateMetadata]
+readPrec :: ReadPrec CustomVerificationEmailTemplateMetadata
+$creadPrec :: ReadPrec CustomVerificationEmailTemplateMetadata
+readList :: ReadS [CustomVerificationEmailTemplateMetadata]
+$creadList :: ReadS [CustomVerificationEmailTemplateMetadata]
+readsPrec :: Int -&gt; ReadS CustomVerificationEmailTemplateMetadata
+$creadsPrec :: Int -&gt; ReadS CustomVerificationEmailTemplateMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325580"><span id="local-6989586621679325582"><span id="local-6989586621679325584"><span class="annot"><span class="annottext">Int -&gt; CustomVerificationEmailTemplateMetadata -&gt; ShowS
+[CustomVerificationEmailTemplateMetadata] -&gt; ShowS
+CustomVerificationEmailTemplateMetadata -&gt; String
+(Int -&gt; CustomVerificationEmailTemplateMetadata -&gt; ShowS)
+-&gt; (CustomVerificationEmailTemplateMetadata -&gt; String)
+-&gt; ([CustomVerificationEmailTemplateMetadata] -&gt; ShowS)
+-&gt; Show CustomVerificationEmailTemplateMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CustomVerificationEmailTemplateMetadata] -&gt; ShowS
+$cshowList :: [CustomVerificationEmailTemplateMetadata] -&gt; ShowS
+show :: CustomVerificationEmailTemplateMetadata -&gt; String
+$cshow :: CustomVerificationEmailTemplateMetadata -&gt; String
+showsPrec :: Int -&gt; CustomVerificationEmailTemplateMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; CustomVerificationEmailTemplateMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CustomVerificationEmailTemplateMetadata
+ -&gt; Rep CustomVerificationEmailTemplateMetadata x)
+-&gt; (forall x.
+    Rep CustomVerificationEmailTemplateMetadata x
+    -&gt; CustomVerificationEmailTemplateMetadata)
+-&gt; Generic CustomVerificationEmailTemplateMetadata
+forall x.
+Rep CustomVerificationEmailTemplateMetadata x
+-&gt; CustomVerificationEmailTemplateMetadata
+forall x.
+CustomVerificationEmailTemplateMetadata
+-&gt; Rep CustomVerificationEmailTemplateMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CustomVerificationEmailTemplateMetadata x
+-&gt; CustomVerificationEmailTemplateMetadata
+$cfrom :: forall x.
+CustomVerificationEmailTemplateMetadata
+-&gt; Rep CustomVerificationEmailTemplateMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'CustomVerificationEmailTemplateMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'fromEmailAddress', 'customVerificationEmailTemplateMetadata_fromEmailAddress' - The email address that the custom verification email is sent from.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'templateName', 'customVerificationEmailTemplateMetadata_templateName' - The name of the custom verification email template.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'failureRedirectionURL', 'customVerificationEmailTemplateMetadata_failureRedirectionURL' - The URL that the recipient of the verification email is sent to if his</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- or her address is not successfully verified.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'templateSubject', 'customVerificationEmailTemplateMetadata_templateSubject' - The subject line of the custom verification email.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'successRedirectionURL', 'customVerificationEmailTemplateMetadata_successRedirectionURL' - The URL that the recipient of the verification email is sent to if his</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- or her address is successfully verified.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#newCustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-type">newCustomVerificationEmailTemplateMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata</span></a></span><span>
+</span><span id="line-66"></span><span id="newCustomVerificationEmailTemplateMetadata"><span class="annot"><span class="annottext">newCustomVerificationEmailTemplateMetadata :: CustomVerificationEmailTemplateMetadata
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#newCustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-var hs-var">newCustomVerificationEmailTemplateMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">CustomVerificationEmailTemplateMetadata' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; CustomVerificationEmailTemplateMetadata
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fromEmailAddress:CustomVerificationEmailTemplateMetadata' :: Maybe Text
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#%24sel%3AfromEmailAddress%3ACustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var">fromEmailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateName:CustomVerificationEmailTemplateMetadata' :: Maybe Text
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#%24sel%3AtemplateName%3ACustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureRedirectionURL:CustomVerificationEmailTemplateMetadata' :: Maybe Text
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#%24sel%3AfailureRedirectionURL%3ACustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var">failureRedirectionURL</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateSubject:CustomVerificationEmailTemplateMetadata' :: Maybe Text
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#%24sel%3AtemplateSubject%3ACustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var">templateSubject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:successRedirectionURL:CustomVerificationEmailTemplateMetadata' :: Maybe Text
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#%24sel%3AsuccessRedirectionURL%3ACustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var">successRedirectionURL</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The email address that the custom verification email is sent from.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#customVerificationEmailTemplateMetadata_fromEmailAddress"><span class="hs-identifier hs-type">customVerificationEmailTemplateMetadata_fromEmailAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="customVerificationEmailTemplateMetadata_fromEmailAddress"><span class="annot"><span class="annottext">customVerificationEmailTemplateMetadata_fromEmailAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CustomVerificationEmailTemplateMetadata
+-&gt; f CustomVerificationEmailTemplateMetadata
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#customVerificationEmailTemplateMetadata_fromEmailAddress"><span class="hs-identifier hs-var hs-var">customVerificationEmailTemplateMetadata_fromEmailAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomVerificationEmailTemplateMetadata -&gt; Maybe Text)
+-&gt; (CustomVerificationEmailTemplateMetadata
+    -&gt; Maybe Text -&gt; CustomVerificationEmailTemplateMetadata)
+-&gt; Lens
+     CustomVerificationEmailTemplateMetadata
+     CustomVerificationEmailTemplateMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325571"><span class="annot"><span class="annottext">Maybe Text
+fromEmailAddress :: Maybe Text
+$sel:fromEmailAddress:CustomVerificationEmailTemplateMetadata' :: CustomVerificationEmailTemplateMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679325571"><span class="hs-identifier hs-var hs-var">fromEmailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325571"><span class="hs-identifier hs-var">fromEmailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325570"><span class="annot"><span class="annottext">s :: CustomVerificationEmailTemplateMetadata
+</span><a href="#local-6989586621679325570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325569"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomVerificationEmailTemplateMetadata
+</span><a href="#local-6989586621679325570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromEmailAddress:CustomVerificationEmailTemplateMetadata' :: Maybe Text
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#%24sel%3AfromEmailAddress%3ACustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var">fromEmailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The name of the custom verification email template.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#customVerificationEmailTemplateMetadata_templateName"><span class="hs-identifier hs-type">customVerificationEmailTemplateMetadata_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="customVerificationEmailTemplateMetadata_templateName"><span class="annot"><span class="annottext">customVerificationEmailTemplateMetadata_templateName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CustomVerificationEmailTemplateMetadata
+-&gt; f CustomVerificationEmailTemplateMetadata
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#customVerificationEmailTemplateMetadata_templateName"><span class="hs-identifier hs-var hs-var">customVerificationEmailTemplateMetadata_templateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomVerificationEmailTemplateMetadata -&gt; Maybe Text)
+-&gt; (CustomVerificationEmailTemplateMetadata
+    -&gt; Maybe Text -&gt; CustomVerificationEmailTemplateMetadata)
+-&gt; Lens
+     CustomVerificationEmailTemplateMetadata
+     CustomVerificationEmailTemplateMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325567"><span class="annot"><span class="annottext">Maybe Text
+templateName :: Maybe Text
+$sel:templateName:CustomVerificationEmailTemplateMetadata' :: CustomVerificationEmailTemplateMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679325567"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325567"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325566"><span class="annot"><span class="annottext">s :: CustomVerificationEmailTemplateMetadata
+</span><a href="#local-6989586621679325566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325565"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomVerificationEmailTemplateMetadata
+</span><a href="#local-6989586621679325566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:CustomVerificationEmailTemplateMetadata' :: Maybe Text
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#%24sel%3AtemplateName%3ACustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The URL that the recipient of the verification email is sent to if his</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- or her address is not successfully verified.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#customVerificationEmailTemplateMetadata_failureRedirectionURL"><span class="hs-identifier hs-type">customVerificationEmailTemplateMetadata_failureRedirectionURL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="customVerificationEmailTemplateMetadata_failureRedirectionURL"><span class="annot"><span class="annottext">customVerificationEmailTemplateMetadata_failureRedirectionURL :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CustomVerificationEmailTemplateMetadata
+-&gt; f CustomVerificationEmailTemplateMetadata
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#customVerificationEmailTemplateMetadata_failureRedirectionURL"><span class="hs-identifier hs-var hs-var">customVerificationEmailTemplateMetadata_failureRedirectionURL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomVerificationEmailTemplateMetadata -&gt; Maybe Text)
+-&gt; (CustomVerificationEmailTemplateMetadata
+    -&gt; Maybe Text -&gt; CustomVerificationEmailTemplateMetadata)
+-&gt; Lens
+     CustomVerificationEmailTemplateMetadata
+     CustomVerificationEmailTemplateMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325563"><span class="annot"><span class="annottext">Maybe Text
+failureRedirectionURL :: Maybe Text
+$sel:failureRedirectionURL:CustomVerificationEmailTemplateMetadata' :: CustomVerificationEmailTemplateMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679325563"><span class="hs-identifier hs-var hs-var">failureRedirectionURL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325563"><span class="hs-identifier hs-var">failureRedirectionURL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325562"><span class="annot"><span class="annottext">s :: CustomVerificationEmailTemplateMetadata
+</span><a href="#local-6989586621679325562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325561"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomVerificationEmailTemplateMetadata
+</span><a href="#local-6989586621679325562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureRedirectionURL:CustomVerificationEmailTemplateMetadata' :: Maybe Text
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#%24sel%3AfailureRedirectionURL%3ACustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var">failureRedirectionURL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The subject line of the custom verification email.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#customVerificationEmailTemplateMetadata_templateSubject"><span class="hs-identifier hs-type">customVerificationEmailTemplateMetadata_templateSubject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="customVerificationEmailTemplateMetadata_templateSubject"><span class="annot"><span class="annottext">customVerificationEmailTemplateMetadata_templateSubject :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CustomVerificationEmailTemplateMetadata
+-&gt; f CustomVerificationEmailTemplateMetadata
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#customVerificationEmailTemplateMetadata_templateSubject"><span class="hs-identifier hs-var hs-var">customVerificationEmailTemplateMetadata_templateSubject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomVerificationEmailTemplateMetadata -&gt; Maybe Text)
+-&gt; (CustomVerificationEmailTemplateMetadata
+    -&gt; Maybe Text -&gt; CustomVerificationEmailTemplateMetadata)
+-&gt; Lens
+     CustomVerificationEmailTemplateMetadata
+     CustomVerificationEmailTemplateMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325559"><span class="annot"><span class="annottext">Maybe Text
+templateSubject :: Maybe Text
+$sel:templateSubject:CustomVerificationEmailTemplateMetadata' :: CustomVerificationEmailTemplateMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679325559"><span class="hs-identifier hs-var hs-var">templateSubject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325559"><span class="hs-identifier hs-var">templateSubject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325558"><span class="annot"><span class="annottext">s :: CustomVerificationEmailTemplateMetadata
+</span><a href="#local-6989586621679325558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325557"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomVerificationEmailTemplateMetadata
+</span><a href="#local-6989586621679325558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateSubject:CustomVerificationEmailTemplateMetadata' :: Maybe Text
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#%24sel%3AtemplateSubject%3ACustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var">templateSubject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The URL that the recipient of the verification email is sent to if his</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- or her address is successfully verified.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#customVerificationEmailTemplateMetadata_successRedirectionURL"><span class="hs-identifier hs-type">customVerificationEmailTemplateMetadata_successRedirectionURL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="customVerificationEmailTemplateMetadata_successRedirectionURL"><span class="annot"><span class="annottext">customVerificationEmailTemplateMetadata_successRedirectionURL :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CustomVerificationEmailTemplateMetadata
+-&gt; f CustomVerificationEmailTemplateMetadata
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#customVerificationEmailTemplateMetadata_successRedirectionURL"><span class="hs-identifier hs-var hs-var">customVerificationEmailTemplateMetadata_successRedirectionURL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomVerificationEmailTemplateMetadata -&gt; Maybe Text)
+-&gt; (CustomVerificationEmailTemplateMetadata
+    -&gt; Maybe Text -&gt; CustomVerificationEmailTemplateMetadata)
+-&gt; Lens
+     CustomVerificationEmailTemplateMetadata
+     CustomVerificationEmailTemplateMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325555"><span class="annot"><span class="annottext">Maybe Text
+successRedirectionURL :: Maybe Text
+$sel:successRedirectionURL:CustomVerificationEmailTemplateMetadata' :: CustomVerificationEmailTemplateMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679325555"><span class="hs-identifier hs-var hs-var">successRedirectionURL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325555"><span class="hs-identifier hs-var">successRedirectionURL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325554"><span class="annot"><span class="annottext">s :: CustomVerificationEmailTemplateMetadata
+</span><a href="#local-6989586621679325554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325553"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomVerificationEmailTemplateMetadata
+</span><a href="#local-6989586621679325554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successRedirectionURL:CustomVerificationEmailTemplateMetadata' :: Maybe Text
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#%24sel%3AsuccessRedirectionURL%3ACustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var">successRedirectionURL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679325550"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679325548"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CustomVerificationEmailTemplateMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CustomVerificationEmailTemplateMetadata)
+-&gt; Value
+-&gt; Parser CustomVerificationEmailTemplateMetadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CustomVerificationEmailTemplateMetadata&quot;</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679325545"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325545"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; CustomVerificationEmailTemplateMetadata
+</span><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata%27"><span class="hs-identifier hs-var">CustomVerificationEmailTemplateMetadata'</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; CustomVerificationEmailTemplateMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; CustomVerificationEmailTemplateMetadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FromEmailAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; CustomVerificationEmailTemplateMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; CustomVerificationEmailTemplateMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemplateName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; CustomVerificationEmailTemplateMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; CustomVerificationEmailTemplateMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureRedirectionURL&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; CustomVerificationEmailTemplateMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; CustomVerificationEmailTemplateMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemplateSubject&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; CustomVerificationEmailTemplateMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser CustomVerificationEmailTemplateMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SuccessRedirectionURL&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679325539"><span id="local-6989586621679325541"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata</span></a></span></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679325536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.SESV2.Types.CustomVerificationEmailTemplateMetadata.html#CustomVerificationEmailTemplateMetadata"><span class="hs-identifier hs-type">CustomVerificationEmailTemplateMetadata</span></a></span></span><span>
+</span><span id="line-123"></span></pre></body></html>

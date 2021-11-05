@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- expressed in pixels.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newResolution' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679366255"><span id="local-6989586621679366256"></span></span><span class="hs-keyword">data</span><span> </span><span id="Resolution"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution"><span class="hs-identifier hs-var">Resolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Resolution%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution%27"><span class="hs-identifier hs-var">Resolution'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679366264"><span id="local-6989586621679366265"></span></span><span class="hs-keyword">data</span><span> </span><span id="Resolution"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution"><span class="hs-identifier hs-var">Resolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Resolution%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution%27"><span class="hs-identifier hs-var">Resolution'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The screen resolution\'s height, expressed in pixels.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aheight%3AResolution%27"><span class="annot"><span class="annottext">Resolution -&gt; Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.Resolution.html#%24sel%3Aheight%3AResolution%27"><span class="hs-identifier hs-var hs-var">height</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Awidth%3AResolution%27"><span class="annot"><span class="annottext">Resolution -&gt; Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.Resolution.html#%24sel%3Awidth%3AResolution%27"><span class="hs-identifier hs-var hs-var">width</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366248"><span id="local-6989586621679366250"><span class="annot"><span class="annottext">Resolution -&gt; Resolution -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366257"><span id="local-6989586621679366259"><span class="annot"><span class="annottext">Resolution -&gt; Resolution -&gt; Bool
 (Resolution -&gt; Resolution -&gt; Bool)
 -&gt; (Resolution -&gt; Resolution -&gt; Bool) -&gt; Eq Resolution
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Resolution -&gt; Resolution -&gt; Bool
 == :: Resolution -&gt; Resolution -&gt; Bool
 $c== :: Resolution -&gt; Resolution -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366239"><span id="local-6989586621679366241"><span id="local-6989586621679366243"><span id="local-6989586621679366245"><span class="annot"><span class="annottext">ReadPrec [Resolution]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366248"><span id="local-6989586621679366250"><span id="local-6989586621679366252"><span id="local-6989586621679366254"><span class="annot"><span class="annottext">ReadPrec [Resolution]
 ReadPrec Resolution
 Int -&gt; ReadS Resolution
 ReadS [Resolution]
@@ -63,7 +63,7 @@ readList :: ReadS [Resolution]
 $creadList :: ReadS [Resolution]
 readsPrec :: Int -&gt; ReadS Resolution
 $creadsPrec :: Int -&gt; ReadS Resolution
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366232"><span id="local-6989586621679366234"><span id="local-6989586621679366236"><span class="annot"><span class="annottext">Int -&gt; Resolution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366241"><span id="local-6989586621679366243"><span id="local-6989586621679366245"><span class="annot"><span class="annottext">Int -&gt; Resolution -&gt; ShowS
 [Resolution] -&gt; ShowS
 Resolution -&gt; String
 (Int -&gt; Resolution -&gt; ShowS)
@@ -122,16 +122,16 @@ forall a. Maybe a
 -&gt; (Resolution -&gt; Maybe Int -&gt; Resolution)
 -&gt; Lens Resolution Resolution (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution%27"><span class="hs-identifier hs-type">Resolution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366223"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution%27"><span class="hs-identifier hs-type">Resolution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366232"><span class="annot"><span class="annottext">Maybe Int
 height :: Maybe Int
 $sel:height:Resolution' :: Resolution -&gt; Maybe Int
-</span><a href="#local-6989586621679366223"><span class="hs-identifier hs-var hs-var">height</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679366223"><span class="hs-identifier hs-var">height</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366222"><span class="annot"><span class="annottext">s :: Resolution
-</span><a href="#local-6989586621679366222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution%27"><span class="hs-identifier hs-type">Resolution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366221"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679366221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resolution
-</span><a href="#local-6989586621679366222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:height:Resolution' :: Maybe Int
+</span><a href="#local-6989586621679366232"><span class="hs-identifier hs-var hs-var">height</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679366232"><span class="hs-identifier hs-var">height</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366231"><span class="annot"><span class="annottext">s :: Resolution
+</span><a href="#local-6989586621679366231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution%27"><span class="hs-identifier hs-type">Resolution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366230"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679366230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resolution
+</span><a href="#local-6989586621679366231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:height:Resolution' :: Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.Resolution.html#%24sel%3Aheight%3AResolution%27"><span class="hs-identifier hs-var">height</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679366221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution"><span class="hs-identifier hs-type">Resolution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679366230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution"><span class="hs-identifier hs-type">Resolution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The screen resolution\'s width, expressed in pixels.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#resolution_width"><span class="hs-identifier hs-type">resolution_width</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution"><span class="hs-identifier hs-type">Resolution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -140,19 +140,19 @@ $sel:height:Resolution' :: Resolution -&gt; Maybe Int
 -&gt; (Resolution -&gt; Maybe Int -&gt; Resolution)
 -&gt; Lens Resolution Resolution (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution%27"><span class="hs-identifier hs-type">Resolution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366219"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution%27"><span class="hs-identifier hs-type">Resolution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366228"><span class="annot"><span class="annottext">Maybe Int
 width :: Maybe Int
 $sel:width:Resolution' :: Resolution -&gt; Maybe Int
-</span><a href="#local-6989586621679366219"><span class="hs-identifier hs-var hs-var">width</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679366219"><span class="hs-identifier hs-var">width</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366218"><span class="annot"><span class="annottext">s :: Resolution
-</span><a href="#local-6989586621679366218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution%27"><span class="hs-identifier hs-type">Resolution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366217"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679366217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resolution
-</span><a href="#local-6989586621679366218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:width:Resolution' :: Maybe Int
+</span><a href="#local-6989586621679366228"><span class="hs-identifier hs-var hs-var">width</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679366228"><span class="hs-identifier hs-var">width</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366227"><span class="annot"><span class="annottext">s :: Resolution
+</span><a href="#local-6989586621679366227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution%27"><span class="hs-identifier hs-type">Resolution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366226"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679366226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Resolution
+</span><a href="#local-6989586621679366227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:width:Resolution' :: Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.Resolution.html#%24sel%3Awidth%3AResolution%27"><span class="hs-identifier hs-var">width</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679366217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution"><span class="hs-identifier hs-type">Resolution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679366226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution"><span class="hs-identifier hs-type">Resolution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366214"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution"><span class="hs-identifier hs-type">Resolution</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679366212"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Resolution
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366223"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution"><span class="hs-identifier hs-type">Resolution</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679366221"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Resolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Resolution) -&gt; Value -&gt; Parser Resolution
@@ -160,15 +160,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Resolution&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679366209"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366209"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679366218"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366218"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Int -&gt; Resolution
 </span><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution%27"><span class="hs-identifier hs-var">Resolution'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Int -&gt; Resolution)
 -&gt; Parser (Maybe Int) -&gt; Parser (Maybe Int -&gt; Resolution)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366209"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679366218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;height&quot;</span></span><span class="hs-special">)</span><span>
@@ -176,13 +176,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser Resolution
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366209"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679366218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;width&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366203"><span id="local-6989586621679366205"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution"><span class="hs-identifier hs-type">Resolution</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366212"><span id="local-6989586621679366214"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution"><span class="hs-identifier hs-type">Resolution</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366200"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution"><span class="hs-identifier hs-type">Resolution</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366209"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Resolution.html#Resolution"><span class="hs-identifier hs-type">Resolution</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

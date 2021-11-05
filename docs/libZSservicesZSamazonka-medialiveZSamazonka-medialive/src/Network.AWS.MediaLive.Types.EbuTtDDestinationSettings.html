@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Ebu Tt DDestination Settings</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEbuTtDDestinationSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679875595"><span id="local-6989586621679875596"></span></span><span class="hs-keyword">data</span><span> </span><span id="EbuTtDDestinationSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-var">EbuTtDDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EbuTtDDestinationSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-var">EbuTtDDestinationSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679875604"><span id="local-6989586621679875605"></span></span><span class="hs-keyword">data</span><span> </span><span id="EbuTtDDestinationSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-var">EbuTtDDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EbuTtDDestinationSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-var">EbuTtDDestinationSettings'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies how to handle the gap between the lines (in multi-line</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- captions). - enabled: Fill with the captions background color (as</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- specified in the input captions). - disabled: Leave the gap unfilled.</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AstyleControl%3AEbuTtDDestinationSettings%27"><span class="annot"><span class="annottext">EbuTtDDestinationSettings -&gt; Maybe EbuTtDDestinationStyleControl
 </span><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#%24sel%3AstyleControl%3AEbuTtDDestinationSettings%27"><span class="hs-identifier hs-var hs-var">styleControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationStyleControl.html#EbuTtDDestinationStyleControl"><span class="hs-identifier hs-type">EbuTtDDestinationStyleControl</span></a></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679875586"><span id="local-6989586621679875588"><span class="annot"><span class="annottext">EbuTtDDestinationSettings -&gt; EbuTtDDestinationSettings -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679875595"><span id="local-6989586621679875597"><span class="annot"><span class="annottext">EbuTtDDestinationSettings -&gt; EbuTtDDestinationSettings -&gt; Bool
 (EbuTtDDestinationSettings -&gt; EbuTtDDestinationSettings -&gt; Bool)
 -&gt; (EbuTtDDestinationSettings -&gt; EbuTtDDestinationSettings -&gt; Bool)
 -&gt; Eq EbuTtDDestinationSettings
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EbuTtDDestinationSettings -&gt; EbuTtDDestinationSettings -&gt; Bool
 == :: EbuTtDDestinationSettings -&gt; EbuTtDDestinationSettings -&gt; Bool
 $c== :: EbuTtDDestinationSettings -&gt; EbuTtDDestinationSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679875577"><span id="local-6989586621679875579"><span id="local-6989586621679875581"><span id="local-6989586621679875583"><span class="annot"><span class="annottext">ReadPrec [EbuTtDDestinationSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679875586"><span id="local-6989586621679875588"><span id="local-6989586621679875590"><span id="local-6989586621679875592"><span class="annot"><span class="annottext">ReadPrec [EbuTtDDestinationSettings]
 ReadPrec EbuTtDDestinationSettings
 Int -&gt; ReadS EbuTtDDestinationSettings
 ReadS [EbuTtDDestinationSettings]
@@ -93,7 +93,7 @@ readList :: ReadS [EbuTtDDestinationSettings]
 $creadList :: ReadS [EbuTtDDestinationSettings]
 readsPrec :: Int -&gt; ReadS EbuTtDDestinationSettings
 $creadsPrec :: Int -&gt; ReadS EbuTtDDestinationSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679875570"><span id="local-6989586621679875572"><span id="local-6989586621679875574"><span class="annot"><span class="annottext">Int -&gt; EbuTtDDestinationSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679875579"><span id="local-6989586621679875581"><span id="local-6989586621679875583"><span class="annot"><span class="annottext">Int -&gt; EbuTtDDestinationSettings -&gt; ShowS
 [EbuTtDDestinationSettings] -&gt; ShowS
 EbuTtDDestinationSettings -&gt; String
 (Int -&gt; EbuTtDDestinationSettings -&gt; ShowS)
@@ -207,16 +207,16 @@ forall a. Maybe a
      (Maybe EbuTtDFillLineGapControl)
      (Maybe EbuTtDFillLineGapControl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679875561"><span class="annot"><span class="annottext">Maybe EbuTtDFillLineGapControl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679875570"><span class="annot"><span class="annottext">Maybe EbuTtDFillLineGapControl
 fillLineGap :: Maybe EbuTtDFillLineGapControl
 $sel:fillLineGap:EbuTtDDestinationSettings' :: EbuTtDDestinationSettings -&gt; Maybe EbuTtDFillLineGapControl
-</span><a href="#local-6989586621679875561"><span class="hs-identifier hs-var hs-var">fillLineGap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EbuTtDFillLineGapControl
-</span><a href="#local-6989586621679875561"><span class="hs-identifier hs-var">fillLineGap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679875560"><span class="annot"><span class="annottext">s :: EbuTtDDestinationSettings
-</span><a href="#local-6989586621679875560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679875559"><span class="annot"><span class="annottext">Maybe EbuTtDFillLineGapControl
-</span><a href="#local-6989586621679875559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbuTtDDestinationSettings
-</span><a href="#local-6989586621679875560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fillLineGap:EbuTtDDestinationSettings' :: Maybe EbuTtDFillLineGapControl
+</span><a href="#local-6989586621679875570"><span class="hs-identifier hs-var hs-var">fillLineGap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EbuTtDFillLineGapControl
+</span><a href="#local-6989586621679875570"><span class="hs-identifier hs-var">fillLineGap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679875569"><span class="annot"><span class="annottext">s :: EbuTtDDestinationSettings
+</span><a href="#local-6989586621679875569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679875568"><span class="annot"><span class="annottext">Maybe EbuTtDFillLineGapControl
+</span><a href="#local-6989586621679875568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbuTtDDestinationSettings
+</span><a href="#local-6989586621679875569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fillLineGap:EbuTtDDestinationSettings' :: Maybe EbuTtDFillLineGapControl
 </span><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#%24sel%3AfillLineGap%3AEbuTtDDestinationSettings%27"><span class="hs-identifier hs-var">fillLineGap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EbuTtDFillLineGapControl
-</span><a href="#local-6989586621679875559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679875568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | Applies only if you plan to convert these source captions to EBU-TT-D or</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- TTML in an output. Complete this field if you want to include the name</span><span>
@@ -233,16 +233,16 @@ $sel:fillLineGap:EbuTtDDestinationSettings' :: EbuTtDDestinationSettings -&gt; M
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679875557"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679875566"><span class="annot"><span class="annottext">Maybe Text
 copyrightHolder :: Maybe Text
 $sel:copyrightHolder:EbuTtDDestinationSettings' :: EbuTtDDestinationSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679875557"><span class="hs-identifier hs-var hs-var">copyrightHolder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679875557"><span class="hs-identifier hs-var">copyrightHolder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679875556"><span class="annot"><span class="annottext">s :: EbuTtDDestinationSettings
-</span><a href="#local-6989586621679875556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679875555"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679875555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbuTtDDestinationSettings
-</span><a href="#local-6989586621679875556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:copyrightHolder:EbuTtDDestinationSettings' :: Maybe Text
+</span><a href="#local-6989586621679875566"><span class="hs-identifier hs-var hs-var">copyrightHolder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679875566"><span class="hs-identifier hs-var">copyrightHolder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679875565"><span class="annot"><span class="annottext">s :: EbuTtDDestinationSettings
+</span><a href="#local-6989586621679875565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679875564"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679875564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbuTtDDestinationSettings
+</span><a href="#local-6989586621679875565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:copyrightHolder:EbuTtDDestinationSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#%24sel%3AcopyrightHolder%3AEbuTtDDestinationSettings%27"><span class="hs-identifier hs-var">copyrightHolder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679875555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679875564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | Specifies the font family to include in the font data attached to the</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- EBU-TT captions. Valid only if styleControl is set to include. If you</span><span>
@@ -268,16 +268,16 @@ $sel:copyrightHolder:EbuTtDDestinationSettings' :: EbuTtDDestinationSettings -&g
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679875553"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679875562"><span class="annot"><span class="annottext">Maybe Text
 fontFamily :: Maybe Text
 $sel:fontFamily:EbuTtDDestinationSettings' :: EbuTtDDestinationSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679875553"><span class="hs-identifier hs-var hs-var">fontFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679875553"><span class="hs-identifier hs-var">fontFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679875552"><span class="annot"><span class="annottext">s :: EbuTtDDestinationSettings
-</span><a href="#local-6989586621679875552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679875551"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679875551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbuTtDDestinationSettings
-</span><a href="#local-6989586621679875552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fontFamily:EbuTtDDestinationSettings' :: Maybe Text
+</span><a href="#local-6989586621679875562"><span class="hs-identifier hs-var hs-var">fontFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679875562"><span class="hs-identifier hs-var">fontFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679875561"><span class="annot"><span class="annottext">s :: EbuTtDDestinationSettings
+</span><a href="#local-6989586621679875561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679875560"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679875560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbuTtDDestinationSettings
+</span><a href="#local-6989586621679875561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fontFamily:EbuTtDDestinationSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#%24sel%3AfontFamily%3AEbuTtDDestinationSettings%27"><span class="hs-identifier hs-var">fontFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679875551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679875560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | Specifies the style information (font color, font position, and so on)</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- to include in the font data that is attached to the EBU-TT captions. -</span><span>
@@ -301,19 +301,19 @@ $sel:fontFamily:EbuTtDDestinationSettings' :: EbuTtDDestinationSettings -&gt; Ma
      (Maybe EbuTtDDestinationStyleControl)
      (Maybe EbuTtDDestinationStyleControl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679875549"><span class="annot"><span class="annottext">Maybe EbuTtDDestinationStyleControl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679875558"><span class="annot"><span class="annottext">Maybe EbuTtDDestinationStyleControl
 styleControl :: Maybe EbuTtDDestinationStyleControl
 $sel:styleControl:EbuTtDDestinationSettings' :: EbuTtDDestinationSettings -&gt; Maybe EbuTtDDestinationStyleControl
-</span><a href="#local-6989586621679875549"><span class="hs-identifier hs-var hs-var">styleControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EbuTtDDestinationStyleControl
-</span><a href="#local-6989586621679875549"><span class="hs-identifier hs-var">styleControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679875548"><span class="annot"><span class="annottext">s :: EbuTtDDestinationSettings
-</span><a href="#local-6989586621679875548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679875547"><span class="annot"><span class="annottext">Maybe EbuTtDDestinationStyleControl
-</span><a href="#local-6989586621679875547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbuTtDDestinationSettings
-</span><a href="#local-6989586621679875548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:styleControl:EbuTtDDestinationSettings' :: Maybe EbuTtDDestinationStyleControl
+</span><a href="#local-6989586621679875558"><span class="hs-identifier hs-var hs-var">styleControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EbuTtDDestinationStyleControl
+</span><a href="#local-6989586621679875558"><span class="hs-identifier hs-var">styleControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679875557"><span class="annot"><span class="annottext">s :: EbuTtDDestinationSettings
+</span><a href="#local-6989586621679875557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679875556"><span class="annot"><span class="annottext">Maybe EbuTtDDestinationStyleControl
+</span><a href="#local-6989586621679875556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbuTtDDestinationSettings
+</span><a href="#local-6989586621679875557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:styleControl:EbuTtDDestinationSettings' :: Maybe EbuTtDDestinationStyleControl
 </span><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#%24sel%3AstyleControl%3AEbuTtDDestinationSettings%27"><span class="hs-identifier hs-var">styleControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EbuTtDDestinationStyleControl
-</span><a href="#local-6989586621679875547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679875556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679875544"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679875542"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EbuTtDDestinationSettings
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679875553"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679875551"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EbuTtDDestinationSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EbuTtDDestinationSettings)
@@ -323,8 +323,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EbuTtDDestinationSettings&quot;</span></span><span>
-</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679875539"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679875539"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679875548"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679875548"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe EbuTtDFillLineGapControl
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -344,7 +344,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; EbuTtDDestinationSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679875539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EbuTtDFillLineGapControl)
+</span><a href="#local-6989586621679875548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EbuTtDFillLineGapControl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fillLineGap&quot;</span></span><span class="hs-special">)</span><span>
@@ -360,7 +360,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; EbuTtDDestinationSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679875539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679875548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;copyrightHolder&quot;</span></span><span class="hs-special">)</span><span>
@@ -373,7 +373,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe EbuTtDDestinationStyleControl -&gt; EbuTtDDestinationSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679875539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679875548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fontFamily&quot;</span></span><span class="hs-special">)</span><span>
@@ -383,19 +383,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser EbuTtDDestinationSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679875539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EbuTtDDestinationStyleControl)
+</span><a href="#local-6989586621679875548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EbuTtDDestinationStyleControl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;styleControl&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679875533"><span id="local-6989586621679875535"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679875542"><span id="local-6989586621679875544"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span></span></span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679875530"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679875539"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span></span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679875522"><span id="local-6989586621679875524"><span id="local-6989586621679875526"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679875520"><span class="annot"><span class="annottext">toJSON :: EbuTtDDestinationSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679875515"><span id="local-6989586621679875516"><span id="local-6989586621679875517"><span id="local-6989586621679875518"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679875531"><span id="local-6989586621679875533"><span id="local-6989586621679875535"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings"><span class="hs-identifier hs-type">EbuTtDDestinationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679875529"><span class="annot"><span class="annottext">toJSON :: EbuTtDDestinationSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.EbuTtDDestinationSettings.html#EbuTtDDestinationSettings%27"><span class="hs-identifier hs-type">EbuTtDDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679875524"><span id="local-6989586621679875525"><span id="local-6989586621679875526"><span id="local-6989586621679875527"><span class="annot"><span class="annottext">Maybe Text
 Maybe EbuTtDDestinationStyleControl
 Maybe EbuTtDFillLineGapControl
 styleControl :: Maybe EbuTtDDestinationStyleControl
@@ -406,7 +406,7 @@ $sel:styleControl:EbuTtDDestinationSettings' :: EbuTtDDestinationSettings -&gt; 
 $sel:fontFamily:EbuTtDDestinationSettings' :: EbuTtDDestinationSettings -&gt; Maybe Text
 $sel:copyrightHolder:EbuTtDDestinationSettings' :: EbuTtDDestinationSettings -&gt; Maybe Text
 $sel:fillLineGap:EbuTtDDestinationSettings' :: EbuTtDDestinationSettings -&gt; Maybe EbuTtDFillLineGapControl
-</span><a href="#local-6989586621679875515"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679875524"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -419,7 +419,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe EbuTtDFillLineGapControl -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EbuTtDFillLineGapControl
-</span><a href="#local-6989586621679875518"><span class="hs-identifier hs-var">fillLineGap</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679875527"><span class="hs-identifier hs-var">fillLineGap</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;copyrightHolder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -427,14 +427,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679875517"><span class="hs-identifier hs-var">copyrightHolder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679875526"><span class="hs-identifier hs-var">copyrightHolder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fontFamily&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679875516"><span class="hs-identifier hs-var">fontFamily</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679875525"><span class="hs-identifier hs-var">fontFamily</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;styleControl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EbuTtDDestinationStyleControl -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -442,7 +442,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe EbuTtDDestinationStyleControl -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EbuTtDDestinationStyleControl
-</span><a href="#local-6989586621679875515"><span class="hs-identifier hs-var">styleControl</span></a></span><span>
+</span><a href="#local-6989586621679875524"><span class="hs-identifier hs-var">styleControl</span></a></span><span>
 </span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span></pre></body></html>

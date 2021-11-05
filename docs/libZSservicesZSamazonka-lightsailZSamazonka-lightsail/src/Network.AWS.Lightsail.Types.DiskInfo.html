@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes a disk.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDiskInfo' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679609214"><span id="local-6989586621679609215"></span></span><span class="hs-keyword">data</span><span> </span><span id="DiskInfo"><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-var">DiskInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiskInfo%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-var">DiskInfo'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679609223"><span id="local-6989586621679609224"></span></span><span class="hs-keyword">data</span><span> </span><span id="DiskInfo"><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-var">DiskInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiskInfo%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-var">DiskInfo'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The disk path.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Apath%3ADiskInfo%27"><span class="annot"><span class="annottext">DiskInfo -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.DiskInfo.html#%24sel%3Apath%3ADiskInfo%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AisSystemDisk%3ADiskInfo%27"><span class="annot"><span class="annottext">DiskInfo -&gt; Maybe Bool
 </span><a href="Network.AWS.Lightsail.Types.DiskInfo.html#%24sel%3AisSystemDisk%3ADiskInfo%27"><span class="hs-identifier hs-var hs-var">isSystemDisk</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679609205"><span id="local-6989586621679609207"><span class="annot"><span class="annottext">DiskInfo -&gt; DiskInfo -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679609214"><span id="local-6989586621679609216"><span class="annot"><span class="annottext">DiskInfo -&gt; DiskInfo -&gt; Bool
 (DiskInfo -&gt; DiskInfo -&gt; Bool)
 -&gt; (DiskInfo -&gt; DiskInfo -&gt; Bool) -&gt; Eq DiskInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DiskInfo -&gt; DiskInfo -&gt; Bool
 == :: DiskInfo -&gt; DiskInfo -&gt; Bool
 $c== :: DiskInfo -&gt; DiskInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609196"><span id="local-6989586621679609198"><span id="local-6989586621679609200"><span id="local-6989586621679609202"><span class="annot"><span class="annottext">ReadPrec [DiskInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609205"><span id="local-6989586621679609207"><span id="local-6989586621679609209"><span id="local-6989586621679609211"><span class="annot"><span class="annottext">ReadPrec [DiskInfo]
 ReadPrec DiskInfo
 Int -&gt; ReadS DiskInfo
 ReadS [DiskInfo]
@@ -69,7 +69,7 @@ readList :: ReadS [DiskInfo]
 $creadList :: ReadS [DiskInfo]
 readsPrec :: Int -&gt; ReadS DiskInfo
 $creadsPrec :: Int -&gt; ReadS DiskInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609189"><span id="local-6989586621679609191"><span id="local-6989586621679609193"><span class="annot"><span class="annottext">Int -&gt; DiskInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609198"><span id="local-6989586621679609200"><span id="local-6989586621679609202"><span class="annot"><span class="annottext">Int -&gt; DiskInfo -&gt; ShowS
 [DiskInfo] -&gt; ShowS
 DiskInfo -&gt; String
 (Int -&gt; DiskInfo -&gt; ShowS)
@@ -139,16 +139,16 @@ forall a. Maybe a
 -&gt; (DiskInfo -&gt; Maybe Text -&gt; DiskInfo)
 -&gt; Lens DiskInfo DiskInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609180"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609189"><span class="annot"><span class="annottext">Maybe Text
 path :: Maybe Text
 $sel:path:DiskInfo' :: DiskInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679609180"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609180"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609179"><span class="annot"><span class="annottext">s :: DiskInfo
-</span><a href="#local-6989586621679609179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609178"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskInfo
-</span><a href="#local-6989586621679609179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:DiskInfo' :: Maybe Text
+</span><a href="#local-6989586621679609189"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679609189"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609188"><span class="annot"><span class="annottext">s :: DiskInfo
+</span><a href="#local-6989586621679609188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609187"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679609187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskInfo
+</span><a href="#local-6989586621679609188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:DiskInfo' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.DiskInfo.html#%24sel%3Apath%3ADiskInfo%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679609187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The disk name.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#diskInfo_name"><span class="hs-identifier hs-type">diskInfo_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -157,16 +157,16 @@ $sel:path:DiskInfo' :: DiskInfo -&gt; Maybe Text
 -&gt; (DiskInfo -&gt; Maybe Text -&gt; DiskInfo)
 -&gt; Lens DiskInfo DiskInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609176"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609185"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:DiskInfo' :: DiskInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679609176"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609176"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609175"><span class="annot"><span class="annottext">s :: DiskInfo
-</span><a href="#local-6989586621679609175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609174"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskInfo
-</span><a href="#local-6989586621679609175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DiskInfo' :: Maybe Text
+</span><a href="#local-6989586621679609185"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679609185"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609184"><span class="annot"><span class="annottext">s :: DiskInfo
+</span><a href="#local-6989586621679609184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609183"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679609183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskInfo
+</span><a href="#local-6989586621679609184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DiskInfo' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.DiskInfo.html#%24sel%3Aname%3ADiskInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679609183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The size of the disk in GB (e.g., @32@).</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#diskInfo_sizeInGb"><span class="hs-identifier hs-type">diskInfo_sizeInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -175,16 +175,16 @@ $sel:name:DiskInfo' :: DiskInfo -&gt; Maybe Text
 -&gt; (DiskInfo -&gt; Maybe Int -&gt; DiskInfo)
 -&gt; Lens DiskInfo DiskInfo (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609172"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609181"><span class="annot"><span class="annottext">Maybe Int
 sizeInGb :: Maybe Int
 $sel:sizeInGb:DiskInfo' :: DiskInfo -&gt; Maybe Int
-</span><a href="#local-6989586621679609172"><span class="hs-identifier hs-var hs-var">sizeInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679609172"><span class="hs-identifier hs-var">sizeInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609171"><span class="annot"><span class="annottext">s :: DiskInfo
-</span><a href="#local-6989586621679609171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609170"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679609170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskInfo
-</span><a href="#local-6989586621679609171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeInGb:DiskInfo' :: Maybe Int
+</span><a href="#local-6989586621679609181"><span class="hs-identifier hs-var hs-var">sizeInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679609181"><span class="hs-identifier hs-var">sizeInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609180"><span class="annot"><span class="annottext">s :: DiskInfo
+</span><a href="#local-6989586621679609180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609179"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679609179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskInfo
+</span><a href="#local-6989586621679609180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeInGb:DiskInfo' :: Maybe Int
 </span><a href="Network.AWS.Lightsail.Types.DiskInfo.html#%24sel%3AsizeInGb%3ADiskInfo%27"><span class="hs-identifier hs-var">sizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679609170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679609179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | A Boolean value indicating whether this disk is a system disk (has an</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- operating system loaded on it).</span><span>
@@ -194,27 +194,27 @@ $sel:sizeInGb:DiskInfo' :: DiskInfo -&gt; Maybe Int
 -&gt; (DiskInfo -&gt; Maybe Bool -&gt; DiskInfo)
 -&gt; Lens DiskInfo DiskInfo (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609168"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609177"><span class="annot"><span class="annottext">Maybe Bool
 isSystemDisk :: Maybe Bool
 $sel:isSystemDisk:DiskInfo' :: DiskInfo -&gt; Maybe Bool
-</span><a href="#local-6989586621679609168"><span class="hs-identifier hs-var hs-var">isSystemDisk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679609168"><span class="hs-identifier hs-var">isSystemDisk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609167"><span class="annot"><span class="annottext">s :: DiskInfo
-</span><a href="#local-6989586621679609167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609166"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679609166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskInfo
-</span><a href="#local-6989586621679609167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isSystemDisk:DiskInfo' :: Maybe Bool
+</span><a href="#local-6989586621679609177"><span class="hs-identifier hs-var hs-var">isSystemDisk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679609177"><span class="hs-identifier hs-var">isSystemDisk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609176"><span class="annot"><span class="annottext">s :: DiskInfo
+</span><a href="#local-6989586621679609176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609175"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679609175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskInfo
+</span><a href="#local-6989586621679609176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isSystemDisk:DiskInfo' :: Maybe Bool
 </span><a href="Network.AWS.Lightsail.Types.DiskInfo.html#%24sel%3AisSystemDisk%3ADiskInfo%27"><span class="hs-identifier hs-var">isSystemDisk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679609166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679609175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609163"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679609161"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DiskInfo
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609172"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679609170"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DiskInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser DiskInfo) -&gt; Value -&gt; Parser DiskInfo
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DiskInfo&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679609158"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679609158"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679609167"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679609167"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe Bool -&gt; DiskInfo
 </span><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-var">DiskInfo'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe Bool -&gt; DiskInfo)
@@ -222,7 +222,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; Maybe Bool -&gt; DiskInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679609158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679609167"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;path&quot;</span></span><span class="hs-special">)</span><span>
@@ -231,7 +231,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int -&gt; Maybe Bool -&gt; DiskInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679609158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679609167"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -239,7 +239,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser (Maybe Bool -&gt; DiskInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679609158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679609167"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sizeInGb&quot;</span></span><span class="hs-special">)</span><span>
@@ -247,13 +247,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser DiskInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679609158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679609167"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;isSystemDisk&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609152"><span id="local-6989586621679609154"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609161"><span id="local-6989586621679609163"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609158"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span></span><span>
 </span><span id="line-100"></span></pre></body></html>

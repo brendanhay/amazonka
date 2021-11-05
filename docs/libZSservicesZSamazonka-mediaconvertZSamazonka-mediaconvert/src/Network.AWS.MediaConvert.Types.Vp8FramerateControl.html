@@ -42,13 +42,13 @@
 </span><span id="line-42"></span><span class="hs-comment">-- from the input. Choose SPECIFIED if you want the service to use the</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- frame rate you specify in the settings FramerateNumerator and</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- FramerateDenominator.</span><span>
-</span><span id="line-45"></span><span id="local-6989586621680014105"><span id="local-6989586621680014106"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vp8FramerateControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp8FramerateControl.html#Vp8FramerateControl"><span class="hs-identifier hs-var">Vp8FramerateControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp8FramerateControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp8FramerateControl.html#Vp8FramerateControl%27"><span class="hs-identifier hs-var">Vp8FramerateControl'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621680014114"><span id="local-6989586621680014115"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vp8FramerateControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp8FramerateControl.html#Vp8FramerateControl"><span class="hs-identifier hs-var">Vp8FramerateControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp8FramerateControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp8FramerateControl.html#Vp8FramerateControl%27"><span class="hs-identifier hs-var">Vp8FramerateControl'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVp8FramerateControl"><span class="annot"><span class="annottext">Vp8FramerateControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Vp8FramerateControl.html#fromVp8FramerateControl"><span class="hs-identifier hs-var hs-var">fromVp8FramerateControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680014097"><span id="local-6989586621680014099"><span id="local-6989586621680014101"><span class="annot"><span class="annottext">Int -&gt; Vp8FramerateControl -&gt; ShowS
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680014106"><span id="local-6989586621680014108"><span id="local-6989586621680014110"><span class="annot"><span class="annottext">Int -&gt; Vp8FramerateControl -&gt; ShowS
 [Vp8FramerateControl] -&gt; ShowS
 Vp8FramerateControl -&gt; String
 (Int -&gt; Vp8FramerateControl -&gt; ShowS)
@@ -64,7 +64,7 @@ $cshow :: Vp8FramerateControl -&gt; String
 showsPrec :: Int -&gt; Vp8FramerateControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; Vp8FramerateControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680014088"><span id="local-6989586621680014090"><span id="local-6989586621680014092"><span id="local-6989586621680014094"><span class="annot"><span class="annottext">ReadPrec [Vp8FramerateControl]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680014097"><span id="local-6989586621680014099"><span id="local-6989586621680014101"><span id="local-6989586621680014103"><span class="annot"><span class="annottext">ReadPrec [Vp8FramerateControl]
 ReadPrec Vp8FramerateControl
 Int -&gt; ReadS Vp8FramerateControl
 ReadS [Vp8FramerateControl]
@@ -85,7 +85,7 @@ $creadList :: ReadS [Vp8FramerateControl]
 readsPrec :: Int -&gt; ReadS Vp8FramerateControl
 $creadsPrec :: Int -&gt; ReadS Vp8FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680014083"><span id="local-6989586621680014085"><span class="annot"><span class="annottext">Vp8FramerateControl -&gt; Vp8FramerateControl -&gt; Bool
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680014092"><span id="local-6989586621680014094"><span class="annot"><span class="annottext">Vp8FramerateControl -&gt; Vp8FramerateControl -&gt; Bool
 (Vp8FramerateControl -&gt; Vp8FramerateControl -&gt; Bool)
 -&gt; (Vp8FramerateControl -&gt; Vp8FramerateControl -&gt; Bool)
 -&gt; Eq Vp8FramerateControl
@@ -95,7 +95,7 @@ $c/= :: Vp8FramerateControl -&gt; Vp8FramerateControl -&gt; Bool
 == :: Vp8FramerateControl -&gt; Vp8FramerateControl -&gt; Bool
 $c== :: Vp8FramerateControl -&gt; Vp8FramerateControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680014067"><span id="local-6989586621680014069"><span id="local-6989586621680014071"><span id="local-6989586621680014073"><span id="local-6989586621680014075"><span id="local-6989586621680014077"><span id="local-6989586621680014079"><span class="annot"><span class="annottext">Eq Vp8FramerateControl
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680014076"><span id="local-6989586621680014078"><span id="local-6989586621680014080"><span id="local-6989586621680014082"><span id="local-6989586621680014084"><span id="local-6989586621680014086"><span id="local-6989586621680014088"><span class="annot"><span class="annottext">Eq Vp8FramerateControl
 Eq Vp8FramerateControl
 -&gt; (Vp8FramerateControl -&gt; Vp8FramerateControl -&gt; Ordering)
 -&gt; (Vp8FramerateControl -&gt; Vp8FramerateControl -&gt; Bool)
@@ -148,7 +148,7 @@ $cfrom :: forall x. Vp8FramerateControl -&gt; Rep Vp8FramerateControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680014059"><span id="local-6989586621680014061"><span class="annot"><span class="annottext">Int -&gt; Vp8FramerateControl -&gt; Int
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680014068"><span id="local-6989586621680014070"><span class="annot"><span class="annottext">Int -&gt; Vp8FramerateControl -&gt; Int
 Vp8FramerateControl -&gt; Int
 (Int -&gt; Vp8FramerateControl -&gt; Int)
 -&gt; (Vp8FramerateControl -&gt; Int) -&gt; Hashable Vp8FramerateControl
@@ -158,53 +158,53 @@ $chash :: Vp8FramerateControl -&gt; Int
 hashWithSalt :: Int -&gt; Vp8FramerateControl -&gt; Int
 $chashWithSalt :: Int -&gt; Vp8FramerateControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680014056"><span class="annot"><span class="annottext">Vp8FramerateControl -&gt; ()
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680014065"><span class="annot"><span class="annottext">Vp8FramerateControl -&gt; ()
 (Vp8FramerateControl -&gt; ()) -&gt; NFData Vp8FramerateControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Vp8FramerateControl -&gt; ()
 $crnf :: Vp8FramerateControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680014053"><span class="annot"><span class="annottext">Text -&gt; Either String Vp8FramerateControl
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680014062"><span class="annot"><span class="annottext">Text -&gt; Either String Vp8FramerateControl
 (Text -&gt; Either String Vp8FramerateControl)
 -&gt; FromText Vp8FramerateControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Vp8FramerateControl
 $cfromText :: Text -&gt; Either String Vp8FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680014050"><span class="annot"><span class="annottext">Vp8FramerateControl -&gt; Text
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680014059"><span class="annot"><span class="annottext">Vp8FramerateControl -&gt; Text
 (Vp8FramerateControl -&gt; Text) -&gt; ToText Vp8FramerateControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Vp8FramerateControl -&gt; Text
 $ctoText :: Vp8FramerateControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680014047"><span class="annot"><span class="annottext">Vp8FramerateControl -&gt; ByteString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680014056"><span class="annot"><span class="annottext">Vp8FramerateControl -&gt; ByteString
 (Vp8FramerateControl -&gt; ByteString)
 -&gt; ToByteString Vp8FramerateControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Vp8FramerateControl -&gt; ByteString
 $ctoBS :: Vp8FramerateControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680014044"><span class="annot"><span class="annottext">Vp8FramerateControl -&gt; ByteStringBuilder
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680014053"><span class="annot"><span class="annottext">Vp8FramerateControl -&gt; ByteStringBuilder
 (Vp8FramerateControl -&gt; ByteStringBuilder)
 -&gt; ToLog Vp8FramerateControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Vp8FramerateControl -&gt; ByteStringBuilder
 $cbuild :: Vp8FramerateControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680014041"><span class="annot"><span class="annottext">HeaderName -&gt; Vp8FramerateControl -&gt; [Header]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680014050"><span class="annot"><span class="annottext">HeaderName -&gt; Vp8FramerateControl -&gt; [Header]
 (HeaderName -&gt; Vp8FramerateControl -&gt; [Header])
 -&gt; ToHeader Vp8FramerateControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Vp8FramerateControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Vp8FramerateControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680014038"><span class="annot"><span class="annottext">Vp8FramerateControl -&gt; QueryString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680014047"><span class="annot"><span class="annottext">Vp8FramerateControl -&gt; QueryString
 (Vp8FramerateControl -&gt; QueryString) -&gt; ToQuery Vp8FramerateControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Vp8FramerateControl -&gt; QueryString
 $ctoQuery :: Vp8FramerateControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680014033"><span id="local-6989586621680014035"><span class="annot"><span class="annottext">Value -&gt; Parser [Vp8FramerateControl]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680014042"><span id="local-6989586621680014044"><span class="annot"><span class="annottext">Value -&gt; Parser [Vp8FramerateControl]
 Value -&gt; Parser Vp8FramerateControl
 (Value -&gt; Parser Vp8FramerateControl)
 -&gt; (Value -&gt; Parser [Vp8FramerateControl])
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [Vp8FramerateControl]
 parseJSON :: Value -&gt; Parser Vp8FramerateControl
 $cparseJSON :: Value -&gt; Parser Vp8FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621680014028"><span id="local-6989586621680014030"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vp8FramerateControl]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680014037"><span id="local-6989586621680014039"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vp8FramerateControl]
 FromJSONKeyFunction Vp8FramerateControl
 FromJSONKeyFunction Vp8FramerateControl
 -&gt; FromJSONKeyFunction [Vp8FramerateControl]
@@ -228,7 +228,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Vp8FramerateControl]
 fromJSONKey :: FromJSONKeyFunction Vp8FramerateControl
 $cfromJSONKey :: FromJSONKeyFunction Vp8FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621680014019"><span id="local-6989586621680014021"><span id="local-6989586621680014023"><span id="local-6989586621680014025"><span class="annot"><span class="annottext">[Vp8FramerateControl] -&gt; Encoding
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680014028"><span id="local-6989586621680014030"><span id="local-6989586621680014032"><span id="local-6989586621680014034"><span class="annot"><span class="annottext">[Vp8FramerateControl] -&gt; Encoding
 [Vp8FramerateControl] -&gt; Value
 Vp8FramerateControl -&gt; Encoding
 Vp8FramerateControl -&gt; Value
@@ -252,7 +252,7 @@ $ctoEncoding :: Vp8FramerateControl -&gt; Encoding
 toJSON :: Vp8FramerateControl -&gt; Value
 $ctoJSON :: Vp8FramerateControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621680014014"><span id="local-6989586621680014016"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vp8FramerateControl]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680014023"><span id="local-6989586621680014025"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vp8FramerateControl]
 ToJSONKeyFunction Vp8FramerateControl
 ToJSONKeyFunction Vp8FramerateControl
 -&gt; ToJSONKeyFunction [Vp8FramerateControl]
@@ -264,14 +264,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Vp8FramerateControl]
 toJSONKey :: ToJSONKeyFunction Vp8FramerateControl
 $ctoJSONKey :: ToJSONKeyFunction Vp8FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621680014011"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vp8FramerateControl
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680014020"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vp8FramerateControl
 ([Node] -&gt; Either String Vp8FramerateControl)
 -&gt; FromXML Vp8FramerateControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Vp8FramerateControl
 $cparseXML :: [Node] -&gt; Either String Vp8FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621680014008"><span class="annot"><span class="annottext">Vp8FramerateControl -&gt; XML
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621680014017"><span class="annot"><span class="annottext">Vp8FramerateControl -&gt; XML
 (Vp8FramerateControl -&gt; XML) -&gt; ToXML Vp8FramerateControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Vp8FramerateControl -&gt; XML

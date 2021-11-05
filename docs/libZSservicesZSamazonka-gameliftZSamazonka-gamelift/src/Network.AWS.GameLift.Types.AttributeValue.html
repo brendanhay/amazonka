@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- only one of the available properties.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAttributeValue' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679428027"><span id="local-6989586621679428028"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttributeValue"><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-var">AttributeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeValue%27"><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-var">AttributeValue'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679428036"><span id="local-6989586621679428037"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttributeValue"><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-var">AttributeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeValue%27"><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-var">AttributeValue'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For a list of up to 10 strings. Maximum length for each string is 100</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- characters. Duplicate values are not recognized; all occurrences of the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- repeated value after the first of a repeated value are ignored.</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3As%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe Text
 </span><a href="Network.AWS.GameLift.Types.AttributeValue.html#%24sel%3As%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">s</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679428018"><span id="local-6989586621679428020"><span class="annot"><span class="annottext">AttributeValue -&gt; AttributeValue -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679428027"><span id="local-6989586621679428029"><span class="annot"><span class="annottext">AttributeValue -&gt; AttributeValue -&gt; Bool
 (AttributeValue -&gt; AttributeValue -&gt; Bool)
 -&gt; (AttributeValue -&gt; AttributeValue -&gt; Bool) -&gt; Eq AttributeValue
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttributeValue -&gt; AttributeValue -&gt; Bool
 == :: AttributeValue -&gt; AttributeValue -&gt; Bool
 $c== :: AttributeValue -&gt; AttributeValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428009"><span id="local-6989586621679428011"><span id="local-6989586621679428013"><span id="local-6989586621679428015"><span class="annot"><span class="annottext">ReadPrec [AttributeValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428018"><span id="local-6989586621679428020"><span id="local-6989586621679428022"><span id="local-6989586621679428024"><span class="annot"><span class="annottext">ReadPrec [AttributeValue]
 ReadPrec AttributeValue
 Int -&gt; ReadS AttributeValue
 ReadS [AttributeValue]
@@ -74,7 +74,7 @@ readList :: ReadS [AttributeValue]
 $creadList :: ReadS [AttributeValue]
 readsPrec :: Int -&gt; ReadS AttributeValue
 $creadsPrec :: Int -&gt; ReadS AttributeValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428002"><span id="local-6989586621679428004"><span id="local-6989586621679428006"><span class="annot"><span class="annottext">Int -&gt; AttributeValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428011"><span id="local-6989586621679428013"><span id="local-6989586621679428015"><span class="annot"><span class="annottext">Int -&gt; AttributeValue -&gt; ShowS
 [AttributeValue] -&gt; ShowS
 AttributeValue -&gt; String
 (Int -&gt; AttributeValue -&gt; ShowS)
@@ -156,16 +156,16 @@ forall a. Maybe a
 -&gt; (AttributeValue -&gt; Maybe [Text] -&gt; AttributeValue)
 -&gt; Lens AttributeValue AttributeValue (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427993"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428002"><span class="annot"><span class="annottext">Maybe [Text]
 sl :: Maybe [Text]
 $sel:sl:AttributeValue' :: AttributeValue -&gt; Maybe [Text]
-</span><a href="#local-6989586621679427993"><span class="hs-identifier hs-var hs-var">sl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679427993"><span class="hs-identifier hs-var">sl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427992"><span class="annot"><span class="annottext">s :: AttributeValue
-</span><a href="#local-6989586621679427992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427991"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679427991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
-</span><a href="#local-6989586621679427992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sl:AttributeValue' :: Maybe [Text]
+</span><a href="#local-6989586621679428002"><span class="hs-identifier hs-var hs-var">sl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679428002"><span class="hs-identifier hs-var">sl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428001"><span class="annot"><span class="annottext">s :: AttributeValue
+</span><a href="#local-6989586621679428001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428000"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679428000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
+</span><a href="#local-6989586621679428001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sl:AttributeValue' :: Maybe [Text]
 </span><a href="Network.AWS.GameLift.Types.AttributeValue.html#%24sel%3Asl%3AAttributeValue%27"><span class="hs-identifier hs-var">sl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679427991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679428000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; AttributeValue -&gt; f AttributeValue)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -196,16 +196,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (HashMap Text Double))
      (Maybe (HashMap Text Double))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427986"><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427995"><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
 sdm :: Maybe (HashMap Text Double)
 $sel:sdm:AttributeValue' :: AttributeValue -&gt; Maybe (HashMap Text Double)
-</span><a href="#local-6989586621679427986"><span class="hs-identifier hs-var hs-var">sdm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
-</span><a href="#local-6989586621679427986"><span class="hs-identifier hs-var">sdm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427985"><span class="annot"><span class="annottext">s :: AttributeValue
-</span><a href="#local-6989586621679427985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427984"><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
-</span><a href="#local-6989586621679427984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
-</span><a href="#local-6989586621679427985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sdm:AttributeValue' :: Maybe (HashMap Text Double)
+</span><a href="#local-6989586621679427995"><span class="hs-identifier hs-var hs-var">sdm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
+</span><a href="#local-6989586621679427995"><span class="hs-identifier hs-var">sdm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427994"><span class="annot"><span class="annottext">s :: AttributeValue
+</span><a href="#local-6989586621679427994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427993"><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
+</span><a href="#local-6989586621679427993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
+</span><a href="#local-6989586621679427994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sdm:AttributeValue' :: Maybe (HashMap Text Double)
 </span><a href="Network.AWS.GameLift.Types.AttributeValue.html#%24sel%3Asdm%3AAttributeValue%27"><span class="hs-identifier hs-var">sdm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
-</span><a href="#local-6989586621679427984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Double) -&gt; f (Maybe (HashMap Text Double)))
+</span><a href="#local-6989586621679427993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Double) -&gt; f (Maybe (HashMap Text Double)))
  -&gt; AttributeValue -&gt; f AttributeValue)
 -&gt; ((Maybe (HashMap Text Double)
      -&gt; f (Maybe (HashMap Text Double)))
@@ -243,16 +243,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (AttributeValue -&gt; Maybe Double -&gt; AttributeValue)
 -&gt; Lens AttributeValue AttributeValue (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427982"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427991"><span class="annot"><span class="annottext">Maybe Double
 n :: Maybe Double
 $sel:n:AttributeValue' :: AttributeValue -&gt; Maybe Double
-</span><a href="#local-6989586621679427982"><span class="hs-identifier hs-var hs-var">n</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679427982"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427981"><span class="annot"><span class="annottext">s :: AttributeValue
-</span><a href="#local-6989586621679427981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427980"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679427980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
-</span><a href="#local-6989586621679427981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:n:AttributeValue' :: Maybe Double
+</span><a href="#local-6989586621679427991"><span class="hs-identifier hs-var hs-var">n</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679427991"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427990"><span class="annot"><span class="annottext">s :: AttributeValue
+</span><a href="#local-6989586621679427990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427989"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679427989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
+</span><a href="#local-6989586621679427990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:n:AttributeValue' :: Maybe Double
 </span><a href="Network.AWS.GameLift.Types.AttributeValue.html#%24sel%3An%3AAttributeValue%27"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679427980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679427989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | For single string values. Maximum string length is 100 characters.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#attributeValue_s"><span class="hs-identifier hs-type">attributeValue_s</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -262,19 +262,19 @@ $sel:n:AttributeValue' :: AttributeValue -&gt; Maybe Double
 -&gt; (AttributeValue -&gt; Maybe Text -&gt; AttributeValue)
 -&gt; Lens AttributeValue AttributeValue (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427978"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427987"><span class="annot"><span class="annottext">Maybe Text
 s :: Maybe Text
 $sel:s:AttributeValue' :: AttributeValue -&gt; Maybe Text
-</span><a href="#local-6989586621679427978"><span class="hs-identifier hs-var hs-var">s</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427978"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427977"><span class="annot"><span class="annottext">s :: AttributeValue
-</span><a href="#local-6989586621679427977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427976"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
-</span><a href="#local-6989586621679427977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s:AttributeValue' :: Maybe Text
+</span><a href="#local-6989586621679427987"><span class="hs-identifier hs-var hs-var">s</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427987"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427986"><span class="annot"><span class="annottext">s :: AttributeValue
+</span><a href="#local-6989586621679427986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427985"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
+</span><a href="#local-6989586621679427986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s:AttributeValue' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.AttributeValue.html#%24sel%3As%3AAttributeValue%27"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679427985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427973"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679427971"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttributeValue
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427982"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679427980"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttributeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AttributeValue)
@@ -284,8 +284,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AttributeValue&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679427968"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679427968"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679427977"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427977"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe (HashMap Text Double)
 -&gt; Maybe Double
@@ -303,7 +303,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Double -&gt; Maybe Text -&gt; AttributeValue)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679427968"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679427977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -319,7 +319,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Double -&gt; Maybe Text -&gt; AttributeValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679427968"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Double)))
+</span><a href="#local-6989586621679427977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Double)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SDM&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Double)))
@@ -333,7 +333,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Double) -&gt; Parser (Maybe Text -&gt; AttributeValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679427968"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679427977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;N&quot;</span></span><span class="hs-special">)</span><span>
@@ -341,19 +341,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser AttributeValue
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679427968"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679427977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427961"><span id="local-6989586621679427963"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427970"><span id="local-6989586621679427972"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427958"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427967"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427950"><span id="local-6989586621679427952"><span id="local-6989586621679427954"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679427948"><span class="annot"><span class="annottext">toJSON :: AttributeValue -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427943"><span id="local-6989586621679427944"><span id="local-6989586621679427945"><span id="local-6989586621679427946"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427959"><span id="local-6989586621679427961"><span id="local-6989586621679427963"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679427957"><span class="annot"><span class="annottext">toJSON :: AttributeValue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427952"><span id="local-6989586621679427953"><span id="local-6989586621679427954"><span id="local-6989586621679427955"><span class="annot"><span class="annottext">Maybe Double
 Maybe [Text]
 Maybe Text
 Maybe (HashMap Text Double)
@@ -365,7 +365,7 @@ $sel:s:AttributeValue' :: AttributeValue -&gt; Maybe Text
 $sel:n:AttributeValue' :: AttributeValue -&gt; Maybe Double
 $sel:sdm:AttributeValue' :: AttributeValue -&gt; Maybe (HashMap Text Double)
 $sel:sl:AttributeValue' :: AttributeValue -&gt; Maybe [Text]
-</span><a href="#local-6989586621679427943"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679427952"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -377,7 +377,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679427946"><span class="hs-identifier hs-var">sl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679427955"><span class="hs-identifier hs-var">sl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SDM&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -385,21 +385,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Double) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
-</span><a href="#local-6989586621679427945"><span class="hs-identifier hs-var">sdm</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679427954"><span class="hs-identifier hs-var">sdm</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;N&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679427944"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679427953"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427943"><span class="hs-identifier hs-var">s</span></a></span><span>
+</span><a href="#local-6989586621679427952"><span class="hs-identifier hs-var">s</span></a></span><span>
 </span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span></pre></body></html>

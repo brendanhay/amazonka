@@ -157,7 +157,7 @@
 </span><span id="line-157"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newReEncrypt' smart constructor.</span><span>
-</span><span id="line-160"></span><span id="local-6989586621679252711"><span id="local-6989586621679252712"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReEncrypt"><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-var">ReEncrypt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReEncrypt%27"><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-var">ReEncrypt'</span></a></span></span><span>
+</span><span id="line-160"></span><span id="local-6989586621679252720"><span id="local-6989586621679252721"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReEncrypt"><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-var">ReEncrypt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReEncrypt%27"><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-var">ReEncrypt'</span></a></span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies that encryption context to use when the reencrypting the data.</span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-comment">-- A destination encryption context is valid only when the destination KMS</span><span>
@@ -281,7 +281,7 @@
 </span><span id="line-274"></span><span>    </span><span id="%24sel%3AdestinationKeyId%3AReEncrypt%27"><span class="annot"><span class="annottext">ReEncrypt -&gt; Text
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AdestinationKeyId%3AReEncrypt%27"><span class="hs-identifier hs-var hs-var">destinationKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-275"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-276"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252698"><span id="local-6989586621679252700"><span class="annot"><span class="annottext">ReEncrypt -&gt; ReEncrypt -&gt; Bool
+</span><span id="line-276"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252707"><span id="local-6989586621679252709"><span class="annot"><span class="annottext">ReEncrypt -&gt; ReEncrypt -&gt; Bool
 (ReEncrypt -&gt; ReEncrypt -&gt; Bool)
 -&gt; (ReEncrypt -&gt; ReEncrypt -&gt; Bool) -&gt; Eq ReEncrypt
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -289,7 +289,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReEncrypt -&gt; ReEncrypt -&gt; Bool
 == :: ReEncrypt -&gt; ReEncrypt -&gt; Bool
 $c== :: ReEncrypt -&gt; ReEncrypt -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252689"><span id="local-6989586621679252691"><span id="local-6989586621679252693"><span id="local-6989586621679252695"><span class="annot"><span class="annottext">ReadPrec [ReEncrypt]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252698"><span id="local-6989586621679252700"><span id="local-6989586621679252702"><span id="local-6989586621679252704"><span class="annot"><span class="annottext">ReadPrec [ReEncrypt]
 ReadPrec ReEncrypt
 Int -&gt; ReadS ReEncrypt
 ReadS [ReEncrypt]
@@ -309,7 +309,7 @@ readList :: ReadS [ReEncrypt]
 $creadList :: ReadS [ReEncrypt]
 readsPrec :: Int -&gt; ReadS ReEncrypt
 $creadsPrec :: Int -&gt; ReadS ReEncrypt
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252682"><span id="local-6989586621679252684"><span id="local-6989586621679252686"><span class="annot"><span class="annottext">Int -&gt; ReEncrypt -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252691"><span id="local-6989586621679252693"><span id="local-6989586621679252695"><span class="annot"><span class="annottext">Int -&gt; ReEncrypt -&gt; ShowS
 [ReEncrypt] -&gt; ShowS
 ReEncrypt -&gt; String
 (Int -&gt; ReEncrypt -&gt; ShowS)
@@ -466,9 +466,9 @@ $cfrom :: forall x. ReEncrypt -&gt; Rep ReEncrypt x
 </span><span id="line-407"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-408"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span>
 </span><span id="line-409"></span><span id="newReEncrypt"><span class="annot"><span class="annottext">newReEncrypt :: ByteString -&gt; Text -&gt; ReEncrypt
-</span><a href="Network.AWS.KMS.ReEncrypt.html#newReEncrypt"><span class="hs-identifier hs-var hs-var">newReEncrypt</span></a></span></span><span> </span><span id="local-6989586621679252677"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679252677"><span class="hs-identifier hs-var">pCiphertextBlob_</span></a></span></span><span> </span><span id="local-6989586621679252676"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252676"><span class="hs-identifier hs-var">pDestinationKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.ReEncrypt.html#newReEncrypt"><span class="hs-identifier hs-var hs-var">newReEncrypt</span></a></span></span><span> </span><span id="local-6989586621679252686"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679252686"><span class="hs-identifier hs-var">pCiphertextBlob_</span></a></span></span><span> </span><span id="local-6989586621679252685"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252685"><span class="hs-identifier hs-var">pDestinationKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-410"></span><span>  </span><span class="annot"><span class="annottext">ReEncrypt' :: Maybe (HashMap Text Text)
 -&gt; Maybe Text
 -&gt; Maybe (HashMap Text Text)
@@ -514,10 +514,10 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679252677"><span class="hs-identifier hs-var">pCiphertextBlob_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252686"><span class="hs-identifier hs-var">pCiphertextBlob_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-420"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationKeyId:ReEncrypt' :: Text
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AdestinationKeyId%3AReEncrypt%27"><span class="hs-identifier hs-var">destinationKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252676"><span class="hs-identifier hs-var">pDestinationKeyId_</span></a></span><span>
+</span><a href="#local-6989586621679252685"><span class="hs-identifier hs-var">pDestinationKeyId_</span></a></span><span>
 </span><span id="line-421"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-422"></span><span>
 </span><span id="line-423"></span><span class="hs-comment">-- | Specifies that encryption context to use when the reencrypting the data.</span><span>
@@ -547,16 +547,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252671"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252680"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 destinationEncryptionContext :: Maybe (HashMap Text Text)
 $sel:destinationEncryptionContext:ReEncrypt' :: ReEncrypt -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679252671"><span class="hs-identifier hs-var hs-var">destinationEncryptionContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679252671"><span class="hs-identifier hs-var">destinationEncryptionContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252670"><span class="annot"><span class="annottext">s :: ReEncrypt
-</span><a href="#local-6989586621679252670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252669"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679252669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncrypt
-</span><a href="#local-6989586621679252670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationEncryptionContext:ReEncrypt' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679252680"><span class="hs-identifier hs-var hs-var">destinationEncryptionContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679252680"><span class="hs-identifier hs-var">destinationEncryptionContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252679"><span class="annot"><span class="annottext">s :: ReEncrypt
+</span><a href="#local-6989586621679252679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252678"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679252678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncrypt
+</span><a href="#local-6989586621679252679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationEncryptionContext:ReEncrypt' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AdestinationEncryptionContext%3AReEncrypt%27"><span class="hs-identifier hs-var">destinationEncryptionContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679252669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679252678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ReEncrypt -&gt; f ReEncrypt)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -619,16 +619,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ReEncrypt -&gt; Maybe Text -&gt; ReEncrypt)
 -&gt; Lens ReEncrypt ReEncrypt (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252665"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252674"><span class="annot"><span class="annottext">Maybe Text
 sourceKeyId :: Maybe Text
 $sel:sourceKeyId:ReEncrypt' :: ReEncrypt -&gt; Maybe Text
-</span><a href="#local-6989586621679252665"><span class="hs-identifier hs-var hs-var">sourceKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252665"><span class="hs-identifier hs-var">sourceKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252664"><span class="annot"><span class="annottext">s :: ReEncrypt
-</span><a href="#local-6989586621679252664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252663"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncrypt
-</span><a href="#local-6989586621679252664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceKeyId:ReEncrypt' :: Maybe Text
+</span><a href="#local-6989586621679252674"><span class="hs-identifier hs-var hs-var">sourceKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252674"><span class="hs-identifier hs-var">sourceKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252673"><span class="annot"><span class="annottext">s :: ReEncrypt
+</span><a href="#local-6989586621679252673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252672"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncrypt
+</span><a href="#local-6989586621679252673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceKeyId:ReEncrypt' :: Maybe Text
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AsourceKeyId%3AReEncrypt%27"><span class="hs-identifier hs-var">sourceKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-472"></span><span>
 </span><span id="line-473"></span><span class="hs-comment">-- | Specifies the encryption context to use to decrypt the ciphertext. Enter</span><span>
 </span><span id="line-474"></span><span class="hs-comment">-- the same encryption context that was used to encrypt the ciphertext.</span><span>
@@ -654,16 +654,16 @@ $sel:sourceKeyId:ReEncrypt' :: ReEncrypt -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252662"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252671"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 sourceEncryptionContext :: Maybe (HashMap Text Text)
 $sel:sourceEncryptionContext:ReEncrypt' :: ReEncrypt -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679252662"><span class="hs-identifier hs-var hs-var">sourceEncryptionContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679252662"><span class="hs-identifier hs-var">sourceEncryptionContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252661"><span class="annot"><span class="annottext">s :: ReEncrypt
-</span><a href="#local-6989586621679252661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252660"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679252660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncrypt
-</span><a href="#local-6989586621679252661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceEncryptionContext:ReEncrypt' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679252671"><span class="hs-identifier hs-var hs-var">sourceEncryptionContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679252671"><span class="hs-identifier hs-var">sourceEncryptionContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252670"><span class="annot"><span class="annottext">s :: ReEncrypt
+</span><a href="#local-6989586621679252670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252669"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679252669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncrypt
+</span><a href="#local-6989586621679252670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceEncryptionContext:ReEncrypt' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AsourceEncryptionContext%3AReEncrypt%27"><span class="hs-identifier hs-var">sourceEncryptionContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679252660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679252669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ReEncrypt -&gt; f ReEncrypt)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -707,16 +707,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ReEncrypt -&gt; Maybe [Text] -&gt; ReEncrypt)
 -&gt; Lens ReEncrypt ReEncrypt (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252659"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252668"><span class="annot"><span class="annottext">Maybe [Text]
 grantTokens :: Maybe [Text]
 $sel:grantTokens:ReEncrypt' :: ReEncrypt -&gt; Maybe [Text]
-</span><a href="#local-6989586621679252659"><span class="hs-identifier hs-var hs-var">grantTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679252659"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252658"><span class="annot"><span class="annottext">s :: ReEncrypt
-</span><a href="#local-6989586621679252658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252657"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679252657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncrypt
-</span><a href="#local-6989586621679252658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantTokens:ReEncrypt' :: Maybe [Text]
+</span><a href="#local-6989586621679252668"><span class="hs-identifier hs-var hs-var">grantTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679252668"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252667"><span class="annot"><span class="annottext">s :: ReEncrypt
+</span><a href="#local-6989586621679252667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252666"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679252666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncrypt
+</span><a href="#local-6989586621679252667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantTokens:ReEncrypt' :: Maybe [Text]
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AgrantTokens%3AReEncrypt%27"><span class="hs-identifier hs-var">grantTokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679252657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; ReEncrypt -&gt; f ReEncrypt)
+</span><a href="#local-6989586621679252666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; ReEncrypt -&gt; f ReEncrypt)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -750,16 +750,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe EncryptionAlgorithmSpec)
      (Maybe EncryptionAlgorithmSpec)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252656"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252665"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
 destinationEncryptionAlgorithm :: Maybe EncryptionAlgorithmSpec
 $sel:destinationEncryptionAlgorithm:ReEncrypt' :: ReEncrypt -&gt; Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252656"><span class="hs-identifier hs-var hs-var">destinationEncryptionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252656"><span class="hs-identifier hs-var">destinationEncryptionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252655"><span class="annot"><span class="annottext">s :: ReEncrypt
-</span><a href="#local-6989586621679252655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252654"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncrypt
-</span><a href="#local-6989586621679252655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationEncryptionAlgorithm:ReEncrypt' :: Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679252665"><span class="hs-identifier hs-var hs-var">destinationEncryptionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679252665"><span class="hs-identifier hs-var">destinationEncryptionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252664"><span class="annot"><span class="annottext">s :: ReEncrypt
+</span><a href="#local-6989586621679252664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252663"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679252663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncrypt
+</span><a href="#local-6989586621679252664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationEncryptionAlgorithm:ReEncrypt' :: Maybe EncryptionAlgorithmSpec
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AdestinationEncryptionAlgorithm%3AReEncrypt%27"><span class="hs-identifier hs-var">destinationEncryptionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-509"></span><span>
 </span><span id="line-510"></span><span class="hs-comment">-- | Specifies the encryption algorithm that KMS will use to decrypt the</span><span>
 </span><span id="line-511"></span><span class="hs-comment">-- ciphertext before it is reencrypted. The default value,</span><span>
@@ -783,16 +783,16 @@ $sel:destinationEncryptionAlgorithm:ReEncrypt' :: ReEncrypt -&gt; Maybe Encrypti
      (Maybe EncryptionAlgorithmSpec)
      (Maybe EncryptionAlgorithmSpec)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252653"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252662"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
 sourceEncryptionAlgorithm :: Maybe EncryptionAlgorithmSpec
 $sel:sourceEncryptionAlgorithm:ReEncrypt' :: ReEncrypt -&gt; Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252653"><span class="hs-identifier hs-var hs-var">sourceEncryptionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252653"><span class="hs-identifier hs-var">sourceEncryptionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252652"><span class="annot"><span class="annottext">s :: ReEncrypt
-</span><a href="#local-6989586621679252652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252651"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncrypt
-</span><a href="#local-6989586621679252652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceEncryptionAlgorithm:ReEncrypt' :: Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679252662"><span class="hs-identifier hs-var hs-var">sourceEncryptionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679252662"><span class="hs-identifier hs-var">sourceEncryptionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252661"><span class="annot"><span class="annottext">s :: ReEncrypt
+</span><a href="#local-6989586621679252661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252660"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679252660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncrypt
+</span><a href="#local-6989586621679252661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceEncryptionAlgorithm:ReEncrypt' :: Maybe EncryptionAlgorithmSpec
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AsourceEncryptionAlgorithm%3AReEncrypt%27"><span class="hs-identifier hs-var">sourceEncryptionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-522"></span><span>
 </span><span id="line-523"></span><span class="hs-comment">-- | Ciphertext of the data to reencrypt.--</span><span>
 </span><span id="line-524"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
@@ -805,16 +805,16 @@ $sel:sourceEncryptionAlgorithm:ReEncrypt' :: ReEncrypt -&gt; Maybe EncryptionAlg
 -&gt; (ReEncrypt -&gt; Base64 -&gt; ReEncrypt)
 -&gt; Lens ReEncrypt ReEncrypt Base64 Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252650"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252659"><span class="annot"><span class="annottext">Base64
 ciphertextBlob :: Base64
 $sel:ciphertextBlob:ReEncrypt' :: ReEncrypt -&gt; Base64
-</span><a href="#local-6989586621679252650"><span class="hs-identifier hs-var hs-var">ciphertextBlob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679252650"><span class="hs-identifier hs-var">ciphertextBlob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252649"><span class="annot"><span class="annottext">s :: ReEncrypt
-</span><a href="#local-6989586621679252649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252648"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679252648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncrypt
-</span><a href="#local-6989586621679252649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ciphertextBlob:ReEncrypt' :: Base64
+</span><a href="#local-6989586621679252659"><span class="hs-identifier hs-var hs-var">ciphertextBlob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679252659"><span class="hs-identifier hs-var">ciphertextBlob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252658"><span class="annot"><span class="annottext">s :: ReEncrypt
+</span><a href="#local-6989586621679252658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252657"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679252657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncrypt
+</span><a href="#local-6989586621679252658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ciphertextBlob:ReEncrypt' :: Base64
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AciphertextBlob%3AReEncrypt%27"><span class="hs-identifier hs-var">ciphertextBlob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679252648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; ReEncrypt -&gt; f ReEncrypt)
+</span><a href="#local-6989586621679252657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; ReEncrypt -&gt; f ReEncrypt)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
 -&gt; (ByteString -&gt; f ByteString)
 -&gt; ReEncrypt
@@ -853,25 +853,25 @@ Iso' Base64 ByteString
 -&gt; (ReEncrypt -&gt; Text -&gt; ReEncrypt)
 -&gt; Lens ReEncrypt ReEncrypt Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252647"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252656"><span class="annot"><span class="annottext">Text
 destinationKeyId :: Text
 $sel:destinationKeyId:ReEncrypt' :: ReEncrypt -&gt; Text
-</span><a href="#local-6989586621679252647"><span class="hs-identifier hs-var hs-var">destinationKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252647"><span class="hs-identifier hs-var">destinationKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252646"><span class="annot"><span class="annottext">s :: ReEncrypt
-</span><a href="#local-6989586621679252646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252645"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncrypt
-</span><a href="#local-6989586621679252646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationKeyId:ReEncrypt' :: Text
+</span><a href="#local-6989586621679252656"><span class="hs-identifier hs-var hs-var">destinationKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252656"><span class="hs-identifier hs-var">destinationKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252655"><span class="annot"><span class="annottext">s :: ReEncrypt
+</span><a href="#local-6989586621679252655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252654"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncrypt
+</span><a href="#local-6989586621679252655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationKeyId:ReEncrypt' :: Text
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AdestinationKeyId%3AReEncrypt%27"><span class="hs-identifier hs-var">destinationKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-556"></span><span>
 </span><span id="line-557"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-558"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span><span>
-</span><span id="line-559"></span><span>  </span><span id="local-6989586621679252641"><span class="annot"><span class="annottext">request :: ReEncrypt -&gt; Request ReEncrypt
+</span><span id="line-559"></span><span>  </span><span id="local-6989586621679252650"><span class="annot"><span class="annottext">request :: ReEncrypt -&gt; Request ReEncrypt
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ReEncrypt -&gt; Request ReEncrypt
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-560"></span><span>  </span><span id="local-6989586621679252637"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-560"></span><span>  </span><span id="local-6989586621679252646"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ReEncrypt
 -&gt; ClientResponse ClientBody
@@ -895,10 +895,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-562"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252634"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679252634"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679252633"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679252633"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679252632"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252632"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-562"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252643"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252643"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679252642"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679252642"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679252641"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252641"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-563"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe EncryptionAlgorithmSpec
@@ -925,7 +925,7 @@ MonadResource m =&gt;
       -&gt; ReEncryptResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252632"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679252641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceKeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -947,7 +947,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ReEncryptResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252632"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679252641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -965,7 +965,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Base64 -&gt; Int -&gt; ReEncryptResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252632"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe EncryptionAlgorithmSpec)
+</span><a href="#local-6989586621679252641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe EncryptionAlgorithmSpec)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DestinationEncryptionAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
@@ -977,7 +977,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Base64 -&gt; Int -&gt; ReEncryptResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252632"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe EncryptionAlgorithmSpec)
+</span><a href="#local-6989586621679252641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe EncryptionAlgorithmSpec)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceEncryptionAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
@@ -986,7 +986,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ReEncryptResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252632"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Base64)
+</span><a href="#local-6989586621679252641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Base64)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CiphertextBlob&quot;</span></span><span class="hs-special">)</span><span>
@@ -998,15 +998,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679252634"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252643"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-570"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-571"></span><span>
-</span><span id="line-572"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252624"><span id="local-6989586621679252626"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span></span></span><span>
+</span><span id="line-572"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252633"><span id="local-6989586621679252635"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span></span></span><span>
 </span><span id="line-573"></span><span>
-</span><span id="line-574"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252621"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span></span><span>
+</span><span id="line-574"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252630"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span></span><span>
 </span><span id="line-575"></span><span>
 </span><span id="line-576"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-577"></span><span>  </span><span id="local-6989586621679252617"><span class="annot"><span class="annottext">toHeaders :: ReEncrypt -&gt; ResponseHeaders
+</span><span id="line-577"></span><span>  </span><span id="local-6989586621679252626"><span class="annot"><span class="annottext">toHeaders :: ReEncrypt -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-578"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ReEncrypt -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -1031,9 +1031,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-586"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-587"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-588"></span><span>
-</span><span id="line-589"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252607"><span id="local-6989586621679252609"><span id="local-6989586621679252611"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-590"></span><span>  </span><span id="local-6989586621679252605"><span class="annot"><span class="annottext">toJSON :: ReEncrypt -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252596"><span id="local-6989586621679252597"><span id="local-6989586621679252598"><span id="local-6989586621679252599"><span id="local-6989586621679252600"><span id="local-6989586621679252601"><span id="local-6989586621679252602"><span id="local-6989586621679252603"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-589"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252616"><span id="local-6989586621679252618"><span id="local-6989586621679252620"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-590"></span><span>  </span><span id="local-6989586621679252614"><span class="annot"><span class="annottext">toJSON :: ReEncrypt -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt%27"><span class="hs-identifier hs-type">ReEncrypt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252605"><span id="local-6989586621679252606"><span id="local-6989586621679252607"><span id="local-6989586621679252608"><span id="local-6989586621679252609"><span id="local-6989586621679252610"><span id="local-6989586621679252611"><span id="local-6989586621679252612"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 Maybe (HashMap Text Text)
 Maybe EncryptionAlgorithmSpec
@@ -1055,7 +1055,7 @@ $sel:grantTokens:ReEncrypt' :: ReEncrypt -&gt; Maybe [Text]
 $sel:sourceEncryptionContext:ReEncrypt' :: ReEncrypt -&gt; Maybe (HashMap Text Text)
 $sel:sourceKeyId:ReEncrypt' :: ReEncrypt -&gt; Maybe Text
 $sel:destinationEncryptionContext:ReEncrypt' :: ReEncrypt -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679252596"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679252605"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-591"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-592"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1069,14 +1069,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679252603"><span class="hs-identifier hs-var">destinationEncryptionContext</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252612"><span class="hs-identifier hs-var">destinationEncryptionContext</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-595"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252602"><span class="hs-identifier hs-var">sourceKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252611"><span class="hs-identifier hs-var">sourceKeyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-596"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceEncryptionContext&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1085,14 +1085,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679252601"><span class="hs-identifier hs-var">sourceEncryptionContext</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252610"><span class="hs-identifier hs-var">sourceEncryptionContext</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-598"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GrantTokens&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679252600"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252609"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-599"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DestinationEncryptionAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionAlgorithmSpec -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1101,7 +1101,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe EncryptionAlgorithmSpec -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252599"><span class="hs-identifier hs-var">destinationEncryptionAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252608"><span class="hs-identifier hs-var">destinationEncryptionAlgorithm</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-601"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceEncryptionAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionAlgorithmSpec -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1110,7 +1110,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe EncryptionAlgorithmSpec -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252598"><span class="hs-identifier hs-var">sourceEncryptionAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252607"><span class="hs-identifier hs-var">sourceEncryptionAlgorithm</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-603"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -1118,7 +1118,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;CiphertextBlob&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679252597"><span class="hs-identifier hs-var">ciphertextBlob</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252606"><span class="hs-identifier hs-var">ciphertextBlob</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-605"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -1126,19 +1126,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DestinationKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252596"><span class="hs-identifier hs-var">destinationKeyId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252605"><span class="hs-identifier hs-var">destinationKeyId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-607"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-608"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-609"></span><span>
 </span><span id="line-610"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-611"></span><span>  </span><span id="local-6989586621679252590"><span class="annot"><span class="annottext">toPath :: ReEncrypt -&gt; ByteString
+</span><span id="line-611"></span><span>  </span><span id="local-6989586621679252599"><span class="annot"><span class="annottext">toPath :: ReEncrypt -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ReEncrypt -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-612"></span><span>
 </span><span id="line-613"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncrypt"><span class="hs-identifier hs-type">ReEncrypt</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-614"></span><span>  </span><span id="local-6989586621679252586"><span class="annot"><span class="annottext">toQuery :: ReEncrypt -&gt; QueryString
+</span><span id="line-614"></span><span>  </span><span id="local-6989586621679252595"><span class="annot"><span class="annottext">toQuery :: ReEncrypt -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ReEncrypt -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -1146,7 +1146,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-615"></span><span>
 </span><span id="line-616"></span><span class="hs-comment">-- | /See:/ 'newReEncryptResponse' smart constructor.</span><span>
-</span><span id="line-617"></span><span id="local-6989586621679252583"><span id="local-6989586621679252584"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReEncryptResponse"><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-var">ReEncryptResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReEncryptResponse%27"><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-var">ReEncryptResponse'</span></a></span></span><span>
+</span><span id="line-617"></span><span id="local-6989586621679252592"><span id="local-6989586621679252593"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReEncryptResponse"><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-var">ReEncryptResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReEncryptResponse%27"><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-var">ReEncryptResponse'</span></a></span></span><span>
 </span><span id="line-618"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique identifier of the KMS key used to originally encrypt the data.</span><span>
 </span><span id="line-619"></span><span>    </span><span id="%24sel%3AsourceKeyId%3AReEncryptResponse%27"><span class="annot"><span class="annottext">ReEncryptResponse -&gt; Maybe Text
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AsourceKeyId%3AReEncryptResponse%27"><span class="hs-identifier hs-var hs-var">sourceKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -1171,7 +1171,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-634"></span><span>    </span><span id="%24sel%3AhttpStatus%3AReEncryptResponse%27"><span class="annot"><span class="annottext">ReEncryptResponse -&gt; Int
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AhttpStatus%3AReEncryptResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-635"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-636"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252573"><span id="local-6989586621679252575"><span class="annot"><span class="annottext">ReEncryptResponse -&gt; ReEncryptResponse -&gt; Bool
+</span><span id="line-636"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252582"><span id="local-6989586621679252584"><span class="annot"><span class="annottext">ReEncryptResponse -&gt; ReEncryptResponse -&gt; Bool
 (ReEncryptResponse -&gt; ReEncryptResponse -&gt; Bool)
 -&gt; (ReEncryptResponse -&gt; ReEncryptResponse -&gt; Bool)
 -&gt; Eq ReEncryptResponse
@@ -1180,7 +1180,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReEncryptResponse -&gt; ReEncryptResponse -&gt; Bool
 == :: ReEncryptResponse -&gt; ReEncryptResponse -&gt; Bool
 $c== :: ReEncryptResponse -&gt; ReEncryptResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252565"><span id="local-6989586621679252567"><span id="local-6989586621679252569"><span id="local-6989586621679252571"><span class="annot"><span class="annottext">ReadPrec [ReEncryptResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252574"><span id="local-6989586621679252576"><span id="local-6989586621679252578"><span id="local-6989586621679252580"><span class="annot"><span class="annottext">ReadPrec [ReEncryptResponse]
 ReadPrec ReEncryptResponse
 Int -&gt; ReadS ReEncryptResponse
 ReadS [ReEncryptResponse]
@@ -1200,7 +1200,7 @@ readList :: ReadS [ReEncryptResponse]
 $creadList :: ReadS [ReEncryptResponse]
 readsPrec :: Int -&gt; ReadS ReEncryptResponse
 $creadsPrec :: Int -&gt; ReadS ReEncryptResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252559"><span id="local-6989586621679252561"><span id="local-6989586621679252563"><span class="annot"><span class="annottext">Int -&gt; ReEncryptResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252568"><span id="local-6989586621679252570"><span id="local-6989586621679252572"><span class="annot"><span class="annottext">Int -&gt; ReEncryptResponse -&gt; ShowS
 [ReEncryptResponse] -&gt; ShowS
 ReEncryptResponse -&gt; String
 (Int -&gt; ReEncryptResponse -&gt; ShowS)
@@ -1259,8 +1259,8 @@ $cfrom :: forall x. ReEncryptResponse -&gt; Rep ReEncryptResponse x
 </span><span id="line-668"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-669"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span><span>
 </span><span id="line-670"></span><span id="newReEncryptResponse"><span class="annot"><span class="annottext">newReEncryptResponse :: Int -&gt; ReEncryptResponse
-</span><a href="Network.AWS.KMS.ReEncrypt.html#newReEncryptResponse"><span class="hs-identifier hs-var hs-var">newReEncryptResponse</span></a></span></span><span> </span><span id="local-6989586621679252556"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679252556"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.ReEncrypt.html#newReEncryptResponse"><span class="hs-identifier hs-var hs-var">newReEncryptResponse</span></a></span></span><span> </span><span id="local-6989586621679252565"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252565"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-671"></span><span>  </span><span class="annot"><span class="annottext">ReEncryptResponse' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe EncryptionAlgorithmSpec
@@ -1291,7 +1291,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-677"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ReEncryptResponse' :: Int
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AhttpStatus%3AReEncryptResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679252556"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679252565"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-678"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-679"></span><span>
 </span><span id="line-680"></span><span class="hs-comment">-- | Unique identifier of the KMS key used to originally encrypt the data.</span><span>
@@ -1303,16 +1303,16 @@ forall a. Maybe a
 -&gt; Lens
      ReEncryptResponse ReEncryptResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252555"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252564"><span class="annot"><span class="annottext">Maybe Text
 sourceKeyId :: Maybe Text
 $sel:sourceKeyId:ReEncryptResponse' :: ReEncryptResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679252555"><span class="hs-identifier hs-var hs-var">sourceKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252555"><span class="hs-identifier hs-var">sourceKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252554"><span class="annot"><span class="annottext">s :: ReEncryptResponse
-</span><a href="#local-6989586621679252554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252553"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncryptResponse
-</span><a href="#local-6989586621679252554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceKeyId:ReEncryptResponse' :: Maybe Text
+</span><a href="#local-6989586621679252564"><span class="hs-identifier hs-var hs-var">sourceKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252564"><span class="hs-identifier hs-var">sourceKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252563"><span class="annot"><span class="annottext">s :: ReEncryptResponse
+</span><a href="#local-6989586621679252563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252562"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncryptResponse
+</span><a href="#local-6989586621679252563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceKeyId:ReEncryptResponse' :: Maybe Text
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AsourceKeyId%3AReEncryptResponse%27"><span class="hs-identifier hs-var">sourceKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-683"></span><span>
 </span><span id="line-684"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
 </span><span id="line-685"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN&gt;)</span><span>
@@ -1325,16 +1325,16 @@ $sel:sourceKeyId:ReEncryptResponse' :: ReEncryptResponse -&gt; Maybe Text
 -&gt; Lens
      ReEncryptResponse ReEncryptResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252552"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252561"><span class="annot"><span class="annottext">Maybe Text
 keyId :: Maybe Text
 $sel:keyId:ReEncryptResponse' :: ReEncryptResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679252552"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252552"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252551"><span class="annot"><span class="annottext">s :: ReEncryptResponse
-</span><a href="#local-6989586621679252551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252550"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncryptResponse
-</span><a href="#local-6989586621679252551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:ReEncryptResponse' :: Maybe Text
+</span><a href="#local-6989586621679252561"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252561"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252560"><span class="annot"><span class="annottext">s :: ReEncryptResponse
+</span><a href="#local-6989586621679252560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252559"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncryptResponse
+</span><a href="#local-6989586621679252560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:ReEncryptResponse' :: Maybe Text
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AkeyId%3AReEncryptResponse%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-689"></span><span>
 </span><span id="line-690"></span><span class="hs-comment">-- | The encryption algorithm that was used to reencrypt the data.</span><span>
 </span><span id="line-691"></span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#reEncryptResponse_destinationEncryptionAlgorithm"><span class="hs-identifier hs-type">reEncryptResponse_destinationEncryptionAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.EncryptionAlgorithmSpec.html#EncryptionAlgorithmSpec"><span class="hs-identifier hs-type">EncryptionAlgorithmSpec</span></a></span><span class="hs-special">)</span><span>
@@ -1350,16 +1350,16 @@ $sel:keyId:ReEncryptResponse' :: ReEncryptResponse -&gt; Maybe Text
      (Maybe EncryptionAlgorithmSpec)
      (Maybe EncryptionAlgorithmSpec)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252549"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252558"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
 destinationEncryptionAlgorithm :: Maybe EncryptionAlgorithmSpec
 $sel:destinationEncryptionAlgorithm:ReEncryptResponse' :: ReEncryptResponse -&gt; Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252549"><span class="hs-identifier hs-var hs-var">destinationEncryptionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252549"><span class="hs-identifier hs-var">destinationEncryptionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252548"><span class="annot"><span class="annottext">s :: ReEncryptResponse
-</span><a href="#local-6989586621679252548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252547"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncryptResponse
-</span><a href="#local-6989586621679252548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationEncryptionAlgorithm:ReEncryptResponse' :: Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679252558"><span class="hs-identifier hs-var hs-var">destinationEncryptionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679252558"><span class="hs-identifier hs-var">destinationEncryptionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252557"><span class="annot"><span class="annottext">s :: ReEncryptResponse
+</span><a href="#local-6989586621679252557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252556"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679252556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncryptResponse
+</span><a href="#local-6989586621679252557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationEncryptionAlgorithm:ReEncryptResponse' :: Maybe EncryptionAlgorithmSpec
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AdestinationEncryptionAlgorithm%3AReEncryptResponse%27"><span class="hs-identifier hs-var">destinationEncryptionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-693"></span><span>
 </span><span id="line-694"></span><span class="hs-comment">-- | The encryption algorithm that was used to decrypt the ciphertext before</span><span>
 </span><span id="line-695"></span><span class="hs-comment">-- it was reencrypted.</span><span>
@@ -1376,16 +1376,16 @@ $sel:destinationEncryptionAlgorithm:ReEncryptResponse' :: ReEncryptResponse -&gt
      (Maybe EncryptionAlgorithmSpec)
      (Maybe EncryptionAlgorithmSpec)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252546"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252555"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
 sourceEncryptionAlgorithm :: Maybe EncryptionAlgorithmSpec
 $sel:sourceEncryptionAlgorithm:ReEncryptResponse' :: ReEncryptResponse -&gt; Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252546"><span class="hs-identifier hs-var hs-var">sourceEncryptionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252546"><span class="hs-identifier hs-var">sourceEncryptionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252545"><span class="annot"><span class="annottext">s :: ReEncryptResponse
-</span><a href="#local-6989586621679252545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252544"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncryptResponse
-</span><a href="#local-6989586621679252545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceEncryptionAlgorithm:ReEncryptResponse' :: Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679252555"><span class="hs-identifier hs-var hs-var">sourceEncryptionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679252555"><span class="hs-identifier hs-var">sourceEncryptionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252554"><span class="annot"><span class="annottext">s :: ReEncryptResponse
+</span><a href="#local-6989586621679252554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252553"><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
+</span><a href="#local-6989586621679252553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncryptResponse
+</span><a href="#local-6989586621679252554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceEncryptionAlgorithm:ReEncryptResponse' :: Maybe EncryptionAlgorithmSpec
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AsourceEncryptionAlgorithm%3AReEncryptResponse%27"><span class="hs-identifier hs-var">sourceEncryptionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionAlgorithmSpec
-</span><a href="#local-6989586621679252544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-698"></span><span>
 </span><span id="line-699"></span><span class="hs-comment">-- | The reencrypted data. When you use the HTTP API or the Amazon Web</span><span>
 </span><span id="line-700"></span><span class="hs-comment">-- Services CLI, the value is Base64-encoded. Otherwise, it is not</span><span>
@@ -1402,16 +1402,16 @@ $sel:sourceEncryptionAlgorithm:ReEncryptResponse' :: ReEncryptResponse -&gt; May
 -&gt; Lens
      ReEncryptResponse ReEncryptResponse (Maybe Base64) (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252543"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252552"><span class="annot"><span class="annottext">Maybe Base64
 ciphertextBlob :: Maybe Base64
 $sel:ciphertextBlob:ReEncryptResponse' :: ReEncryptResponse -&gt; Maybe Base64
-</span><a href="#local-6989586621679252543"><span class="hs-identifier hs-var hs-var">ciphertextBlob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679252543"><span class="hs-identifier hs-var">ciphertextBlob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252542"><span class="annot"><span class="annottext">s :: ReEncryptResponse
-</span><a href="#local-6989586621679252542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252541"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679252541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncryptResponse
-</span><a href="#local-6989586621679252542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ciphertextBlob:ReEncryptResponse' :: Maybe Base64
+</span><a href="#local-6989586621679252552"><span class="hs-identifier hs-var hs-var">ciphertextBlob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679252552"><span class="hs-identifier hs-var">ciphertextBlob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252551"><span class="annot"><span class="annottext">s :: ReEncryptResponse
+</span><a href="#local-6989586621679252551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252550"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679252550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncryptResponse
+</span><a href="#local-6989586621679252551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ciphertextBlob:ReEncryptResponse' :: Maybe Base64
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AciphertextBlob%3AReEncryptResponse%27"><span class="hs-identifier hs-var">ciphertextBlob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679252541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+</span><a href="#local-6989586621679252550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
  -&gt; ReEncryptResponse -&gt; f ReEncryptResponse)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe Base64 -&gt; f (Maybe Base64))
@@ -1436,16 +1436,16 @@ Iso' Base64 ByteString
 -&gt; (ReEncryptResponse -&gt; Int -&gt; ReEncryptResponse)
 -&gt; Lens ReEncryptResponse ReEncryptResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252540"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252549"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ReEncryptResponse' :: ReEncryptResponse -&gt; Int
-</span><a href="#local-6989586621679252540"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679252540"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252539"><span class="annot"><span class="annottext">s :: ReEncryptResponse
-</span><a href="#local-6989586621679252539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252538"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679252538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncryptResponse
-</span><a href="#local-6989586621679252539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReEncryptResponse' :: Int
+</span><a href="#local-6989586621679252549"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252549"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252548"><span class="annot"><span class="annottext">s :: ReEncryptResponse
+</span><a href="#local-6989586621679252548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse%27"><span class="hs-identifier hs-type">ReEncryptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252547"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReEncryptResponse
+</span><a href="#local-6989586621679252548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReEncryptResponse' :: Int
 </span><a href="Network.AWS.KMS.ReEncrypt.html#%24sel%3AhttpStatus%3AReEncryptResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679252538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-712"></span><span>
-</span><span id="line-713"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span></span><span>
+</span><span id="line-713"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252545"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ReEncrypt.html#ReEncryptResponse"><span class="hs-identifier hs-type">ReEncryptResponse</span></a></span></span><span>
 </span><span id="line-714"></span></pre></body></html>

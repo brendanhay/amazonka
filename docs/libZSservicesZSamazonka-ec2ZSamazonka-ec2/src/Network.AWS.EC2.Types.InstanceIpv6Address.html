@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes an IPv6 address.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInstanceIpv6Address' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681116164"><span id="local-6989586621681116165"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceIpv6Address"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address"><span class="hs-identifier hs-var">InstanceIpv6Address</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceIpv6Address%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address%27"><span class="hs-identifier hs-var">InstanceIpv6Address'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681116173"><span id="local-6989586621681116174"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceIpv6Address"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address"><span class="hs-identifier hs-var">InstanceIpv6Address</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceIpv6Address%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address%27"><span class="hs-identifier hs-var">InstanceIpv6Address'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IPv6 address.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aipv6Address%3AInstanceIpv6Address%27"><span class="annot"><span class="annottext">InstanceIpv6Address -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#%24sel%3Aipv6Address%3AInstanceIpv6Address%27"><span class="hs-identifier hs-var hs-var">ipv6Address</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681116158"><span id="local-6989586621681116160"><span class="annot"><span class="annottext">InstanceIpv6Address -&gt; InstanceIpv6Address -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681116167"><span id="local-6989586621681116169"><span class="annot"><span class="annottext">InstanceIpv6Address -&gt; InstanceIpv6Address -&gt; Bool
 (InstanceIpv6Address -&gt; InstanceIpv6Address -&gt; Bool)
 -&gt; (InstanceIpv6Address -&gt; InstanceIpv6Address -&gt; Bool)
 -&gt; Eq InstanceIpv6Address
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceIpv6Address -&gt; InstanceIpv6Address -&gt; Bool
 == :: InstanceIpv6Address -&gt; InstanceIpv6Address -&gt; Bool
 $c== :: InstanceIpv6Address -&gt; InstanceIpv6Address -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681116149"><span id="local-6989586621681116151"><span id="local-6989586621681116153"><span id="local-6989586621681116155"><span class="annot"><span class="annottext">ReadPrec [InstanceIpv6Address]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681116158"><span id="local-6989586621681116160"><span id="local-6989586621681116162"><span id="local-6989586621681116164"><span class="annot"><span class="annottext">ReadPrec [InstanceIpv6Address]
 ReadPrec InstanceIpv6Address
 Int -&gt; ReadS InstanceIpv6Address
 ReadS [InstanceIpv6Address]
@@ -61,7 +61,7 @@ readList :: ReadS [InstanceIpv6Address]
 $creadList :: ReadS [InstanceIpv6Address]
 readsPrec :: Int -&gt; ReadS InstanceIpv6Address
 $creadsPrec :: Int -&gt; ReadS InstanceIpv6Address
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681116142"><span id="local-6989586621681116144"><span id="local-6989586621681116146"><span class="annot"><span class="annottext">Int -&gt; InstanceIpv6Address -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681116151"><span id="local-6989586621681116153"><span id="local-6989586621681116155"><span class="annot"><span class="annottext">Int -&gt; InstanceIpv6Address -&gt; ShowS
 [InstanceIpv6Address] -&gt; ShowS
 InstanceIpv6Address -&gt; String
 (Int -&gt; InstanceIpv6Address -&gt; ShowS)
@@ -115,47 +115,47 @@ forall a. Maybe a
 -&gt; Lens
      InstanceIpv6Address InstanceIpv6Address (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address%27"><span class="hs-identifier hs-type">InstanceIpv6Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681116133"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address%27"><span class="hs-identifier hs-type">InstanceIpv6Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681116142"><span class="annot"><span class="annottext">Maybe Text
 ipv6Address :: Maybe Text
 $sel:ipv6Address:InstanceIpv6Address' :: InstanceIpv6Address -&gt; Maybe Text
-</span><a href="#local-6989586621681116133"><span class="hs-identifier hs-var hs-var">ipv6Address</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681116133"><span class="hs-identifier hs-var">ipv6Address</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681116132"><span class="annot"><span class="annottext">s :: InstanceIpv6Address
-</span><a href="#local-6989586621681116132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address%27"><span class="hs-identifier hs-type">InstanceIpv6Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681116131"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681116131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceIpv6Address
-</span><a href="#local-6989586621681116132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6Address:InstanceIpv6Address' :: Maybe Text
+</span><a href="#local-6989586621681116142"><span class="hs-identifier hs-var hs-var">ipv6Address</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681116142"><span class="hs-identifier hs-var">ipv6Address</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681116141"><span class="annot"><span class="annottext">s :: InstanceIpv6Address
+</span><a href="#local-6989586621681116141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address%27"><span class="hs-identifier hs-type">InstanceIpv6Address'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681116140"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681116140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceIpv6Address
+</span><a href="#local-6989586621681116141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6Address:InstanceIpv6Address' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#%24sel%3Aipv6Address%3AInstanceIpv6Address%27"><span class="hs-identifier hs-var">ipv6Address</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681116131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address"><span class="hs-identifier hs-type">InstanceIpv6Address</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681116140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address"><span class="hs-identifier hs-type">InstanceIpv6Address</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address"><span class="hs-identifier hs-type">InstanceIpv6Address</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621681116128"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceIpv6Address
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681116126"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681116126"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621681116137"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceIpv6Address
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681116135"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681116135"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; InstanceIpv6Address
 </span><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address%27"><span class="hs-identifier hs-var">InstanceIpv6Address'</span></a></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; InstanceIpv6Address)
 -&gt; Either String (Maybe Text) -&gt; Either String InstanceIpv6Address
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681116126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681116135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ipv6Address&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681116120"><span id="local-6989586621681116122"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address"><span class="hs-identifier hs-type">InstanceIpv6Address</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681116129"><span id="local-6989586621681116131"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address"><span class="hs-identifier hs-type">InstanceIpv6Address</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681116117"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address"><span class="hs-identifier hs-type">InstanceIpv6Address</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681116126"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address"><span class="hs-identifier hs-type">InstanceIpv6Address</span></a></span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address"><span class="hs-identifier hs-type">InstanceIpv6Address</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621681116113"><span class="annot"><span class="annottext">toQuery :: InstanceIpv6Address -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address%27"><span class="hs-identifier hs-type">InstanceIpv6Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681116111"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621681116122"><span class="annot"><span class="annottext">toQuery :: InstanceIpv6Address -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceIpv6Address.html#InstanceIpv6Address%27"><span class="hs-identifier hs-type">InstanceIpv6Address'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681116120"><span class="annot"><span class="annottext">Maybe Text
 ipv6Address :: Maybe Text
 $sel:ipv6Address:InstanceIpv6Address' :: InstanceIpv6Address -&gt; Maybe Text
-</span><a href="#local-6989586621681116111"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681116120"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Ipv6Address&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681116111"><span class="hs-identifier hs-var">ipv6Address</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621681116120"><span class="hs-identifier hs-var">ipv6Address</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-66"></span></pre></body></html>

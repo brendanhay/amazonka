@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GreengrassV2.Types.Component</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GreengrassV2.Types.Component</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentLatestVersion.html"><span class="hs-identifier">Network.AWS.GreengrassV2.Types.ComponentLatestVersion</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about a component.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newComponent' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679227381"><span id="local-6989586621679227382"></span></span><span class="hs-keyword">data</span><span> </span><span id="Component"><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component"><span class="hs-identifier hs-var">Component</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Component%27"><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component%27"><span class="hs-identifier hs-var">Component'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- of the component version.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aarn%3AComponent%27"><span class="annot"><span class="annottext">Component -&gt; Maybe Text
+</span><a href="Network.AWS.GreengrassV2.Types.Component.html#%24sel%3Aarn%3AComponent%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the component.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcomponentName%3AComponent%27"><span class="annot"><span class="annottext">Component -&gt; Maybe Text
+</span><a href="Network.AWS.GreengrassV2.Types.Component.html#%24sel%3AcomponentName%3AComponent%27"><span class="hs-identifier hs-var hs-var">componentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The latest version of the component and its details.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlatestVersion%3AComponent%27"><span class="annot"><span class="annottext">Component -&gt; Maybe ComponentLatestVersion
+</span><a href="Network.AWS.GreengrassV2.Types.Component.html#%24sel%3AlatestVersion%3AComponent%27"><span class="hs-identifier hs-var hs-var">latestVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentLatestVersion.html#ComponentLatestVersion"><span class="hs-identifier hs-type">ComponentLatestVersion</span></a></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227373"><span id="local-6989586621679227375"><span class="annot"><span class="annottext">Component -&gt; Component -&gt; Bool
+(Component -&gt; Component -&gt; Bool)
+-&gt; (Component -&gt; Component -&gt; Bool) -&gt; Eq Component
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Component -&gt; Component -&gt; Bool
+$c/= :: Component -&gt; Component -&gt; Bool
+== :: Component -&gt; Component -&gt; Bool
+$c== :: Component -&gt; Component -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227364"><span id="local-6989586621679227366"><span id="local-6989586621679227368"><span id="local-6989586621679227370"><span class="annot"><span class="annottext">ReadPrec [Component]
+ReadPrec Component
+Int -&gt; ReadS Component
+ReadS [Component]
+(Int -&gt; ReadS Component)
+-&gt; ReadS [Component]
+-&gt; ReadPrec Component
+-&gt; ReadPrec [Component]
+-&gt; Read Component
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Component]
+$creadListPrec :: ReadPrec [Component]
+readPrec :: ReadPrec Component
+$creadPrec :: ReadPrec Component
+readList :: ReadS [Component]
+$creadList :: ReadS [Component]
+readsPrec :: Int -&gt; ReadS Component
+$creadsPrec :: Int -&gt; ReadS Component
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227357"><span id="local-6989586621679227359"><span id="local-6989586621679227361"><span class="annot"><span class="annottext">Int -&gt; Component -&gt; ShowS
+[Component] -&gt; ShowS
+Component -&gt; String
+(Int -&gt; Component -&gt; ShowS)
+-&gt; (Component -&gt; String)
+-&gt; ([Component] -&gt; ShowS)
+-&gt; Show Component
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Component] -&gt; ShowS
+$cshowList :: [Component] -&gt; ShowS
+show :: Component -&gt; String
+$cshow :: Component -&gt; String
+showsPrec :: Int -&gt; Component -&gt; ShowS
+$cshowsPrec :: Int -&gt; Component -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Component -&gt; Rep Component x)
+-&gt; (forall x. Rep Component x -&gt; Component) -&gt; Generic Component
+forall x. Rep Component x -&gt; Component
+forall x. Component -&gt; Rep Component x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Component x -&gt; Component
+$cfrom :: forall x. Component -&gt; Rep Component x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'Component' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'arn', 'component_arn' - The</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- of the component version.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'componentName', 'component_componentName' - The name of the component.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'latestVersion', 'component_latestVersion' - The latest version of the component and its details.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#newComponent"><span class="hs-identifier hs-type">newComponent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component"><span class="hs-identifier hs-type">Component</span></a></span><span>
+</span><span id="line-59"></span><span id="newComponent"><span class="annot"><span class="annottext">newComponent :: Component
+</span><a href="Network.AWS.GreengrassV2.Types.Component.html#newComponent"><span class="hs-identifier hs-var hs-var">newComponent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">Component' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe ComponentLatestVersion -&gt; Component
+</span><a href="Network.AWS.GreengrassV2.Types.Component.html#Component%27"><span class="hs-identifier hs-type">Component'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:Component' :: Maybe Text
+</span><a href="Network.AWS.GreengrassV2.Types.Component.html#%24sel%3Aarn%3AComponent%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:componentName:Component' :: Maybe Text
+</span><a href="Network.AWS.GreengrassV2.Types.Component.html#%24sel%3AcomponentName%3AComponent%27"><span class="hs-identifier hs-var">componentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestVersion:Component' :: Maybe ComponentLatestVersion
+</span><a href="Network.AWS.GreengrassV2.Types.Component.html#%24sel%3AlatestVersion%3AComponent%27"><span class="hs-identifier hs-var">latestVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComponentLatestVersion
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN&gt;</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- of the component version.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#component_arn"><span class="hs-identifier hs-type">component_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component"><span class="hs-identifier hs-type">Component</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="component_arn"><span class="annot"><span class="annottext">component_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Component -&gt; f Component
+</span><a href="Network.AWS.GreengrassV2.Types.Component.html#component_arn"><span class="hs-identifier hs-var hs-var">component_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Component -&gt; Maybe Text)
+-&gt; (Component -&gt; Maybe Text -&gt; Component)
+-&gt; Lens Component Component (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component%27"><span class="hs-identifier hs-type">Component'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227348"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Component' :: Component -&gt; Maybe Text
+</span><a href="#local-6989586621679227348"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227348"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227347"><span class="annot"><span class="annottext">s :: Component
+</span><a href="#local-6989586621679227347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component%27"><span class="hs-identifier hs-type">Component'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227346"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Component
+</span><a href="#local-6989586621679227347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Component' :: Maybe Text
+</span><a href="Network.AWS.GreengrassV2.Types.Component.html#%24sel%3Aarn%3AComponent%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component"><span class="hs-identifier hs-type">Component</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The name of the component.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#component_componentName"><span class="hs-identifier hs-type">component_componentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component"><span class="hs-identifier hs-type">Component</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="component_componentName"><span class="annot"><span class="annottext">component_componentName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Component -&gt; f Component
+</span><a href="Network.AWS.GreengrassV2.Types.Component.html#component_componentName"><span class="hs-identifier hs-var hs-var">component_componentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Component -&gt; Maybe Text)
+-&gt; (Component -&gt; Maybe Text -&gt; Component)
+-&gt; Lens Component Component (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component%27"><span class="hs-identifier hs-type">Component'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227344"><span class="annot"><span class="annottext">Maybe Text
+componentName :: Maybe Text
+$sel:componentName:Component' :: Component -&gt; Maybe Text
+</span><a href="#local-6989586621679227344"><span class="hs-identifier hs-var hs-var">componentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227344"><span class="hs-identifier hs-var">componentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227343"><span class="annot"><span class="annottext">s :: Component
+</span><a href="#local-6989586621679227343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component%27"><span class="hs-identifier hs-type">Component'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227342"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Component
+</span><a href="#local-6989586621679227343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:componentName:Component' :: Maybe Text
+</span><a href="Network.AWS.GreengrassV2.Types.Component.html#%24sel%3AcomponentName%3AComponent%27"><span class="hs-identifier hs-var">componentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component"><span class="hs-identifier hs-type">Component</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The latest version of the component and its details.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#component_latestVersion"><span class="hs-identifier hs-type">component_latestVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component"><span class="hs-identifier hs-type">Component</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentLatestVersion.html#ComponentLatestVersion"><span class="hs-identifier hs-type">ComponentLatestVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="component_latestVersion"><span class="annot"><span class="annottext">component_latestVersion :: (Maybe ComponentLatestVersion -&gt; f (Maybe ComponentLatestVersion))
+-&gt; Component -&gt; f Component
+</span><a href="Network.AWS.GreengrassV2.Types.Component.html#component_latestVersion"><span class="hs-identifier hs-var hs-var">component_latestVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Component -&gt; Maybe ComponentLatestVersion)
+-&gt; (Component -&gt; Maybe ComponentLatestVersion -&gt; Component)
+-&gt; Lens
+     Component
+     Component
+     (Maybe ComponentLatestVersion)
+     (Maybe ComponentLatestVersion)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component%27"><span class="hs-identifier hs-type">Component'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227340"><span class="annot"><span class="annottext">Maybe ComponentLatestVersion
+latestVersion :: Maybe ComponentLatestVersion
+$sel:latestVersion:Component' :: Component -&gt; Maybe ComponentLatestVersion
+</span><a href="#local-6989586621679227340"><span class="hs-identifier hs-var hs-var">latestVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComponentLatestVersion
+</span><a href="#local-6989586621679227340"><span class="hs-identifier hs-var">latestVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227339"><span class="annot"><span class="annottext">s :: Component
+</span><a href="#local-6989586621679227339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component%27"><span class="hs-identifier hs-type">Component'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227338"><span class="annot"><span class="annottext">Maybe ComponentLatestVersion
+</span><a href="#local-6989586621679227338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Component
+</span><a href="#local-6989586621679227339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersion:Component' :: Maybe ComponentLatestVersion
+</span><a href="Network.AWS.GreengrassV2.Types.Component.html#%24sel%3AlatestVersion%3AComponent%27"><span class="hs-identifier hs-var">latestVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComponentLatestVersion
+</span><a href="#local-6989586621679227338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component"><span class="hs-identifier hs-type">Component</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227335"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component"><span class="hs-identifier hs-type">Component</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679227333"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Component
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Component) -&gt; Value -&gt; Parser Component
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Component&quot;</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227330"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227330"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe ComponentLatestVersion -&gt; Component
+</span><a href="Network.AWS.GreengrassV2.Types.Component.html#Component%27"><span class="hs-identifier hs-var">Component'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe ComponentLatestVersion -&gt; Component)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe ComponentLatestVersion -&gt; Component)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe ComponentLatestVersion -&gt; Component)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ComponentLatestVersion -&gt; Component)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;componentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ComponentLatestVersion -&gt; Component)
+-&gt; Parser (Maybe ComponentLatestVersion) -&gt; Parser Component
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComponentLatestVersion)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;latestVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227324"><span id="local-6989586621679227326"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component"><span class="hs-identifier hs-type">Component</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227321"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.Component.html#Component"><span class="hs-identifier hs-type">Component</span></a></span></span><span>
+</span><span id="line-94"></span></pre></body></html>

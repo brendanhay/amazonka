@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Panorama.Types.NodeFromTemplateJobStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Panorama.Types.NodeFromTemplateJobStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus"><span class="hs-identifier">NodeFromTemplateJobStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus_FAILED"><span class="hs-identifier">NodeFromTemplateJobStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus_PENDING"><span class="hs-identifier">NodeFromTemplateJobStatus_PENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus_SUCCEEDED"><span class="hs-identifier">NodeFromTemplateJobStatus_SUCCEEDED</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679256599"><span id="local-6989586621679256600"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NodeFromTemplateJobStatus"><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus"><span class="hs-identifier hs-var">NodeFromTemplateJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeFromTemplateJobStatus%27"><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus%27"><span class="hs-identifier hs-var">NodeFromTemplateJobStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNodeFromTemplateJobStatus"><span class="annot"><span class="annottext">NodeFromTemplateJobStatus -&gt; Text
+</span><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#fromNodeFromTemplateJobStatus"><span class="hs-identifier hs-var hs-var">fromNodeFromTemplateJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679256591"><span id="local-6989586621679256593"><span id="local-6989586621679256595"><span class="annot"><span class="annottext">Int -&gt; NodeFromTemplateJobStatus -&gt; ShowS
+[NodeFromTemplateJobStatus] -&gt; ShowS
+NodeFromTemplateJobStatus -&gt; String
+(Int -&gt; NodeFromTemplateJobStatus -&gt; ShowS)
+-&gt; (NodeFromTemplateJobStatus -&gt; String)
+-&gt; ([NodeFromTemplateJobStatus] -&gt; ShowS)
+-&gt; Show NodeFromTemplateJobStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NodeFromTemplateJobStatus] -&gt; ShowS
+$cshowList :: [NodeFromTemplateJobStatus] -&gt; ShowS
+show :: NodeFromTemplateJobStatus -&gt; String
+$cshow :: NodeFromTemplateJobStatus -&gt; String
+showsPrec :: Int -&gt; NodeFromTemplateJobStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; NodeFromTemplateJobStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679256582"><span id="local-6989586621679256584"><span id="local-6989586621679256586"><span id="local-6989586621679256588"><span class="annot"><span class="annottext">ReadPrec [NodeFromTemplateJobStatus]
+ReadPrec NodeFromTemplateJobStatus
+Int -&gt; ReadS NodeFromTemplateJobStatus
+ReadS [NodeFromTemplateJobStatus]
+(Int -&gt; ReadS NodeFromTemplateJobStatus)
+-&gt; ReadS [NodeFromTemplateJobStatus]
+-&gt; ReadPrec NodeFromTemplateJobStatus
+-&gt; ReadPrec [NodeFromTemplateJobStatus]
+-&gt; Read NodeFromTemplateJobStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NodeFromTemplateJobStatus]
+$creadListPrec :: ReadPrec [NodeFromTemplateJobStatus]
+readPrec :: ReadPrec NodeFromTemplateJobStatus
+$creadPrec :: ReadPrec NodeFromTemplateJobStatus
+readList :: ReadS [NodeFromTemplateJobStatus]
+$creadList :: ReadS [NodeFromTemplateJobStatus]
+readsPrec :: Int -&gt; ReadS NodeFromTemplateJobStatus
+$creadsPrec :: Int -&gt; ReadS NodeFromTemplateJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679256577"><span id="local-6989586621679256579"><span class="annot"><span class="annottext">NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool
+(NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool)
+-&gt; (NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool)
+-&gt; Eq NodeFromTemplateJobStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool
+$c/= :: NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool
+== :: NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool
+$c== :: NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679256561"><span id="local-6989586621679256563"><span id="local-6989586621679256565"><span id="local-6989586621679256567"><span id="local-6989586621679256569"><span id="local-6989586621679256571"><span id="local-6989586621679256573"><span class="annot"><span class="annottext">Eq NodeFromTemplateJobStatus
+Eq NodeFromTemplateJobStatus
+-&gt; (NodeFromTemplateJobStatus
+    -&gt; NodeFromTemplateJobStatus -&gt; Ordering)
+-&gt; (NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool)
+-&gt; (NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool)
+-&gt; (NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool)
+-&gt; (NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool)
+-&gt; (NodeFromTemplateJobStatus
+    -&gt; NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus)
+-&gt; (NodeFromTemplateJobStatus
+    -&gt; NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus)
+-&gt; Ord NodeFromTemplateJobStatus
+NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool
+NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Ordering
+NodeFromTemplateJobStatus
+-&gt; NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: NodeFromTemplateJobStatus
+-&gt; NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus
+$cmin :: NodeFromTemplateJobStatus
+-&gt; NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus
+max :: NodeFromTemplateJobStatus
+-&gt; NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus
+$cmax :: NodeFromTemplateJobStatus
+-&gt; NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus
+&gt;= :: NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool
+$c&gt;= :: NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool
+&gt; :: NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool
+$c&gt; :: NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool
+&lt;= :: NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool
+$c&lt;= :: NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool
+&lt; :: NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool
+$c&lt; :: NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Bool
+compare :: NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Ordering
+$ccompare :: NodeFromTemplateJobStatus -&gt; NodeFromTemplateJobStatus -&gt; Ordering
+$cp1Ord :: Eq NodeFromTemplateJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ NodeFromTemplateJobStatus -&gt; Rep NodeFromTemplateJobStatus x)
+-&gt; (forall x.
+    Rep NodeFromTemplateJobStatus x -&gt; NodeFromTemplateJobStatus)
+-&gt; Generic NodeFromTemplateJobStatus
+forall x.
+Rep NodeFromTemplateJobStatus x -&gt; NodeFromTemplateJobStatus
+forall x.
+NodeFromTemplateJobStatus -&gt; Rep NodeFromTemplateJobStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep NodeFromTemplateJobStatus x -&gt; NodeFromTemplateJobStatus
+$cfrom :: forall x.
+NodeFromTemplateJobStatus -&gt; Rep NodeFromTemplateJobStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679256553"><span id="local-6989586621679256555"><span class="annot"><span class="annottext">Int -&gt; NodeFromTemplateJobStatus -&gt; Int
+NodeFromTemplateJobStatus -&gt; Int
+(Int -&gt; NodeFromTemplateJobStatus -&gt; Int)
+-&gt; (NodeFromTemplateJobStatus -&gt; Int)
+-&gt; Hashable NodeFromTemplateJobStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: NodeFromTemplateJobStatus -&gt; Int
+$chash :: NodeFromTemplateJobStatus -&gt; Int
+hashWithSalt :: Int -&gt; NodeFromTemplateJobStatus -&gt; Int
+$chashWithSalt :: Int -&gt; NodeFromTemplateJobStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679256550"><span class="annot"><span class="annottext">NodeFromTemplateJobStatus -&gt; ()
+(NodeFromTemplateJobStatus -&gt; ())
+-&gt; NFData NodeFromTemplateJobStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: NodeFromTemplateJobStatus -&gt; ()
+$crnf :: NodeFromTemplateJobStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679256547"><span class="annot"><span class="annottext">Text -&gt; Either String NodeFromTemplateJobStatus
+(Text -&gt; Either String NodeFromTemplateJobStatus)
+-&gt; FromText NodeFromTemplateJobStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String NodeFromTemplateJobStatus
+$cfromText :: Text -&gt; Either String NodeFromTemplateJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679256544"><span class="annot"><span class="annottext">NodeFromTemplateJobStatus -&gt; Text
+(NodeFromTemplateJobStatus -&gt; Text)
+-&gt; ToText NodeFromTemplateJobStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: NodeFromTemplateJobStatus -&gt; Text
+$ctoText :: NodeFromTemplateJobStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679256541"><span class="annot"><span class="annottext">NodeFromTemplateJobStatus -&gt; ByteString
+(NodeFromTemplateJobStatus -&gt; ByteString)
+-&gt; ToByteString NodeFromTemplateJobStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: NodeFromTemplateJobStatus -&gt; ByteString
+$ctoBS :: NodeFromTemplateJobStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679256538"><span class="annot"><span class="annottext">NodeFromTemplateJobStatus -&gt; ByteStringBuilder
+(NodeFromTemplateJobStatus -&gt; ByteStringBuilder)
+-&gt; ToLog NodeFromTemplateJobStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: NodeFromTemplateJobStatus -&gt; ByteStringBuilder
+$cbuild :: NodeFromTemplateJobStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679256535"><span class="annot"><span class="annottext">HeaderName -&gt; NodeFromTemplateJobStatus -&gt; [Header]
+(HeaderName -&gt; NodeFromTemplateJobStatus -&gt; [Header])
+-&gt; ToHeader NodeFromTemplateJobStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; NodeFromTemplateJobStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; NodeFromTemplateJobStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679256532"><span class="annot"><span class="annottext">NodeFromTemplateJobStatus -&gt; QueryString
+(NodeFromTemplateJobStatus -&gt; QueryString)
+-&gt; ToQuery NodeFromTemplateJobStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: NodeFromTemplateJobStatus -&gt; QueryString
+$ctoQuery :: NodeFromTemplateJobStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679256527"><span id="local-6989586621679256529"><span class="annot"><span class="annottext">Value -&gt; Parser [NodeFromTemplateJobStatus]
+Value -&gt; Parser NodeFromTemplateJobStatus
+(Value -&gt; Parser NodeFromTemplateJobStatus)
+-&gt; (Value -&gt; Parser [NodeFromTemplateJobStatus])
+-&gt; FromJSON NodeFromTemplateJobStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [NodeFromTemplateJobStatus]
+$cparseJSONList :: Value -&gt; Parser [NodeFromTemplateJobStatus]
+parseJSON :: Value -&gt; Parser NodeFromTemplateJobStatus
+$cparseJSON :: Value -&gt; Parser NodeFromTemplateJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679256522"><span id="local-6989586621679256524"><span class="annot"><span class="annottext">FromJSONKeyFunction [NodeFromTemplateJobStatus]
+FromJSONKeyFunction NodeFromTemplateJobStatus
+FromJSONKeyFunction NodeFromTemplateJobStatus
+-&gt; FromJSONKeyFunction [NodeFromTemplateJobStatus]
+-&gt; FromJSONKey NodeFromTemplateJobStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [NodeFromTemplateJobStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [NodeFromTemplateJobStatus]
+fromJSONKey :: FromJSONKeyFunction NodeFromTemplateJobStatus
+$cfromJSONKey :: FromJSONKeyFunction NodeFromTemplateJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679256513"><span id="local-6989586621679256515"><span id="local-6989586621679256517"><span id="local-6989586621679256519"><span class="annot"><span class="annottext">[NodeFromTemplateJobStatus] -&gt; Encoding
+[NodeFromTemplateJobStatus] -&gt; Value
+NodeFromTemplateJobStatus -&gt; Encoding
+NodeFromTemplateJobStatus -&gt; Value
+(NodeFromTemplateJobStatus -&gt; Value)
+-&gt; (NodeFromTemplateJobStatus -&gt; Encoding)
+-&gt; ([NodeFromTemplateJobStatus] -&gt; Value)
+-&gt; ([NodeFromTemplateJobStatus] -&gt; Encoding)
+-&gt; ToJSON NodeFromTemplateJobStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [NodeFromTemplateJobStatus] -&gt; Encoding
+$ctoEncodingList :: [NodeFromTemplateJobStatus] -&gt; Encoding
+toJSONList :: [NodeFromTemplateJobStatus] -&gt; Value
+$ctoJSONList :: [NodeFromTemplateJobStatus] -&gt; Value
+toEncoding :: NodeFromTemplateJobStatus -&gt; Encoding
+$ctoEncoding :: NodeFromTemplateJobStatus -&gt; Encoding
+toJSON :: NodeFromTemplateJobStatus -&gt; Value
+$ctoJSON :: NodeFromTemplateJobStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679256508"><span id="local-6989586621679256510"><span class="annot"><span class="annottext">ToJSONKeyFunction [NodeFromTemplateJobStatus]
+ToJSONKeyFunction NodeFromTemplateJobStatus
+ToJSONKeyFunction NodeFromTemplateJobStatus
+-&gt; ToJSONKeyFunction [NodeFromTemplateJobStatus]
+-&gt; ToJSONKey NodeFromTemplateJobStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [NodeFromTemplateJobStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [NodeFromTemplateJobStatus]
+toJSONKey :: ToJSONKeyFunction NodeFromTemplateJobStatus
+$ctoJSONKey :: ToJSONKeyFunction NodeFromTemplateJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679256505"><span class="annot"><span class="annottext">[Node] -&gt; Either String NodeFromTemplateJobStatus
+([Node] -&gt; Either String NodeFromTemplateJobStatus)
+-&gt; FromXML NodeFromTemplateJobStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String NodeFromTemplateJobStatus
+$cparseXML :: [Node] -&gt; Either String NodeFromTemplateJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679256502"><span class="annot"><span class="annottext">NodeFromTemplateJobStatus -&gt; XML
+(NodeFromTemplateJobStatus -&gt; XML)
+-&gt; ToXML NodeFromTemplateJobStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: NodeFromTemplateJobStatus -&gt; XML
+$ctoXML :: NodeFromTemplateJobStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus_FAILED"><span class="hs-identifier hs-type">NodeFromTemplateJobStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus"><span class="hs-identifier hs-type">NodeFromTemplateJobStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNodeFromTemplateJobStatus_FAILED"><span id="%24mNodeFromTemplateJobStatus_FAILED"><span id="NodeFromTemplateJobStatus_FAILED"><span class="annot"><span class="annottext">$bNodeFromTemplateJobStatus_FAILED :: NodeFromTemplateJobStatus
+$mNodeFromTemplateJobStatus_FAILED :: forall r.
+NodeFromTemplateJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#%24bNodeFromTemplateJobStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">NodeFromTemplateJobStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus%27"><span class="hs-identifier hs-type">NodeFromTemplateJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus_PENDING"><span class="hs-identifier hs-type">NodeFromTemplateJobStatus_PENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus"><span class="hs-identifier hs-type">NodeFromTemplateJobStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNodeFromTemplateJobStatus_PENDING"><span id="%24mNodeFromTemplateJobStatus_PENDING"><span id="NodeFromTemplateJobStatus_PENDING"><span class="annot"><span class="annottext">$bNodeFromTemplateJobStatus_PENDING :: NodeFromTemplateJobStatus
+$mNodeFromTemplateJobStatus_PENDING :: forall r.
+NodeFromTemplateJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#%24bNodeFromTemplateJobStatus_PENDING"><span class="hs-identifier hs-var hs-var hs-var">NodeFromTemplateJobStatus_PENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus%27"><span class="hs-identifier hs-type">NodeFromTemplateJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus_SUCCEEDED"><span class="hs-identifier hs-type">NodeFromTemplateJobStatus_SUCCEEDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus"><span class="hs-identifier hs-type">NodeFromTemplateJobStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNodeFromTemplateJobStatus_SUCCEEDED"><span id="%24mNodeFromTemplateJobStatus_SUCCEEDED"><span id="NodeFromTemplateJobStatus_SUCCEEDED"><span class="annot"><span class="annottext">$bNodeFromTemplateJobStatus_SUCCEEDED :: NodeFromTemplateJobStatus
+$mNodeFromTemplateJobStatus_SUCCEEDED :: forall r.
+NodeFromTemplateJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#%24bNodeFromTemplateJobStatus_SUCCEEDED"><span class="hs-identifier hs-var hs-var hs-var">NodeFromTemplateJobStatus_SUCCEEDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus%27"><span class="hs-identifier hs-type">NodeFromTemplateJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUCCEEDED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus_FAILED"><span class="hs-pragma hs-type">NodeFromTemplateJobStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus_PENDING"><span class="hs-pragma hs-type">NodeFromTemplateJobStatus_PENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus_SUCCEEDED"><span class="hs-pragma hs-type">NodeFromTemplateJobStatus_SUCCEEDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeFromTemplateJobStatus.html#NodeFromTemplateJobStatus%27"><span class="hs-pragma hs-type">NodeFromTemplateJobStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

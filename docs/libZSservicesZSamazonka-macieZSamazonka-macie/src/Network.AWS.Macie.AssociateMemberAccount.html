@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Macie.AssociateMemberAccount</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Associates a specified AWS account with Amazon Macie Classic as a member</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Macie.AssociateMemberAccount</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount"><span class="hs-identifier">AssociateMemberAccount</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#newAssociateMemberAccount"><span class="hs-identifier">newAssociateMemberAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#associateMemberAccount_memberAccountId"><span class="hs-identifier">associateMemberAccount_memberAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccountResponse"><span class="hs-identifier">AssociateMemberAccountResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#newAssociateMemberAccountResponse"><span class="hs-identifier">newAssociateMemberAccountResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Macie.Types.html"><span class="hs-identifier">Network.AWS.Macie.Types</span></a></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newAssociateMemberAccount' smart constructor.</span><span>
+</span><span id="line-47"></span><span id="local-6989586621679151730"><span id="local-6989586621679151731"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateMemberAccount"><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount"><span class="hs-identifier hs-var">AssociateMemberAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateMemberAccount%27"><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount%27"><span class="hs-identifier hs-var">AssociateMemberAccount'</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the AWS account that you want to associate with Amazon Macie</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- Classic as a member account.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AmemberAccountId%3AAssociateMemberAccount%27"><span class="annot"><span class="annottext">AssociateMemberAccount -&gt; Text
+</span><a href="Network.AWS.Macie.AssociateMemberAccount.html#%24sel%3AmemberAccountId%3AAssociateMemberAccount%27"><span class="hs-identifier hs-var hs-var">memberAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151724"><span id="local-6989586621679151726"><span class="annot"><span class="annottext">AssociateMemberAccount -&gt; AssociateMemberAccount -&gt; Bool
+(AssociateMemberAccount -&gt; AssociateMemberAccount -&gt; Bool)
+-&gt; (AssociateMemberAccount -&gt; AssociateMemberAccount -&gt; Bool)
+-&gt; Eq AssociateMemberAccount
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateMemberAccount -&gt; AssociateMemberAccount -&gt; Bool
+$c/= :: AssociateMemberAccount -&gt; AssociateMemberAccount -&gt; Bool
+== :: AssociateMemberAccount -&gt; AssociateMemberAccount -&gt; Bool
+$c== :: AssociateMemberAccount -&gt; AssociateMemberAccount -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151715"><span id="local-6989586621679151717"><span id="local-6989586621679151719"><span id="local-6989586621679151721"><span class="annot"><span class="annottext">ReadPrec [AssociateMemberAccount]
+ReadPrec AssociateMemberAccount
+Int -&gt; ReadS AssociateMemberAccount
+ReadS [AssociateMemberAccount]
+(Int -&gt; ReadS AssociateMemberAccount)
+-&gt; ReadS [AssociateMemberAccount]
+-&gt; ReadPrec AssociateMemberAccount
+-&gt; ReadPrec [AssociateMemberAccount]
+-&gt; Read AssociateMemberAccount
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateMemberAccount]
+$creadListPrec :: ReadPrec [AssociateMemberAccount]
+readPrec :: ReadPrec AssociateMemberAccount
+$creadPrec :: ReadPrec AssociateMemberAccount
+readList :: ReadS [AssociateMemberAccount]
+$creadList :: ReadS [AssociateMemberAccount]
+readsPrec :: Int -&gt; ReadS AssociateMemberAccount
+$creadsPrec :: Int -&gt; ReadS AssociateMemberAccount
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151708"><span id="local-6989586621679151710"><span id="local-6989586621679151712"><span class="annot"><span class="annottext">Int -&gt; AssociateMemberAccount -&gt; ShowS
+[AssociateMemberAccount] -&gt; ShowS
+AssociateMemberAccount -&gt; String
+(Int -&gt; AssociateMemberAccount -&gt; ShowS)
+-&gt; (AssociateMemberAccount -&gt; String)
+-&gt; ([AssociateMemberAccount] -&gt; ShowS)
+-&gt; Show AssociateMemberAccount
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateMemberAccount] -&gt; ShowS
+$cshowList :: [AssociateMemberAccount] -&gt; ShowS
+show :: AssociateMemberAccount -&gt; String
+$cshow :: AssociateMemberAccount -&gt; String
+showsPrec :: Int -&gt; AssociateMemberAccount -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateMemberAccount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssociateMemberAccount -&gt; Rep AssociateMemberAccount x)
+-&gt; (forall x.
+    Rep AssociateMemberAccount x -&gt; AssociateMemberAccount)
+-&gt; Generic AssociateMemberAccount
+forall x. Rep AssociateMemberAccount x -&gt; AssociateMemberAccount
+forall x. AssociateMemberAccount -&gt; Rep AssociateMemberAccount x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssociateMemberAccount x -&gt; AssociateMemberAccount
+$cfrom :: forall x. AssociateMemberAccount -&gt; Rep AssociateMemberAccount x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'AssociateMemberAccount' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'memberAccountId', 'associateMemberAccount_memberAccountId' - The ID of the AWS account that you want to associate with Amazon Macie</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Classic as a member account.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#newAssociateMemberAccount"><span class="hs-identifier hs-type">newAssociateMemberAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'memberAccountId'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount"><span class="hs-identifier hs-type">AssociateMemberAccount</span></a></span><span>
+</span><span id="line-68"></span><span id="newAssociateMemberAccount"><span class="annot"><span class="annottext">newAssociateMemberAccount :: Text -&gt; AssociateMemberAccount
+</span><a href="Network.AWS.Macie.AssociateMemberAccount.html#newAssociateMemberAccount"><span class="hs-identifier hs-var hs-var">newAssociateMemberAccount</span></a></span></span><span> </span><span id="local-6989586621679151703"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151703"><span class="hs-identifier hs-var">pMemberAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">AssociateMemberAccount' :: Text -&gt; AssociateMemberAccount
+</span><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount%27"><span class="hs-identifier hs-type">AssociateMemberAccount'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:memberAccountId:AssociateMemberAccount' :: Text
+</span><a href="Network.AWS.Macie.AssociateMemberAccount.html#%24sel%3AmemberAccountId%3AAssociateMemberAccount%27"><span class="hs-identifier hs-var">memberAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151703"><span class="hs-identifier hs-var">pMemberAccountId_</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The ID of the AWS account that you want to associate with Amazon Macie</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Classic as a member account.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#associateMemberAccount_memberAccountId"><span class="hs-identifier hs-type">associateMemberAccount_memberAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount"><span class="hs-identifier hs-type">AssociateMemberAccount</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="associateMemberAccount_memberAccountId"><span class="annot"><span class="annottext">associateMemberAccount_memberAccountId :: (Text -&gt; f Text)
+-&gt; AssociateMemberAccount -&gt; f AssociateMemberAccount
+</span><a href="Network.AWS.Macie.AssociateMemberAccount.html#associateMemberAccount_memberAccountId"><span class="hs-identifier hs-var hs-var">associateMemberAccount_memberAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateMemberAccount -&gt; Text)
+-&gt; (AssociateMemberAccount -&gt; Text -&gt; AssociateMemberAccount)
+-&gt; Lens AssociateMemberAccount AssociateMemberAccount Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount%27"><span class="hs-identifier hs-type">AssociateMemberAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151700"><span class="annot"><span class="annottext">Text
+memberAccountId :: Text
+$sel:memberAccountId:AssociateMemberAccount' :: AssociateMemberAccount -&gt; Text
+</span><a href="#local-6989586621679151700"><span class="hs-identifier hs-var hs-var">memberAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151700"><span class="hs-identifier hs-var">memberAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151699"><span class="annot"><span class="annottext">s :: AssociateMemberAccount
+</span><a href="#local-6989586621679151699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount%27"><span class="hs-identifier hs-type">AssociateMemberAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151698"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateMemberAccount
+</span><a href="#local-6989586621679151699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberAccountId:AssociateMemberAccount' :: Text
+</span><a href="Network.AWS.Macie.AssociateMemberAccount.html#%24sel%3AmemberAccountId%3AAssociateMemberAccount%27"><span class="hs-identifier hs-var">memberAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount"><span class="hs-identifier hs-type">AssociateMemberAccount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount"><span class="hs-identifier hs-type">AssociateMemberAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount"><span class="hs-identifier hs-type">AssociateMemberAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccountResponse"><span class="hs-identifier hs-type">AssociateMemberAccountResponse</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679151694"><span class="annot"><span class="annottext">request :: AssociateMemberAccount -&gt; Request AssociateMemberAccount
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssociateMemberAccount -&gt; Request AssociateMemberAccount
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Macie.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679151690"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AssociateMemberAccount
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AssociateMemberAccount)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse AssociateMemberAccount
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AssociateMemberAccount
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AssociateMemberAccount)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse AssociateMemberAccount
+AssociateMemberAccountResponse
+</span><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccountResponse%27"><span class="hs-identifier hs-var">AssociateMemberAccountResponse'</span></a></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151683"><span id="local-6989586621679151685"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount"><span class="hs-identifier hs-type">AssociateMemberAccount</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151680"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount"><span class="hs-identifier hs-type">AssociateMemberAccount</span></a></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount"><span class="hs-identifier hs-type">AssociateMemberAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679151676"><span class="annot"><span class="annottext">toHeaders :: AssociateMemberAccount -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; AssociateMemberAccount -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-96"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MacieService.AssociateMemberAccount&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-99"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151666"><span id="local-6989586621679151668"><span id="local-6989586621679151670"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount"><span class="hs-identifier hs-type">AssociateMemberAccount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679151664"><span class="annot"><span class="annottext">toJSON :: AssociateMemberAccount -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount%27"><span class="hs-identifier hs-type">AssociateMemberAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151662"><span class="annot"><span class="annottext">Text
+memberAccountId :: Text
+$sel:memberAccountId:AssociateMemberAccount' :: AssociateMemberAccount -&gt; Text
+</span><a href="#local-6989586621679151662"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;memberAccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151662"><span class="hs-identifier hs-var">memberAccountId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount"><span class="hs-identifier hs-type">AssociateMemberAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679151656"><span class="annot"><span class="annottext">toPath :: AssociateMemberAccount -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateMemberAccount -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccount"><span class="hs-identifier hs-type">AssociateMemberAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679151652"><span class="annot"><span class="annottext">toQuery :: AssociateMemberAccount -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateMemberAccount -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newAssociateMemberAccountResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679151649"><span id="local-6989586621679151650"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateMemberAccountResponse"><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccountResponse"><span class="hs-identifier hs-var">AssociateMemberAccountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateMemberAccountResponse%27"><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccountResponse%27"><span class="hs-identifier hs-var">AssociateMemberAccountResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151645"><span id="local-6989586621679151647"><span class="annot"><span class="annottext">AssociateMemberAccountResponse
+-&gt; AssociateMemberAccountResponse -&gt; Bool
+(AssociateMemberAccountResponse
+ -&gt; AssociateMemberAccountResponse -&gt; Bool)
+-&gt; (AssociateMemberAccountResponse
+    -&gt; AssociateMemberAccountResponse -&gt; Bool)
+-&gt; Eq AssociateMemberAccountResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateMemberAccountResponse
+-&gt; AssociateMemberAccountResponse -&gt; Bool
+$c/= :: AssociateMemberAccountResponse
+-&gt; AssociateMemberAccountResponse -&gt; Bool
+== :: AssociateMemberAccountResponse
+-&gt; AssociateMemberAccountResponse -&gt; Bool
+$c== :: AssociateMemberAccountResponse
+-&gt; AssociateMemberAccountResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151637"><span id="local-6989586621679151639"><span id="local-6989586621679151641"><span id="local-6989586621679151643"><span class="annot"><span class="annottext">ReadPrec [AssociateMemberAccountResponse]
+ReadPrec AssociateMemberAccountResponse
+Int -&gt; ReadS AssociateMemberAccountResponse
+ReadS [AssociateMemberAccountResponse]
+(Int -&gt; ReadS AssociateMemberAccountResponse)
+-&gt; ReadS [AssociateMemberAccountResponse]
+-&gt; ReadPrec AssociateMemberAccountResponse
+-&gt; ReadPrec [AssociateMemberAccountResponse]
+-&gt; Read AssociateMemberAccountResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateMemberAccountResponse]
+$creadListPrec :: ReadPrec [AssociateMemberAccountResponse]
+readPrec :: ReadPrec AssociateMemberAccountResponse
+$creadPrec :: ReadPrec AssociateMemberAccountResponse
+readList :: ReadS [AssociateMemberAccountResponse]
+$creadList :: ReadS [AssociateMemberAccountResponse]
+readsPrec :: Int -&gt; ReadS AssociateMemberAccountResponse
+$creadsPrec :: Int -&gt; ReadS AssociateMemberAccountResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151631"><span id="local-6989586621679151633"><span id="local-6989586621679151635"><span class="annot"><span class="annottext">Int -&gt; AssociateMemberAccountResponse -&gt; ShowS
+[AssociateMemberAccountResponse] -&gt; ShowS
+AssociateMemberAccountResponse -&gt; String
+(Int -&gt; AssociateMemberAccountResponse -&gt; ShowS)
+-&gt; (AssociateMemberAccountResponse -&gt; String)
+-&gt; ([AssociateMemberAccountResponse] -&gt; ShowS)
+-&gt; Show AssociateMemberAccountResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateMemberAccountResponse] -&gt; ShowS
+$cshowList :: [AssociateMemberAccountResponse] -&gt; ShowS
+show :: AssociateMemberAccountResponse -&gt; String
+$cshow :: AssociateMemberAccountResponse -&gt; String
+showsPrec :: Int -&gt; AssociateMemberAccountResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateMemberAccountResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateMemberAccountResponse
+ -&gt; Rep AssociateMemberAccountResponse x)
+-&gt; (forall x.
+    Rep AssociateMemberAccountResponse x
+    -&gt; AssociateMemberAccountResponse)
+-&gt; Generic AssociateMemberAccountResponse
+forall x.
+Rep AssociateMemberAccountResponse x
+-&gt; AssociateMemberAccountResponse
+forall x.
+AssociateMemberAccountResponse
+-&gt; Rep AssociateMemberAccountResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateMemberAccountResponse x
+-&gt; AssociateMemberAccountResponse
+$cfrom :: forall x.
+AssociateMemberAccountResponse
+-&gt; Rep AssociateMemberAccountResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Create a value of 'AssociateMemberAccountResponse' with all optional fields omitted.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#newAssociateMemberAccountResponse"><span class="hs-identifier hs-type">newAssociateMemberAccountResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccountResponse"><span class="hs-identifier hs-type">AssociateMemberAccountResponse</span></a></span><span>
+</span><span id="line-134"></span><span id="newAssociateMemberAccountResponse"><span class="annot"><span class="annottext">newAssociateMemberAccountResponse :: AssociateMemberAccountResponse
+</span><a href="Network.AWS.Macie.AssociateMemberAccount.html#newAssociateMemberAccountResponse"><span class="hs-identifier hs-var hs-var">newAssociateMemberAccountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">AssociateMemberAccountResponse
+</span><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccountResponse%27"><span class="hs-identifier hs-var">AssociateMemberAccountResponse'</span></a></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679151627"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.Macie.AssociateMemberAccount.html#AssociateMemberAccountResponse"><span class="hs-identifier hs-type">AssociateMemberAccountResponse</span></a></span></span><span>
+</span><span id="line-140"></span></pre></body></html>

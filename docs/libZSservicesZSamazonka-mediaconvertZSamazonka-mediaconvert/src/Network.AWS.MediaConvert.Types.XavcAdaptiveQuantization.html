@@ -46,13 +46,13 @@
 </span><span id="line-46"></span><span class="hs-comment">-- quantization (flickerAdaptiveQuantization), Spatial adaptive</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- quantization (spatialAdaptiveQuantization), and Temporal adaptive</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- quantization (temporalAdaptiveQuantization).</span><span>
-</span><span id="line-49"></span><span id="local-6989586621680020176"><span id="local-6989586621680020177"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="XavcAdaptiveQuantization"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcAdaptiveQuantization.html#XavcAdaptiveQuantization"><span class="hs-identifier hs-var">XavcAdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="XavcAdaptiveQuantization%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcAdaptiveQuantization.html#XavcAdaptiveQuantization%27"><span class="hs-identifier hs-var">XavcAdaptiveQuantization'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621680020185"><span id="local-6989586621680020186"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="XavcAdaptiveQuantization"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcAdaptiveQuantization.html#XavcAdaptiveQuantization"><span class="hs-identifier hs-var">XavcAdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="XavcAdaptiveQuantization%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcAdaptiveQuantization.html#XavcAdaptiveQuantization%27"><span class="hs-identifier hs-var">XavcAdaptiveQuantization'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromXavcAdaptiveQuantization"><span class="annot"><span class="annottext">XavcAdaptiveQuantization -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.XavcAdaptiveQuantization.html#fromXavcAdaptiveQuantization"><span class="hs-identifier hs-var hs-var">fromXavcAdaptiveQuantization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680020168"><span id="local-6989586621680020170"><span id="local-6989586621680020172"><span class="annot"><span class="annottext">Int -&gt; XavcAdaptiveQuantization -&gt; ShowS
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680020177"><span id="local-6989586621680020179"><span id="local-6989586621680020181"><span class="annot"><span class="annottext">Int -&gt; XavcAdaptiveQuantization -&gt; ShowS
 [XavcAdaptiveQuantization] -&gt; ShowS
 XavcAdaptiveQuantization -&gt; String
 (Int -&gt; XavcAdaptiveQuantization -&gt; ShowS)
@@ -68,7 +68,7 @@ $cshow :: XavcAdaptiveQuantization -&gt; String
 showsPrec :: Int -&gt; XavcAdaptiveQuantization -&gt; ShowS
 $cshowsPrec :: Int -&gt; XavcAdaptiveQuantization -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680020159"><span id="local-6989586621680020161"><span id="local-6989586621680020163"><span id="local-6989586621680020165"><span class="annot"><span class="annottext">ReadPrec [XavcAdaptiveQuantization]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680020168"><span id="local-6989586621680020170"><span id="local-6989586621680020172"><span id="local-6989586621680020174"><span class="annot"><span class="annottext">ReadPrec [XavcAdaptiveQuantization]
 ReadPrec XavcAdaptiveQuantization
 Int -&gt; ReadS XavcAdaptiveQuantization
 ReadS [XavcAdaptiveQuantization]
@@ -89,7 +89,7 @@ $creadList :: ReadS [XavcAdaptiveQuantization]
 readsPrec :: Int -&gt; ReadS XavcAdaptiveQuantization
 $creadsPrec :: Int -&gt; ReadS XavcAdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680020154"><span id="local-6989586621680020156"><span class="annot"><span class="annottext">XavcAdaptiveQuantization -&gt; XavcAdaptiveQuantization -&gt; Bool
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680020163"><span id="local-6989586621680020165"><span class="annot"><span class="annottext">XavcAdaptiveQuantization -&gt; XavcAdaptiveQuantization -&gt; Bool
 (XavcAdaptiveQuantization -&gt; XavcAdaptiveQuantization -&gt; Bool)
 -&gt; (XavcAdaptiveQuantization -&gt; XavcAdaptiveQuantization -&gt; Bool)
 -&gt; Eq XavcAdaptiveQuantization
@@ -99,7 +99,7 @@ $c/= :: XavcAdaptiveQuantization -&gt; XavcAdaptiveQuantization -&gt; Bool
 == :: XavcAdaptiveQuantization -&gt; XavcAdaptiveQuantization -&gt; Bool
 $c== :: XavcAdaptiveQuantization -&gt; XavcAdaptiveQuantization -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680020138"><span id="local-6989586621680020140"><span id="local-6989586621680020142"><span id="local-6989586621680020144"><span id="local-6989586621680020146"><span id="local-6989586621680020148"><span id="local-6989586621680020150"><span class="annot"><span class="annottext">Eq XavcAdaptiveQuantization
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680020147"><span id="local-6989586621680020149"><span id="local-6989586621680020151"><span id="local-6989586621680020153"><span id="local-6989586621680020155"><span id="local-6989586621680020157"><span id="local-6989586621680020159"><span class="annot"><span class="annottext">Eq XavcAdaptiveQuantization
 Eq XavcAdaptiveQuantization
 -&gt; (XavcAdaptiveQuantization
     -&gt; XavcAdaptiveQuantization -&gt; Ordering)
@@ -164,7 +164,7 @@ XavcAdaptiveQuantization -&gt; Rep XavcAdaptiveQuantization x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680020130"><span id="local-6989586621680020132"><span class="annot"><span class="annottext">Int -&gt; XavcAdaptiveQuantization -&gt; Int
+</span><span id="line-61"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680020139"><span id="local-6989586621680020141"><span class="annot"><span class="annottext">Int -&gt; XavcAdaptiveQuantization -&gt; Int
 XavcAdaptiveQuantization -&gt; Int
 (Int -&gt; XavcAdaptiveQuantization -&gt; Int)
 -&gt; (XavcAdaptiveQuantization -&gt; Int)
@@ -175,55 +175,55 @@ $chash :: XavcAdaptiveQuantization -&gt; Int
 hashWithSalt :: Int -&gt; XavcAdaptiveQuantization -&gt; Int
 $chashWithSalt :: Int -&gt; XavcAdaptiveQuantization -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680020127"><span class="annot"><span class="annottext">XavcAdaptiveQuantization -&gt; ()
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680020136"><span class="annot"><span class="annottext">XavcAdaptiveQuantization -&gt; ()
 (XavcAdaptiveQuantization -&gt; ()) -&gt; NFData XavcAdaptiveQuantization
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: XavcAdaptiveQuantization -&gt; ()
 $crnf :: XavcAdaptiveQuantization -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680020124"><span class="annot"><span class="annottext">Text -&gt; Either String XavcAdaptiveQuantization
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680020133"><span class="annot"><span class="annottext">Text -&gt; Either String XavcAdaptiveQuantization
 (Text -&gt; Either String XavcAdaptiveQuantization)
 -&gt; FromText XavcAdaptiveQuantization
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String XavcAdaptiveQuantization
 $cfromText :: Text -&gt; Either String XavcAdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680020121"><span class="annot"><span class="annottext">XavcAdaptiveQuantization -&gt; Text
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680020130"><span class="annot"><span class="annottext">XavcAdaptiveQuantization -&gt; Text
 (XavcAdaptiveQuantization -&gt; Text)
 -&gt; ToText XavcAdaptiveQuantization
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: XavcAdaptiveQuantization -&gt; Text
 $ctoText :: XavcAdaptiveQuantization -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680020118"><span class="annot"><span class="annottext">XavcAdaptiveQuantization -&gt; ByteString
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680020127"><span class="annot"><span class="annottext">XavcAdaptiveQuantization -&gt; ByteString
 (XavcAdaptiveQuantization -&gt; ByteString)
 -&gt; ToByteString XavcAdaptiveQuantization
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: XavcAdaptiveQuantization -&gt; ByteString
 $ctoBS :: XavcAdaptiveQuantization -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621680020115"><span class="annot"><span class="annottext">XavcAdaptiveQuantization -&gt; ByteStringBuilder
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680020124"><span class="annot"><span class="annottext">XavcAdaptiveQuantization -&gt; ByteStringBuilder
 (XavcAdaptiveQuantization -&gt; ByteStringBuilder)
 -&gt; ToLog XavcAdaptiveQuantization
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: XavcAdaptiveQuantization -&gt; ByteStringBuilder
 $cbuild :: XavcAdaptiveQuantization -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621680020112"><span class="annot"><span class="annottext">HeaderName -&gt; XavcAdaptiveQuantization -&gt; [Header]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680020121"><span class="annot"><span class="annottext">HeaderName -&gt; XavcAdaptiveQuantization -&gt; [Header]
 (HeaderName -&gt; XavcAdaptiveQuantization -&gt; [Header])
 -&gt; ToHeader XavcAdaptiveQuantization
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; XavcAdaptiveQuantization -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; XavcAdaptiveQuantization -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621680020109"><span class="annot"><span class="annottext">XavcAdaptiveQuantization -&gt; QueryString
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680020118"><span class="annot"><span class="annottext">XavcAdaptiveQuantization -&gt; QueryString
 (XavcAdaptiveQuantization -&gt; QueryString)
 -&gt; ToQuery XavcAdaptiveQuantization
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: XavcAdaptiveQuantization -&gt; QueryString
 $ctoQuery :: XavcAdaptiveQuantization -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621680020104"><span id="local-6989586621680020106"><span class="annot"><span class="annottext">Value -&gt; Parser [XavcAdaptiveQuantization]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680020113"><span id="local-6989586621680020115"><span class="annot"><span class="annottext">Value -&gt; Parser [XavcAdaptiveQuantization]
 Value -&gt; Parser XavcAdaptiveQuantization
 (Value -&gt; Parser XavcAdaptiveQuantization)
 -&gt; (Value -&gt; Parser [XavcAdaptiveQuantization])
@@ -235,7 +235,7 @@ $cparseJSONList :: Value -&gt; Parser [XavcAdaptiveQuantization]
 parseJSON :: Value -&gt; Parser XavcAdaptiveQuantization
 $cparseJSON :: Value -&gt; Parser XavcAdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621680020099"><span id="local-6989586621680020101"><span class="annot"><span class="annottext">FromJSONKeyFunction [XavcAdaptiveQuantization]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621680020108"><span id="local-6989586621680020110"><span class="annot"><span class="annottext">FromJSONKeyFunction [XavcAdaptiveQuantization]
 FromJSONKeyFunction XavcAdaptiveQuantization
 FromJSONKeyFunction XavcAdaptiveQuantization
 -&gt; FromJSONKeyFunction [XavcAdaptiveQuantization]
@@ -247,7 +247,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [XavcAdaptiveQuantization]
 fromJSONKey :: FromJSONKeyFunction XavcAdaptiveQuantization
 $cfromJSONKey :: FromJSONKeyFunction XavcAdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621680020090"><span id="local-6989586621680020092"><span id="local-6989586621680020094"><span id="local-6989586621680020096"><span class="annot"><span class="annottext">[XavcAdaptiveQuantization] -&gt; Encoding
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621680020099"><span id="local-6989586621680020101"><span id="local-6989586621680020103"><span id="local-6989586621680020105"><span class="annot"><span class="annottext">[XavcAdaptiveQuantization] -&gt; Encoding
 [XavcAdaptiveQuantization] -&gt; Value
 XavcAdaptiveQuantization -&gt; Encoding
 XavcAdaptiveQuantization -&gt; Value
@@ -271,7 +271,7 @@ $ctoEncoding :: XavcAdaptiveQuantization -&gt; Encoding
 toJSON :: XavcAdaptiveQuantization -&gt; Value
 $ctoJSON :: XavcAdaptiveQuantization -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621680020085"><span id="local-6989586621680020087"><span class="annot"><span class="annottext">ToJSONKeyFunction [XavcAdaptiveQuantization]
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621680020094"><span id="local-6989586621680020096"><span class="annot"><span class="annottext">ToJSONKeyFunction [XavcAdaptiveQuantization]
 ToJSONKeyFunction XavcAdaptiveQuantization
 ToJSONKeyFunction XavcAdaptiveQuantization
 -&gt; ToJSONKeyFunction [XavcAdaptiveQuantization]
@@ -283,14 +283,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [XavcAdaptiveQuantization]
 toJSONKey :: ToJSONKeyFunction XavcAdaptiveQuantization
 $ctoJSONKey :: ToJSONKeyFunction XavcAdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621680020082"><span class="annot"><span class="annottext">[Node] -&gt; Either String XavcAdaptiveQuantization
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621680020091"><span class="annot"><span class="annottext">[Node] -&gt; Either String XavcAdaptiveQuantization
 ([Node] -&gt; Either String XavcAdaptiveQuantization)
 -&gt; FromXML XavcAdaptiveQuantization
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String XavcAdaptiveQuantization
 $cparseXML :: [Node] -&gt; Either String XavcAdaptiveQuantization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621680020079"><span class="annot"><span class="annottext">XavcAdaptiveQuantization -&gt; XML
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621680020088"><span class="annot"><span class="annottext">XavcAdaptiveQuantization -&gt; XML
 (XavcAdaptiveQuantization -&gt; XML) -&gt; ToXML XavcAdaptiveQuantization
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: XavcAdaptiveQuantization -&gt; XML

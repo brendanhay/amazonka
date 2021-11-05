@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an action that sends data to CloudWatch Logs.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCloudwatchLogsAction' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679781060"><span id="local-6989586621679781061"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudwatchLogsAction"><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-var">CloudwatchLogsAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudwatchLogsAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction%27"><span class="hs-identifier hs-var">CloudwatchLogsAction'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679781069"><span id="local-6989586621679781070"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudwatchLogsAction"><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-var">CloudwatchLogsAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudwatchLogsAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction%27"><span class="hs-identifier hs-var">CloudwatchLogsAction'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IAM role that allows access to the CloudWatch log.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AroleArn%3ACloudwatchLogsAction%27"><span class="annot"><span class="annottext">CloudwatchLogsAction -&gt; Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#%24sel%3AroleArn%3ACloudwatchLogsAction%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AlogGroupName%3ACloudwatchLogsAction%27"><span class="annot"><span class="annottext">CloudwatchLogsAction -&gt; Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#%24sel%3AlogGroupName%3ACloudwatchLogsAction%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679781053"><span id="local-6989586621679781055"><span class="annot"><span class="annottext">CloudwatchLogsAction -&gt; CloudwatchLogsAction -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679781062"><span id="local-6989586621679781064"><span class="annot"><span class="annottext">CloudwatchLogsAction -&gt; CloudwatchLogsAction -&gt; Bool
 (CloudwatchLogsAction -&gt; CloudwatchLogsAction -&gt; Bool)
 -&gt; (CloudwatchLogsAction -&gt; CloudwatchLogsAction -&gt; Bool)
 -&gt; Eq CloudwatchLogsAction
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CloudwatchLogsAction -&gt; CloudwatchLogsAction -&gt; Bool
 == :: CloudwatchLogsAction -&gt; CloudwatchLogsAction -&gt; Bool
 $c== :: CloudwatchLogsAction -&gt; CloudwatchLogsAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781044"><span id="local-6989586621679781046"><span id="local-6989586621679781048"><span id="local-6989586621679781050"><span class="annot"><span class="annottext">ReadPrec [CloudwatchLogsAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781053"><span id="local-6989586621679781055"><span id="local-6989586621679781057"><span id="local-6989586621679781059"><span class="annot"><span class="annottext">ReadPrec [CloudwatchLogsAction]
 ReadPrec CloudwatchLogsAction
 Int -&gt; ReadS CloudwatchLogsAction
 ReadS [CloudwatchLogsAction]
@@ -63,7 +63,7 @@ readList :: ReadS [CloudwatchLogsAction]
 $creadList :: ReadS [CloudwatchLogsAction]
 readsPrec :: Int -&gt; ReadS CloudwatchLogsAction
 $creadsPrec :: Int -&gt; ReadS CloudwatchLogsAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781037"><span id="local-6989586621679781039"><span id="local-6989586621679781041"><span class="annot"><span class="annottext">Int -&gt; CloudwatchLogsAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781046"><span id="local-6989586621679781048"><span id="local-6989586621679781050"><span class="annot"><span class="annottext">Int -&gt; CloudwatchLogsAction -&gt; ShowS
 [CloudwatchLogsAction] -&gt; ShowS
 CloudwatchLogsAction -&gt; String
 (Int -&gt; CloudwatchLogsAction -&gt; ShowS)
@@ -107,17 +107,17 @@ $cfrom :: forall x. CloudwatchLogsAction -&gt; Rep CloudwatchLogsAction x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-type">CloudwatchLogsAction</span></a></span><span>
 </span><span id="line-54"></span><span id="newCloudwatchLogsAction"><span class="annot"><span class="annottext">newCloudwatchLogsAction :: Text -&gt; Text -&gt; CloudwatchLogsAction
-</span><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#newCloudwatchLogsAction"><span class="hs-identifier hs-var hs-var">newCloudwatchLogsAction</span></a></span></span><span> </span><span id="local-6989586621679781031"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679781031"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span id="local-6989586621679781030"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679781030"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#newCloudwatchLogsAction"><span class="hs-identifier hs-var hs-var">newCloudwatchLogsAction</span></a></span></span><span> </span><span id="local-6989586621679781040"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781040"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span id="local-6989586621679781039"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781039"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">CloudwatchLogsAction' :: Text -&gt; Text -&gt; CloudwatchLogsAction
 </span><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction%27"><span class="hs-identifier hs-type">CloudwatchLogsAction'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleArn:CloudwatchLogsAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#%24sel%3AroleArn%3ACloudwatchLogsAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679781031"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679781040"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:CloudwatchLogsAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#%24sel%3AlogGroupName%3ACloudwatchLogsAction%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679781030"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679781039"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The IAM role that allows access to the CloudWatch log.</span><span>
@@ -127,16 +127,16 @@ $cfrom :: forall x. CloudwatchLogsAction -&gt; Rep CloudwatchLogsAction x
 -&gt; (CloudwatchLogsAction -&gt; Text -&gt; CloudwatchLogsAction)
 -&gt; Lens CloudwatchLogsAction CloudwatchLogsAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction%27"><span class="hs-identifier hs-type">CloudwatchLogsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781026"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction%27"><span class="hs-identifier hs-type">CloudwatchLogsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781035"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:CloudwatchLogsAction' :: CloudwatchLogsAction -&gt; Text
-</span><a href="#local-6989586621679781026"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679781026"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781025"><span class="annot"><span class="annottext">s :: CloudwatchLogsAction
-</span><a href="#local-6989586621679781025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction%27"><span class="hs-identifier hs-type">CloudwatchLogsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781024"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679781024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchLogsAction
-</span><a href="#local-6989586621679781025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CloudwatchLogsAction' :: Text
+</span><a href="#local-6989586621679781035"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781035"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781034"><span class="annot"><span class="annottext">s :: CloudwatchLogsAction
+</span><a href="#local-6989586621679781034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction%27"><span class="hs-identifier hs-type">CloudwatchLogsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781033"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchLogsAction
+</span><a href="#local-6989586621679781034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CloudwatchLogsAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#%24sel%3AroleArn%3ACloudwatchLogsAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679781024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-type">CloudwatchLogsAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679781033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-type">CloudwatchLogsAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The CloudWatch log group to which the action sends data.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#cloudwatchLogsAction_logGroupName"><span class="hs-identifier hs-type">cloudwatchLogsAction_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-type">CloudwatchLogsAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -145,19 +145,19 @@ $sel:roleArn:CloudwatchLogsAction' :: CloudwatchLogsAction -&gt; Text
 -&gt; (CloudwatchLogsAction -&gt; Text -&gt; CloudwatchLogsAction)
 -&gt; Lens CloudwatchLogsAction CloudwatchLogsAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction%27"><span class="hs-identifier hs-type">CloudwatchLogsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781022"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction%27"><span class="hs-identifier hs-type">CloudwatchLogsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781031"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 $sel:logGroupName:CloudwatchLogsAction' :: CloudwatchLogsAction -&gt; Text
-</span><a href="#local-6989586621679781022"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679781022"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781021"><span class="annot"><span class="annottext">s :: CloudwatchLogsAction
-</span><a href="#local-6989586621679781021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction%27"><span class="hs-identifier hs-type">CloudwatchLogsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781020"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679781020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchLogsAction
-</span><a href="#local-6989586621679781021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:CloudwatchLogsAction' :: Text
+</span><a href="#local-6989586621679781031"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781031"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781030"><span class="annot"><span class="annottext">s :: CloudwatchLogsAction
+</span><a href="#local-6989586621679781030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction%27"><span class="hs-identifier hs-type">CloudwatchLogsAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781029"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchLogsAction
+</span><a href="#local-6989586621679781030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:CloudwatchLogsAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#%24sel%3AlogGroupName%3ACloudwatchLogsAction%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679781020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-type">CloudwatchLogsAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679781029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-type">CloudwatchLogsAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781017"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-type">CloudwatchLogsAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679781015"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudwatchLogsAction
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781026"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-type">CloudwatchLogsAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679781024"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudwatchLogsAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CloudwatchLogsAction)
@@ -167,15 +167,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CloudwatchLogsAction&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679781012"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679781012"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679781021"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679781021"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; CloudwatchLogsAction
 </span><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction%27"><span class="hs-identifier hs-var">CloudwatchLogsAction'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; CloudwatchLogsAction)
 -&gt; Parser Text -&gt; Parser (Text -&gt; CloudwatchLogsAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679781012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679781021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -183,24 +183,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser CloudwatchLogsAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679781012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679781021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781006"><span id="local-6989586621679781008"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-type">CloudwatchLogsAction</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781015"><span id="local-6989586621679781017"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-type">CloudwatchLogsAction</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781003"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-type">CloudwatchLogsAction</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-type">CloudwatchLogsAction</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780995"><span id="local-6989586621679780997"><span id="local-6989586621679780999"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-type">CloudwatchLogsAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679780993"><span class="annot"><span class="annottext">toJSON :: CloudwatchLogsAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction%27"><span class="hs-identifier hs-type">CloudwatchLogsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780990"><span id="local-6989586621679780991"><span class="annot"><span class="annottext">Text
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781004"><span id="local-6989586621679781006"><span id="local-6989586621679781008"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-type">CloudwatchLogsAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679781002"><span class="annot"><span class="annottext">toJSON :: CloudwatchLogsAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction%27"><span class="hs-identifier hs-type">CloudwatchLogsAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780999"><span id="local-6989586621679781000"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 roleArn :: Text
 $sel:logGroupName:CloudwatchLogsAction' :: CloudwatchLogsAction -&gt; Text
 $sel:roleArn:CloudwatchLogsAction' :: CloudwatchLogsAction -&gt; Text
-</span><a href="#local-6989586621679780990"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679780999"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -212,14 +212,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780991"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679781000"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780990"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679780999"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

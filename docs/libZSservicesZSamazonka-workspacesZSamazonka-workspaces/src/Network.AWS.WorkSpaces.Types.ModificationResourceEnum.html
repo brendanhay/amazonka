@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679272092"><span id="local-6989586621679272093"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModificationResourceEnum"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum"><span class="hs-identifier hs-var">ModificationResourceEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModificationResourceEnum%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum%27"><span class="hs-identifier hs-var">ModificationResourceEnum'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679272101"><span id="local-6989586621679272102"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModificationResourceEnum"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum"><span class="hs-identifier hs-var">ModificationResourceEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModificationResourceEnum%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#ModificationResourceEnum%27"><span class="hs-identifier hs-var">ModificationResourceEnum'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromModificationResourceEnum"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.Types.ModificationResourceEnum.html#fromModificationResourceEnum"><span class="hs-identifier hs-var hs-var">fromModificationResourceEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272084"><span id="local-6989586621679272086"><span id="local-6989586621679272088"><span class="annot"><span class="annottext">Int -&gt; ModificationResourceEnum -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272093"><span id="local-6989586621679272095"><span id="local-6989586621679272097"><span class="annot"><span class="annottext">Int -&gt; ModificationResourceEnum -&gt; ShowS
 [ModificationResourceEnum] -&gt; ShowS
 ModificationResourceEnum -&gt; String
 (Int -&gt; ModificationResourceEnum -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ModificationResourceEnum -&gt; String
 showsPrec :: Int -&gt; ModificationResourceEnum -&gt; ShowS
 $cshowsPrec :: Int -&gt; ModificationResourceEnum -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679272075"><span id="local-6989586621679272077"><span id="local-6989586621679272079"><span id="local-6989586621679272081"><span class="annot"><span class="annottext">ReadPrec [ModificationResourceEnum]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679272084"><span id="local-6989586621679272086"><span id="local-6989586621679272088"><span id="local-6989586621679272090"><span class="annot"><span class="annottext">ReadPrec [ModificationResourceEnum]
 ReadPrec ModificationResourceEnum
 Int -&gt; ReadS ModificationResourceEnum
 ReadS [ModificationResourceEnum]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ModificationResourceEnum]
 readsPrec :: Int -&gt; ReadS ModificationResourceEnum
 $creadsPrec :: Int -&gt; ReadS ModificationResourceEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679272070"><span id="local-6989586621679272072"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679272079"><span id="local-6989586621679272081"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
 (ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool)
 -&gt; (ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool)
 -&gt; Eq ModificationResourceEnum
@@ -83,7 +83,7 @@ $c/= :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
 == :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
 $c== :: ModificationResourceEnum -&gt; ModificationResourceEnum -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679272054"><span id="local-6989586621679272056"><span id="local-6989586621679272058"><span id="local-6989586621679272060"><span id="local-6989586621679272062"><span id="local-6989586621679272064"><span id="local-6989586621679272066"><span class="annot"><span class="annottext">Eq ModificationResourceEnum
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679272063"><span id="local-6989586621679272065"><span id="local-6989586621679272067"><span id="local-6989586621679272069"><span id="local-6989586621679272071"><span id="local-6989586621679272073"><span id="local-6989586621679272075"><span class="annot"><span class="annottext">Eq ModificationResourceEnum
 Eq ModificationResourceEnum
 -&gt; (ModificationResourceEnum
     -&gt; ModificationResourceEnum -&gt; Ordering)
@@ -148,7 +148,7 @@ ModificationResourceEnum -&gt; Rep ModificationResourceEnum x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272046"><span id="local-6989586621679272048"><span class="annot"><span class="annottext">Int -&gt; ModificationResourceEnum -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272055"><span id="local-6989586621679272057"><span class="annot"><span class="annottext">Int -&gt; ModificationResourceEnum -&gt; Int
 ModificationResourceEnum -&gt; Int
 (Int -&gt; ModificationResourceEnum -&gt; Int)
 -&gt; (ModificationResourceEnum -&gt; Int)
@@ -159,55 +159,55 @@ $chash :: ModificationResourceEnum -&gt; Int
 hashWithSalt :: Int -&gt; ModificationResourceEnum -&gt; Int
 $chashWithSalt :: Int -&gt; ModificationResourceEnum -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679272043"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679272052"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; ()
 (ModificationResourceEnum -&gt; ()) -&gt; NFData ModificationResourceEnum
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ModificationResourceEnum -&gt; ()
 $crnf :: ModificationResourceEnum -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679272040"><span class="annot"><span class="annottext">Text -&gt; Either String ModificationResourceEnum
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679272049"><span class="annot"><span class="annottext">Text -&gt; Either String ModificationResourceEnum
 (Text -&gt; Either String ModificationResourceEnum)
 -&gt; FromText ModificationResourceEnum
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ModificationResourceEnum
 $cfromText :: Text -&gt; Either String ModificationResourceEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679272037"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679272046"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; Text
 (ModificationResourceEnum -&gt; Text)
 -&gt; ToText ModificationResourceEnum
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ModificationResourceEnum -&gt; Text
 $ctoText :: ModificationResourceEnum -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679272034"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679272043"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; ByteString
 (ModificationResourceEnum -&gt; ByteString)
 -&gt; ToByteString ModificationResourceEnum
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ModificationResourceEnum -&gt; ByteString
 $ctoBS :: ModificationResourceEnum -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679272031"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679272040"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; ByteStringBuilder
 (ModificationResourceEnum -&gt; ByteStringBuilder)
 -&gt; ToLog ModificationResourceEnum
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ModificationResourceEnum -&gt; ByteStringBuilder
 $cbuild :: ModificationResourceEnum -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679272028"><span class="annot"><span class="annottext">HeaderName -&gt; ModificationResourceEnum -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679272037"><span class="annot"><span class="annottext">HeaderName -&gt; ModificationResourceEnum -&gt; [Header]
 (HeaderName -&gt; ModificationResourceEnum -&gt; [Header])
 -&gt; ToHeader ModificationResourceEnum
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ModificationResourceEnum -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ModificationResourceEnum -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679272025"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679272034"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; QueryString
 (ModificationResourceEnum -&gt; QueryString)
 -&gt; ToQuery ModificationResourceEnum
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ModificationResourceEnum -&gt; QueryString
 $ctoQuery :: ModificationResourceEnum -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679272020"><span id="local-6989586621679272022"><span class="annot"><span class="annottext">Value -&gt; Parser [ModificationResourceEnum]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679272029"><span id="local-6989586621679272031"><span class="annot"><span class="annottext">Value -&gt; Parser [ModificationResourceEnum]
 Value -&gt; Parser ModificationResourceEnum
 (Value -&gt; Parser ModificationResourceEnum)
 -&gt; (Value -&gt; Parser [ModificationResourceEnum])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [ModificationResourceEnum]
 parseJSON :: Value -&gt; Parser ModificationResourceEnum
 $cparseJSON :: Value -&gt; Parser ModificationResourceEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679272015"><span id="local-6989586621679272017"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModificationResourceEnum]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679272024"><span id="local-6989586621679272026"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModificationResourceEnum]
 FromJSONKeyFunction ModificationResourceEnum
 FromJSONKeyFunction ModificationResourceEnum
 -&gt; FromJSONKeyFunction [ModificationResourceEnum]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ModificationResourceEnum]
 fromJSONKey :: FromJSONKeyFunction ModificationResourceEnum
 $cfromJSONKey :: FromJSONKeyFunction ModificationResourceEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679272006"><span id="local-6989586621679272008"><span id="local-6989586621679272010"><span id="local-6989586621679272012"><span class="annot"><span class="annottext">[ModificationResourceEnum] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679272015"><span id="local-6989586621679272017"><span id="local-6989586621679272019"><span id="local-6989586621679272021"><span class="annot"><span class="annottext">[ModificationResourceEnum] -&gt; Encoding
 [ModificationResourceEnum] -&gt; Value
 ModificationResourceEnum -&gt; Encoding
 ModificationResourceEnum -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: ModificationResourceEnum -&gt; Encoding
 toJSON :: ModificationResourceEnum -&gt; Value
 $ctoJSON :: ModificationResourceEnum -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679272001"><span id="local-6989586621679272003"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModificationResourceEnum]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679272010"><span id="local-6989586621679272012"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModificationResourceEnum]
 ToJSONKeyFunction ModificationResourceEnum
 ToJSONKeyFunction ModificationResourceEnum
 -&gt; ToJSONKeyFunction [ModificationResourceEnum]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ModificationResourceEnum]
 toJSONKey :: ToJSONKeyFunction ModificationResourceEnum
 $ctoJSONKey :: ToJSONKeyFunction ModificationResourceEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679271998"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModificationResourceEnum
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679272007"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModificationResourceEnum
 ([Node] -&gt; Either String ModificationResourceEnum)
 -&gt; FromXML ModificationResourceEnum
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ModificationResourceEnum
 $cparseXML :: [Node] -&gt; Either String ModificationResourceEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679271995"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679272004"><span class="annot"><span class="annottext">ModificationResourceEnum -&gt; XML
 (ModificationResourceEnum -&gt; XML) -&gt; ToXML ModificationResourceEnum
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ModificationResourceEnum -&gt; XML

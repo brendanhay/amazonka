@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatus.html"><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.AccessPreviewStatus</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReason.html"><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReason</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Contains a summary of information about an access preview.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAccessPreviewSummary' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679244171"><span id="local-6989586621679244172"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessPreviewSummary"><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary"><span class="hs-identifier hs-var">AccessPreviewSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessPreviewSummary%27"><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary%27"><span class="hs-identifier hs-var">AccessPreviewSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AstatusReason%3AAccessPreviewSummary%27"><span class="annot"><span class="annottext">AccessPreviewSummary -&gt; Maybe AccessPreviewStatusReason
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#%24sel%3AstatusReason%3AAccessPreviewSummary%27"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReason.html#AccessPreviewStatusReason"><span class="hs-identifier hs-type">AccessPreviewStatusReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ARN of the analyzer used to generate the access preview.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AanalyzerArn%3AAccessPreviewSummary%27"><span class="annot"><span class="annottext">AccessPreviewSummary -&gt; Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#%24sel%3AanalyzerArn%3AAccessPreviewSummary%27"><span class="hs-identifier hs-var hs-var">analyzerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time at which the access preview was created.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreatedAt%3AAccessPreviewSummary%27"><span class="annot"><span class="annottext">AccessPreviewSummary -&gt; POSIX
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#%24sel%3AcreatedAt%3AAccessPreviewSummary%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The unique ID for the access preview.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aid%3AAccessPreviewSummary%27"><span class="annot"><span class="annottext">AccessPreviewSummary -&gt; Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#%24sel%3Aid%3AAccessPreviewSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The status of the access preview.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   @Creating@ - The access preview creation is in progress.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   @Completed@ - The access preview is complete and previews the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     findings for external access to the resource.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @Failed@ - The access preview creation has failed.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Astatus%3AAccessPreviewSummary%27"><span class="annot"><span class="annottext">AccessPreviewSummary -&gt; AccessPreviewStatus
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#%24sel%3Astatus%3AAccessPreviewSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus"><span class="hs-identifier hs-type">AccessPreviewStatus</span></a></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244161"><span id="local-6989586621679244163"><span class="annot"><span class="annottext">AccessPreviewSummary -&gt; AccessPreviewSummary -&gt; Bool
+(AccessPreviewSummary -&gt; AccessPreviewSummary -&gt; Bool)
+-&gt; (AccessPreviewSummary -&gt; AccessPreviewSummary -&gt; Bool)
+-&gt; Eq AccessPreviewSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AccessPreviewSummary -&gt; AccessPreviewSummary -&gt; Bool
+$c/= :: AccessPreviewSummary -&gt; AccessPreviewSummary -&gt; Bool
+== :: AccessPreviewSummary -&gt; AccessPreviewSummary -&gt; Bool
+$c== :: AccessPreviewSummary -&gt; AccessPreviewSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244152"><span id="local-6989586621679244154"><span id="local-6989586621679244156"><span id="local-6989586621679244158"><span class="annot"><span class="annottext">ReadPrec [AccessPreviewSummary]
+ReadPrec AccessPreviewSummary
+Int -&gt; ReadS AccessPreviewSummary
+ReadS [AccessPreviewSummary]
+(Int -&gt; ReadS AccessPreviewSummary)
+-&gt; ReadS [AccessPreviewSummary]
+-&gt; ReadPrec AccessPreviewSummary
+-&gt; ReadPrec [AccessPreviewSummary]
+-&gt; Read AccessPreviewSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AccessPreviewSummary]
+$creadListPrec :: ReadPrec [AccessPreviewSummary]
+readPrec :: ReadPrec AccessPreviewSummary
+$creadPrec :: ReadPrec AccessPreviewSummary
+readList :: ReadS [AccessPreviewSummary]
+$creadList :: ReadS [AccessPreviewSummary]
+readsPrec :: Int -&gt; ReadS AccessPreviewSummary
+$creadsPrec :: Int -&gt; ReadS AccessPreviewSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244145"><span id="local-6989586621679244147"><span id="local-6989586621679244149"><span class="annot"><span class="annottext">Int -&gt; AccessPreviewSummary -&gt; ShowS
+[AccessPreviewSummary] -&gt; ShowS
+AccessPreviewSummary -&gt; String
+(Int -&gt; AccessPreviewSummary -&gt; ShowS)
+-&gt; (AccessPreviewSummary -&gt; String)
+-&gt; ([AccessPreviewSummary] -&gt; ShowS)
+-&gt; Show AccessPreviewSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AccessPreviewSummary] -&gt; ShowS
+$cshowList :: [AccessPreviewSummary] -&gt; ShowS
+show :: AccessPreviewSummary -&gt; String
+$cshow :: AccessPreviewSummary -&gt; String
+showsPrec :: Int -&gt; AccessPreviewSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; AccessPreviewSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AccessPreviewSummary -&gt; Rep AccessPreviewSummary x)
+-&gt; (forall x. Rep AccessPreviewSummary x -&gt; AccessPreviewSummary)
+-&gt; Generic AccessPreviewSummary
+forall x. Rep AccessPreviewSummary x -&gt; AccessPreviewSummary
+forall x. AccessPreviewSummary -&gt; Rep AccessPreviewSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AccessPreviewSummary x -&gt; AccessPreviewSummary
+$cfrom :: forall x. AccessPreviewSummary -&gt; Rep AccessPreviewSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'AccessPreviewSummary' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'statusReason', 'accessPreviewSummary_statusReason' - Undocumented member.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'analyzerArn', 'accessPreviewSummary_analyzerArn' - The ARN of the analyzer used to generate the access preview.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'createdAt', 'accessPreviewSummary_createdAt' - The time at which the access preview was created.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'id', 'accessPreviewSummary_id' - The unique ID for the access preview.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'status', 'accessPreviewSummary_status' - The status of the access preview.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- -   @Creating@ - The access preview creation is in progress.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- -   @Completed@ - The access preview is complete and previews the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--     findings for external access to the resource.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- -   @Failed@ - The access preview creation has failed.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#newAccessPreviewSummary"><span class="hs-identifier hs-type">newAccessPreviewSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'analyzerArn'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'createdAt'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus"><span class="hs-identifier hs-type">AccessPreviewStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary"><span class="hs-identifier hs-type">AccessPreviewSummary</span></a></span><span>
+</span><span id="line-85"></span><span id="newAccessPreviewSummary"><span class="annot"><span class="annottext">newAccessPreviewSummary :: Text
+-&gt; UTCTime -&gt; Text -&gt; AccessPreviewStatus -&gt; AccessPreviewSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#newAccessPreviewSummary"><span class="hs-identifier hs-var hs-var">newAccessPreviewSummary</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679244139"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244139"><span class="hs-identifier hs-var">pAnalyzerArn_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679244138"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679244138"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679244137"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244137"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679244136"><span class="annot"><span class="annottext">AccessPreviewStatus
+</span><a href="#local-6989586621679244136"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">AccessPreviewSummary' :: Maybe AccessPreviewStatusReason
+-&gt; Text
+-&gt; POSIX
+-&gt; Text
+-&gt; AccessPreviewStatus
+-&gt; AccessPreviewSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary%27"><span class="hs-identifier hs-type">AccessPreviewSummary'</span></a></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statusReason:AccessPreviewSummary' :: Maybe AccessPreviewStatusReason
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#%24sel%3AstatusReason%3AAccessPreviewSummary%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe AccessPreviewStatusReason
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:analyzerArn:AccessPreviewSummary' :: Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#%24sel%3AanalyzerArn%3AAccessPreviewSummary%27"><span class="hs-identifier hs-var">analyzerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244139"><span class="hs-identifier hs-var">pAnalyzerArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:AccessPreviewSummary' :: POSIX
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#%24sel%3AcreatedAt%3AAccessPreviewSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679244138"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:AccessPreviewSummary' :: Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#%24sel%3Aid%3AAccessPreviewSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244137"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:AccessPreviewSummary' :: AccessPreviewStatus
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#%24sel%3Astatus%3AAccessPreviewSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccessPreviewStatus
+</span><a href="#local-6989586621679244136"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#accessPreviewSummary_statusReason"><span class="hs-identifier hs-type">accessPreviewSummary_statusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary"><span class="hs-identifier hs-type">AccessPreviewSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatusReason.html#AccessPreviewStatusReason"><span class="hs-identifier hs-type">AccessPreviewStatusReason</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="accessPreviewSummary_statusReason"><span class="annot"><span class="annottext">accessPreviewSummary_statusReason :: (Maybe AccessPreviewStatusReason
+ -&gt; f (Maybe AccessPreviewStatusReason))
+-&gt; AccessPreviewSummary -&gt; f AccessPreviewSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#accessPreviewSummary_statusReason"><span class="hs-identifier hs-var hs-var">accessPreviewSummary_statusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessPreviewSummary -&gt; Maybe AccessPreviewStatusReason)
+-&gt; (AccessPreviewSummary
+    -&gt; Maybe AccessPreviewStatusReason -&gt; AccessPreviewSummary)
+-&gt; Lens
+     AccessPreviewSummary
+     AccessPreviewSummary
+     (Maybe AccessPreviewStatusReason)
+     (Maybe AccessPreviewStatusReason)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary%27"><span class="hs-identifier hs-type">AccessPreviewSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244130"><span class="annot"><span class="annottext">Maybe AccessPreviewStatusReason
+statusReason :: Maybe AccessPreviewStatusReason
+$sel:statusReason:AccessPreviewSummary' :: AccessPreviewSummary -&gt; Maybe AccessPreviewStatusReason
+</span><a href="#local-6989586621679244130"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPreviewStatusReason
+</span><a href="#local-6989586621679244130"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244129"><span class="annot"><span class="annottext">s :: AccessPreviewSummary
+</span><a href="#local-6989586621679244129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary%27"><span class="hs-identifier hs-type">AccessPreviewSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244128"><span class="annot"><span class="annottext">Maybe AccessPreviewStatusReason
+</span><a href="#local-6989586621679244128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessPreviewSummary
+</span><a href="#local-6989586621679244129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:AccessPreviewSummary' :: Maybe AccessPreviewStatusReason
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#%24sel%3AstatusReason%3AAccessPreviewSummary%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPreviewStatusReason
+</span><a href="#local-6989586621679244128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary"><span class="hs-identifier hs-type">AccessPreviewSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The ARN of the analyzer used to generate the access preview.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#accessPreviewSummary_analyzerArn"><span class="hs-identifier hs-type">accessPreviewSummary_analyzerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary"><span class="hs-identifier hs-type">AccessPreviewSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="accessPreviewSummary_analyzerArn"><span class="annot"><span class="annottext">accessPreviewSummary_analyzerArn :: (Text -&gt; f Text) -&gt; AccessPreviewSummary -&gt; f AccessPreviewSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#accessPreviewSummary_analyzerArn"><span class="hs-identifier hs-var hs-var">accessPreviewSummary_analyzerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessPreviewSummary -&gt; Text)
+-&gt; (AccessPreviewSummary -&gt; Text -&gt; AccessPreviewSummary)
+-&gt; Lens AccessPreviewSummary AccessPreviewSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary%27"><span class="hs-identifier hs-type">AccessPreviewSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244126"><span class="annot"><span class="annottext">Text
+analyzerArn :: Text
+$sel:analyzerArn:AccessPreviewSummary' :: AccessPreviewSummary -&gt; Text
+</span><a href="#local-6989586621679244126"><span class="hs-identifier hs-var hs-var">analyzerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244126"><span class="hs-identifier hs-var">analyzerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244125"><span class="annot"><span class="annottext">s :: AccessPreviewSummary
+</span><a href="#local-6989586621679244125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary%27"><span class="hs-identifier hs-type">AccessPreviewSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244124"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessPreviewSummary
+</span><a href="#local-6989586621679244125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analyzerArn:AccessPreviewSummary' :: Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#%24sel%3AanalyzerArn%3AAccessPreviewSummary%27"><span class="hs-identifier hs-var">analyzerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary"><span class="hs-identifier hs-type">AccessPreviewSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The time at which the access preview was created.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#accessPreviewSummary_createdAt"><span class="hs-identifier hs-type">accessPreviewSummary_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary"><span class="hs-identifier hs-type">AccessPreviewSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-109"></span><span id="accessPreviewSummary_createdAt"><span class="annot"><span class="annottext">accessPreviewSummary_createdAt :: (UTCTime -&gt; f UTCTime)
+-&gt; AccessPreviewSummary -&gt; f AccessPreviewSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#accessPreviewSummary_createdAt"><span class="hs-identifier hs-var hs-var">accessPreviewSummary_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessPreviewSummary -&gt; POSIX)
+-&gt; (AccessPreviewSummary -&gt; POSIX -&gt; AccessPreviewSummary)
+-&gt; Lens AccessPreviewSummary AccessPreviewSummary POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary%27"><span class="hs-identifier hs-type">AccessPreviewSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244122"><span class="annot"><span class="annottext">POSIX
+createdAt :: POSIX
+$sel:createdAt:AccessPreviewSummary' :: AccessPreviewSummary -&gt; POSIX
+</span><a href="#local-6989586621679244122"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679244122"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244121"><span class="annot"><span class="annottext">s :: AccessPreviewSummary
+</span><a href="#local-6989586621679244121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary%27"><span class="hs-identifier hs-type">AccessPreviewSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244120"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679244120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessPreviewSummary
+</span><a href="#local-6989586621679244121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:AccessPreviewSummary' :: POSIX
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#%24sel%3AcreatedAt%3AAccessPreviewSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679244120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary"><span class="hs-identifier hs-type">AccessPreviewSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; AccessPreviewSummary -&gt; f AccessPreviewSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; AccessPreviewSummary
+-&gt; f AccessPreviewSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The unique ID for the access preview.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#accessPreviewSummary_id"><span class="hs-identifier hs-type">accessPreviewSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary"><span class="hs-identifier hs-type">AccessPreviewSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="accessPreviewSummary_id"><span class="annot"><span class="annottext">accessPreviewSummary_id :: (Text -&gt; f Text) -&gt; AccessPreviewSummary -&gt; f AccessPreviewSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#accessPreviewSummary_id"><span class="hs-identifier hs-var hs-var">accessPreviewSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessPreviewSummary -&gt; Text)
+-&gt; (AccessPreviewSummary -&gt; Text -&gt; AccessPreviewSummary)
+-&gt; Lens AccessPreviewSummary AccessPreviewSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary%27"><span class="hs-identifier hs-type">AccessPreviewSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244117"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:AccessPreviewSummary' :: AccessPreviewSummary -&gt; Text
+</span><a href="#local-6989586621679244117"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244117"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244116"><span class="annot"><span class="annottext">s :: AccessPreviewSummary
+</span><a href="#local-6989586621679244116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary%27"><span class="hs-identifier hs-type">AccessPreviewSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244115"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessPreviewSummary
+</span><a href="#local-6989586621679244116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:AccessPreviewSummary' :: Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#%24sel%3Aid%3AAccessPreviewSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary"><span class="hs-identifier hs-type">AccessPreviewSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The status of the access preview.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   @Creating@ - The access preview creation is in progress.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- -   @Completed@ - The access preview is complete and previews the</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--     findings for external access to the resource.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   @Failed@ - The access preview creation has failed.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#accessPreviewSummary_status"><span class="hs-identifier hs-type">accessPreviewSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary"><span class="hs-identifier hs-type">AccessPreviewSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus"><span class="hs-identifier hs-type">AccessPreviewStatus</span></a></span><span>
+</span><span id="line-124"></span><span id="accessPreviewSummary_status"><span class="annot"><span class="annottext">accessPreviewSummary_status :: (AccessPreviewStatus -&gt; f AccessPreviewStatus)
+-&gt; AccessPreviewSummary -&gt; f AccessPreviewSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#accessPreviewSummary_status"><span class="hs-identifier hs-var hs-var">accessPreviewSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessPreviewSummary -&gt; AccessPreviewStatus)
+-&gt; (AccessPreviewSummary
+    -&gt; AccessPreviewStatus -&gt; AccessPreviewSummary)
+-&gt; Lens
+     AccessPreviewSummary
+     AccessPreviewSummary
+     AccessPreviewStatus
+     AccessPreviewStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary%27"><span class="hs-identifier hs-type">AccessPreviewSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244113"><span class="annot"><span class="annottext">AccessPreviewStatus
+status :: AccessPreviewStatus
+$sel:status:AccessPreviewSummary' :: AccessPreviewSummary -&gt; AccessPreviewStatus
+</span><a href="#local-6989586621679244113"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessPreviewStatus
+</span><a href="#local-6989586621679244113"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244112"><span class="annot"><span class="annottext">s :: AccessPreviewSummary
+</span><a href="#local-6989586621679244112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary%27"><span class="hs-identifier hs-type">AccessPreviewSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244111"><span class="annot"><span class="annottext">AccessPreviewStatus
+</span><a href="#local-6989586621679244111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessPreviewSummary
+</span><a href="#local-6989586621679244112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AccessPreviewSummary' :: AccessPreviewStatus
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#%24sel%3Astatus%3AAccessPreviewSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccessPreviewStatus
+</span><a href="#local-6989586621679244111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary"><span class="hs-identifier hs-type">AccessPreviewSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244108"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary"><span class="hs-identifier hs-type">AccessPreviewSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679244106"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessPreviewSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AccessPreviewSummary)
+-&gt; Value
+-&gt; Parser AccessPreviewSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AccessPreviewSummary&quot;</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244103"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244103"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe AccessPreviewStatusReason
+-&gt; Text
+-&gt; POSIX
+-&gt; Text
+-&gt; AccessPreviewStatus
+-&gt; AccessPreviewSummary
+</span><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary%27"><span class="hs-identifier hs-var">AccessPreviewSummary'</span></a></span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AccessPreviewStatusReason
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; AccessPreviewStatus
+ -&gt; AccessPreviewSummary)
+-&gt; Parser (Maybe AccessPreviewStatusReason)
+-&gt; Parser
+     (Text
+      -&gt; POSIX -&gt; Text -&gt; AccessPreviewStatus -&gt; AccessPreviewSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPreviewStatusReason)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; POSIX -&gt; Text -&gt; AccessPreviewStatus -&gt; AccessPreviewSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (POSIX -&gt; Text -&gt; AccessPreviewStatus -&gt; AccessPreviewSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;analyzerArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX -&gt; Text -&gt; AccessPreviewStatus -&gt; AccessPreviewSummary)
+-&gt; Parser POSIX
+-&gt; Parser (Text -&gt; AccessPreviewStatus -&gt; AccessPreviewSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; AccessPreviewStatus -&gt; AccessPreviewSummary)
+-&gt; Parser Text
+-&gt; Parser (AccessPreviewStatus -&gt; AccessPreviewSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser (AccessPreviewStatus -&gt; AccessPreviewSummary)
+-&gt; Parser AccessPreviewStatus -&gt; Parser AccessPreviewSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AccessPreviewStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244096"><span id="local-6989586621679244098"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary"><span class="hs-identifier hs-type">AccessPreviewSummary</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AccessPreviewSummary.html#AccessPreviewSummary"><span class="hs-identifier hs-type">AccessPreviewSummary</span></a></span></span><span>
+</span><span id="line-142"></span></pre></body></html>

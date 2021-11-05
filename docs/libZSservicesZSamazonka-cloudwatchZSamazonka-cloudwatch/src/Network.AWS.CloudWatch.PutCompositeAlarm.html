@@ -93,7 +93,7 @@
 </span><span id="line-93"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | /See:/ 'newPutCompositeAlarm' smart constructor.</span><span>
-</span><span id="line-96"></span><span id="local-6989586621679261212"><span id="local-6989586621679261213"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutCompositeAlarm"><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-var">PutCompositeAlarm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutCompositeAlarm%27"><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-var">PutCompositeAlarm'</span></a></span></span><span>
+</span><span id="line-96"></span><span id="local-6989586621679261221"><span id="local-6989586621679261222"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutCompositeAlarm"><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-var">PutCompositeAlarm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutCompositeAlarm%27"><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-var">PutCompositeAlarm'</span></a></span></span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description for the composite alarm.</span><span>
 </span><span id="line-98"></span><span>    </span><span id="%24sel%3AalarmDescription%3APutCompositeAlarm%27"><span class="annot"><span class="annottext">PutCompositeAlarm -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#%24sel%3AalarmDescription%3APutCompositeAlarm%27"><span class="hs-identifier hs-var hs-var">alarmDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -194,7 +194,7 @@
 </span><span id="line-187"></span><span>    </span><span id="%24sel%3AalarmRule%3APutCompositeAlarm%27"><span class="annot"><span class="annottext">PutCompositeAlarm -&gt; Text
 </span><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#%24sel%3AalarmRule%3APutCompositeAlarm%27"><span class="hs-identifier hs-var hs-var">alarmRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261199"><span id="local-6989586621679261201"><span class="annot"><span class="annottext">PutCompositeAlarm -&gt; PutCompositeAlarm -&gt; Bool
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261208"><span id="local-6989586621679261210"><span class="annot"><span class="annottext">PutCompositeAlarm -&gt; PutCompositeAlarm -&gt; Bool
 (PutCompositeAlarm -&gt; PutCompositeAlarm -&gt; Bool)
 -&gt; (PutCompositeAlarm -&gt; PutCompositeAlarm -&gt; Bool)
 -&gt; Eq PutCompositeAlarm
@@ -203,7 +203,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutCompositeAlarm -&gt; PutCompositeAlarm -&gt; Bool
 == :: PutCompositeAlarm -&gt; PutCompositeAlarm -&gt; Bool
 $c== :: PutCompositeAlarm -&gt; PutCompositeAlarm -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261190"><span id="local-6989586621679261192"><span id="local-6989586621679261194"><span id="local-6989586621679261196"><span class="annot"><span class="annottext">ReadPrec [PutCompositeAlarm]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261199"><span id="local-6989586621679261201"><span id="local-6989586621679261203"><span id="local-6989586621679261205"><span class="annot"><span class="annottext">ReadPrec [PutCompositeAlarm]
 ReadPrec PutCompositeAlarm
 Int -&gt; ReadS PutCompositeAlarm
 ReadS [PutCompositeAlarm]
@@ -223,7 +223,7 @@ readList :: ReadS [PutCompositeAlarm]
 $creadList :: ReadS [PutCompositeAlarm]
 readsPrec :: Int -&gt; ReadS PutCompositeAlarm
 $creadsPrec :: Int -&gt; ReadS PutCompositeAlarm
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261183"><span id="local-6989586621679261185"><span id="local-6989586621679261187"><span class="annot"><span class="annottext">Int -&gt; PutCompositeAlarm -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261192"><span id="local-6989586621679261194"><span id="local-6989586621679261196"><span class="annot"><span class="annottext">Int -&gt; PutCompositeAlarm -&gt; ShowS
 [PutCompositeAlarm] -&gt; ShowS
 PutCompositeAlarm -&gt; String
 (Int -&gt; PutCompositeAlarm -&gt; ShowS)
@@ -354,9 +354,9 @@ $cfrom :: forall x. PutCompositeAlarm -&gt; Rep PutCompositeAlarm x
 </span><span id="line-293"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-294"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span>
 </span><span id="line-295"></span><span id="newPutCompositeAlarm"><span class="annot"><span class="annottext">newPutCompositeAlarm :: Text -&gt; Text -&gt; PutCompositeAlarm
-</span><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#newPutCompositeAlarm"><span class="hs-identifier hs-var hs-var">newPutCompositeAlarm</span></a></span></span><span> </span><span id="local-6989586621679261178"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261178"><span class="hs-identifier hs-var">pAlarmName_</span></a></span></span><span> </span><span id="local-6989586621679261177"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261177"><span class="hs-identifier hs-var">pAlarmRule_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#newPutCompositeAlarm"><span class="hs-identifier hs-var hs-var">newPutCompositeAlarm</span></a></span></span><span> </span><span id="local-6989586621679261187"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261187"><span class="hs-identifier hs-var">pAlarmName_</span></a></span></span><span> </span><span id="local-6989586621679261186"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261186"><span class="hs-identifier hs-var">pAlarmRule_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-296"></span><span>  </span><span class="annot"><span class="annottext">PutCompositeAlarm' :: Maybe Text
 -&gt; Maybe [Text]
 -&gt; Maybe Bool
@@ -394,10 +394,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-304"></span><span>      </span><span class="annot"><span class="annottext">$sel:alarmName:PutCompositeAlarm' :: Text
 </span><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#%24sel%3AalarmName%3APutCompositeAlarm%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261178"><span class="hs-identifier hs-var">pAlarmName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261187"><span class="hs-identifier hs-var">pAlarmName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-305"></span><span>      </span><span class="annot"><span class="annottext">$sel:alarmRule:PutCompositeAlarm' :: Text
 </span><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#%24sel%3AalarmRule%3APutCompositeAlarm%27"><span class="hs-identifier hs-var">alarmRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261177"><span class="hs-identifier hs-var">pAlarmRule_</span></a></span><span>
+</span><a href="#local-6989586621679261186"><span class="hs-identifier hs-var">pAlarmRule_</span></a></span><span>
 </span><span id="line-306"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-307"></span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- | The description for the composite alarm.</span><span>
@@ -409,16 +409,16 @@ forall a. Maybe a
 -&gt; Lens
      PutCompositeAlarm PutCompositeAlarm (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261174"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261183"><span class="annot"><span class="annottext">Maybe Text
 alarmDescription :: Maybe Text
 $sel:alarmDescription:PutCompositeAlarm' :: PutCompositeAlarm -&gt; Maybe Text
-</span><a href="#local-6989586621679261174"><span class="hs-identifier hs-var hs-var">alarmDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261174"><span class="hs-identifier hs-var">alarmDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261173"><span class="annot"><span class="annottext">s :: PutCompositeAlarm
-</span><a href="#local-6989586621679261173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261172"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCompositeAlarm
-</span><a href="#local-6989586621679261173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmDescription:PutCompositeAlarm' :: Maybe Text
+</span><a href="#local-6989586621679261183"><span class="hs-identifier hs-var hs-var">alarmDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261183"><span class="hs-identifier hs-var">alarmDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261182"><span class="annot"><span class="annottext">s :: PutCompositeAlarm
+</span><a href="#local-6989586621679261182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261181"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCompositeAlarm
+</span><a href="#local-6989586621679261182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmDescription:PutCompositeAlarm' :: Maybe Text
 </span><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#%24sel%3AalarmDescription%3APutCompositeAlarm%27"><span class="hs-identifier hs-var">alarmDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-311"></span><span>
 </span><span id="line-312"></span><span class="hs-comment">-- | The actions to execute when this alarm transitions to an @OK@ state from</span><span>
 </span><span id="line-313"></span><span class="hs-comment">-- any other state. Each action is specified as an Amazon Resource Name</span><span>
@@ -433,16 +433,16 @@ $sel:alarmDescription:PutCompositeAlarm' :: PutCompositeAlarm -&gt; Maybe Text
 -&gt; Lens
      PutCompositeAlarm PutCompositeAlarm (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261171"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261180"><span class="annot"><span class="annottext">Maybe [Text]
 oKActions :: Maybe [Text]
 $sel:oKActions:PutCompositeAlarm' :: PutCompositeAlarm -&gt; Maybe [Text]
-</span><a href="#local-6989586621679261171"><span class="hs-identifier hs-var hs-var">oKActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261171"><span class="hs-identifier hs-var">oKActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261170"><span class="annot"><span class="annottext">s :: PutCompositeAlarm
-</span><a href="#local-6989586621679261170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261169"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCompositeAlarm
-</span><a href="#local-6989586621679261170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oKActions:PutCompositeAlarm' :: Maybe [Text]
+</span><a href="#local-6989586621679261180"><span class="hs-identifier hs-var hs-var">oKActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679261180"><span class="hs-identifier hs-var">oKActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261179"><span class="annot"><span class="annottext">s :: PutCompositeAlarm
+</span><a href="#local-6989586621679261179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261178"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679261178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCompositeAlarm
+</span><a href="#local-6989586621679261179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oKActions:PutCompositeAlarm' :: Maybe [Text]
 </span><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#%24sel%3AoKActions%3APutCompositeAlarm%27"><span class="hs-identifier hs-var">oKActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679261178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; PutCompositeAlarm -&gt; f PutCompositeAlarm)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -469,16 +469,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      PutCompositeAlarm PutCompositeAlarm (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261165"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261174"><span class="annot"><span class="annottext">Maybe Bool
 actionsEnabled :: Maybe Bool
 $sel:actionsEnabled:PutCompositeAlarm' :: PutCompositeAlarm -&gt; Maybe Bool
-</span><a href="#local-6989586621679261165"><span class="hs-identifier hs-var hs-var">actionsEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679261165"><span class="hs-identifier hs-var">actionsEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261164"><span class="annot"><span class="annottext">s :: PutCompositeAlarm
-</span><a href="#local-6989586621679261164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261163"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679261163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCompositeAlarm
-</span><a href="#local-6989586621679261164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionsEnabled:PutCompositeAlarm' :: Maybe Bool
+</span><a href="#local-6989586621679261174"><span class="hs-identifier hs-var hs-var">actionsEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679261174"><span class="hs-identifier hs-var">actionsEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261173"><span class="annot"><span class="annottext">s :: PutCompositeAlarm
+</span><a href="#local-6989586621679261173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261172"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679261172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCompositeAlarm
+</span><a href="#local-6989586621679261173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionsEnabled:PutCompositeAlarm' :: Maybe Bool
 </span><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#%24sel%3AactionsEnabled%3APutCompositeAlarm%27"><span class="hs-identifier hs-var">actionsEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679261163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-324"></span><span>
 </span><span id="line-325"></span><span class="hs-comment">-- | The actions to execute when this alarm transitions to the</span><span>
 </span><span id="line-326"></span><span class="hs-comment">-- @INSUFFICIENT_DATA@ state from any other state. Each action is specified</span><span>
@@ -493,16 +493,16 @@ $sel:actionsEnabled:PutCompositeAlarm' :: PutCompositeAlarm -&gt; Maybe Bool
 -&gt; Lens
      PutCompositeAlarm PutCompositeAlarm (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261162"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261171"><span class="annot"><span class="annottext">Maybe [Text]
 insufficientDataActions :: Maybe [Text]
 $sel:insufficientDataActions:PutCompositeAlarm' :: PutCompositeAlarm -&gt; Maybe [Text]
-</span><a href="#local-6989586621679261162"><span class="hs-identifier hs-var hs-var">insufficientDataActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261162"><span class="hs-identifier hs-var">insufficientDataActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261161"><span class="annot"><span class="annottext">s :: PutCompositeAlarm
-</span><a href="#local-6989586621679261161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261160"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCompositeAlarm
-</span><a href="#local-6989586621679261161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insufficientDataActions:PutCompositeAlarm' :: Maybe [Text]
+</span><a href="#local-6989586621679261171"><span class="hs-identifier hs-var hs-var">insufficientDataActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679261171"><span class="hs-identifier hs-var">insufficientDataActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261170"><span class="annot"><span class="annottext">s :: PutCompositeAlarm
+</span><a href="#local-6989586621679261170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261169"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679261169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCompositeAlarm
+</span><a href="#local-6989586621679261170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insufficientDataActions:PutCompositeAlarm' :: Maybe [Text]
 </span><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#%24sel%3AinsufficientDataActions%3APutCompositeAlarm%27"><span class="hs-identifier hs-var">insufficientDataActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679261169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; PutCompositeAlarm -&gt; f PutCompositeAlarm)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -533,16 +533,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      PutCompositeAlarm PutCompositeAlarm (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261159"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261168"><span class="annot"><span class="annottext">Maybe [Text]
 alarmActions :: Maybe [Text]
 $sel:alarmActions:PutCompositeAlarm' :: PutCompositeAlarm -&gt; Maybe [Text]
-</span><a href="#local-6989586621679261159"><span class="hs-identifier hs-var hs-var">alarmActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261159"><span class="hs-identifier hs-var">alarmActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261158"><span class="annot"><span class="annottext">s :: PutCompositeAlarm
-</span><a href="#local-6989586621679261158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261157"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCompositeAlarm
-</span><a href="#local-6989586621679261158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmActions:PutCompositeAlarm' :: Maybe [Text]
+</span><a href="#local-6989586621679261168"><span class="hs-identifier hs-var hs-var">alarmActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679261168"><span class="hs-identifier hs-var">alarmActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261167"><span class="annot"><span class="annottext">s :: PutCompositeAlarm
+</span><a href="#local-6989586621679261167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261166"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679261166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCompositeAlarm
+</span><a href="#local-6989586621679261167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmActions:PutCompositeAlarm' :: Maybe [Text]
 </span><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#%24sel%3AalarmActions%3APutCompositeAlarm%27"><span class="hs-identifier hs-var">alarmActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679261166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; PutCompositeAlarm -&gt; f PutCompositeAlarm)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -573,16 +573,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      PutCompositeAlarm PutCompositeAlarm (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261156"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261165"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:PutCompositeAlarm' :: PutCompositeAlarm -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679261156"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679261156"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261155"><span class="annot"><span class="annottext">s :: PutCompositeAlarm
-</span><a href="#local-6989586621679261155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261154"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679261154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCompositeAlarm
-</span><a href="#local-6989586621679261155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:PutCompositeAlarm' :: Maybe [Tag]
+</span><a href="#local-6989586621679261165"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679261165"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261164"><span class="annot"><span class="annottext">s :: PutCompositeAlarm
+</span><a href="#local-6989586621679261164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261163"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679261163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCompositeAlarm
+</span><a href="#local-6989586621679261164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:PutCompositeAlarm' :: Maybe [Tag]
 </span><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#%24sel%3Atags%3APutCompositeAlarm%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679261154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679261163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; PutCompositeAlarm -&gt; f PutCompositeAlarm)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -607,16 +607,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (PutCompositeAlarm -&gt; Text -&gt; PutCompositeAlarm)
 -&gt; Lens PutCompositeAlarm PutCompositeAlarm Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261153"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261162"><span class="annot"><span class="annottext">Text
 alarmName :: Text
 $sel:alarmName:PutCompositeAlarm' :: PutCompositeAlarm -&gt; Text
-</span><a href="#local-6989586621679261153"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261153"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261152"><span class="annot"><span class="annottext">s :: PutCompositeAlarm
-</span><a href="#local-6989586621679261152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261151"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCompositeAlarm
-</span><a href="#local-6989586621679261152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:PutCompositeAlarm' :: Text
+</span><a href="#local-6989586621679261162"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261162"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261161"><span class="annot"><span class="annottext">s :: PutCompositeAlarm
+</span><a href="#local-6989586621679261161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261160"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCompositeAlarm
+</span><a href="#local-6989586621679261161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:PutCompositeAlarm' :: Text
 </span><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#%24sel%3AalarmName%3APutCompositeAlarm%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-355"></span><span>
 </span><span id="line-356"></span><span class="hs-comment">-- | An expression that specifies which other alarms are to be evaluated to</span><span>
 </span><span id="line-357"></span><span class="hs-comment">-- determine this composite alarm\'s state. For each alarm that you</span><span>
@@ -680,27 +680,27 @@ $sel:alarmName:PutCompositeAlarm' :: PutCompositeAlarm -&gt; Text
 -&gt; (PutCompositeAlarm -&gt; Text -&gt; PutCompositeAlarm)
 -&gt; Lens PutCompositeAlarm PutCompositeAlarm Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261150"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261159"><span class="annot"><span class="annottext">Text
 alarmRule :: Text
 $sel:alarmRule:PutCompositeAlarm' :: PutCompositeAlarm -&gt; Text
-</span><a href="#local-6989586621679261150"><span class="hs-identifier hs-var hs-var">alarmRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261150"><span class="hs-identifier hs-var">alarmRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261149"><span class="annot"><span class="annottext">s :: PutCompositeAlarm
-</span><a href="#local-6989586621679261149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261148"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCompositeAlarm
-</span><a href="#local-6989586621679261149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmRule:PutCompositeAlarm' :: Text
+</span><a href="#local-6989586621679261159"><span class="hs-identifier hs-var hs-var">alarmRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261159"><span class="hs-identifier hs-var">alarmRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261158"><span class="annot"><span class="annottext">s :: PutCompositeAlarm
+</span><a href="#local-6989586621679261158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261157"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCompositeAlarm
+</span><a href="#local-6989586621679261158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmRule:PutCompositeAlarm' :: Text
 </span><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#%24sel%3AalarmRule%3APutCompositeAlarm%27"><span class="hs-identifier hs-var">alarmRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-414"></span><span>
 </span><span id="line-415"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-416"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-417"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-418"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarmResponse"><span class="hs-identifier hs-type">PutCompositeAlarmResponse</span></a></span><span>
-</span><span id="line-419"></span><span>  </span><span id="local-6989586621679261144"><span class="annot"><span class="annottext">request :: PutCompositeAlarm -&gt; Request PutCompositeAlarm
+</span><span id="line-419"></span><span>  </span><span id="local-6989586621679261153"><span class="annot"><span class="annottext">request :: PutCompositeAlarm -&gt; Request PutCompositeAlarm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutCompositeAlarm -&gt; Request PutCompositeAlarm
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-420"></span><span>  </span><span id="local-6989586621679261140"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-420"></span><span>  </span><span id="local-6989586621679261149"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutCompositeAlarm
 -&gt; ClientResponse ClientBody
@@ -726,12 +726,12 @@ AWSResponse a
 PutCompositeAlarmResponse
 </span><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarmResponse%27"><span class="hs-identifier hs-var">PutCompositeAlarmResponse'</span></a></span><span>
 </span><span id="line-422"></span><span>
-</span><span id="line-423"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261133"><span id="local-6989586621679261135"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span></span></span><span>
+</span><span id="line-423"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261142"><span id="local-6989586621679261144"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span></span></span><span>
 </span><span id="line-424"></span><span>
-</span><span id="line-425"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261130"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span></span><span>
+</span><span id="line-425"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261139"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span></span><span>
 </span><span id="line-426"></span><span>
 </span><span id="line-427"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-428"></span><span>  </span><span id="local-6989586621679261126"><span class="annot"><span class="annottext">toHeaders :: PutCompositeAlarm -&gt; [Header]
+</span><span id="line-428"></span><span>  </span><span id="local-6989586621679261135"><span class="annot"><span class="annottext">toHeaders :: PutCompositeAlarm -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; PutCompositeAlarm -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -739,15 +739,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-429"></span><span>
 </span><span id="line-430"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-431"></span><span>  </span><span id="local-6989586621679261121"><span class="annot"><span class="annottext">toPath :: PutCompositeAlarm -&gt; ByteString
+</span><span id="line-431"></span><span>  </span><span id="local-6989586621679261130"><span class="annot"><span class="annottext">toPath :: PutCompositeAlarm -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutCompositeAlarm -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-432"></span><span>
 </span><span id="line-433"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm"><span class="hs-identifier hs-type">PutCompositeAlarm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-434"></span><span>  </span><span id="local-6989586621679261117"><span class="annot"><span class="annottext">toQuery :: PutCompositeAlarm -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261108"><span id="local-6989586621679261109"><span id="local-6989586621679261110"><span id="local-6989586621679261111"><span id="local-6989586621679261112"><span id="local-6989586621679261113"><span id="local-6989586621679261114"><span id="local-6989586621679261115"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-434"></span><span>  </span><span id="local-6989586621679261126"><span class="annot"><span class="annottext">toQuery :: PutCompositeAlarm -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarm%27"><span class="hs-identifier hs-type">PutCompositeAlarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261117"><span id="local-6989586621679261118"><span id="local-6989586621679261119"><span id="local-6989586621679261120"><span id="local-6989586621679261121"><span id="local-6989586621679261122"><span id="local-6989586621679261123"><span id="local-6989586621679261124"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe [Tag]
 Maybe Text
@@ -768,7 +768,7 @@ $sel:insufficientDataActions:PutCompositeAlarm' :: PutCompositeAlarm -&gt; Maybe
 $sel:actionsEnabled:PutCompositeAlarm' :: PutCompositeAlarm -&gt; Maybe Bool
 $sel:oKActions:PutCompositeAlarm' :: PutCompositeAlarm -&gt; Maybe [Text]
 $sel:alarmDescription:PutCompositeAlarm' :: PutCompositeAlarm -&gt; Maybe Text
-</span><a href="#local-6989586621679261108"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679261117"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-435"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -788,7 +788,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;AlarmDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261115"><span class="hs-identifier hs-var">alarmDescription</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261124"><span class="hs-identifier hs-var">alarmDescription</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-441"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;OKActions&quot;</span></span><span>
 </span><span id="line-442"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -804,12 +804,12 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261114"><span class="hs-identifier hs-var">oKActions</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261123"><span class="hs-identifier hs-var">oKActions</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-444"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ActionsEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679261113"><span class="hs-identifier hs-var">actionsEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261122"><span class="hs-identifier hs-var">actionsEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-445"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;InsufficientDataActions&quot;</span></span><span>
 </span><span id="line-446"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -826,7 +826,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-448"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261112"><span class="hs-identifier hs-var">insufficientDataActions</span></a></span><span>
+</span><a href="#local-6989586621679261121"><span class="hs-identifier hs-var">insufficientDataActions</span></a></span><span>
 </span><span id="line-449"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-450"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AlarmActions&quot;</span></span><span>
@@ -843,7 +843,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261111"><span class="hs-identifier hs-var">alarmActions</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261120"><span class="hs-identifier hs-var">alarmActions</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-453"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span>
 </span><span id="line-454"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -859,24 +859,24 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679261110"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261119"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-456"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AlarmName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261109"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261118"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-457"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AlarmRule&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261108"><span class="hs-identifier hs-var">alarmRule</span></a></span><span>
+</span><a href="#local-6989586621679261117"><span class="hs-identifier hs-var">alarmRule</span></a></span><span>
 </span><span id="line-458"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-459"></span><span>
 </span><span id="line-460"></span><span class="hs-comment">-- | /See:/ 'newPutCompositeAlarmResponse' smart constructor.</span><span>
-</span><span id="line-461"></span><span id="local-6989586621679261103"><span id="local-6989586621679261104"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutCompositeAlarmResponse"><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarmResponse"><span class="hs-identifier hs-var">PutCompositeAlarmResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutCompositeAlarmResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarmResponse%27"><span class="hs-identifier hs-var">PutCompositeAlarmResponse'</span></a></span></span><span>
+</span><span id="line-461"></span><span id="local-6989586621679261112"><span id="local-6989586621679261113"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutCompositeAlarmResponse"><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarmResponse"><span class="hs-identifier hs-var">PutCompositeAlarmResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutCompositeAlarmResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarmResponse%27"><span class="hs-identifier hs-var">PutCompositeAlarmResponse'</span></a></span></span><span>
 </span><span id="line-462"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-463"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-464"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261099"><span id="local-6989586621679261101"><span class="annot"><span class="annottext">PutCompositeAlarmResponse -&gt; PutCompositeAlarmResponse -&gt; Bool
+</span><span id="line-464"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261108"><span id="local-6989586621679261110"><span class="annot"><span class="annottext">PutCompositeAlarmResponse -&gt; PutCompositeAlarmResponse -&gt; Bool
 (PutCompositeAlarmResponse -&gt; PutCompositeAlarmResponse -&gt; Bool)
 -&gt; (PutCompositeAlarmResponse -&gt; PutCompositeAlarmResponse -&gt; Bool)
 -&gt; Eq PutCompositeAlarmResponse
@@ -885,7 +885,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutCompositeAlarmResponse -&gt; PutCompositeAlarmResponse -&gt; Bool
 == :: PutCompositeAlarmResponse -&gt; PutCompositeAlarmResponse -&gt; Bool
 $c== :: PutCompositeAlarmResponse -&gt; PutCompositeAlarmResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261091"><span id="local-6989586621679261093"><span id="local-6989586621679261095"><span id="local-6989586621679261097"><span class="annot"><span class="annottext">ReadPrec [PutCompositeAlarmResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261100"><span id="local-6989586621679261102"><span id="local-6989586621679261104"><span id="local-6989586621679261106"><span class="annot"><span class="annottext">ReadPrec [PutCompositeAlarmResponse]
 ReadPrec PutCompositeAlarmResponse
 Int -&gt; ReadS PutCompositeAlarmResponse
 ReadS [PutCompositeAlarmResponse]
@@ -905,7 +905,7 @@ readList :: ReadS [PutCompositeAlarmResponse]
 $creadList :: ReadS [PutCompositeAlarmResponse]
 readsPrec :: Int -&gt; ReadS PutCompositeAlarmResponse
 $creadsPrec :: Int -&gt; ReadS PutCompositeAlarmResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261085"><span id="local-6989586621679261087"><span id="local-6989586621679261089"><span class="annot"><span class="annottext">Int -&gt; PutCompositeAlarmResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261094"><span id="local-6989586621679261096"><span id="local-6989586621679261098"><span class="annot"><span class="annottext">Int -&gt; PutCompositeAlarmResponse -&gt; ShowS
 [PutCompositeAlarmResponse] -&gt; ShowS
 PutCompositeAlarmResponse -&gt; String
 (Int -&gt; PutCompositeAlarmResponse -&gt; ShowS)
@@ -948,5 +948,5 @@ PutCompositeAlarmResponse -&gt; Rep PutCompositeAlarmResponse x
 </span><span id="line-473"></span><span>  </span><span class="annot"><span class="annottext">PutCompositeAlarmResponse
 </span><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarmResponse%27"><span class="hs-identifier hs-var">PutCompositeAlarmResponse'</span></a></span><span>
 </span><span id="line-474"></span><span>
-</span><span id="line-475"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261081"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarmResponse"><span class="hs-identifier hs-type">PutCompositeAlarmResponse</span></a></span></span><span>
+</span><span id="line-475"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261090"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutCompositeAlarm.html#PutCompositeAlarmResponse"><span class="hs-identifier hs-type">PutCompositeAlarmResponse</span></a></span></span><span>
 </span><span id="line-476"></span></pre></body></html>

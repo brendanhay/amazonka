@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RobOMaker.Types.SimulationJobErrorCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RobOMaker.Types.SimulationJobErrorCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsCloudwatchLogs"><span class="hs-identifier">SimulationJobErrorCode_BadPermissionsCloudwatchLogs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsRobotApplication"><span class="hs-identifier">SimulationJobErrorCode_BadPermissionsRobotApplication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsS3Object"><span class="hs-identifier">SimulationJobErrorCode_BadPermissionsS3Object</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsS3Output"><span class="hs-identifier">SimulationJobErrorCode_BadPermissionsS3Output</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsSimulationApplication"><span class="hs-identifier">SimulationJobErrorCode_BadPermissionsSimulationApplication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsUserCredentials"><span class="hs-identifier">SimulationJobErrorCode_BadPermissionsUserCredentials</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BatchCanceled"><span class="hs-identifier">SimulationJobErrorCode_BatchCanceled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BatchTimedOut"><span class="hs-identifier">SimulationJobErrorCode_BatchTimedOut</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_ENILimitExceeded"><span class="hs-identifier">SimulationJobErrorCode_ENILimitExceeded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_InternalServiceError"><span class="hs-identifier">SimulationJobErrorCode_InternalServiceError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_InvalidBundleRobotApplication"><span class="hs-identifier">SimulationJobErrorCode_InvalidBundleRobotApplication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_InvalidBundleSimulationApplication"><span class="hs-identifier">SimulationJobErrorCode_InvalidBundleSimulationApplication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_InvalidInput"><span class="hs-identifier">SimulationJobErrorCode_InvalidInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_InvalidS3Resource"><span class="hs-identifier">SimulationJobErrorCode_InvalidS3Resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_LimitExceeded"><span class="hs-identifier">SimulationJobErrorCode_LimitExceeded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_MismatchedEtag"><span class="hs-identifier">SimulationJobErrorCode_MismatchedEtag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_RequestThrottled"><span class="hs-identifier">SimulationJobErrorCode_RequestThrottled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_ResourceNotFound"><span class="hs-identifier">SimulationJobErrorCode_ResourceNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_RobotApplicationCrash"><span class="hs-identifier">SimulationJobErrorCode_RobotApplicationCrash</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_RobotApplicationHealthCheckFailure"><span class="hs-identifier">SimulationJobErrorCode_RobotApplicationHealthCheckFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_RobotApplicationVersionMismatchedEtag"><span class="hs-identifier">SimulationJobErrorCode_RobotApplicationVersionMismatchedEtag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_SimulationApplicationCrash"><span class="hs-identifier">SimulationJobErrorCode_SimulationApplicationCrash</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_SimulationApplicationHealthCheckFailure"><span class="hs-identifier">SimulationJobErrorCode_SimulationApplicationHealthCheckFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_SimulationApplicationVersionMismatchedEtag"><span class="hs-identifier">SimulationJobErrorCode_SimulationApplicationVersionMismatchedEtag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_SubnetIpLimitExceeded"><span class="hs-identifier">SimulationJobErrorCode_SubnetIpLimitExceeded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_ThrottlingError"><span class="hs-identifier">SimulationJobErrorCode_ThrottlingError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_UploadContentMismatchError"><span class="hs-identifier">SimulationJobErrorCode_UploadContentMismatchError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_WrongRegionRobotApplication"><span class="hs-identifier">SimulationJobErrorCode_WrongRegionRobotApplication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_WrongRegionS3Bucket"><span class="hs-identifier">SimulationJobErrorCode_WrongRegionS3Bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_WrongRegionS3Output"><span class="hs-identifier">SimulationJobErrorCode_WrongRegionS3Output</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_WrongRegionSimulationApplication"><span class="hs-identifier">SimulationJobErrorCode_WrongRegionSimulationApplication</span></a></span><span>
+</span><span id="line-54"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679371051"><span id="local-6989586621679371052"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SimulationJobErrorCode"><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-var">SimulationJobErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SimulationJobErrorCode%27"><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-var">SimulationJobErrorCode'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSimulationJobErrorCode"><span class="annot"><span class="annottext">SimulationJobErrorCode -&gt; Text
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#fromSimulationJobErrorCode"><span class="hs-identifier hs-var hs-var">fromSimulationJobErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371043"><span id="local-6989586621679371045"><span id="local-6989586621679371047"><span class="annot"><span class="annottext">Int -&gt; SimulationJobErrorCode -&gt; ShowS
+[SimulationJobErrorCode] -&gt; ShowS
+SimulationJobErrorCode -&gt; String
+(Int -&gt; SimulationJobErrorCode -&gt; ShowS)
+-&gt; (SimulationJobErrorCode -&gt; String)
+-&gt; ([SimulationJobErrorCode] -&gt; ShowS)
+-&gt; Show SimulationJobErrorCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SimulationJobErrorCode] -&gt; ShowS
+$cshowList :: [SimulationJobErrorCode] -&gt; ShowS
+show :: SimulationJobErrorCode -&gt; String
+$cshow :: SimulationJobErrorCode -&gt; String
+showsPrec :: Int -&gt; SimulationJobErrorCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; SimulationJobErrorCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679371034"><span id="local-6989586621679371036"><span id="local-6989586621679371038"><span id="local-6989586621679371040"><span class="annot"><span class="annottext">ReadPrec [SimulationJobErrorCode]
+ReadPrec SimulationJobErrorCode
+Int -&gt; ReadS SimulationJobErrorCode
+ReadS [SimulationJobErrorCode]
+(Int -&gt; ReadS SimulationJobErrorCode)
+-&gt; ReadS [SimulationJobErrorCode]
+-&gt; ReadPrec SimulationJobErrorCode
+-&gt; ReadPrec [SimulationJobErrorCode]
+-&gt; Read SimulationJobErrorCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SimulationJobErrorCode]
+$creadListPrec :: ReadPrec [SimulationJobErrorCode]
+readPrec :: ReadPrec SimulationJobErrorCode
+$creadPrec :: ReadPrec SimulationJobErrorCode
+readList :: ReadS [SimulationJobErrorCode]
+$creadList :: ReadS [SimulationJobErrorCode]
+readsPrec :: Int -&gt; ReadS SimulationJobErrorCode
+$creadsPrec :: Int -&gt; ReadS SimulationJobErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679371029"><span id="local-6989586621679371031"><span class="annot"><span class="annottext">SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool
+(SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool)
+-&gt; (SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool)
+-&gt; Eq SimulationJobErrorCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool
+$c/= :: SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool
+== :: SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool
+$c== :: SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679371013"><span id="local-6989586621679371015"><span id="local-6989586621679371017"><span id="local-6989586621679371019"><span id="local-6989586621679371021"><span id="local-6989586621679371023"><span id="local-6989586621679371025"><span class="annot"><span class="annottext">Eq SimulationJobErrorCode
+Eq SimulationJobErrorCode
+-&gt; (SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Ordering)
+-&gt; (SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool)
+-&gt; (SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool)
+-&gt; (SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool)
+-&gt; (SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool)
+-&gt; (SimulationJobErrorCode
+    -&gt; SimulationJobErrorCode -&gt; SimulationJobErrorCode)
+-&gt; (SimulationJobErrorCode
+    -&gt; SimulationJobErrorCode -&gt; SimulationJobErrorCode)
+-&gt; Ord SimulationJobErrorCode
+SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool
+SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Ordering
+SimulationJobErrorCode
+-&gt; SimulationJobErrorCode -&gt; SimulationJobErrorCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SimulationJobErrorCode
+-&gt; SimulationJobErrorCode -&gt; SimulationJobErrorCode
+$cmin :: SimulationJobErrorCode
+-&gt; SimulationJobErrorCode -&gt; SimulationJobErrorCode
+max :: SimulationJobErrorCode
+-&gt; SimulationJobErrorCode -&gt; SimulationJobErrorCode
+$cmax :: SimulationJobErrorCode
+-&gt; SimulationJobErrorCode -&gt; SimulationJobErrorCode
+&gt;= :: SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool
+$c&gt;= :: SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool
+&gt; :: SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool
+$c&gt; :: SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool
+&lt;= :: SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool
+$c&lt;= :: SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool
+&lt; :: SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool
+$c&lt; :: SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Bool
+compare :: SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Ordering
+$ccompare :: SimulationJobErrorCode -&gt; SimulationJobErrorCode -&gt; Ordering
+$cp1Ord :: Eq SimulationJobErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SimulationJobErrorCode -&gt; Rep SimulationJobErrorCode x)
+-&gt; (forall x.
+    Rep SimulationJobErrorCode x -&gt; SimulationJobErrorCode)
+-&gt; Generic SimulationJobErrorCode
+forall x. Rep SimulationJobErrorCode x -&gt; SimulationJobErrorCode
+forall x. SimulationJobErrorCode -&gt; Rep SimulationJobErrorCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SimulationJobErrorCode x -&gt; SimulationJobErrorCode
+$cfrom :: forall x. SimulationJobErrorCode -&gt; Rep SimulationJobErrorCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371005"><span id="local-6989586621679371007"><span class="annot"><span class="annottext">Int -&gt; SimulationJobErrorCode -&gt; Int
+SimulationJobErrorCode -&gt; Int
+(Int -&gt; SimulationJobErrorCode -&gt; Int)
+-&gt; (SimulationJobErrorCode -&gt; Int)
+-&gt; Hashable SimulationJobErrorCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SimulationJobErrorCode -&gt; Int
+$chash :: SimulationJobErrorCode -&gt; Int
+hashWithSalt :: Int -&gt; SimulationJobErrorCode -&gt; Int
+$chashWithSalt :: Int -&gt; SimulationJobErrorCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679371002"><span class="annot"><span class="annottext">SimulationJobErrorCode -&gt; ()
+(SimulationJobErrorCode -&gt; ()) -&gt; NFData SimulationJobErrorCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SimulationJobErrorCode -&gt; ()
+$crnf :: SimulationJobErrorCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679370999"><span class="annot"><span class="annottext">Text -&gt; Either String SimulationJobErrorCode
+(Text -&gt; Either String SimulationJobErrorCode)
+-&gt; FromText SimulationJobErrorCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SimulationJobErrorCode
+$cfromText :: Text -&gt; Either String SimulationJobErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679370996"><span class="annot"><span class="annottext">SimulationJobErrorCode -&gt; Text
+(SimulationJobErrorCode -&gt; Text) -&gt; ToText SimulationJobErrorCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SimulationJobErrorCode -&gt; Text
+$ctoText :: SimulationJobErrorCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679370993"><span class="annot"><span class="annottext">SimulationJobErrorCode -&gt; ByteString
+(SimulationJobErrorCode -&gt; ByteString)
+-&gt; ToByteString SimulationJobErrorCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SimulationJobErrorCode -&gt; ByteString
+$ctoBS :: SimulationJobErrorCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679370990"><span class="annot"><span class="annottext">SimulationJobErrorCode -&gt; ByteStringBuilder
+(SimulationJobErrorCode -&gt; ByteStringBuilder)
+-&gt; ToLog SimulationJobErrorCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SimulationJobErrorCode -&gt; ByteStringBuilder
+$cbuild :: SimulationJobErrorCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679370987"><span class="annot"><span class="annottext">HeaderName -&gt; SimulationJobErrorCode -&gt; [Header]
+(HeaderName -&gt; SimulationJobErrorCode -&gt; [Header])
+-&gt; ToHeader SimulationJobErrorCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SimulationJobErrorCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SimulationJobErrorCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679370984"><span class="annot"><span class="annottext">SimulationJobErrorCode -&gt; QueryString
+(SimulationJobErrorCode -&gt; QueryString)
+-&gt; ToQuery SimulationJobErrorCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SimulationJobErrorCode -&gt; QueryString
+$ctoQuery :: SimulationJobErrorCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679370979"><span id="local-6989586621679370981"><span class="annot"><span class="annottext">Value -&gt; Parser [SimulationJobErrorCode]
+Value -&gt; Parser SimulationJobErrorCode
+(Value -&gt; Parser SimulationJobErrorCode)
+-&gt; (Value -&gt; Parser [SimulationJobErrorCode])
+-&gt; FromJSON SimulationJobErrorCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SimulationJobErrorCode]
+$cparseJSONList :: Value -&gt; Parser [SimulationJobErrorCode]
+parseJSON :: Value -&gt; Parser SimulationJobErrorCode
+$cparseJSON :: Value -&gt; Parser SimulationJobErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679370974"><span id="local-6989586621679370976"><span class="annot"><span class="annottext">FromJSONKeyFunction [SimulationJobErrorCode]
+FromJSONKeyFunction SimulationJobErrorCode
+FromJSONKeyFunction SimulationJobErrorCode
+-&gt; FromJSONKeyFunction [SimulationJobErrorCode]
+-&gt; FromJSONKey SimulationJobErrorCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SimulationJobErrorCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [SimulationJobErrorCode]
+fromJSONKey :: FromJSONKeyFunction SimulationJobErrorCode
+$cfromJSONKey :: FromJSONKeyFunction SimulationJobErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621679370965"><span id="local-6989586621679370967"><span id="local-6989586621679370969"><span id="local-6989586621679370971"><span class="annot"><span class="annottext">[SimulationJobErrorCode] -&gt; Encoding
+[SimulationJobErrorCode] -&gt; Value
+SimulationJobErrorCode -&gt; Encoding
+SimulationJobErrorCode -&gt; Value
+(SimulationJobErrorCode -&gt; Value)
+-&gt; (SimulationJobErrorCode -&gt; Encoding)
+-&gt; ([SimulationJobErrorCode] -&gt; Value)
+-&gt; ([SimulationJobErrorCode] -&gt; Encoding)
+-&gt; ToJSON SimulationJobErrorCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SimulationJobErrorCode] -&gt; Encoding
+$ctoEncodingList :: [SimulationJobErrorCode] -&gt; Encoding
+toJSONList :: [SimulationJobErrorCode] -&gt; Value
+$ctoJSONList :: [SimulationJobErrorCode] -&gt; Value
+toEncoding :: SimulationJobErrorCode -&gt; Encoding
+$ctoEncoding :: SimulationJobErrorCode -&gt; Encoding
+toJSON :: SimulationJobErrorCode -&gt; Value
+$ctoJSON :: SimulationJobErrorCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span id="local-6989586621679370960"><span id="local-6989586621679370962"><span class="annot"><span class="annottext">ToJSONKeyFunction [SimulationJobErrorCode]
+ToJSONKeyFunction SimulationJobErrorCode
+ToJSONKeyFunction SimulationJobErrorCode
+-&gt; ToJSONKeyFunction [SimulationJobErrorCode]
+-&gt; ToJSONKey SimulationJobErrorCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SimulationJobErrorCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [SimulationJobErrorCode]
+toJSONKey :: ToJSONKeyFunction SimulationJobErrorCode
+$ctoJSONKey :: ToJSONKeyFunction SimulationJobErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span id="local-6989586621679370957"><span class="annot"><span class="annottext">[Node] -&gt; Either String SimulationJobErrorCode
+([Node] -&gt; Either String SimulationJobErrorCode)
+-&gt; FromXML SimulationJobErrorCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SimulationJobErrorCode
+$cparseXML :: [Node] -&gt; Either String SimulationJobErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span id="local-6989586621679370954"><span class="annot"><span class="annottext">SimulationJobErrorCode -&gt; XML
+(SimulationJobErrorCode -&gt; XML) -&gt; ToXML SimulationJobErrorCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SimulationJobErrorCode -&gt; XML
+$ctoXML :: SimulationJobErrorCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsCloudwatchLogs"><span class="hs-identifier hs-type">SimulationJobErrorCode_BadPermissionsCloudwatchLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_BadPermissionsCloudwatchLogs"><span id="%24mSimulationJobErrorCode_BadPermissionsCloudwatchLogs"><span id="SimulationJobErrorCode_BadPermissionsCloudwatchLogs"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_BadPermissionsCloudwatchLogs :: SimulationJobErrorCode
+$mSimulationJobErrorCode_BadPermissionsCloudwatchLogs :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_BadPermissionsCloudwatchLogs"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_BadPermissionsCloudwatchLogs</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BadPermissionsCloudwatchLogs&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsRobotApplication"><span class="hs-identifier hs-type">SimulationJobErrorCode_BadPermissionsRobotApplication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_BadPermissionsRobotApplication"><span id="%24mSimulationJobErrorCode_BadPermissionsRobotApplication"><span id="SimulationJobErrorCode_BadPermissionsRobotApplication"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_BadPermissionsRobotApplication :: SimulationJobErrorCode
+$mSimulationJobErrorCode_BadPermissionsRobotApplication :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_BadPermissionsRobotApplication"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_BadPermissionsRobotApplication</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BadPermissionsRobotApplication&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsS3Object"><span class="hs-identifier hs-type">SimulationJobErrorCode_BadPermissionsS3Object</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_BadPermissionsS3Object"><span id="%24mSimulationJobErrorCode_BadPermissionsS3Object"><span id="SimulationJobErrorCode_BadPermissionsS3Object"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_BadPermissionsS3Object :: SimulationJobErrorCode
+$mSimulationJobErrorCode_BadPermissionsS3Object :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_BadPermissionsS3Object"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_BadPermissionsS3Object</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BadPermissionsS3Object&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsS3Output"><span class="hs-identifier hs-type">SimulationJobErrorCode_BadPermissionsS3Output</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_BadPermissionsS3Output"><span id="%24mSimulationJobErrorCode_BadPermissionsS3Output"><span id="SimulationJobErrorCode_BadPermissionsS3Output"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_BadPermissionsS3Output :: SimulationJobErrorCode
+$mSimulationJobErrorCode_BadPermissionsS3Output :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_BadPermissionsS3Output"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_BadPermissionsS3Output</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BadPermissionsS3Output&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsSimulationApplication"><span class="hs-identifier hs-type">SimulationJobErrorCode_BadPermissionsSimulationApplication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_BadPermissionsSimulationApplication"><span id="%24mSimulationJobErrorCode_BadPermissionsSimulationApplication"><span id="SimulationJobErrorCode_BadPermissionsSimulationApplication"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_BadPermissionsSimulationApplication :: SimulationJobErrorCode
+$mSimulationJobErrorCode_BadPermissionsSimulationApplication :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_BadPermissionsSimulationApplication"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_BadPermissionsSimulationApplication</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BadPermissionsSimulationApplication&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsUserCredentials"><span class="hs-identifier hs-type">SimulationJobErrorCode_BadPermissionsUserCredentials</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_BadPermissionsUserCredentials"><span id="%24mSimulationJobErrorCode_BadPermissionsUserCredentials"><span id="SimulationJobErrorCode_BadPermissionsUserCredentials"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_BadPermissionsUserCredentials :: SimulationJobErrorCode
+$mSimulationJobErrorCode_BadPermissionsUserCredentials :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_BadPermissionsUserCredentials"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_BadPermissionsUserCredentials</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BadPermissionsUserCredentials&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BatchCanceled"><span class="hs-identifier hs-type">SimulationJobErrorCode_BatchCanceled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_BatchCanceled"><span id="%24mSimulationJobErrorCode_BatchCanceled"><span id="SimulationJobErrorCode_BatchCanceled"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_BatchCanceled :: SimulationJobErrorCode
+$mSimulationJobErrorCode_BatchCanceled :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_BatchCanceled"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_BatchCanceled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BatchCanceled&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BatchTimedOut"><span class="hs-identifier hs-type">SimulationJobErrorCode_BatchTimedOut</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_BatchTimedOut"><span id="%24mSimulationJobErrorCode_BatchTimedOut"><span id="SimulationJobErrorCode_BatchTimedOut"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_BatchTimedOut :: SimulationJobErrorCode
+$mSimulationJobErrorCode_BatchTimedOut :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_BatchTimedOut"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_BatchTimedOut</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BatchTimedOut&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_ENILimitExceeded"><span class="hs-identifier hs-type">SimulationJobErrorCode_ENILimitExceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_ENILimitExceeded"><span id="%24mSimulationJobErrorCode_ENILimitExceeded"><span id="SimulationJobErrorCode_ENILimitExceeded"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_ENILimitExceeded :: SimulationJobErrorCode
+$mSimulationJobErrorCode_ENILimitExceeded :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_ENILimitExceeded"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_ENILimitExceeded</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENILimitExceeded&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_InternalServiceError"><span class="hs-identifier hs-type">SimulationJobErrorCode_InternalServiceError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_InternalServiceError"><span id="%24mSimulationJobErrorCode_InternalServiceError"><span id="SimulationJobErrorCode_InternalServiceError"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_InternalServiceError :: SimulationJobErrorCode
+$mSimulationJobErrorCode_InternalServiceError :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_InternalServiceError"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_InternalServiceError</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InternalServiceError&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_InvalidBundleRobotApplication"><span class="hs-identifier hs-type">SimulationJobErrorCode_InvalidBundleRobotApplication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_InvalidBundleRobotApplication"><span id="%24mSimulationJobErrorCode_InvalidBundleRobotApplication"><span id="SimulationJobErrorCode_InvalidBundleRobotApplication"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_InvalidBundleRobotApplication :: SimulationJobErrorCode
+$mSimulationJobErrorCode_InvalidBundleRobotApplication :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_InvalidBundleRobotApplication"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_InvalidBundleRobotApplication</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InvalidBundleRobotApplication&quot;</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_InvalidBundleSimulationApplication"><span class="hs-identifier hs-type">SimulationJobErrorCode_InvalidBundleSimulationApplication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_InvalidBundleSimulationApplication"><span id="%24mSimulationJobErrorCode_InvalidBundleSimulationApplication"><span id="SimulationJobErrorCode_InvalidBundleSimulationApplication"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_InvalidBundleSimulationApplication :: SimulationJobErrorCode
+$mSimulationJobErrorCode_InvalidBundleSimulationApplication :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_InvalidBundleSimulationApplication"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_InvalidBundleSimulationApplication</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InvalidBundleSimulationApplication&quot;</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_InvalidInput"><span class="hs-identifier hs-type">SimulationJobErrorCode_InvalidInput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_InvalidInput"><span id="%24mSimulationJobErrorCode_InvalidInput"><span id="SimulationJobErrorCode_InvalidInput"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_InvalidInput :: SimulationJobErrorCode
+$mSimulationJobErrorCode_InvalidInput :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_InvalidInput"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_InvalidInput</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InvalidInput&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_InvalidS3Resource"><span class="hs-identifier hs-type">SimulationJobErrorCode_InvalidS3Resource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_InvalidS3Resource"><span id="%24mSimulationJobErrorCode_InvalidS3Resource"><span id="SimulationJobErrorCode_InvalidS3Resource"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_InvalidS3Resource :: SimulationJobErrorCode
+$mSimulationJobErrorCode_InvalidS3Resource :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_InvalidS3Resource"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_InvalidS3Resource</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InvalidS3Resource&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_LimitExceeded"><span class="hs-identifier hs-type">SimulationJobErrorCode_LimitExceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_LimitExceeded"><span id="%24mSimulationJobErrorCode_LimitExceeded"><span id="SimulationJobErrorCode_LimitExceeded"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_LimitExceeded :: SimulationJobErrorCode
+$mSimulationJobErrorCode_LimitExceeded :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_LimitExceeded"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_LimitExceeded</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LimitExceeded&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_MismatchedEtag"><span class="hs-identifier hs-type">SimulationJobErrorCode_MismatchedEtag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_MismatchedEtag"><span id="%24mSimulationJobErrorCode_MismatchedEtag"><span id="SimulationJobErrorCode_MismatchedEtag"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_MismatchedEtag :: SimulationJobErrorCode
+$mSimulationJobErrorCode_MismatchedEtag :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_MismatchedEtag"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_MismatchedEtag</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MismatchedEtag&quot;</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_RequestThrottled"><span class="hs-identifier hs-type">SimulationJobErrorCode_RequestThrottled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_RequestThrottled"><span id="%24mSimulationJobErrorCode_RequestThrottled"><span id="SimulationJobErrorCode_RequestThrottled"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_RequestThrottled :: SimulationJobErrorCode
+$mSimulationJobErrorCode_RequestThrottled :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_RequestThrottled"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_RequestThrottled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RequestThrottled&quot;</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_ResourceNotFound"><span class="hs-identifier hs-type">SimulationJobErrorCode_ResourceNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_ResourceNotFound"><span id="%24mSimulationJobErrorCode_ResourceNotFound"><span id="SimulationJobErrorCode_ResourceNotFound"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_ResourceNotFound :: SimulationJobErrorCode
+$mSimulationJobErrorCode_ResourceNotFound :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_ResourceNotFound"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_ResourceNotFound</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ResourceNotFound&quot;</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_RobotApplicationCrash"><span class="hs-identifier hs-type">SimulationJobErrorCode_RobotApplicationCrash</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_RobotApplicationCrash"><span id="%24mSimulationJobErrorCode_RobotApplicationCrash"><span id="SimulationJobErrorCode_RobotApplicationCrash"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_RobotApplicationCrash :: SimulationJobErrorCode
+$mSimulationJobErrorCode_RobotApplicationCrash :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_RobotApplicationCrash"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_RobotApplicationCrash</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RobotApplicationCrash&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_RobotApplicationHealthCheckFailure"><span class="hs-identifier hs-type">SimulationJobErrorCode_RobotApplicationHealthCheckFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_RobotApplicationHealthCheckFailure"><span id="%24mSimulationJobErrorCode_RobotApplicationHealthCheckFailure"><span id="SimulationJobErrorCode_RobotApplicationHealthCheckFailure"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_RobotApplicationHealthCheckFailure :: SimulationJobErrorCode
+$mSimulationJobErrorCode_RobotApplicationHealthCheckFailure :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_RobotApplicationHealthCheckFailure"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_RobotApplicationHealthCheckFailure</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RobotApplicationHealthCheckFailure&quot;</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_RobotApplicationVersionMismatchedEtag"><span class="hs-identifier hs-type">SimulationJobErrorCode_RobotApplicationVersionMismatchedEtag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_RobotApplicationVersionMismatchedEtag"><span id="%24mSimulationJobErrorCode_RobotApplicationVersionMismatchedEtag"><span id="SimulationJobErrorCode_RobotApplicationVersionMismatchedEtag"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_RobotApplicationVersionMismatchedEtag :: SimulationJobErrorCode
+$mSimulationJobErrorCode_RobotApplicationVersionMismatchedEtag :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_RobotApplicationVersionMismatchedEtag"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_RobotApplicationVersionMismatchedEtag</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RobotApplicationVersionMismatchedEtag&quot;</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_SimulationApplicationCrash"><span class="hs-identifier hs-type">SimulationJobErrorCode_SimulationApplicationCrash</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_SimulationApplicationCrash"><span id="%24mSimulationJobErrorCode_SimulationApplicationCrash"><span id="SimulationJobErrorCode_SimulationApplicationCrash"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_SimulationApplicationCrash :: SimulationJobErrorCode
+$mSimulationJobErrorCode_SimulationApplicationCrash :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_SimulationApplicationCrash"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_SimulationApplicationCrash</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SimulationApplicationCrash&quot;</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_SimulationApplicationHealthCheckFailure"><span class="hs-identifier hs-type">SimulationJobErrorCode_SimulationApplicationHealthCheckFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_SimulationApplicationHealthCheckFailure"><span id="%24mSimulationJobErrorCode_SimulationApplicationHealthCheckFailure"><span id="SimulationJobErrorCode_SimulationApplicationHealthCheckFailure"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_SimulationApplicationHealthCheckFailure :: SimulationJobErrorCode
+$mSimulationJobErrorCode_SimulationApplicationHealthCheckFailure :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_SimulationApplicationHealthCheckFailure"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_SimulationApplicationHealthCheckFailure</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SimulationApplicationHealthCheckFailure&quot;</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_SimulationApplicationVersionMismatchedEtag"><span class="hs-identifier hs-type">SimulationJobErrorCode_SimulationApplicationVersionMismatchedEtag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_SimulationApplicationVersionMismatchedEtag"><span id="%24mSimulationJobErrorCode_SimulationApplicationVersionMismatchedEtag"><span id="SimulationJobErrorCode_SimulationApplicationVersionMismatchedEtag"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_SimulationApplicationVersionMismatchedEtag :: SimulationJobErrorCode
+$mSimulationJobErrorCode_SimulationApplicationVersionMismatchedEtag :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_SimulationApplicationVersionMismatchedEtag"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_SimulationApplicationVersionMismatchedEtag</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SimulationApplicationVersionMismatchedEtag&quot;</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_SubnetIpLimitExceeded"><span class="hs-identifier hs-type">SimulationJobErrorCode_SubnetIpLimitExceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_SubnetIpLimitExceeded"><span id="%24mSimulationJobErrorCode_SubnetIpLimitExceeded"><span id="SimulationJobErrorCode_SubnetIpLimitExceeded"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_SubnetIpLimitExceeded :: SimulationJobErrorCode
+$mSimulationJobErrorCode_SubnetIpLimitExceeded :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_SubnetIpLimitExceeded"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_SubnetIpLimitExceeded</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SubnetIpLimitExceeded&quot;</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_ThrottlingError"><span class="hs-identifier hs-type">SimulationJobErrorCode_ThrottlingError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_ThrottlingError"><span id="%24mSimulationJobErrorCode_ThrottlingError"><span id="SimulationJobErrorCode_ThrottlingError"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_ThrottlingError :: SimulationJobErrorCode
+$mSimulationJobErrorCode_ThrottlingError :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_ThrottlingError"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_ThrottlingError</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ThrottlingError&quot;</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_UploadContentMismatchError"><span class="hs-identifier hs-type">SimulationJobErrorCode_UploadContentMismatchError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_UploadContentMismatchError"><span id="%24mSimulationJobErrorCode_UploadContentMismatchError"><span id="SimulationJobErrorCode_UploadContentMismatchError"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_UploadContentMismatchError :: SimulationJobErrorCode
+$mSimulationJobErrorCode_UploadContentMismatchError :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_UploadContentMismatchError"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_UploadContentMismatchError</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UploadContentMismatchError&quot;</span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_WrongRegionRobotApplication"><span class="hs-identifier hs-type">SimulationJobErrorCode_WrongRegionRobotApplication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_WrongRegionRobotApplication"><span id="%24mSimulationJobErrorCode_WrongRegionRobotApplication"><span id="SimulationJobErrorCode_WrongRegionRobotApplication"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_WrongRegionRobotApplication :: SimulationJobErrorCode
+$mSimulationJobErrorCode_WrongRegionRobotApplication :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_WrongRegionRobotApplication"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_WrongRegionRobotApplication</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WrongRegionRobotApplication&quot;</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_WrongRegionS3Bucket"><span class="hs-identifier hs-type">SimulationJobErrorCode_WrongRegionS3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_WrongRegionS3Bucket"><span id="%24mSimulationJobErrorCode_WrongRegionS3Bucket"><span id="SimulationJobErrorCode_WrongRegionS3Bucket"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_WrongRegionS3Bucket :: SimulationJobErrorCode
+$mSimulationJobErrorCode_WrongRegionS3Bucket :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_WrongRegionS3Bucket"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_WrongRegionS3Bucket</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WrongRegionS3Bucket&quot;</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_WrongRegionS3Output"><span class="hs-identifier hs-type">SimulationJobErrorCode_WrongRegionS3Output</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_WrongRegionS3Output"><span id="%24mSimulationJobErrorCode_WrongRegionS3Output"><span id="SimulationJobErrorCode_WrongRegionS3Output"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_WrongRegionS3Output :: SimulationJobErrorCode
+$mSimulationJobErrorCode_WrongRegionS3Output :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_WrongRegionS3Output"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_WrongRegionS3Output</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WrongRegionS3Output&quot;</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_WrongRegionSimulationApplication"><span class="hs-identifier hs-type">SimulationJobErrorCode_WrongRegionSimulationApplication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode"><span class="hs-identifier hs-type">SimulationJobErrorCode</span></a></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSimulationJobErrorCode_WrongRegionSimulationApplication"><span id="%24mSimulationJobErrorCode_WrongRegionSimulationApplication"><span id="SimulationJobErrorCode_WrongRegionSimulationApplication"><span class="annot"><span class="annottext">$bSimulationJobErrorCode_WrongRegionSimulationApplication :: SimulationJobErrorCode
+$mSimulationJobErrorCode_WrongRegionSimulationApplication :: forall r.
+SimulationJobErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#%24bSimulationJobErrorCode_WrongRegionSimulationApplication"><span class="hs-identifier hs-var hs-var hs-var">SimulationJobErrorCode_WrongRegionSimulationApplication</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-identifier hs-type">SimulationJobErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WrongRegionSimulationApplication&quot;</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsCloudwatchLogs"><span class="hs-pragma hs-type">SimulationJobErrorCode_BadPermissionsCloudwatchLogs</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsRobotApplication"><span class="hs-pragma hs-type">SimulationJobErrorCode_BadPermissionsRobotApplication</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsS3Object"><span class="hs-pragma hs-type">SimulationJobErrorCode_BadPermissionsS3Object</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsS3Output"><span class="hs-pragma hs-type">SimulationJobErrorCode_BadPermissionsS3Output</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsSimulationApplication"><span class="hs-pragma hs-type">SimulationJobErrorCode_BadPermissionsSimulationApplication</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BadPermissionsUserCredentials"><span class="hs-pragma hs-type">SimulationJobErrorCode_BadPermissionsUserCredentials</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BatchCanceled"><span class="hs-pragma hs-type">SimulationJobErrorCode_BatchCanceled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_BatchTimedOut"><span class="hs-pragma hs-type">SimulationJobErrorCode_BatchTimedOut</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_ENILimitExceeded"><span class="hs-pragma hs-type">SimulationJobErrorCode_ENILimitExceeded</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_InternalServiceError"><span class="hs-pragma hs-type">SimulationJobErrorCode_InternalServiceError</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_InvalidBundleRobotApplication"><span class="hs-pragma hs-type">SimulationJobErrorCode_InvalidBundleRobotApplication</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_InvalidBundleSimulationApplication"><span class="hs-pragma hs-type">SimulationJobErrorCode_InvalidBundleSimulationApplication</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_InvalidInput"><span class="hs-pragma hs-type">SimulationJobErrorCode_InvalidInput</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_InvalidS3Resource"><span class="hs-pragma hs-type">SimulationJobErrorCode_InvalidS3Resource</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_LimitExceeded"><span class="hs-pragma hs-type">SimulationJobErrorCode_LimitExceeded</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_MismatchedEtag"><span class="hs-pragma hs-type">SimulationJobErrorCode_MismatchedEtag</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_RequestThrottled"><span class="hs-pragma hs-type">SimulationJobErrorCode_RequestThrottled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_ResourceNotFound"><span class="hs-pragma hs-type">SimulationJobErrorCode_ResourceNotFound</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_RobotApplicationCrash"><span class="hs-pragma hs-type">SimulationJobErrorCode_RobotApplicationCrash</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_RobotApplicationHealthCheckFailure"><span class="hs-pragma hs-type">SimulationJobErrorCode_RobotApplicationHealthCheckFailure</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_RobotApplicationVersionMismatchedEtag"><span class="hs-pragma hs-type">SimulationJobErrorCode_RobotApplicationVersionMismatchedEtag</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_SimulationApplicationCrash"><span class="hs-pragma hs-type">SimulationJobErrorCode_SimulationApplicationCrash</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_SimulationApplicationHealthCheckFailure"><span class="hs-pragma hs-type">SimulationJobErrorCode_SimulationApplicationHealthCheckFailure</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_SimulationApplicationVersionMismatchedEtag"><span class="hs-pragma hs-type">SimulationJobErrorCode_SimulationApplicationVersionMismatchedEtag</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_SubnetIpLimitExceeded"><span class="hs-pragma hs-type">SimulationJobErrorCode_SubnetIpLimitExceeded</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_ThrottlingError"><span class="hs-pragma hs-type">SimulationJobErrorCode_ThrottlingError</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_UploadContentMismatchError"><span class="hs-pragma hs-type">SimulationJobErrorCode_UploadContentMismatchError</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_WrongRegionRobotApplication"><span class="hs-pragma hs-type">SimulationJobErrorCode_WrongRegionRobotApplication</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_WrongRegionS3Bucket"><span class="hs-pragma hs-type">SimulationJobErrorCode_WrongRegionS3Bucket</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_WrongRegionS3Output"><span class="hs-pragma hs-type">SimulationJobErrorCode_WrongRegionS3Output</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode_WrongRegionSimulationApplication"><span class="hs-pragma hs-type">SimulationJobErrorCode_WrongRegionSimulationApplication</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SimulationJobErrorCode.html#SimulationJobErrorCode%27"><span class="hs-pragma hs-type">SimulationJobErrorCode'</span></a></span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-216"></span></pre></body></html>

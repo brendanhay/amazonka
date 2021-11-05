@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_ADDRESS"><span class="hs-identifier">RequiredSignUpAttributesElement_ADDRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_BIRTHDATE"><span class="hs-identifier">RequiredSignUpAttributesElement_BIRTHDATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_EMAIL"><span class="hs-identifier">RequiredSignUpAttributesElement_EMAIL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_FAMILY_NAME"><span class="hs-identifier">RequiredSignUpAttributesElement_FAMILY_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_GENDER"><span class="hs-identifier">RequiredSignUpAttributesElement_GENDER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_GIVEN_NAME"><span class="hs-identifier">RequiredSignUpAttributesElement_GIVEN_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_LOCALE"><span class="hs-identifier">RequiredSignUpAttributesElement_LOCALE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_MIDDLE_NAME"><span class="hs-identifier">RequiredSignUpAttributesElement_MIDDLE_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_NAME"><span class="hs-identifier">RequiredSignUpAttributesElement_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_NICKNAME"><span class="hs-identifier">RequiredSignUpAttributesElement_NICKNAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_PHONE_NUMBER"><span class="hs-identifier">RequiredSignUpAttributesElement_PHONE_NUMBER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_PICTURE"><span class="hs-identifier">RequiredSignUpAttributesElement_PICTURE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_PREFERRED_USERNAME"><span class="hs-identifier">RequiredSignUpAttributesElement_PREFERRED_USERNAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_PROFILE"><span class="hs-identifier">RequiredSignUpAttributesElement_PROFILE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_UPDATED_AT"><span class="hs-identifier">RequiredSignUpAttributesElement_UPDATED_AT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_WEBSITE"><span class="hs-identifier">RequiredSignUpAttributesElement_WEBSITE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_ZONE_INFO"><span class="hs-identifier">RequiredSignUpAttributesElement_ZONE_INFO</span></a></span><span>
+</span><span id="line-40"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679231694"><span id="local-6989586621679231695"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RequiredSignUpAttributesElement"><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-var">RequiredSignUpAttributesElement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequiredSignUpAttributesElement%27"><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-var">RequiredSignUpAttributesElement'</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRequiredSignUpAttributesElement"><span class="annot"><span class="annottext">RequiredSignUpAttributesElement -&gt; Text
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#fromRequiredSignUpAttributesElement"><span class="hs-identifier hs-var hs-var">fromRequiredSignUpAttributesElement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679231686"><span id="local-6989586621679231688"><span id="local-6989586621679231690"><span class="annot"><span class="annottext">Int -&gt; RequiredSignUpAttributesElement -&gt; ShowS
+[RequiredSignUpAttributesElement] -&gt; ShowS
+RequiredSignUpAttributesElement -&gt; String
+(Int -&gt; RequiredSignUpAttributesElement -&gt; ShowS)
+-&gt; (RequiredSignUpAttributesElement -&gt; String)
+-&gt; ([RequiredSignUpAttributesElement] -&gt; ShowS)
+-&gt; Show RequiredSignUpAttributesElement
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RequiredSignUpAttributesElement] -&gt; ShowS
+$cshowList :: [RequiredSignUpAttributesElement] -&gt; ShowS
+show :: RequiredSignUpAttributesElement -&gt; String
+$cshow :: RequiredSignUpAttributesElement -&gt; String
+showsPrec :: Int -&gt; RequiredSignUpAttributesElement -&gt; ShowS
+$cshowsPrec :: Int -&gt; RequiredSignUpAttributesElement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679231677"><span id="local-6989586621679231679"><span id="local-6989586621679231681"><span id="local-6989586621679231683"><span class="annot"><span class="annottext">ReadPrec [RequiredSignUpAttributesElement]
+ReadPrec RequiredSignUpAttributesElement
+Int -&gt; ReadS RequiredSignUpAttributesElement
+ReadS [RequiredSignUpAttributesElement]
+(Int -&gt; ReadS RequiredSignUpAttributesElement)
+-&gt; ReadS [RequiredSignUpAttributesElement]
+-&gt; ReadPrec RequiredSignUpAttributesElement
+-&gt; ReadPrec [RequiredSignUpAttributesElement]
+-&gt; Read RequiredSignUpAttributesElement
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RequiredSignUpAttributesElement]
+$creadListPrec :: ReadPrec [RequiredSignUpAttributesElement]
+readPrec :: ReadPrec RequiredSignUpAttributesElement
+$creadPrec :: ReadPrec RequiredSignUpAttributesElement
+readList :: ReadS [RequiredSignUpAttributesElement]
+$creadList :: ReadS [RequiredSignUpAttributesElement]
+readsPrec :: Int -&gt; ReadS RequiredSignUpAttributesElement
+$creadsPrec :: Int -&gt; ReadS RequiredSignUpAttributesElement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679231672"><span id="local-6989586621679231674"><span class="annot"><span class="annottext">RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Bool
+(RequiredSignUpAttributesElement
+ -&gt; RequiredSignUpAttributesElement -&gt; Bool)
+-&gt; (RequiredSignUpAttributesElement
+    -&gt; RequiredSignUpAttributesElement -&gt; Bool)
+-&gt; Eq RequiredSignUpAttributesElement
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Bool
+$c/= :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Bool
+== :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Bool
+$c== :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679231656"><span id="local-6989586621679231658"><span id="local-6989586621679231660"><span id="local-6989586621679231662"><span id="local-6989586621679231664"><span id="local-6989586621679231666"><span id="local-6989586621679231668"><span class="annot"><span class="annottext">Eq RequiredSignUpAttributesElement
+Eq RequiredSignUpAttributesElement
+-&gt; (RequiredSignUpAttributesElement
+    -&gt; RequiredSignUpAttributesElement -&gt; Ordering)
+-&gt; (RequiredSignUpAttributesElement
+    -&gt; RequiredSignUpAttributesElement -&gt; Bool)
+-&gt; (RequiredSignUpAttributesElement
+    -&gt; RequiredSignUpAttributesElement -&gt; Bool)
+-&gt; (RequiredSignUpAttributesElement
+    -&gt; RequiredSignUpAttributesElement -&gt; Bool)
+-&gt; (RequiredSignUpAttributesElement
+    -&gt; RequiredSignUpAttributesElement -&gt; Bool)
+-&gt; (RequiredSignUpAttributesElement
+    -&gt; RequiredSignUpAttributesElement
+    -&gt; RequiredSignUpAttributesElement)
+-&gt; (RequiredSignUpAttributesElement
+    -&gt; RequiredSignUpAttributesElement
+    -&gt; RequiredSignUpAttributesElement)
+-&gt; Ord RequiredSignUpAttributesElement
+RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Bool
+RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Ordering
+RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement
+$cmin :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement
+max :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement
+$cmax :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement
+&gt;= :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Bool
+$c&gt;= :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Bool
+&gt; :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Bool
+$c&gt; :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Bool
+&lt;= :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Bool
+$c&lt;= :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Bool
+&lt; :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Bool
+$c&lt; :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Bool
+compare :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Ordering
+$ccompare :: RequiredSignUpAttributesElement
+-&gt; RequiredSignUpAttributesElement -&gt; Ordering
+$cp1Ord :: Eq RequiredSignUpAttributesElement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ RequiredSignUpAttributesElement
+ -&gt; Rep RequiredSignUpAttributesElement x)
+-&gt; (forall x.
+    Rep RequiredSignUpAttributesElement x
+    -&gt; RequiredSignUpAttributesElement)
+-&gt; Generic RequiredSignUpAttributesElement
+forall x.
+Rep RequiredSignUpAttributesElement x
+-&gt; RequiredSignUpAttributesElement
+forall x.
+RequiredSignUpAttributesElement
+-&gt; Rep RequiredSignUpAttributesElement x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RequiredSignUpAttributesElement x
+-&gt; RequiredSignUpAttributesElement
+$cfrom :: forall x.
+RequiredSignUpAttributesElement
+-&gt; Rep RequiredSignUpAttributesElement x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679231648"><span id="local-6989586621679231650"><span class="annot"><span class="annottext">Int -&gt; RequiredSignUpAttributesElement -&gt; Int
+RequiredSignUpAttributesElement -&gt; Int
+(Int -&gt; RequiredSignUpAttributesElement -&gt; Int)
+-&gt; (RequiredSignUpAttributesElement -&gt; Int)
+-&gt; Hashable RequiredSignUpAttributesElement
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RequiredSignUpAttributesElement -&gt; Int
+$chash :: RequiredSignUpAttributesElement -&gt; Int
+hashWithSalt :: Int -&gt; RequiredSignUpAttributesElement -&gt; Int
+$chashWithSalt :: Int -&gt; RequiredSignUpAttributesElement -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679231645"><span class="annot"><span class="annottext">RequiredSignUpAttributesElement -&gt; ()
+(RequiredSignUpAttributesElement -&gt; ())
+-&gt; NFData RequiredSignUpAttributesElement
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RequiredSignUpAttributesElement -&gt; ()
+$crnf :: RequiredSignUpAttributesElement -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679231642"><span class="annot"><span class="annottext">Text -&gt; Either String RequiredSignUpAttributesElement
+(Text -&gt; Either String RequiredSignUpAttributesElement)
+-&gt; FromText RequiredSignUpAttributesElement
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RequiredSignUpAttributesElement
+$cfromText :: Text -&gt; Either String RequiredSignUpAttributesElement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679231639"><span class="annot"><span class="annottext">RequiredSignUpAttributesElement -&gt; Text
+(RequiredSignUpAttributesElement -&gt; Text)
+-&gt; ToText RequiredSignUpAttributesElement
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RequiredSignUpAttributesElement -&gt; Text
+$ctoText :: RequiredSignUpAttributesElement -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679231636"><span class="annot"><span class="annottext">RequiredSignUpAttributesElement -&gt; ByteString
+(RequiredSignUpAttributesElement -&gt; ByteString)
+-&gt; ToByteString RequiredSignUpAttributesElement
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RequiredSignUpAttributesElement -&gt; ByteString
+$ctoBS :: RequiredSignUpAttributesElement -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679231633"><span class="annot"><span class="annottext">RequiredSignUpAttributesElement -&gt; ByteStringBuilder
+(RequiredSignUpAttributesElement -&gt; ByteStringBuilder)
+-&gt; ToLog RequiredSignUpAttributesElement
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RequiredSignUpAttributesElement -&gt; ByteStringBuilder
+$cbuild :: RequiredSignUpAttributesElement -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679231630"><span class="annot"><span class="annottext">HeaderName -&gt; RequiredSignUpAttributesElement -&gt; [Header]
+(HeaderName -&gt; RequiredSignUpAttributesElement -&gt; [Header])
+-&gt; ToHeader RequiredSignUpAttributesElement
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RequiredSignUpAttributesElement -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RequiredSignUpAttributesElement -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679231627"><span class="annot"><span class="annottext">RequiredSignUpAttributesElement -&gt; QueryString
+(RequiredSignUpAttributesElement -&gt; QueryString)
+-&gt; ToQuery RequiredSignUpAttributesElement
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RequiredSignUpAttributesElement -&gt; QueryString
+$ctoQuery :: RequiredSignUpAttributesElement -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679231622"><span id="local-6989586621679231624"><span class="annot"><span class="annottext">Value -&gt; Parser [RequiredSignUpAttributesElement]
+Value -&gt; Parser RequiredSignUpAttributesElement
+(Value -&gt; Parser RequiredSignUpAttributesElement)
+-&gt; (Value -&gt; Parser [RequiredSignUpAttributesElement])
+-&gt; FromJSON RequiredSignUpAttributesElement
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RequiredSignUpAttributesElement]
+$cparseJSONList :: Value -&gt; Parser [RequiredSignUpAttributesElement]
+parseJSON :: Value -&gt; Parser RequiredSignUpAttributesElement
+$cparseJSON :: Value -&gt; Parser RequiredSignUpAttributesElement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679231617"><span id="local-6989586621679231619"><span class="annot"><span class="annottext">FromJSONKeyFunction [RequiredSignUpAttributesElement]
+FromJSONKeyFunction RequiredSignUpAttributesElement
+FromJSONKeyFunction RequiredSignUpAttributesElement
+-&gt; FromJSONKeyFunction [RequiredSignUpAttributesElement]
+-&gt; FromJSONKey RequiredSignUpAttributesElement
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RequiredSignUpAttributesElement]
+$cfromJSONKeyList :: FromJSONKeyFunction [RequiredSignUpAttributesElement]
+fromJSONKey :: FromJSONKeyFunction RequiredSignUpAttributesElement
+$cfromJSONKey :: FromJSONKeyFunction RequiredSignUpAttributesElement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679231608"><span id="local-6989586621679231610"><span id="local-6989586621679231612"><span id="local-6989586621679231614"><span class="annot"><span class="annottext">[RequiredSignUpAttributesElement] -&gt; Encoding
+[RequiredSignUpAttributesElement] -&gt; Value
+RequiredSignUpAttributesElement -&gt; Encoding
+RequiredSignUpAttributesElement -&gt; Value
+(RequiredSignUpAttributesElement -&gt; Value)
+-&gt; (RequiredSignUpAttributesElement -&gt; Encoding)
+-&gt; ([RequiredSignUpAttributesElement] -&gt; Value)
+-&gt; ([RequiredSignUpAttributesElement] -&gt; Encoding)
+-&gt; ToJSON RequiredSignUpAttributesElement
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RequiredSignUpAttributesElement] -&gt; Encoding
+$ctoEncodingList :: [RequiredSignUpAttributesElement] -&gt; Encoding
+toJSONList :: [RequiredSignUpAttributesElement] -&gt; Value
+$ctoJSONList :: [RequiredSignUpAttributesElement] -&gt; Value
+toEncoding :: RequiredSignUpAttributesElement -&gt; Encoding
+$ctoEncoding :: RequiredSignUpAttributesElement -&gt; Encoding
+toJSON :: RequiredSignUpAttributesElement -&gt; Value
+$ctoJSON :: RequiredSignUpAttributesElement -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679231603"><span id="local-6989586621679231605"><span class="annot"><span class="annottext">ToJSONKeyFunction [RequiredSignUpAttributesElement]
+ToJSONKeyFunction RequiredSignUpAttributesElement
+ToJSONKeyFunction RequiredSignUpAttributesElement
+-&gt; ToJSONKeyFunction [RequiredSignUpAttributesElement]
+-&gt; ToJSONKey RequiredSignUpAttributesElement
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RequiredSignUpAttributesElement]
+$ctoJSONKeyList :: ToJSONKeyFunction [RequiredSignUpAttributesElement]
+toJSONKey :: ToJSONKeyFunction RequiredSignUpAttributesElement
+$ctoJSONKey :: ToJSONKeyFunction RequiredSignUpAttributesElement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679231600"><span class="annot"><span class="annottext">[Node] -&gt; Either String RequiredSignUpAttributesElement
+([Node] -&gt; Either String RequiredSignUpAttributesElement)
+-&gt; FromXML RequiredSignUpAttributesElement
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RequiredSignUpAttributesElement
+$cparseXML :: [Node] -&gt; Either String RequiredSignUpAttributesElement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679231597"><span class="annot"><span class="annottext">RequiredSignUpAttributesElement -&gt; XML
+(RequiredSignUpAttributesElement -&gt; XML)
+-&gt; ToXML RequiredSignUpAttributesElement
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RequiredSignUpAttributesElement -&gt; XML
+$ctoXML :: RequiredSignUpAttributesElement -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_ADDRESS"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_ADDRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_ADDRESS"><span id="%24mRequiredSignUpAttributesElement_ADDRESS"><span id="RequiredSignUpAttributesElement_ADDRESS"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_ADDRESS :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_ADDRESS :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_ADDRESS"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_ADDRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ADDRESS&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_BIRTHDATE"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_BIRTHDATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_BIRTHDATE"><span id="%24mRequiredSignUpAttributesElement_BIRTHDATE"><span id="RequiredSignUpAttributesElement_BIRTHDATE"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_BIRTHDATE :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_BIRTHDATE :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_BIRTHDATE"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_BIRTHDATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BIRTHDATE&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_EMAIL"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_EMAIL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_EMAIL"><span id="%24mRequiredSignUpAttributesElement_EMAIL"><span id="RequiredSignUpAttributesElement_EMAIL"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_EMAIL :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_EMAIL :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_EMAIL"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_EMAIL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EMAIL&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_FAMILY_NAME"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_FAMILY_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_FAMILY_NAME"><span id="%24mRequiredSignUpAttributesElement_FAMILY_NAME"><span id="RequiredSignUpAttributesElement_FAMILY_NAME"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_FAMILY_NAME :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_FAMILY_NAME :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_FAMILY_NAME"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_FAMILY_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAMILY_NAME&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_GENDER"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_GENDER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_GENDER"><span id="%24mRequiredSignUpAttributesElement_GENDER"><span id="RequiredSignUpAttributesElement_GENDER"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_GENDER :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_GENDER :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_GENDER"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_GENDER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GENDER&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_GIVEN_NAME"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_GIVEN_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_GIVEN_NAME"><span id="%24mRequiredSignUpAttributesElement_GIVEN_NAME"><span id="RequiredSignUpAttributesElement_GIVEN_NAME"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_GIVEN_NAME :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_GIVEN_NAME :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_GIVEN_NAME"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_GIVEN_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GIVEN_NAME&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_LOCALE"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_LOCALE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_LOCALE"><span id="%24mRequiredSignUpAttributesElement_LOCALE"><span id="RequiredSignUpAttributesElement_LOCALE"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_LOCALE :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_LOCALE :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_LOCALE"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_LOCALE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LOCALE&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_MIDDLE_NAME"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_MIDDLE_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_MIDDLE_NAME"><span id="%24mRequiredSignUpAttributesElement_MIDDLE_NAME"><span id="RequiredSignUpAttributesElement_MIDDLE_NAME"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_MIDDLE_NAME :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_MIDDLE_NAME :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_MIDDLE_NAME"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_MIDDLE_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MIDDLE_NAME&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_NAME"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_NAME"><span id="%24mRequiredSignUpAttributesElement_NAME"><span id="RequiredSignUpAttributesElement_NAME"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_NAME :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_NAME :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_NAME"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NAME&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_NICKNAME"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_NICKNAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_NICKNAME"><span id="%24mRequiredSignUpAttributesElement_NICKNAME"><span id="RequiredSignUpAttributesElement_NICKNAME"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_NICKNAME :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_NICKNAME :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_NICKNAME"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_NICKNAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NICKNAME&quot;</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_PHONE_NUMBER"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_PHONE_NUMBER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_PHONE_NUMBER"><span id="%24mRequiredSignUpAttributesElement_PHONE_NUMBER"><span id="RequiredSignUpAttributesElement_PHONE_NUMBER"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_PHONE_NUMBER :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_PHONE_NUMBER :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_PHONE_NUMBER"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_PHONE_NUMBER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PHONE_NUMBER&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_PICTURE"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_PICTURE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_PICTURE"><span id="%24mRequiredSignUpAttributesElement_PICTURE"><span id="RequiredSignUpAttributesElement_PICTURE"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_PICTURE :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_PICTURE :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_PICTURE"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_PICTURE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PICTURE&quot;</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_PREFERRED_USERNAME"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_PREFERRED_USERNAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_PREFERRED_USERNAME"><span id="%24mRequiredSignUpAttributesElement_PREFERRED_USERNAME"><span id="RequiredSignUpAttributesElement_PREFERRED_USERNAME"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_PREFERRED_USERNAME :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_PREFERRED_USERNAME :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_PREFERRED_USERNAME"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_PREFERRED_USERNAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PREFERRED_USERNAME&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_PROFILE"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_PROFILE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_PROFILE"><span id="%24mRequiredSignUpAttributesElement_PROFILE"><span id="RequiredSignUpAttributesElement_PROFILE"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_PROFILE :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_PROFILE :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_PROFILE"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_PROFILE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROFILE&quot;</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_UPDATED_AT"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_UPDATED_AT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_UPDATED_AT"><span id="%24mRequiredSignUpAttributesElement_UPDATED_AT"><span id="RequiredSignUpAttributesElement_UPDATED_AT"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_UPDATED_AT :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_UPDATED_AT :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_UPDATED_AT"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_UPDATED_AT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATED_AT&quot;</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_WEBSITE"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_WEBSITE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_WEBSITE"><span id="%24mRequiredSignUpAttributesElement_WEBSITE"><span id="RequiredSignUpAttributesElement_WEBSITE"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_WEBSITE :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_WEBSITE :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_WEBSITE"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_WEBSITE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WEBSITE&quot;</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_ZONE_INFO"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement_ZONE_INFO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement</span></a></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRequiredSignUpAttributesElement_ZONE_INFO"><span id="%24mRequiredSignUpAttributesElement_ZONE_INFO"><span id="RequiredSignUpAttributesElement_ZONE_INFO"><span class="annot"><span class="annottext">$bRequiredSignUpAttributesElement_ZONE_INFO :: RequiredSignUpAttributesElement
+$mRequiredSignUpAttributesElement_ZONE_INFO :: forall r.
+RequiredSignUpAttributesElement
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#%24bRequiredSignUpAttributesElement_ZONE_INFO"><span class="hs-identifier hs-var hs-var hs-var">RequiredSignUpAttributesElement_ZONE_INFO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-identifier hs-type">RequiredSignUpAttributesElement'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ZONE_INFO&quot;</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_ADDRESS"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_ADDRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_BIRTHDATE"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_BIRTHDATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_EMAIL"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_EMAIL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_FAMILY_NAME"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_FAMILY_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_GENDER"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_GENDER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_GIVEN_NAME"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_GIVEN_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_LOCALE"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_LOCALE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_MIDDLE_NAME"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_MIDDLE_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_NAME"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_NICKNAME"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_NICKNAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_PHONE_NUMBER"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_PHONE_NUMBER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_PICTURE"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_PICTURE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_PREFERRED_USERNAME"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_PREFERRED_USERNAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_PROFILE"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_PROFILE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_UPDATED_AT"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_UPDATED_AT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_WEBSITE"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_WEBSITE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement_ZONE_INFO"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement_ZONE_INFO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement.html#RequiredSignUpAttributesElement%27"><span class="hs-pragma hs-type">RequiredSignUpAttributesElement'</span></a></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-146"></span></pre></body></html>

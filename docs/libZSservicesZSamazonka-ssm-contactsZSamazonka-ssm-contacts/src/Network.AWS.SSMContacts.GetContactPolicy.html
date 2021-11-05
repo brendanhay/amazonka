@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SSMContacts.GetContactPolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the resource policies attached to the specified contact or</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- escalation plan.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSMContacts.GetContactPolicy</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy"><span class="hs-identifier">GetContactPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#newGetContactPolicy"><span class="hs-identifier">newGetContactPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#getContactPolicy_contactArn"><span class="hs-identifier">getContactPolicy_contactArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse"><span class="hs-identifier">GetContactPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#newGetContactPolicyResponse"><span class="hs-identifier">newGetContactPolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#getContactPolicyResponse_contactArn"><span class="hs-identifier">getContactPolicyResponse_contactArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#getContactPolicyResponse_policy"><span class="hs-identifier">getContactPolicyResponse_policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#getContactPolicyResponse_httpStatus"><span class="hs-identifier">getContactPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.html"><span class="hs-identifier">Network.AWS.SSMContacts.Types</span></a></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetContactPolicy' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679200981"><span id="local-6989586621679200982"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContactPolicy"><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy"><span class="hs-identifier hs-var">GetContactPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContactPolicy%27"><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy%27"><span class="hs-identifier hs-var">GetContactPolicy'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the contact or escalation plan.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcontactArn%3AGetContactPolicy%27"><span class="annot"><span class="annottext">GetContactPolicy -&gt; Text
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#%24sel%3AcontactArn%3AGetContactPolicy%27"><span class="hs-identifier hs-var hs-var">contactArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200975"><span id="local-6989586621679200977"><span class="annot"><span class="annottext">GetContactPolicy -&gt; GetContactPolicy -&gt; Bool
+(GetContactPolicy -&gt; GetContactPolicy -&gt; Bool)
+-&gt; (GetContactPolicy -&gt; GetContactPolicy -&gt; Bool)
+-&gt; Eq GetContactPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetContactPolicy -&gt; GetContactPolicy -&gt; Bool
+$c/= :: GetContactPolicy -&gt; GetContactPolicy -&gt; Bool
+== :: GetContactPolicy -&gt; GetContactPolicy -&gt; Bool
+$c== :: GetContactPolicy -&gt; GetContactPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200966"><span id="local-6989586621679200968"><span id="local-6989586621679200970"><span id="local-6989586621679200972"><span class="annot"><span class="annottext">ReadPrec [GetContactPolicy]
+ReadPrec GetContactPolicy
+Int -&gt; ReadS GetContactPolicy
+ReadS [GetContactPolicy]
+(Int -&gt; ReadS GetContactPolicy)
+-&gt; ReadS [GetContactPolicy]
+-&gt; ReadPrec GetContactPolicy
+-&gt; ReadPrec [GetContactPolicy]
+-&gt; Read GetContactPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetContactPolicy]
+$creadListPrec :: ReadPrec [GetContactPolicy]
+readPrec :: ReadPrec GetContactPolicy
+$creadPrec :: ReadPrec GetContactPolicy
+readList :: ReadS [GetContactPolicy]
+$creadList :: ReadS [GetContactPolicy]
+readsPrec :: Int -&gt; ReadS GetContactPolicy
+$creadsPrec :: Int -&gt; ReadS GetContactPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200959"><span id="local-6989586621679200961"><span id="local-6989586621679200963"><span class="annot"><span class="annottext">Int -&gt; GetContactPolicy -&gt; ShowS
+[GetContactPolicy] -&gt; ShowS
+GetContactPolicy -&gt; String
+(Int -&gt; GetContactPolicy -&gt; ShowS)
+-&gt; (GetContactPolicy -&gt; String)
+-&gt; ([GetContactPolicy] -&gt; ShowS)
+-&gt; Show GetContactPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetContactPolicy] -&gt; ShowS
+$cshowList :: [GetContactPolicy] -&gt; ShowS
+show :: GetContactPolicy -&gt; String
+$cshow :: GetContactPolicy -&gt; String
+showsPrec :: Int -&gt; GetContactPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetContactPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetContactPolicy -&gt; Rep GetContactPolicy x)
+-&gt; (forall x. Rep GetContactPolicy x -&gt; GetContactPolicy)
+-&gt; Generic GetContactPolicy
+forall x. Rep GetContactPolicy x -&gt; GetContactPolicy
+forall x. GetContactPolicy -&gt; Rep GetContactPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetContactPolicy x -&gt; GetContactPolicy
+$cfrom :: forall x. GetContactPolicy -&gt; Rep GetContactPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'GetContactPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'contactArn', 'getContactPolicy_contactArn' - The Amazon Resource Name (ARN) of the contact or escalation plan.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#newGetContactPolicy"><span class="hs-identifier hs-type">newGetContactPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'contactArn'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy"><span class="hs-identifier hs-type">GetContactPolicy</span></a></span><span>
+</span><span id="line-71"></span><span id="newGetContactPolicy"><span class="annot"><span class="annottext">newGetContactPolicy :: Text -&gt; GetContactPolicy
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#newGetContactPolicy"><span class="hs-identifier hs-var hs-var">newGetContactPolicy</span></a></span></span><span> </span><span id="local-6989586621679200954"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200954"><span class="hs-identifier hs-var">pContactArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">GetContactPolicy' :: Text -&gt; GetContactPolicy
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy%27"><span class="hs-identifier hs-type">GetContactPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactArn:GetContactPolicy' :: Text
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#%24sel%3AcontactArn%3AGetContactPolicy%27"><span class="hs-identifier hs-var">contactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200954"><span class="hs-identifier hs-var">pContactArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the contact or escalation plan.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#getContactPolicy_contactArn"><span class="hs-identifier hs-type">getContactPolicy_contactArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy"><span class="hs-identifier hs-type">GetContactPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="getContactPolicy_contactArn"><span class="annot"><span class="annottext">getContactPolicy_contactArn :: (Text -&gt; f Text) -&gt; GetContactPolicy -&gt; f GetContactPolicy
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#getContactPolicy_contactArn"><span class="hs-identifier hs-var hs-var">getContactPolicy_contactArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContactPolicy -&gt; Text)
+-&gt; (GetContactPolicy -&gt; Text -&gt; GetContactPolicy)
+-&gt; Lens GetContactPolicy GetContactPolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy%27"><span class="hs-identifier hs-type">GetContactPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200951"><span class="annot"><span class="annottext">Text
+contactArn :: Text
+$sel:contactArn:GetContactPolicy' :: GetContactPolicy -&gt; Text
+</span><a href="#local-6989586621679200951"><span class="hs-identifier hs-var hs-var">contactArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200951"><span class="hs-identifier hs-var">contactArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200950"><span class="annot"><span class="annottext">s :: GetContactPolicy
+</span><a href="#local-6989586621679200950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy%27"><span class="hs-identifier hs-type">GetContactPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200949"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContactPolicy
+</span><a href="#local-6989586621679200950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactArn:GetContactPolicy' :: Text
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#%24sel%3AcontactArn%3AGetContactPolicy%27"><span class="hs-identifier hs-var">contactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy"><span class="hs-identifier hs-type">GetContactPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy"><span class="hs-identifier hs-type">GetContactPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy"><span class="hs-identifier hs-type">GetContactPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse"><span class="hs-identifier hs-type">GetContactPolicyResponse</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679200945"><span class="annot"><span class="annottext">request :: GetContactPolicy -&gt; Request GetContactPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetContactPolicy -&gt; Request GetContactPolicy
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SSMContacts.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679200941"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetContactPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetContactPolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetContactPolicy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetContactPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetContactPolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200938"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200938"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200937"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679200937"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200936"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200936"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetContactPolicyResponse
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse%27"><span class="hs-identifier hs-var">GetContactPolicyResponse'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetContactPolicyResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetContactPolicyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContactArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetContactPolicyResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetContactPolicyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Policy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetContactPolicyResponse)
+-&gt; Either String Int -&gt; Either String GetContactPolicyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200938"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200928"><span id="local-6989586621679200930"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy"><span class="hs-identifier hs-type">GetContactPolicy</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200925"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy"><span class="hs-identifier hs-type">GetContactPolicy</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy"><span class="hs-identifier hs-type">GetContactPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679200921"><span class="annot"><span class="annottext">toHeaders :: GetContactPolicy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetContactPolicy -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SSMContacts.GetContactPolicy&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200911"><span id="local-6989586621679200913"><span id="local-6989586621679200915"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy"><span class="hs-identifier hs-type">GetContactPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679200909"><span class="annot"><span class="annottext">toJSON :: GetContactPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy%27"><span class="hs-identifier hs-type">GetContactPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200907"><span class="annot"><span class="annottext">Text
+contactArn :: Text
+$sel:contactArn:GetContactPolicy' :: GetContactPolicy -&gt; Text
+</span><a href="#local-6989586621679200907"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContactArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200907"><span class="hs-identifier hs-var">contactArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy"><span class="hs-identifier hs-type">GetContactPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679200901"><span class="annot"><span class="annottext">toPath :: GetContactPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetContactPolicy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicy"><span class="hs-identifier hs-type">GetContactPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679200897"><span class="annot"><span class="annottext">toQuery :: GetContactPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetContactPolicy -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | /See:/ 'newGetContactPolicyResponse' smart constructor.</span><span>
+</span><span id="line-125"></span><span id="local-6989586621679200894"><span id="local-6989586621679200895"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContactPolicyResponse"><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse"><span class="hs-identifier hs-var">GetContactPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContactPolicyResponse%27"><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse%27"><span class="hs-identifier hs-var">GetContactPolicyResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the contact or escalation plan.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AcontactArn%3AGetContactPolicyResponse%27"><span class="annot"><span class="annottext">GetContactPolicyResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#%24sel%3AcontactArn%3AGetContactPolicyResponse%27"><span class="hs-identifier hs-var hs-var">contactArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | Details about the resource policy attached to the contact or escalation</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- plan.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3Apolicy%3AGetContactPolicyResponse%27"><span class="annot"><span class="annottext">GetContactPolicyResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#%24sel%3Apolicy%3AGetContactPolicyResponse%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetContactPolicyResponse%27"><span class="annot"><span class="annottext">GetContactPolicyResponse -&gt; Int
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#%24sel%3AhttpStatus%3AGetContactPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200887"><span id="local-6989586621679200889"><span class="annot"><span class="annottext">GetContactPolicyResponse -&gt; GetContactPolicyResponse -&gt; Bool
+(GetContactPolicyResponse -&gt; GetContactPolicyResponse -&gt; Bool)
+-&gt; (GetContactPolicyResponse -&gt; GetContactPolicyResponse -&gt; Bool)
+-&gt; Eq GetContactPolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetContactPolicyResponse -&gt; GetContactPolicyResponse -&gt; Bool
+$c/= :: GetContactPolicyResponse -&gt; GetContactPolicyResponse -&gt; Bool
+== :: GetContactPolicyResponse -&gt; GetContactPolicyResponse -&gt; Bool
+$c== :: GetContactPolicyResponse -&gt; GetContactPolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200879"><span id="local-6989586621679200881"><span id="local-6989586621679200883"><span id="local-6989586621679200885"><span class="annot"><span class="annottext">ReadPrec [GetContactPolicyResponse]
+ReadPrec GetContactPolicyResponse
+Int -&gt; ReadS GetContactPolicyResponse
+ReadS [GetContactPolicyResponse]
+(Int -&gt; ReadS GetContactPolicyResponse)
+-&gt; ReadS [GetContactPolicyResponse]
+-&gt; ReadPrec GetContactPolicyResponse
+-&gt; ReadPrec [GetContactPolicyResponse]
+-&gt; Read GetContactPolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetContactPolicyResponse]
+$creadListPrec :: ReadPrec [GetContactPolicyResponse]
+readPrec :: ReadPrec GetContactPolicyResponse
+$creadPrec :: ReadPrec GetContactPolicyResponse
+readList :: ReadS [GetContactPolicyResponse]
+$creadList :: ReadS [GetContactPolicyResponse]
+readsPrec :: Int -&gt; ReadS GetContactPolicyResponse
+$creadsPrec :: Int -&gt; ReadS GetContactPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200873"><span id="local-6989586621679200875"><span id="local-6989586621679200877"><span class="annot"><span class="annottext">Int -&gt; GetContactPolicyResponse -&gt; ShowS
+[GetContactPolicyResponse] -&gt; ShowS
+GetContactPolicyResponse -&gt; String
+(Int -&gt; GetContactPolicyResponse -&gt; ShowS)
+-&gt; (GetContactPolicyResponse -&gt; String)
+-&gt; ([GetContactPolicyResponse] -&gt; ShowS)
+-&gt; Show GetContactPolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetContactPolicyResponse] -&gt; ShowS
+$cshowList :: [GetContactPolicyResponse] -&gt; ShowS
+show :: GetContactPolicyResponse -&gt; String
+$cshow :: GetContactPolicyResponse -&gt; String
+showsPrec :: Int -&gt; GetContactPolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetContactPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetContactPolicyResponse -&gt; Rep GetContactPolicyResponse x)
+-&gt; (forall x.
+    Rep GetContactPolicyResponse x -&gt; GetContactPolicyResponse)
+-&gt; Generic GetContactPolicyResponse
+forall x.
+Rep GetContactPolicyResponse x -&gt; GetContactPolicyResponse
+forall x.
+GetContactPolicyResponse -&gt; Rep GetContactPolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetContactPolicyResponse x -&gt; GetContactPolicyResponse
+$cfrom :: forall x.
+GetContactPolicyResponse -&gt; Rep GetContactPolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Create a value of 'GetContactPolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'contactArn', 'getContactPolicyResponse_contactArn' - The ARN of the contact or escalation plan.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'policy', 'getContactPolicyResponse_policy' - Details about the resource policy attached to the contact or escalation</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- plan.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'httpStatus', 'getContactPolicyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#newGetContactPolicyResponse"><span class="hs-identifier hs-type">newGetContactPolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse"><span class="hs-identifier hs-type">GetContactPolicyResponse</span></a></span><span>
+</span><span id="line-154"></span><span id="newGetContactPolicyResponse"><span class="annot"><span class="annottext">newGetContactPolicyResponse :: Int -&gt; GetContactPolicyResponse
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#newGetContactPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetContactPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679200870"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200870"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">GetContactPolicyResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; GetContactPolicyResponse
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse%27"><span class="hs-identifier hs-type">GetContactPolicyResponse'</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contactArn:GetContactPolicyResponse' :: Maybe Text
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#%24sel%3AcontactArn%3AGetContactPolicyResponse%27"><span class="hs-identifier hs-var">contactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:policy:GetContactPolicyResponse' :: Maybe Text
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#%24sel%3Apolicy%3AGetContactPolicyResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetContactPolicyResponse' :: Int
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#%24sel%3AhttpStatus%3AGetContactPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200870"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The ARN of the contact or escalation plan.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#getContactPolicyResponse_contactArn"><span class="hs-identifier hs-type">getContactPolicyResponse_contactArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse"><span class="hs-identifier hs-type">GetContactPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="getContactPolicyResponse_contactArn"><span class="annot"><span class="annottext">getContactPolicyResponse_contactArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetContactPolicyResponse -&gt; f GetContactPolicyResponse
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#getContactPolicyResponse_contactArn"><span class="hs-identifier hs-var hs-var">getContactPolicyResponse_contactArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContactPolicyResponse -&gt; Maybe Text)
+-&gt; (GetContactPolicyResponse
+    -&gt; Maybe Text -&gt; GetContactPolicyResponse)
+-&gt; Lens
+     GetContactPolicyResponse
+     GetContactPolicyResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse%27"><span class="hs-identifier hs-type">GetContactPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200869"><span class="annot"><span class="annottext">Maybe Text
+contactArn :: Maybe Text
+$sel:contactArn:GetContactPolicyResponse' :: GetContactPolicyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679200869"><span class="hs-identifier hs-var hs-var">contactArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200869"><span class="hs-identifier hs-var">contactArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200868"><span class="annot"><span class="annottext">s :: GetContactPolicyResponse
+</span><a href="#local-6989586621679200868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse%27"><span class="hs-identifier hs-type">GetContactPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200867"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContactPolicyResponse
+</span><a href="#local-6989586621679200868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactArn:GetContactPolicyResponse' :: Maybe Text
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#%24sel%3AcontactArn%3AGetContactPolicyResponse%27"><span class="hs-identifier hs-var">contactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse"><span class="hs-identifier hs-type">GetContactPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | Details about the resource policy attached to the contact or escalation</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- plan.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#getContactPolicyResponse_policy"><span class="hs-identifier hs-type">getContactPolicyResponse_policy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse"><span class="hs-identifier hs-type">GetContactPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="getContactPolicyResponse_policy"><span class="annot"><span class="annottext">getContactPolicyResponse_policy :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetContactPolicyResponse -&gt; f GetContactPolicyResponse
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#getContactPolicyResponse_policy"><span class="hs-identifier hs-var hs-var">getContactPolicyResponse_policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContactPolicyResponse -&gt; Maybe Text)
+-&gt; (GetContactPolicyResponse
+    -&gt; Maybe Text -&gt; GetContactPolicyResponse)
+-&gt; Lens
+     GetContactPolicyResponse
+     GetContactPolicyResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse%27"><span class="hs-identifier hs-type">GetContactPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200866"><span class="annot"><span class="annottext">Maybe Text
+policy :: Maybe Text
+$sel:policy:GetContactPolicyResponse' :: GetContactPolicyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679200866"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200866"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200865"><span class="annot"><span class="annottext">s :: GetContactPolicyResponse
+</span><a href="#local-6989586621679200865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse%27"><span class="hs-identifier hs-type">GetContactPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200864"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContactPolicyResponse
+</span><a href="#local-6989586621679200865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:GetContactPolicyResponse' :: Maybe Text
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#%24sel%3Apolicy%3AGetContactPolicyResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse"><span class="hs-identifier hs-type">GetContactPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#getContactPolicyResponse_httpStatus"><span class="hs-identifier hs-type">getContactPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse"><span class="hs-identifier hs-type">GetContactPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span id="getContactPolicyResponse_httpStatus"><span class="annot"><span class="annottext">getContactPolicyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetContactPolicyResponse -&gt; f GetContactPolicyResponse
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#getContactPolicyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getContactPolicyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetContactPolicyResponse -&gt; Int)
+-&gt; (GetContactPolicyResponse -&gt; Int -&gt; GetContactPolicyResponse)
+-&gt; Lens GetContactPolicyResponse GetContactPolicyResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse%27"><span class="hs-identifier hs-type">GetContactPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200863"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetContactPolicyResponse' :: GetContactPolicyResponse -&gt; Int
+</span><a href="#local-6989586621679200863"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200863"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200862"><span class="annot"><span class="annottext">s :: GetContactPolicyResponse
+</span><a href="#local-6989586621679200862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse%27"><span class="hs-identifier hs-type">GetContactPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200861"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContactPolicyResponse
+</span><a href="#local-6989586621679200862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetContactPolicyResponse' :: Int
+</span><a href="Network.AWS.SSMContacts.GetContactPolicy.html#%24sel%3AhttpStatus%3AGetContactPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse"><span class="hs-identifier hs-type">GetContactPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.GetContactPolicy.html#GetContactPolicyResponse"><span class="hs-identifier hs-type">GetContactPolicyResponse</span></a></span></span><span>
+</span><span id="line-176"></span></pre></body></html>

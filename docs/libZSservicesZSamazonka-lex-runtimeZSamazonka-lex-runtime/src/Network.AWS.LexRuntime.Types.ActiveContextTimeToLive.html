@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The length of time or number of turns that a context remains active.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newActiveContextTimeToLive' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679172264"><span id="local-6989586621679172265"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActiveContextTimeToLive"><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive"><span class="hs-identifier hs-var">ActiveContextTimeToLive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActiveContextTimeToLive%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive%27"><span class="hs-identifier hs-var">ActiveContextTimeToLive'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679172273"><span id="local-6989586621679172274"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActiveContextTimeToLive"><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive"><span class="hs-identifier hs-var">ActiveContextTimeToLive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActiveContextTimeToLive%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive%27"><span class="hs-identifier hs-var">ActiveContextTimeToLive'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of conversation turns that the context should be active. A</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- conversation turn is one @PostContent@ or @PostText@ request and the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- corresponding response from Amazon Lex.</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AtimeToLiveInSeconds%3AActiveContextTimeToLive%27"><span class="annot"><span class="annottext">ActiveContextTimeToLive -&gt; Maybe Natural
 </span><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#%24sel%3AtimeToLiveInSeconds%3AActiveContextTimeToLive%27"><span class="hs-identifier hs-var hs-var">timeToLiveInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172257"><span id="local-6989586621679172259"><span class="annot"><span class="annottext">ActiveContextTimeToLive -&gt; ActiveContextTimeToLive -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172266"><span id="local-6989586621679172268"><span class="annot"><span class="annottext">ActiveContextTimeToLive -&gt; ActiveContextTimeToLive -&gt; Bool
 (ActiveContextTimeToLive -&gt; ActiveContextTimeToLive -&gt; Bool)
 -&gt; (ActiveContextTimeToLive -&gt; ActiveContextTimeToLive -&gt; Bool)
 -&gt; Eq ActiveContextTimeToLive
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActiveContextTimeToLive -&gt; ActiveContextTimeToLive -&gt; Bool
 == :: ActiveContextTimeToLive -&gt; ActiveContextTimeToLive -&gt; Bool
 $c== :: ActiveContextTimeToLive -&gt; ActiveContextTimeToLive -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172248"><span id="local-6989586621679172250"><span id="local-6989586621679172252"><span id="local-6989586621679172254"><span class="annot"><span class="annottext">ReadPrec [ActiveContextTimeToLive]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172257"><span id="local-6989586621679172259"><span id="local-6989586621679172261"><span id="local-6989586621679172263"><span class="annot"><span class="annottext">ReadPrec [ActiveContextTimeToLive]
 ReadPrec ActiveContextTimeToLive
 Int -&gt; ReadS ActiveContextTimeToLive
 ReadS [ActiveContextTimeToLive]
@@ -67,7 +67,7 @@ readList :: ReadS [ActiveContextTimeToLive]
 $creadList :: ReadS [ActiveContextTimeToLive]
 readsPrec :: Int -&gt; ReadS ActiveContextTimeToLive
 $creadsPrec :: Int -&gt; ReadS ActiveContextTimeToLive
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172241"><span id="local-6989586621679172243"><span id="local-6989586621679172245"><span class="annot"><span class="annottext">Int -&gt; ActiveContextTimeToLive -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172250"><span id="local-6989586621679172252"><span id="local-6989586621679172254"><span class="annot"><span class="annottext">Int -&gt; ActiveContextTimeToLive -&gt; ShowS
 [ActiveContextTimeToLive] -&gt; ShowS
 ActiveContextTimeToLive -&gt; String
 (Int -&gt; ActiveContextTimeToLive -&gt; ShowS)
@@ -142,16 +142,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive%27"><span class="hs-identifier hs-type">ActiveContextTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172232"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive%27"><span class="hs-identifier hs-type">ActiveContextTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172241"><span class="annot"><span class="annottext">Maybe Natural
 turnsToLive :: Maybe Natural
 $sel:turnsToLive:ActiveContextTimeToLive' :: ActiveContextTimeToLive -&gt; Maybe Natural
-</span><a href="#local-6989586621679172232"><span class="hs-identifier hs-var hs-var">turnsToLive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679172232"><span class="hs-identifier hs-var">turnsToLive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172231"><span class="annot"><span class="annottext">s :: ActiveContextTimeToLive
-</span><a href="#local-6989586621679172231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive%27"><span class="hs-identifier hs-type">ActiveContextTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172230"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679172230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveContextTimeToLive
-</span><a href="#local-6989586621679172231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:turnsToLive:ActiveContextTimeToLive' :: Maybe Natural
+</span><a href="#local-6989586621679172241"><span class="hs-identifier hs-var hs-var">turnsToLive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679172241"><span class="hs-identifier hs-var">turnsToLive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172240"><span class="annot"><span class="annottext">s :: ActiveContextTimeToLive
+</span><a href="#local-6989586621679172240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive%27"><span class="hs-identifier hs-type">ActiveContextTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172239"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679172239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveContextTimeToLive
+</span><a href="#local-6989586621679172240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:turnsToLive:ActiveContextTimeToLive' :: Maybe Natural
 </span><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#%24sel%3AturnsToLive%3AActiveContextTimeToLive%27"><span class="hs-identifier hs-var">turnsToLive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679172230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive"><span class="hs-identifier hs-type">ActiveContextTimeToLive</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive"><span class="hs-identifier hs-type">ActiveContextTimeToLive</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The number of seconds that the context should be active after it is</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- first sent in a @PostContent@ or @PostText@ response. You can set the</span><span>
@@ -168,19 +168,19 @@ $sel:turnsToLive:ActiveContextTimeToLive' :: ActiveContextTimeToLive -&gt; Maybe
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive%27"><span class="hs-identifier hs-type">ActiveContextTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172228"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive%27"><span class="hs-identifier hs-type">ActiveContextTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172237"><span class="annot"><span class="annottext">Maybe Natural
 timeToLiveInSeconds :: Maybe Natural
 $sel:timeToLiveInSeconds:ActiveContextTimeToLive' :: ActiveContextTimeToLive -&gt; Maybe Natural
-</span><a href="#local-6989586621679172228"><span class="hs-identifier hs-var hs-var">timeToLiveInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679172228"><span class="hs-identifier hs-var">timeToLiveInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172227"><span class="annot"><span class="annottext">s :: ActiveContextTimeToLive
-</span><a href="#local-6989586621679172227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive%27"><span class="hs-identifier hs-type">ActiveContextTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172226"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679172226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveContextTimeToLive
-</span><a href="#local-6989586621679172227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeToLiveInSeconds:ActiveContextTimeToLive' :: Maybe Natural
+</span><a href="#local-6989586621679172237"><span class="hs-identifier hs-var hs-var">timeToLiveInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679172237"><span class="hs-identifier hs-var">timeToLiveInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172236"><span class="annot"><span class="annottext">s :: ActiveContextTimeToLive
+</span><a href="#local-6989586621679172236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive%27"><span class="hs-identifier hs-type">ActiveContextTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172235"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679172235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveContextTimeToLive
+</span><a href="#local-6989586621679172236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeToLiveInSeconds:ActiveContextTimeToLive' :: Maybe Natural
 </span><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#%24sel%3AtimeToLiveInSeconds%3AActiveContextTimeToLive%27"><span class="hs-identifier hs-var">timeToLiveInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679172226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive"><span class="hs-identifier hs-type">ActiveContextTimeToLive</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive"><span class="hs-identifier hs-type">ActiveContextTimeToLive</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172223"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive"><span class="hs-identifier hs-type">ActiveContextTimeToLive</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679172221"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActiveContextTimeToLive
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172232"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive"><span class="hs-identifier hs-type">ActiveContextTimeToLive</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679172230"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActiveContextTimeToLive
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ActiveContextTimeToLive)
@@ -190,8 +190,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ActiveContextTimeToLive&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679172218"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172218"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679172227"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172227"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Natural -&gt; ActiveContextTimeToLive
 </span><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive%27"><span class="hs-identifier hs-var">ActiveContextTimeToLive'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Natural -&gt; ActiveContextTimeToLive)
@@ -199,7 +199,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; ActiveContextTimeToLive)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679172227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;turnsToLive&quot;</span></span><span class="hs-special">)</span><span>
@@ -207,24 +207,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser ActiveContextTimeToLive
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679172227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeToLiveInSeconds&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172212"><span id="local-6989586621679172214"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive"><span class="hs-identifier hs-type">ActiveContextTimeToLive</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172221"><span id="local-6989586621679172223"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive"><span class="hs-identifier hs-type">ActiveContextTimeToLive</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172209"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive"><span class="hs-identifier hs-type">ActiveContextTimeToLive</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172218"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive"><span class="hs-identifier hs-type">ActiveContextTimeToLive</span></a></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172201"><span id="local-6989586621679172203"><span id="local-6989586621679172205"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive"><span class="hs-identifier hs-type">ActiveContextTimeToLive</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679172199"><span class="annot"><span class="annottext">toJSON :: ActiveContextTimeToLive -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive%27"><span class="hs-identifier hs-type">ActiveContextTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172196"><span id="local-6989586621679172197"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172210"><span id="local-6989586621679172212"><span id="local-6989586621679172214"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive"><span class="hs-identifier hs-type">ActiveContextTimeToLive</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679172208"><span class="annot"><span class="annottext">toJSON :: ActiveContextTimeToLive -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.ActiveContextTimeToLive.html#ActiveContextTimeToLive%27"><span class="hs-identifier hs-type">ActiveContextTimeToLive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172205"><span id="local-6989586621679172206"><span class="annot"><span class="annottext">Maybe Natural
 timeToLiveInSeconds :: Maybe Natural
 turnsToLive :: Maybe Natural
 $sel:timeToLiveInSeconds:ActiveContextTimeToLive' :: ActiveContextTimeToLive -&gt; Maybe Natural
 $sel:turnsToLive:ActiveContextTimeToLive' :: ActiveContextTimeToLive -&gt; Maybe Natural
-</span><a href="#local-6989586621679172196"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679172205"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -236,7 +236,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679172197"><span class="hs-identifier hs-var">turnsToLive</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679172206"><span class="hs-identifier hs-var">turnsToLive</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeToLiveInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -244,7 +244,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679172196"><span class="hs-identifier hs-var">timeToLiveInSeconds</span></a></span><span>
+</span><a href="#local-6989586621679172205"><span class="hs-identifier hs-var">timeToLiveInSeconds</span></a></span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span></pre></body></html>

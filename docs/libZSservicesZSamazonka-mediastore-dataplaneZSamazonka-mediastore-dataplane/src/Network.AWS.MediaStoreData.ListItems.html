@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListItems' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679148065"><span id="local-6989586621679148066"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListItems"><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-var">ListItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListItems%27"><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-var">ListItems'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679148074"><span id="local-6989586621679148075"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListItems"><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-var">ListItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListItems%27"><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-var">ListItems'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path in the container from which to retrieve items. Format: \&lt;folder</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- name&gt;\/\&lt;folder name&gt;\/\&lt;file name&gt;</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3Apath%3AListItems%27"><span class="annot"><span class="annottext">ListItems -&gt; Maybe Text
@@ -79,7 +79,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AmaxResults%3AListItems%27"><span class="annot"><span class="annottext">ListItems -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AmaxResults%3AListItems%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679148057"><span id="local-6989586621679148059"><span class="annot"><span class="annottext">ListItems -&gt; ListItems -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679148066"><span id="local-6989586621679148068"><span class="annot"><span class="annottext">ListItems -&gt; ListItems -&gt; Bool
 (ListItems -&gt; ListItems -&gt; Bool)
 -&gt; (ListItems -&gt; ListItems -&gt; Bool) -&gt; Eq ListItems
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListItems -&gt; ListItems -&gt; Bool
 == :: ListItems -&gt; ListItems -&gt; Bool
 $c== :: ListItems -&gt; ListItems -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148048"><span id="local-6989586621679148050"><span id="local-6989586621679148052"><span id="local-6989586621679148054"><span class="annot"><span class="annottext">ReadPrec [ListItems]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148057"><span id="local-6989586621679148059"><span id="local-6989586621679148061"><span id="local-6989586621679148063"><span class="annot"><span class="annottext">ReadPrec [ListItems]
 ReadPrec ListItems
 Int -&gt; ReadS ListItems
 ReadS [ListItems]
@@ -107,7 +107,7 @@ readList :: ReadS [ListItems]
 $creadList :: ReadS [ListItems]
 readsPrec :: Int -&gt; ReadS ListItems
 $creadsPrec :: Int -&gt; ReadS ListItems
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148041"><span id="local-6989586621679148043"><span id="local-6989586621679148045"><span class="annot"><span class="annottext">Int -&gt; ListItems -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148050"><span id="local-6989586621679148052"><span id="local-6989586621679148054"><span class="annot"><span class="annottext">Int -&gt; ListItems -&gt; ShowS
 [ListItems] -&gt; ShowS
 ListItems -&gt; String
 (Int -&gt; ListItems -&gt; ShowS)
@@ -188,16 +188,16 @@ forall a. Maybe a
 -&gt; (ListItems -&gt; Maybe Text -&gt; ListItems)
 -&gt; Lens ListItems ListItems (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148035"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148044"><span class="annot"><span class="annottext">Maybe Text
 path :: Maybe Text
 $sel:path:ListItems' :: ListItems -&gt; Maybe Text
-</span><a href="#local-6989586621679148035"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679148035"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148034"><span class="annot"><span class="annottext">s :: ListItems
-</span><a href="#local-6989586621679148034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148033"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679148033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItems
-</span><a href="#local-6989586621679148034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:ListItems' :: Maybe Text
+</span><a href="#local-6989586621679148044"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679148044"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148043"><span class="annot"><span class="annottext">s :: ListItems
+</span><a href="#local-6989586621679148043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148042"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679148042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItems
+</span><a href="#local-6989586621679148043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:ListItems' :: Maybe Text
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3Apath%3AListItems%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679148033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679148042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The token that identifies which batch of results that you want to see.</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- For example, you submit a @ListItems@ request with @MaxResults@ set at</span><span>
@@ -212,16 +212,16 @@ $sel:path:ListItems' :: ListItems -&gt; Maybe Text
 -&gt; (ListItems -&gt; Maybe Text -&gt; ListItems)
 -&gt; Lens ListItems ListItems (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148032"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148041"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListItems' :: ListItems -&gt; Maybe Text
-</span><a href="#local-6989586621679148032"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679148032"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148031"><span class="annot"><span class="annottext">s :: ListItems
-</span><a href="#local-6989586621679148031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148030"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679148030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItems
-</span><a href="#local-6989586621679148031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListItems' :: Maybe Text
+</span><a href="#local-6989586621679148041"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679148041"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148040"><span class="annot"><span class="annottext">s :: ListItems
+</span><a href="#local-6989586621679148040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148039"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679148039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItems
+</span><a href="#local-6989586621679148040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListItems' :: Maybe Text
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AnextToken%3AListItems%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679148030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679148039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The maximum number of results to return per API request. For example,</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- you submit a @ListItems@ request with @MaxResults@ set at 500. Although</span><span>
@@ -238,28 +238,28 @@ $sel:nextToken:ListItems' :: ListItems -&gt; Maybe Text
 -&gt; (ListItems -&gt; Maybe Natural -&gt; ListItems)
 -&gt; Lens ListItems ListItems (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148029"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148038"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListItems' :: ListItems -&gt; Maybe Natural
-</span><a href="#local-6989586621679148029"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679148029"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148028"><span class="annot"><span class="annottext">s :: ListItems
-</span><a href="#local-6989586621679148028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148027"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679148027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItems
-</span><a href="#local-6989586621679148028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListItems' :: Maybe Natural
+</span><a href="#local-6989586621679148038"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679148038"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148037"><span class="annot"><span class="annottext">s :: ListItems
+</span><a href="#local-6989586621679148037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148036"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679148036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItems
+</span><a href="#local-6989586621679148037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListItems' :: Maybe Natural
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AmaxResults%3AListItems%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679148027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679148036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679148023"><span class="annot"><span class="annottext">page :: ListItems -&gt; AWSResponse ListItems -&gt; Maybe ListItems
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679148021"><span class="annot"><span class="annottext">ListItems
-</span><a href="#local-6989586621679148021"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679148020"><span class="annot"><span class="annottext">AWSResponse ListItems
-</span><a href="#local-6989586621679148020"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679148032"><span class="annot"><span class="annottext">page :: ListItems -&gt; AWSResponse ListItems -&gt; Maybe ListItems
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679148030"><span class="annot"><span class="annottext">ListItems
+</span><a href="#local-6989586621679148030"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679148029"><span class="annot"><span class="annottext">AWSResponse ListItems
+</span><a href="#local-6989586621679148029"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-148"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListItems
 ListItemsResponse
-</span><a href="#local-6989586621679148020"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679148029"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">ListItemsResponse
 -&gt; Getting (First Text) ListItemsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -285,7 +285,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-153"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListItems
 ListItemsResponse
-</span><a href="#local-6989586621679148020"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679148029"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">ListItemsResponse
 -&gt; Getting (First [Item]) ListItemsResponse [Item] -&gt; Maybe [Item]
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -314,7 +314,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ListItems
-</span><a href="#local-6989586621679148021"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679148030"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">ListItems -&gt; (ListItems -&gt; ListItems) -&gt; ListItems
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -327,7 +327,7 @@ Lens ListItems ListItems (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListItems
 ListItemsResponse
-</span><a href="#local-6989586621679148020"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679148029"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">ListItemsResponse
 -&gt; Getting (First Text) ListItemsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -347,12 +347,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679148010"><span class="annot"><span class="annottext">request :: ListItems -&gt; Request ListItems
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679148019"><span class="annot"><span class="annottext">request :: ListItems -&gt; Request ListItems
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListItems -&gt; Request ListItems
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaStoreData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679148006"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679148015"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListItems
 -&gt; ClientResponse ClientBody
@@ -376,10 +376,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679148003"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679148003"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679148002"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679148002"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679148001"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679148001"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679148012"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148012"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679148011"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679148011"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679148010"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679148010"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Item] -&gt; Maybe Text -&gt; Int -&gt; ListItemsResponse
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-var">ListItemsResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Item] -&gt; Maybe Text -&gt; Int -&gt; ListItemsResponse)
@@ -387,7 +387,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListItemsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679148001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Item]))
+</span><a href="#local-6989586621679148010"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Item]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Item]))
@@ -401,7 +401,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListItemsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679148001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679148010"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -413,15 +413,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679148003"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679148012"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679147992"><span id="local-6989586621679147994"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679148001"><span id="local-6989586621679148003"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679147989"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679147998"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679147985"><span class="annot"><span class="annottext">toHeaders :: ListItems -&gt; ResponseHeaders
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679147994"><span class="annot"><span class="annottext">toHeaders :: ListItems -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListItems -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -429,15 +429,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679147980"><span class="annot"><span class="annottext">toPath :: ListItems -&gt; ByteString
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679147989"><span class="annot"><span class="annottext">toPath :: ListItems -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListItems -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679147976"><span class="annot"><span class="annottext">toQuery :: ListItems -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147972"><span id="local-6989586621679147973"><span id="local-6989586621679147974"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679147985"><span class="annot"><span class="annottext">toQuery :: ListItems -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147981"><span id="local-6989586621679147982"><span id="local-6989586621679147983"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
@@ -445,7 +445,7 @@ path :: Maybe Text
 $sel:maxResults:ListItems' :: ListItems -&gt; Maybe Natural
 $sel:nextToken:ListItems' :: ListItems -&gt; Maybe Text
 $sel:path:ListItems' :: ListItems -&gt; Maybe Text
-</span><a href="#local-6989586621679147972"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679147981"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -453,21 +453,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Path&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679147974"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679147983"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679147973"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679147982"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679147972"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679147981"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-192"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | /See:/ 'newListItemsResponse' smart constructor.</span><span>
-</span><span id="line-195"></span><span id="local-6989586621679147969"><span id="local-6989586621679147970"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListItemsResponse"><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-var">ListItemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListItemsResponse%27"><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-var">ListItemsResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span id="local-6989586621679147978"><span id="local-6989586621679147979"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListItemsResponse"><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-var">ListItemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListItemsResponse%27"><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-var">ListItemsResponse'</span></a></span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The metadata entries for the folders and objects at the requested path.</span><span>
 </span><span id="line-197"></span><span>    </span><span id="%24sel%3Aitems%3AListItemsResponse%27"><span class="annot"><span class="annottext">ListItemsResponse -&gt; Maybe [Item]
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3Aitems%3AListItemsResponse%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -482,7 +482,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-205"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListItemsResponse%27"><span class="annot"><span class="annottext">ListItemsResponse -&gt; Int
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AhttpStatus%3AListItemsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-206"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-207"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679147962"><span id="local-6989586621679147964"><span class="annot"><span class="annottext">ListItemsResponse -&gt; ListItemsResponse -&gt; Bool
+</span><span id="line-207"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679147971"><span id="local-6989586621679147973"><span class="annot"><span class="annottext">ListItemsResponse -&gt; ListItemsResponse -&gt; Bool
 (ListItemsResponse -&gt; ListItemsResponse -&gt; Bool)
 -&gt; (ListItemsResponse -&gt; ListItemsResponse -&gt; Bool)
 -&gt; Eq ListItemsResponse
@@ -491,7 +491,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListItemsResponse -&gt; ListItemsResponse -&gt; Bool
 == :: ListItemsResponse -&gt; ListItemsResponse -&gt; Bool
 $c== :: ListItemsResponse -&gt; ListItemsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679147954"><span id="local-6989586621679147956"><span id="local-6989586621679147958"><span id="local-6989586621679147960"><span class="annot"><span class="annottext">ReadPrec [ListItemsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679147963"><span id="local-6989586621679147965"><span id="local-6989586621679147967"><span id="local-6989586621679147969"><span class="annot"><span class="annottext">ReadPrec [ListItemsResponse]
 ReadPrec ListItemsResponse
 Int -&gt; ReadS ListItemsResponse
 ReadS [ListItemsResponse]
@@ -511,7 +511,7 @@ readList :: ReadS [ListItemsResponse]
 $creadList :: ReadS [ListItemsResponse]
 readsPrec :: Int -&gt; ReadS ListItemsResponse
 $creadsPrec :: Int -&gt; ReadS ListItemsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679147948"><span id="local-6989586621679147950"><span id="local-6989586621679147952"><span class="annot"><span class="annottext">Int -&gt; ListItemsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679147957"><span id="local-6989586621679147959"><span id="local-6989586621679147961"><span class="annot"><span class="annottext">Int -&gt; ListItemsResponse -&gt; ShowS
 [ListItemsResponse] -&gt; ShowS
 ListItemsResponse -&gt; String
 (Int -&gt; ListItemsResponse -&gt; ShowS)
@@ -559,8 +559,8 @@ $cfrom :: forall x. ListItemsResponse -&gt; Rep ListItemsResponse x
 </span><span id="line-228"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-229"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span>
 </span><span id="line-230"></span><span id="newListItemsResponse"><span class="annot"><span class="annottext">newListItemsResponse :: Int -&gt; ListItemsResponse
-</span><a href="Network.AWS.MediaStoreData.ListItems.html#newListItemsResponse"><span class="hs-identifier hs-var hs-var">newListItemsResponse</span></a></span></span><span> </span><span id="local-6989586621679147945"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679147945"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStoreData.ListItems.html#newListItemsResponse"><span class="hs-identifier hs-var hs-var">newListItemsResponse</span></a></span></span><span> </span><span id="local-6989586621679147954"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679147954"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-231"></span><span>  </span><span class="annot"><span class="annottext">ListItemsResponse' :: Maybe [Item] -&gt; Maybe Text -&gt; Int -&gt; ListItemsResponse
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span>
 </span><span id="line-232"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:ListItemsResponse' :: Maybe [Item]
@@ -573,7 +573,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListItemsResponse' :: Int
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AhttpStatus%3AListItemsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679147945"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679147954"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-235"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | The metadata entries for the folders and objects at the requested path.</span><span>
@@ -584,16 +584,16 @@ forall a. Maybe a
 -&gt; (ListItemsResponse -&gt; Maybe [Item] -&gt; ListItemsResponse)
 -&gt; Lens' ListItemsResponse (Maybe [Item])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147944"><span class="annot"><span class="annottext">Maybe [Item]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147953"><span class="annot"><span class="annottext">Maybe [Item]
 items :: Maybe [Item]
 $sel:items:ListItemsResponse' :: ListItemsResponse -&gt; Maybe [Item]
-</span><a href="#local-6989586621679147944"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
-</span><a href="#local-6989586621679147944"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679147943"><span class="annot"><span class="annottext">s :: ListItemsResponse
-</span><a href="#local-6989586621679147943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679147942"><span class="annot"><span class="annottext">Maybe [Item]
-</span><a href="#local-6989586621679147942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItemsResponse
-</span><a href="#local-6989586621679147943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:ListItemsResponse' :: Maybe [Item]
+</span><a href="#local-6989586621679147953"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
+</span><a href="#local-6989586621679147953"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679147952"><span class="annot"><span class="annottext">s :: ListItemsResponse
+</span><a href="#local-6989586621679147952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679147951"><span class="annot"><span class="annottext">Maybe [Item]
+</span><a href="#local-6989586621679147951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItemsResponse
+</span><a href="#local-6989586621679147952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:ListItemsResponse' :: Maybe [Item]
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3Aitems%3AListItemsResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
-</span><a href="#local-6989586621679147942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Item] -&gt; f (Maybe [Item]))
+</span><a href="#local-6989586621679147951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Item] -&gt; f (Maybe [Item]))
  -&gt; ListItemsResponse -&gt; f ListItemsResponse)
 -&gt; ((Maybe [Item] -&gt; f (Maybe [Item]))
     -&gt; Maybe [Item] -&gt; f (Maybe [Item]))
@@ -622,16 +622,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListItemsResponse -&gt; Maybe Text -&gt; ListItemsResponse)
 -&gt; Lens' ListItemsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147939"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147948"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListItemsResponse' :: ListItemsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679147939"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679147939"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679147938"><span class="annot"><span class="annottext">s :: ListItemsResponse
-</span><a href="#local-6989586621679147938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679147937"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679147937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItemsResponse
-</span><a href="#local-6989586621679147938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListItemsResponse' :: Maybe Text
+</span><a href="#local-6989586621679147948"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679147948"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679147947"><span class="annot"><span class="annottext">s :: ListItemsResponse
+</span><a href="#local-6989586621679147947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679147946"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679147946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItemsResponse
+</span><a href="#local-6989586621679147947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListItemsResponse' :: Maybe Text
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AnextToken%3AListItemsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679147937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679147946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-250"></span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItemsResponse_httpStatus"><span class="hs-identifier hs-type">listItemsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -640,16 +640,16 @@ $sel:nextToken:ListItemsResponse' :: ListItemsResponse -&gt; Maybe Text
 -&gt; (ListItemsResponse -&gt; Int -&gt; ListItemsResponse)
 -&gt; Lens ListItemsResponse ListItemsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147936"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147945"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListItemsResponse' :: ListItemsResponse -&gt; Int
-</span><a href="#local-6989586621679147936"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679147936"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679147935"><span class="annot"><span class="annottext">s :: ListItemsResponse
-</span><a href="#local-6989586621679147935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679147934"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679147934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItemsResponse
-</span><a href="#local-6989586621679147935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListItemsResponse' :: Int
+</span><a href="#local-6989586621679147945"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679147945"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679147944"><span class="annot"><span class="annottext">s :: ListItemsResponse
+</span><a href="#local-6989586621679147944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679147943"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679147943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItemsResponse
+</span><a href="#local-6989586621679147944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListItemsResponse' :: Int
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AhttpStatus%3AListItemsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679147934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679147943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679147932"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679147941"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span></span><span>
 </span><span id="line-254"></span></pre></body></html>

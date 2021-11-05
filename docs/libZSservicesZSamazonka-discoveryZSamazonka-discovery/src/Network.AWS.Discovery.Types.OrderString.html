@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679204752"><span id="local-6989586621679204753"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OrderString"><span class="annot"><a href="Network.AWS.Discovery.Types.OrderString.html#OrderString"><span class="hs-identifier hs-var">OrderString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrderString%27"><span class="annot"><a href="Network.AWS.Discovery.Types.OrderString.html#OrderString%27"><span class="hs-identifier hs-var">OrderString'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679204761"><span id="local-6989586621679204762"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OrderString"><span class="annot"><a href="Network.AWS.Discovery.Types.OrderString.html#OrderString"><span class="hs-identifier hs-var">OrderString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrderString%27"><span class="annot"><a href="Network.AWS.Discovery.Types.OrderString.html#OrderString%27"><span class="hs-identifier hs-var">OrderString'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOrderString"><span class="annot"><span class="annottext">OrderString -&gt; Text
 </span><a href="Network.AWS.Discovery.Types.OrderString.html#fromOrderString"><span class="hs-identifier hs-var hs-var">fromOrderString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679204744"><span id="local-6989586621679204746"><span id="local-6989586621679204748"><span class="annot"><span class="annottext">Int -&gt; OrderString -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679204753"><span id="local-6989586621679204755"><span id="local-6989586621679204757"><span class="annot"><span class="annottext">Int -&gt; OrderString -&gt; ShowS
 [OrderString] -&gt; ShowS
 OrderString -&gt; String
 (Int -&gt; OrderString -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: OrderString -&gt; String
 showsPrec :: Int -&gt; OrderString -&gt; ShowS
 $cshowsPrec :: Int -&gt; OrderString -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679204735"><span id="local-6989586621679204737"><span id="local-6989586621679204739"><span id="local-6989586621679204741"><span class="annot"><span class="annottext">ReadPrec [OrderString]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679204744"><span id="local-6989586621679204746"><span id="local-6989586621679204748"><span id="local-6989586621679204750"><span class="annot"><span class="annottext">ReadPrec [OrderString]
 ReadPrec OrderString
 Int -&gt; ReadS OrderString
 ReadS [OrderString]
@@ -72,7 +72,7 @@ $creadList :: ReadS [OrderString]
 readsPrec :: Int -&gt; ReadS OrderString
 $creadsPrec :: Int -&gt; ReadS OrderString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679204730"><span id="local-6989586621679204732"><span class="annot"><span class="annottext">OrderString -&gt; OrderString -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679204739"><span id="local-6989586621679204741"><span class="annot"><span class="annottext">OrderString -&gt; OrderString -&gt; Bool
 (OrderString -&gt; OrderString -&gt; Bool)
 -&gt; (OrderString -&gt; OrderString -&gt; Bool) -&gt; Eq OrderString
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: OrderString -&gt; OrderString -&gt; Bool
 == :: OrderString -&gt; OrderString -&gt; Bool
 $c== :: OrderString -&gt; OrderString -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679204714"><span id="local-6989586621679204716"><span id="local-6989586621679204718"><span id="local-6989586621679204720"><span id="local-6989586621679204722"><span id="local-6989586621679204724"><span id="local-6989586621679204726"><span class="annot"><span class="annottext">Eq OrderString
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679204723"><span id="local-6989586621679204725"><span id="local-6989586621679204727"><span id="local-6989586621679204729"><span id="local-6989586621679204731"><span id="local-6989586621679204733"><span id="local-6989586621679204735"><span class="annot"><span class="annottext">Eq OrderString
 Eq OrderString
 -&gt; (OrderString -&gt; OrderString -&gt; Ordering)
 -&gt; (OrderString -&gt; OrderString -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. OrderString -&gt; Rep OrderString x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679204706"><span id="local-6989586621679204708"><span class="annot"><span class="annottext">Int -&gt; OrderString -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679204715"><span id="local-6989586621679204717"><span class="annot"><span class="annottext">Int -&gt; OrderString -&gt; Int
 OrderString -&gt; Int
 (Int -&gt; OrderString -&gt; Int)
 -&gt; (OrderString -&gt; Int) -&gt; Hashable OrderString
@@ -142,49 +142,49 @@ $chash :: OrderString -&gt; Int
 hashWithSalt :: Int -&gt; OrderString -&gt; Int
 $chashWithSalt :: Int -&gt; OrderString -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679204703"><span class="annot"><span class="annottext">OrderString -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679204712"><span class="annot"><span class="annottext">OrderString -&gt; ()
 (OrderString -&gt; ()) -&gt; NFData OrderString
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OrderString -&gt; ()
 $crnf :: OrderString -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679204700"><span class="annot"><span class="annottext">Text -&gt; Either String OrderString
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679204709"><span class="annot"><span class="annottext">Text -&gt; Either String OrderString
 (Text -&gt; Either String OrderString) -&gt; FromText OrderString
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OrderString
 $cfromText :: Text -&gt; Either String OrderString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679204697"><span class="annot"><span class="annottext">OrderString -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679204706"><span class="annot"><span class="annottext">OrderString -&gt; Text
 (OrderString -&gt; Text) -&gt; ToText OrderString
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OrderString -&gt; Text
 $ctoText :: OrderString -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679204694"><span class="annot"><span class="annottext">OrderString -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679204703"><span class="annot"><span class="annottext">OrderString -&gt; ByteString
 (OrderString -&gt; ByteString) -&gt; ToByteString OrderString
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OrderString -&gt; ByteString
 $ctoBS :: OrderString -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679204691"><span class="annot"><span class="annottext">OrderString -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679204700"><span class="annot"><span class="annottext">OrderString -&gt; ByteStringBuilder
 (OrderString -&gt; ByteStringBuilder) -&gt; ToLog OrderString
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OrderString -&gt; ByteStringBuilder
 $cbuild :: OrderString -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679204688"><span class="annot"><span class="annottext">HeaderName -&gt; OrderString -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679204697"><span class="annot"><span class="annottext">HeaderName -&gt; OrderString -&gt; [Header]
 (HeaderName -&gt; OrderString -&gt; [Header]) -&gt; ToHeader OrderString
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OrderString -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OrderString -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679204685"><span class="annot"><span class="annottext">OrderString -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679204694"><span class="annot"><span class="annottext">OrderString -&gt; QueryString
 (OrderString -&gt; QueryString) -&gt; ToQuery OrderString
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OrderString -&gt; QueryString
 $ctoQuery :: OrderString -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679204680"><span id="local-6989586621679204682"><span class="annot"><span class="annottext">Value -&gt; Parser [OrderString]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679204689"><span id="local-6989586621679204691"><span class="annot"><span class="annottext">Value -&gt; Parser [OrderString]
 Value -&gt; Parser OrderString
 (Value -&gt; Parser OrderString)
 -&gt; (Value -&gt; Parser [OrderString]) -&gt; FromJSON OrderString
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [OrderString]
 parseJSON :: Value -&gt; Parser OrderString
 $cparseJSON :: Value -&gt; Parser OrderString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679204675"><span id="local-6989586621679204677"><span class="annot"><span class="annottext">FromJSONKeyFunction [OrderString]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679204684"><span id="local-6989586621679204686"><span class="annot"><span class="annottext">FromJSONKeyFunction [OrderString]
 FromJSONKeyFunction OrderString
 FromJSONKeyFunction OrderString
 -&gt; FromJSONKeyFunction [OrderString] -&gt; FromJSONKey OrderString
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OrderString]
 fromJSONKey :: FromJSONKeyFunction OrderString
 $cfromJSONKey :: FromJSONKeyFunction OrderString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679204666"><span id="local-6989586621679204668"><span id="local-6989586621679204670"><span id="local-6989586621679204672"><span class="annot"><span class="annottext">[OrderString] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679204675"><span id="local-6989586621679204677"><span id="local-6989586621679204679"><span id="local-6989586621679204681"><span class="annot"><span class="annottext">[OrderString] -&gt; Encoding
 [OrderString] -&gt; Value
 OrderString -&gt; Encoding
 OrderString -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: OrderString -&gt; Encoding
 toJSON :: OrderString -&gt; Value
 $ctoJSON :: OrderString -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679204661"><span id="local-6989586621679204663"><span class="annot"><span class="annottext">ToJSONKeyFunction [OrderString]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679204670"><span id="local-6989586621679204672"><span class="annot"><span class="annottext">ToJSONKeyFunction [OrderString]
 ToJSONKeyFunction OrderString
 ToJSONKeyFunction OrderString
 -&gt; ToJSONKeyFunction [OrderString] -&gt; ToJSONKey OrderString
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OrderString]
 toJSONKey :: ToJSONKeyFunction OrderString
 $ctoJSONKey :: ToJSONKeyFunction OrderString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679204658"><span class="annot"><span class="annottext">[Node] -&gt; Either String OrderString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679204667"><span class="annot"><span class="annottext">[Node] -&gt; Either String OrderString
 ([Node] -&gt; Either String OrderString) -&gt; FromXML OrderString
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OrderString
 $cparseXML :: [Node] -&gt; Either String OrderString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679204655"><span class="annot"><span class="annottext">OrderString -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679204664"><span class="annot"><span class="annottext">OrderString -&gt; XML
 (OrderString -&gt; XML) -&gt; ToXML OrderString
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OrderString -&gt; XML

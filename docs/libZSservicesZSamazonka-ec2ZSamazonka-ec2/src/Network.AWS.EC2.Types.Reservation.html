@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- instances in the launch request.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newReservation' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621681180611"><span id="local-6989586621681180612"></span></span><span class="hs-keyword">data</span><span> </span><span id="Reservation"><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-var">Reservation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Reservation%27"><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-var">Reservation'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681180620"><span id="local-6989586621681180621"></span></span><span class="hs-keyword">data</span><span> </span><span id="Reservation"><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-var">Reservation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Reservation%27"><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-var">Reservation'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | [EC2-Classic only] The security groups.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Agroups%3AReservation%27"><span class="annot"><span class="annottext">Reservation -&gt; Maybe [GroupIdentifier]
 </span><a href="Network.AWS.EC2.Types.Reservation.html#%24sel%3Agroups%3AReservation%27"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.GroupIdentifier.html#GroupIdentifier"><span class="hs-identifier hs-type">GroupIdentifier</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AownerId%3AReservation%27"><span class="annot"><span class="annottext">Reservation -&gt; Text
 </span><a href="Network.AWS.EC2.Types.Reservation.html#%24sel%3AownerId%3AReservation%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681180601"><span id="local-6989586621681180603"><span class="annot"><span class="annottext">Reservation -&gt; Reservation -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681180610"><span id="local-6989586621681180612"><span class="annot"><span class="annottext">Reservation -&gt; Reservation -&gt; Bool
 (Reservation -&gt; Reservation -&gt; Bool)
 -&gt; (Reservation -&gt; Reservation -&gt; Bool) -&gt; Eq Reservation
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Reservation -&gt; Reservation -&gt; Bool
 == :: Reservation -&gt; Reservation -&gt; Bool
 $c== :: Reservation -&gt; Reservation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681180592"><span id="local-6989586621681180594"><span id="local-6989586621681180596"><span id="local-6989586621681180598"><span class="annot"><span class="annottext">ReadPrec [Reservation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681180601"><span id="local-6989586621681180603"><span id="local-6989586621681180605"><span id="local-6989586621681180607"><span class="annot"><span class="annottext">ReadPrec [Reservation]
 ReadPrec Reservation
 Int -&gt; ReadS Reservation
 ReadS [Reservation]
@@ -77,7 +77,7 @@ readList :: ReadS [Reservation]
 $creadList :: ReadS [Reservation]
 readsPrec :: Int -&gt; ReadS Reservation
 $creadsPrec :: Int -&gt; ReadS Reservation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681180585"><span id="local-6989586621681180587"><span id="local-6989586621681180589"><span class="annot"><span class="annottext">Int -&gt; Reservation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681180594"><span id="local-6989586621681180596"><span id="local-6989586621681180598"><span class="annot"><span class="annottext">Int -&gt; Reservation -&gt; ShowS
 [Reservation] -&gt; ShowS
 Reservation -&gt; String
 (Int -&gt; Reservation -&gt; ShowS)
@@ -128,9 +128,9 @@ $cfrom :: forall x. Reservation -&gt; Rep Reservation x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span><span>
 </span><span id="line-73"></span><span id="newReservation"><span class="annot"><span class="annottext">newReservation :: Text -&gt; Text -&gt; Reservation
-</span><a href="Network.AWS.EC2.Types.Reservation.html#newReservation"><span class="hs-identifier hs-var hs-var">newReservation</span></a></span></span><span> </span><span id="local-6989586621681180579"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681180579"><span class="hs-identifier hs-var">pReservationId_</span></a></span></span><span> </span><span id="local-6989586621681180578"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681180578"><span class="hs-identifier hs-var">pOwnerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.Types.Reservation.html#newReservation"><span class="hs-identifier hs-var hs-var">newReservation</span></a></span></span><span> </span><span id="local-6989586621681180588"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681180588"><span class="hs-identifier hs-var">pReservationId_</span></a></span></span><span> </span><span id="local-6989586621681180587"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681180587"><span class="hs-identifier hs-var">pOwnerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">Reservation' :: Maybe [GroupIdentifier]
 -&gt; Maybe [Instance] -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Reservation
 </span><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span>
@@ -148,10 +148,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservationId:Reservation' :: Text
 </span><a href="Network.AWS.EC2.Types.Reservation.html#%24sel%3AreservationId%3AReservation%27"><span class="hs-identifier hs-var">reservationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681180579"><span class="hs-identifier hs-var">pReservationId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681180588"><span class="hs-identifier hs-var">pReservationId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerId:Reservation' :: Text
 </span><a href="Network.AWS.EC2.Types.Reservation.html#%24sel%3AownerId%3AReservation%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681180578"><span class="hs-identifier hs-var">pOwnerId_</span></a></span><span>
+</span><a href="#local-6989586621681180587"><span class="hs-identifier hs-var">pOwnerId_</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | [EC2-Classic only] The security groups.</span><span>
@@ -166,16 +166,16 @@ forall a. Maybe a
      (Maybe [GroupIdentifier])
      (Maybe [GroupIdentifier])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180574"><span class="annot"><span class="annottext">Maybe [GroupIdentifier]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180583"><span class="annot"><span class="annottext">Maybe [GroupIdentifier]
 groups :: Maybe [GroupIdentifier]
 $sel:groups:Reservation' :: Reservation -&gt; Maybe [GroupIdentifier]
-</span><a href="#local-6989586621681180574"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupIdentifier]
-</span><a href="#local-6989586621681180574"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180573"><span class="annot"><span class="annottext">s :: Reservation
-</span><a href="#local-6989586621681180573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180572"><span class="annot"><span class="annottext">Maybe [GroupIdentifier]
-</span><a href="#local-6989586621681180572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Reservation
-</span><a href="#local-6989586621681180573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:Reservation' :: Maybe [GroupIdentifier]
+</span><a href="#local-6989586621681180583"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupIdentifier]
+</span><a href="#local-6989586621681180583"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180582"><span class="annot"><span class="annottext">s :: Reservation
+</span><a href="#local-6989586621681180582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180581"><span class="annot"><span class="annottext">Maybe [GroupIdentifier]
+</span><a href="#local-6989586621681180581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Reservation
+</span><a href="#local-6989586621681180582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:Reservation' :: Maybe [GroupIdentifier]
 </span><a href="Network.AWS.EC2.Types.Reservation.html#%24sel%3Agroups%3AReservation%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupIdentifier]
-</span><a href="#local-6989586621681180572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupIdentifier] -&gt; f (Maybe [GroupIdentifier]))
+</span><a href="#local-6989586621681180581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupIdentifier] -&gt; f (Maybe [GroupIdentifier]))
  -&gt; Reservation -&gt; f Reservation)
 -&gt; ((Maybe [GroupIdentifier] -&gt; f (Maybe [GroupIdentifier]))
     -&gt; Maybe [GroupIdentifier] -&gt; f (Maybe [GroupIdentifier]))
@@ -213,16 +213,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      Reservation Reservation (Maybe [Instance]) (Maybe [Instance])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180567"><span class="annot"><span class="annottext">Maybe [Instance]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180576"><span class="annot"><span class="annottext">Maybe [Instance]
 instances :: Maybe [Instance]
 $sel:instances:Reservation' :: Reservation -&gt; Maybe [Instance]
-</span><a href="#local-6989586621681180567"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
-</span><a href="#local-6989586621681180567"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180566"><span class="annot"><span class="annottext">s :: Reservation
-</span><a href="#local-6989586621681180566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180565"><span class="annot"><span class="annottext">Maybe [Instance]
-</span><a href="#local-6989586621681180565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Reservation
-</span><a href="#local-6989586621681180566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:Reservation' :: Maybe [Instance]
+</span><a href="#local-6989586621681180576"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
+</span><a href="#local-6989586621681180576"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180575"><span class="annot"><span class="annottext">s :: Reservation
+</span><a href="#local-6989586621681180575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180574"><span class="annot"><span class="annottext">Maybe [Instance]
+</span><a href="#local-6989586621681180574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Reservation
+</span><a href="#local-6989586621681180575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:Reservation' :: Maybe [Instance]
 </span><a href="Network.AWS.EC2.Types.Reservation.html#%24sel%3Ainstances%3AReservation%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
-</span><a href="#local-6989586621681180565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Instance] -&gt; f (Maybe [Instance]))
+</span><a href="#local-6989586621681180574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Instance] -&gt; f (Maybe [Instance]))
  -&gt; Reservation -&gt; f Reservation)
 -&gt; ((Maybe [Instance] -&gt; f (Maybe [Instance]))
     -&gt; Maybe [Instance] -&gt; f (Maybe [Instance]))
@@ -251,16 +251,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Reservation -&gt; Maybe Text -&gt; Reservation)
 -&gt; Lens Reservation Reservation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180563"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180572"><span class="annot"><span class="annottext">Maybe Text
 requesterId :: Maybe Text
 $sel:requesterId:Reservation' :: Reservation -&gt; Maybe Text
-</span><a href="#local-6989586621681180563"><span class="hs-identifier hs-var hs-var">requesterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681180563"><span class="hs-identifier hs-var">requesterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180562"><span class="annot"><span class="annottext">s :: Reservation
-</span><a href="#local-6989586621681180562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180561"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681180561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Reservation
-</span><a href="#local-6989586621681180562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requesterId:Reservation' :: Maybe Text
+</span><a href="#local-6989586621681180572"><span class="hs-identifier hs-var hs-var">requesterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681180572"><span class="hs-identifier hs-var">requesterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180571"><span class="annot"><span class="annottext">s :: Reservation
+</span><a href="#local-6989586621681180571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180570"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681180570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Reservation
+</span><a href="#local-6989586621681180571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requesterId:Reservation' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.Reservation.html#%24sel%3ArequesterId%3AReservation%27"><span class="hs-identifier hs-var">requesterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681180561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681180570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The ID of the reservation.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#reservation_reservationId"><span class="hs-identifier hs-type">reservation_reservationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -269,16 +269,16 @@ $sel:requesterId:Reservation' :: Reservation -&gt; Maybe Text
 -&gt; (Reservation -&gt; Text -&gt; Reservation)
 -&gt; Lens Reservation Reservation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180559"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180568"><span class="annot"><span class="annottext">Text
 reservationId :: Text
 $sel:reservationId:Reservation' :: Reservation -&gt; Text
-</span><a href="#local-6989586621681180559"><span class="hs-identifier hs-var hs-var">reservationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681180559"><span class="hs-identifier hs-var">reservationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180558"><span class="annot"><span class="annottext">s :: Reservation
-</span><a href="#local-6989586621681180558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180557"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681180557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Reservation
-</span><a href="#local-6989586621681180558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservationId:Reservation' :: Text
+</span><a href="#local-6989586621681180568"><span class="hs-identifier hs-var hs-var">reservationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681180568"><span class="hs-identifier hs-var">reservationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180567"><span class="annot"><span class="annottext">s :: Reservation
+</span><a href="#local-6989586621681180567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180566"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681180566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Reservation
+</span><a href="#local-6989586621681180567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservationId:Reservation' :: Text
 </span><a href="Network.AWS.EC2.Types.Reservation.html#%24sel%3AreservationId%3AReservation%27"><span class="hs-identifier hs-var">reservationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681180557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681180566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the reservation.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#reservation_ownerId"><span class="hs-identifier hs-type">reservation_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -287,21 +287,21 @@ $sel:reservationId:Reservation' :: Reservation -&gt; Text
 -&gt; (Reservation -&gt; Text -&gt; Reservation)
 -&gt; Lens Reservation Reservation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180555"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180564"><span class="annot"><span class="annottext">Text
 ownerId :: Text
 $sel:ownerId:Reservation' :: Reservation -&gt; Text
-</span><a href="#local-6989586621681180555"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681180555"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180554"><span class="annot"><span class="annottext">s :: Reservation
-</span><a href="#local-6989586621681180554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180553"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681180553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Reservation
-</span><a href="#local-6989586621681180554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:Reservation' :: Text
+</span><a href="#local-6989586621681180564"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681180564"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180563"><span class="annot"><span class="annottext">s :: Reservation
+</span><a href="#local-6989586621681180563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-type">Reservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180562"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681180562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Reservation
+</span><a href="#local-6989586621681180563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:Reservation' :: Text
 </span><a href="Network.AWS.EC2.Types.Reservation.html#%24sel%3AownerId%3AReservation%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681180553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681180562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621681180550"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Reservation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681180548"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681180548"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621681180559"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Reservation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681180557"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681180557"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">Maybe [GroupIdentifier]
 -&gt; Maybe [Instance] -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Reservation
 </span><a href="Network.AWS.EC2.Types.Reservation.html#Reservation%27"><span class="hs-identifier hs-var">Reservation'</span></a></span><span>
@@ -313,7 +313,7 @@ $sel:ownerId:Reservation' :: Reservation -&gt; Text
      (Maybe [Instance] -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Reservation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681180548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681180557"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;groupSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -342,7 +342,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Maybe Text -&gt; Text -&gt; Text -&gt; Reservation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681180548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681180557"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instancesSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -369,7 +369,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Text -&gt; Text -&gt; Reservation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681180548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681180557"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;requesterId&quot;</span></span><span class="hs-special">)</span><span>
@@ -377,7 +377,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Text -&gt; Either String (Text -&gt; Reservation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681180548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681180557"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;reservationId&quot;</span></span><span class="hs-special">)</span><span>
@@ -385,12 +385,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String Reservation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681180548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681180557"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681180538"><span id="local-6989586621681180540"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681180547"><span id="local-6989586621681180549"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681180535"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681180544"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Reservation.html#Reservation"><span class="hs-identifier hs-type">Reservation</span></a></span></span><span>
 </span><span id="line-119"></span></pre></body></html>

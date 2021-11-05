@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes a launch template and overrides.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLaunchTemplateConfig' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681125026"><span id="local-6989586621681125027"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateConfig"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig"><span class="hs-identifier hs-var">LaunchTemplateConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateConfig%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig%27"><span class="hs-identifier hs-var">LaunchTemplateConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681125035"><span id="local-6989586621681125036"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateConfig"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig"><span class="hs-identifier hs-var">LaunchTemplateConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateConfig%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig%27"><span class="hs-identifier hs-var">LaunchTemplateConfig'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Any parameters that you specify override the same parameters in the</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- launch template.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aoverrides%3ALaunchTemplateConfig%27"><span class="annot"><span class="annottext">LaunchTemplateConfig -&gt; Maybe [LaunchTemplateOverrides]
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AlaunchTemplateSpecification%3ALaunchTemplateConfig%27"><span class="annot"><span class="annottext">LaunchTemplateConfig -&gt; Maybe FleetLaunchTemplateSpecification
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#%24sel%3AlaunchTemplateSpecification%3ALaunchTemplateConfig%27"><span class="hs-identifier hs-var hs-var">launchTemplateSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateSpecification.html#FleetLaunchTemplateSpecification"><span class="hs-identifier hs-type">FleetLaunchTemplateSpecification</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681125019"><span id="local-6989586621681125021"><span class="annot"><span class="annottext">LaunchTemplateConfig -&gt; LaunchTemplateConfig -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681125028"><span id="local-6989586621681125030"><span class="annot"><span class="annottext">LaunchTemplateConfig -&gt; LaunchTemplateConfig -&gt; Bool
 (LaunchTemplateConfig -&gt; LaunchTemplateConfig -&gt; Bool)
 -&gt; (LaunchTemplateConfig -&gt; LaunchTemplateConfig -&gt; Bool)
 -&gt; Eq LaunchTemplateConfig
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LaunchTemplateConfig -&gt; LaunchTemplateConfig -&gt; Bool
 == :: LaunchTemplateConfig -&gt; LaunchTemplateConfig -&gt; Bool
 $c== :: LaunchTemplateConfig -&gt; LaunchTemplateConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681125010"><span id="local-6989586621681125012"><span id="local-6989586621681125014"><span id="local-6989586621681125016"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681125019"><span id="local-6989586621681125021"><span id="local-6989586621681125023"><span id="local-6989586621681125025"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateConfig]
 ReadPrec LaunchTemplateConfig
 Int -&gt; ReadS LaunchTemplateConfig
 ReadS [LaunchTemplateConfig]
@@ -67,7 +67,7 @@ readList :: ReadS [LaunchTemplateConfig]
 $creadList :: ReadS [LaunchTemplateConfig]
 readsPrec :: Int -&gt; ReadS LaunchTemplateConfig
 $creadsPrec :: Int -&gt; ReadS LaunchTemplateConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681125003"><span id="local-6989586621681125005"><span id="local-6989586621681125007"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681125012"><span id="local-6989586621681125014"><span id="local-6989586621681125016"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateConfig -&gt; ShowS
 [LaunchTemplateConfig] -&gt; ShowS
 LaunchTemplateConfig -&gt; String
 (Int -&gt; LaunchTemplateConfig -&gt; ShowS)
@@ -137,16 +137,16 @@ forall a. Maybe a
      (Maybe [LaunchTemplateOverrides])
      (Maybe [LaunchTemplateOverrides])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig%27"><span class="hs-identifier hs-type">LaunchTemplateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681124994"><span class="annot"><span class="annottext">Maybe [LaunchTemplateOverrides]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig%27"><span class="hs-identifier hs-type">LaunchTemplateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125003"><span class="annot"><span class="annottext">Maybe [LaunchTemplateOverrides]
 overrides :: Maybe [LaunchTemplateOverrides]
 $sel:overrides:LaunchTemplateConfig' :: LaunchTemplateConfig -&gt; Maybe [LaunchTemplateOverrides]
-</span><a href="#local-6989586621681124994"><span class="hs-identifier hs-var hs-var">overrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LaunchTemplateOverrides]
-</span><a href="#local-6989586621681124994"><span class="hs-identifier hs-var">overrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681124993"><span class="annot"><span class="annottext">s :: LaunchTemplateConfig
-</span><a href="#local-6989586621681124993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig%27"><span class="hs-identifier hs-type">LaunchTemplateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681124992"><span class="annot"><span class="annottext">Maybe [LaunchTemplateOverrides]
-</span><a href="#local-6989586621681124992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateConfig
-</span><a href="#local-6989586621681124993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overrides:LaunchTemplateConfig' :: Maybe [LaunchTemplateOverrides]
+</span><a href="#local-6989586621681125003"><span class="hs-identifier hs-var hs-var">overrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LaunchTemplateOverrides]
+</span><a href="#local-6989586621681125003"><span class="hs-identifier hs-var">overrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125002"><span class="annot"><span class="annottext">s :: LaunchTemplateConfig
+</span><a href="#local-6989586621681125002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig%27"><span class="hs-identifier hs-type">LaunchTemplateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125001"><span class="annot"><span class="annottext">Maybe [LaunchTemplateOverrides]
+</span><a href="#local-6989586621681125001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateConfig
+</span><a href="#local-6989586621681125002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:overrides:LaunchTemplateConfig' :: Maybe [LaunchTemplateOverrides]
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#%24sel%3Aoverrides%3ALaunchTemplateConfig%27"><span class="hs-identifier hs-var">overrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LaunchTemplateOverrides]
-</span><a href="#local-6989586621681124992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig"><span class="hs-identifier hs-type">LaunchTemplateConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LaunchTemplateOverrides]
+</span><a href="#local-6989586621681125001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig"><span class="hs-identifier hs-type">LaunchTemplateConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LaunchTemplateOverrides]
   -&gt; f (Maybe [LaunchTemplateOverrides]))
  -&gt; LaunchTemplateConfig -&gt; f LaunchTemplateConfig)
 -&gt; ((Maybe [LaunchTemplateOverrides]
@@ -193,21 +193,21 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe FleetLaunchTemplateSpecification)
      (Maybe FleetLaunchTemplateSpecification)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig%27"><span class="hs-identifier hs-type">LaunchTemplateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681124987"><span class="annot"><span class="annottext">Maybe FleetLaunchTemplateSpecification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig%27"><span class="hs-identifier hs-type">LaunchTemplateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681124996"><span class="annot"><span class="annottext">Maybe FleetLaunchTemplateSpecification
 launchTemplateSpecification :: Maybe FleetLaunchTemplateSpecification
 $sel:launchTemplateSpecification:LaunchTemplateConfig' :: LaunchTemplateConfig -&gt; Maybe FleetLaunchTemplateSpecification
-</span><a href="#local-6989586621681124987"><span class="hs-identifier hs-var hs-var">launchTemplateSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FleetLaunchTemplateSpecification
-</span><a href="#local-6989586621681124987"><span class="hs-identifier hs-var">launchTemplateSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681124986"><span class="annot"><span class="annottext">s :: LaunchTemplateConfig
-</span><a href="#local-6989586621681124986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig%27"><span class="hs-identifier hs-type">LaunchTemplateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681124985"><span class="annot"><span class="annottext">Maybe FleetLaunchTemplateSpecification
-</span><a href="#local-6989586621681124985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateConfig
-</span><a href="#local-6989586621681124986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateSpecification:LaunchTemplateConfig' :: Maybe FleetLaunchTemplateSpecification
+</span><a href="#local-6989586621681124996"><span class="hs-identifier hs-var hs-var">launchTemplateSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FleetLaunchTemplateSpecification
+</span><a href="#local-6989586621681124996"><span class="hs-identifier hs-var">launchTemplateSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681124995"><span class="annot"><span class="annottext">s :: LaunchTemplateConfig
+</span><a href="#local-6989586621681124995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig%27"><span class="hs-identifier hs-type">LaunchTemplateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681124994"><span class="annot"><span class="annottext">Maybe FleetLaunchTemplateSpecification
+</span><a href="#local-6989586621681124994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateConfig
+</span><a href="#local-6989586621681124995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateSpecification:LaunchTemplateConfig' :: Maybe FleetLaunchTemplateSpecification
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#%24sel%3AlaunchTemplateSpecification%3ALaunchTemplateConfig%27"><span class="hs-identifier hs-var">launchTemplateSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FleetLaunchTemplateSpecification
-</span><a href="#local-6989586621681124985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig"><span class="hs-identifier hs-type">LaunchTemplateConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681124994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig"><span class="hs-identifier hs-type">LaunchTemplateConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig"><span class="hs-identifier hs-type">LaunchTemplateConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621681124982"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LaunchTemplateConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681124980"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681124980"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621681124991"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LaunchTemplateConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681124989"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681124989"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">Maybe [LaunchTemplateOverrides]
 -&gt; Maybe FleetLaunchTemplateSpecification -&gt; LaunchTemplateConfig
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig%27"><span class="hs-identifier hs-var">LaunchTemplateConfig'</span></a></span><span>
@@ -219,7 +219,7 @@ $sel:launchTemplateSpecification:LaunchTemplateConfig' :: LaunchTemplateConfig -
      (Maybe FleetLaunchTemplateSpecification -&gt; LaunchTemplateConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681124980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681124989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;overrides&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -248,25 +248,25 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String LaunchTemplateConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681124980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681124989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe FleetLaunchTemplateSpecification)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;launchTemplateSpecification&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681124971"><span id="local-6989586621681124973"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig"><span class="hs-identifier hs-type">LaunchTemplateConfig</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681124980"><span id="local-6989586621681124982"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig"><span class="hs-identifier hs-type">LaunchTemplateConfig</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681124968"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig"><span class="hs-identifier hs-type">LaunchTemplateConfig</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681124977"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig"><span class="hs-identifier hs-type">LaunchTemplateConfig</span></a></span></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig"><span class="hs-identifier hs-type">LaunchTemplateConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621681124964"><span class="annot"><span class="annottext">toQuery :: LaunchTemplateConfig -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig%27"><span class="hs-identifier hs-type">LaunchTemplateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681124961"><span id="local-6989586621681124962"><span class="annot"><span class="annottext">Maybe [LaunchTemplateOverrides]
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621681124973"><span class="annot"><span class="annottext">toQuery :: LaunchTemplateConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateConfig.html#LaunchTemplateConfig%27"><span class="hs-identifier hs-type">LaunchTemplateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681124970"><span id="local-6989586621681124971"><span class="annot"><span class="annottext">Maybe [LaunchTemplateOverrides]
 Maybe FleetLaunchTemplateSpecification
 launchTemplateSpecification :: Maybe FleetLaunchTemplateSpecification
 overrides :: Maybe [LaunchTemplateOverrides]
 $sel:launchTemplateSpecification:LaunchTemplateConfig' :: LaunchTemplateConfig -&gt; Maybe FleetLaunchTemplateSpecification
 $sel:overrides:LaunchTemplateConfig' :: LaunchTemplateConfig -&gt; Maybe [LaunchTemplateOverrides]
-</span><a href="#local-6989586621681124961"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681124970"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -282,12 +282,12 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [LaunchTemplateOverrides] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LaunchTemplateOverrides]
-</span><a href="#local-6989586621681124962"><span class="hs-identifier hs-var">overrides</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681124971"><span class="hs-identifier hs-var">overrides</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;LaunchTemplateSpecification&quot;</span></span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe FleetLaunchTemplateSpecification -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe FleetLaunchTemplateSpecification
-</span><a href="#local-6989586621681124961"><span class="hs-identifier hs-var">launchTemplateSpecification</span></a></span><span>
+</span><a href="#local-6989586621681124970"><span class="hs-identifier hs-var">launchTemplateSpecification</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span></pre></body></html>

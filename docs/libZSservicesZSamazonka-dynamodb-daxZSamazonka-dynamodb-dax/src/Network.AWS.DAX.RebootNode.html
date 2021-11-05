@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newRebootNode' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679197321"><span id="local-6989586621679197322"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootNode"><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-var">RebootNode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootNode%27"><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode%27"><span class="hs-identifier hs-var">RebootNode'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679197330"><span id="local-6989586621679197331"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootNode"><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-var">RebootNode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootNode%27"><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode%27"><span class="hs-identifier hs-var">RebootNode'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the DAX cluster containing the node to be rebooted.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AclusterName%3ARebootNode%27"><span class="annot"><span class="annottext">RebootNode -&gt; Text
 </span><a href="Network.AWS.DAX.RebootNode.html#%24sel%3AclusterName%3ARebootNode%27"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AnodeId%3ARebootNode%27"><span class="annot"><span class="annottext">RebootNode -&gt; Text
 </span><a href="Network.AWS.DAX.RebootNode.html#%24sel%3AnodeId%3ARebootNode%27"><span class="hs-identifier hs-var hs-var">nodeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197314"><span id="local-6989586621679197316"><span class="annot"><span class="annottext">RebootNode -&gt; RebootNode -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197323"><span id="local-6989586621679197325"><span class="annot"><span class="annottext">RebootNode -&gt; RebootNode -&gt; Bool
 (RebootNode -&gt; RebootNode -&gt; Bool)
 -&gt; (RebootNode -&gt; RebootNode -&gt; Bool) -&gt; Eq RebootNode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RebootNode -&gt; RebootNode -&gt; Bool
 == :: RebootNode -&gt; RebootNode -&gt; Bool
 $c== :: RebootNode -&gt; RebootNode -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197305"><span id="local-6989586621679197307"><span id="local-6989586621679197309"><span id="local-6989586621679197311"><span class="annot"><span class="annottext">ReadPrec [RebootNode]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197314"><span id="local-6989586621679197316"><span id="local-6989586621679197318"><span id="local-6989586621679197320"><span class="annot"><span class="annottext">ReadPrec [RebootNode]
 ReadPrec RebootNode
 Int -&gt; ReadS RebootNode
 ReadS [RebootNode]
@@ -89,7 +89,7 @@ readList :: ReadS [RebootNode]
 $creadList :: ReadS [RebootNode]
 readsPrec :: Int -&gt; ReadS RebootNode
 $creadsPrec :: Int -&gt; ReadS RebootNode
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197298"><span id="local-6989586621679197300"><span id="local-6989586621679197302"><span class="annot"><span class="annottext">Int -&gt; RebootNode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197307"><span id="local-6989586621679197309"><span id="local-6989586621679197311"><span class="annot"><span class="annottext">Int -&gt; RebootNode -&gt; ShowS
 [RebootNode] -&gt; ShowS
 RebootNode -&gt; String
 (Int -&gt; RebootNode -&gt; ShowS)
@@ -132,17 +132,17 @@ $cfrom :: forall x. RebootNode -&gt; Rep RebootNode x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span><span>
 </span><span id="line-81"></span><span id="newRebootNode"><span class="annot"><span class="annottext">newRebootNode :: Text -&gt; Text -&gt; RebootNode
-</span><a href="Network.AWS.DAX.RebootNode.html#newRebootNode"><span class="hs-identifier hs-var hs-var">newRebootNode</span></a></span></span><span> </span><span id="local-6989586621679197293"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197293"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span id="local-6989586621679197292"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197292"><span class="hs-identifier hs-var">pNodeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DAX.RebootNode.html#newRebootNode"><span class="hs-identifier hs-var hs-var">newRebootNode</span></a></span></span><span> </span><span id="local-6989586621679197302"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197302"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span id="local-6989586621679197301"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197301"><span class="hs-identifier hs-var">pNodeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">RebootNode' :: Text -&gt; Text -&gt; RebootNode
 </span><a href="Network.AWS.DAX.RebootNode.html#RebootNode%27"><span class="hs-identifier hs-type">RebootNode'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterName:RebootNode' :: Text
 </span><a href="Network.AWS.DAX.RebootNode.html#%24sel%3AclusterName%3ARebootNode%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197293"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679197302"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeId:RebootNode' :: Text
 </span><a href="Network.AWS.DAX.RebootNode.html#%24sel%3AnodeId%3ARebootNode%27"><span class="hs-identifier hs-var">nodeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197292"><span class="hs-identifier hs-var">pNodeId_</span></a></span><span>
+</span><a href="#local-6989586621679197301"><span class="hs-identifier hs-var">pNodeId_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The name of the DAX cluster containing the node to be rebooted.</span><span>
@@ -152,16 +152,16 @@ $cfrom :: forall x. RebootNode -&gt; Rep RebootNode x
 -&gt; (RebootNode -&gt; Text -&gt; RebootNode)
 -&gt; Lens RebootNode RebootNode Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode%27"><span class="hs-identifier hs-type">RebootNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197289"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode%27"><span class="hs-identifier hs-type">RebootNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197298"><span class="annot"><span class="annottext">Text
 clusterName :: Text
 $sel:clusterName:RebootNode' :: RebootNode -&gt; Text
-</span><a href="#local-6989586621679197289"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197289"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197288"><span class="annot"><span class="annottext">s :: RebootNode
-</span><a href="#local-6989586621679197288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode%27"><span class="hs-identifier hs-type">RebootNode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197287"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootNode
-</span><a href="#local-6989586621679197288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:RebootNode' :: Text
+</span><a href="#local-6989586621679197298"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197298"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197297"><span class="annot"><span class="annottext">s :: RebootNode
+</span><a href="#local-6989586621679197297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode%27"><span class="hs-identifier hs-type">RebootNode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197296"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootNode
+</span><a href="#local-6989586621679197297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:RebootNode' :: Text
 </span><a href="Network.AWS.DAX.RebootNode.html#%24sel%3AclusterName%3ARebootNode%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The system-assigned ID of the node to be rebooted.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#rebootNode_nodeId"><span class="hs-identifier hs-type">rebootNode_nodeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -170,25 +170,25 @@ $sel:clusterName:RebootNode' :: RebootNode -&gt; Text
 -&gt; (RebootNode -&gt; Text -&gt; RebootNode)
 -&gt; Lens RebootNode RebootNode Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode%27"><span class="hs-identifier hs-type">RebootNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197286"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode%27"><span class="hs-identifier hs-type">RebootNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197295"><span class="annot"><span class="annottext">Text
 nodeId :: Text
 $sel:nodeId:RebootNode' :: RebootNode -&gt; Text
-</span><a href="#local-6989586621679197286"><span class="hs-identifier hs-var hs-var">nodeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197286"><span class="hs-identifier hs-var">nodeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197285"><span class="annot"><span class="annottext">s :: RebootNode
-</span><a href="#local-6989586621679197285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode%27"><span class="hs-identifier hs-type">RebootNode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197284"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootNode
-</span><a href="#local-6989586621679197285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeId:RebootNode' :: Text
+</span><a href="#local-6989586621679197295"><span class="hs-identifier hs-var hs-var">nodeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197295"><span class="hs-identifier hs-var">nodeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197294"><span class="annot"><span class="annottext">s :: RebootNode
+</span><a href="#local-6989586621679197294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode%27"><span class="hs-identifier hs-type">RebootNode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197293"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootNode
+</span><a href="#local-6989586621679197294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeId:RebootNode' :: Text
 </span><a href="Network.AWS.DAX.RebootNode.html#%24sel%3AnodeId%3ARebootNode%27"><span class="hs-identifier hs-var">nodeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse"><span class="hs-identifier hs-type">RebootNodeResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679197280"><span class="annot"><span class="annottext">request :: RebootNode -&gt; Request RebootNode
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679197289"><span class="annot"><span class="annottext">request :: RebootNode -&gt; Request RebootNode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RebootNode -&gt; Request RebootNode
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DAX.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679197276"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679197285"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RebootNode
 -&gt; ClientResponse ClientBody
@@ -212,10 +212,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197273"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197273"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679197272"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679197272"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679197271"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679197271"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197282"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197282"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679197281"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679197281"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679197280"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197280"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; RebootNodeResponse
 </span><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse%27"><span class="hs-identifier hs-var">RebootNodeResponse'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; RebootNodeResponse)
@@ -223,7 +223,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; RebootNodeResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679197271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
+</span><a href="#local-6989586621679197280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -235,15 +235,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197273"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197282"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197263"><span id="local-6989586621679197265"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197272"><span id="local-6989586621679197274"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197260"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197269"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679197256"><span class="annot"><span class="annottext">toHeaders :: RebootNode -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679197265"><span class="annot"><span class="annottext">toHeaders :: RebootNode -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RebootNode -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -268,14 +268,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197246"><span id="local-6989586621679197248"><span id="local-6989586621679197250"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679197244"><span class="annot"><span class="annottext">toJSON :: RebootNode -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode%27"><span class="hs-identifier hs-type">RebootNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197241"><span id="local-6989586621679197242"><span class="annot"><span class="annottext">Text
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197255"><span id="local-6989586621679197257"><span id="local-6989586621679197259"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679197253"><span class="annot"><span class="annottext">toJSON :: RebootNode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode%27"><span class="hs-identifier hs-type">RebootNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197250"><span id="local-6989586621679197251"><span class="annot"><span class="annottext">Text
 nodeId :: Text
 clusterName :: Text
 $sel:nodeId:RebootNode' :: RebootNode -&gt; Text
 $sel:clusterName:RebootNode' :: RebootNode -&gt; Text
-</span><a href="#local-6989586621679197241"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679197250"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -287,26 +287,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ClusterName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197242"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679197251"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NodeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197241"><span class="hs-identifier hs-var">nodeId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197250"><span class="hs-identifier hs-var">nodeId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679197235"><span class="annot"><span class="annottext">toPath :: RebootNode -&gt; ByteString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679197244"><span class="annot"><span class="annottext">toPath :: RebootNode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RebootNode -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNode"><span class="hs-identifier hs-type">RebootNode</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679197231"><span class="annot"><span class="annottext">toQuery :: RebootNode -&gt; QueryString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679197240"><span class="annot"><span class="annottext">toQuery :: RebootNode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RebootNode -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -314,7 +314,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | /See:/ 'newRebootNodeResponse' smart constructor.</span><span>
-</span><span id="line-139"></span><span id="local-6989586621679197228"><span id="local-6989586621679197229"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootNodeResponse"><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse"><span class="hs-identifier hs-var">RebootNodeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootNodeResponse%27"><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse%27"><span class="hs-identifier hs-var">RebootNodeResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span id="local-6989586621679197237"><span id="local-6989586621679197238"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootNodeResponse"><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse"><span class="hs-identifier hs-var">RebootNodeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootNodeResponse%27"><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse%27"><span class="hs-identifier hs-var">RebootNodeResponse'</span></a></span></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the DAX cluster after a node has been rebooted.</span><span>
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3Acluster%3ARebootNodeResponse%27"><span class="annot"><span class="annottext">RebootNodeResponse -&gt; Maybe Cluster
 </span><a href="Network.AWS.DAX.RebootNode.html#%24sel%3Acluster%3ARebootNodeResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
@@ -322,7 +322,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARebootNodeResponse%27"><span class="annot"><span class="annottext">RebootNodeResponse -&gt; Int
 </span><a href="Network.AWS.DAX.RebootNode.html#%24sel%3AhttpStatus%3ARebootNodeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197222"><span id="local-6989586621679197224"><span class="annot"><span class="annottext">RebootNodeResponse -&gt; RebootNodeResponse -&gt; Bool
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197231"><span id="local-6989586621679197233"><span class="annot"><span class="annottext">RebootNodeResponse -&gt; RebootNodeResponse -&gt; Bool
 (RebootNodeResponse -&gt; RebootNodeResponse -&gt; Bool)
 -&gt; (RebootNodeResponse -&gt; RebootNodeResponse -&gt; Bool)
 -&gt; Eq RebootNodeResponse
@@ -331,7 +331,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RebootNodeResponse -&gt; RebootNodeResponse -&gt; Bool
 == :: RebootNodeResponse -&gt; RebootNodeResponse -&gt; Bool
 $c== :: RebootNodeResponse -&gt; RebootNodeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197214"><span id="local-6989586621679197216"><span id="local-6989586621679197218"><span id="local-6989586621679197220"><span class="annot"><span class="annottext">ReadPrec [RebootNodeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197223"><span id="local-6989586621679197225"><span id="local-6989586621679197227"><span id="local-6989586621679197229"><span class="annot"><span class="annottext">ReadPrec [RebootNodeResponse]
 ReadPrec RebootNodeResponse
 Int -&gt; ReadS RebootNodeResponse
 ReadS [RebootNodeResponse]
@@ -351,7 +351,7 @@ readList :: ReadS [RebootNodeResponse]
 $creadList :: ReadS [RebootNodeResponse]
 readsPrec :: Int -&gt; ReadS RebootNodeResponse
 $creadsPrec :: Int -&gt; ReadS RebootNodeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197208"><span id="local-6989586621679197210"><span id="local-6989586621679197212"><span class="annot"><span class="annottext">Int -&gt; RebootNodeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197217"><span id="local-6989586621679197219"><span id="local-6989586621679197221"><span class="annot"><span class="annottext">Int -&gt; RebootNodeResponse -&gt; ShowS
 [RebootNodeResponse] -&gt; ShowS
 RebootNodeResponse -&gt; String
 (Int -&gt; RebootNodeResponse -&gt; ShowS)
@@ -393,8 +393,8 @@ $cfrom :: forall x. RebootNodeResponse -&gt; Rep RebootNodeResponse x
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse"><span class="hs-identifier hs-type">RebootNodeResponse</span></a></span><span>
 </span><span id="line-162"></span><span id="newRebootNodeResponse"><span class="annot"><span class="annottext">newRebootNodeResponse :: Int -&gt; RebootNodeResponse
-</span><a href="Network.AWS.DAX.RebootNode.html#newRebootNodeResponse"><span class="hs-identifier hs-var hs-var">newRebootNodeResponse</span></a></span></span><span> </span><span id="local-6989586621679197205"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197205"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DAX.RebootNode.html#newRebootNodeResponse"><span class="hs-identifier hs-var hs-var">newRebootNodeResponse</span></a></span></span><span> </span><span id="local-6989586621679197214"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197214"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">RebootNodeResponse' :: Maybe Cluster -&gt; Int -&gt; RebootNodeResponse
 </span><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse%27"><span class="hs-identifier hs-type">RebootNodeResponse'</span></a></span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:RebootNodeResponse' :: Maybe Cluster
@@ -403,7 +403,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RebootNodeResponse' :: Int
 </span><a href="Network.AWS.DAX.RebootNode.html#%24sel%3AhttpStatus%3ARebootNodeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197205"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679197214"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | A description of the DAX cluster after a node has been rebooted.</span><span>
@@ -418,16 +418,16 @@ forall a. Maybe a
      (Maybe Cluster)
      (Maybe Cluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse%27"><span class="hs-identifier hs-type">RebootNodeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197204"><span class="annot"><span class="annottext">Maybe Cluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse%27"><span class="hs-identifier hs-type">RebootNodeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197213"><span class="annot"><span class="annottext">Maybe Cluster
 cluster :: Maybe Cluster
 $sel:cluster:RebootNodeResponse' :: RebootNodeResponse -&gt; Maybe Cluster
-</span><a href="#local-6989586621679197204"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679197204"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197203"><span class="annot"><span class="annottext">s :: RebootNodeResponse
-</span><a href="#local-6989586621679197203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse%27"><span class="hs-identifier hs-type">RebootNodeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197202"><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679197202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootNodeResponse
-</span><a href="#local-6989586621679197203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:RebootNodeResponse' :: Maybe Cluster
+</span><a href="#local-6989586621679197213"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679197213"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197212"><span class="annot"><span class="annottext">s :: RebootNodeResponse
+</span><a href="#local-6989586621679197212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse%27"><span class="hs-identifier hs-type">RebootNodeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197211"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679197211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootNodeResponse
+</span><a href="#local-6989586621679197212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:RebootNodeResponse' :: Maybe Cluster
 </span><a href="Network.AWS.DAX.RebootNode.html#%24sel%3Acluster%3ARebootNodeResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679197202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse"><span class="hs-identifier hs-type">RebootNodeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse"><span class="hs-identifier hs-type">RebootNodeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#rebootNodeResponse_httpStatus"><span class="hs-identifier hs-type">rebootNodeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse"><span class="hs-identifier hs-type">RebootNodeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -436,16 +436,16 @@ $sel:cluster:RebootNodeResponse' :: RebootNodeResponse -&gt; Maybe Cluster
 -&gt; (RebootNodeResponse -&gt; Int -&gt; RebootNodeResponse)
 -&gt; Lens RebootNodeResponse RebootNodeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse%27"><span class="hs-identifier hs-type">RebootNodeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197201"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse%27"><span class="hs-identifier hs-type">RebootNodeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197210"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RebootNodeResponse' :: RebootNodeResponse -&gt; Int
-</span><a href="#local-6989586621679197201"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197201"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197200"><span class="annot"><span class="annottext">s :: RebootNodeResponse
-</span><a href="#local-6989586621679197200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse%27"><span class="hs-identifier hs-type">RebootNodeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197199"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootNodeResponse
-</span><a href="#local-6989586621679197200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RebootNodeResponse' :: Int
+</span><a href="#local-6989586621679197210"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197210"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197209"><span class="annot"><span class="annottext">s :: RebootNodeResponse
+</span><a href="#local-6989586621679197209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse%27"><span class="hs-identifier hs-type">RebootNodeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197208"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootNodeResponse
+</span><a href="#local-6989586621679197209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RebootNodeResponse' :: Int
 </span><a href="Network.AWS.DAX.RebootNode.html#%24sel%3AhttpStatus%3ARebootNodeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse"><span class="hs-identifier hs-type">RebootNodeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse"><span class="hs-identifier hs-type">RebootNodeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197197"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse"><span class="hs-identifier hs-type">RebootNodeResponse</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197206"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.RebootNode.html#RebootNodeResponse"><span class="hs-identifier hs-type">RebootNodeResponse</span></a></span></span><span>
 </span><span id="line-177"></span></pre></body></html>

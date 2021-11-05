@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteNetworkProfile' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679389008"><span id="local-6989586621679389009"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteNetworkProfile"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-var">DeleteNetworkProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteNetworkProfile%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile%27"><span class="hs-identifier hs-var">DeleteNetworkProfile'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679389017"><span id="local-6989586621679389018"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteNetworkProfile"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-var">DeleteNetworkProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteNetworkProfile%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile%27"><span class="hs-identifier hs-var">DeleteNetworkProfile'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the network profile associated with a device.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AnetworkProfileArn%3ADeleteNetworkProfile%27"><span class="annot"><span class="annottext">DeleteNetworkProfile -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#%24sel%3AnetworkProfileArn%3ADeleteNetworkProfile%27"><span class="hs-identifier hs-var hs-var">networkProfileArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389002"><span id="local-6989586621679389004"><span class="annot"><span class="annottext">DeleteNetworkProfile -&gt; DeleteNetworkProfile -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389011"><span id="local-6989586621679389013"><span class="annot"><span class="annottext">DeleteNetworkProfile -&gt; DeleteNetworkProfile -&gt; Bool
 (DeleteNetworkProfile -&gt; DeleteNetworkProfile -&gt; Bool)
 -&gt; (DeleteNetworkProfile -&gt; DeleteNetworkProfile -&gt; Bool)
 -&gt; Eq DeleteNetworkProfile
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteNetworkProfile -&gt; DeleteNetworkProfile -&gt; Bool
 == :: DeleteNetworkProfile -&gt; DeleteNetworkProfile -&gt; Bool
 $c== :: DeleteNetworkProfile -&gt; DeleteNetworkProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388993"><span id="local-6989586621679388995"><span id="local-6989586621679388997"><span id="local-6989586621679388999"><span class="annot"><span class="annottext">ReadPrec [DeleteNetworkProfile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389002"><span id="local-6989586621679389004"><span id="local-6989586621679389006"><span id="local-6989586621679389008"><span class="annot"><span class="annottext">ReadPrec [DeleteNetworkProfile]
 ReadPrec DeleteNetworkProfile
 Int -&gt; ReadS DeleteNetworkProfile
 ReadS [DeleteNetworkProfile]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteNetworkProfile]
 $creadList :: ReadS [DeleteNetworkProfile]
 readsPrec :: Int -&gt; ReadS DeleteNetworkProfile
 $creadsPrec :: Int -&gt; ReadS DeleteNetworkProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388986"><span id="local-6989586621679388988"><span id="local-6989586621679388990"><span class="annot"><span class="annottext">Int -&gt; DeleteNetworkProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388995"><span id="local-6989586621679388997"><span id="local-6989586621679388999"><span class="annot"><span class="annottext">Int -&gt; DeleteNetworkProfile -&gt; ShowS
 [DeleteNetworkProfile] -&gt; ShowS
 DeleteNetworkProfile -&gt; String
 (Int -&gt; DeleteNetworkProfile -&gt; ShowS)
@@ -120,14 +120,14 @@ $cfrom :: forall x. DeleteNetworkProfile -&gt; Rep DeleteNetworkProfile x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeleteNetworkProfile"><span class="annot"><span class="annottext">newDeleteNetworkProfile :: Text -&gt; DeleteNetworkProfile
-</span><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#newDeleteNetworkProfile"><span class="hs-identifier hs-var hs-var">newDeleteNetworkProfile</span></a></span></span><span> </span><span id="local-6989586621679388981"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388981"><span class="hs-identifier hs-var">pNetworkProfileArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#newDeleteNetworkProfile"><span class="hs-identifier hs-var hs-var">newDeleteNetworkProfile</span></a></span></span><span> </span><span id="local-6989586621679388990"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388990"><span class="hs-identifier hs-var">pNetworkProfileArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteNetworkProfile' :: Text -&gt; DeleteNetworkProfile
 </span><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile%27"><span class="hs-identifier hs-type">DeleteNetworkProfile'</span></a></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:networkProfileArn:DeleteNetworkProfile' :: Text
 </span><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#%24sel%3AnetworkProfileArn%3ADeleteNetworkProfile%27"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388981"><span class="hs-identifier hs-var">pNetworkProfileArn_</span></a></span><span>
+</span><a href="#local-6989586621679388990"><span class="hs-identifier hs-var">pNetworkProfileArn_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The ARN of the network profile associated with a device.</span><span>
@@ -137,27 +137,27 @@ $cfrom :: forall x. DeleteNetworkProfile -&gt; Rep DeleteNetworkProfile x
 -&gt; (DeleteNetworkProfile -&gt; Text -&gt; DeleteNetworkProfile)
 -&gt; Lens DeleteNetworkProfile DeleteNetworkProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile%27"><span class="hs-identifier hs-type">DeleteNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388978"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile%27"><span class="hs-identifier hs-type">DeleteNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388987"><span class="annot"><span class="annottext">Text
 networkProfileArn :: Text
 $sel:networkProfileArn:DeleteNetworkProfile' :: DeleteNetworkProfile -&gt; Text
-</span><a href="#local-6989586621679388978"><span class="hs-identifier hs-var hs-var">networkProfileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388978"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388977"><span class="annot"><span class="annottext">s :: DeleteNetworkProfile
-</span><a href="#local-6989586621679388977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile%27"><span class="hs-identifier hs-type">DeleteNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388976"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNetworkProfile
-</span><a href="#local-6989586621679388977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkProfileArn:DeleteNetworkProfile' :: Text
+</span><a href="#local-6989586621679388987"><span class="hs-identifier hs-var hs-var">networkProfileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388987"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388986"><span class="annot"><span class="annottext">s :: DeleteNetworkProfile
+</span><a href="#local-6989586621679388986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile%27"><span class="hs-identifier hs-type">DeleteNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388985"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNetworkProfile
+</span><a href="#local-6989586621679388986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkProfileArn:DeleteNetworkProfile' :: Text
 </span><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#%24sel%3AnetworkProfileArn%3ADeleteNetworkProfile%27"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfileResponse"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679388972"><span class="annot"><span class="annottext">request :: DeleteNetworkProfile -&gt; Request DeleteNetworkProfile
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679388981"><span class="annot"><span class="annottext">request :: DeleteNetworkProfile -&gt; Request DeleteNetworkProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteNetworkProfile -&gt; Request DeleteNetworkProfile
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679388968"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679388977"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteNetworkProfile
 -&gt; ClientResponse ClientBody
@@ -183,10 +183,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388965"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388965"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388964"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679388964"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388963"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679388963"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388974"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388974"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388973"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679388973"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388972"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679388972"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteNetworkProfileResponse
 </span><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfileResponse%27"><span class="hs-identifier hs-var">DeleteNetworkProfileResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteNetworkProfileResponse)
@@ -197,15 +197,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388965"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388974"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388956"><span id="local-6989586621679388958"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388965"><span id="local-6989586621679388967"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388962"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679388949"><span class="annot"><span class="annottext">toHeaders :: DeleteNetworkProfile -&gt; ResponseHeaders
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679388958"><span class="annot"><span class="annottext">toHeaders :: DeleteNetworkProfile -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteNetworkProfile -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -232,12 +232,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388939"><span id="local-6989586621679388941"><span id="local-6989586621679388943"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679388937"><span class="annot"><span class="annottext">toJSON :: DeleteNetworkProfile -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile%27"><span class="hs-identifier hs-type">DeleteNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388935"><span class="annot"><span class="annottext">Text
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388948"><span id="local-6989586621679388950"><span id="local-6989586621679388952"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679388946"><span class="annot"><span class="annottext">toJSON :: DeleteNetworkProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile%27"><span class="hs-identifier hs-type">DeleteNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388944"><span class="annot"><span class="annottext">Text
 networkProfileArn :: Text
 $sel:networkProfileArn:DeleteNetworkProfile' :: DeleteNetworkProfile -&gt; Text
-</span><a href="#local-6989586621679388935"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679388944"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -250,19 +250,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;NetworkProfileArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388935"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388944"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679388929"><span class="annot"><span class="annottext">toPath :: DeleteNetworkProfile -&gt; ByteString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679388938"><span class="annot"><span class="annottext">toPath :: DeleteNetworkProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteNetworkProfile -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfile"><span class="hs-identifier hs-type">DeleteNetworkProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679388925"><span class="annot"><span class="annottext">toQuery :: DeleteNetworkProfile -&gt; QueryString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679388934"><span class="annot"><span class="annottext">toQuery :: DeleteNetworkProfile -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteNetworkProfile -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -270,12 +270,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | /See:/ 'newDeleteNetworkProfileResponse' smart constructor.</span><span>
-</span><span id="line-125"></span><span id="local-6989586621679388922"><span id="local-6989586621679388923"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteNetworkProfileResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfileResponse"><span class="hs-identifier hs-var">DeleteNetworkProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteNetworkProfileResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfileResponse%27"><span class="hs-identifier hs-var">DeleteNetworkProfileResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span id="local-6989586621679388931"><span id="local-6989586621679388932"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteNetworkProfileResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfileResponse"><span class="hs-identifier hs-var">DeleteNetworkProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteNetworkProfileResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfileResponse%27"><span class="hs-identifier hs-var">DeleteNetworkProfileResponse'</span></a></span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteNetworkProfileResponse%27"><span class="annot"><span class="annottext">DeleteNetworkProfileResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#%24sel%3AhttpStatus%3ADeleteNetworkProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388917"><span id="local-6989586621679388919"><span class="annot"><span class="annottext">DeleteNetworkProfileResponse
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388926"><span id="local-6989586621679388928"><span class="annot"><span class="annottext">DeleteNetworkProfileResponse
 -&gt; DeleteNetworkProfileResponse -&gt; Bool
 (DeleteNetworkProfileResponse
  -&gt; DeleteNetworkProfileResponse -&gt; Bool)
@@ -291,7 +291,7 @@ $c/= :: DeleteNetworkProfileResponse
 -&gt; DeleteNetworkProfileResponse -&gt; Bool
 $c== :: DeleteNetworkProfileResponse
 -&gt; DeleteNetworkProfileResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388909"><span id="local-6989586621679388911"><span id="local-6989586621679388913"><span id="local-6989586621679388915"><span class="annot"><span class="annottext">ReadPrec [DeleteNetworkProfileResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388918"><span id="local-6989586621679388920"><span id="local-6989586621679388922"><span id="local-6989586621679388924"><span class="annot"><span class="annottext">ReadPrec [DeleteNetworkProfileResponse]
 ReadPrec DeleteNetworkProfileResponse
 Int -&gt; ReadS DeleteNetworkProfileResponse
 ReadS [DeleteNetworkProfileResponse]
@@ -311,7 +311,7 @@ readList :: ReadS [DeleteNetworkProfileResponse]
 $creadList :: ReadS [DeleteNetworkProfileResponse]
 readsPrec :: Int -&gt; ReadS DeleteNetworkProfileResponse
 $creadsPrec :: Int -&gt; ReadS DeleteNetworkProfileResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388903"><span id="local-6989586621679388905"><span id="local-6989586621679388907"><span class="annot"><span class="annottext">Int -&gt; DeleteNetworkProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388912"><span id="local-6989586621679388914"><span id="local-6989586621679388916"><span class="annot"><span class="annottext">Int -&gt; DeleteNetworkProfileResponse -&gt; ShowS
 [DeleteNetworkProfileResponse] -&gt; ShowS
 DeleteNetworkProfileResponse -&gt; String
 (Int -&gt; DeleteNetworkProfileResponse -&gt; ShowS)
@@ -357,14 +357,14 @@ DeleteNetworkProfileResponse -&gt; Rep DeleteNetworkProfileResponse x
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfileResponse"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse</span></a></span><span>
 </span><span id="line-144"></span><span id="newDeleteNetworkProfileResponse"><span class="annot"><span class="annottext">newDeleteNetworkProfileResponse :: Int -&gt; DeleteNetworkProfileResponse
-</span><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#newDeleteNetworkProfileResponse"><span class="hs-identifier hs-var hs-var">newDeleteNetworkProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679388900"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388900"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#newDeleteNetworkProfileResponse"><span class="hs-identifier hs-var hs-var">newDeleteNetworkProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679388909"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388909"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">DeleteNetworkProfileResponse' :: Int -&gt; DeleteNetworkProfileResponse
 </span><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfileResponse%27"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse'</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteNetworkProfileResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#%24sel%3AhttpStatus%3ADeleteNetworkProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388900"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679388909"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -377,16 +377,16 @@ DeleteNetworkProfileResponse -&gt; Rep DeleteNetworkProfileResponse x
 -&gt; Lens
      DeleteNetworkProfileResponse DeleteNetworkProfileResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfileResponse%27"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388899"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfileResponse%27"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388908"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteNetworkProfileResponse' :: DeleteNetworkProfileResponse -&gt; Int
-</span><a href="#local-6989586621679388899"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388899"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388898"><span class="annot"><span class="annottext">s :: DeleteNetworkProfileResponse
-</span><a href="#local-6989586621679388898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfileResponse%27"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388897"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNetworkProfileResponse
-</span><a href="#local-6989586621679388898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteNetworkProfileResponse' :: Int
+</span><a href="#local-6989586621679388908"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388908"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388907"><span class="annot"><span class="annottext">s :: DeleteNetworkProfileResponse
+</span><a href="#local-6989586621679388907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfileResponse%27"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388906"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNetworkProfileResponse
+</span><a href="#local-6989586621679388907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteNetworkProfileResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#%24sel%3AhttpStatus%3ADeleteNetworkProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfileResponse"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfileResponse"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388895"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfileResponse"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388904"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteNetworkProfile.html#DeleteNetworkProfileResponse"><span class="hs-identifier hs-type">DeleteNetworkProfileResponse</span></a></span></span><span>
 </span><span id="line-155"></span></pre></body></html>

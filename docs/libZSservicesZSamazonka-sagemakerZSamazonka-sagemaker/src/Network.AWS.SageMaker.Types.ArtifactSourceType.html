@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The ID and ID type of an artifact source.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newArtifactSourceType' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680290746"><span id="local-6989586621680290747"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArtifactSourceType"><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType"><span class="hs-identifier hs-var">ArtifactSourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactSourceType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType%27"><span class="hs-identifier hs-var">ArtifactSourceType'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680290755"><span id="local-6989586621680290756"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArtifactSourceType"><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType"><span class="hs-identifier hs-var">ArtifactSourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactSourceType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType%27"><span class="hs-identifier hs-var">ArtifactSourceType'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of ID.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AsourceIdType%3AArtifactSourceType%27"><span class="annot"><span class="annottext">ArtifactSourceType -&gt; ArtifactSourceIdType
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#%24sel%3AsourceIdType%3AArtifactSourceType%27"><span class="hs-identifier hs-var hs-var">sourceIdType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceIdType.html#ArtifactSourceIdType"><span class="hs-identifier hs-type">ArtifactSourceIdType</span></a></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3AArtifactSourceType%27"><span class="annot"><span class="annottext">ArtifactSourceType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#%24sel%3Avalue%3AArtifactSourceType%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680290739"><span id="local-6989586621680290741"><span class="annot"><span class="annottext">ArtifactSourceType -&gt; ArtifactSourceType -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680290748"><span id="local-6989586621680290750"><span class="annot"><span class="annottext">ArtifactSourceType -&gt; ArtifactSourceType -&gt; Bool
 (ArtifactSourceType -&gt; ArtifactSourceType -&gt; Bool)
 -&gt; (ArtifactSourceType -&gt; ArtifactSourceType -&gt; Bool)
 -&gt; Eq ArtifactSourceType
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ArtifactSourceType -&gt; ArtifactSourceType -&gt; Bool
 == :: ArtifactSourceType -&gt; ArtifactSourceType -&gt; Bool
 $c== :: ArtifactSourceType -&gt; ArtifactSourceType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680290730"><span id="local-6989586621680290732"><span id="local-6989586621680290734"><span id="local-6989586621680290736"><span class="annot"><span class="annottext">ReadPrec [ArtifactSourceType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680290739"><span id="local-6989586621680290741"><span id="local-6989586621680290743"><span id="local-6989586621680290745"><span class="annot"><span class="annottext">ReadPrec [ArtifactSourceType]
 ReadPrec ArtifactSourceType
 Int -&gt; ReadS ArtifactSourceType
 ReadS [ArtifactSourceType]
@@ -64,7 +64,7 @@ readList :: ReadS [ArtifactSourceType]
 $creadList :: ReadS [ArtifactSourceType]
 readsPrec :: Int -&gt; ReadS ArtifactSourceType
 $creadsPrec :: Int -&gt; ReadS ArtifactSourceType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680290723"><span id="local-6989586621680290725"><span id="local-6989586621680290727"><span class="annot"><span class="annottext">Int -&gt; ArtifactSourceType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680290732"><span id="local-6989586621680290734"><span id="local-6989586621680290736"><span class="annot"><span class="annottext">Int -&gt; ArtifactSourceType -&gt; ShowS
 [ArtifactSourceType] -&gt; ShowS
 ArtifactSourceType -&gt; String
 (Int -&gt; ArtifactSourceType -&gt; ShowS)
@@ -108,17 +108,17 @@ $cfrom :: forall x. ArtifactSourceType -&gt; Rep ArtifactSourceType x
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType"><span class="hs-identifier hs-type">ArtifactSourceType</span></a></span><span>
 </span><span id="line-55"></span><span id="newArtifactSourceType"><span class="annot"><span class="annottext">newArtifactSourceType :: ArtifactSourceIdType -&gt; Text -&gt; ArtifactSourceType
-</span><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#newArtifactSourceType"><span class="hs-identifier hs-var hs-var">newArtifactSourceType</span></a></span></span><span> </span><span id="local-6989586621680290717"><span class="annot"><span class="annottext">ArtifactSourceIdType
-</span><a href="#local-6989586621680290717"><span class="hs-identifier hs-var">pSourceIdType_</span></a></span></span><span> </span><span id="local-6989586621680290716"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680290716"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#newArtifactSourceType"><span class="hs-identifier hs-var hs-var">newArtifactSourceType</span></a></span></span><span> </span><span id="local-6989586621680290726"><span class="annot"><span class="annottext">ArtifactSourceIdType
+</span><a href="#local-6989586621680290726"><span class="hs-identifier hs-var">pSourceIdType_</span></a></span></span><span> </span><span id="local-6989586621680290725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680290725"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ArtifactSourceType' :: ArtifactSourceIdType -&gt; Text -&gt; ArtifactSourceType
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType%27"><span class="hs-identifier hs-type">ArtifactSourceType'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceIdType:ArtifactSourceType' :: ArtifactSourceIdType
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#%24sel%3AsourceIdType%3AArtifactSourceType%27"><span class="hs-identifier hs-var">sourceIdType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArtifactSourceIdType
-</span><a href="#local-6989586621680290717"><span class="hs-identifier hs-var">pSourceIdType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680290726"><span class="hs-identifier hs-var">pSourceIdType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:ArtifactSourceType' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#%24sel%3Avalue%3AArtifactSourceType%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680290716"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
+</span><a href="#local-6989586621680290725"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The type of ID.</span><span>
@@ -134,16 +134,16 @@ $cfrom :: forall x. ArtifactSourceType -&gt; Rep ArtifactSourceType x
      ArtifactSourceIdType
      ArtifactSourceIdType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType%27"><span class="hs-identifier hs-type">ArtifactSourceType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680290712"><span class="annot"><span class="annottext">ArtifactSourceIdType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType%27"><span class="hs-identifier hs-type">ArtifactSourceType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680290721"><span class="annot"><span class="annottext">ArtifactSourceIdType
 sourceIdType :: ArtifactSourceIdType
 $sel:sourceIdType:ArtifactSourceType' :: ArtifactSourceType -&gt; ArtifactSourceIdType
-</span><a href="#local-6989586621680290712"><span class="hs-identifier hs-var hs-var">sourceIdType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSourceIdType
-</span><a href="#local-6989586621680290712"><span class="hs-identifier hs-var">sourceIdType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680290711"><span class="annot"><span class="annottext">s :: ArtifactSourceType
-</span><a href="#local-6989586621680290711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType%27"><span class="hs-identifier hs-type">ArtifactSourceType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680290710"><span class="annot"><span class="annottext">ArtifactSourceIdType
-</span><a href="#local-6989586621680290710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSourceType
-</span><a href="#local-6989586621680290711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdType:ArtifactSourceType' :: ArtifactSourceIdType
+</span><a href="#local-6989586621680290721"><span class="hs-identifier hs-var hs-var">sourceIdType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSourceIdType
+</span><a href="#local-6989586621680290721"><span class="hs-identifier hs-var">sourceIdType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680290720"><span class="annot"><span class="annottext">s :: ArtifactSourceType
+</span><a href="#local-6989586621680290720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType%27"><span class="hs-identifier hs-type">ArtifactSourceType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680290719"><span class="annot"><span class="annottext">ArtifactSourceIdType
+</span><a href="#local-6989586621680290719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSourceType
+</span><a href="#local-6989586621680290720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdType:ArtifactSourceType' :: ArtifactSourceIdType
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#%24sel%3AsourceIdType%3AArtifactSourceType%27"><span class="hs-identifier hs-var">sourceIdType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArtifactSourceIdType
-</span><a href="#local-6989586621680290710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType"><span class="hs-identifier hs-type">ArtifactSourceType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680290719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType"><span class="hs-identifier hs-type">ArtifactSourceType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The ID.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#artifactSourceType_value"><span class="hs-identifier hs-type">artifactSourceType_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType"><span class="hs-identifier hs-type">ArtifactSourceType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -152,19 +152,19 @@ $sel:sourceIdType:ArtifactSourceType' :: ArtifactSourceType -&gt; ArtifactSource
 -&gt; (ArtifactSourceType -&gt; Text -&gt; ArtifactSourceType)
 -&gt; Lens ArtifactSourceType ArtifactSourceType Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType%27"><span class="hs-identifier hs-type">ArtifactSourceType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680290708"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType%27"><span class="hs-identifier hs-type">ArtifactSourceType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680290717"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:ArtifactSourceType' :: ArtifactSourceType -&gt; Text
-</span><a href="#local-6989586621680290708"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680290708"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680290707"><span class="annot"><span class="annottext">s :: ArtifactSourceType
-</span><a href="#local-6989586621680290707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType%27"><span class="hs-identifier hs-type">ArtifactSourceType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680290706"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680290706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSourceType
-</span><a href="#local-6989586621680290707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ArtifactSourceType' :: Text
+</span><a href="#local-6989586621680290717"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680290717"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680290716"><span class="annot"><span class="annottext">s :: ArtifactSourceType
+</span><a href="#local-6989586621680290716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType%27"><span class="hs-identifier hs-type">ArtifactSourceType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680290715"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680290715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSourceType
+</span><a href="#local-6989586621680290716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ArtifactSourceType' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#%24sel%3Avalue%3AArtifactSourceType%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680290706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType"><span class="hs-identifier hs-type">ArtifactSourceType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680290715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType"><span class="hs-identifier hs-type">ArtifactSourceType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680290703"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType"><span class="hs-identifier hs-type">ArtifactSourceType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621680290701"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArtifactSourceType
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680290712"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType"><span class="hs-identifier hs-type">ArtifactSourceType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621680290710"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArtifactSourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ArtifactSourceType)
@@ -174,8 +174,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ArtifactSourceType&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680290698"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680290698"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680290707"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680290707"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">ArtifactSourceIdType -&gt; Text -&gt; ArtifactSourceType
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType%27"><span class="hs-identifier hs-var">ArtifactSourceType'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(ArtifactSourceIdType -&gt; Text -&gt; ArtifactSourceType)
@@ -183,7 +183,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; ArtifactSourceType)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680290698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ArtifactSourceIdType
+</span><a href="#local-6989586621680290707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ArtifactSourceIdType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceIdType&quot;</span></span><span class="hs-special">)</span><span>
@@ -191,25 +191,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser ArtifactSourceType
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680290698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680290707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680290692"><span id="local-6989586621680290694"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType"><span class="hs-identifier hs-type">ArtifactSourceType</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680290701"><span id="local-6989586621680290703"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType"><span class="hs-identifier hs-type">ArtifactSourceType</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680290689"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType"><span class="hs-identifier hs-type">ArtifactSourceType</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680290698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType"><span class="hs-identifier hs-type">ArtifactSourceType</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680290681"><span id="local-6989586621680290683"><span id="local-6989586621680290685"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType"><span class="hs-identifier hs-type">ArtifactSourceType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621680290679"><span class="annot"><span class="annottext">toJSON :: ArtifactSourceType -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType%27"><span class="hs-identifier hs-type">ArtifactSourceType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680290676"><span id="local-6989586621680290677"><span class="annot"><span class="annottext">Text
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680290690"><span id="local-6989586621680290692"><span id="local-6989586621680290694"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType"><span class="hs-identifier hs-type">ArtifactSourceType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621680290688"><span class="annot"><span class="annottext">toJSON :: ArtifactSourceType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSourceType.html#ArtifactSourceType%27"><span class="hs-identifier hs-type">ArtifactSourceType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680290685"><span id="local-6989586621680290686"><span class="annot"><span class="annottext">Text
 ArtifactSourceIdType
 value :: Text
 sourceIdType :: ArtifactSourceIdType
 $sel:value:ArtifactSourceType' :: ArtifactSourceType -&gt; Text
 $sel:sourceIdType:ArtifactSourceType' :: ArtifactSourceType -&gt; ArtifactSourceIdType
-</span><a href="#local-6989586621680290676"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680290685"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -221,14 +221,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SourceIdType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ArtifactSourceIdType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ArtifactSourceIdType
-</span><a href="#local-6989586621680290677"><span class="hs-identifier hs-var">sourceIdType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680290686"><span class="hs-identifier hs-var">sourceIdType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680290676"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680290685"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task&gt;</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newAlias' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679440313"><span id="local-6989586621679440314"></span></span><span class="hs-keyword">data</span><span> </span><span id="Alias"><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-var">Alias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Alias%27"><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-var">Alias'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679440322"><span id="local-6989586621679440323"></span></span><span class="hs-keyword">data</span><span> </span><span id="Alias"><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-var">Alias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Alias%27"><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-var">Alias'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A time stamp indicating when this data object was created. Format is a</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- number expressed in Unix time as milliseconds (for example</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @\&quot;1469498468.057\&quot;@).</span><span>
@@ -67,14 +67,14 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3Adescription%3AAlias%27"><span class="annot"><span class="annottext">Alias -&gt; Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Alias.html#%24sel%3Adescription%3AAlias%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440301"><span id="local-6989586621679440303"><span class="annot"><span class="annottext">Alias -&gt; Alias -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440310"><span id="local-6989586621679440312"><span class="annot"><span class="annottext">Alias -&gt; Alias -&gt; Bool
 (Alias -&gt; Alias -&gt; Bool) -&gt; (Alias -&gt; Alias -&gt; Bool) -&gt; Eq Alias
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Alias -&gt; Alias -&gt; Bool
 $c/= :: Alias -&gt; Alias -&gt; Bool
 == :: Alias -&gt; Alias -&gt; Bool
 $c== :: Alias -&gt; Alias -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440292"><span id="local-6989586621679440294"><span id="local-6989586621679440296"><span id="local-6989586621679440298"><span class="annot"><span class="annottext">ReadPrec [Alias]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440301"><span id="local-6989586621679440303"><span id="local-6989586621679440305"><span id="local-6989586621679440307"><span class="annot"><span class="annottext">ReadPrec [Alias]
 ReadPrec Alias
 Int -&gt; ReadS Alias
 ReadS [Alias]
@@ -94,7 +94,7 @@ readList :: ReadS [Alias]
 $creadList :: ReadS [Alias]
 readsPrec :: Int -&gt; ReadS Alias
 $creadsPrec :: Int -&gt; ReadS Alias
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440285"><span id="local-6989586621679440287"><span id="local-6989586621679440289"><span class="annot"><span class="annottext">Int -&gt; Alias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440294"><span id="local-6989586621679440296"><span id="local-6989586621679440298"><span class="annot"><span class="annottext">Int -&gt; Alias -&gt; ShowS
 [Alias] -&gt; ShowS
 Alias -&gt; String
 (Int -&gt; Alias -&gt; ShowS)
@@ -201,16 +201,16 @@ forall a. Maybe a
 -&gt; (Alias -&gt; Maybe POSIX -&gt; Alias)
 -&gt; Lens Alias Alias (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440276"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440285"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:Alias' :: Alias -&gt; Maybe POSIX
-</span><a href="#local-6989586621679440276"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679440276"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440275"><span class="annot"><span class="annottext">s :: Alias
-</span><a href="#local-6989586621679440275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440274"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679440274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
-</span><a href="#local-6989586621679440275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Alias' :: Maybe POSIX
+</span><a href="#local-6989586621679440285"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679440285"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440284"><span class="annot"><span class="annottext">s :: Alias
+</span><a href="#local-6989586621679440284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440283"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679440283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
+</span><a href="#local-6989586621679440284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Alias' :: Maybe POSIX
 </span><a href="Network.AWS.GameLift.Types.Alias.html#%24sel%3AcreationTime%3AAlias%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679440274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Alias -&gt; f Alias)
+</span><a href="#local-6989586621679440283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Alias -&gt; f Alias)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -235,16 +235,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (Alias -&gt; Maybe POSIX -&gt; Alias)
 -&gt; Lens Alias Alias (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440269"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440278"><span class="annot"><span class="annottext">Maybe POSIX
 lastUpdatedTime :: Maybe POSIX
 $sel:lastUpdatedTime:Alias' :: Alias -&gt; Maybe POSIX
-</span><a href="#local-6989586621679440269"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679440269"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440268"><span class="annot"><span class="annottext">s :: Alias
-</span><a href="#local-6989586621679440268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440267"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679440267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
-</span><a href="#local-6989586621679440268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:Alias' :: Maybe POSIX
+</span><a href="#local-6989586621679440278"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679440278"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440277"><span class="annot"><span class="annottext">s :: Alias
+</span><a href="#local-6989586621679440277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440276"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679440276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
+</span><a href="#local-6989586621679440277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:Alias' :: Maybe POSIX
 </span><a href="Network.AWS.GameLift.Types.Alias.html#%24sel%3AlastUpdatedTime%3AAlias%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679440267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Alias -&gt; f Alias)
+</span><a href="#local-6989586621679440276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Alias -&gt; f Alias)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -267,16 +267,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (Alias -&gt; Maybe Text -&gt; Alias)
 -&gt; Lens Alias Alias (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440265"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440274"><span class="annot"><span class="annottext">Maybe Text
 aliasId :: Maybe Text
 $sel:aliasId:Alias' :: Alias -&gt; Maybe Text
-</span><a href="#local-6989586621679440265"><span class="hs-identifier hs-var hs-var">aliasId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440265"><span class="hs-identifier hs-var">aliasId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440264"><span class="annot"><span class="annottext">s :: Alias
-</span><a href="#local-6989586621679440264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440263"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
-</span><a href="#local-6989586621679440264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasId:Alias' :: Maybe Text
+</span><a href="#local-6989586621679440274"><span class="hs-identifier hs-var hs-var">aliasId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440274"><span class="hs-identifier hs-var">aliasId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440273"><span class="annot"><span class="annottext">s :: Alias
+</span><a href="#local-6989586621679440273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440272"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
+</span><a href="#local-6989586621679440273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasId:Alias' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Alias.html#%24sel%3AaliasId%3AAlias%27"><span class="hs-identifier hs-var">aliasId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The routing configuration, including routing type and fleet target, for</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- the alias.</span><span>
@@ -287,16 +287,16 @@ $sel:aliasId:Alias' :: Alias -&gt; Maybe Text
 -&gt; (Alias -&gt; Maybe RoutingStrategy -&gt; Alias)
 -&gt; Lens Alias Alias (Maybe RoutingStrategy) (Maybe RoutingStrategy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440261"><span class="annot"><span class="annottext">Maybe RoutingStrategy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440270"><span class="annot"><span class="annottext">Maybe RoutingStrategy
 routingStrategy :: Maybe RoutingStrategy
 $sel:routingStrategy:Alias' :: Alias -&gt; Maybe RoutingStrategy
-</span><a href="#local-6989586621679440261"><span class="hs-identifier hs-var hs-var">routingStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RoutingStrategy
-</span><a href="#local-6989586621679440261"><span class="hs-identifier hs-var">routingStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440260"><span class="annot"><span class="annottext">s :: Alias
-</span><a href="#local-6989586621679440260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440259"><span class="annot"><span class="annottext">Maybe RoutingStrategy
-</span><a href="#local-6989586621679440259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
-</span><a href="#local-6989586621679440260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingStrategy:Alias' :: Maybe RoutingStrategy
+</span><a href="#local-6989586621679440270"><span class="hs-identifier hs-var hs-var">routingStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RoutingStrategy
+</span><a href="#local-6989586621679440270"><span class="hs-identifier hs-var">routingStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440269"><span class="annot"><span class="annottext">s :: Alias
+</span><a href="#local-6989586621679440269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440268"><span class="annot"><span class="annottext">Maybe RoutingStrategy
+</span><a href="#local-6989586621679440268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
+</span><a href="#local-6989586621679440269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingStrategy:Alias' :: Maybe RoutingStrategy
 </span><a href="Network.AWS.GameLift.Types.Alias.html#%24sel%3AroutingStrategy%3AAlias%27"><span class="hs-identifier hs-var">routingStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RoutingStrategy
-</span><a href="#local-6989586621679440259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | A descriptive label that is associated with an alias. Alias names do not</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- need to be unique.</span><span>
@@ -306,16 +306,16 @@ $sel:routingStrategy:Alias' :: Alias -&gt; Maybe RoutingStrategy
 -&gt; (Alias -&gt; Maybe Text -&gt; Alias)
 -&gt; Lens Alias Alias (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440257"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440266"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Alias' :: Alias -&gt; Maybe Text
-</span><a href="#local-6989586621679440257"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440257"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440256"><span class="annot"><span class="annottext">s :: Alias
-</span><a href="#local-6989586621679440256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440255"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
-</span><a href="#local-6989586621679440256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Alias' :: Maybe Text
+</span><a href="#local-6989586621679440266"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440266"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440265"><span class="annot"><span class="annottext">s :: Alias
+</span><a href="#local-6989586621679440265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440264"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
+</span><a href="#local-6989586621679440265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Alias' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Alias.html#%24sel%3Aname%3AAlias%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
@@ -329,16 +329,16 @@ $sel:name:Alias' :: Alias -&gt; Maybe Text
 -&gt; (Alias -&gt; Maybe Text -&gt; Alias)
 -&gt; Lens Alias Alias (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440253"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440262"><span class="annot"><span class="annottext">Maybe Text
 aliasArn :: Maybe Text
 $sel:aliasArn:Alias' :: Alias -&gt; Maybe Text
-</span><a href="#local-6989586621679440253"><span class="hs-identifier hs-var hs-var">aliasArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440253"><span class="hs-identifier hs-var">aliasArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440252"><span class="annot"><span class="annottext">s :: Alias
-</span><a href="#local-6989586621679440252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440251"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
-</span><a href="#local-6989586621679440252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasArn:Alias' :: Maybe Text
+</span><a href="#local-6989586621679440262"><span class="hs-identifier hs-var hs-var">aliasArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440262"><span class="hs-identifier hs-var">aliasArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440261"><span class="annot"><span class="annottext">s :: Alias
+</span><a href="#local-6989586621679440261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440260"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
+</span><a href="#local-6989586621679440261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasArn:Alias' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Alias.html#%24sel%3AaliasArn%3AAlias%27"><span class="hs-identifier hs-var">aliasArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | A human-readable description of an alias.</span><span>
 </span><span id="line-146"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#alias_description"><span class="hs-identifier hs-type">alias_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -347,27 +347,27 @@ $sel:aliasArn:Alias' :: Alias -&gt; Maybe Text
 -&gt; (Alias -&gt; Maybe Text -&gt; Alias)
 -&gt; Lens Alias Alias (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440249"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440258"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:Alias' :: Alias -&gt; Maybe Text
-</span><a href="#local-6989586621679440249"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440249"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440248"><span class="annot"><span class="annottext">s :: Alias
-</span><a href="#local-6989586621679440248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440247"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
-</span><a href="#local-6989586621679440248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Alias' :: Maybe Text
+</span><a href="#local-6989586621679440258"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440258"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440257"><span class="annot"><span class="annottext">s :: Alias
+</span><a href="#local-6989586621679440257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440256"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
+</span><a href="#local-6989586621679440257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Alias' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Alias.html#%24sel%3Adescription%3AAlias%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440244"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679440242"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Alias
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440253"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679440251"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Alias
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Alias) -&gt; Value -&gt; Parser Alias
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Alias&quot;</span></span><span>
-</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440239"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440239"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440248"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679440248"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe POSIX
 -&gt; Maybe Text
@@ -396,7 +396,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Alias)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440239"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679440248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -418,7 +418,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Alias)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440239"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679440248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -435,7 +435,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Alias)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440239"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679440248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AliasId&quot;</span></span><span class="hs-special">)</span><span>
@@ -446,7 +446,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Alias)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440239"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RoutingStrategy)
+</span><a href="#local-6989586621679440248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RoutingStrategy)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoutingStrategy&quot;</span></span><span class="hs-special">)</span><span>
@@ -455,7 +455,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Alias)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440239"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679440248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -463,20 +463,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Alias)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440239"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679440248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AliasArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Alias) -&gt; Parser (Maybe Text) -&gt; Parser Alias
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440239"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679440248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440233"><span id="local-6989586621679440235"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440242"><span id="local-6989586621679440244"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span></span></span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440230"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440239"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span></span><span>
 </span><span id="line-167"></span></pre></body></html>

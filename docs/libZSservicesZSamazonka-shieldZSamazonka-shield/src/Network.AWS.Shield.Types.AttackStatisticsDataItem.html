@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- period that the attack statistics apply to.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAttackStatisticsDataItem' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679201697"><span id="local-6989586621679201698"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttackStatisticsDataItem"><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem"><span class="hs-identifier hs-var">AttackStatisticsDataItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttackStatisticsDataItem%27"><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem%27"><span class="hs-identifier hs-var">AttackStatisticsDataItem'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679201706"><span id="local-6989586621679201707"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttackStatisticsDataItem"><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem"><span class="hs-identifier hs-var">AttackStatisticsDataItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttackStatisticsDataItem%27"><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem%27"><span class="hs-identifier hs-var">AttackStatisticsDataItem'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the volume of attacks during the time period. If the</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- accompanying @AttackCount@ is zero, this setting might be empty.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AattackVolume%3AAttackStatisticsDataItem%27"><span class="annot"><span class="annottext">AttackStatisticsDataItem -&gt; Maybe AttackVolume
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AattackCount%3AAttackStatisticsDataItem%27"><span class="annot"><span class="annottext">AttackStatisticsDataItem -&gt; Integer
 </span><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#%24sel%3AattackCount%3AAttackStatisticsDataItem%27"><span class="hs-identifier hs-var hs-var">attackCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201690"><span id="local-6989586621679201692"><span class="annot"><span class="annottext">AttackStatisticsDataItem -&gt; AttackStatisticsDataItem -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201699"><span id="local-6989586621679201701"><span class="annot"><span class="annottext">AttackStatisticsDataItem -&gt; AttackStatisticsDataItem -&gt; Bool
 (AttackStatisticsDataItem -&gt; AttackStatisticsDataItem -&gt; Bool)
 -&gt; (AttackStatisticsDataItem -&gt; AttackStatisticsDataItem -&gt; Bool)
 -&gt; Eq AttackStatisticsDataItem
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttackStatisticsDataItem -&gt; AttackStatisticsDataItem -&gt; Bool
 == :: AttackStatisticsDataItem -&gt; AttackStatisticsDataItem -&gt; Bool
 $c== :: AttackStatisticsDataItem -&gt; AttackStatisticsDataItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201681"><span id="local-6989586621679201683"><span id="local-6989586621679201685"><span id="local-6989586621679201687"><span class="annot"><span class="annottext">ReadPrec [AttackStatisticsDataItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201690"><span id="local-6989586621679201692"><span id="local-6989586621679201694"><span id="local-6989586621679201696"><span class="annot"><span class="annottext">ReadPrec [AttackStatisticsDataItem]
 ReadPrec AttackStatisticsDataItem
 Int -&gt; ReadS AttackStatisticsDataItem
 ReadS [AttackStatisticsDataItem]
@@ -68,7 +68,7 @@ readList :: ReadS [AttackStatisticsDataItem]
 $creadList :: ReadS [AttackStatisticsDataItem]
 readsPrec :: Int -&gt; ReadS AttackStatisticsDataItem
 $creadsPrec :: Int -&gt; ReadS AttackStatisticsDataItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201674"><span id="local-6989586621679201676"><span id="local-6989586621679201678"><span class="annot"><span class="annottext">Int -&gt; AttackStatisticsDataItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201683"><span id="local-6989586621679201685"><span id="local-6989586621679201687"><span class="annot"><span class="annottext">Int -&gt; AttackStatisticsDataItem -&gt; ShowS
 [AttackStatisticsDataItem] -&gt; ShowS
 AttackStatisticsDataItem -&gt; String
 (Int -&gt; AttackStatisticsDataItem -&gt; ShowS)
@@ -118,8 +118,8 @@ AttackStatisticsDataItem -&gt; Rep AttackStatisticsDataItem x
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem"><span class="hs-identifier hs-type">AttackStatisticsDataItem</span></a></span><span>
 </span><span id="line-59"></span><span id="newAttackStatisticsDataItem"><span class="annot"><span class="annottext">newAttackStatisticsDataItem :: Integer -&gt; AttackStatisticsDataItem
-</span><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#newAttackStatisticsDataItem"><span class="hs-identifier hs-var hs-var">newAttackStatisticsDataItem</span></a></span></span><span> </span><span id="local-6989586621679201668"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679201668"><span class="hs-identifier hs-var">pAttackCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#newAttackStatisticsDataItem"><span class="hs-identifier hs-var hs-var">newAttackStatisticsDataItem</span></a></span></span><span> </span><span id="local-6989586621679201677"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679201677"><span class="hs-identifier hs-var">pAttackCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">AttackStatisticsDataItem' :: Maybe AttackVolume -&gt; Integer -&gt; AttackStatisticsDataItem
 </span><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem%27"><span class="hs-identifier hs-type">AttackStatisticsDataItem'</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attackVolume:AttackStatisticsDataItem' :: Maybe AttackVolume
@@ -129,7 +129,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:attackCount:AttackStatisticsDataItem' :: Integer
 </span><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#%24sel%3AattackCount%3AAttackStatisticsDataItem%27"><span class="hs-identifier hs-var">attackCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679201668"><span class="hs-identifier hs-var">pAttackCount_</span></a></span><span>
+</span><a href="#local-6989586621679201677"><span class="hs-identifier hs-var">pAttackCount_</span></a></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | Information about the volume of attacks during the time period. If the</span><span>
@@ -146,16 +146,16 @@ forall a. Maybe a
      (Maybe AttackVolume)
      (Maybe AttackVolume)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem%27"><span class="hs-identifier hs-type">AttackStatisticsDataItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201664"><span class="annot"><span class="annottext">Maybe AttackVolume
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem%27"><span class="hs-identifier hs-type">AttackStatisticsDataItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201673"><span class="annot"><span class="annottext">Maybe AttackVolume
 attackVolume :: Maybe AttackVolume
 $sel:attackVolume:AttackStatisticsDataItem' :: AttackStatisticsDataItem -&gt; Maybe AttackVolume
-</span><a href="#local-6989586621679201664"><span class="hs-identifier hs-var hs-var">attackVolume</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttackVolume
-</span><a href="#local-6989586621679201664"><span class="hs-identifier hs-var">attackVolume</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201663"><span class="annot"><span class="annottext">s :: AttackStatisticsDataItem
-</span><a href="#local-6989586621679201663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem%27"><span class="hs-identifier hs-type">AttackStatisticsDataItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201662"><span class="annot"><span class="annottext">Maybe AttackVolume
-</span><a href="#local-6989586621679201662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackStatisticsDataItem
-</span><a href="#local-6989586621679201663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attackVolume:AttackStatisticsDataItem' :: Maybe AttackVolume
+</span><a href="#local-6989586621679201673"><span class="hs-identifier hs-var hs-var">attackVolume</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttackVolume
+</span><a href="#local-6989586621679201673"><span class="hs-identifier hs-var">attackVolume</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201672"><span class="annot"><span class="annottext">s :: AttackStatisticsDataItem
+</span><a href="#local-6989586621679201672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem%27"><span class="hs-identifier hs-type">AttackStatisticsDataItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201671"><span class="annot"><span class="annottext">Maybe AttackVolume
+</span><a href="#local-6989586621679201671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackStatisticsDataItem
+</span><a href="#local-6989586621679201672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attackVolume:AttackStatisticsDataItem' :: Maybe AttackVolume
 </span><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#%24sel%3AattackVolume%3AAttackStatisticsDataItem%27"><span class="hs-identifier hs-var">attackVolume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttackVolume
-</span><a href="#local-6989586621679201662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem"><span class="hs-identifier hs-type">AttackStatisticsDataItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem"><span class="hs-identifier hs-type">AttackStatisticsDataItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The number of attacks detected during the time period. This is always</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- present, but might be zero.</span><span>
@@ -168,19 +168,19 @@ $sel:attackVolume:AttackStatisticsDataItem' :: AttackStatisticsDataItem -&gt; Ma
 -&gt; Lens
      AttackStatisticsDataItem AttackStatisticsDataItem Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem%27"><span class="hs-identifier hs-type">AttackStatisticsDataItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201660"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem%27"><span class="hs-identifier hs-type">AttackStatisticsDataItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201669"><span class="annot"><span class="annottext">Integer
 attackCount :: Integer
 $sel:attackCount:AttackStatisticsDataItem' :: AttackStatisticsDataItem -&gt; Integer
-</span><a href="#local-6989586621679201660"><span class="hs-identifier hs-var hs-var">attackCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679201660"><span class="hs-identifier hs-var">attackCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201659"><span class="annot"><span class="annottext">s :: AttackStatisticsDataItem
-</span><a href="#local-6989586621679201659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem%27"><span class="hs-identifier hs-type">AttackStatisticsDataItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201658"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679201658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackStatisticsDataItem
-</span><a href="#local-6989586621679201659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attackCount:AttackStatisticsDataItem' :: Integer
+</span><a href="#local-6989586621679201669"><span class="hs-identifier hs-var hs-var">attackCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679201669"><span class="hs-identifier hs-var">attackCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201668"><span class="annot"><span class="annottext">s :: AttackStatisticsDataItem
+</span><a href="#local-6989586621679201668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem%27"><span class="hs-identifier hs-type">AttackStatisticsDataItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201667"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679201667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackStatisticsDataItem
+</span><a href="#local-6989586621679201668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attackCount:AttackStatisticsDataItem' :: Integer
 </span><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#%24sel%3AattackCount%3AAttackStatisticsDataItem%27"><span class="hs-identifier hs-var">attackCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679201658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem"><span class="hs-identifier hs-type">AttackStatisticsDataItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem"><span class="hs-identifier hs-type">AttackStatisticsDataItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201655"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem"><span class="hs-identifier hs-type">AttackStatisticsDataItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679201653"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttackStatisticsDataItem
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201664"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem"><span class="hs-identifier hs-type">AttackStatisticsDataItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679201662"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttackStatisticsDataItem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AttackStatisticsDataItem)
@@ -190,8 +190,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AttackStatisticsDataItem&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201650"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201650"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201659"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201659"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe AttackVolume -&gt; Integer -&gt; AttackStatisticsDataItem
 </span><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem%27"><span class="hs-identifier hs-var">AttackStatisticsDataItem'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AttackVolume -&gt; Integer -&gt; AttackStatisticsDataItem)
@@ -199,7 +199,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Integer -&gt; AttackStatisticsDataItem)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201650"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AttackVolume)
+</span><a href="#local-6989586621679201659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AttackVolume)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttackVolume&quot;</span></span><span class="hs-special">)</span><span>
@@ -207,13 +207,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Integer -&gt; Parser AttackStatisticsDataItem
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201650"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679201659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttackCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201643"><span id="local-6989586621679201645"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem"><span class="hs-identifier hs-type">AttackStatisticsDataItem</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201652"><span id="local-6989586621679201654"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem"><span class="hs-identifier hs-type">AttackStatisticsDataItem</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201640"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem"><span class="hs-identifier hs-type">AttackStatisticsDataItem</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201649"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackStatisticsDataItem.html#AttackStatisticsDataItem"><span class="hs-identifier hs-type">AttackStatisticsDataItem</span></a></span></span><span>
 </span><span id="line-89"></span></pre></body></html>

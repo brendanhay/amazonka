@@ -64,7 +64,7 @@
 </span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.html"><span class="hs-identifier">Network.AWS.SDB.Types</span></a></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newSelect' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679150022"><span id="local-6989586621679150023"></span></span><span class="hs-keyword">data</span><span> </span><span id="Select"><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-var">Select</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Select%27"><span class="annot"><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-var">Select'</span></a></span></span><span>
+</span><span id="line-67"></span><span id="local-6989586621679150031"><span id="local-6989586621679150032"></span></span><span class="hs-keyword">data</span><span> </span><span id="Select"><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-var">Select</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Select%27"><span class="annot"><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-var">Select'</span></a></span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Determines whether or not strong consistency should be enforced when</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- data is read from SimpleDB. If @true@, any data previously written to</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- SimpleDB will be returned. Otherwise, results will be consistent</span><span>
@@ -80,7 +80,7 @@
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3AselectExpression%3ASelect%27"><span class="annot"><span class="annottext">Select -&gt; Text
 </span><a href="Network.AWS.SDB.Select.html#%24sel%3AselectExpression%3ASelect%27"><span class="hs-identifier hs-var hs-var">selectExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679150014"><span id="local-6989586621679150016"><span class="annot"><span class="annottext">Select -&gt; Select -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679150023"><span id="local-6989586621679150025"><span class="annot"><span class="annottext">Select -&gt; Select -&gt; Bool
 (Select -&gt; Select -&gt; Bool)
 -&gt; (Select -&gt; Select -&gt; Bool) -&gt; Eq Select
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Select -&gt; Select -&gt; Bool
 == :: Select -&gt; Select -&gt; Bool
 $c== :: Select -&gt; Select -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679150005"><span id="local-6989586621679150007"><span id="local-6989586621679150009"><span id="local-6989586621679150011"><span class="annot"><span class="annottext">ReadPrec [Select]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679150014"><span id="local-6989586621679150016"><span id="local-6989586621679150018"><span id="local-6989586621679150020"><span class="annot"><span class="annottext">ReadPrec [Select]
 ReadPrec Select
 Int -&gt; ReadS Select
 ReadS [Select]
@@ -108,7 +108,7 @@ readList :: ReadS [Select]
 $creadList :: ReadS [Select]
 readsPrec :: Int -&gt; ReadS Select
 $creadsPrec :: Int -&gt; ReadS Select
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149998"><span id="local-6989586621679150000"><span id="local-6989586621679150002"><span class="annot"><span class="annottext">Int -&gt; Select -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679150007"><span id="local-6989586621679150009"><span id="local-6989586621679150011"><span class="annot"><span class="annottext">Int -&gt; Select -&gt; ShowS
 [Select] -&gt; ShowS
 Select -&gt; String
 (Int -&gt; Select -&gt; ShowS)
@@ -154,8 +154,8 @@ $cfrom :: forall x. Select -&gt; Rep Select x
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span><span>
 </span><span id="line-104"></span><span id="newSelect"><span class="annot"><span class="annottext">newSelect :: Text -&gt; Select
-</span><a href="Network.AWS.SDB.Select.html#newSelect"><span class="hs-identifier hs-var hs-var">newSelect</span></a></span></span><span> </span><span id="local-6989586621679149993"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149993"><span class="hs-identifier hs-var">pSelectExpression_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SDB.Select.html#newSelect"><span class="hs-identifier hs-var hs-var">newSelect</span></a></span></span><span> </span><span id="local-6989586621679150002"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150002"><span class="hs-identifier hs-var">pSelectExpression_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">Select' :: Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; Select
 </span><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-type">Select'</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:consistentRead:Select' :: Maybe Bool
@@ -168,7 +168,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:selectExpression:Select' :: Text
 </span><a href="Network.AWS.SDB.Select.html#%24sel%3AselectExpression%3ASelect%27"><span class="hs-identifier hs-var">selectExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149993"><span class="hs-identifier hs-var">pSelectExpression_</span></a></span><span>
+</span><a href="#local-6989586621679150002"><span class="hs-identifier hs-var">pSelectExpression_</span></a></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | Determines whether or not strong consistency should be enforced when</span><span>
@@ -182,16 +182,16 @@ forall a. Maybe a
 -&gt; (Select -&gt; Maybe Bool -&gt; Select)
 -&gt; Lens Select Select (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-type">Select'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149991"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-type">Select'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150000"><span class="annot"><span class="annottext">Maybe Bool
 consistentRead :: Maybe Bool
 $sel:consistentRead:Select' :: Select -&gt; Maybe Bool
-</span><a href="#local-6989586621679149991"><span class="hs-identifier hs-var hs-var">consistentRead</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679149991"><span class="hs-identifier hs-var">consistentRead</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149990"><span class="annot"><span class="annottext">s :: Select
-</span><a href="#local-6989586621679149990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-type">Select'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149989"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679149989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Select
-</span><a href="#local-6989586621679149990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consistentRead:Select' :: Maybe Bool
+</span><a href="#local-6989586621679150000"><span class="hs-identifier hs-var hs-var">consistentRead</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679150000"><span class="hs-identifier hs-var">consistentRead</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149999"><span class="annot"><span class="annottext">s :: Select
+</span><a href="#local-6989586621679149999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-type">Select'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149998"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679149998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Select
+</span><a href="#local-6989586621679149999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consistentRead:Select' :: Maybe Bool
 </span><a href="Network.AWS.SDB.Select.html#%24sel%3AconsistentRead%3ASelect%27"><span class="hs-identifier hs-var">consistentRead</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679149989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | A string informing Amazon SimpleDB where to start the next list of</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- @ItemNames@.</span><span>
@@ -201,16 +201,16 @@ $sel:consistentRead:Select' :: Select -&gt; Maybe Bool
 -&gt; (Select -&gt; Maybe Text -&gt; Select)
 -&gt; Lens Select Select (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-type">Select'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149988"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-type">Select'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149997"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:Select' :: Select -&gt; Maybe Text
-</span><a href="#local-6989586621679149988"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149988"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149987"><span class="annot"><span class="annottext">s :: Select
-</span><a href="#local-6989586621679149987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-type">Select'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149986"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Select
-</span><a href="#local-6989586621679149987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:Select' :: Maybe Text
+</span><a href="#local-6989586621679149997"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149997"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149996"><span class="annot"><span class="annottext">s :: Select
+</span><a href="#local-6989586621679149996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-type">Select'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149995"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Select
+</span><a href="#local-6989586621679149996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:Select' :: Maybe Text
 </span><a href="Network.AWS.SDB.Select.html#%24sel%3AnextToken%3ASelect%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The expression used to query the domain.</span><span>
 </span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SDB.Select.html#select_selectExpression"><span class="hs-identifier hs-type">select_selectExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -218,28 +218,28 @@ $sel:nextToken:Select' :: Select -&gt; Maybe Text
 </span><a href="Network.AWS.SDB.Select.html#select_selectExpression"><span class="hs-identifier hs-var hs-var">select_selectExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Select -&gt; Text)
 -&gt; (Select -&gt; Text -&gt; Select) -&gt; Lens Select Select Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-type">Select'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149985"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-type">Select'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149994"><span class="annot"><span class="annottext">Text
 selectExpression :: Text
 $sel:selectExpression:Select' :: Select -&gt; Text
-</span><a href="#local-6989586621679149985"><span class="hs-identifier hs-var hs-var">selectExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149985"><span class="hs-identifier hs-var">selectExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149984"><span class="annot"><span class="annottext">s :: Select
-</span><a href="#local-6989586621679149984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-type">Select'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149983"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Select
-</span><a href="#local-6989586621679149984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectExpression:Select' :: Text
+</span><a href="#local-6989586621679149994"><span class="hs-identifier hs-var hs-var">selectExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149994"><span class="hs-identifier hs-var">selectExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149993"><span class="annot"><span class="annottext">s :: Select
+</span><a href="#local-6989586621679149993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-type">Select'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149992"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Select
+</span><a href="#local-6989586621679149993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectExpression:Select' :: Text
 </span><a href="Network.AWS.SDB.Select.html#%24sel%3AselectExpression%3ASelect%27"><span class="hs-identifier hs-var">selectExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679149979"><span class="annot"><span class="annottext">page :: Select -&gt; AWSResponse Select -&gt; Maybe Select
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679149977"><span class="annot"><span class="annottext">Select
-</span><a href="#local-6989586621679149977"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679149976"><span class="annot"><span class="annottext">AWSResponse Select
-</span><a href="#local-6989586621679149976"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679149988"><span class="annot"><span class="annottext">page :: Select -&gt; AWSResponse Select -&gt; Maybe Select
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679149986"><span class="annot"><span class="annottext">Select
+</span><a href="#local-6989586621679149986"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679149985"><span class="annot"><span class="annottext">AWSResponse Select
+</span><a href="#local-6989586621679149985"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-131"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse Select
 SelectResponse
-</span><a href="#local-6989586621679149976"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679149985"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">SelectResponse
 -&gt; Getting (First Text) SelectResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -265,7 +265,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-136"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse Select
 SelectResponse
-</span><a href="#local-6989586621679149976"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679149985"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">SelectResponse
 -&gt; Getting (First [Item]) SelectResponse [Item] -&gt; Maybe [Item]
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -294,7 +294,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Select
-</span><a href="#local-6989586621679149977"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679149986"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Select -&gt; (Select -&gt; Select) -&gt; Select
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text)) -&gt; Select -&gt; Identity Select
@@ -306,7 +306,7 @@ Lens Select Select (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse Select
 SelectResponse
-</span><a href="#local-6989586621679149976"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679149985"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">SelectResponse
 -&gt; Getting (First Text) SelectResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -326,12 +326,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse"><span class="hs-identifier hs-type">SelectResponse</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679149966"><span class="annot"><span class="annottext">request :: Select -&gt; Request Select
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679149975"><span class="annot"><span class="annottext">request :: Select -&gt; Request Select
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Select -&gt; Request Select
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679149962"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679149971"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy Select
 -&gt; ClientResponse ClientBody
@@ -358,10 +358,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SelectResult&quot;</span></span><span>
-</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679149959"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679149959"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679149958"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679149958"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679149957"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679149957"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679149968"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679149968"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679149967"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679149967"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679149966"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679149966"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Item] -&gt; Maybe Text -&gt; Int -&gt; SelectResponse
 </span><a href="Network.AWS.SDB.Select.html#SelectResponse%27"><span class="hs-identifier hs-var">SelectResponse'</span></a></span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Item] -&gt; Maybe Text -&gt; Int -&gt; SelectResponse)
@@ -377,13 +377,13 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Item&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679149957"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149966"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; SelectResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; SelectResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679149957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679149966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -395,15 +395,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679149959"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149968"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149947"><span id="local-6989586621679149949"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149956"><span id="local-6989586621679149958"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span></span></span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149944"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679149940"><span class="annot"><span class="annottext">toHeaders :: Select -&gt; ResponseHeaders
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679149949"><span class="annot"><span class="annottext">toHeaders :: Select -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; Select -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -411,15 +411,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679149935"><span class="annot"><span class="annottext">toPath :: Select -&gt; ByteString
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679149944"><span class="annot"><span class="annottext">toPath :: Select -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Select -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select"><span class="hs-identifier hs-type">Select</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679149931"><span class="annot"><span class="annottext">toQuery :: Select -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-type">Select'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149927"><span id="local-6989586621679149928"><span id="local-6989586621679149929"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679149940"><span class="annot"><span class="annottext">toQuery :: Select -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#Select%27"><span class="hs-identifier hs-type">Select'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149936"><span id="local-6989586621679149937"><span id="local-6989586621679149938"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 selectExpression :: Text
@@ -428,7 +428,7 @@ consistentRead :: Maybe Bool
 $sel:selectExpression:Select' :: Select -&gt; Text
 $sel:nextToken:Select' :: Select -&gt; Maybe Text
 $sel:consistentRead:Select' :: Select -&gt; Maybe Bool
-</span><a href="#local-6989586621679149927"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679149936"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -447,21 +447,21 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ConsistentRead&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679149929"><span class="hs-identifier hs-var">consistentRead</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679149938"><span class="hs-identifier hs-var">consistentRead</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149928"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679149937"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SelectExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149927"><span class="hs-identifier hs-var">selectExpression</span></a></span><span>
+</span><a href="#local-6989586621679149936"><span class="hs-identifier hs-var">selectExpression</span></a></span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newSelectResponse' smart constructor.</span><span>
-</span><span id="line-182"></span><span id="local-6989586621679149924"><span id="local-6989586621679149925"></span></span><span class="hs-keyword">data</span><span> </span><span id="SelectResponse"><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse"><span class="hs-identifier hs-var">SelectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SelectResponse%27"><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse%27"><span class="hs-identifier hs-var">SelectResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span id="local-6989586621679149933"><span id="local-6989586621679149934"></span></span><span class="hs-keyword">data</span><span> </span><span id="SelectResponse"><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse"><span class="hs-identifier hs-var">SelectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SelectResponse%27"><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse%27"><span class="hs-identifier hs-var">SelectResponse'</span></a></span></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of items that match the select expression.</span><span>
 </span><span id="line-184"></span><span>    </span><span id="%24sel%3Aitems%3ASelectResponse%27"><span class="annot"><span class="annottext">SelectResponse -&gt; Maybe [Item]
 </span><a href="Network.AWS.SDB.Select.html#%24sel%3Aitems%3ASelectResponse%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SDB.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -474,7 +474,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-190"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASelectResponse%27"><span class="annot"><span class="annottext">SelectResponse -&gt; Int
 </span><a href="Network.AWS.SDB.Select.html#%24sel%3AhttpStatus%3ASelectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-191"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679149917"><span id="local-6989586621679149919"><span class="annot"><span class="annottext">SelectResponse -&gt; SelectResponse -&gt; Bool
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679149926"><span id="local-6989586621679149928"><span class="annot"><span class="annottext">SelectResponse -&gt; SelectResponse -&gt; Bool
 (SelectResponse -&gt; SelectResponse -&gt; Bool)
 -&gt; (SelectResponse -&gt; SelectResponse -&gt; Bool) -&gt; Eq SelectResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -482,7 +482,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SelectResponse -&gt; SelectResponse -&gt; Bool
 == :: SelectResponse -&gt; SelectResponse -&gt; Bool
 $c== :: SelectResponse -&gt; SelectResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149909"><span id="local-6989586621679149911"><span id="local-6989586621679149913"><span id="local-6989586621679149915"><span class="annot"><span class="annottext">ReadPrec [SelectResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149918"><span id="local-6989586621679149920"><span id="local-6989586621679149922"><span id="local-6989586621679149924"><span class="annot"><span class="annottext">ReadPrec [SelectResponse]
 ReadPrec SelectResponse
 Int -&gt; ReadS SelectResponse
 ReadS [SelectResponse]
@@ -502,7 +502,7 @@ readList :: ReadS [SelectResponse]
 $creadList :: ReadS [SelectResponse]
 readsPrec :: Int -&gt; ReadS SelectResponse
 $creadsPrec :: Int -&gt; ReadS SelectResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149903"><span id="local-6989586621679149905"><span id="local-6989586621679149907"><span class="annot"><span class="annottext">Int -&gt; SelectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149912"><span id="local-6989586621679149914"><span id="local-6989586621679149916"><span class="annot"><span class="annottext">Int -&gt; SelectResponse -&gt; ShowS
 [SelectResponse] -&gt; ShowS
 SelectResponse -&gt; String
 (Int -&gt; SelectResponse -&gt; ShowS)
@@ -548,8 +548,8 @@ $cfrom :: forall x. SelectResponse -&gt; Rep SelectResponse x
 </span><span id="line-211"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-212"></span><span>  </span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse"><span class="hs-identifier hs-type">SelectResponse</span></a></span><span>
 </span><span id="line-213"></span><span id="newSelectResponse"><span class="annot"><span class="annottext">newSelectResponse :: Int -&gt; SelectResponse
-</span><a href="Network.AWS.SDB.Select.html#newSelectResponse"><span class="hs-identifier hs-var hs-var">newSelectResponse</span></a></span></span><span> </span><span id="local-6989586621679149900"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679149900"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SDB.Select.html#newSelectResponse"><span class="hs-identifier hs-var hs-var">newSelectResponse</span></a></span></span><span> </span><span id="local-6989586621679149909"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679149909"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>  </span><span class="annot"><span class="annottext">SelectResponse' :: Maybe [Item] -&gt; Maybe Text -&gt; Int -&gt; SelectResponse
 </span><a href="Network.AWS.SDB.Select.html#SelectResponse%27"><span class="hs-identifier hs-type">SelectResponse'</span></a></span><span>
 </span><span id="line-215"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:SelectResponse' :: Maybe [Item]
@@ -562,7 +562,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SelectResponse' :: Int
 </span><a href="Network.AWS.SDB.Select.html#%24sel%3AhttpStatus%3ASelectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679149900"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679149909"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | A list of items that match the select expression.</span><span>
@@ -573,16 +573,16 @@ forall a. Maybe a
 -&gt; (SelectResponse -&gt; Maybe [Item] -&gt; SelectResponse)
 -&gt; Lens' SelectResponse (Maybe [Item])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse%27"><span class="hs-identifier hs-type">SelectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149899"><span class="annot"><span class="annottext">Maybe [Item]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse%27"><span class="hs-identifier hs-type">SelectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149908"><span class="annot"><span class="annottext">Maybe [Item]
 items :: Maybe [Item]
 $sel:items:SelectResponse' :: SelectResponse -&gt; Maybe [Item]
-</span><a href="#local-6989586621679149899"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
-</span><a href="#local-6989586621679149899"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149898"><span class="annot"><span class="annottext">s :: SelectResponse
-</span><a href="#local-6989586621679149898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse%27"><span class="hs-identifier hs-type">SelectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149897"><span class="annot"><span class="annottext">Maybe [Item]
-</span><a href="#local-6989586621679149897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResponse
-</span><a href="#local-6989586621679149898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:SelectResponse' :: Maybe [Item]
+</span><a href="#local-6989586621679149908"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
+</span><a href="#local-6989586621679149908"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149907"><span class="annot"><span class="annottext">s :: SelectResponse
+</span><a href="#local-6989586621679149907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse%27"><span class="hs-identifier hs-type">SelectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149906"><span class="annot"><span class="annottext">Maybe [Item]
+</span><a href="#local-6989586621679149906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResponse
+</span><a href="#local-6989586621679149907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:SelectResponse' :: Maybe [Item]
 </span><a href="Network.AWS.SDB.Select.html#%24sel%3Aitems%3ASelectResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
-</span><a href="#local-6989586621679149897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse"><span class="hs-identifier hs-type">SelectResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Item] -&gt; f (Maybe [Item]))
+</span><a href="#local-6989586621679149906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse"><span class="hs-identifier hs-type">SelectResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Item] -&gt; f (Maybe [Item]))
  -&gt; SelectResponse -&gt; f SelectResponse)
 -&gt; ((Maybe [Item] -&gt; f (Maybe [Item]))
     -&gt; Maybe [Item] -&gt; f (Maybe [Item]))
@@ -609,16 +609,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (SelectResponse -&gt; Maybe Text -&gt; SelectResponse)
 -&gt; Lens' SelectResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse%27"><span class="hs-identifier hs-type">SelectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149894"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse%27"><span class="hs-identifier hs-type">SelectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149903"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:SelectResponse' :: SelectResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679149894"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149894"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149893"><span class="annot"><span class="annottext">s :: SelectResponse
-</span><a href="#local-6989586621679149893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse%27"><span class="hs-identifier hs-type">SelectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149892"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResponse
-</span><a href="#local-6989586621679149893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SelectResponse' :: Maybe Text
+</span><a href="#local-6989586621679149903"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149903"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149902"><span class="annot"><span class="annottext">s :: SelectResponse
+</span><a href="#local-6989586621679149902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse%27"><span class="hs-identifier hs-type">SelectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149901"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResponse
+</span><a href="#local-6989586621679149902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SelectResponse' :: Maybe Text
 </span><a href="Network.AWS.SDB.Select.html#%24sel%3AnextToken%3ASelectResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679149892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse"><span class="hs-identifier hs-type">SelectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse"><span class="hs-identifier hs-type">SelectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-231"></span><span class="annot"><a href="Network.AWS.SDB.Select.html#selectResponse_httpStatus"><span class="hs-identifier hs-type">selectResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse"><span class="hs-identifier hs-type">SelectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -627,16 +627,16 @@ $sel:nextToken:SelectResponse' :: SelectResponse -&gt; Maybe Text
 -&gt; (SelectResponse -&gt; Int -&gt; SelectResponse)
 -&gt; Lens SelectResponse SelectResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse%27"><span class="hs-identifier hs-type">SelectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149891"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse%27"><span class="hs-identifier hs-type">SelectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149900"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SelectResponse' :: SelectResponse -&gt; Int
-</span><a href="#local-6989586621679149891"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679149891"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149890"><span class="annot"><span class="annottext">s :: SelectResponse
-</span><a href="#local-6989586621679149890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse%27"><span class="hs-identifier hs-type">SelectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149889"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679149889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResponse
-</span><a href="#local-6989586621679149890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SelectResponse' :: Int
+</span><a href="#local-6989586621679149900"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679149900"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149899"><span class="annot"><span class="annottext">s :: SelectResponse
+</span><a href="#local-6989586621679149899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse%27"><span class="hs-identifier hs-type">SelectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149898"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679149898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectResponse
+</span><a href="#local-6989586621679149899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SelectResponse' :: Int
 </span><a href="Network.AWS.SDB.Select.html#%24sel%3AhttpStatus%3ASelectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679149889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse"><span class="hs-identifier hs-type">SelectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse"><span class="hs-identifier hs-type">SelectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149887"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse"><span class="hs-identifier hs-type">SelectResponse</span></a></span></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149896"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Select.html#SelectResponse"><span class="hs-identifier hs-type">SelectResponse</span></a></span></span><span>
 </span><span id="line-235"></span></pre></body></html>

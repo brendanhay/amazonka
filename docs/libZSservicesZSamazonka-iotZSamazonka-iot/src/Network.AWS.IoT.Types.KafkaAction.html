@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- MSK) or self-managed Apache Kafka cluster.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newKafkaAction' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679788657"><span id="local-6989586621679788658"></span></span><span class="hs-keyword">data</span><span> </span><span id="KafkaAction"><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-var">KafkaAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KafkaAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-var">KafkaAction'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679788666"><span id="local-6989586621679788667"></span></span><span class="hs-keyword">data</span><span> </span><span id="KafkaAction"><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-var">KafkaAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KafkaAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-var">KafkaAction'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Kafka message key.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Akey%3AKafkaAction%27"><span class="annot"><span class="annottext">KafkaAction -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.KafkaAction.html#%24sel%3Akey%3AKafkaAction%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AclientProperties%3AKafkaAction%27"><span class="annot"><span class="annottext">KafkaAction -&gt; HashMap Text Text
 </span><a href="Network.AWS.IoT.Types.KafkaAction.html#%24sel%3AclientProperties%3AKafkaAction%27"><span class="hs-identifier hs-var hs-var">clientProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679788647"><span id="local-6989586621679788649"><span class="annot"><span class="annottext">KafkaAction -&gt; KafkaAction -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679788656"><span id="local-6989586621679788658"><span class="annot"><span class="annottext">KafkaAction -&gt; KafkaAction -&gt; Bool
 (KafkaAction -&gt; KafkaAction -&gt; Bool)
 -&gt; (KafkaAction -&gt; KafkaAction -&gt; Bool) -&gt; Eq KafkaAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KafkaAction -&gt; KafkaAction -&gt; Bool
 == :: KafkaAction -&gt; KafkaAction -&gt; Bool
 $c== :: KafkaAction -&gt; KafkaAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788638"><span id="local-6989586621679788640"><span id="local-6989586621679788642"><span id="local-6989586621679788644"><span class="annot"><span class="annottext">ReadPrec [KafkaAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788647"><span id="local-6989586621679788649"><span id="local-6989586621679788651"><span id="local-6989586621679788653"><span class="annot"><span class="annottext">ReadPrec [KafkaAction]
 ReadPrec KafkaAction
 Int -&gt; ReadS KafkaAction
 ReadS [KafkaAction]
@@ -72,7 +72,7 @@ readList :: ReadS [KafkaAction]
 $creadList :: ReadS [KafkaAction]
 readsPrec :: Int -&gt; ReadS KafkaAction
 $creadsPrec :: Int -&gt; ReadS KafkaAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788631"><span id="local-6989586621679788633"><span id="local-6989586621679788635"><span class="annot"><span class="annottext">Int -&gt; KafkaAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788640"><span id="local-6989586621679788642"><span id="local-6989586621679788644"><span class="annot"><span class="annottext">Int -&gt; KafkaAction -&gt; ShowS
 [KafkaAction] -&gt; ShowS
 KafkaAction -&gt; String
 (Int -&gt; KafkaAction -&gt; ShowS)
@@ -122,9 +122,9 @@ $cfrom :: forall x. KafkaAction -&gt; Rep KafkaAction x
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span><span>
 </span><span id="line-67"></span><span id="newKafkaAction"><span class="annot"><span class="annottext">newKafkaAction :: Text -&gt; Text -&gt; KafkaAction
-</span><a href="Network.AWS.IoT.Types.KafkaAction.html#newKafkaAction"><span class="hs-identifier hs-var hs-var">newKafkaAction</span></a></span></span><span> </span><span id="local-6989586621679788625"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788625"><span class="hs-identifier hs-var">pDestinationArn_</span></a></span></span><span> </span><span id="local-6989586621679788624"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788624"><span class="hs-identifier hs-var">pTopic_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.KafkaAction.html#newKafkaAction"><span class="hs-identifier hs-var hs-var">newKafkaAction</span></a></span></span><span> </span><span id="local-6989586621679788634"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679788634"><span class="hs-identifier hs-var">pDestinationArn_</span></a></span></span><span> </span><span id="local-6989586621679788633"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679788633"><span class="hs-identifier hs-var">pTopic_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">KafkaAction' :: Maybe Text
 -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; HashMap Text Text -&gt; KafkaAction
 </span><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span>
@@ -138,10 +138,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationArn:KafkaAction' :: Text
 </span><a href="Network.AWS.IoT.Types.KafkaAction.html#%24sel%3AdestinationArn%3AKafkaAction%27"><span class="hs-identifier hs-var">destinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788625"><span class="hs-identifier hs-var">pDestinationArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679788634"><span class="hs-identifier hs-var">pDestinationArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:topic:KafkaAction' :: Text
 </span><a href="Network.AWS.IoT.Types.KafkaAction.html#%24sel%3Atopic%3AKafkaAction%27"><span class="hs-identifier hs-var">topic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788624"><span class="hs-identifier hs-var">pTopic_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679788633"><span class="hs-identifier hs-var">pTopic_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientProperties:KafkaAction' :: HashMap Text Text
 </span><a href="Network.AWS.IoT.Types.KafkaAction.html#%24sel%3AclientProperties%3AKafkaAction%27"><span class="hs-identifier hs-var">clientProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
 forall a. Monoid a =&gt; a
@@ -155,16 +155,16 @@ forall a. Monoid a =&gt; a
 -&gt; (KafkaAction -&gt; Maybe Text -&gt; KafkaAction)
 -&gt; Lens KafkaAction KafkaAction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788620"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788629"><span class="annot"><span class="annottext">Maybe Text
 key :: Maybe Text
 $sel:key:KafkaAction' :: KafkaAction -&gt; Maybe Text
-</span><a href="#local-6989586621679788620"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788620"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788619"><span class="annot"><span class="annottext">s :: KafkaAction
-</span><a href="#local-6989586621679788619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788618"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaAction
-</span><a href="#local-6989586621679788619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:KafkaAction' :: Maybe Text
+</span><a href="#local-6989586621679788629"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788629"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788628"><span class="annot"><span class="annottext">s :: KafkaAction
+</span><a href="#local-6989586621679788628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788627"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaAction
+</span><a href="#local-6989586621679788628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:KafkaAction' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.KafkaAction.html#%24sel%3Akey%3AKafkaAction%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679788627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The Kafka message partition.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#kafkaAction_partition"><span class="hs-identifier hs-type">kafkaAction_partition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -173,16 +173,16 @@ $sel:key:KafkaAction' :: KafkaAction -&gt; Maybe Text
 -&gt; (KafkaAction -&gt; Maybe Text -&gt; KafkaAction)
 -&gt; Lens KafkaAction KafkaAction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788616"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788625"><span class="annot"><span class="annottext">Maybe Text
 partition :: Maybe Text
 $sel:partition:KafkaAction' :: KafkaAction -&gt; Maybe Text
-</span><a href="#local-6989586621679788616"><span class="hs-identifier hs-var hs-var">partition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788616"><span class="hs-identifier hs-var">partition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788615"><span class="annot"><span class="annottext">s :: KafkaAction
-</span><a href="#local-6989586621679788615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788614"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaAction
-</span><a href="#local-6989586621679788615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partition:KafkaAction' :: Maybe Text
+</span><a href="#local-6989586621679788625"><span class="hs-identifier hs-var hs-var">partition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788625"><span class="hs-identifier hs-var">partition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788624"><span class="annot"><span class="annottext">s :: KafkaAction
+</span><a href="#local-6989586621679788624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788623"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaAction
+</span><a href="#local-6989586621679788624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partition:KafkaAction' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.KafkaAction.html#%24sel%3Apartition%3AKafkaAction%27"><span class="hs-identifier hs-var">partition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679788623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The ARN of Kafka action\'s VPC @TopicRuleDestination@.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#kafkaAction_destinationArn"><span class="hs-identifier hs-type">kafkaAction_destinationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -191,16 +191,16 @@ $sel:partition:KafkaAction' :: KafkaAction -&gt; Maybe Text
 -&gt; (KafkaAction -&gt; Text -&gt; KafkaAction)
 -&gt; Lens KafkaAction KafkaAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788612"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788621"><span class="annot"><span class="annottext">Text
 destinationArn :: Text
 $sel:destinationArn:KafkaAction' :: KafkaAction -&gt; Text
-</span><a href="#local-6989586621679788612"><span class="hs-identifier hs-var hs-var">destinationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788612"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788611"><span class="annot"><span class="annottext">s :: KafkaAction
-</span><a href="#local-6989586621679788611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788610"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaAction
-</span><a href="#local-6989586621679788611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationArn:KafkaAction' :: Text
+</span><a href="#local-6989586621679788621"><span class="hs-identifier hs-var hs-var">destinationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679788621"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788620"><span class="annot"><span class="annottext">s :: KafkaAction
+</span><a href="#local-6989586621679788620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788619"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679788619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaAction
+</span><a href="#local-6989586621679788620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationArn:KafkaAction' :: Text
 </span><a href="Network.AWS.IoT.Types.KafkaAction.html#%24sel%3AdestinationArn%3AKafkaAction%27"><span class="hs-identifier hs-var">destinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679788619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The Kafka topic for messages to be sent to the Kafka broker.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#kafkaAction_topic"><span class="hs-identifier hs-type">kafkaAction_topic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -209,16 +209,16 @@ $sel:destinationArn:KafkaAction' :: KafkaAction -&gt; Text
 -&gt; (KafkaAction -&gt; Text -&gt; KafkaAction)
 -&gt; Lens KafkaAction KafkaAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788608"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788617"><span class="annot"><span class="annottext">Text
 topic :: Text
 $sel:topic:KafkaAction' :: KafkaAction -&gt; Text
-</span><a href="#local-6989586621679788608"><span class="hs-identifier hs-var hs-var">topic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788608"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788607"><span class="annot"><span class="annottext">s :: KafkaAction
-</span><a href="#local-6989586621679788607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788606"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaAction
-</span><a href="#local-6989586621679788607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topic:KafkaAction' :: Text
+</span><a href="#local-6989586621679788617"><span class="hs-identifier hs-var hs-var">topic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679788617"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788616"><span class="annot"><span class="annottext">s :: KafkaAction
+</span><a href="#local-6989586621679788616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788615"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679788615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaAction
+</span><a href="#local-6989586621679788616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topic:KafkaAction' :: Text
 </span><a href="Network.AWS.IoT.Types.KafkaAction.html#%24sel%3Atopic%3AKafkaAction%27"><span class="hs-identifier hs-var">topic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679788615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | Properties of the Apache Kafka producer client.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#kafkaAction_clientProperties"><span class="hs-identifier hs-type">kafkaAction_clientProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -229,16 +229,16 @@ $sel:topic:KafkaAction' :: KafkaAction -&gt; Text
 -&gt; Lens
      KafkaAction KafkaAction (HashMap Text Text) (HashMap Text Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788604"><span class="annot"><span class="annottext">HashMap Text Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788613"><span class="annot"><span class="annottext">HashMap Text Text
 clientProperties :: HashMap Text Text
 $sel:clientProperties:KafkaAction' :: KafkaAction -&gt; HashMap Text Text
-</span><a href="#local-6989586621679788604"><span class="hs-identifier hs-var hs-var">clientProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679788604"><span class="hs-identifier hs-var">clientProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788603"><span class="annot"><span class="annottext">s :: KafkaAction
-</span><a href="#local-6989586621679788603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788602"><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679788602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaAction
-</span><a href="#local-6989586621679788603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientProperties:KafkaAction' :: HashMap Text Text
+</span><a href="#local-6989586621679788613"><span class="hs-identifier hs-var hs-var">clientProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679788613"><span class="hs-identifier hs-var">clientProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788612"><span class="annot"><span class="annottext">s :: KafkaAction
+</span><a href="#local-6989586621679788612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788611"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679788611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaAction
+</span><a href="#local-6989586621679788612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientProperties:KafkaAction' :: HashMap Text Text
 </span><a href="Network.AWS.IoT.Types.KafkaAction.html#%24sel%3AclientProperties%3AKafkaAction%27"><span class="hs-identifier hs-var">clientProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679788602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+</span><a href="#local-6989586621679788611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
  -&gt; KafkaAction -&gt; f KafkaAction)
 -&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
     -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
@@ -251,8 +251,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788597"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679788595"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KafkaAction
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788606"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679788604"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KafkaAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KafkaAction) -&gt; Value -&gt; Parser KafkaAction
@@ -260,8 +260,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KafkaAction&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679788592"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679788592"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679788601"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679788601"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; HashMap Text Text -&gt; KafkaAction
 </span><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-var">KafkaAction'</span></a></span><span>
@@ -272,7 +272,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Text -&gt; Text -&gt; HashMap Text Text -&gt; KafkaAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679788592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679788601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;key&quot;</span></span><span class="hs-special">)</span><span>
@@ -282,7 +282,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; Text -&gt; HashMap Text Text -&gt; KafkaAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679788592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679788601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;partition&quot;</span></span><span class="hs-special">)</span><span>
@@ -290,7 +290,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; HashMap Text Text -&gt; KafkaAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679788592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679788601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinationArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -298,7 +298,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (HashMap Text Text -&gt; KafkaAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679788592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679788601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;topic&quot;</span></span><span class="hs-special">)</span><span>
@@ -306,7 +306,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (HashMap Text Text) -&gt; Parser KafkaAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679788592"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (HashMap Text Text))
+</span><a href="#local-6989586621679788601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (HashMap Text Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;clientProperties&quot;</span></span><span>
@@ -319,13 +319,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-108"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788584"><span id="local-6989586621679788586"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788593"><span id="local-6989586621679788595"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788581"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788590"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788573"><span id="local-6989586621679788575"><span id="local-6989586621679788577"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679788571"><span class="annot"><span class="annottext">toJSON :: KafkaAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788565"><span id="local-6989586621679788566"><span id="local-6989586621679788567"><span id="local-6989586621679788568"><span id="local-6989586621679788569"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788582"><span id="local-6989586621679788584"><span id="local-6989586621679788586"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction"><span class="hs-identifier hs-type">KafkaAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679788580"><span class="annot"><span class="annottext">toJSON :: KafkaAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KafkaAction.html#KafkaAction%27"><span class="hs-identifier hs-type">KafkaAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788574"><span id="local-6989586621679788575"><span id="local-6989586621679788576"><span id="local-6989586621679788577"><span id="local-6989586621679788578"><span class="annot"><span class="annottext">Maybe Text
 Text
 HashMap Text Text
 clientProperties :: HashMap Text Text
@@ -338,7 +338,7 @@ $sel:topic:KafkaAction' :: KafkaAction -&gt; Text
 $sel:destinationArn:KafkaAction' :: KafkaAction -&gt; Text
 $sel:partition:KafkaAction' :: KafkaAction -&gt; Maybe Text
 $sel:key:KafkaAction' :: KafkaAction -&gt; Maybe Text
-</span><a href="#local-6989586621679788565"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679788574"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -350,14 +350,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788569"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679788578"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788568"><span class="hs-identifier hs-var">partition</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679788577"><span class="hs-identifier hs-var">partition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -365,14 +365,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;destinationArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788567"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679788576"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;topic&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679788566"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679788575"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -380,7 +380,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;clientProperties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679788565"><span class="hs-identifier hs-var">clientProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679788574"><span class="hs-identifier hs-var">clientProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span></pre></body></html>

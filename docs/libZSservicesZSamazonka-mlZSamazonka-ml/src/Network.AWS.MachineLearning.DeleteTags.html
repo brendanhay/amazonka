@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDeleteTags' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679257621"><span id="local-6989586621679257622"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTags"><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-var">DeleteTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTags%27"><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-var">DeleteTags'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679257630"><span id="local-6989586621679257631"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTags"><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-var">DeleteTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTags%27"><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-var">DeleteTags'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more tags to delete.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AtagKeys%3ADeleteTags%27"><span class="annot"><span class="annottext">DeleteTags -&gt; [Text]
 </span><a href="Network.AWS.MachineLearning.DeleteTags.html#%24sel%3AtagKeys%3ADeleteTags%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AresourceType%3ADeleteTags%27"><span class="annot"><span class="annottext">DeleteTags -&gt; TaggableResourceType
 </span><a href="Network.AWS.MachineLearning.DeleteTags.html#%24sel%3AresourceType%3ADeleteTags%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.TaggableResourceType.html#TaggableResourceType"><span class="hs-identifier hs-type">TaggableResourceType</span></a></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257613"><span id="local-6989586621679257615"><span class="annot"><span class="annottext">DeleteTags -&gt; DeleteTags -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257622"><span id="local-6989586621679257624"><span class="annot"><span class="annottext">DeleteTags -&gt; DeleteTags -&gt; Bool
 (DeleteTags -&gt; DeleteTags -&gt; Bool)
 -&gt; (DeleteTags -&gt; DeleteTags -&gt; Bool) -&gt; Eq DeleteTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTags -&gt; DeleteTags -&gt; Bool
 == :: DeleteTags -&gt; DeleteTags -&gt; Bool
 $c== :: DeleteTags -&gt; DeleteTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257604"><span id="local-6989586621679257606"><span id="local-6989586621679257608"><span id="local-6989586621679257610"><span class="annot"><span class="annottext">ReadPrec [DeleteTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257613"><span id="local-6989586621679257615"><span id="local-6989586621679257617"><span id="local-6989586621679257619"><span class="annot"><span class="annottext">ReadPrec [DeleteTags]
 ReadPrec DeleteTags
 Int -&gt; ReadS DeleteTags
 ReadS [DeleteTags]
@@ -92,7 +92,7 @@ readList :: ReadS [DeleteTags]
 $creadList :: ReadS [DeleteTags]
 readsPrec :: Int -&gt; ReadS DeleteTags
 $creadsPrec :: Int -&gt; ReadS DeleteTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257597"><span id="local-6989586621679257599"><span id="local-6989586621679257601"><span class="annot"><span class="annottext">Int -&gt; DeleteTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257606"><span id="local-6989586621679257608"><span id="local-6989586621679257610"><span class="annot"><span class="annottext">Int -&gt; DeleteTags -&gt; ShowS
 [DeleteTags] -&gt; ShowS
 DeleteTags -&gt; String
 (Int -&gt; DeleteTags -&gt; ShowS)
@@ -137,9 +137,9 @@ $cfrom :: forall x. DeleteTags -&gt; Rep DeleteTags x
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.TaggableResourceType.html#TaggableResourceType"><span class="hs-identifier hs-type">TaggableResourceType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span>
 </span><span id="line-85"></span><span id="newDeleteTags"><span class="annot"><span class="annottext">newDeleteTags :: Text -&gt; TaggableResourceType -&gt; DeleteTags
-</span><a href="Network.AWS.MachineLearning.DeleteTags.html#newDeleteTags"><span class="hs-identifier hs-var hs-var">newDeleteTags</span></a></span></span><span> </span><span id="local-6989586621679257592"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257592"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span id="local-6989586621679257591"><span class="annot"><span class="annottext">TaggableResourceType
-</span><a href="#local-6989586621679257591"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MachineLearning.DeleteTags.html#newDeleteTags"><span class="hs-identifier hs-var hs-var">newDeleteTags</span></a></span></span><span> </span><span id="local-6989586621679257601"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257601"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span id="local-6989586621679257600"><span class="annot"><span class="annottext">TaggableResourceType
+</span><a href="#local-6989586621679257600"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">DeleteTags' :: [Text] -&gt; Text -&gt; TaggableResourceType -&gt; DeleteTags
 </span><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagKeys:DeleteTags' :: [Text]
@@ -148,10 +148,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceId:DeleteTags' :: Text
 </span><a href="Network.AWS.MachineLearning.DeleteTags.html#%24sel%3AresourceId%3ADeleteTags%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257592"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679257601"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:DeleteTags' :: TaggableResourceType
 </span><a href="Network.AWS.MachineLearning.DeleteTags.html#%24sel%3AresourceType%3ADeleteTags%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TaggableResourceType
-</span><a href="#local-6989586621679257591"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span>
+</span><a href="#local-6989586621679257600"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | One or more tags to delete.</span><span>
@@ -161,16 +161,16 @@ forall a. Monoid a =&gt; a
 -&gt; (DeleteTags -&gt; [Text] -&gt; DeleteTags)
 -&gt; Lens DeleteTags DeleteTags [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257588"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257597"><span class="annot"><span class="annottext">[Text]
 tagKeys :: [Text]
 $sel:tagKeys:DeleteTags' :: DeleteTags -&gt; [Text]
-</span><a href="#local-6989586621679257588"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679257588"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257587"><span class="annot"><span class="annottext">s :: DeleteTags
-</span><a href="#local-6989586621679257587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257586"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679257586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTags
-</span><a href="#local-6989586621679257587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:DeleteTags' :: [Text]
+</span><a href="#local-6989586621679257597"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679257597"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257596"><span class="annot"><span class="annottext">s :: DeleteTags
+</span><a href="#local-6989586621679257596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257595"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679257595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTags
+</span><a href="#local-6989586621679257596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:DeleteTags' :: [Text]
 </span><a href="Network.AWS.MachineLearning.DeleteTags.html#%24sel%3AtagKeys%3ADeleteTags%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679257586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; DeleteTags -&gt; f DeleteTags)
+</span><a href="#local-6989586621679257595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; DeleteTags -&gt; f DeleteTags)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; DeleteTags
@@ -187,16 +187,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DeleteTags -&gt; Text -&gt; DeleteTags)
 -&gt; Lens DeleteTags DeleteTags Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257583"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257592"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:DeleteTags' :: DeleteTags -&gt; Text
-</span><a href="#local-6989586621679257583"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257583"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257582"><span class="annot"><span class="annottext">s :: DeleteTags
-</span><a href="#local-6989586621679257582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257581"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTags
-</span><a href="#local-6989586621679257582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DeleteTags' :: Text
+</span><a href="#local-6989586621679257592"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257592"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257591"><span class="annot"><span class="annottext">s :: DeleteTags
+</span><a href="#local-6989586621679257591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257590"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTags
+</span><a href="#local-6989586621679257591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DeleteTags' :: Text
 </span><a href="Network.AWS.MachineLearning.DeleteTags.html#%24sel%3AresourceId%3ADeleteTags%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The type of the tagged ML object.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#deleteTags_resourceType"><span class="hs-identifier hs-type">deleteTags_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.TaggableResourceType.html#TaggableResourceType"><span class="hs-identifier hs-type">TaggableResourceType</span></a></span><span>
@@ -207,25 +207,25 @@ $sel:resourceId:DeleteTags' :: DeleteTags -&gt; Text
 -&gt; Lens
      DeleteTags DeleteTags TaggableResourceType TaggableResourceType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257580"><span class="annot"><span class="annottext">TaggableResourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257589"><span class="annot"><span class="annottext">TaggableResourceType
 resourceType :: TaggableResourceType
 $sel:resourceType:DeleteTags' :: DeleteTags -&gt; TaggableResourceType
-</span><a href="#local-6989586621679257580"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaggableResourceType
-</span><a href="#local-6989586621679257580"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257579"><span class="annot"><span class="annottext">s :: DeleteTags
-</span><a href="#local-6989586621679257579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257578"><span class="annot"><span class="annottext">TaggableResourceType
-</span><a href="#local-6989586621679257578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTags
-</span><a href="#local-6989586621679257579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:DeleteTags' :: TaggableResourceType
+</span><a href="#local-6989586621679257589"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaggableResourceType
+</span><a href="#local-6989586621679257589"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257588"><span class="annot"><span class="annottext">s :: DeleteTags
+</span><a href="#local-6989586621679257588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257587"><span class="annot"><span class="annottext">TaggableResourceType
+</span><a href="#local-6989586621679257587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTags
+</span><a href="#local-6989586621679257588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:DeleteTags' :: TaggableResourceType
 </span><a href="Network.AWS.MachineLearning.DeleteTags.html#%24sel%3AresourceType%3ADeleteTags%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TaggableResourceType
-</span><a href="#local-6989586621679257578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679257574"><span class="annot"><span class="annottext">request :: DeleteTags -&gt; Request DeleteTags
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679257583"><span class="annot"><span class="annottext">request :: DeleteTags -&gt; Request DeleteTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteTags -&gt; Request DeleteTags
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MachineLearning.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679257570"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679257579"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteTags
 -&gt; ClientResponse ClientBody
@@ -249,10 +249,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257567"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257567"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679257566"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679257566"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679257565"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257565"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257576"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257576"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679257575"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679257575"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679257574"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257574"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe TaggableResourceType -&gt; Int -&gt; DeleteTagsResponse
 </span><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-var">DeleteTagsResponse'</span></a></span><span>
@@ -263,7 +263,7 @@ MonadResource m =&gt;
      String (Maybe TaggableResourceType -&gt; Int -&gt; DeleteTagsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679257574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -273,7 +273,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DeleteTagsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TaggableResourceType)
+</span><a href="#local-6989586621679257574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TaggableResourceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
@@ -285,15 +285,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257567"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257576"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257557"><span id="local-6989586621679257559"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257566"><span id="local-6989586621679257568"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257554"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257563"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679257550"><span class="annot"><span class="annottext">toHeaders :: DeleteTags -&gt; ResponseHeaders
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679257559"><span class="annot"><span class="annottext">toHeaders :: DeleteTags -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteTags -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -320,9 +320,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257540"><span id="local-6989586621679257542"><span id="local-6989586621679257544"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679257538"><span class="annot"><span class="annottext">toJSON :: DeleteTags -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257534"><span id="local-6989586621679257535"><span id="local-6989586621679257536"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257549"><span id="local-6989586621679257551"><span id="local-6989586621679257553"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679257547"><span class="annot"><span class="annottext">toJSON :: DeleteTags -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257543"><span id="local-6989586621679257544"><span id="local-6989586621679257545"><span class="annot"><span class="annottext">[Text]
 Text
 TaggableResourceType
 resourceType :: TaggableResourceType
@@ -331,7 +331,7 @@ tagKeys :: [Text]
 $sel:resourceType:DeleteTags' :: DeleteTags -&gt; TaggableResourceType
 $sel:resourceId:DeleteTags' :: DeleteTags -&gt; Text
 $sel:tagKeys:DeleteTags' :: DeleteTags -&gt; [Text]
-</span><a href="#local-6989586621679257534"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679257543"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -343,33 +343,33 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TagKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679257536"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679257545"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257535"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679257544"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TaggableResourceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TaggableResourceType
-</span><a href="#local-6989586621679257534"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257543"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679257528"><span class="annot"><span class="annottext">toPath :: DeleteTags -&gt; ByteString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679257537"><span class="annot"><span class="annottext">toPath :: DeleteTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679257524"><span class="annot"><span class="annottext">toQuery :: DeleteTags -&gt; QueryString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679257533"><span class="annot"><span class="annottext">toQuery :: DeleteTags -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteTags -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -379,7 +379,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-151"></span><span class="hs-comment">-- | Amazon ML returns the following elements.</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- /See:/ 'newDeleteTagsResponse' smart constructor.</span><span>
-</span><span id="line-154"></span><span id="local-6989586621679257521"><span id="local-6989586621679257522"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTagsResponse"><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-var">DeleteTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTagsResponse%27"><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-var">DeleteTagsResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span id="local-6989586621679257530"><span id="local-6989586621679257531"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTagsResponse"><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-var">DeleteTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTagsResponse%27"><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-var">DeleteTagsResponse'</span></a></span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the ML object from which tags were deleted.</span><span>
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AresourceId%3ADeleteTagsResponse%27"><span class="annot"><span class="annottext">DeleteTagsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.MachineLearning.DeleteTags.html#%24sel%3AresourceId%3ADeleteTagsResponse%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -390,7 +390,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteTagsResponse%27"><span class="annot"><span class="annottext">DeleteTagsResponse -&gt; Int
 </span><a href="Network.AWS.MachineLearning.DeleteTags.html#%24sel%3AhttpStatus%3ADeleteTagsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257514"><span id="local-6989586621679257516"><span class="annot"><span class="annottext">DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257523"><span id="local-6989586621679257525"><span class="annot"><span class="annottext">DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
 (DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool)
 -&gt; (DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool)
 -&gt; Eq DeleteTagsResponse
@@ -399,7 +399,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
 == :: DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
 $c== :: DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257506"><span id="local-6989586621679257508"><span id="local-6989586621679257510"><span id="local-6989586621679257512"><span class="annot"><span class="annottext">ReadPrec [DeleteTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257515"><span id="local-6989586621679257517"><span id="local-6989586621679257519"><span id="local-6989586621679257521"><span class="annot"><span class="annottext">ReadPrec [DeleteTagsResponse]
 ReadPrec DeleteTagsResponse
 Int -&gt; ReadS DeleteTagsResponse
 ReadS [DeleteTagsResponse]
@@ -419,7 +419,7 @@ readList :: ReadS [DeleteTagsResponse]
 $creadList :: ReadS [DeleteTagsResponse]
 readsPrec :: Int -&gt; ReadS DeleteTagsResponse
 $creadsPrec :: Int -&gt; ReadS DeleteTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257500"><span id="local-6989586621679257502"><span id="local-6989586621679257504"><span class="annot"><span class="annottext">Int -&gt; DeleteTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257509"><span id="local-6989586621679257511"><span id="local-6989586621679257513"><span class="annot"><span class="annottext">Int -&gt; DeleteTagsResponse -&gt; ShowS
 [DeleteTagsResponse] -&gt; ShowS
 DeleteTagsResponse -&gt; String
 (Int -&gt; DeleteTagsResponse -&gt; ShowS)
@@ -463,8 +463,8 @@ $cfrom :: forall x. DeleteTagsResponse -&gt; Rep DeleteTagsResponse x
 </span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-180"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span>
 </span><span id="line-181"></span><span id="newDeleteTagsResponse"><span class="annot"><span class="annottext">newDeleteTagsResponse :: Int -&gt; DeleteTagsResponse
-</span><a href="Network.AWS.MachineLearning.DeleteTags.html#newDeleteTagsResponse"><span class="hs-identifier hs-var hs-var">newDeleteTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679257497"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257497"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MachineLearning.DeleteTags.html#newDeleteTagsResponse"><span class="hs-identifier hs-var hs-var">newDeleteTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679257506"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257506"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">DeleteTagsResponse' :: Maybe Text
 -&gt; Maybe TaggableResourceType -&gt; Int -&gt; DeleteTagsResponse
 </span><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span>
@@ -478,7 +478,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTagsResponse' :: Int
 </span><a href="Network.AWS.MachineLearning.DeleteTags.html#%24sel%3AhttpStatus%3ADeleteTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257497"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679257506"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The ID of the ML object from which tags were deleted.</span><span>
@@ -490,16 +490,16 @@ forall a. Maybe a
 -&gt; Lens
      DeleteTagsResponse DeleteTagsResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257496"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257505"><span class="annot"><span class="annottext">Maybe Text
 resourceId :: Maybe Text
 $sel:resourceId:DeleteTagsResponse' :: DeleteTagsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679257496"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257496"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257495"><span class="annot"><span class="annottext">s :: DeleteTagsResponse
-</span><a href="#local-6989586621679257495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257494"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTagsResponse
-</span><a href="#local-6989586621679257495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DeleteTagsResponse' :: Maybe Text
+</span><a href="#local-6989586621679257505"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257505"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257504"><span class="annot"><span class="annottext">s :: DeleteTagsResponse
+</span><a href="#local-6989586621679257504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257503"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTagsResponse
+</span><a href="#local-6989586621679257504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DeleteTagsResponse' :: Maybe Text
 </span><a href="Network.AWS.MachineLearning.DeleteTags.html#%24sel%3AresourceId%3ADeleteTagsResponse%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | The type of the ML object from which tags were deleted.</span><span>
 </span><span id="line-193"></span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#deleteTagsResponse_resourceType"><span class="hs-identifier hs-type">deleteTagsResponse_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.TaggableResourceType.html#TaggableResourceType"><span class="hs-identifier hs-type">TaggableResourceType</span></a></span><span class="hs-special">)</span><span>
@@ -514,16 +514,16 @@ $sel:resourceId:DeleteTagsResponse' :: DeleteTagsResponse -&gt; Maybe Text
      (Maybe TaggableResourceType)
      (Maybe TaggableResourceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257493"><span class="annot"><span class="annottext">Maybe TaggableResourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257502"><span class="annot"><span class="annottext">Maybe TaggableResourceType
 resourceType :: Maybe TaggableResourceType
 $sel:resourceType:DeleteTagsResponse' :: DeleteTagsResponse -&gt; Maybe TaggableResourceType
-</span><a href="#local-6989586621679257493"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaggableResourceType
-</span><a href="#local-6989586621679257493"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257492"><span class="annot"><span class="annottext">s :: DeleteTagsResponse
-</span><a href="#local-6989586621679257492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257491"><span class="annot"><span class="annottext">Maybe TaggableResourceType
-</span><a href="#local-6989586621679257491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTagsResponse
-</span><a href="#local-6989586621679257492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:DeleteTagsResponse' :: Maybe TaggableResourceType
+</span><a href="#local-6989586621679257502"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaggableResourceType
+</span><a href="#local-6989586621679257502"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257501"><span class="annot"><span class="annottext">s :: DeleteTagsResponse
+</span><a href="#local-6989586621679257501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257500"><span class="annot"><span class="annottext">Maybe TaggableResourceType
+</span><a href="#local-6989586621679257500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTagsResponse
+</span><a href="#local-6989586621679257501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:DeleteTagsResponse' :: Maybe TaggableResourceType
 </span><a href="Network.AWS.MachineLearning.DeleteTags.html#%24sel%3AresourceType%3ADeleteTagsResponse%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaggableResourceType
-</span><a href="#local-6989586621679257491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-197"></span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#deleteTagsResponse_httpStatus"><span class="hs-identifier hs-type">deleteTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -532,16 +532,16 @@ $sel:resourceType:DeleteTagsResponse' :: DeleteTagsResponse -&gt; Maybe Taggable
 -&gt; (DeleteTagsResponse -&gt; Int -&gt; DeleteTagsResponse)
 -&gt; Lens DeleteTagsResponse DeleteTagsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257490"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257499"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteTagsResponse' :: DeleteTagsResponse -&gt; Int
-</span><a href="#local-6989586621679257490"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257490"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257489"><span class="annot"><span class="annottext">s :: DeleteTagsResponse
-</span><a href="#local-6989586621679257489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257488"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTagsResponse
-</span><a href="#local-6989586621679257489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTagsResponse' :: Int
+</span><a href="#local-6989586621679257499"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257499"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257498"><span class="annot"><span class="annottext">s :: DeleteTagsResponse
+</span><a href="#local-6989586621679257498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257497"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTagsResponse
+</span><a href="#local-6989586621679257498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTagsResponse' :: Int
 </span><a href="Network.AWS.MachineLearning.DeleteTags.html#%24sel%3AhttpStatus%3ADeleteTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257486"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span></span><span>
 </span><span id="line-201"></span></pre></body></html>

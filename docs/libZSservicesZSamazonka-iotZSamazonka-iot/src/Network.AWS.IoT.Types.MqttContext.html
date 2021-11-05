@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies the MQTT context to use for the test authorizer request</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMqttContext' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679791219"><span id="local-6989586621679791220"></span></span><span class="hs-keyword">data</span><span> </span><span id="MqttContext"><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext"><span class="hs-identifier hs-var">MqttContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MqttContext%27"><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext%27"><span class="hs-identifier hs-var">MqttContext'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679791228"><span id="local-6989586621679791229"></span></span><span class="hs-keyword">data</span><span> </span><span id="MqttContext"><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext"><span class="hs-identifier hs-var">MqttContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MqttContext%27"><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext%27"><span class="hs-identifier hs-var">MqttContext'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the @clientId@ key in an MQTT authorization request.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AclientId%3AMqttContext%27"><span class="annot"><span class="annottext">MqttContext -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.MqttContext.html#%24sel%3AclientId%3AMqttContext%27"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Apassword%3AMqttContext%27"><span class="annot"><span class="annottext">MqttContext -&gt; Maybe Base64
 </span><a href="Network.AWS.IoT.Types.MqttContext.html#%24sel%3Apassword%3AMqttContext%27"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791211"><span id="local-6989586621679791213"><span class="annot"><span class="annottext">MqttContext -&gt; MqttContext -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791220"><span id="local-6989586621679791222"><span class="annot"><span class="annottext">MqttContext -&gt; MqttContext -&gt; Bool
 (MqttContext -&gt; MqttContext -&gt; Bool)
 -&gt; (MqttContext -&gt; MqttContext -&gt; Bool) -&gt; Eq MqttContext
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MqttContext -&gt; MqttContext -&gt; Bool
 == :: MqttContext -&gt; MqttContext -&gt; Bool
 $c== :: MqttContext -&gt; MqttContext -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791202"><span id="local-6989586621679791204"><span id="local-6989586621679791206"><span id="local-6989586621679791208"><span class="annot"><span class="annottext">ReadPrec [MqttContext]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791211"><span id="local-6989586621679791213"><span id="local-6989586621679791215"><span id="local-6989586621679791217"><span class="annot"><span class="annottext">ReadPrec [MqttContext]
 ReadPrec MqttContext
 Int -&gt; ReadS MqttContext
 ReadS [MqttContext]
@@ -65,7 +65,7 @@ readList :: ReadS [MqttContext]
 $creadList :: ReadS [MqttContext]
 readsPrec :: Int -&gt; ReadS MqttContext
 $creadsPrec :: Int -&gt; ReadS MqttContext
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791195"><span id="local-6989586621679791197"><span id="local-6989586621679791199"><span class="annot"><span class="annottext">Int -&gt; MqttContext -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791204"><span id="local-6989586621679791206"><span id="local-6989586621679791208"><span class="annot"><span class="annottext">Int -&gt; MqttContext -&gt; ShowS
 [MqttContext] -&gt; ShowS
 MqttContext -&gt; String
 (Int -&gt; MqttContext -&gt; ShowS)
@@ -135,16 +135,16 @@ forall a. Maybe a
 -&gt; (MqttContext -&gt; Maybe Text -&gt; MqttContext)
 -&gt; Lens MqttContext MqttContext (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext%27"><span class="hs-identifier hs-type">MqttContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791186"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext%27"><span class="hs-identifier hs-type">MqttContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791195"><span class="annot"><span class="annottext">Maybe Text
 clientId :: Maybe Text
 $sel:clientId:MqttContext' :: MqttContext -&gt; Maybe Text
-</span><a href="#local-6989586621679791186"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791186"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791185"><span class="annot"><span class="annottext">s :: MqttContext
-</span><a href="#local-6989586621679791185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext%27"><span class="hs-identifier hs-type">MqttContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791184"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MqttContext
-</span><a href="#local-6989586621679791185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:MqttContext' :: Maybe Text
+</span><a href="#local-6989586621679791195"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791195"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791194"><span class="annot"><span class="annottext">s :: MqttContext
+</span><a href="#local-6989586621679791194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext%27"><span class="hs-identifier hs-type">MqttContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791193"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MqttContext
+</span><a href="#local-6989586621679791194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:MqttContext' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.MqttContext.html#%24sel%3AclientId%3AMqttContext%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext"><span class="hs-identifier hs-type">MqttContext</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext"><span class="hs-identifier hs-type">MqttContext</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The value of the @username@ key in an MQTT authorization request.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#mqttContext_username"><span class="hs-identifier hs-type">mqttContext_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext"><span class="hs-identifier hs-type">MqttContext</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -153,16 +153,16 @@ $sel:clientId:MqttContext' :: MqttContext -&gt; Maybe Text
 -&gt; (MqttContext -&gt; Maybe Text -&gt; MqttContext)
 -&gt; Lens MqttContext MqttContext (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext%27"><span class="hs-identifier hs-type">MqttContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791182"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext%27"><span class="hs-identifier hs-type">MqttContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791191"><span class="annot"><span class="annottext">Maybe Text
 username :: Maybe Text
 $sel:username:MqttContext' :: MqttContext -&gt; Maybe Text
-</span><a href="#local-6989586621679791182"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791182"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791181"><span class="annot"><span class="annottext">s :: MqttContext
-</span><a href="#local-6989586621679791181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext%27"><span class="hs-identifier hs-type">MqttContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791180"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MqttContext
-</span><a href="#local-6989586621679791181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:MqttContext' :: Maybe Text
+</span><a href="#local-6989586621679791191"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791191"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791190"><span class="annot"><span class="annottext">s :: MqttContext
+</span><a href="#local-6989586621679791190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext%27"><span class="hs-identifier hs-type">MqttContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791189"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MqttContext
+</span><a href="#local-6989586621679791190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:MqttContext' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.MqttContext.html#%24sel%3Ausername%3AMqttContext%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext"><span class="hs-identifier hs-type">MqttContext</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext"><span class="hs-identifier hs-type">MqttContext</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The value of the @password@ key in an MQTT authorization request.--</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
@@ -176,16 +176,16 @@ $sel:username:MqttContext' :: MqttContext -&gt; Maybe Text
 -&gt; (MqttContext -&gt; Maybe Base64 -&gt; MqttContext)
 -&gt; Lens MqttContext MqttContext (Maybe Base64) (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext%27"><span class="hs-identifier hs-type">MqttContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791178"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext%27"><span class="hs-identifier hs-type">MqttContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791187"><span class="annot"><span class="annottext">Maybe Base64
 password :: Maybe Base64
 $sel:password:MqttContext' :: MqttContext -&gt; Maybe Base64
-</span><a href="#local-6989586621679791178"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679791178"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791177"><span class="annot"><span class="annottext">s :: MqttContext
-</span><a href="#local-6989586621679791177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext%27"><span class="hs-identifier hs-type">MqttContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791176"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679791176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MqttContext
-</span><a href="#local-6989586621679791177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:MqttContext' :: Maybe Base64
+</span><a href="#local-6989586621679791187"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679791187"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791186"><span class="annot"><span class="annottext">s :: MqttContext
+</span><a href="#local-6989586621679791186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext%27"><span class="hs-identifier hs-type">MqttContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791185"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679791185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MqttContext
+</span><a href="#local-6989586621679791186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:MqttContext' :: Maybe Base64
 </span><a href="Network.AWS.IoT.Types.MqttContext.html#%24sel%3Apassword%3AMqttContext%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679791176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext"><span class="hs-identifier hs-type">MqttContext</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+</span><a href="#local-6989586621679791185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext"><span class="hs-identifier hs-type">MqttContext</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
  -&gt; MqttContext -&gt; f MqttContext)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe Base64 -&gt; f (Maybe Base64))
@@ -203,13 +203,13 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 Iso' Base64 ByteString
 </span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791169"><span id="local-6989586621679791171"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext"><span class="hs-identifier hs-type">MqttContext</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791178"><span id="local-6989586621679791180"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext"><span class="hs-identifier hs-type">MqttContext</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791166"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext"><span class="hs-identifier hs-type">MqttContext</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext"><span class="hs-identifier hs-type">MqttContext</span></a></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791158"><span id="local-6989586621679791160"><span id="local-6989586621679791162"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext"><span class="hs-identifier hs-type">MqttContext</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679791156"><span class="annot"><span class="annottext">toJSON :: MqttContext -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext%27"><span class="hs-identifier hs-type">MqttContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791152"><span id="local-6989586621679791153"><span id="local-6989586621679791154"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791167"><span id="local-6989586621679791169"><span id="local-6989586621679791171"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext"><span class="hs-identifier hs-type">MqttContext</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679791165"><span class="annot"><span class="annottext">toJSON :: MqttContext -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MqttContext.html#MqttContext%27"><span class="hs-identifier hs-type">MqttContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791161"><span id="local-6989586621679791162"><span id="local-6989586621679791163"><span class="annot"><span class="annottext">Maybe Text
 Maybe Base64
 password :: Maybe Base64
 username :: Maybe Text
@@ -217,7 +217,7 @@ clientId :: Maybe Text
 $sel:password:MqttContext' :: MqttContext -&gt; Maybe Base64
 $sel:username:MqttContext' :: MqttContext -&gt; Maybe Text
 $sel:clientId:MqttContext' :: MqttContext -&gt; Maybe Text
-</span><a href="#local-6989586621679791152"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679791161"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -229,21 +229,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791154"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679791163"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791153"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679791162"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;password&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Base64 -&gt; Pair) -&gt; Maybe Base64 -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679791152"><span class="hs-identifier hs-var">password</span></a></span><span>
+</span><a href="#local-6989586621679791161"><span class="hs-identifier hs-var">password</span></a></span><span>
 </span><span id="line-92"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span></pre></body></html>

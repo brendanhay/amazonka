@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Provides summary information about a model.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newModelSummary' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680320170"><span id="local-6989586621680320171"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-var">ModelSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary%27"><span class="hs-identifier hs-var">ModelSummary'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680320179"><span id="local-6989586621680320180"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-var">ModelSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary%27"><span class="hs-identifier hs-var">ModelSummary'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the model that you want a summary for.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AmodelName%3AModelSummary%27"><span class="annot"><span class="annottext">ModelSummary -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ModelSummary.html#%24sel%3AmodelName%3AModelSummary%27"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreationTime%3AModelSummary%27"><span class="annot"><span class="annottext">ModelSummary -&gt; POSIX
 </span><a href="Network.AWS.SageMaker.Types.ModelSummary.html#%24sel%3AcreationTime%3AModelSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680320162"><span id="local-6989586621680320164"><span class="annot"><span class="annottext">ModelSummary -&gt; ModelSummary -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680320171"><span id="local-6989586621680320173"><span class="annot"><span class="annottext">ModelSummary -&gt; ModelSummary -&gt; Bool
 (ModelSummary -&gt; ModelSummary -&gt; Bool)
 -&gt; (ModelSummary -&gt; ModelSummary -&gt; Bool) -&gt; Eq ModelSummary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModelSummary -&gt; ModelSummary -&gt; Bool
 == :: ModelSummary -&gt; ModelSummary -&gt; Bool
 $c== :: ModelSummary -&gt; ModelSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680320153"><span id="local-6989586621680320155"><span id="local-6989586621680320157"><span id="local-6989586621680320159"><span class="annot"><span class="annottext">ReadPrec [ModelSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680320162"><span id="local-6989586621680320164"><span id="local-6989586621680320166"><span id="local-6989586621680320168"><span class="annot"><span class="annottext">ReadPrec [ModelSummary]
 ReadPrec ModelSummary
 Int -&gt; ReadS ModelSummary
 ReadS [ModelSummary]
@@ -65,7 +65,7 @@ readList :: ReadS [ModelSummary]
 $creadList :: ReadS [ModelSummary]
 readsPrec :: Int -&gt; ReadS ModelSummary
 $creadsPrec :: Int -&gt; ReadS ModelSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680320146"><span id="local-6989586621680320148"><span id="local-6989586621680320150"><span class="annot"><span class="annottext">Int -&gt; ModelSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680320155"><span id="local-6989586621680320157"><span id="local-6989586621680320159"><span class="annot"><span class="annottext">Int -&gt; ModelSummary -&gt; ShowS
 [ModelSummary] -&gt; ShowS
 ModelSummary -&gt; String
 (Int -&gt; ModelSummary -&gt; ShowS)
@@ -113,18 +113,18 @@ $cfrom :: forall x. ModelSummary -&gt; Rep ModelSummary x
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span><span>
 </span><span id="line-60"></span><span id="newModelSummary"><span class="annot"><span class="annottext">newModelSummary :: Text -&gt; Text -&gt; UTCTime -&gt; ModelSummary
-</span><a href="Network.AWS.SageMaker.Types.ModelSummary.html#newModelSummary"><span class="hs-identifier hs-var hs-var">newModelSummary</span></a></span></span><span> </span><span id="local-6989586621680320140"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680320140"><span class="hs-identifier hs-var">pModelName_</span></a></span></span><span> </span><span id="local-6989586621680320139"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680320139"><span class="hs-identifier hs-var">pModelArn_</span></a></span></span><span> </span><span id="local-6989586621680320138"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680320138"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.ModelSummary.html#newModelSummary"><span class="hs-identifier hs-var hs-var">newModelSummary</span></a></span></span><span> </span><span id="local-6989586621680320149"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680320149"><span class="hs-identifier hs-var">pModelName_</span></a></span></span><span> </span><span id="local-6989586621680320148"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680320148"><span class="hs-identifier hs-var">pModelArn_</span></a></span></span><span> </span><span id="local-6989586621680320147"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680320147"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">ModelSummary' :: Text -&gt; Text -&gt; POSIX -&gt; ModelSummary
 </span><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary%27"><span class="hs-identifier hs-type">ModelSummary'</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:modelName:ModelSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ModelSummary.html#%24sel%3AmodelName%3AModelSummary%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680320140"><span class="hs-identifier hs-var">pModelName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680320149"><span class="hs-identifier hs-var">pModelName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelArn:ModelSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ModelSummary.html#%24sel%3AmodelArn%3AModelSummary%27"><span class="hs-identifier hs-var">modelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680320139"><span class="hs-identifier hs-var">pModelArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680320148"><span class="hs-identifier hs-var">pModelArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTime:ModelSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.ModelSummary.html#%24sel%3AcreationTime%3AModelSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -133,7 +133,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680320138"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span>
+</span><a href="#local-6989586621680320147"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The name of the model that you want a summary for.</span><span>
@@ -143,16 +143,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (ModelSummary -&gt; Text -&gt; ModelSummary)
 -&gt; Lens ModelSummary ModelSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary%27"><span class="hs-identifier hs-type">ModelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320132"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary%27"><span class="hs-identifier hs-type">ModelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320141"><span class="annot"><span class="annottext">Text
 modelName :: Text
 $sel:modelName:ModelSummary' :: ModelSummary -&gt; Text
-</span><a href="#local-6989586621680320132"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680320132"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680320131"><span class="annot"><span class="annottext">s :: ModelSummary
-</span><a href="#local-6989586621680320131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary%27"><span class="hs-identifier hs-type">ModelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680320130"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680320130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelSummary
-</span><a href="#local-6989586621680320131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelName:ModelSummary' :: Text
+</span><a href="#local-6989586621680320141"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680320141"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680320140"><span class="annot"><span class="annottext">s :: ModelSummary
+</span><a href="#local-6989586621680320140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary%27"><span class="hs-identifier hs-type">ModelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680320139"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680320139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelSummary
+</span><a href="#local-6989586621680320140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelName:ModelSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ModelSummary.html#%24sel%3AmodelName%3AModelSummary%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680320130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680320139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the model.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#modelSummary_modelArn"><span class="hs-identifier hs-type">modelSummary_modelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -161,16 +161,16 @@ $sel:modelName:ModelSummary' :: ModelSummary -&gt; Text
 -&gt; (ModelSummary -&gt; Text -&gt; ModelSummary)
 -&gt; Lens ModelSummary ModelSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary%27"><span class="hs-identifier hs-type">ModelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320128"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary%27"><span class="hs-identifier hs-type">ModelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320137"><span class="annot"><span class="annottext">Text
 modelArn :: Text
 $sel:modelArn:ModelSummary' :: ModelSummary -&gt; Text
-</span><a href="#local-6989586621680320128"><span class="hs-identifier hs-var hs-var">modelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680320128"><span class="hs-identifier hs-var">modelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680320127"><span class="annot"><span class="annottext">s :: ModelSummary
-</span><a href="#local-6989586621680320127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary%27"><span class="hs-identifier hs-type">ModelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680320126"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680320126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelSummary
-</span><a href="#local-6989586621680320127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelArn:ModelSummary' :: Text
+</span><a href="#local-6989586621680320137"><span class="hs-identifier hs-var hs-var">modelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680320137"><span class="hs-identifier hs-var">modelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680320136"><span class="annot"><span class="annottext">s :: ModelSummary
+</span><a href="#local-6989586621680320136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary%27"><span class="hs-identifier hs-type">ModelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680320135"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680320135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelSummary
+</span><a href="#local-6989586621680320136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelArn:ModelSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ModelSummary.html#%24sel%3AmodelArn%3AModelSummary%27"><span class="hs-identifier hs-var">modelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680320126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680320135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | A timestamp that indicates when the model was created.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#modelSummary_creationTime"><span class="hs-identifier hs-type">modelSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -179,16 +179,16 @@ $sel:modelArn:ModelSummary' :: ModelSummary -&gt; Text
 -&gt; (ModelSummary -&gt; POSIX -&gt; ModelSummary)
 -&gt; Lens ModelSummary ModelSummary POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary%27"><span class="hs-identifier hs-type">ModelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320124"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary%27"><span class="hs-identifier hs-type">ModelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320133"><span class="annot"><span class="annottext">POSIX
 creationTime :: POSIX
 $sel:creationTime:ModelSummary' :: ModelSummary -&gt; POSIX
-</span><a href="#local-6989586621680320124"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680320124"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680320123"><span class="annot"><span class="annottext">s :: ModelSummary
-</span><a href="#local-6989586621680320123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary%27"><span class="hs-identifier hs-type">ModelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680320122"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680320122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelSummary
-</span><a href="#local-6989586621680320123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ModelSummary' :: POSIX
+</span><a href="#local-6989586621680320133"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680320133"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680320132"><span class="annot"><span class="annottext">s :: ModelSummary
+</span><a href="#local-6989586621680320132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary%27"><span class="hs-identifier hs-type">ModelSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680320131"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680320131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelSummary
+</span><a href="#local-6989586621680320132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ModelSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.ModelSummary.html#%24sel%3AcreationTime%3AModelSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680320122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ModelSummary -&gt; f ModelSummary)
+</span><a href="#local-6989586621680320131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ModelSummary -&gt; f ModelSummary)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; ModelSummary
@@ -198,8 +198,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320118"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621680320116"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelSummary
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320127"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621680320125"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ModelSummary) -&gt; Value -&gt; Parser ModelSummary
@@ -207,15 +207,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ModelSummary&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680320113"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680320113"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680320122"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680320122"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; POSIX -&gt; ModelSummary
 </span><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary%27"><span class="hs-identifier hs-var">ModelSummary'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; POSIX -&gt; ModelSummary)
 -&gt; Parser Text -&gt; Parser (Text -&gt; POSIX -&gt; ModelSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680320113"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680320122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelName&quot;</span></span><span class="hs-special">)</span><span>
@@ -223,7 +223,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (POSIX -&gt; ModelSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680320113"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680320122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -231,13 +231,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser ModelSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680320113"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621680320122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320107"><span id="local-6989586621680320109"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320116"><span id="local-6989586621680320118"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier hs-type">ModelSummary</span></a></span></span><span>
 </span><span id="line-93"></span></pre></body></html>

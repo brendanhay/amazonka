@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679274795"><span id="local-6989586621679274796"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SentimentValue"><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentValue.html#SentimentValue"><span class="hs-identifier hs-var">SentimentValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SentimentValue%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentValue.html#SentimentValue%27"><span class="hs-identifier hs-var">SentimentValue'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679274804"><span id="local-6989586621679274805"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SentimentValue"><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentValue.html#SentimentValue"><span class="hs-identifier hs-var">SentimentValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SentimentValue%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentValue.html#SentimentValue%27"><span class="hs-identifier hs-var">SentimentValue'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSentimentValue"><span class="annot"><span class="annottext">SentimentValue -&gt; Text
 </span><a href="Network.AWS.Transcribe.Types.SentimentValue.html#fromSentimentValue"><span class="hs-identifier hs-var hs-var">fromSentimentValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274787"><span id="local-6989586621679274789"><span id="local-6989586621679274791"><span class="annot"><span class="annottext">Int -&gt; SentimentValue -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274796"><span id="local-6989586621679274798"><span id="local-6989586621679274800"><span class="annot"><span class="annottext">Int -&gt; SentimentValue -&gt; ShowS
 [SentimentValue] -&gt; ShowS
 SentimentValue -&gt; String
 (Int -&gt; SentimentValue -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: SentimentValue -&gt; String
 showsPrec :: Int -&gt; SentimentValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; SentimentValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679274778"><span id="local-6989586621679274780"><span id="local-6989586621679274782"><span id="local-6989586621679274784"><span class="annot"><span class="annottext">ReadPrec [SentimentValue]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679274787"><span id="local-6989586621679274789"><span id="local-6989586621679274791"><span id="local-6989586621679274793"><span class="annot"><span class="annottext">ReadPrec [SentimentValue]
 ReadPrec SentimentValue
 Int -&gt; ReadS SentimentValue
 ReadS [SentimentValue]
@@ -74,7 +74,7 @@ $creadList :: ReadS [SentimentValue]
 readsPrec :: Int -&gt; ReadS SentimentValue
 $creadsPrec :: Int -&gt; ReadS SentimentValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679274773"><span id="local-6989586621679274775"><span class="annot"><span class="annottext">SentimentValue -&gt; SentimentValue -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679274782"><span id="local-6989586621679274784"><span class="annot"><span class="annottext">SentimentValue -&gt; SentimentValue -&gt; Bool
 (SentimentValue -&gt; SentimentValue -&gt; Bool)
 -&gt; (SentimentValue -&gt; SentimentValue -&gt; Bool) -&gt; Eq SentimentValue
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: SentimentValue -&gt; SentimentValue -&gt; Bool
 == :: SentimentValue -&gt; SentimentValue -&gt; Bool
 $c== :: SentimentValue -&gt; SentimentValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679274757"><span id="local-6989586621679274759"><span id="local-6989586621679274761"><span id="local-6989586621679274763"><span id="local-6989586621679274765"><span id="local-6989586621679274767"><span id="local-6989586621679274769"><span class="annot"><span class="annottext">Eq SentimentValue
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679274766"><span id="local-6989586621679274768"><span id="local-6989586621679274770"><span id="local-6989586621679274772"><span id="local-6989586621679274774"><span id="local-6989586621679274776"><span id="local-6989586621679274778"><span class="annot"><span class="annottext">Eq SentimentValue
 Eq SentimentValue
 -&gt; (SentimentValue -&gt; SentimentValue -&gt; Ordering)
 -&gt; (SentimentValue -&gt; SentimentValue -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. SentimentValue -&gt; Rep SentimentValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274749"><span id="local-6989586621679274751"><span class="annot"><span class="annottext">Int -&gt; SentimentValue -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274758"><span id="local-6989586621679274760"><span class="annot"><span class="annottext">Int -&gt; SentimentValue -&gt; Int
 SentimentValue -&gt; Int
 (Int -&gt; SentimentValue -&gt; Int)
 -&gt; (SentimentValue -&gt; Int) -&gt; Hashable SentimentValue
@@ -144,50 +144,50 @@ $chash :: SentimentValue -&gt; Int
 hashWithSalt :: Int -&gt; SentimentValue -&gt; Int
 $chashWithSalt :: Int -&gt; SentimentValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679274746"><span class="annot"><span class="annottext">SentimentValue -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679274755"><span class="annot"><span class="annottext">SentimentValue -&gt; ()
 (SentimentValue -&gt; ()) -&gt; NFData SentimentValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SentimentValue -&gt; ()
 $crnf :: SentimentValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679274743"><span class="annot"><span class="annottext">Text -&gt; Either String SentimentValue
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679274752"><span class="annot"><span class="annottext">Text -&gt; Either String SentimentValue
 (Text -&gt; Either String SentimentValue) -&gt; FromText SentimentValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SentimentValue
 $cfromText :: Text -&gt; Either String SentimentValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679274740"><span class="annot"><span class="annottext">SentimentValue -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679274749"><span class="annot"><span class="annottext">SentimentValue -&gt; Text
 (SentimentValue -&gt; Text) -&gt; ToText SentimentValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SentimentValue -&gt; Text
 $ctoText :: SentimentValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679274737"><span class="annot"><span class="annottext">SentimentValue -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679274746"><span class="annot"><span class="annottext">SentimentValue -&gt; ByteString
 (SentimentValue -&gt; ByteString) -&gt; ToByteString SentimentValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SentimentValue -&gt; ByteString
 $ctoBS :: SentimentValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679274734"><span class="annot"><span class="annottext">SentimentValue -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679274743"><span class="annot"><span class="annottext">SentimentValue -&gt; ByteStringBuilder
 (SentimentValue -&gt; ByteStringBuilder) -&gt; ToLog SentimentValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SentimentValue -&gt; ByteStringBuilder
 $cbuild :: SentimentValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679274731"><span class="annot"><span class="annottext">HeaderName -&gt; SentimentValue -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679274740"><span class="annot"><span class="annottext">HeaderName -&gt; SentimentValue -&gt; [Header]
 (HeaderName -&gt; SentimentValue -&gt; [Header])
 -&gt; ToHeader SentimentValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SentimentValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SentimentValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679274728"><span class="annot"><span class="annottext">SentimentValue -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679274737"><span class="annot"><span class="annottext">SentimentValue -&gt; QueryString
 (SentimentValue -&gt; QueryString) -&gt; ToQuery SentimentValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SentimentValue -&gt; QueryString
 $ctoQuery :: SentimentValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679274723"><span id="local-6989586621679274725"><span class="annot"><span class="annottext">Value -&gt; Parser [SentimentValue]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679274732"><span id="local-6989586621679274734"><span class="annot"><span class="annottext">Value -&gt; Parser [SentimentValue]
 Value -&gt; Parser SentimentValue
 (Value -&gt; Parser SentimentValue)
 -&gt; (Value -&gt; Parser [SentimentValue]) -&gt; FromJSON SentimentValue
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [SentimentValue]
 parseJSON :: Value -&gt; Parser SentimentValue
 $cparseJSON :: Value -&gt; Parser SentimentValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679274718"><span id="local-6989586621679274720"><span class="annot"><span class="annottext">FromJSONKeyFunction [SentimentValue]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679274727"><span id="local-6989586621679274729"><span class="annot"><span class="annottext">FromJSONKeyFunction [SentimentValue]
 FromJSONKeyFunction SentimentValue
 FromJSONKeyFunction SentimentValue
 -&gt; FromJSONKeyFunction [SentimentValue]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SentimentValue]
 fromJSONKey :: FromJSONKeyFunction SentimentValue
 $cfromJSONKey :: FromJSONKeyFunction SentimentValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679274709"><span id="local-6989586621679274711"><span id="local-6989586621679274713"><span id="local-6989586621679274715"><span class="annot"><span class="annottext">[SentimentValue] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679274718"><span id="local-6989586621679274720"><span id="local-6989586621679274722"><span id="local-6989586621679274724"><span class="annot"><span class="annottext">[SentimentValue] -&gt; Encoding
 [SentimentValue] -&gt; Value
 SentimentValue -&gt; Encoding
 SentimentValue -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: SentimentValue -&gt; Encoding
 toJSON :: SentimentValue -&gt; Value
 $ctoJSON :: SentimentValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679274704"><span id="local-6989586621679274706"><span class="annot"><span class="annottext">ToJSONKeyFunction [SentimentValue]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679274713"><span id="local-6989586621679274715"><span class="annot"><span class="annottext">ToJSONKeyFunction [SentimentValue]
 ToJSONKeyFunction SentimentValue
 ToJSONKeyFunction SentimentValue
 -&gt; ToJSONKeyFunction [SentimentValue] -&gt; ToJSONKey SentimentValue
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SentimentValue]
 toJSONKey :: ToJSONKeyFunction SentimentValue
 $ctoJSONKey :: ToJSONKeyFunction SentimentValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679274701"><span class="annot"><span class="annottext">[Node] -&gt; Either String SentimentValue
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679274710"><span class="annot"><span class="annottext">[Node] -&gt; Either String SentimentValue
 ([Node] -&gt; Either String SentimentValue) -&gt; FromXML SentimentValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SentimentValue
 $cparseXML :: [Node] -&gt; Either String SentimentValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679274698"><span class="annot"><span class="annottext">SentimentValue -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679274707"><span class="annot"><span class="annottext">SentimentValue -&gt; XML
 (SentimentValue -&gt; XML) -&gt; ToXML SentimentValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SentimentValue -&gt; XML

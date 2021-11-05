@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a customer gateway.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCustomerGateway' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681162969"><span id="local-6989586621681162970"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomerGateway"><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-var">CustomerGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomerGateway%27"><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-var">CustomerGateway'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681162978"><span id="local-6989586621681162979"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomerGateway"><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-var">CustomerGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomerGateway%27"><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-var">CustomerGateway'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the customer gateway certificate.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AcertificateArn%3ACustomerGateway%27"><span class="annot"><span class="annottext">CustomerGateway -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.CustomerGateway.html#%24sel%3AcertificateArn%3ACustomerGateway%27"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3Atype%27%3ACustomerGateway%27"><span class="annot"><span class="annottext">CustomerGateway -&gt; Text
 </span><a href="Network.AWS.EC2.Types.CustomerGateway.html#%24sel%3Atype%27%3ACustomerGateway%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681162956"><span id="local-6989586621681162958"><span class="annot"><span class="annottext">CustomerGateway -&gt; CustomerGateway -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681162965"><span id="local-6989586621681162967"><span class="annot"><span class="annottext">CustomerGateway -&gt; CustomerGateway -&gt; Bool
 (CustomerGateway -&gt; CustomerGateway -&gt; Bool)
 -&gt; (CustomerGateway -&gt; CustomerGateway -&gt; Bool)
 -&gt; Eq CustomerGateway
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CustomerGateway -&gt; CustomerGateway -&gt; Bool
 == :: CustomerGateway -&gt; CustomerGateway -&gt; Bool
 $c== :: CustomerGateway -&gt; CustomerGateway -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681162947"><span id="local-6989586621681162949"><span id="local-6989586621681162951"><span id="local-6989586621681162953"><span class="annot"><span class="annottext">ReadPrec [CustomerGateway]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681162956"><span id="local-6989586621681162958"><span id="local-6989586621681162960"><span id="local-6989586621681162962"><span class="annot"><span class="annottext">ReadPrec [CustomerGateway]
 ReadPrec CustomerGateway
 Int -&gt; ReadS CustomerGateway
 ReadS [CustomerGateway]
@@ -86,7 +86,7 @@ readList :: ReadS [CustomerGateway]
 $creadList :: ReadS [CustomerGateway]
 readsPrec :: Int -&gt; ReadS CustomerGateway
 $creadsPrec :: Int -&gt; ReadS CustomerGateway
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681162940"><span id="local-6989586621681162942"><span id="local-6989586621681162944"><span class="annot"><span class="annottext">Int -&gt; CustomerGateway -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681162949"><span id="local-6989586621681162951"><span id="local-6989586621681162953"><span class="annot"><span class="annottext">Int -&gt; CustomerGateway -&gt; ShowS
 [CustomerGateway] -&gt; ShowS
 CustomerGateway -&gt; String
 (Int -&gt; CustomerGateway -&gt; ShowS)
@@ -152,16 +152,16 @@ $cfrom :: forall x. CustomerGateway -&gt; Rep CustomerGateway x
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span>
 </span><span id="line-92"></span><span id="newCustomerGateway"><span class="annot"><span class="annottext">newCustomerGateway :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; CustomerGateway
 </span><a href="Network.AWS.EC2.Types.CustomerGateway.html#newCustomerGateway"><span class="hs-identifier hs-var hs-var">newCustomerGateway</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621681162934"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162934"><span class="hs-identifier hs-var">pBgpAsn_</span></a></span></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621681162933"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162933"><span class="hs-identifier hs-var">pCustomerGatewayId_</span></a></span></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621681162932"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162932"><span class="hs-identifier hs-var">pIpAddress_</span></a></span></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621681162931"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162931"><span class="hs-identifier hs-var">pState_</span></a></span></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621681162930"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162930"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621681162943"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162943"><span class="hs-identifier hs-var">pBgpAsn_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621681162942"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162942"><span class="hs-identifier hs-var">pCustomerGatewayId_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621681162941"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162941"><span class="hs-identifier hs-var">pIpAddress_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621681162940"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162940"><span class="hs-identifier hs-var">pState_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621681162939"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162939"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">CustomerGateway' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Tag]
@@ -186,19 +186,19 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:bgpAsn:CustomerGateway' :: Text
 </span><a href="Network.AWS.EC2.Types.CustomerGateway.html#%24sel%3AbgpAsn%3ACustomerGateway%27"><span class="hs-identifier hs-var">bgpAsn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162934"><span class="hs-identifier hs-var">pBgpAsn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681162943"><span class="hs-identifier hs-var">pBgpAsn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:customerGatewayId:CustomerGateway' :: Text
 </span><a href="Network.AWS.EC2.Types.CustomerGateway.html#%24sel%3AcustomerGatewayId%3ACustomerGateway%27"><span class="hs-identifier hs-var">customerGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162933"><span class="hs-identifier hs-var">pCustomerGatewayId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681162942"><span class="hs-identifier hs-var">pCustomerGatewayId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:ipAddress:CustomerGateway' :: Text
 </span><a href="Network.AWS.EC2.Types.CustomerGateway.html#%24sel%3AipAddress%3ACustomerGateway%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162932"><span class="hs-identifier hs-var">pIpAddress_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681162941"><span class="hs-identifier hs-var">pIpAddress_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:state:CustomerGateway' :: Text
 </span><a href="Network.AWS.EC2.Types.CustomerGateway.html#%24sel%3Astate%3ACustomerGateway%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162931"><span class="hs-identifier hs-var">pState_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681162940"><span class="hs-identifier hs-var">pState_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':CustomerGateway' :: Text
 </span><a href="Network.AWS.EC2.Types.CustomerGateway.html#%24sel%3Atype%27%3ACustomerGateway%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162930"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621681162939"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the customer gateway certificate.</span><span>
@@ -209,16 +209,16 @@ forall a. Maybe a
 -&gt; (CustomerGateway -&gt; Maybe Text -&gt; CustomerGateway)
 -&gt; Lens CustomerGateway CustomerGateway (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162926"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162935"><span class="annot"><span class="annottext">Maybe Text
 certificateArn :: Maybe Text
 $sel:certificateArn:CustomerGateway' :: CustomerGateway -&gt; Maybe Text
-</span><a href="#local-6989586621681162926"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681162926"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162925"><span class="annot"><span class="annottext">s :: CustomerGateway
-</span><a href="#local-6989586621681162925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162924"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681162924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerGateway
-</span><a href="#local-6989586621681162925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:CustomerGateway' :: Maybe Text
+</span><a href="#local-6989586621681162935"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681162935"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162934"><span class="annot"><span class="annottext">s :: CustomerGateway
+</span><a href="#local-6989586621681162934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162933"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681162933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerGateway
+</span><a href="#local-6989586621681162934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:CustomerGateway' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.CustomerGateway.html#%24sel%3AcertificateArn%3ACustomerGateway%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681162924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681162933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The name of customer gateway device.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#customerGateway_deviceName"><span class="hs-identifier hs-type">customerGateway_deviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -228,16 +228,16 @@ $sel:certificateArn:CustomerGateway' :: CustomerGateway -&gt; Maybe Text
 -&gt; (CustomerGateway -&gt; Maybe Text -&gt; CustomerGateway)
 -&gt; Lens CustomerGateway CustomerGateway (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162922"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162931"><span class="annot"><span class="annottext">Maybe Text
 deviceName :: Maybe Text
 $sel:deviceName:CustomerGateway' :: CustomerGateway -&gt; Maybe Text
-</span><a href="#local-6989586621681162922"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681162922"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162921"><span class="annot"><span class="annottext">s :: CustomerGateway
-</span><a href="#local-6989586621681162921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162920"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681162920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerGateway
-</span><a href="#local-6989586621681162921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceName:CustomerGateway' :: Maybe Text
+</span><a href="#local-6989586621681162931"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681162931"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162930"><span class="annot"><span class="annottext">s :: CustomerGateway
+</span><a href="#local-6989586621681162930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162929"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681162929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerGateway
+</span><a href="#local-6989586621681162930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceName:CustomerGateway' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.CustomerGateway.html#%24sel%3AdeviceName%3ACustomerGateway%27"><span class="hs-identifier hs-var">deviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681162920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681162929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | Any tags assigned to the customer gateway.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#customerGateway_tags"><span class="hs-identifier hs-type">customerGateway_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -247,16 +247,16 @@ $sel:deviceName:CustomerGateway' :: CustomerGateway -&gt; Maybe Text
 -&gt; (CustomerGateway -&gt; Maybe [Tag] -&gt; CustomerGateway)
 -&gt; Lens CustomerGateway CustomerGateway (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162918"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162927"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CustomerGateway' :: CustomerGateway -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681162918"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681162918"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162917"><span class="annot"><span class="annottext">s :: CustomerGateway
-</span><a href="#local-6989586621681162917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162916"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681162916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerGateway
-</span><a href="#local-6989586621681162917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CustomerGateway' :: Maybe [Tag]
+</span><a href="#local-6989586621681162927"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681162927"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162926"><span class="annot"><span class="annottext">s :: CustomerGateway
+</span><a href="#local-6989586621681162926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162925"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681162925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerGateway
+</span><a href="#local-6989586621681162926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CustomerGateway' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.CustomerGateway.html#%24sel%3Atags%3ACustomerGateway%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681162916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681162925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CustomerGateway -&gt; f CustomerGateway)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -281,16 +281,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CustomerGateway -&gt; Text -&gt; CustomerGateway)
 -&gt; Lens CustomerGateway CustomerGateway Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162911"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162920"><span class="annot"><span class="annottext">Text
 bgpAsn :: Text
 $sel:bgpAsn:CustomerGateway' :: CustomerGateway -&gt; Text
-</span><a href="#local-6989586621681162911"><span class="hs-identifier hs-var hs-var">bgpAsn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162911"><span class="hs-identifier hs-var">bgpAsn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162910"><span class="annot"><span class="annottext">s :: CustomerGateway
-</span><a href="#local-6989586621681162910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162909"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerGateway
-</span><a href="#local-6989586621681162910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bgpAsn:CustomerGateway' :: Text
+</span><a href="#local-6989586621681162920"><span class="hs-identifier hs-var hs-var">bgpAsn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162920"><span class="hs-identifier hs-var">bgpAsn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162919"><span class="annot"><span class="annottext">s :: CustomerGateway
+</span><a href="#local-6989586621681162919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162918"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerGateway
+</span><a href="#local-6989586621681162919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bgpAsn:CustomerGateway' :: Text
 </span><a href="Network.AWS.EC2.Types.CustomerGateway.html#%24sel%3AbgpAsn%3ACustomerGateway%27"><span class="hs-identifier hs-var">bgpAsn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681162918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The ID of the customer gateway.</span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#customerGateway_customerGatewayId"><span class="hs-identifier hs-type">customerGateway_customerGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -299,16 +299,16 @@ $sel:bgpAsn:CustomerGateway' :: CustomerGateway -&gt; Text
 -&gt; (CustomerGateway -&gt; Text -&gt; CustomerGateway)
 -&gt; Lens CustomerGateway CustomerGateway Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162907"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162916"><span class="annot"><span class="annottext">Text
 customerGatewayId :: Text
 $sel:customerGatewayId:CustomerGateway' :: CustomerGateway -&gt; Text
-</span><a href="#local-6989586621681162907"><span class="hs-identifier hs-var hs-var">customerGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162907"><span class="hs-identifier hs-var">customerGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162906"><span class="annot"><span class="annottext">s :: CustomerGateway
-</span><a href="#local-6989586621681162906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162905"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerGateway
-</span><a href="#local-6989586621681162906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerGatewayId:CustomerGateway' :: Text
+</span><a href="#local-6989586621681162916"><span class="hs-identifier hs-var hs-var">customerGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162916"><span class="hs-identifier hs-var">customerGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162915"><span class="annot"><span class="annottext">s :: CustomerGateway
+</span><a href="#local-6989586621681162915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162914"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerGateway
+</span><a href="#local-6989586621681162915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerGatewayId:CustomerGateway' :: Text
 </span><a href="Network.AWS.EC2.Types.CustomerGateway.html#%24sel%3AcustomerGatewayId%3ACustomerGateway%27"><span class="hs-identifier hs-var">customerGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681162914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The Internet-routable IP address of the customer gateway\'s outside</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- interface.</span><span>
@@ -318,16 +318,16 @@ $sel:customerGatewayId:CustomerGateway' :: CustomerGateway -&gt; Text
 -&gt; (CustomerGateway -&gt; Text -&gt; CustomerGateway)
 -&gt; Lens CustomerGateway CustomerGateway Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162903"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162912"><span class="annot"><span class="annottext">Text
 ipAddress :: Text
 $sel:ipAddress:CustomerGateway' :: CustomerGateway -&gt; Text
-</span><a href="#local-6989586621681162903"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162903"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162902"><span class="annot"><span class="annottext">s :: CustomerGateway
-</span><a href="#local-6989586621681162902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162901"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerGateway
-</span><a href="#local-6989586621681162902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:CustomerGateway' :: Text
+</span><a href="#local-6989586621681162912"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162912"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162911"><span class="annot"><span class="annottext">s :: CustomerGateway
+</span><a href="#local-6989586621681162911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162910"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerGateway
+</span><a href="#local-6989586621681162911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:CustomerGateway' :: Text
 </span><a href="Network.AWS.EC2.Types.CustomerGateway.html#%24sel%3AipAddress%3ACustomerGateway%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681162910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The current state of the customer gateway</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- (@pending | available | deleting | deleted@).</span><span>
@@ -337,16 +337,16 @@ $sel:ipAddress:CustomerGateway' :: CustomerGateway -&gt; Text
 -&gt; (CustomerGateway -&gt; Text -&gt; CustomerGateway)
 -&gt; Lens CustomerGateway CustomerGateway Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162899"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162908"><span class="annot"><span class="annottext">Text
 state :: Text
 $sel:state:CustomerGateway' :: CustomerGateway -&gt; Text
-</span><a href="#local-6989586621681162899"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162899"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162898"><span class="annot"><span class="annottext">s :: CustomerGateway
-</span><a href="#local-6989586621681162898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162897"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerGateway
-</span><a href="#local-6989586621681162898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:CustomerGateway' :: Text
+</span><a href="#local-6989586621681162908"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162908"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162907"><span class="annot"><span class="annottext">s :: CustomerGateway
+</span><a href="#local-6989586621681162907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162906"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerGateway
+</span><a href="#local-6989586621681162907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:CustomerGateway' :: Text
 </span><a href="Network.AWS.EC2.Types.CustomerGateway.html#%24sel%3Astate%3ACustomerGateway%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681162906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | The type of VPN connection the customer gateway supports (@ipsec.1@).</span><span>
 </span><span id="line-141"></span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#customerGateway_type"><span class="hs-identifier hs-type">customerGateway_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -355,21 +355,21 @@ $sel:state:CustomerGateway' :: CustomerGateway -&gt; Text
 -&gt; (CustomerGateway -&gt; Text -&gt; CustomerGateway)
 -&gt; Lens CustomerGateway CustomerGateway Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162895"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162904"><span class="annot"><span class="annottext">Text
 type' :: Text
 $sel:type':CustomerGateway' :: CustomerGateway -&gt; Text
-</span><a href="#local-6989586621681162895"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162895"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162894"><span class="annot"><span class="annottext">s :: CustomerGateway
-</span><a href="#local-6989586621681162894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162893"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerGateway
-</span><a href="#local-6989586621681162894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CustomerGateway' :: Text
+</span><a href="#local-6989586621681162904"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162904"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162903"><span class="annot"><span class="annottext">s :: CustomerGateway
+</span><a href="#local-6989586621681162903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway%27"><span class="hs-identifier hs-type">CustomerGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162902"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681162902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomerGateway
+</span><a href="#local-6989586621681162903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CustomerGateway' :: Text
 </span><a href="Network.AWS.EC2.Types.CustomerGateway.html#%24sel%3Atype%27%3ACustomerGateway%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681162893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681162902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621681162890"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CustomerGateway
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681162888"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162888"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621681162899"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CustomerGateway
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681162897"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681162897"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Tag]
@@ -402,7 +402,7 @@ $sel:type':CustomerGateway' :: CustomerGateway -&gt; Text
       -&gt; CustomerGateway)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681162897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificateArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -423,7 +423,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; CustomerGateway)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681162897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deviceName&quot;</span></span><span class="hs-special">)</span><span>
@@ -436,7 +436,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; CustomerGateway)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681162897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -464,7 +464,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Text -&gt; Text -&gt; Text -&gt; Text -&gt; CustomerGateway)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681162897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bgpAsn&quot;</span></span><span class="hs-special">)</span><span>
@@ -473,7 +473,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; Text -&gt; Text -&gt; CustomerGateway)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681162897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;customerGatewayId&quot;</span></span><span class="hs-special">)</span><span>
@@ -482,7 +482,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; Text -&gt; CustomerGateway)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681162897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ipAddress&quot;</span></span><span class="hs-special">)</span><span>
@@ -490,7 +490,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String (Text -&gt; CustomerGateway)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681162897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
@@ -498,12 +498,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String CustomerGateway
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681162888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681162897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681162878"><span id="local-6989586621681162880"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681162887"><span id="local-6989586621681162889"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681162875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681162884"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CustomerGateway.html#CustomerGateway"><span class="hs-identifier hs-type">CustomerGateway</span></a></span></span><span>
 </span><span id="line-161"></span></pre></body></html>

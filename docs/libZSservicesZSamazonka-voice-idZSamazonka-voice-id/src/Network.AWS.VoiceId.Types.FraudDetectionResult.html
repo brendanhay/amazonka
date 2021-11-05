@@ -1,0 +1,574 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.VoiceId.Types.FraudDetectionResult</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.VoiceId.Types.FraudDetectionResult</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionConfiguration.html"><span class="hs-identifier">Network.AWS.VoiceId.Types.FraudDetectionConfiguration</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionDecision.html"><span class="hs-identifier">Network.AWS.VoiceId.Types.FraudDetectionDecision</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionReason.html"><span class="hs-identifier">Network.AWS.VoiceId.Types.FraudDetectionReason</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudRiskDetails.html"><span class="hs-identifier">Network.AWS.VoiceId.Types.FraudRiskDetails</span></a></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | The fraud detection result produced by Voice ID, processed against the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- current session state and streamed audio of the speaker.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newFraudDetectionResult' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679203087"><span id="local-6989586621679203088"></span></span><span class="hs-keyword">data</span><span> </span><span id="FraudDetectionResult"><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-var">FraudDetectionResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FraudDetectionResult%27"><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-var">FraudDetectionResult'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reason speaker was flagged by the fraud detection system. This is</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- only be populated if fraud detection Decision is @HIGH_RISK@, and only</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- has one possible value: @KNOWN_FRAUDSTER@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Areasons%3AFraudDetectionResult%27"><span class="annot"><span class="annottext">FraudDetectionResult -&gt; Maybe [FraudDetectionReason]
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3Areasons%3AFraudDetectionResult%27"><span class="hs-identifier hs-var hs-var">reasons</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionReason.html#FraudDetectionReason"><span class="hs-identifier hs-type">FraudDetectionReason</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Details about each risk analyzed for this speaker.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AriskDetails%3AFraudDetectionResult%27"><span class="annot"><span class="annottext">FraudDetectionResult -&gt; Maybe FraudRiskDetails
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3AriskDetails%3AFraudDetectionResult%27"><span class="hs-identifier hs-var hs-var">riskDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudRiskDetails.html#FraudRiskDetails"><span class="hs-identifier hs-type">FraudRiskDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The unique identifier for this fraud detection result. Given there can</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- be multiple fraud detections for a given session, this field helps in</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- identifying if the returned result is from previous streaming activity</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- or a new result. Note that in the absence of any new streaming activity</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- or risk threshold changes, Voice ID always returns cached Fraud</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- Detection result for this API.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AfraudDetectionResultId%3AFraudDetectionResult%27"><span class="annot"><span class="annottext">FraudDetectionResult -&gt; Maybe Text
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3AfraudDetectionResultId%3AFraudDetectionResult%27"><span class="hs-identifier hs-var hs-var">fraudDetectionResultId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The fraud detection decision produced by Voice ID, processed against the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- current session state and streamed audio of the speaker.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Adecision%3AFraudDetectionResult%27"><span class="annot"><span class="annottext">FraudDetectionResult -&gt; Maybe FraudDetectionDecision
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3Adecision%3AFraudDetectionResult%27"><span class="hs-identifier hs-var hs-var">decision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionDecision.html#FraudDetectionDecision"><span class="hs-identifier hs-type">FraudDetectionDecision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The @FraudDetectionConfiguration@ used to generate this fraud detection</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- result.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aconfiguration%3AFraudDetectionResult%27"><span class="annot"><span class="annottext">FraudDetectionResult -&gt; Maybe FraudDetectionConfiguration
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3Aconfiguration%3AFraudDetectionResult%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionConfiguration.html#FraudDetectionConfiguration"><span class="hs-identifier hs-type">FraudDetectionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | A timestamp indicating when audio aggregation started for this fraud</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- detection result.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AaudioAggregationStartedAt%3AFraudDetectionResult%27"><span class="annot"><span class="annottext">FraudDetectionResult -&gt; Maybe POSIX
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3AaudioAggregationStartedAt%3AFraudDetectionResult%27"><span class="hs-identifier hs-var hs-var">audioAggregationStartedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | A timestamp indicating when audio aggregation ended for this fraud</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- detection result.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AaudioAggregationEndedAt%3AFraudDetectionResult%27"><span class="annot"><span class="annottext">FraudDetectionResult -&gt; Maybe POSIX
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3AaudioAggregationEndedAt%3AFraudDetectionResult%27"><span class="hs-identifier hs-var hs-var">audioAggregationEndedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203075"><span id="local-6989586621679203077"><span class="annot"><span class="annottext">FraudDetectionResult -&gt; FraudDetectionResult -&gt; Bool
+(FraudDetectionResult -&gt; FraudDetectionResult -&gt; Bool)
+-&gt; (FraudDetectionResult -&gt; FraudDetectionResult -&gt; Bool)
+-&gt; Eq FraudDetectionResult
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FraudDetectionResult -&gt; FraudDetectionResult -&gt; Bool
+$c/= :: FraudDetectionResult -&gt; FraudDetectionResult -&gt; Bool
+== :: FraudDetectionResult -&gt; FraudDetectionResult -&gt; Bool
+$c== :: FraudDetectionResult -&gt; FraudDetectionResult -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203066"><span id="local-6989586621679203068"><span id="local-6989586621679203070"><span id="local-6989586621679203072"><span class="annot"><span class="annottext">ReadPrec [FraudDetectionResult]
+ReadPrec FraudDetectionResult
+Int -&gt; ReadS FraudDetectionResult
+ReadS [FraudDetectionResult]
+(Int -&gt; ReadS FraudDetectionResult)
+-&gt; ReadS [FraudDetectionResult]
+-&gt; ReadPrec FraudDetectionResult
+-&gt; ReadPrec [FraudDetectionResult]
+-&gt; Read FraudDetectionResult
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FraudDetectionResult]
+$creadListPrec :: ReadPrec [FraudDetectionResult]
+readPrec :: ReadPrec FraudDetectionResult
+$creadPrec :: ReadPrec FraudDetectionResult
+readList :: ReadS [FraudDetectionResult]
+$creadList :: ReadS [FraudDetectionResult]
+readsPrec :: Int -&gt; ReadS FraudDetectionResult
+$creadsPrec :: Int -&gt; ReadS FraudDetectionResult
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203059"><span id="local-6989586621679203061"><span id="local-6989586621679203063"><span class="annot"><span class="annottext">Int -&gt; FraudDetectionResult -&gt; ShowS
+[FraudDetectionResult] -&gt; ShowS
+FraudDetectionResult -&gt; String
+(Int -&gt; FraudDetectionResult -&gt; ShowS)
+-&gt; (FraudDetectionResult -&gt; String)
+-&gt; ([FraudDetectionResult] -&gt; ShowS)
+-&gt; Show FraudDetectionResult
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FraudDetectionResult] -&gt; ShowS
+$cshowList :: [FraudDetectionResult] -&gt; ShowS
+show :: FraudDetectionResult -&gt; String
+$cshow :: FraudDetectionResult -&gt; String
+showsPrec :: Int -&gt; FraudDetectionResult -&gt; ShowS
+$cshowsPrec :: Int -&gt; FraudDetectionResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FraudDetectionResult -&gt; Rep FraudDetectionResult x)
+-&gt; (forall x. Rep FraudDetectionResult x -&gt; FraudDetectionResult)
+-&gt; Generic FraudDetectionResult
+forall x. Rep FraudDetectionResult x -&gt; FraudDetectionResult
+forall x. FraudDetectionResult -&gt; Rep FraudDetectionResult x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FraudDetectionResult x -&gt; FraudDetectionResult
+$cfrom :: forall x. FraudDetectionResult -&gt; Rep FraudDetectionResult x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'FraudDetectionResult' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'reasons', 'fraudDetectionResult_reasons' - The reason speaker was flagged by the fraud detection system. This is</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- only be populated if fraud detection Decision is @HIGH_RISK@, and only</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- has one possible value: @KNOWN_FRAUDSTER@.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'riskDetails', 'fraudDetectionResult_riskDetails' - Details about each risk analyzed for this speaker.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'fraudDetectionResultId', 'fraudDetectionResult_fraudDetectionResultId' - The unique identifier for this fraud detection result. Given there can</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- be multiple fraud detections for a given session, this field helps in</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- identifying if the returned result is from previous streaming activity</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- or a new result. Note that in the absence of any new streaming activity</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- or risk threshold changes, Voice ID always returns cached Fraud</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Detection result for this API.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'decision', 'fraudDetectionResult_decision' - The fraud detection decision produced by Voice ID, processed against the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- current session state and streamed audio of the speaker.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'configuration', 'fraudDetectionResult_configuration' - The @FraudDetectionConfiguration@ used to generate this fraud detection</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- result.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'audioAggregationStartedAt', 'fraudDetectionResult_audioAggregationStartedAt' - A timestamp indicating when audio aggregation started for this fraud</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- detection result.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'audioAggregationEndedAt', 'fraudDetectionResult_audioAggregationEndedAt' - A timestamp indicating when audio aggregation ended for this fraud</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- detection result.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#newFraudDetectionResult"><span class="hs-identifier hs-type">newFraudDetectionResult</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span><span>
+</span><span id="line-97"></span><span id="newFraudDetectionResult"><span class="annot"><span class="annottext">newFraudDetectionResult :: FraudDetectionResult
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#newFraudDetectionResult"><span class="hs-identifier hs-var hs-var">newFraudDetectionResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">FraudDetectionResult' :: Maybe [FraudDetectionReason]
+-&gt; Maybe FraudRiskDetails
+-&gt; Maybe Text
+-&gt; Maybe FraudDetectionDecision
+-&gt; Maybe FraudDetectionConfiguration
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; FraudDetectionResult
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-type">FraudDetectionResult'</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reasons:FraudDetectionResult' :: Maybe [FraudDetectionReason]
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3Areasons%3AFraudDetectionResult%27"><span class="hs-identifier hs-var">reasons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FraudDetectionReason]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:riskDetails:FraudDetectionResult' :: Maybe FraudRiskDetails
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3AriskDetails%3AFraudDetectionResult%27"><span class="hs-identifier hs-var">riskDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FraudRiskDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:fraudDetectionResultId:FraudDetectionResult' :: Maybe Text
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3AfraudDetectionResultId%3AFraudDetectionResult%27"><span class="hs-identifier hs-var">fraudDetectionResultId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:decision:FraudDetectionResult' :: Maybe FraudDetectionDecision
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3Adecision%3AFraudDetectionResult%27"><span class="hs-identifier hs-var">decision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FraudDetectionDecision
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:FraudDetectionResult' :: Maybe FraudDetectionConfiguration
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3Aconfiguration%3AFraudDetectionResult%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FraudDetectionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:audioAggregationStartedAt:FraudDetectionResult' :: Maybe POSIX
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3AaudioAggregationStartedAt%3AFraudDetectionResult%27"><span class="hs-identifier hs-var">audioAggregationStartedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:audioAggregationEndedAt:FraudDetectionResult' :: Maybe POSIX
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3AaudioAggregationEndedAt%3AFraudDetectionResult%27"><span class="hs-identifier hs-var">audioAggregationEndedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The reason speaker was flagged by the fraud detection system. This is</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- only be populated if fraud detection Decision is @HIGH_RISK@, and only</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- has one possible value: @KNOWN_FRAUDSTER@.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#fraudDetectionResult_reasons"><span class="hs-identifier hs-type">fraudDetectionResult_reasons</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionReason.html#FraudDetectionReason"><span class="hs-identifier hs-type">FraudDetectionReason</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="fraudDetectionResult_reasons"><span class="annot"><span class="annottext">fraudDetectionResult_reasons :: (Maybe [FraudDetectionReason] -&gt; f (Maybe [FraudDetectionReason]))
+-&gt; FraudDetectionResult -&gt; f FraudDetectionResult
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#fraudDetectionResult_reasons"><span class="hs-identifier hs-var hs-var">fraudDetectionResult_reasons</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FraudDetectionResult -&gt; Maybe [FraudDetectionReason])
+-&gt; (FraudDetectionResult
+    -&gt; Maybe [FraudDetectionReason] -&gt; FraudDetectionResult)
+-&gt; Lens
+     FraudDetectionResult
+     FraudDetectionResult
+     (Maybe [FraudDetectionReason])
+     (Maybe [FraudDetectionReason])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-type">FraudDetectionResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203050"><span class="annot"><span class="annottext">Maybe [FraudDetectionReason]
+reasons :: Maybe [FraudDetectionReason]
+$sel:reasons:FraudDetectionResult' :: FraudDetectionResult -&gt; Maybe [FraudDetectionReason]
+</span><a href="#local-6989586621679203050"><span class="hs-identifier hs-var hs-var">reasons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FraudDetectionReason]
+</span><a href="#local-6989586621679203050"><span class="hs-identifier hs-var">reasons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203049"><span class="annot"><span class="annottext">s :: FraudDetectionResult
+</span><a href="#local-6989586621679203049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-type">FraudDetectionResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203048"><span class="annot"><span class="annottext">Maybe [FraudDetectionReason]
+</span><a href="#local-6989586621679203048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FraudDetectionResult
+</span><a href="#local-6989586621679203049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reasons:FraudDetectionResult' :: Maybe [FraudDetectionReason]
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3Areasons%3AFraudDetectionResult%27"><span class="hs-identifier hs-var">reasons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FraudDetectionReason]
+</span><a href="#local-6989586621679203048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FraudDetectionReason] -&gt; f (Maybe [FraudDetectionReason]))
+ -&gt; FraudDetectionResult -&gt; f FraudDetectionResult)
+-&gt; ((Maybe [FraudDetectionReason]
+     -&gt; f (Maybe [FraudDetectionReason]))
+    -&gt; Maybe [FraudDetectionReason]
+    -&gt; f (Maybe [FraudDetectionReason]))
+-&gt; (Maybe [FraudDetectionReason]
+    -&gt; f (Maybe [FraudDetectionReason]))
+-&gt; FraudDetectionResult
+-&gt; f FraudDetectionResult
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FraudDetectionReason]
+  [FraudDetectionReason]
+  [FraudDetectionReason]
+  [FraudDetectionReason]
+-&gt; Iso
+     (Maybe [FraudDetectionReason])
+     (Maybe [FraudDetectionReason])
+     (Maybe [FraudDetectionReason])
+     (Maybe [FraudDetectionReason])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FraudDetectionReason]
+  [FraudDetectionReason]
+  [FraudDetectionReason]
+  [FraudDetectionReason]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Details about each risk analyzed for this speaker.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#fraudDetectionResult_riskDetails"><span class="hs-identifier hs-type">fraudDetectionResult_riskDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudRiskDetails.html#FraudRiskDetails"><span class="hs-identifier hs-type">FraudRiskDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="fraudDetectionResult_riskDetails"><span class="annot"><span class="annottext">fraudDetectionResult_riskDetails :: (Maybe FraudRiskDetails -&gt; f (Maybe FraudRiskDetails))
+-&gt; FraudDetectionResult -&gt; f FraudDetectionResult
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#fraudDetectionResult_riskDetails"><span class="hs-identifier hs-var hs-var">fraudDetectionResult_riskDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FraudDetectionResult -&gt; Maybe FraudRiskDetails)
+-&gt; (FraudDetectionResult
+    -&gt; Maybe FraudRiskDetails -&gt; FraudDetectionResult)
+-&gt; Lens
+     FraudDetectionResult
+     FraudDetectionResult
+     (Maybe FraudRiskDetails)
+     (Maybe FraudRiskDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-type">FraudDetectionResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203043"><span class="annot"><span class="annottext">Maybe FraudRiskDetails
+riskDetails :: Maybe FraudRiskDetails
+$sel:riskDetails:FraudDetectionResult' :: FraudDetectionResult -&gt; Maybe FraudRiskDetails
+</span><a href="#local-6989586621679203043"><span class="hs-identifier hs-var hs-var">riskDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FraudRiskDetails
+</span><a href="#local-6989586621679203043"><span class="hs-identifier hs-var">riskDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203042"><span class="annot"><span class="annottext">s :: FraudDetectionResult
+</span><a href="#local-6989586621679203042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-type">FraudDetectionResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203041"><span class="annot"><span class="annottext">Maybe FraudRiskDetails
+</span><a href="#local-6989586621679203041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FraudDetectionResult
+</span><a href="#local-6989586621679203042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:riskDetails:FraudDetectionResult' :: Maybe FraudRiskDetails
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3AriskDetails%3AFraudDetectionResult%27"><span class="hs-identifier hs-var">riskDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FraudRiskDetails
+</span><a href="#local-6989586621679203041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The unique identifier for this fraud detection result. Given there can</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- be multiple fraud detections for a given session, this field helps in</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- identifying if the returned result is from previous streaming activity</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- or a new result. Note that in the absence of any new streaming activity</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- or risk threshold changes, Voice ID always returns cached Fraud</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Detection result for this API.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#fraudDetectionResult_fraudDetectionResultId"><span class="hs-identifier hs-type">fraudDetectionResult_fraudDetectionResultId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="fraudDetectionResult_fraudDetectionResultId"><span class="annot"><span class="annottext">fraudDetectionResult_fraudDetectionResultId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FraudDetectionResult -&gt; f FraudDetectionResult
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#fraudDetectionResult_fraudDetectionResultId"><span class="hs-identifier hs-var hs-var">fraudDetectionResult_fraudDetectionResultId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FraudDetectionResult -&gt; Maybe Text)
+-&gt; (FraudDetectionResult -&gt; Maybe Text -&gt; FraudDetectionResult)
+-&gt; Lens
+     FraudDetectionResult FraudDetectionResult (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-type">FraudDetectionResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203039"><span class="annot"><span class="annottext">Maybe Text
+fraudDetectionResultId :: Maybe Text
+$sel:fraudDetectionResultId:FraudDetectionResult' :: FraudDetectionResult -&gt; Maybe Text
+</span><a href="#local-6989586621679203039"><span class="hs-identifier hs-var hs-var">fraudDetectionResultId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203039"><span class="hs-identifier hs-var">fraudDetectionResultId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203038"><span class="annot"><span class="annottext">s :: FraudDetectionResult
+</span><a href="#local-6989586621679203038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-type">FraudDetectionResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203037"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FraudDetectionResult
+</span><a href="#local-6989586621679203038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fraudDetectionResultId:FraudDetectionResult' :: Maybe Text
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3AfraudDetectionResultId%3AFraudDetectionResult%27"><span class="hs-identifier hs-var">fraudDetectionResultId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The fraud detection decision produced by Voice ID, processed against the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- current session state and streamed audio of the speaker.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#fraudDetectionResult_decision"><span class="hs-identifier hs-type">fraudDetectionResult_decision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionDecision.html#FraudDetectionDecision"><span class="hs-identifier hs-type">FraudDetectionDecision</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="fraudDetectionResult_decision"><span class="annot"><span class="annottext">fraudDetectionResult_decision :: (Maybe FraudDetectionDecision -&gt; f (Maybe FraudDetectionDecision))
+-&gt; FraudDetectionResult -&gt; f FraudDetectionResult
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#fraudDetectionResult_decision"><span class="hs-identifier hs-var hs-var">fraudDetectionResult_decision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FraudDetectionResult -&gt; Maybe FraudDetectionDecision)
+-&gt; (FraudDetectionResult
+    -&gt; Maybe FraudDetectionDecision -&gt; FraudDetectionResult)
+-&gt; Lens
+     FraudDetectionResult
+     FraudDetectionResult
+     (Maybe FraudDetectionDecision)
+     (Maybe FraudDetectionDecision)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-type">FraudDetectionResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203035"><span class="annot"><span class="annottext">Maybe FraudDetectionDecision
+decision :: Maybe FraudDetectionDecision
+$sel:decision:FraudDetectionResult' :: FraudDetectionResult -&gt; Maybe FraudDetectionDecision
+</span><a href="#local-6989586621679203035"><span class="hs-identifier hs-var hs-var">decision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FraudDetectionDecision
+</span><a href="#local-6989586621679203035"><span class="hs-identifier hs-var">decision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203034"><span class="annot"><span class="annottext">s :: FraudDetectionResult
+</span><a href="#local-6989586621679203034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-type">FraudDetectionResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203033"><span class="annot"><span class="annottext">Maybe FraudDetectionDecision
+</span><a href="#local-6989586621679203033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FraudDetectionResult
+</span><a href="#local-6989586621679203034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:decision:FraudDetectionResult' :: Maybe FraudDetectionDecision
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3Adecision%3AFraudDetectionResult%27"><span class="hs-identifier hs-var">decision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FraudDetectionDecision
+</span><a href="#local-6989586621679203033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The @FraudDetectionConfiguration@ used to generate this fraud detection</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- result.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#fraudDetectionResult_configuration"><span class="hs-identifier hs-type">fraudDetectionResult_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionConfiguration.html#FraudDetectionConfiguration"><span class="hs-identifier hs-type">FraudDetectionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="fraudDetectionResult_configuration"><span class="annot"><span class="annottext">fraudDetectionResult_configuration :: (Maybe FraudDetectionConfiguration
+ -&gt; f (Maybe FraudDetectionConfiguration))
+-&gt; FraudDetectionResult -&gt; f FraudDetectionResult
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#fraudDetectionResult_configuration"><span class="hs-identifier hs-var hs-var">fraudDetectionResult_configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FraudDetectionResult -&gt; Maybe FraudDetectionConfiguration)
+-&gt; (FraudDetectionResult
+    -&gt; Maybe FraudDetectionConfiguration -&gt; FraudDetectionResult)
+-&gt; Lens
+     FraudDetectionResult
+     FraudDetectionResult
+     (Maybe FraudDetectionConfiguration)
+     (Maybe FraudDetectionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-type">FraudDetectionResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203031"><span class="annot"><span class="annottext">Maybe FraudDetectionConfiguration
+configuration :: Maybe FraudDetectionConfiguration
+$sel:configuration:FraudDetectionResult' :: FraudDetectionResult -&gt; Maybe FraudDetectionConfiguration
+</span><a href="#local-6989586621679203031"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FraudDetectionConfiguration
+</span><a href="#local-6989586621679203031"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203030"><span class="annot"><span class="annottext">s :: FraudDetectionResult
+</span><a href="#local-6989586621679203030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-type">FraudDetectionResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203029"><span class="annot"><span class="annottext">Maybe FraudDetectionConfiguration
+</span><a href="#local-6989586621679203029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FraudDetectionResult
+</span><a href="#local-6989586621679203030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:FraudDetectionResult' :: Maybe FraudDetectionConfiguration
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3Aconfiguration%3AFraudDetectionResult%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FraudDetectionConfiguration
+</span><a href="#local-6989586621679203029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | A timestamp indicating when audio aggregation started for this fraud</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- detection result.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#fraudDetectionResult_audioAggregationStartedAt"><span class="hs-identifier hs-type">fraudDetectionResult_audioAggregationStartedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="fraudDetectionResult_audioAggregationStartedAt"><span class="annot"><span class="annottext">fraudDetectionResult_audioAggregationStartedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; FraudDetectionResult -&gt; f FraudDetectionResult
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#fraudDetectionResult_audioAggregationStartedAt"><span class="hs-identifier hs-var hs-var">fraudDetectionResult_audioAggregationStartedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FraudDetectionResult -&gt; Maybe POSIX)
+-&gt; (FraudDetectionResult -&gt; Maybe POSIX -&gt; FraudDetectionResult)
+-&gt; Lens
+     FraudDetectionResult
+     FraudDetectionResult
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-type">FraudDetectionResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203027"><span class="annot"><span class="annottext">Maybe POSIX
+audioAggregationStartedAt :: Maybe POSIX
+$sel:audioAggregationStartedAt:FraudDetectionResult' :: FraudDetectionResult -&gt; Maybe POSIX
+</span><a href="#local-6989586621679203027"><span class="hs-identifier hs-var hs-var">audioAggregationStartedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679203027"><span class="hs-identifier hs-var">audioAggregationStartedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203026"><span class="annot"><span class="annottext">s :: FraudDetectionResult
+</span><a href="#local-6989586621679203026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-type">FraudDetectionResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203025"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679203025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FraudDetectionResult
+</span><a href="#local-6989586621679203026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioAggregationStartedAt:FraudDetectionResult' :: Maybe POSIX
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3AaudioAggregationStartedAt%3AFraudDetectionResult%27"><span class="hs-identifier hs-var">audioAggregationStartedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679203025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; FraudDetectionResult -&gt; f FraudDetectionResult)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; FraudDetectionResult
+-&gt; f FraudDetectionResult
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | A timestamp indicating when audio aggregation ended for this fraud</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- detection result.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#fraudDetectionResult_audioAggregationEndedAt"><span class="hs-identifier hs-type">fraudDetectionResult_audioAggregationEndedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="fraudDetectionResult_audioAggregationEndedAt"><span class="annot"><span class="annottext">fraudDetectionResult_audioAggregationEndedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; FraudDetectionResult -&gt; f FraudDetectionResult
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#fraudDetectionResult_audioAggregationEndedAt"><span class="hs-identifier hs-var hs-var">fraudDetectionResult_audioAggregationEndedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FraudDetectionResult -&gt; Maybe POSIX)
+-&gt; (FraudDetectionResult -&gt; Maybe POSIX -&gt; FraudDetectionResult)
+-&gt; Lens
+     FraudDetectionResult
+     FraudDetectionResult
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-type">FraudDetectionResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203022"><span class="annot"><span class="annottext">Maybe POSIX
+audioAggregationEndedAt :: Maybe POSIX
+$sel:audioAggregationEndedAt:FraudDetectionResult' :: FraudDetectionResult -&gt; Maybe POSIX
+</span><a href="#local-6989586621679203022"><span class="hs-identifier hs-var hs-var">audioAggregationEndedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679203022"><span class="hs-identifier hs-var">audioAggregationEndedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203021"><span class="annot"><span class="annottext">s :: FraudDetectionResult
+</span><a href="#local-6989586621679203021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-type">FraudDetectionResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203020"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679203020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FraudDetectionResult
+</span><a href="#local-6989586621679203021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioAggregationEndedAt:FraudDetectionResult' :: Maybe POSIX
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#%24sel%3AaudioAggregationEndedAt%3AFraudDetectionResult%27"><span class="hs-identifier hs-var">audioAggregationEndedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679203020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; FraudDetectionResult -&gt; f FraudDetectionResult)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; FraudDetectionResult
+-&gt; f FraudDetectionResult
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203017"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679203015"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FraudDetectionResult
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FraudDetectionResult)
+-&gt; Value
+-&gt; Parser FraudDetectionResult
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FraudDetectionResult&quot;</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203012"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203012"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe [FraudDetectionReason]
+-&gt; Maybe FraudRiskDetails
+-&gt; Maybe Text
+-&gt; Maybe FraudDetectionDecision
+-&gt; Maybe FraudDetectionConfiguration
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; FraudDetectionResult
+</span><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult%27"><span class="hs-identifier hs-var">FraudDetectionResult'</span></a></span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [FraudDetectionReason]
+ -&gt; Maybe FraudRiskDetails
+ -&gt; Maybe Text
+ -&gt; Maybe FraudDetectionDecision
+ -&gt; Maybe FraudDetectionConfiguration
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; FraudDetectionResult)
+-&gt; Parser (Maybe [FraudDetectionReason])
+-&gt; Parser
+     (Maybe FraudRiskDetails
+      -&gt; Maybe Text
+      -&gt; Maybe FraudDetectionDecision
+      -&gt; Maybe FraudDetectionConfiguration
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; FraudDetectionResult)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [FraudDetectionReason]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Reasons&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [FraudDetectionReason]))
+-&gt; Maybe [FraudDetectionReason]
+-&gt; Parser (Maybe [FraudDetectionReason])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FraudDetectionReason]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FraudRiskDetails
+   -&gt; Maybe Text
+   -&gt; Maybe FraudDetectionDecision
+   -&gt; Maybe FraudDetectionConfiguration
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; FraudDetectionResult)
+-&gt; Parser (Maybe FraudRiskDetails)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe FraudDetectionDecision
+      -&gt; Maybe FraudDetectionConfiguration
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; FraudDetectionResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FraudRiskDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RiskDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe FraudDetectionDecision
+   -&gt; Maybe FraudDetectionConfiguration
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; FraudDetectionResult)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe FraudDetectionDecision
+      -&gt; Maybe FraudDetectionConfiguration
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; FraudDetectionResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FraudDetectionResultId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FraudDetectionDecision
+   -&gt; Maybe FraudDetectionConfiguration
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; FraudDetectionResult)
+-&gt; Parser (Maybe FraudDetectionDecision)
+-&gt; Parser
+     (Maybe FraudDetectionConfiguration
+      -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; FraudDetectionResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FraudDetectionDecision)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Decision&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FraudDetectionConfiguration
+   -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; FraudDetectionResult)
+-&gt; Parser (Maybe FraudDetectionConfiguration)
+-&gt; Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; FraudDetectionResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FraudDetectionConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Configuration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; FraudDetectionResult)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe POSIX -&gt; FraudDetectionResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AudioAggregationStartedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; FraudDetectionResult)
+-&gt; Parser (Maybe POSIX) -&gt; Parser FraudDetectionResult
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AudioAggregationEndedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203005"><span id="local-6989586621679203007"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203002"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.FraudDetectionResult.html#FraudDetectionResult"><span class="hs-identifier hs-type">FraudDetectionResult</span></a></span></span><span>
+</span><span id="line-165"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679428105"><span id="local-6989586621679428106"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EmailSendingAccountType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EmailSendingAccountType.html#EmailSendingAccountType"><span class="hs-identifier hs-var">EmailSendingAccountType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmailSendingAccountType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EmailSendingAccountType.html#EmailSendingAccountType%27"><span class="hs-identifier hs-var">EmailSendingAccountType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679428114"><span id="local-6989586621679428115"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EmailSendingAccountType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EmailSendingAccountType.html#EmailSendingAccountType"><span class="hs-identifier hs-var">EmailSendingAccountType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmailSendingAccountType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.EmailSendingAccountType.html#EmailSendingAccountType%27"><span class="hs-identifier hs-var">EmailSendingAccountType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEmailSendingAccountType"><span class="annot"><span class="annottext">EmailSendingAccountType -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.EmailSendingAccountType.html#fromEmailSendingAccountType"><span class="hs-identifier hs-var hs-var">fromEmailSendingAccountType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428097"><span id="local-6989586621679428099"><span id="local-6989586621679428101"><span class="annot"><span class="annottext">Int -&gt; EmailSendingAccountType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428106"><span id="local-6989586621679428108"><span id="local-6989586621679428110"><span class="annot"><span class="annottext">Int -&gt; EmailSendingAccountType -&gt; ShowS
 [EmailSendingAccountType] -&gt; ShowS
 EmailSendingAccountType -&gt; String
 (Int -&gt; EmailSendingAccountType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: EmailSendingAccountType -&gt; String
 showsPrec :: Int -&gt; EmailSendingAccountType -&gt; ShowS
 $cshowsPrec :: Int -&gt; EmailSendingAccountType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679428088"><span id="local-6989586621679428090"><span id="local-6989586621679428092"><span id="local-6989586621679428094"><span class="annot"><span class="annottext">ReadPrec [EmailSendingAccountType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679428097"><span id="local-6989586621679428099"><span id="local-6989586621679428101"><span id="local-6989586621679428103"><span class="annot"><span class="annottext">ReadPrec [EmailSendingAccountType]
 ReadPrec EmailSendingAccountType
 Int -&gt; ReadS EmailSendingAccountType
 ReadS [EmailSendingAccountType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [EmailSendingAccountType]
 readsPrec :: Int -&gt; ReadS EmailSendingAccountType
 $creadsPrec :: Int -&gt; ReadS EmailSendingAccountType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679428083"><span id="local-6989586621679428085"><span class="annot"><span class="annottext">EmailSendingAccountType -&gt; EmailSendingAccountType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679428092"><span id="local-6989586621679428094"><span class="annot"><span class="annottext">EmailSendingAccountType -&gt; EmailSendingAccountType -&gt; Bool
 (EmailSendingAccountType -&gt; EmailSendingAccountType -&gt; Bool)
 -&gt; (EmailSendingAccountType -&gt; EmailSendingAccountType -&gt; Bool)
 -&gt; Eq EmailSendingAccountType
@@ -82,7 +82,7 @@ $c/= :: EmailSendingAccountType -&gt; EmailSendingAccountType -&gt; Bool
 == :: EmailSendingAccountType -&gt; EmailSendingAccountType -&gt; Bool
 $c== :: EmailSendingAccountType -&gt; EmailSendingAccountType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679428067"><span id="local-6989586621679428069"><span id="local-6989586621679428071"><span id="local-6989586621679428073"><span id="local-6989586621679428075"><span id="local-6989586621679428077"><span id="local-6989586621679428079"><span class="annot"><span class="annottext">Eq EmailSendingAccountType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679428076"><span id="local-6989586621679428078"><span id="local-6989586621679428080"><span id="local-6989586621679428082"><span id="local-6989586621679428084"><span id="local-6989586621679428086"><span id="local-6989586621679428088"><span class="annot"><span class="annottext">Eq EmailSendingAccountType
 Eq EmailSendingAccountType
 -&gt; (EmailSendingAccountType -&gt; EmailSendingAccountType -&gt; Ordering)
 -&gt; (EmailSendingAccountType -&gt; EmailSendingAccountType -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. EmailSendingAccountType -&gt; Rep EmailSendingAccountType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428059"><span id="local-6989586621679428061"><span class="annot"><span class="annottext">Int -&gt; EmailSendingAccountType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428068"><span id="local-6989586621679428070"><span class="annot"><span class="annottext">Int -&gt; EmailSendingAccountType -&gt; Int
 EmailSendingAccountType -&gt; Int
 (Int -&gt; EmailSendingAccountType -&gt; Int)
 -&gt; (EmailSendingAccountType -&gt; Int)
@@ -153,54 +153,54 @@ $chash :: EmailSendingAccountType -&gt; Int
 hashWithSalt :: Int -&gt; EmailSendingAccountType -&gt; Int
 $chashWithSalt :: Int -&gt; EmailSendingAccountType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679428056"><span class="annot"><span class="annottext">EmailSendingAccountType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679428065"><span class="annot"><span class="annottext">EmailSendingAccountType -&gt; ()
 (EmailSendingAccountType -&gt; ()) -&gt; NFData EmailSendingAccountType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EmailSendingAccountType -&gt; ()
 $crnf :: EmailSendingAccountType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679428053"><span class="annot"><span class="annottext">Text -&gt; Either String EmailSendingAccountType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679428062"><span class="annot"><span class="annottext">Text -&gt; Either String EmailSendingAccountType
 (Text -&gt; Either String EmailSendingAccountType)
 -&gt; FromText EmailSendingAccountType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EmailSendingAccountType
 $cfromText :: Text -&gt; Either String EmailSendingAccountType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679428050"><span class="annot"><span class="annottext">EmailSendingAccountType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679428059"><span class="annot"><span class="annottext">EmailSendingAccountType -&gt; Text
 (EmailSendingAccountType -&gt; Text) -&gt; ToText EmailSendingAccountType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EmailSendingAccountType -&gt; Text
 $ctoText :: EmailSendingAccountType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679428047"><span class="annot"><span class="annottext">EmailSendingAccountType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679428056"><span class="annot"><span class="annottext">EmailSendingAccountType -&gt; ByteString
 (EmailSendingAccountType -&gt; ByteString)
 -&gt; ToByteString EmailSendingAccountType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EmailSendingAccountType -&gt; ByteString
 $ctoBS :: EmailSendingAccountType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679428044"><span class="annot"><span class="annottext">EmailSendingAccountType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679428053"><span class="annot"><span class="annottext">EmailSendingAccountType -&gt; ByteStringBuilder
 (EmailSendingAccountType -&gt; ByteStringBuilder)
 -&gt; ToLog EmailSendingAccountType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EmailSendingAccountType -&gt; ByteStringBuilder
 $cbuild :: EmailSendingAccountType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679428041"><span class="annot"><span class="annottext">HeaderName -&gt; EmailSendingAccountType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679428050"><span class="annot"><span class="annottext">HeaderName -&gt; EmailSendingAccountType -&gt; [Header]
 (HeaderName -&gt; EmailSendingAccountType -&gt; [Header])
 -&gt; ToHeader EmailSendingAccountType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EmailSendingAccountType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EmailSendingAccountType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679428038"><span class="annot"><span class="annottext">EmailSendingAccountType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679428047"><span class="annot"><span class="annottext">EmailSendingAccountType -&gt; QueryString
 (EmailSendingAccountType -&gt; QueryString)
 -&gt; ToQuery EmailSendingAccountType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EmailSendingAccountType -&gt; QueryString
 $ctoQuery :: EmailSendingAccountType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679428033"><span id="local-6989586621679428035"><span class="annot"><span class="annottext">Value -&gt; Parser [EmailSendingAccountType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679428042"><span id="local-6989586621679428044"><span class="annot"><span class="annottext">Value -&gt; Parser [EmailSendingAccountType]
 Value -&gt; Parser EmailSendingAccountType
 (Value -&gt; Parser EmailSendingAccountType)
 -&gt; (Value -&gt; Parser [EmailSendingAccountType])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [EmailSendingAccountType]
 parseJSON :: Value -&gt; Parser EmailSendingAccountType
 $cparseJSON :: Value -&gt; Parser EmailSendingAccountType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679428028"><span id="local-6989586621679428030"><span class="annot"><span class="annottext">FromJSONKeyFunction [EmailSendingAccountType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679428037"><span id="local-6989586621679428039"><span class="annot"><span class="annottext">FromJSONKeyFunction [EmailSendingAccountType]
 FromJSONKeyFunction EmailSendingAccountType
 FromJSONKeyFunction EmailSendingAccountType
 -&gt; FromJSONKeyFunction [EmailSendingAccountType]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EmailSendingAccountType]
 fromJSONKey :: FromJSONKeyFunction EmailSendingAccountType
 $cfromJSONKey :: FromJSONKeyFunction EmailSendingAccountType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679428019"><span id="local-6989586621679428021"><span id="local-6989586621679428023"><span id="local-6989586621679428025"><span class="annot"><span class="annottext">[EmailSendingAccountType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679428028"><span id="local-6989586621679428030"><span id="local-6989586621679428032"><span id="local-6989586621679428034"><span class="annot"><span class="annottext">[EmailSendingAccountType] -&gt; Encoding
 [EmailSendingAccountType] -&gt; Value
 EmailSendingAccountType -&gt; Encoding
 EmailSendingAccountType -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: EmailSendingAccountType -&gt; Encoding
 toJSON :: EmailSendingAccountType -&gt; Value
 $ctoJSON :: EmailSendingAccountType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679428014"><span id="local-6989586621679428016"><span class="annot"><span class="annottext">ToJSONKeyFunction [EmailSendingAccountType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679428023"><span id="local-6989586621679428025"><span class="annot"><span class="annottext">ToJSONKeyFunction [EmailSendingAccountType]
 ToJSONKeyFunction EmailSendingAccountType
 ToJSONKeyFunction EmailSendingAccountType
 -&gt; ToJSONKeyFunction [EmailSendingAccountType]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EmailSendingAccountType]
 toJSONKey :: ToJSONKeyFunction EmailSendingAccountType
 $ctoJSONKey :: ToJSONKeyFunction EmailSendingAccountType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679428011"><span class="annot"><span class="annottext">[Node] -&gt; Either String EmailSendingAccountType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679428020"><span class="annot"><span class="annottext">[Node] -&gt; Either String EmailSendingAccountType
 ([Node] -&gt; Either String EmailSendingAccountType)
 -&gt; FromXML EmailSendingAccountType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EmailSendingAccountType
 $cparseXML :: [Node] -&gt; Either String EmailSendingAccountType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679428008"><span class="annot"><span class="annottext">EmailSendingAccountType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679428017"><span class="annot"><span class="annottext">EmailSendingAccountType -&gt; XML
 (EmailSendingAccountType -&gt; XML) -&gt; ToXML EmailSendingAccountType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EmailSendingAccountType -&gt; XML

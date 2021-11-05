@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DataExchange.Types.JobError</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataExchange.Types.JobError</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.Code.html"><span class="hs-identifier">Network.AWS.DataExchange.Types.Code</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.Details.html"><span class="hs-identifier">Network.AWS.DataExchange.Types.Details</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobErrorLimitName.html"><span class="hs-identifier">Network.AWS.DataExchange.Types.JobErrorLimitName</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobErrorResourceTypes.html"><span class="hs-identifier">Network.AWS.DataExchange.Types.JobErrorResourceTypes</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | An error that occurred with the job request.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newJobError' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679236228"><span id="local-6989586621679236229"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobError"><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-var">JobError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobError%27"><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-var">JobError'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the resource related to the error.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AresourceId%3AJobError%27"><span class="annot"><span class="annottext">JobError -&gt; Maybe Text
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3AresourceId%3AJobError%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the limit that was reached.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlimitName%3AJobError%27"><span class="annot"><span class="annottext">JobError -&gt; Maybe JobErrorLimitName
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3AlimitName%3AJobError%27"><span class="hs-identifier hs-var hs-var">limitName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobErrorLimitName.html#JobErrorLimitName"><span class="hs-identifier hs-type">JobErrorLimitName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The type of resource related to the error.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AresourceType%3AJobError%27"><span class="annot"><span class="annottext">JobError -&gt; Maybe JobErrorResourceTypes
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3AresourceType%3AJobError%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes"><span class="hs-identifier hs-type">JobErrorResourceTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The details about the job error.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Adetails%3AJobError%27"><span class="annot"><span class="annottext">JobError -&gt; Maybe Details
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3Adetails%3AJobError%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.Details.html#Details"><span class="hs-identifier hs-type">Details</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The value of the exceeded limit.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlimitValue%3AJobError%27"><span class="annot"><span class="annottext">JobError -&gt; Maybe Double
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3AlimitValue%3AJobError%27"><span class="hs-identifier hs-var hs-var">limitValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The message related to the job error.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Amessage%3AJobError%27"><span class="annot"><span class="annottext">JobError -&gt; Text
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3Amessage%3AJobError%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The code for the job error.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Acode%3AJobError%27"><span class="annot"><span class="annottext">JobError -&gt; Code
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3Acode%3AJobError%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.Code.html#Code"><span class="hs-identifier hs-type">Code</span></a></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236216"><span id="local-6989586621679236218"><span class="annot"><span class="annottext">JobError -&gt; JobError -&gt; Bool
+(JobError -&gt; JobError -&gt; Bool)
+-&gt; (JobError -&gt; JobError -&gt; Bool) -&gt; Eq JobError
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JobError -&gt; JobError -&gt; Bool
+$c/= :: JobError -&gt; JobError -&gt; Bool
+== :: JobError -&gt; JobError -&gt; Bool
+$c== :: JobError -&gt; JobError -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236207"><span id="local-6989586621679236209"><span id="local-6989586621679236211"><span id="local-6989586621679236213"><span class="annot"><span class="annottext">ReadPrec [JobError]
+ReadPrec JobError
+Int -&gt; ReadS JobError
+ReadS [JobError]
+(Int -&gt; ReadS JobError)
+-&gt; ReadS [JobError]
+-&gt; ReadPrec JobError
+-&gt; ReadPrec [JobError]
+-&gt; Read JobError
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JobError]
+$creadListPrec :: ReadPrec [JobError]
+readPrec :: ReadPrec JobError
+$creadPrec :: ReadPrec JobError
+readList :: ReadS [JobError]
+$creadList :: ReadS [JobError]
+readsPrec :: Int -&gt; ReadS JobError
+$creadsPrec :: Int -&gt; ReadS JobError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236200"><span id="local-6989586621679236202"><span id="local-6989586621679236204"><span class="annot"><span class="annottext">Int -&gt; JobError -&gt; ShowS
+[JobError] -&gt; ShowS
+JobError -&gt; String
+(Int -&gt; JobError -&gt; ShowS)
+-&gt; (JobError -&gt; String) -&gt; ([JobError] -&gt; ShowS) -&gt; Show JobError
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JobError] -&gt; ShowS
+$cshowList :: [JobError] -&gt; ShowS
+show :: JobError -&gt; String
+$cshow :: JobError -&gt; String
+showsPrec :: Int -&gt; JobError -&gt; ShowS
+$cshowsPrec :: Int -&gt; JobError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. JobError -&gt; Rep JobError x)
+-&gt; (forall x. Rep JobError x -&gt; JobError) -&gt; Generic JobError
+forall x. Rep JobError x -&gt; JobError
+forall x. JobError -&gt; Rep JobError x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JobError x -&gt; JobError
+$cfrom :: forall x. JobError -&gt; Rep JobError x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'JobError' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'resourceId', 'jobError_resourceId' - The unique identifier for the resource related to the error.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'limitName', 'jobError_limitName' - The name of the limit that was reached.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'resourceType', 'jobError_resourceType' - The type of resource related to the error.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'details', 'jobError_details' - The details about the job error.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'limitValue', 'jobError_limitValue' - The value of the exceeded limit.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'message', 'jobError_message' - The message related to the job error.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'code', 'jobError_code' - The code for the job error.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#newJobError"><span class="hs-identifier hs-type">newJobError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'message'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'code'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.DataExchange.Types.Code.html#Code"><span class="hs-identifier hs-type">Code</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span>
+</span><span id="line-78"></span><span id="newJobError"><span class="annot"><span class="annottext">newJobError :: Text -&gt; Code -&gt; JobError
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#newJobError"><span class="hs-identifier hs-var hs-var">newJobError</span></a></span></span><span> </span><span id="local-6989586621679236194"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236194"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span id="local-6989586621679236193"><span class="annot"><span class="annottext">Code
+</span><a href="#local-6989586621679236193"><span class="hs-identifier hs-var">pCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">JobError' :: Maybe Text
+-&gt; Maybe JobErrorLimitName
+-&gt; Maybe JobErrorResourceTypes
+-&gt; Maybe Details
+-&gt; Maybe Double
+-&gt; Text
+-&gt; Code
+-&gt; JobError
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-type">JobError'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceId:JobError' :: Maybe Text
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3AresourceId%3AJobError%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:limitName:JobError' :: Maybe JobErrorLimitName
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3AlimitName%3AJobError%27"><span class="hs-identifier hs-var">limitName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobErrorLimitName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:JobError' :: Maybe JobErrorResourceTypes
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3AresourceType%3AJobError%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobErrorResourceTypes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:details:JobError' :: Maybe Details
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3Adetails%3AJobError%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Details
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:limitValue:JobError' :: Maybe Double
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3AlimitValue%3AJobError%27"><span class="hs-identifier hs-var">limitValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:JobError' :: Text
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3Amessage%3AJobError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236194"><span class="hs-identifier hs-var">pMessage_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:JobError' :: Code
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3Acode%3AJobError%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Code
+</span><a href="#local-6989586621679236193"><span class="hs-identifier hs-var">pCode_</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The unique identifier for the resource related to the error.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#jobError_resourceId"><span class="hs-identifier hs-type">jobError_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="jobError_resourceId"><span class="annot"><span class="annottext">jobError_resourceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; JobError -&gt; f JobError
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#jobError_resourceId"><span class="hs-identifier hs-var hs-var">jobError_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobError -&gt; Maybe Text)
+-&gt; (JobError -&gt; Maybe Text -&gt; JobError)
+-&gt; Lens JobError JobError (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-type">JobError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236189"><span class="annot"><span class="annottext">Maybe Text
+resourceId :: Maybe Text
+$sel:resourceId:JobError' :: JobError -&gt; Maybe Text
+</span><a href="#local-6989586621679236189"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236189"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236188"><span class="annot"><span class="annottext">s :: JobError
+</span><a href="#local-6989586621679236188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-type">JobError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236187"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobError
+</span><a href="#local-6989586621679236188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:JobError' :: Maybe Text
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3AresourceId%3AJobError%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The name of the limit that was reached.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#jobError_limitName"><span class="hs-identifier hs-type">jobError_limitName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobErrorLimitName.html#JobErrorLimitName"><span class="hs-identifier hs-type">JobErrorLimitName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="jobError_limitName"><span class="annot"><span class="annottext">jobError_limitName :: (Maybe JobErrorLimitName -&gt; f (Maybe JobErrorLimitName))
+-&gt; JobError -&gt; f JobError
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#jobError_limitName"><span class="hs-identifier hs-var hs-var">jobError_limitName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobError -&gt; Maybe JobErrorLimitName)
+-&gt; (JobError -&gt; Maybe JobErrorLimitName -&gt; JobError)
+-&gt; Lens
+     JobError
+     JobError
+     (Maybe JobErrorLimitName)
+     (Maybe JobErrorLimitName)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-type">JobError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236185"><span class="annot"><span class="annottext">Maybe JobErrorLimitName
+limitName :: Maybe JobErrorLimitName
+$sel:limitName:JobError' :: JobError -&gt; Maybe JobErrorLimitName
+</span><a href="#local-6989586621679236185"><span class="hs-identifier hs-var hs-var">limitName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobErrorLimitName
+</span><a href="#local-6989586621679236185"><span class="hs-identifier hs-var">limitName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236184"><span class="annot"><span class="annottext">s :: JobError
+</span><a href="#local-6989586621679236184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-type">JobError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236183"><span class="annot"><span class="annottext">Maybe JobErrorLimitName
+</span><a href="#local-6989586621679236183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobError
+</span><a href="#local-6989586621679236184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limitName:JobError' :: Maybe JobErrorLimitName
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3AlimitName%3AJobError%27"><span class="hs-identifier hs-var">limitName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobErrorLimitName
+</span><a href="#local-6989586621679236183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The type of resource related to the error.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#jobError_resourceType"><span class="hs-identifier hs-type">jobError_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes"><span class="hs-identifier hs-type">JobErrorResourceTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="jobError_resourceType"><span class="annot"><span class="annottext">jobError_resourceType :: (Maybe JobErrorResourceTypes -&gt; f (Maybe JobErrorResourceTypes))
+-&gt; JobError -&gt; f JobError
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#jobError_resourceType"><span class="hs-identifier hs-var hs-var">jobError_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobError -&gt; Maybe JobErrorResourceTypes)
+-&gt; (JobError -&gt; Maybe JobErrorResourceTypes -&gt; JobError)
+-&gt; Lens
+     JobError
+     JobError
+     (Maybe JobErrorResourceTypes)
+     (Maybe JobErrorResourceTypes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-type">JobError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236181"><span class="annot"><span class="annottext">Maybe JobErrorResourceTypes
+resourceType :: Maybe JobErrorResourceTypes
+$sel:resourceType:JobError' :: JobError -&gt; Maybe JobErrorResourceTypes
+</span><a href="#local-6989586621679236181"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobErrorResourceTypes
+</span><a href="#local-6989586621679236181"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236180"><span class="annot"><span class="annottext">s :: JobError
+</span><a href="#local-6989586621679236180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-type">JobError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236179"><span class="annot"><span class="annottext">Maybe JobErrorResourceTypes
+</span><a href="#local-6989586621679236179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobError
+</span><a href="#local-6989586621679236180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:JobError' :: Maybe JobErrorResourceTypes
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3AresourceType%3AJobError%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobErrorResourceTypes
+</span><a href="#local-6989586621679236179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The details about the job error.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#jobError_details"><span class="hs-identifier hs-type">jobError_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.Details.html#Details"><span class="hs-identifier hs-type">Details</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="jobError_details"><span class="annot"><span class="annottext">jobError_details :: (Maybe Details -&gt; f (Maybe Details)) -&gt; JobError -&gt; f JobError
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#jobError_details"><span class="hs-identifier hs-var hs-var">jobError_details</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobError -&gt; Maybe Details)
+-&gt; (JobError -&gt; Maybe Details -&gt; JobError)
+-&gt; Lens JobError JobError (Maybe Details) (Maybe Details)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-type">JobError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236177"><span class="annot"><span class="annottext">Maybe Details
+details :: Maybe Details
+$sel:details:JobError' :: JobError -&gt; Maybe Details
+</span><a href="#local-6989586621679236177"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Details
+</span><a href="#local-6989586621679236177"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236176"><span class="annot"><span class="annottext">s :: JobError
+</span><a href="#local-6989586621679236176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-type">JobError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236175"><span class="annot"><span class="annottext">Maybe Details
+</span><a href="#local-6989586621679236175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobError
+</span><a href="#local-6989586621679236176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:JobError' :: Maybe Details
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3Adetails%3AJobError%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Details
+</span><a href="#local-6989586621679236175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The value of the exceeded limit.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#jobError_limitValue"><span class="hs-identifier hs-type">jobError_limitValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="jobError_limitValue"><span class="annot"><span class="annottext">jobError_limitValue :: (Maybe Double -&gt; f (Maybe Double)) -&gt; JobError -&gt; f JobError
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#jobError_limitValue"><span class="hs-identifier hs-var hs-var">jobError_limitValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobError -&gt; Maybe Double)
+-&gt; (JobError -&gt; Maybe Double -&gt; JobError)
+-&gt; Lens JobError JobError (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-type">JobError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236173"><span class="annot"><span class="annottext">Maybe Double
+limitValue :: Maybe Double
+$sel:limitValue:JobError' :: JobError -&gt; Maybe Double
+</span><a href="#local-6989586621679236173"><span class="hs-identifier hs-var hs-var">limitValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679236173"><span class="hs-identifier hs-var">limitValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236172"><span class="annot"><span class="annottext">s :: JobError
+</span><a href="#local-6989586621679236172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-type">JobError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236171"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679236171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobError
+</span><a href="#local-6989586621679236172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limitValue:JobError' :: Maybe Double
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3AlimitValue%3AJobError%27"><span class="hs-identifier hs-var">limitValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679236171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The message related to the job error.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#jobError_message"><span class="hs-identifier hs-type">jobError_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span id="jobError_message"><span class="annot"><span class="annottext">jobError_message :: (Text -&gt; f Text) -&gt; JobError -&gt; f JobError
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#jobError_message"><span class="hs-identifier hs-var hs-var">jobError_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobError -&gt; Text)
+-&gt; (JobError -&gt; Text -&gt; JobError)
+-&gt; Lens JobError JobError Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-type">JobError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236169"><span class="annot"><span class="annottext">Text
+message :: Text
+$sel:message:JobError' :: JobError -&gt; Text
+</span><a href="#local-6989586621679236169"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236169"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236168"><span class="annot"><span class="annottext">s :: JobError
+</span><a href="#local-6989586621679236168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-type">JobError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236167"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobError
+</span><a href="#local-6989586621679236168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:JobError' :: Text
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3Amessage%3AJobError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The code for the job error.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#jobError_code"><span class="hs-identifier hs-type">jobError_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.Code.html#Code"><span class="hs-identifier hs-type">Code</span></a></span><span>
+</span><span id="line-115"></span><span id="jobError_code"><span class="annot"><span class="annottext">jobError_code :: (Code -&gt; f Code) -&gt; JobError -&gt; f JobError
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#jobError_code"><span class="hs-identifier hs-var hs-var">jobError_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobError -&gt; Code)
+-&gt; (JobError -&gt; Code -&gt; JobError)
+-&gt; Lens JobError JobError Code Code
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-type">JobError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236165"><span class="annot"><span class="annottext">Code
+code :: Code
+$sel:code:JobError' :: JobError -&gt; Code
+</span><a href="#local-6989586621679236165"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Code
+</span><a href="#local-6989586621679236165"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236164"><span class="annot"><span class="annottext">s :: JobError
+</span><a href="#local-6989586621679236164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-type">JobError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236163"><span class="annot"><span class="annottext">Code
+</span><a href="#local-6989586621679236163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobError
+</span><a href="#local-6989586621679236164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:JobError' :: Code
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#%24sel%3Acode%3AJobError%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Code
+</span><a href="#local-6989586621679236163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236160"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679236158"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser JobError) -&gt; Value -&gt; Parser JobError
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;JobError&quot;</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679236155"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236155"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe JobErrorLimitName
+-&gt; Maybe JobErrorResourceTypes
+-&gt; Maybe Details
+-&gt; Maybe Double
+-&gt; Text
+-&gt; Code
+-&gt; JobError
+</span><a href="Network.AWS.DataExchange.Types.JobError.html#JobError%27"><span class="hs-identifier hs-var">JobError'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe JobErrorLimitName
+ -&gt; Maybe JobErrorResourceTypes
+ -&gt; Maybe Details
+ -&gt; Maybe Double
+ -&gt; Text
+ -&gt; Code
+ -&gt; JobError)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe JobErrorLimitName
+      -&gt; Maybe JobErrorResourceTypes
+      -&gt; Maybe Details
+      -&gt; Maybe Double
+      -&gt; Text
+      -&gt; Code
+      -&gt; JobError)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe JobErrorLimitName
+   -&gt; Maybe JobErrorResourceTypes
+   -&gt; Maybe Details
+   -&gt; Maybe Double
+   -&gt; Text
+   -&gt; Code
+   -&gt; JobError)
+-&gt; Parser (Maybe JobErrorLimitName)
+-&gt; Parser
+     (Maybe JobErrorResourceTypes
+      -&gt; Maybe Details -&gt; Maybe Double -&gt; Text -&gt; Code -&gt; JobError)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobErrorLimitName)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LimitName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe JobErrorResourceTypes
+   -&gt; Maybe Details -&gt; Maybe Double -&gt; Text -&gt; Code -&gt; JobError)
+-&gt; Parser (Maybe JobErrorResourceTypes)
+-&gt; Parser
+     (Maybe Details -&gt; Maybe Double -&gt; Text -&gt; Code -&gt; JobError)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobErrorResourceTypes)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Details -&gt; Maybe Double -&gt; Text -&gt; Code -&gt; JobError)
+-&gt; Parser (Maybe Details)
+-&gt; Parser (Maybe Double -&gt; Text -&gt; Code -&gt; JobError)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Details)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Details&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Text -&gt; Code -&gt; JobError)
+-&gt; Parser (Maybe Double) -&gt; Parser (Text -&gt; Code -&gt; JobError)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LimitValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Code -&gt; JobError)
+-&gt; Parser Text -&gt; Parser (Code -&gt; JobError)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser (Code -&gt; JobError) -&gt; Parser Code -&gt; Parser JobError
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Code
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236148"><span id="local-6989586621679236150"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236145"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span></span><span>
+</span><span id="line-135"></span></pre></body></html>

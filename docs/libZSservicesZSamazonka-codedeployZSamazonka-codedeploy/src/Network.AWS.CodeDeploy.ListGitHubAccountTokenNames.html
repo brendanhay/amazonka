@@ -52,13 +52,13 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | Represents the input of a @ListGitHubAccountTokenNames@ operation.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newListGitHubAccountTokenNames' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679320054"><span id="local-6989586621679320055"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGitHubAccountTokenNames"><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames"><span class="hs-identifier hs-var">ListGitHubAccountTokenNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGitHubAccountTokenNames%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames%27"><span class="hs-identifier hs-var">ListGitHubAccountTokenNames'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679320063"><span id="local-6989586621679320064"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGitHubAccountTokenNames"><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames"><span class="hs-identifier hs-var">ListGitHubAccountTokenNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGitHubAccountTokenNames%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames%27"><span class="hs-identifier hs-var">ListGitHubAccountTokenNames'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier returned from the previous @ListGitHubAccountTokenNames@</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- call. It can be used to return the next set of names in the list.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListGitHubAccountTokenNames%27"><span class="annot"><span class="annottext">ListGitHubAccountTokenNames -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#%24sel%3AnextToken%3AListGitHubAccountTokenNames%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679320048"><span id="local-6989586621679320050"><span class="annot"><span class="annottext">ListGitHubAccountTokenNames -&gt; ListGitHubAccountTokenNames -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679320057"><span id="local-6989586621679320059"><span class="annot"><span class="annottext">ListGitHubAccountTokenNames -&gt; ListGitHubAccountTokenNames -&gt; Bool
 (ListGitHubAccountTokenNames
  -&gt; ListGitHubAccountTokenNames -&gt; Bool)
 -&gt; (ListGitHubAccountTokenNames
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListGitHubAccountTokenNames -&gt; ListGitHubAccountTokenNames -&gt; Bool
 == :: ListGitHubAccountTokenNames -&gt; ListGitHubAccountTokenNames -&gt; Bool
 $c== :: ListGitHubAccountTokenNames -&gt; ListGitHubAccountTokenNames -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320039"><span id="local-6989586621679320041"><span id="local-6989586621679320043"><span id="local-6989586621679320045"><span class="annot"><span class="annottext">ReadPrec [ListGitHubAccountTokenNames]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320048"><span id="local-6989586621679320050"><span id="local-6989586621679320052"><span id="local-6989586621679320054"><span class="annot"><span class="annottext">ReadPrec [ListGitHubAccountTokenNames]
 ReadPrec ListGitHubAccountTokenNames
 Int -&gt; ReadS ListGitHubAccountTokenNames
 ReadS [ListGitHubAccountTokenNames]
@@ -89,7 +89,7 @@ readList :: ReadS [ListGitHubAccountTokenNames]
 $creadList :: ReadS [ListGitHubAccountTokenNames]
 readsPrec :: Int -&gt; ReadS ListGitHubAccountTokenNames
 $creadsPrec :: Int -&gt; ReadS ListGitHubAccountTokenNames
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320032"><span id="local-6989586621679320034"><span id="local-6989586621679320036"><span class="annot"><span class="annottext">Int -&gt; ListGitHubAccountTokenNames -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320041"><span id="local-6989586621679320043"><span id="local-6989586621679320045"><span class="annot"><span class="annottext">Int -&gt; ListGitHubAccountTokenNames -&gt; ShowS
 [ListGitHubAccountTokenNames] -&gt; ShowS
 ListGitHubAccountTokenNames -&gt; String
 (Int -&gt; ListGitHubAccountTokenNames -&gt; ShowS)
@@ -158,30 +158,30 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320026"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320035"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListGitHubAccountTokenNames' :: ListGitHubAccountTokenNames -&gt; Maybe Text
-</span><a href="#local-6989586621679320026"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320026"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320025"><span class="annot"><span class="annottext">s :: ListGitHubAccountTokenNames
-</span><a href="#local-6989586621679320025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320024"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGitHubAccountTokenNames
-</span><a href="#local-6989586621679320025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGitHubAccountTokenNames' :: Maybe Text
+</span><a href="#local-6989586621679320035"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320035"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320034"><span class="annot"><span class="annottext">s :: ListGitHubAccountTokenNames
+</span><a href="#local-6989586621679320034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320033"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGitHubAccountTokenNames
+</span><a href="#local-6989586621679320034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGitHubAccountTokenNames' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#%24sel%3AnextToken%3AListGitHubAccountTokenNames%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679320033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679320020"><span class="annot"><span class="annottext">page :: ListGitHubAccountTokenNames
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679320029"><span class="annot"><span class="annottext">page :: ListGitHubAccountTokenNames
 -&gt; AWSResponse ListGitHubAccountTokenNames
 -&gt; Maybe ListGitHubAccountTokenNames
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679320018"><span class="annot"><span class="annottext">ListGitHubAccountTokenNames
-</span><a href="#local-6989586621679320018"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679320017"><span class="annot"><span class="annottext">AWSResponse ListGitHubAccountTokenNames
-</span><a href="#local-6989586621679320017"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679320027"><span class="annot"><span class="annottext">ListGitHubAccountTokenNames
+</span><a href="#local-6989586621679320027"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679320026"><span class="annot"><span class="annottext">AWSResponse ListGitHubAccountTokenNames
+</span><a href="#local-6989586621679320026"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-88"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGitHubAccountTokenNames
 ListGitHubAccountTokenNamesResponse
-</span><a href="#local-6989586621679320017"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679320026"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">ListGitHubAccountTokenNamesResponse
 -&gt; Getting (First Text) ListGitHubAccountTokenNamesResponse Text
 -&gt; Maybe Text
@@ -211,7 +211,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-94"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGitHubAccountTokenNames
 ListGitHubAccountTokenNamesResponse
-</span><a href="#local-6989586621679320017"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679320026"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">ListGitHubAccountTokenNamesResponse
 -&gt; Getting
      (First [Text]) ListGitHubAccountTokenNamesResponse [Text]
@@ -247,7 +247,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">ListGitHubAccountTokenNames
-</span><a href="#local-6989586621679320018"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679320027"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">ListGitHubAccountTokenNames
 -&gt; (ListGitHubAccountTokenNames -&gt; ListGitHubAccountTokenNames)
 -&gt; ListGitHubAccountTokenNames
@@ -270,7 +270,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGitHubAccountTokenNames
 ListGitHubAccountTokenNamesResponse
-</span><a href="#local-6989586621679320017"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679320026"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">ListGitHubAccountTokenNamesResponse
 -&gt; Getting (First Text) ListGitHubAccountTokenNamesResponse Text
 -&gt; Maybe Text
@@ -296,14 +296,14 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679320007"><span class="annot"><span class="annottext">request :: ListGitHubAccountTokenNames -&gt; Request ListGitHubAccountTokenNames
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679320016"><span class="annot"><span class="annottext">request :: ListGitHubAccountTokenNames -&gt; Request ListGitHubAccountTokenNames
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListGitHubAccountTokenNames
 -&gt; Request ListGitHubAccountTokenNames
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679320003"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679320012"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListGitHubAccountTokenNames
 -&gt; ClientResponse ClientBody
@@ -329,10 +329,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679320000"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679320000"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679319999"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679319999"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679319998"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679319998"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679320009"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320009"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679320008"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679320008"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679320007"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320007"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe Text -&gt; Int -&gt; ListGitHubAccountTokenNamesResponse
 </span><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-var">ListGitHubAccountTokenNamesResponse'</span></a></span><span>
@@ -343,7 +343,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; ListGitHubAccountTokenNamesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679319998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679320007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tokenNameList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -358,7 +358,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListGitHubAccountTokenNamesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679319998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679320007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -371,15 +371,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679320000"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679320009"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319989"><span id="local-6989586621679319991"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319998"><span id="local-6989586621679320000"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319986"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319995"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames</span></a></span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679319982"><span class="annot"><span class="annottext">toHeaders :: ListGitHubAccountTokenNames -&gt; ResponseHeaders
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679319991"><span class="annot"><span class="annottext">toHeaders :: ListGitHubAccountTokenNames -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListGitHubAccountTokenNames -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -406,12 +406,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319972"><span id="local-6989586621679319974"><span id="local-6989586621679319976"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679319970"><span class="annot"><span class="annottext">toJSON :: ListGitHubAccountTokenNames -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319968"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319981"><span id="local-6989586621679319983"><span id="local-6989586621679319985"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679319979"><span class="annot"><span class="annottext">toJSON :: ListGitHubAccountTokenNames -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319977"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListGitHubAccountTokenNames' :: ListGitHubAccountTokenNames -&gt; Maybe Text
-</span><a href="#local-6989586621679319968"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679319977"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -423,18 +423,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679319968"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679319977"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679319962"><span class="annot"><span class="annottext">toPath :: ListGitHubAccountTokenNames -&gt; ByteString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679319971"><span class="annot"><span class="annottext">toPath :: ListGitHubAccountTokenNames -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListGitHubAccountTokenNames -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNames"><span class="hs-identifier hs-type">ListGitHubAccountTokenNames</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679319958"><span class="annot"><span class="annottext">toQuery :: ListGitHubAccountTokenNames -&gt; QueryString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679319967"><span class="annot"><span class="annottext">toQuery :: ListGitHubAccountTokenNames -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListGitHubAccountTokenNames -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -444,7 +444,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-153"></span><span class="hs-comment">-- | Represents the output of a @ListGitHubAccountTokenNames@ operation.</span><span>
 </span><span id="line-154"></span><span class="hs-comment">--</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- /See:/ 'newListGitHubAccountTokenNamesResponse' smart constructor.</span><span>
-</span><span id="line-156"></span><span id="local-6989586621679319955"><span id="local-6989586621679319956"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGitHubAccountTokenNamesResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse"><span class="hs-identifier hs-var">ListGitHubAccountTokenNamesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGitHubAccountTokenNamesResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-var">ListGitHubAccountTokenNamesResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span id="local-6989586621679319964"><span id="local-6989586621679319965"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGitHubAccountTokenNamesResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse"><span class="hs-identifier hs-var">ListGitHubAccountTokenNamesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGitHubAccountTokenNamesResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-var">ListGitHubAccountTokenNamesResponse'</span></a></span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of names of connections to GitHub accounts.</span><span>
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AtokenNameList%3AListGitHubAccountTokenNamesResponse%27"><span class="annot"><span class="annottext">ListGitHubAccountTokenNamesResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#%24sel%3AtokenNameList%3AListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-var hs-var">tokenNameList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -457,7 +457,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListGitHubAccountTokenNamesResponse%27"><span class="annot"><span class="annottext">ListGitHubAccountTokenNamesResponse -&gt; Int
 </span><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#%24sel%3AhttpStatus%3AListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319948"><span id="local-6989586621679319950"><span class="annot"><span class="annottext">ListGitHubAccountTokenNamesResponse
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319957"><span id="local-6989586621679319959"><span class="annot"><span class="annottext">ListGitHubAccountTokenNamesResponse
 -&gt; ListGitHubAccountTokenNamesResponse -&gt; Bool
 (ListGitHubAccountTokenNamesResponse
  -&gt; ListGitHubAccountTokenNamesResponse -&gt; Bool)
@@ -473,7 +473,7 @@ $c/= :: ListGitHubAccountTokenNamesResponse
 -&gt; ListGitHubAccountTokenNamesResponse -&gt; Bool
 $c== :: ListGitHubAccountTokenNamesResponse
 -&gt; ListGitHubAccountTokenNamesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319940"><span id="local-6989586621679319942"><span id="local-6989586621679319944"><span id="local-6989586621679319946"><span class="annot"><span class="annottext">ReadPrec [ListGitHubAccountTokenNamesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319949"><span id="local-6989586621679319951"><span id="local-6989586621679319953"><span id="local-6989586621679319955"><span class="annot"><span class="annottext">ReadPrec [ListGitHubAccountTokenNamesResponse]
 ReadPrec ListGitHubAccountTokenNamesResponse
 Int -&gt; ReadS ListGitHubAccountTokenNamesResponse
 ReadS [ListGitHubAccountTokenNamesResponse]
@@ -493,7 +493,7 @@ readList :: ReadS [ListGitHubAccountTokenNamesResponse]
 $creadList :: ReadS [ListGitHubAccountTokenNamesResponse]
 readsPrec :: Int -&gt; ReadS ListGitHubAccountTokenNamesResponse
 $creadsPrec :: Int -&gt; ReadS ListGitHubAccountTokenNamesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319934"><span id="local-6989586621679319936"><span id="local-6989586621679319938"><span class="annot"><span class="annottext">Int -&gt; ListGitHubAccountTokenNamesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319943"><span id="local-6989586621679319945"><span id="local-6989586621679319947"><span class="annot"><span class="annottext">Int -&gt; ListGitHubAccountTokenNamesResponse -&gt; ShowS
 [ListGitHubAccountTokenNamesResponse] -&gt; ShowS
 ListGitHubAccountTokenNamesResponse -&gt; String
 (Int -&gt; ListGitHubAccountTokenNamesResponse -&gt; ShowS)
@@ -551,8 +551,8 @@ ListGitHubAccountTokenNamesResponse
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse</span></a></span><span>
 </span><span id="line-187"></span><span id="newListGitHubAccountTokenNamesResponse"><span class="annot"><span class="annottext">newListGitHubAccountTokenNamesResponse :: Int -&gt; ListGitHubAccountTokenNamesResponse
-</span><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#newListGitHubAccountTokenNamesResponse"><span class="hs-identifier hs-var hs-var">newListGitHubAccountTokenNamesResponse</span></a></span></span><span> </span><span id="local-6989586621679319931"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679319931"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#newListGitHubAccountTokenNamesResponse"><span class="hs-identifier hs-var hs-var">newListGitHubAccountTokenNamesResponse</span></a></span></span><span> </span><span id="local-6989586621679319940"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319940"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="annottext">ListGitHubAccountTokenNamesResponse' :: Maybe [Text]
 -&gt; Maybe Text -&gt; Int -&gt; ListGitHubAccountTokenNamesResponse
 </span><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse'</span></a></span><span>
@@ -567,7 +567,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListGitHubAccountTokenNamesResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#%24sel%3AhttpStatus%3AListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679319931"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679319940"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-193"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | A list of names of connections to GitHub accounts.</span><span>
@@ -580,16 +580,16 @@ forall a. Maybe a
     -&gt; Maybe [Text] -&gt; ListGitHubAccountTokenNamesResponse)
 -&gt; Lens' ListGitHubAccountTokenNamesResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319930"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319939"><span class="annot"><span class="annottext">Maybe [Text]
 tokenNameList :: Maybe [Text]
 $sel:tokenNameList:ListGitHubAccountTokenNamesResponse' :: ListGitHubAccountTokenNamesResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679319930"><span class="hs-identifier hs-var hs-var">tokenNameList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679319930"><span class="hs-identifier hs-var">tokenNameList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319929"><span class="annot"><span class="annottext">s :: ListGitHubAccountTokenNamesResponse
-</span><a href="#local-6989586621679319929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319928"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679319928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGitHubAccountTokenNamesResponse
-</span><a href="#local-6989586621679319929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenNameList:ListGitHubAccountTokenNamesResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679319939"><span class="hs-identifier hs-var hs-var">tokenNameList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679319939"><span class="hs-identifier hs-var">tokenNameList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319938"><span class="annot"><span class="annottext">s :: ListGitHubAccountTokenNamesResponse
+</span><a href="#local-6989586621679319938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319937"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679319937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGitHubAccountTokenNamesResponse
+</span><a href="#local-6989586621679319938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenNameList:ListGitHubAccountTokenNamesResponse' :: Maybe [Text]
 </span><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#%24sel%3AtokenNameList%3AListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-var">tokenNameList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679319928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679319937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListGitHubAccountTokenNamesResponse
  -&gt; f ListGitHubAccountTokenNamesResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -619,16 +619,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListGitHubAccountTokenNamesResponse)
 -&gt; Lens' ListGitHubAccountTokenNamesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319925"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319934"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListGitHubAccountTokenNamesResponse' :: ListGitHubAccountTokenNamesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679319925"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679319925"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319924"><span class="annot"><span class="annottext">s :: ListGitHubAccountTokenNamesResponse
-</span><a href="#local-6989586621679319924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319923"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679319923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGitHubAccountTokenNamesResponse
-</span><a href="#local-6989586621679319924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGitHubAccountTokenNamesResponse' :: Maybe Text
+</span><a href="#local-6989586621679319934"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319934"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319933"><span class="annot"><span class="annottext">s :: ListGitHubAccountTokenNamesResponse
+</span><a href="#local-6989586621679319933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319932"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGitHubAccountTokenNamesResponse
+</span><a href="#local-6989586621679319933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGitHubAccountTokenNamesResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#%24sel%3AnextToken%3AListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679319923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-206"></span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#listGitHubAccountTokenNamesResponse_httpStatus"><span class="hs-identifier hs-type">listGitHubAccountTokenNamesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -644,18 +644,18 @@ $sel:nextToken:ListGitHubAccountTokenNamesResponse' :: ListGitHubAccountTokenNam
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319922"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319931"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListGitHubAccountTokenNamesResponse' :: ListGitHubAccountTokenNamesResponse -&gt; Int
-</span><a href="#local-6989586621679319922"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679319922"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319921"><span class="annot"><span class="annottext">s :: ListGitHubAccountTokenNamesResponse
-</span><a href="#local-6989586621679319921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319920"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679319920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGitHubAccountTokenNamesResponse
-</span><a href="#local-6989586621679319921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGitHubAccountTokenNamesResponse' :: Int
+</span><a href="#local-6989586621679319931"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319931"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319930"><span class="annot"><span class="annottext">s :: ListGitHubAccountTokenNamesResponse
+</span><a href="#local-6989586621679319930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319929"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGitHubAccountTokenNamesResponse
+</span><a href="#local-6989586621679319930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGitHubAccountTokenNamesResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#%24sel%3AhttpStatus%3AListGitHubAccountTokenNamesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679319920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679319918"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679319927"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListGitHubAccountTokenNames.html#ListGitHubAccountTokenNamesResponse"><span class="hs-identifier hs-type">ListGitHubAccountTokenNamesResponse</span></a></span></span><span>
 </span><span id="line-212"></span></pre></body></html>

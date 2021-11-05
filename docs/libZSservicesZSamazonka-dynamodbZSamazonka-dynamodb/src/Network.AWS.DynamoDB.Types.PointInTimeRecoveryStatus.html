@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679374842"><span id="local-6989586621679374843"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PointInTimeRecoveryStatus"><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryStatus.html#PointInTimeRecoveryStatus"><span class="hs-identifier hs-var">PointInTimeRecoveryStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PointInTimeRecoveryStatus%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryStatus.html#PointInTimeRecoveryStatus%27"><span class="hs-identifier hs-var">PointInTimeRecoveryStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679374851"><span id="local-6989586621679374852"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PointInTimeRecoveryStatus"><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryStatus.html#PointInTimeRecoveryStatus"><span class="hs-identifier hs-var">PointInTimeRecoveryStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PointInTimeRecoveryStatus%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryStatus.html#PointInTimeRecoveryStatus%27"><span class="hs-identifier hs-var">PointInTimeRecoveryStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPointInTimeRecoveryStatus"><span class="annot"><span class="annottext">PointInTimeRecoveryStatus -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryStatus.html#fromPointInTimeRecoveryStatus"><span class="hs-identifier hs-var hs-var">fromPointInTimeRecoveryStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374834"><span id="local-6989586621679374836"><span id="local-6989586621679374838"><span class="annot"><span class="annottext">Int -&gt; PointInTimeRecoveryStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374843"><span id="local-6989586621679374845"><span id="local-6989586621679374847"><span class="annot"><span class="annottext">Int -&gt; PointInTimeRecoveryStatus -&gt; ShowS
 [PointInTimeRecoveryStatus] -&gt; ShowS
 PointInTimeRecoveryStatus -&gt; String
 (Int -&gt; PointInTimeRecoveryStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: PointInTimeRecoveryStatus -&gt; String
 showsPrec :: Int -&gt; PointInTimeRecoveryStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; PointInTimeRecoveryStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679374825"><span id="local-6989586621679374827"><span id="local-6989586621679374829"><span id="local-6989586621679374831"><span class="annot"><span class="annottext">ReadPrec [PointInTimeRecoveryStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679374834"><span id="local-6989586621679374836"><span id="local-6989586621679374838"><span id="local-6989586621679374840"><span class="annot"><span class="annottext">ReadPrec [PointInTimeRecoveryStatus]
 ReadPrec PointInTimeRecoveryStatus
 Int -&gt; ReadS PointInTimeRecoveryStatus
 ReadS [PointInTimeRecoveryStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [PointInTimeRecoveryStatus]
 readsPrec :: Int -&gt; ReadS PointInTimeRecoveryStatus
 $creadsPrec :: Int -&gt; ReadS PointInTimeRecoveryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679374820"><span id="local-6989586621679374822"><span class="annot"><span class="annottext">PointInTimeRecoveryStatus -&gt; PointInTimeRecoveryStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679374829"><span id="local-6989586621679374831"><span class="annot"><span class="annottext">PointInTimeRecoveryStatus -&gt; PointInTimeRecoveryStatus -&gt; Bool
 (PointInTimeRecoveryStatus -&gt; PointInTimeRecoveryStatus -&gt; Bool)
 -&gt; (PointInTimeRecoveryStatus -&gt; PointInTimeRecoveryStatus -&gt; Bool)
 -&gt; Eq PointInTimeRecoveryStatus
@@ -82,7 +82,7 @@ $c/= :: PointInTimeRecoveryStatus -&gt; PointInTimeRecoveryStatus -&gt; Bool
 == :: PointInTimeRecoveryStatus -&gt; PointInTimeRecoveryStatus -&gt; Bool
 $c== :: PointInTimeRecoveryStatus -&gt; PointInTimeRecoveryStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679374804"><span id="local-6989586621679374806"><span id="local-6989586621679374808"><span id="local-6989586621679374810"><span id="local-6989586621679374812"><span id="local-6989586621679374814"><span id="local-6989586621679374816"><span class="annot"><span class="annottext">Eq PointInTimeRecoveryStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679374813"><span id="local-6989586621679374815"><span id="local-6989586621679374817"><span id="local-6989586621679374819"><span id="local-6989586621679374821"><span id="local-6989586621679374823"><span id="local-6989586621679374825"><span class="annot"><span class="annottext">Eq PointInTimeRecoveryStatus
 Eq PointInTimeRecoveryStatus
 -&gt; (PointInTimeRecoveryStatus
     -&gt; PointInTimeRecoveryStatus -&gt; Ordering)
@@ -147,7 +147,7 @@ PointInTimeRecoveryStatus -&gt; Rep PointInTimeRecoveryStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374796"><span id="local-6989586621679374798"><span class="annot"><span class="annottext">Int -&gt; PointInTimeRecoveryStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374805"><span id="local-6989586621679374807"><span class="annot"><span class="annottext">Int -&gt; PointInTimeRecoveryStatus -&gt; Int
 PointInTimeRecoveryStatus -&gt; Int
 (Int -&gt; PointInTimeRecoveryStatus -&gt; Int)
 -&gt; (PointInTimeRecoveryStatus -&gt; Int)
@@ -158,56 +158,56 @@ $chash :: PointInTimeRecoveryStatus -&gt; Int
 hashWithSalt :: Int -&gt; PointInTimeRecoveryStatus -&gt; Int
 $chashWithSalt :: Int -&gt; PointInTimeRecoveryStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679374793"><span class="annot"><span class="annottext">PointInTimeRecoveryStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679374802"><span class="annot"><span class="annottext">PointInTimeRecoveryStatus -&gt; ()
 (PointInTimeRecoveryStatus -&gt; ())
 -&gt; NFData PointInTimeRecoveryStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PointInTimeRecoveryStatus -&gt; ()
 $crnf :: PointInTimeRecoveryStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679374790"><span class="annot"><span class="annottext">Text -&gt; Either String PointInTimeRecoveryStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679374799"><span class="annot"><span class="annottext">Text -&gt; Either String PointInTimeRecoveryStatus
 (Text -&gt; Either String PointInTimeRecoveryStatus)
 -&gt; FromText PointInTimeRecoveryStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PointInTimeRecoveryStatus
 $cfromText :: Text -&gt; Either String PointInTimeRecoveryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679374787"><span class="annot"><span class="annottext">PointInTimeRecoveryStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679374796"><span class="annot"><span class="annottext">PointInTimeRecoveryStatus -&gt; Text
 (PointInTimeRecoveryStatus -&gt; Text)
 -&gt; ToText PointInTimeRecoveryStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PointInTimeRecoveryStatus -&gt; Text
 $ctoText :: PointInTimeRecoveryStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679374784"><span class="annot"><span class="annottext">PointInTimeRecoveryStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679374793"><span class="annot"><span class="annottext">PointInTimeRecoveryStatus -&gt; ByteString
 (PointInTimeRecoveryStatus -&gt; ByteString)
 -&gt; ToByteString PointInTimeRecoveryStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PointInTimeRecoveryStatus -&gt; ByteString
 $ctoBS :: PointInTimeRecoveryStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679374781"><span class="annot"><span class="annottext">PointInTimeRecoveryStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679374790"><span class="annot"><span class="annottext">PointInTimeRecoveryStatus -&gt; ByteStringBuilder
 (PointInTimeRecoveryStatus -&gt; ByteStringBuilder)
 -&gt; ToLog PointInTimeRecoveryStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PointInTimeRecoveryStatus -&gt; ByteStringBuilder
 $cbuild :: PointInTimeRecoveryStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679374778"><span class="annot"><span class="annottext">HeaderName -&gt; PointInTimeRecoveryStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679374787"><span class="annot"><span class="annottext">HeaderName -&gt; PointInTimeRecoveryStatus -&gt; [Header]
 (HeaderName -&gt; PointInTimeRecoveryStatus -&gt; [Header])
 -&gt; ToHeader PointInTimeRecoveryStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PointInTimeRecoveryStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PointInTimeRecoveryStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679374775"><span class="annot"><span class="annottext">PointInTimeRecoveryStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679374784"><span class="annot"><span class="annottext">PointInTimeRecoveryStatus -&gt; QueryString
 (PointInTimeRecoveryStatus -&gt; QueryString)
 -&gt; ToQuery PointInTimeRecoveryStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PointInTimeRecoveryStatus -&gt; QueryString
 $ctoQuery :: PointInTimeRecoveryStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679374770"><span id="local-6989586621679374772"><span class="annot"><span class="annottext">Value -&gt; Parser [PointInTimeRecoveryStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679374779"><span id="local-6989586621679374781"><span class="annot"><span class="annottext">Value -&gt; Parser [PointInTimeRecoveryStatus]
 Value -&gt; Parser PointInTimeRecoveryStatus
 (Value -&gt; Parser PointInTimeRecoveryStatus)
 -&gt; (Value -&gt; Parser [PointInTimeRecoveryStatus])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [PointInTimeRecoveryStatus]
 parseJSON :: Value -&gt; Parser PointInTimeRecoveryStatus
 $cparseJSON :: Value -&gt; Parser PointInTimeRecoveryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679374765"><span id="local-6989586621679374767"><span class="annot"><span class="annottext">FromJSONKeyFunction [PointInTimeRecoveryStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679374774"><span id="local-6989586621679374776"><span class="annot"><span class="annottext">FromJSONKeyFunction [PointInTimeRecoveryStatus]
 FromJSONKeyFunction PointInTimeRecoveryStatus
 FromJSONKeyFunction PointInTimeRecoveryStatus
 -&gt; FromJSONKeyFunction [PointInTimeRecoveryStatus]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PointInTimeRecoveryStatus]
 fromJSONKey :: FromJSONKeyFunction PointInTimeRecoveryStatus
 $cfromJSONKey :: FromJSONKeyFunction PointInTimeRecoveryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679374756"><span id="local-6989586621679374758"><span id="local-6989586621679374760"><span id="local-6989586621679374762"><span class="annot"><span class="annottext">[PointInTimeRecoveryStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679374765"><span id="local-6989586621679374767"><span id="local-6989586621679374769"><span id="local-6989586621679374771"><span class="annot"><span class="annottext">[PointInTimeRecoveryStatus] -&gt; Encoding
 [PointInTimeRecoveryStatus] -&gt; Value
 PointInTimeRecoveryStatus -&gt; Encoding
 PointInTimeRecoveryStatus -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: PointInTimeRecoveryStatus -&gt; Encoding
 toJSON :: PointInTimeRecoveryStatus -&gt; Value
 $ctoJSON :: PointInTimeRecoveryStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679374751"><span id="local-6989586621679374753"><span class="annot"><span class="annottext">ToJSONKeyFunction [PointInTimeRecoveryStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679374760"><span id="local-6989586621679374762"><span class="annot"><span class="annottext">ToJSONKeyFunction [PointInTimeRecoveryStatus]
 ToJSONKeyFunction PointInTimeRecoveryStatus
 ToJSONKeyFunction PointInTimeRecoveryStatus
 -&gt; ToJSONKeyFunction [PointInTimeRecoveryStatus]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PointInTimeRecoveryStatus]
 toJSONKey :: ToJSONKeyFunction PointInTimeRecoveryStatus
 $ctoJSONKey :: ToJSONKeyFunction PointInTimeRecoveryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679374748"><span class="annot"><span class="annottext">[Node] -&gt; Either String PointInTimeRecoveryStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679374757"><span class="annot"><span class="annottext">[Node] -&gt; Either String PointInTimeRecoveryStatus
 ([Node] -&gt; Either String PointInTimeRecoveryStatus)
 -&gt; FromXML PointInTimeRecoveryStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PointInTimeRecoveryStatus
 $cparseXML :: [Node] -&gt; Either String PointInTimeRecoveryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679374745"><span class="annot"><span class="annottext">PointInTimeRecoveryStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679374754"><span class="annot"><span class="annottext">PointInTimeRecoveryStatus -&gt; XML
 (PointInTimeRecoveryStatus -&gt; XML)
 -&gt; ToXML PointInTimeRecoveryStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

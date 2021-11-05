@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679403327"><span id="local-6989586621679403328"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReferenceType"><span class="annot"><a href="Network.AWS.Connect.Types.ReferenceType.html#ReferenceType"><span class="hs-identifier hs-var">ReferenceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReferenceType%27"><span class="annot"><a href="Network.AWS.Connect.Types.ReferenceType.html#ReferenceType%27"><span class="hs-identifier hs-var">ReferenceType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679403336"><span id="local-6989586621679403337"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReferenceType"><span class="annot"><a href="Network.AWS.Connect.Types.ReferenceType.html#ReferenceType"><span class="hs-identifier hs-var">ReferenceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReferenceType%27"><span class="annot"><a href="Network.AWS.Connect.Types.ReferenceType.html#ReferenceType%27"><span class="hs-identifier hs-var">ReferenceType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReferenceType"><span class="annot"><span class="annottext">ReferenceType -&gt; Text
 </span><a href="Network.AWS.Connect.Types.ReferenceType.html#fromReferenceType"><span class="hs-identifier hs-var hs-var">fromReferenceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679403319"><span id="local-6989586621679403321"><span id="local-6989586621679403323"><span class="annot"><span class="annottext">Int -&gt; ReferenceType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679403328"><span id="local-6989586621679403330"><span id="local-6989586621679403332"><span class="annot"><span class="annottext">Int -&gt; ReferenceType -&gt; ShowS
 [ReferenceType] -&gt; ShowS
 ReferenceType -&gt; String
 (Int -&gt; ReferenceType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: ReferenceType -&gt; String
 showsPrec :: Int -&gt; ReferenceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReferenceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679403310"><span id="local-6989586621679403312"><span id="local-6989586621679403314"><span id="local-6989586621679403316"><span class="annot"><span class="annottext">ReadPrec [ReferenceType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679403319"><span id="local-6989586621679403321"><span id="local-6989586621679403323"><span id="local-6989586621679403325"><span class="annot"><span class="annottext">ReadPrec [ReferenceType]
 ReadPrec ReferenceType
 Int -&gt; ReadS ReferenceType
 ReadS [ReferenceType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [ReferenceType]
 readsPrec :: Int -&gt; ReadS ReferenceType
 $creadsPrec :: Int -&gt; ReadS ReferenceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679403305"><span id="local-6989586621679403307"><span class="annot"><span class="annottext">ReferenceType -&gt; ReferenceType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679403314"><span id="local-6989586621679403316"><span class="annot"><span class="annottext">ReferenceType -&gt; ReferenceType -&gt; Bool
 (ReferenceType -&gt; ReferenceType -&gt; Bool)
 -&gt; (ReferenceType -&gt; ReferenceType -&gt; Bool) -&gt; Eq ReferenceType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: ReferenceType -&gt; ReferenceType -&gt; Bool
 == :: ReferenceType -&gt; ReferenceType -&gt; Bool
 $c== :: ReferenceType -&gt; ReferenceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679403289"><span id="local-6989586621679403291"><span id="local-6989586621679403293"><span id="local-6989586621679403295"><span id="local-6989586621679403297"><span id="local-6989586621679403299"><span id="local-6989586621679403301"><span class="annot"><span class="annottext">Eq ReferenceType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679403298"><span id="local-6989586621679403300"><span id="local-6989586621679403302"><span id="local-6989586621679403304"><span id="local-6989586621679403306"><span id="local-6989586621679403308"><span id="local-6989586621679403310"><span class="annot"><span class="annottext">Eq ReferenceType
 Eq ReferenceType
 -&gt; (ReferenceType -&gt; ReferenceType -&gt; Ordering)
 -&gt; (ReferenceType -&gt; ReferenceType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. ReferenceType -&gt; Rep ReferenceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679403281"><span id="local-6989586621679403283"><span class="annot"><span class="annottext">Int -&gt; ReferenceType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679403290"><span id="local-6989586621679403292"><span class="annot"><span class="annottext">Int -&gt; ReferenceType -&gt; Int
 ReferenceType -&gt; Int
 (Int -&gt; ReferenceType -&gt; Int)
 -&gt; (ReferenceType -&gt; Int) -&gt; Hashable ReferenceType
@@ -141,49 +141,49 @@ $chash :: ReferenceType -&gt; Int
 hashWithSalt :: Int -&gt; ReferenceType -&gt; Int
 $chashWithSalt :: Int -&gt; ReferenceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679403278"><span class="annot"><span class="annottext">ReferenceType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679403287"><span class="annot"><span class="annottext">ReferenceType -&gt; ()
 (ReferenceType -&gt; ()) -&gt; NFData ReferenceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReferenceType -&gt; ()
 $crnf :: ReferenceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679403275"><span class="annot"><span class="annottext">Text -&gt; Either String ReferenceType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679403284"><span class="annot"><span class="annottext">Text -&gt; Either String ReferenceType
 (Text -&gt; Either String ReferenceType) -&gt; FromText ReferenceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReferenceType
 $cfromText :: Text -&gt; Either String ReferenceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679403272"><span class="annot"><span class="annottext">ReferenceType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679403281"><span class="annot"><span class="annottext">ReferenceType -&gt; Text
 (ReferenceType -&gt; Text) -&gt; ToText ReferenceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReferenceType -&gt; Text
 $ctoText :: ReferenceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679403269"><span class="annot"><span class="annottext">ReferenceType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679403278"><span class="annot"><span class="annottext">ReferenceType -&gt; ByteString
 (ReferenceType -&gt; ByteString) -&gt; ToByteString ReferenceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReferenceType -&gt; ByteString
 $ctoBS :: ReferenceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679403266"><span class="annot"><span class="annottext">ReferenceType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679403275"><span class="annot"><span class="annottext">ReferenceType -&gt; ByteStringBuilder
 (ReferenceType -&gt; ByteStringBuilder) -&gt; ToLog ReferenceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReferenceType -&gt; ByteStringBuilder
 $cbuild :: ReferenceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679403263"><span class="annot"><span class="annottext">HeaderName -&gt; ReferenceType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679403272"><span class="annot"><span class="annottext">HeaderName -&gt; ReferenceType -&gt; [Header]
 (HeaderName -&gt; ReferenceType -&gt; [Header]) -&gt; ToHeader ReferenceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReferenceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReferenceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679403260"><span class="annot"><span class="annottext">ReferenceType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679403269"><span class="annot"><span class="annottext">ReferenceType -&gt; QueryString
 (ReferenceType -&gt; QueryString) -&gt; ToQuery ReferenceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReferenceType -&gt; QueryString
 $ctoQuery :: ReferenceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679403255"><span id="local-6989586621679403257"><span class="annot"><span class="annottext">Value -&gt; Parser [ReferenceType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679403264"><span id="local-6989586621679403266"><span class="annot"><span class="annottext">Value -&gt; Parser [ReferenceType]
 Value -&gt; Parser ReferenceType
 (Value -&gt; Parser ReferenceType)
 -&gt; (Value -&gt; Parser [ReferenceType]) -&gt; FromJSON ReferenceType
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [ReferenceType]
 parseJSON :: Value -&gt; Parser ReferenceType
 $cparseJSON :: Value -&gt; Parser ReferenceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679403250"><span id="local-6989586621679403252"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReferenceType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679403259"><span id="local-6989586621679403261"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReferenceType]
 FromJSONKeyFunction ReferenceType
 FromJSONKeyFunction ReferenceType
 -&gt; FromJSONKeyFunction [ReferenceType] -&gt; FromJSONKey ReferenceType
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReferenceType]
 fromJSONKey :: FromJSONKeyFunction ReferenceType
 $cfromJSONKey :: FromJSONKeyFunction ReferenceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679403241"><span id="local-6989586621679403243"><span id="local-6989586621679403245"><span id="local-6989586621679403247"><span class="annot"><span class="annottext">[ReferenceType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679403250"><span id="local-6989586621679403252"><span id="local-6989586621679403254"><span id="local-6989586621679403256"><span class="annot"><span class="annottext">[ReferenceType] -&gt; Encoding
 [ReferenceType] -&gt; Value
 ReferenceType -&gt; Encoding
 ReferenceType -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: ReferenceType -&gt; Encoding
 toJSON :: ReferenceType -&gt; Value
 $ctoJSON :: ReferenceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679403236"><span id="local-6989586621679403238"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReferenceType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679403245"><span id="local-6989586621679403247"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReferenceType]
 ToJSONKeyFunction ReferenceType
 ToJSONKeyFunction ReferenceType
 -&gt; ToJSONKeyFunction [ReferenceType] -&gt; ToJSONKey ReferenceType
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReferenceType]
 toJSONKey :: ToJSONKeyFunction ReferenceType
 $ctoJSONKey :: ToJSONKeyFunction ReferenceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679403233"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReferenceType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679403242"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReferenceType
 ([Node] -&gt; Either String ReferenceType) -&gt; FromXML ReferenceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReferenceType
 $cparseXML :: [Node] -&gt; Either String ReferenceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679403230"><span class="annot"><span class="annottext">ReferenceType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679403239"><span class="annot"><span class="annottext">ReferenceType -&gt; XML
 (ReferenceType -&gt; XML) -&gt; ToXML ReferenceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReferenceType -&gt; XML

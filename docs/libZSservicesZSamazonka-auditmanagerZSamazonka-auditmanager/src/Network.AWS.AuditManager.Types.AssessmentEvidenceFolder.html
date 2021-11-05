@@ -1,0 +1,1301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AuditManager.Types.AssessmentEvidenceFolder</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AuditManager.Types.AssessmentEvidenceFolder</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The folder in which Audit Manager stores evidence for an assessment.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAssessmentEvidenceFolder' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679289824"><span id="local-6989586621679289825"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssessmentEvidenceFolder"><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-var">AssessmentEvidenceFolder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentEvidenceFolder%27"><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">AssessmentEvidenceFolder'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of issues that were reported directly from Security</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Hub, Config, or both.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AevidenceByTypeComplianceCheckIssuesCount%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceByTypeComplianceCheckIssuesCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">evidenceByTypeComplianceCheckIssuesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The identifier for the control set.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcontrolSetId%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AcontrolSetId%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">controlSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The total count of evidence included in the assessment report.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AassessmentReportSelectionCount%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AassessmentReportSelectionCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">assessmentReportSelectionCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The total amount of evidence in the evidence folder.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtotalEvidence%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AtotalEvidence%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">totalEvidence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The number of evidence that falls under the manual category. This</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- evidence is imported manually.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AevidenceByTypeManualCount%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceByTypeManualCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">evidenceByTypeManualCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The date when the first evidence was added to the evidence folder.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Adate%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe POSIX
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3Adate%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the specified evidence folder.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aname%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3Aname%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The number of evidence that falls under the user activity category. This</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- evidence is collected from CloudTrail logs.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AevidenceByTypeUserActivityCount%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceByTypeUserActivityCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">evidenceByTypeUserActivityCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the specified control.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AcontrolId%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AcontrolId%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">controlId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The total number of Amazon Web Services resources assessed to generate</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- the evidence.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AevidenceAwsServiceSourceCount%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceAwsServiceSourceCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">evidenceAwsServiceSourceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The name of the user who created the evidence folder.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aauthor%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3Aauthor%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">author</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The identifier for the folder in which evidence is stored.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aid%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3Aid%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Service from which the evidence was collected.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdataSource%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AdataSource%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the control.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AcontrolName%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AcontrolName%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">controlName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The number of evidence that falls under the compliance check category.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- This evidence is collected from Config or Security Hub.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AevidenceByTypeComplianceCheckCount%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceByTypeComplianceCheckCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">evidenceByTypeComplianceCheckCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The identifier for the specified assessment.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AassessmentId%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AassessmentId%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">assessmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The number of evidence that falls under the configuration data category.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- This evidence is collected from configuration snapshots of other Amazon</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Web Services services such as Amazon EC2, Amazon S3, or IAM.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AevidenceByTypeConfigurationDataCount%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceByTypeConfigurationDataCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">evidenceByTypeConfigurationDataCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The amount of evidence included in the evidence folder.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AevidenceResourcesIncludedCount%3AAssessmentEvidenceFolder%27"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceResourcesIncludedCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var hs-var">evidenceResourcesIncludedCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289801"><span id="local-6989586621679289803"><span class="annot"><span class="annottext">AssessmentEvidenceFolder -&gt; AssessmentEvidenceFolder -&gt; Bool
+(AssessmentEvidenceFolder -&gt; AssessmentEvidenceFolder -&gt; Bool)
+-&gt; (AssessmentEvidenceFolder -&gt; AssessmentEvidenceFolder -&gt; Bool)
+-&gt; Eq AssessmentEvidenceFolder
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssessmentEvidenceFolder -&gt; AssessmentEvidenceFolder -&gt; Bool
+$c/= :: AssessmentEvidenceFolder -&gt; AssessmentEvidenceFolder -&gt; Bool
+== :: AssessmentEvidenceFolder -&gt; AssessmentEvidenceFolder -&gt; Bool
+$c== :: AssessmentEvidenceFolder -&gt; AssessmentEvidenceFolder -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289792"><span id="local-6989586621679289794"><span id="local-6989586621679289796"><span id="local-6989586621679289798"><span class="annot"><span class="annottext">ReadPrec [AssessmentEvidenceFolder]
+ReadPrec AssessmentEvidenceFolder
+Int -&gt; ReadS AssessmentEvidenceFolder
+ReadS [AssessmentEvidenceFolder]
+(Int -&gt; ReadS AssessmentEvidenceFolder)
+-&gt; ReadS [AssessmentEvidenceFolder]
+-&gt; ReadPrec AssessmentEvidenceFolder
+-&gt; ReadPrec [AssessmentEvidenceFolder]
+-&gt; Read AssessmentEvidenceFolder
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssessmentEvidenceFolder]
+$creadListPrec :: ReadPrec [AssessmentEvidenceFolder]
+readPrec :: ReadPrec AssessmentEvidenceFolder
+$creadPrec :: ReadPrec AssessmentEvidenceFolder
+readList :: ReadS [AssessmentEvidenceFolder]
+$creadList :: ReadS [AssessmentEvidenceFolder]
+readsPrec :: Int -&gt; ReadS AssessmentEvidenceFolder
+$creadsPrec :: Int -&gt; ReadS AssessmentEvidenceFolder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289785"><span id="local-6989586621679289787"><span id="local-6989586621679289789"><span class="annot"><span class="annottext">Int -&gt; AssessmentEvidenceFolder -&gt; ShowS
+[AssessmentEvidenceFolder] -&gt; ShowS
+AssessmentEvidenceFolder -&gt; String
+(Int -&gt; AssessmentEvidenceFolder -&gt; ShowS)
+-&gt; (AssessmentEvidenceFolder -&gt; String)
+-&gt; ([AssessmentEvidenceFolder] -&gt; ShowS)
+-&gt; Show AssessmentEvidenceFolder
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssessmentEvidenceFolder] -&gt; ShowS
+$cshowList :: [AssessmentEvidenceFolder] -&gt; ShowS
+show :: AssessmentEvidenceFolder -&gt; String
+$cshow :: AssessmentEvidenceFolder -&gt; String
+showsPrec :: Int -&gt; AssessmentEvidenceFolder -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssessmentEvidenceFolder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssessmentEvidenceFolder -&gt; Rep AssessmentEvidenceFolder x)
+-&gt; (forall x.
+    Rep AssessmentEvidenceFolder x -&gt; AssessmentEvidenceFolder)
+-&gt; Generic AssessmentEvidenceFolder
+forall x.
+Rep AssessmentEvidenceFolder x -&gt; AssessmentEvidenceFolder
+forall x.
+AssessmentEvidenceFolder -&gt; Rep AssessmentEvidenceFolder x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssessmentEvidenceFolder x -&gt; AssessmentEvidenceFolder
+$cfrom :: forall x.
+AssessmentEvidenceFolder -&gt; Rep AssessmentEvidenceFolder x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'AssessmentEvidenceFolder' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'evidenceByTypeComplianceCheckIssuesCount', 'assessmentEvidenceFolder_evidenceByTypeComplianceCheckIssuesCount' - The total number of issues that were reported directly from Security</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Hub, Config, or both.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'controlSetId', 'assessmentEvidenceFolder_controlSetId' - The identifier for the control set.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'assessmentReportSelectionCount', 'assessmentEvidenceFolder_assessmentReportSelectionCount' - The total count of evidence included in the assessment report.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'totalEvidence', 'assessmentEvidenceFolder_totalEvidence' - The total amount of evidence in the evidence folder.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'evidenceByTypeManualCount', 'assessmentEvidenceFolder_evidenceByTypeManualCount' - The number of evidence that falls under the manual category. This</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- evidence is imported manually.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'date', 'assessmentEvidenceFolder_date' - The date when the first evidence was added to the evidence folder.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'name', 'assessmentEvidenceFolder_name' - The name of the specified evidence folder.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'evidenceByTypeUserActivityCount', 'assessmentEvidenceFolder_evidenceByTypeUserActivityCount' - The number of evidence that falls under the user activity category. This</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- evidence is collected from CloudTrail logs.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'controlId', 'assessmentEvidenceFolder_controlId' - The unique identifier for the specified control.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'evidenceAwsServiceSourceCount', 'assessmentEvidenceFolder_evidenceAwsServiceSourceCount' - The total number of Amazon Web Services resources assessed to generate</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- the evidence.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'author', 'assessmentEvidenceFolder_author' - The name of the user who created the evidence folder.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'id', 'assessmentEvidenceFolder_id' - The identifier for the folder in which evidence is stored.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'dataSource', 'assessmentEvidenceFolder_dataSource' - The Amazon Web Service from which the evidence was collected.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'controlName', 'assessmentEvidenceFolder_controlName' - The name of the control.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'evidenceByTypeComplianceCheckCount', 'assessmentEvidenceFolder_evidenceByTypeComplianceCheckCount' - The number of evidence that falls under the compliance check category.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- This evidence is collected from Config or Security Hub.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'assessmentId', 'assessmentEvidenceFolder_assessmentId' - The identifier for the specified assessment.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'evidenceByTypeConfigurationDataCount', 'assessmentEvidenceFolder_evidenceByTypeConfigurationDataCount' - The number of evidence that falls under the configuration data category.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- This evidence is collected from configuration snapshots of other Amazon</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Web Services services such as Amazon EC2, Amazon S3, or IAM.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'evidenceResourcesIncludedCount', 'assessmentEvidenceFolder_evidenceResourcesIncludedCount' - The amount of evidence included in the evidence folder.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#newAssessmentEvidenceFolder"><span class="hs-identifier hs-type">newAssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span>
+</span><span id="line-128"></span><span id="newAssessmentEvidenceFolder"><span class="annot"><span class="annottext">newAssessmentEvidenceFolder :: AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#newAssessmentEvidenceFolder"><span class="hs-identifier hs-var hs-var">newAssessmentEvidenceFolder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder' :: Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:evidenceByTypeComplianceCheckIssuesCount:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceByTypeComplianceCheckIssuesCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">evidenceByTypeComplianceCheckIssuesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:controlSetId:AssessmentEvidenceFolder' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AcontrolSetId%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">controlSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:assessmentReportSelectionCount:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AassessmentReportSelectionCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">assessmentReportSelectionCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalEvidence:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AtotalEvidence%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">totalEvidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:evidenceByTypeManualCount:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceByTypeManualCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">evidenceByTypeManualCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:date:AssessmentEvidenceFolder' :: Maybe POSIX
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3Adate%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">date</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:AssessmentEvidenceFolder' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3Aname%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:evidenceByTypeUserActivityCount:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceByTypeUserActivityCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">evidenceByTypeUserActivityCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:controlId:AssessmentEvidenceFolder' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AcontrolId%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">controlId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:evidenceAwsServiceSourceCount:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceAwsServiceSourceCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">evidenceAwsServiceSourceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:author:AssessmentEvidenceFolder' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3Aauthor%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">author</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:AssessmentEvidenceFolder' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3Aid%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSource:AssessmentEvidenceFolder' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AdataSource%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:controlName:AssessmentEvidenceFolder' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AcontrolName%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">controlName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:evidenceByTypeComplianceCheckCount:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceByTypeComplianceCheckCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">evidenceByTypeComplianceCheckCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:assessmentId:AssessmentEvidenceFolder' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AassessmentId%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">assessmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:evidenceByTypeConfigurationDataCount:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceByTypeConfigurationDataCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">evidenceByTypeConfigurationDataCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:evidenceResourcesIncludedCount:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceResourcesIncludedCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">evidenceResourcesIncludedCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The total number of issues that were reported directly from Security</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Hub, Config, or both.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceByTypeComplianceCheckIssuesCount"><span class="hs-identifier hs-type">assessmentEvidenceFolder_evidenceByTypeComplianceCheckIssuesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="assessmentEvidenceFolder_evidenceByTypeComplianceCheckIssuesCount"><span class="annot"><span class="annottext">assessmentEvidenceFolder_evidenceByTypeComplianceCheckIssuesCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceByTypeComplianceCheckIssuesCount"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_evidenceByTypeComplianceCheckIssuesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Int)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Int -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289776"><span class="annot"><span class="annottext">Maybe Int
+evidenceByTypeComplianceCheckIssuesCount :: Maybe Int
+$sel:evidenceByTypeComplianceCheckIssuesCount:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="#local-6989586621679289776"><span class="hs-identifier hs-var hs-var">evidenceByTypeComplianceCheckIssuesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289776"><span class="hs-identifier hs-var">evidenceByTypeComplianceCheckIssuesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289775"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289774"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evidenceByTypeComplianceCheckIssuesCount:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceByTypeComplianceCheckIssuesCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">evidenceByTypeComplianceCheckIssuesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The identifier for the control set.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_controlSetId"><span class="hs-identifier hs-type">assessmentEvidenceFolder_controlSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="assessmentEvidenceFolder_controlSetId"><span class="annot"><span class="annottext">assessmentEvidenceFolder_controlSetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_controlSetId"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_controlSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Text)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Text -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289772"><span class="annot"><span class="annottext">Maybe Text
+controlSetId :: Maybe Text
+$sel:controlSetId:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Text
+</span><a href="#local-6989586621679289772"><span class="hs-identifier hs-var hs-var">controlSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289772"><span class="hs-identifier hs-var">controlSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289771"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289770"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlSetId:AssessmentEvidenceFolder' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AcontrolSetId%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">controlSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The total count of evidence included in the assessment report.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_assessmentReportSelectionCount"><span class="hs-identifier hs-type">assessmentEvidenceFolder_assessmentReportSelectionCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="assessmentEvidenceFolder_assessmentReportSelectionCount"><span class="annot"><span class="annottext">assessmentEvidenceFolder_assessmentReportSelectionCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_assessmentReportSelectionCount"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_assessmentReportSelectionCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Int)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Int -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289768"><span class="annot"><span class="annottext">Maybe Int
+assessmentReportSelectionCount :: Maybe Int
+$sel:assessmentReportSelectionCount:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="#local-6989586621679289768"><span class="hs-identifier hs-var hs-var">assessmentReportSelectionCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289768"><span class="hs-identifier hs-var">assessmentReportSelectionCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289767"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289766"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentReportSelectionCount:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AassessmentReportSelectionCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">assessmentReportSelectionCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The total amount of evidence in the evidence folder.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_totalEvidence"><span class="hs-identifier hs-type">assessmentEvidenceFolder_totalEvidence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="assessmentEvidenceFolder_totalEvidence"><span class="annot"><span class="annottext">assessmentEvidenceFolder_totalEvidence :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_totalEvidence"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_totalEvidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Int)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Int -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289764"><span class="annot"><span class="annottext">Maybe Int
+totalEvidence :: Maybe Int
+$sel:totalEvidence:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="#local-6989586621679289764"><span class="hs-identifier hs-var hs-var">totalEvidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289764"><span class="hs-identifier hs-var">totalEvidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289763"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289762"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalEvidence:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AtotalEvidence%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">totalEvidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The number of evidence that falls under the manual category. This</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- evidence is imported manually.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceByTypeManualCount"><span class="hs-identifier hs-type">assessmentEvidenceFolder_evidenceByTypeManualCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="assessmentEvidenceFolder_evidenceByTypeManualCount"><span class="annot"><span class="annottext">assessmentEvidenceFolder_evidenceByTypeManualCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceByTypeManualCount"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_evidenceByTypeManualCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Int)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Int -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289760"><span class="annot"><span class="annottext">Maybe Int
+evidenceByTypeManualCount :: Maybe Int
+$sel:evidenceByTypeManualCount:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="#local-6989586621679289760"><span class="hs-identifier hs-var hs-var">evidenceByTypeManualCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289760"><span class="hs-identifier hs-var">evidenceByTypeManualCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289759"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289758"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evidenceByTypeManualCount:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceByTypeManualCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">evidenceByTypeManualCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The date when the first evidence was added to the evidence folder.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_date"><span class="hs-identifier hs-type">assessmentEvidenceFolder_date</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="assessmentEvidenceFolder_date"><span class="annot"><span class="annottext">assessmentEvidenceFolder_date :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_date"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_date</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe POSIX)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe POSIX -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289756"><span class="annot"><span class="annottext">Maybe POSIX
+date :: Maybe POSIX
+$sel:date:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe POSIX
+</span><a href="#local-6989586621679289756"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679289756"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289755"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289754"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679289754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:date:AssessmentEvidenceFolder' :: Maybe POSIX
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3Adate%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">date</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679289754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AssessmentEvidenceFolder
+-&gt; f AssessmentEvidenceFolder
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The name of the specified evidence folder.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_name"><span class="hs-identifier hs-type">assessmentEvidenceFolder_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="assessmentEvidenceFolder_name"><span class="annot"><span class="annottext">assessmentEvidenceFolder_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_name"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Text)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Text -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289749"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Text
+</span><a href="#local-6989586621679289749"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289749"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289748"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289747"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AssessmentEvidenceFolder' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3Aname%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The number of evidence that falls under the user activity category. This</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- evidence is collected from CloudTrail logs.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceByTypeUserActivityCount"><span class="hs-identifier hs-type">assessmentEvidenceFolder_evidenceByTypeUserActivityCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="assessmentEvidenceFolder_evidenceByTypeUserActivityCount"><span class="annot"><span class="annottext">assessmentEvidenceFolder_evidenceByTypeUserActivityCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceByTypeUserActivityCount"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_evidenceByTypeUserActivityCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Int)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Int -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289745"><span class="annot"><span class="annottext">Maybe Int
+evidenceByTypeUserActivityCount :: Maybe Int
+$sel:evidenceByTypeUserActivityCount:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="#local-6989586621679289745"><span class="hs-identifier hs-var hs-var">evidenceByTypeUserActivityCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289745"><span class="hs-identifier hs-var">evidenceByTypeUserActivityCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289744"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289743"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evidenceByTypeUserActivityCount:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceByTypeUserActivityCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">evidenceByTypeUserActivityCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The unique identifier for the specified control.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_controlId"><span class="hs-identifier hs-type">assessmentEvidenceFolder_controlId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="assessmentEvidenceFolder_controlId"><span class="annot"><span class="annottext">assessmentEvidenceFolder_controlId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_controlId"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_controlId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Text)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Text -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289741"><span class="annot"><span class="annottext">Maybe Text
+controlId :: Maybe Text
+$sel:controlId:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Text
+</span><a href="#local-6989586621679289741"><span class="hs-identifier hs-var hs-var">controlId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289741"><span class="hs-identifier hs-var">controlId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289740"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289739"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlId:AssessmentEvidenceFolder' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AcontrolId%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">controlId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The total number of Amazon Web Services resources assessed to generate</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- the evidence.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceAwsServiceSourceCount"><span class="hs-identifier hs-type">assessmentEvidenceFolder_evidenceAwsServiceSourceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="assessmentEvidenceFolder_evidenceAwsServiceSourceCount"><span class="annot"><span class="annottext">assessmentEvidenceFolder_evidenceAwsServiceSourceCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceAwsServiceSourceCount"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_evidenceAwsServiceSourceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Int)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Int -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289737"><span class="annot"><span class="annottext">Maybe Int
+evidenceAwsServiceSourceCount :: Maybe Int
+$sel:evidenceAwsServiceSourceCount:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="#local-6989586621679289737"><span class="hs-identifier hs-var hs-var">evidenceAwsServiceSourceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289737"><span class="hs-identifier hs-var">evidenceAwsServiceSourceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289736"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289735"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evidenceAwsServiceSourceCount:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceAwsServiceSourceCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">evidenceAwsServiceSourceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The name of the user who created the evidence folder.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_author"><span class="hs-identifier hs-type">assessmentEvidenceFolder_author</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="assessmentEvidenceFolder_author"><span class="annot"><span class="annottext">assessmentEvidenceFolder_author :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_author"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_author</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Text)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Text -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289733"><span class="annot"><span class="annottext">Maybe Text
+author :: Maybe Text
+$sel:author:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Text
+</span><a href="#local-6989586621679289733"><span class="hs-identifier hs-var hs-var">author</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289733"><span class="hs-identifier hs-var">author</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289732"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289731"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:author:AssessmentEvidenceFolder' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3Aauthor%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">author</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The identifier for the folder in which evidence is stored.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_id"><span class="hs-identifier hs-type">assessmentEvidenceFolder_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="assessmentEvidenceFolder_id"><span class="annot"><span class="annottext">assessmentEvidenceFolder_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_id"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Text)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Text -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289729"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Text
+</span><a href="#local-6989586621679289729"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289729"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289728"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289727"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:AssessmentEvidenceFolder' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3Aid%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The Amazon Web Service from which the evidence was collected.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_dataSource"><span class="hs-identifier hs-type">assessmentEvidenceFolder_dataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="assessmentEvidenceFolder_dataSource"><span class="annot"><span class="annottext">assessmentEvidenceFolder_dataSource :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_dataSource"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_dataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Text)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Text -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289725"><span class="annot"><span class="annottext">Maybe Text
+dataSource :: Maybe Text
+$sel:dataSource:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Text
+</span><a href="#local-6989586621679289725"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289725"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289724"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289723"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSource:AssessmentEvidenceFolder' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AdataSource%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The name of the control.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_controlName"><span class="hs-identifier hs-type">assessmentEvidenceFolder_controlName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="assessmentEvidenceFolder_controlName"><span class="annot"><span class="annottext">assessmentEvidenceFolder_controlName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_controlName"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_controlName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Text)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Text -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289721"><span class="annot"><span class="annottext">Maybe Text
+controlName :: Maybe Text
+$sel:controlName:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Text
+</span><a href="#local-6989586621679289721"><span class="hs-identifier hs-var hs-var">controlName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289721"><span class="hs-identifier hs-var">controlName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289720"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289719"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlName:AssessmentEvidenceFolder' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AcontrolName%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">controlName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The number of evidence that falls under the compliance check category.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- This evidence is collected from Config or Security Hub.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceByTypeComplianceCheckCount"><span class="hs-identifier hs-type">assessmentEvidenceFolder_evidenceByTypeComplianceCheckCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="assessmentEvidenceFolder_evidenceByTypeComplianceCheckCount"><span class="annot"><span class="annottext">assessmentEvidenceFolder_evidenceByTypeComplianceCheckCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceByTypeComplianceCheckCount"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_evidenceByTypeComplianceCheckCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Int)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Int -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289717"><span class="annot"><span class="annottext">Maybe Int
+evidenceByTypeComplianceCheckCount :: Maybe Int
+$sel:evidenceByTypeComplianceCheckCount:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="#local-6989586621679289717"><span class="hs-identifier hs-var hs-var">evidenceByTypeComplianceCheckCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289717"><span class="hs-identifier hs-var">evidenceByTypeComplianceCheckCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289716"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289715"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evidenceByTypeComplianceCheckCount:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceByTypeComplianceCheckCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">evidenceByTypeComplianceCheckCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The identifier for the specified assessment.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_assessmentId"><span class="hs-identifier hs-type">assessmentEvidenceFolder_assessmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="assessmentEvidenceFolder_assessmentId"><span class="annot"><span class="annottext">assessmentEvidenceFolder_assessmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_assessmentId"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_assessmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Text)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Text -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289713"><span class="annot"><span class="annottext">Maybe Text
+assessmentId :: Maybe Text
+$sel:assessmentId:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Text
+</span><a href="#local-6989586621679289713"><span class="hs-identifier hs-var hs-var">assessmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289713"><span class="hs-identifier hs-var">assessmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289712"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289711"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentId:AssessmentEvidenceFolder' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AassessmentId%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">assessmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The number of evidence that falls under the configuration data category.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- This evidence is collected from configuration snapshots of other Amazon</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Web Services services such as Amazon EC2, Amazon S3, or IAM.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceByTypeConfigurationDataCount"><span class="hs-identifier hs-type">assessmentEvidenceFolder_evidenceByTypeConfigurationDataCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="assessmentEvidenceFolder_evidenceByTypeConfigurationDataCount"><span class="annot"><span class="annottext">assessmentEvidenceFolder_evidenceByTypeConfigurationDataCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceByTypeConfigurationDataCount"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_evidenceByTypeConfigurationDataCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Int)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Int -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289709"><span class="annot"><span class="annottext">Maybe Int
+evidenceByTypeConfigurationDataCount :: Maybe Int
+$sel:evidenceByTypeConfigurationDataCount:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="#local-6989586621679289709"><span class="hs-identifier hs-var hs-var">evidenceByTypeConfigurationDataCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289709"><span class="hs-identifier hs-var">evidenceByTypeConfigurationDataCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289708"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289707"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evidenceByTypeConfigurationDataCount:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceByTypeConfigurationDataCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">evidenceByTypeConfigurationDataCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The amount of evidence included in the evidence folder.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceResourcesIncludedCount"><span class="hs-identifier hs-type">assessmentEvidenceFolder_evidenceResourcesIncludedCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="assessmentEvidenceFolder_evidenceResourcesIncludedCount"><span class="annot"><span class="annottext">assessmentEvidenceFolder_evidenceResourcesIncludedCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AssessmentEvidenceFolder -&gt; f AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#assessmentEvidenceFolder_evidenceResourcesIncludedCount"><span class="hs-identifier hs-var hs-var">assessmentEvidenceFolder_evidenceResourcesIncludedCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentEvidenceFolder -&gt; Maybe Int)
+-&gt; (AssessmentEvidenceFolder
+    -&gt; Maybe Int -&gt; AssessmentEvidenceFolder)
+-&gt; Lens
+     AssessmentEvidenceFolder
+     AssessmentEvidenceFolder
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289705"><span class="annot"><span class="annottext">Maybe Int
+evidenceResourcesIncludedCount :: Maybe Int
+$sel:evidenceResourcesIncludedCount:AssessmentEvidenceFolder' :: AssessmentEvidenceFolder -&gt; Maybe Int
+</span><a href="#local-6989586621679289705"><span class="hs-identifier hs-var hs-var">evidenceResourcesIncludedCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289705"><span class="hs-identifier hs-var">evidenceResourcesIncludedCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289704"><span class="annot"><span class="annottext">s :: AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-type">AssessmentEvidenceFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289703"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentEvidenceFolder
+</span><a href="#local-6989586621679289704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evidenceResourcesIncludedCount:AssessmentEvidenceFolder' :: Maybe Int
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#%24sel%3AevidenceResourcesIncludedCount%3AAssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">evidenceResourcesIncludedCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679289703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289700"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679289698"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssessmentEvidenceFolder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AssessmentEvidenceFolder)
+-&gt; Value
+-&gt; Parser AssessmentEvidenceFolder
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AssessmentEvidenceFolder&quot;</span></span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289695"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; AssessmentEvidenceFolder
+</span><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder%27"><span class="hs-identifier hs-var">AssessmentEvidenceFolder'</span></a></span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-239"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;evidenceByTypeComplianceCheckIssuesCount&quot;</span></span><span>
+</span><span id="line-240"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;controlSetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assessmentReportSelectionCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;totalEvidence&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;evidenceByTypeManualCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;date&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;evidenceByTypeUserActivityCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;controlId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;evidenceAwsServiceSourceCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;author&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;controlName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Int -&gt; Maybe Int -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;evidenceByTypeComplianceCheckCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Int -&gt; Maybe Int -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assessmentId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Int -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Int -&gt; AssessmentEvidenceFolder)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;evidenceByTypeConfigurationDataCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; AssessmentEvidenceFolder)
+-&gt; Parser (Maybe Int) -&gt; Parser AssessmentEvidenceFolder
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;evidenceResourcesIncludedCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289689"><span id="local-6989586621679289691"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span></span></span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentEvidenceFolder.html#AssessmentEvidenceFolder"><span class="hs-identifier hs-type">AssessmentEvidenceFolder</span></a></span></span><span>
+</span><span id="line-263"></span></pre></body></html>

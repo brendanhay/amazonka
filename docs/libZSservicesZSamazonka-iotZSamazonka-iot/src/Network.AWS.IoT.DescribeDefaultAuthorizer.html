@@ -48,10 +48,10 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeDefaultAuthorizer' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679839252"><span id="local-6989586621679839253"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDefaultAuthorizer"><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizer"><span class="hs-identifier hs-var">DescribeDefaultAuthorizer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDefaultAuthorizer%27"><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizer%27"><span class="hs-identifier hs-var">DescribeDefaultAuthorizer'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679839261"><span id="local-6989586621679839262"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDefaultAuthorizer"><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizer"><span class="hs-identifier hs-var">DescribeDefaultAuthorizer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDefaultAuthorizer%27"><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizer%27"><span class="hs-identifier hs-var">DescribeDefaultAuthorizer'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679839247"><span id="local-6989586621679839249"><span class="annot"><span class="annottext">DescribeDefaultAuthorizer -&gt; DescribeDefaultAuthorizer -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679839256"><span id="local-6989586621679839258"><span class="annot"><span class="annottext">DescribeDefaultAuthorizer -&gt; DescribeDefaultAuthorizer -&gt; Bool
 (DescribeDefaultAuthorizer -&gt; DescribeDefaultAuthorizer -&gt; Bool)
 -&gt; (DescribeDefaultAuthorizer -&gt; DescribeDefaultAuthorizer -&gt; Bool)
 -&gt; Eq DescribeDefaultAuthorizer
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeDefaultAuthorizer -&gt; DescribeDefaultAuthorizer -&gt; Bool
 == :: DescribeDefaultAuthorizer -&gt; DescribeDefaultAuthorizer -&gt; Bool
 $c== :: DescribeDefaultAuthorizer -&gt; DescribeDefaultAuthorizer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839238"><span id="local-6989586621679839240"><span id="local-6989586621679839242"><span id="local-6989586621679839244"><span class="annot"><span class="annottext">ReadPrec [DescribeDefaultAuthorizer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839247"><span id="local-6989586621679839249"><span id="local-6989586621679839251"><span id="local-6989586621679839253"><span class="annot"><span class="annottext">ReadPrec [DescribeDefaultAuthorizer]
 ReadPrec DescribeDefaultAuthorizer
 Int -&gt; ReadS DescribeDefaultAuthorizer
 ReadS [DescribeDefaultAuthorizer]
@@ -80,7 +80,7 @@ readList :: ReadS [DescribeDefaultAuthorizer]
 $creadList :: ReadS [DescribeDefaultAuthorizer]
 readsPrec :: Int -&gt; ReadS DescribeDefaultAuthorizer
 $creadsPrec :: Int -&gt; ReadS DescribeDefaultAuthorizer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839231"><span id="local-6989586621679839233"><span id="local-6989586621679839235"><span class="annot"><span class="annottext">Int -&gt; DescribeDefaultAuthorizer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839240"><span id="local-6989586621679839242"><span id="local-6989586621679839244"><span class="annot"><span class="annottext">Int -&gt; DescribeDefaultAuthorizer -&gt; ShowS
 [DescribeDefaultAuthorizer] -&gt; ShowS
 DescribeDefaultAuthorizer -&gt; String
 (Int -&gt; DescribeDefaultAuthorizer -&gt; ShowS)
@@ -127,13 +127,13 @@ DescribeDefaultAuthorizer -&gt; Rep DescribeDefaultAuthorizer x
 </span><span id="line-66"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-67"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizer"><span class="hs-identifier hs-type">DescribeDefaultAuthorizer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse</span></a></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679839223"><span class="annot"><span class="annottext">request :: DescribeDefaultAuthorizer -&gt; Request DescribeDefaultAuthorizer
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679839232"><span class="annot"><span class="annottext">request :: DescribeDefaultAuthorizer -&gt; Request DescribeDefaultAuthorizer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeDefaultAuthorizer -&gt; Request DescribeDefaultAuthorizer
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679839219"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679839228"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeDefaultAuthorizer
 -&gt; ClientResponse ClientBody
@@ -159,10 +159,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679839216"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679839216"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679839215"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679839215"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679839214"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679839214"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679839225"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679839225"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679839224"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679839224"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679839223"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679839223"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe AuthorizerDescription
 -&gt; Int -&gt; DescribeDefaultAuthorizerResponse
 </span><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-var">DescribeDefaultAuthorizerResponse'</span></a></span><span>
@@ -172,7 +172,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeDefaultAuthorizerResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679839214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AuthorizerDescription)
+</span><a href="#local-6989586621679839223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AuthorizerDescription)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authorizerDescription&quot;</span></span><span class="hs-special">)</span><span>
@@ -185,15 +185,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679839216"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679839225"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679839206"><span id="local-6989586621679839208"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizer"><span class="hs-identifier hs-type">DescribeDefaultAuthorizer</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679839215"><span id="local-6989586621679839217"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizer"><span class="hs-identifier hs-type">DescribeDefaultAuthorizer</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679839203"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizer"><span class="hs-identifier hs-type">DescribeDefaultAuthorizer</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679839212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizer"><span class="hs-identifier hs-type">DescribeDefaultAuthorizer</span></a></span></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizer"><span class="hs-identifier hs-type">DescribeDefaultAuthorizer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679839199"><span class="annot"><span class="annottext">toHeaders :: DescribeDefaultAuthorizer -&gt; ResponseHeaders
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679839208"><span class="annot"><span class="annottext">toHeaders :: DescribeDefaultAuthorizer -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDefaultAuthorizer -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -201,14 +201,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizer"><span class="hs-identifier hs-type">DescribeDefaultAuthorizer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679839194"><span class="annot"><span class="annottext">toPath :: DescribeDefaultAuthorizer -&gt; ByteString
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679839203"><span class="annot"><span class="annottext">toPath :: DescribeDefaultAuthorizer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeDefaultAuthorizer -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/default-authorizer&quot;</span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizer"><span class="hs-identifier hs-type">DescribeDefaultAuthorizer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679839190"><span class="annot"><span class="annottext">toQuery :: DescribeDefaultAuthorizer -&gt; QueryString
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679839199"><span class="annot"><span class="annottext">toQuery :: DescribeDefaultAuthorizer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeDefaultAuthorizer -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -216,7 +216,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | /See:/ 'newDescribeDefaultAuthorizerResponse' smart constructor.</span><span>
-</span><span id="line-92"></span><span id="local-6989586621679839187"><span id="local-6989586621679839188"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDefaultAuthorizerResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse"><span class="hs-identifier hs-var">DescribeDefaultAuthorizerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDefaultAuthorizerResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-var">DescribeDefaultAuthorizerResponse'</span></a></span></span><span>
+</span><span id="line-92"></span><span id="local-6989586621679839196"><span id="local-6989586621679839197"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDefaultAuthorizerResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse"><span class="hs-identifier hs-var">DescribeDefaultAuthorizerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDefaultAuthorizerResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-var">DescribeDefaultAuthorizerResponse'</span></a></span></span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The default authorizer\'s description.</span><span>
 </span><span id="line-94"></span><span>    </span><span id="%24sel%3AauthorizerDescription%3ADescribeDefaultAuthorizerResponse%27"><span class="annot"><span class="annottext">DescribeDefaultAuthorizerResponse -&gt; Maybe AuthorizerDescription
 </span><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#%24sel%3AauthorizerDescription%3ADescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">authorizerDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">,</span><span>
@@ -224,7 +224,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-96"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeDefaultAuthorizerResponse%27"><span class="annot"><span class="annottext">DescribeDefaultAuthorizerResponse -&gt; Int
 </span><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#%24sel%3AhttpStatus%3ADescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679839181"><span id="local-6989586621679839183"><span class="annot"><span class="annottext">DescribeDefaultAuthorizerResponse
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679839190"><span id="local-6989586621679839192"><span class="annot"><span class="annottext">DescribeDefaultAuthorizerResponse
 -&gt; DescribeDefaultAuthorizerResponse -&gt; Bool
 (DescribeDefaultAuthorizerResponse
  -&gt; DescribeDefaultAuthorizerResponse -&gt; Bool)
@@ -240,7 +240,7 @@ $c/= :: DescribeDefaultAuthorizerResponse
 -&gt; DescribeDefaultAuthorizerResponse -&gt; Bool
 $c== :: DescribeDefaultAuthorizerResponse
 -&gt; DescribeDefaultAuthorizerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839173"><span id="local-6989586621679839175"><span id="local-6989586621679839177"><span id="local-6989586621679839179"><span class="annot"><span class="annottext">ReadPrec [DescribeDefaultAuthorizerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839182"><span id="local-6989586621679839184"><span id="local-6989586621679839186"><span id="local-6989586621679839188"><span class="annot"><span class="annottext">ReadPrec [DescribeDefaultAuthorizerResponse]
 ReadPrec DescribeDefaultAuthorizerResponse
 Int -&gt; ReadS DescribeDefaultAuthorizerResponse
 ReadS [DescribeDefaultAuthorizerResponse]
@@ -260,7 +260,7 @@ readList :: ReadS [DescribeDefaultAuthorizerResponse]
 $creadList :: ReadS [DescribeDefaultAuthorizerResponse]
 readsPrec :: Int -&gt; ReadS DescribeDefaultAuthorizerResponse
 $creadsPrec :: Int -&gt; ReadS DescribeDefaultAuthorizerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839167"><span id="local-6989586621679839169"><span id="local-6989586621679839171"><span class="annot"><span class="annottext">Int -&gt; DescribeDefaultAuthorizerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839176"><span id="local-6989586621679839178"><span id="local-6989586621679839180"><span class="annot"><span class="annottext">Int -&gt; DescribeDefaultAuthorizerResponse -&gt; ShowS
 [DescribeDefaultAuthorizerResponse] -&gt; ShowS
 DescribeDefaultAuthorizerResponse -&gt; String
 (Int -&gt; DescribeDefaultAuthorizerResponse -&gt; ShowS)
@@ -314,8 +314,8 @@ DescribeDefaultAuthorizerResponse
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse</span></a></span><span>
 </span><span id="line-115"></span><span id="newDescribeDefaultAuthorizerResponse"><span class="annot"><span class="annottext">newDescribeDefaultAuthorizerResponse :: Int -&gt; DescribeDefaultAuthorizerResponse
-</span><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#newDescribeDefaultAuthorizerResponse"><span class="hs-identifier hs-var hs-var">newDescribeDefaultAuthorizerResponse</span></a></span></span><span> </span><span id="local-6989586621679839164"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679839164"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#newDescribeDefaultAuthorizerResponse"><span class="hs-identifier hs-var hs-var">newDescribeDefaultAuthorizerResponse</span></a></span></span><span> </span><span id="local-6989586621679839173"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679839173"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">DescribeDefaultAuthorizerResponse' :: Maybe AuthorizerDescription
 -&gt; Int -&gt; DescribeDefaultAuthorizerResponse
 </span><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse'</span></a></span><span>
@@ -326,7 +326,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDefaultAuthorizerResponse' :: Int
 </span><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#%24sel%3AhttpStatus%3ADescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679839164"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679839173"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The default authorizer\'s description.</span><span>
@@ -344,16 +344,16 @@ forall a. Maybe a
      (Maybe AuthorizerDescription)
      (Maybe AuthorizerDescription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839161"><span class="annot"><span class="annottext">Maybe AuthorizerDescription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839170"><span class="annot"><span class="annottext">Maybe AuthorizerDescription
 authorizerDescription :: Maybe AuthorizerDescription
 $sel:authorizerDescription:DescribeDefaultAuthorizerResponse' :: DescribeDefaultAuthorizerResponse -&gt; Maybe AuthorizerDescription
-</span><a href="#local-6989586621679839161"><span class="hs-identifier hs-var hs-var">authorizerDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizerDescription
-</span><a href="#local-6989586621679839161"><span class="hs-identifier hs-var">authorizerDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839160"><span class="annot"><span class="annottext">s :: DescribeDefaultAuthorizerResponse
-</span><a href="#local-6989586621679839160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839159"><span class="annot"><span class="annottext">Maybe AuthorizerDescription
-</span><a href="#local-6989586621679839159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDefaultAuthorizerResponse
-</span><a href="#local-6989586621679839160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerDescription:DescribeDefaultAuthorizerResponse' :: Maybe AuthorizerDescription
+</span><a href="#local-6989586621679839170"><span class="hs-identifier hs-var hs-var">authorizerDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizerDescription
+</span><a href="#local-6989586621679839170"><span class="hs-identifier hs-var">authorizerDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839169"><span class="annot"><span class="annottext">s :: DescribeDefaultAuthorizerResponse
+</span><a href="#local-6989586621679839169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839168"><span class="annot"><span class="annottext">Maybe AuthorizerDescription
+</span><a href="#local-6989586621679839168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDefaultAuthorizerResponse
+</span><a href="#local-6989586621679839169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerDescription:DescribeDefaultAuthorizerResponse' :: Maybe AuthorizerDescription
 </span><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#%24sel%3AauthorizerDescription%3ADescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-var">authorizerDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizerDescription
-</span><a href="#local-6989586621679839159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679839168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#describeDefaultAuthorizerResponse_httpStatus"><span class="hs-identifier hs-type">describeDefaultAuthorizerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -369,18 +369,18 @@ $sel:authorizerDescription:DescribeDefaultAuthorizerResponse' :: DescribeDefault
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839158"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839167"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeDefaultAuthorizerResponse' :: DescribeDefaultAuthorizerResponse -&gt; Int
-</span><a href="#local-6989586621679839158"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679839158"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839157"><span class="annot"><span class="annottext">s :: DescribeDefaultAuthorizerResponse
-</span><a href="#local-6989586621679839157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839156"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679839156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDefaultAuthorizerResponse
-</span><a href="#local-6989586621679839157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDefaultAuthorizerResponse' :: Int
+</span><a href="#local-6989586621679839167"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679839167"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839166"><span class="annot"><span class="annottext">s :: DescribeDefaultAuthorizerResponse
+</span><a href="#local-6989586621679839166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839165"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679839165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDefaultAuthorizerResponse
+</span><a href="#local-6989586621679839166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDefaultAuthorizerResponse' :: Int
 </span><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#%24sel%3AhttpStatus%3ADescribeDefaultAuthorizerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679839156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679839165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679839154"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679839163"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeDefaultAuthorizer.html#DescribeDefaultAuthorizerResponse"><span class="hs-identifier hs-type">DescribeDefaultAuthorizerResponse</span></a></span></span><span>
 </span><span id="line-133"></span></pre></body></html>

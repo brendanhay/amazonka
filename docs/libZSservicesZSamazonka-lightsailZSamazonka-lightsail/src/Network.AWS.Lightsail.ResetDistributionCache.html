@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newResetDistributionCache' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679632024"><span id="local-6989586621679632025"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetDistributionCache"><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache"><span class="hs-identifier hs-var">ResetDistributionCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetDistributionCache%27"><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache%27"><span class="hs-identifier hs-var">ResetDistributionCache'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679632033"><span id="local-6989586621679632034"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetDistributionCache"><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache"><span class="hs-identifier hs-var">ResetDistributionCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetDistributionCache%27"><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache%27"><span class="hs-identifier hs-var">ResetDistributionCache'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the distribution for which to reset cache.</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Use the @GetDistributions@ action to get a list of distribution names</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AdistributionName%3AResetDistributionCache%27"><span class="annot"><span class="annottext">ResetDistributionCache -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.ResetDistributionCache.html#%24sel%3AdistributionName%3AResetDistributionCache%27"><span class="hs-identifier hs-var hs-var">distributionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632018"><span id="local-6989586621679632020"><span class="annot"><span class="annottext">ResetDistributionCache -&gt; ResetDistributionCache -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632027"><span id="local-6989586621679632029"><span class="annot"><span class="annottext">ResetDistributionCache -&gt; ResetDistributionCache -&gt; Bool
 (ResetDistributionCache -&gt; ResetDistributionCache -&gt; Bool)
 -&gt; (ResetDistributionCache -&gt; ResetDistributionCache -&gt; Bool)
 -&gt; Eq ResetDistributionCache
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResetDistributionCache -&gt; ResetDistributionCache -&gt; Bool
 == :: ResetDistributionCache -&gt; ResetDistributionCache -&gt; Bool
 $c== :: ResetDistributionCache -&gt; ResetDistributionCache -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632009"><span id="local-6989586621679632011"><span id="local-6989586621679632013"><span id="local-6989586621679632015"><span class="annot"><span class="annottext">ReadPrec [ResetDistributionCache]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632018"><span id="local-6989586621679632020"><span id="local-6989586621679632022"><span id="local-6989586621679632024"><span class="annot"><span class="annottext">ReadPrec [ResetDistributionCache]
 ReadPrec ResetDistributionCache
 Int -&gt; ReadS ResetDistributionCache
 ReadS [ResetDistributionCache]
@@ -90,7 +90,7 @@ readList :: ReadS [ResetDistributionCache]
 $creadList :: ReadS [ResetDistributionCache]
 readsPrec :: Int -&gt; ReadS ResetDistributionCache
 $creadsPrec :: Int -&gt; ReadS ResetDistributionCache
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632002"><span id="local-6989586621679632004"><span id="local-6989586621679632006"><span class="annot"><span class="annottext">Int -&gt; ResetDistributionCache -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632011"><span id="local-6989586621679632013"><span id="local-6989586621679632015"><span class="annot"><span class="annottext">Int -&gt; ResetDistributionCache -&gt; ShowS
 [ResetDistributionCache] -&gt; ShowS
 ResetDistributionCache -&gt; String
 (Int -&gt; ResetDistributionCache -&gt; ShowS)
@@ -157,27 +157,27 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache%27"><span class="hs-identifier hs-type">ResetDistributionCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631995"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache%27"><span class="hs-identifier hs-type">ResetDistributionCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632004"><span class="annot"><span class="annottext">Maybe Text
 distributionName :: Maybe Text
 $sel:distributionName:ResetDistributionCache' :: ResetDistributionCache -&gt; Maybe Text
-</span><a href="#local-6989586621679631995"><span class="hs-identifier hs-var hs-var">distributionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679631995"><span class="hs-identifier hs-var">distributionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631994"><span class="annot"><span class="annottext">s :: ResetDistributionCache
-</span><a href="#local-6989586621679631994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache%27"><span class="hs-identifier hs-type">ResetDistributionCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631993"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679631993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDistributionCache
-</span><a href="#local-6989586621679631994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionName:ResetDistributionCache' :: Maybe Text
+</span><a href="#local-6989586621679632004"><span class="hs-identifier hs-var hs-var">distributionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679632004"><span class="hs-identifier hs-var">distributionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632003"><span class="annot"><span class="annottext">s :: ResetDistributionCache
+</span><a href="#local-6989586621679632003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache%27"><span class="hs-identifier hs-type">ResetDistributionCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632002"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679632002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDistributionCache
+</span><a href="#local-6989586621679632003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionName:ResetDistributionCache' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.ResetDistributionCache.html#%24sel%3AdistributionName%3AResetDistributionCache%27"><span class="hs-identifier hs-var">distributionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679631993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache"><span class="hs-identifier hs-type">ResetDistributionCache</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679632002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache"><span class="hs-identifier hs-type">ResetDistributionCache</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache"><span class="hs-identifier hs-type">ResetDistributionCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache"><span class="hs-identifier hs-type">ResetDistributionCache</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse"><span class="hs-identifier hs-type">ResetDistributionCacheResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679631989"><span class="annot"><span class="annottext">request :: ResetDistributionCache -&gt; Request ResetDistributionCache
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679631998"><span class="annot"><span class="annottext">request :: ResetDistributionCache -&gt; Request ResetDistributionCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ResetDistributionCache -&gt; Request ResetDistributionCache
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679631985"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679631994"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ResetDistributionCache
 -&gt; ClientResponse ClientBody
@@ -203,10 +203,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679631982"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631982"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679631981"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679631981"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679631980"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679631980"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679631991"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679631991"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679631990"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679631990"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679631989"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679631989"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Operation
 -&gt; Maybe POSIX
@@ -225,7 +225,7 @@ MonadResource m =&gt;
       -&gt; Maybe POSIX -&gt; Int -&gt; ResetDistributionCacheResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679631980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679631989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
@@ -238,7 +238,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe POSIX -&gt; Int -&gt; ResetDistributionCacheResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679631980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
+</span><a href="#local-6989586621679631989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operation&quot;</span></span><span class="hs-special">)</span><span>
@@ -248,7 +248,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ResetDistributionCacheResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679631980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679631989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;createTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -261,15 +261,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631982"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679631991"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679631972"><span id="local-6989586621679631974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache"><span class="hs-identifier hs-type">ResetDistributionCache</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679631981"><span id="local-6989586621679631983"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache"><span class="hs-identifier hs-type">ResetDistributionCache</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679631969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache"><span class="hs-identifier hs-type">ResetDistributionCache</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679631978"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache"><span class="hs-identifier hs-type">ResetDistributionCache</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache"><span class="hs-identifier hs-type">ResetDistributionCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679631965"><span class="annot"><span class="annottext">toHeaders :: ResetDistributionCache -&gt; ResponseHeaders
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679631974"><span class="annot"><span class="annottext">toHeaders :: ResetDistributionCache -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ResetDistributionCache -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -296,12 +296,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679631955"><span id="local-6989586621679631957"><span id="local-6989586621679631959"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache"><span class="hs-identifier hs-type">ResetDistributionCache</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679631953"><span class="annot"><span class="annottext">toJSON :: ResetDistributionCache -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache%27"><span class="hs-identifier hs-type">ResetDistributionCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631951"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679631964"><span id="local-6989586621679631966"><span id="local-6989586621679631968"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache"><span class="hs-identifier hs-type">ResetDistributionCache</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679631962"><span class="annot"><span class="annottext">toJSON :: ResetDistributionCache -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache%27"><span class="hs-identifier hs-type">ResetDistributionCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631960"><span class="annot"><span class="annottext">Maybe Text
 distributionName :: Maybe Text
 $sel:distributionName:ResetDistributionCache' :: ResetDistributionCache -&gt; Maybe Text
-</span><a href="#local-6989586621679631951"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679631960"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -314,19 +314,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679631951"><span class="hs-identifier hs-var">distributionName</span></a></span><span>
+</span><a href="#local-6989586621679631960"><span class="hs-identifier hs-var">distributionName</span></a></span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache"><span class="hs-identifier hs-type">ResetDistributionCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679631945"><span class="annot"><span class="annottext">toPath :: ResetDistributionCache -&gt; ByteString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679631954"><span class="annot"><span class="annottext">toPath :: ResetDistributionCache -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ResetDistributionCache -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCache"><span class="hs-identifier hs-type">ResetDistributionCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679631941"><span class="annot"><span class="annottext">toQuery :: ResetDistributionCache -&gt; QueryString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679631950"><span class="annot"><span class="annottext">toQuery :: ResetDistributionCache -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ResetDistributionCache -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -334,7 +334,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newResetDistributionCacheResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679631938"><span id="local-6989586621679631939"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetDistributionCacheResponse"><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse"><span class="hs-identifier hs-var">ResetDistributionCacheResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetDistributionCacheResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-var">ResetDistributionCacheResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679631947"><span id="local-6989586621679631948"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetDistributionCacheResponse"><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse"><span class="hs-identifier hs-var">ResetDistributionCacheResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetDistributionCacheResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-var">ResetDistributionCacheResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the reset cache request.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3Astatus%3AResetDistributionCacheResponse%27"><span class="annot"><span class="annottext">ResetDistributionCacheResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.ResetDistributionCache.html#%24sel%3Astatus%3AResetDistributionCacheResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -351,7 +351,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3AResetDistributionCacheResponse%27"><span class="annot"><span class="annottext">ResetDistributionCacheResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.ResetDistributionCache.html#%24sel%3AhttpStatus%3AResetDistributionCacheResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679631930"><span id="local-6989586621679631932"><span class="annot"><span class="annottext">ResetDistributionCacheResponse
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679631939"><span id="local-6989586621679631941"><span class="annot"><span class="annottext">ResetDistributionCacheResponse
 -&gt; ResetDistributionCacheResponse -&gt; Bool
 (ResetDistributionCacheResponse
  -&gt; ResetDistributionCacheResponse -&gt; Bool)
@@ -367,7 +367,7 @@ $c/= :: ResetDistributionCacheResponse
 -&gt; ResetDistributionCacheResponse -&gt; Bool
 $c== :: ResetDistributionCacheResponse
 -&gt; ResetDistributionCacheResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631922"><span id="local-6989586621679631924"><span id="local-6989586621679631926"><span id="local-6989586621679631928"><span class="annot"><span class="annottext">ReadPrec [ResetDistributionCacheResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631931"><span id="local-6989586621679631933"><span id="local-6989586621679631935"><span id="local-6989586621679631937"><span class="annot"><span class="annottext">ReadPrec [ResetDistributionCacheResponse]
 ReadPrec ResetDistributionCacheResponse
 Int -&gt; ReadS ResetDistributionCacheResponse
 ReadS [ResetDistributionCacheResponse]
@@ -387,7 +387,7 @@ readList :: ReadS [ResetDistributionCacheResponse]
 $creadList :: ReadS [ResetDistributionCacheResponse]
 readsPrec :: Int -&gt; ReadS ResetDistributionCacheResponse
 $creadsPrec :: Int -&gt; ReadS ResetDistributionCacheResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631916"><span id="local-6989586621679631918"><span id="local-6989586621679631920"><span class="annot"><span class="annottext">Int -&gt; ResetDistributionCacheResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631925"><span id="local-6989586621679631927"><span id="local-6989586621679631929"><span class="annot"><span class="annottext">Int -&gt; ResetDistributionCacheResponse -&gt; ShowS
 [ResetDistributionCacheResponse] -&gt; ShowS
 ResetDistributionCacheResponse -&gt; String
 (Int -&gt; ResetDistributionCacheResponse -&gt; ShowS)
@@ -448,8 +448,8 @@ ResetDistributionCacheResponse
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse"><span class="hs-identifier hs-type">ResetDistributionCacheResponse</span></a></span><span>
 </span><span id="line-179"></span><span id="newResetDistributionCacheResponse"><span class="annot"><span class="annottext">newResetDistributionCacheResponse :: Int -&gt; ResetDistributionCacheResponse
-</span><a href="Network.AWS.Lightsail.ResetDistributionCache.html#newResetDistributionCacheResponse"><span class="hs-identifier hs-var hs-var">newResetDistributionCacheResponse</span></a></span></span><span> </span><span id="local-6989586621679631913"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631913"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.ResetDistributionCache.html#newResetDistributionCacheResponse"><span class="hs-identifier hs-var hs-var">newResetDistributionCacheResponse</span></a></span></span><span> </span><span id="local-6989586621679631922"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679631922"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">ResetDistributionCacheResponse' :: Maybe Text
 -&gt; Maybe Operation
 -&gt; Maybe POSIX
@@ -471,7 +471,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ResetDistributionCacheResponse' :: Int
 </span><a href="Network.AWS.Lightsail.ResetDistributionCache.html#%24sel%3AhttpStatus%3AResetDistributionCacheResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631913"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679631922"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The status of the reset cache request.</span><span>
@@ -488,16 +488,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-type">ResetDistributionCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631912"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-type">ResetDistributionCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631921"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:ResetDistributionCacheResponse' :: ResetDistributionCacheResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679631912"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679631912"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631911"><span class="annot"><span class="annottext">s :: ResetDistributionCacheResponse
-</span><a href="#local-6989586621679631911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-type">ResetDistributionCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631910"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679631910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDistributionCacheResponse
-</span><a href="#local-6989586621679631911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ResetDistributionCacheResponse' :: Maybe Text
+</span><a href="#local-6989586621679631921"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679631921"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631920"><span class="annot"><span class="annottext">s :: ResetDistributionCacheResponse
+</span><a href="#local-6989586621679631920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-type">ResetDistributionCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631919"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679631919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDistributionCacheResponse
+</span><a href="#local-6989586621679631920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ResetDistributionCacheResponse' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.ResetDistributionCache.html#%24sel%3Astatus%3AResetDistributionCacheResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679631910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse"><span class="hs-identifier hs-type">ResetDistributionCacheResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679631919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse"><span class="hs-identifier hs-type">ResetDistributionCacheResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
@@ -515,16 +515,16 @@ $sel:status:ResetDistributionCacheResponse' :: ResetDistributionCacheResponse -&
      (Maybe Operation)
      (Maybe Operation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-type">ResetDistributionCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631909"><span class="annot"><span class="annottext">Maybe Operation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-type">ResetDistributionCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631918"><span class="annot"><span class="annottext">Maybe Operation
 operation :: Maybe Operation
 $sel:operation:ResetDistributionCacheResponse' :: ResetDistributionCacheResponse -&gt; Maybe Operation
-</span><a href="#local-6989586621679631909"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679631909"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631908"><span class="annot"><span class="annottext">s :: ResetDistributionCacheResponse
-</span><a href="#local-6989586621679631908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-type">ResetDistributionCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631907"><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679631907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDistributionCacheResponse
-</span><a href="#local-6989586621679631908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:ResetDistributionCacheResponse' :: Maybe Operation
+</span><a href="#local-6989586621679631918"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679631918"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631917"><span class="annot"><span class="annottext">s :: ResetDistributionCacheResponse
+</span><a href="#local-6989586621679631917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-type">ResetDistributionCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631916"><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679631916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDistributionCacheResponse
+</span><a href="#local-6989586621679631917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:ResetDistributionCacheResponse' :: Maybe Operation
 </span><a href="Network.AWS.Lightsail.ResetDistributionCache.html#%24sel%3Aoperation%3AResetDistributionCacheResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679631907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse"><span class="hs-identifier hs-type">ResetDistributionCacheResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679631916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse"><span class="hs-identifier hs-type">ResetDistributionCacheResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The timestamp of the reset cache request (e.g., @1479734909.17@) in Unix</span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- time format.</span><span>
@@ -541,16 +541,16 @@ $sel:operation:ResetDistributionCacheResponse' :: ResetDistributionCacheResponse
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-type">ResetDistributionCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631906"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-type">ResetDistributionCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631915"><span class="annot"><span class="annottext">Maybe POSIX
 createTime :: Maybe POSIX
 $sel:createTime:ResetDistributionCacheResponse' :: ResetDistributionCacheResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679631906"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679631906"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631905"><span class="annot"><span class="annottext">s :: ResetDistributionCacheResponse
-</span><a href="#local-6989586621679631905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-type">ResetDistributionCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631904"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679631904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDistributionCacheResponse
-</span><a href="#local-6989586621679631905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:ResetDistributionCacheResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679631915"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679631915"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631914"><span class="annot"><span class="annottext">s :: ResetDistributionCacheResponse
+</span><a href="#local-6989586621679631914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-type">ResetDistributionCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631913"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679631913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDistributionCacheResponse
+</span><a href="#local-6989586621679631914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:ResetDistributionCacheResponse' :: Maybe POSIX
 </span><a href="Network.AWS.Lightsail.ResetDistributionCache.html#%24sel%3AcreateTime%3AResetDistributionCacheResponse%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679631904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse"><span class="hs-identifier hs-type">ResetDistributionCacheResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679631913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse"><span class="hs-identifier hs-type">ResetDistributionCacheResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ResetDistributionCacheResponse
  -&gt; f ResetDistributionCacheResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -582,18 +582,18 @@ forall (a :: Format). Iso' (Time a) UTCTime
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-type">ResetDistributionCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631900"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-type">ResetDistributionCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631909"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ResetDistributionCacheResponse' :: ResetDistributionCacheResponse -&gt; Int
-</span><a href="#local-6989586621679631900"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631900"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631899"><span class="annot"><span class="annottext">s :: ResetDistributionCacheResponse
-</span><a href="#local-6989586621679631899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-type">ResetDistributionCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631898"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDistributionCacheResponse
-</span><a href="#local-6989586621679631899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ResetDistributionCacheResponse' :: Int
+</span><a href="#local-6989586621679631909"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679631909"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631908"><span class="annot"><span class="annottext">s :: ResetDistributionCacheResponse
+</span><a href="#local-6989586621679631908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse%27"><span class="hs-identifier hs-type">ResetDistributionCacheResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631907"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679631907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDistributionCacheResponse
+</span><a href="#local-6989586621679631908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ResetDistributionCacheResponse' :: Int
 </span><a href="Network.AWS.Lightsail.ResetDistributionCache.html#%24sel%3AhttpStatus%3AResetDistributionCacheResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse"><span class="hs-identifier hs-type">ResetDistributionCacheResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679631907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse"><span class="hs-identifier hs-type">ResetDistributionCacheResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679631896"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679631905"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.ResetDistributionCache.html#ResetDistributionCacheResponse"><span class="hs-identifier hs-type">ResetDistributionCacheResponse</span></a></span></span><span>
 </span><span id="line-210"></span></pre></body></html>

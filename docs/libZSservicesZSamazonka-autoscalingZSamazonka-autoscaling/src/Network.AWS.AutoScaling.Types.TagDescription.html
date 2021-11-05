@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes a tag for an Auto Scaling group.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTagDescription' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679333378"><span id="local-6989586621679333379"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagDescription"><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-var">TagDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagDescription%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-var">TagDescription'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679333387"><span id="local-6989586621679333388"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagDescription"><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-var">TagDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagDescription%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-var">TagDescription'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the group.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AresourceId%3ATagDescription%27"><span class="annot"><span class="annottext">TagDescription -&gt; Text
 </span><a href="Network.AWS.AutoScaling.Types.TagDescription.html#%24sel%3AresourceId%3ATagDescription%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Avalue%3ATagDescription%27"><span class="annot"><span class="annottext">TagDescription -&gt; Text
 </span><a href="Network.AWS.AutoScaling.Types.TagDescription.html#%24sel%3Avalue%3ATagDescription%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333368"><span id="local-6989586621679333370"><span class="annot"><span class="annottext">TagDescription -&gt; TagDescription -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333377"><span id="local-6989586621679333379"><span class="annot"><span class="annottext">TagDescription -&gt; TagDescription -&gt; Bool
 (TagDescription -&gt; TagDescription -&gt; Bool)
 -&gt; (TagDescription -&gt; TagDescription -&gt; Bool) -&gt; Eq TagDescription
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagDescription -&gt; TagDescription -&gt; Bool
 == :: TagDescription -&gt; TagDescription -&gt; Bool
 $c== :: TagDescription -&gt; TagDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333359"><span id="local-6989586621679333361"><span id="local-6989586621679333363"><span id="local-6989586621679333365"><span class="annot"><span class="annottext">ReadPrec [TagDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333368"><span id="local-6989586621679333370"><span id="local-6989586621679333372"><span id="local-6989586621679333374"><span class="annot"><span class="annottext">ReadPrec [TagDescription]
 ReadPrec TagDescription
 Int -&gt; ReadS TagDescription
 ReadS [TagDescription]
@@ -72,7 +72,7 @@ readList :: ReadS [TagDescription]
 $creadList :: ReadS [TagDescription]
 readsPrec :: Int -&gt; ReadS TagDescription
 $creadsPrec :: Int -&gt; ReadS TagDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333352"><span id="local-6989586621679333354"><span id="local-6989586621679333356"><span class="annot"><span class="annottext">Int -&gt; TagDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333361"><span id="local-6989586621679333363"><span id="local-6989586621679333365"><span class="annot"><span class="annottext">Int -&gt; TagDescription -&gt; ShowS
 [TagDescription] -&gt; ShowS
 TagDescription -&gt; String
 (Int -&gt; TagDescription -&gt; ShowS)
@@ -130,33 +130,33 @@ $cfrom :: forall x. TagDescription -&gt; Rep TagDescription x
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span>
 </span><span id="line-74"></span><span id="newTagDescription"><span class="annot"><span class="annottext">newTagDescription :: Text -&gt; Text -&gt; Text -&gt; Bool -&gt; Text -&gt; TagDescription
 </span><a href="Network.AWS.AutoScaling.Types.TagDescription.html#newTagDescription"><span class="hs-identifier hs-var hs-var">newTagDescription</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679333346"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333346"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679333345"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333345"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679333344"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333344"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679333343"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679333343"><span class="hs-identifier hs-var">pPropagateAtLaunch_</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679333342"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333342"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679333355"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333355"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679333354"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333354"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679333353"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333353"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679333352"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679333352"><span class="hs-identifier hs-var">pPropagateAtLaunch_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679333351"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333351"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">TagDescription' :: Text -&gt; Text -&gt; Text -&gt; Bool -&gt; Text -&gt; TagDescription
 </span><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceId:TagDescription' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.TagDescription.html#%24sel%3AresourceId%3ATagDescription%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333346"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679333355"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceType:TagDescription' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.TagDescription.html#%24sel%3AresourceType%3ATagDescription%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333345"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679333354"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:key:TagDescription' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.TagDescription.html#%24sel%3Akey%3ATagDescription%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333344"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679333353"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:propagateAtLaunch:TagDescription' :: Bool
 </span><a href="Network.AWS.AutoScaling.Types.TagDescription.html#%24sel%3ApropagateAtLaunch%3ATagDescription%27"><span class="hs-identifier hs-var">propagateAtLaunch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679333343"><span class="hs-identifier hs-var">pPropagateAtLaunch_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679333352"><span class="hs-identifier hs-var">pPropagateAtLaunch_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:value:TagDescription' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.TagDescription.html#%24sel%3Avalue%3ATagDescription%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333342"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
+</span><a href="#local-6989586621679333351"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The name of the group.</span><span>
@@ -166,16 +166,16 @@ $cfrom :: forall x. TagDescription -&gt; Rep TagDescription x
 -&gt; (TagDescription -&gt; Text -&gt; TagDescription)
 -&gt; Lens TagDescription TagDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333338"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333347"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:TagDescription' :: TagDescription -&gt; Text
-</span><a href="#local-6989586621679333338"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333338"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333337"><span class="annot"><span class="annottext">s :: TagDescription
-</span><a href="#local-6989586621679333337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333336"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDescription
-</span><a href="#local-6989586621679333337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:TagDescription' :: Text
+</span><a href="#local-6989586621679333347"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333347"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333346"><span class="annot"><span class="annottext">s :: TagDescription
+</span><a href="#local-6989586621679333346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333345"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDescription
+</span><a href="#local-6989586621679333346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:TagDescription' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.TagDescription.html#%24sel%3AresourceId%3ATagDescription%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679333345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The type of resource. The only supported value is @auto-scaling-group@.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#tagDescription_resourceType"><span class="hs-identifier hs-type">tagDescription_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -184,16 +184,16 @@ $sel:resourceId:TagDescription' :: TagDescription -&gt; Text
 -&gt; (TagDescription -&gt; Text -&gt; TagDescription)
 -&gt; Lens TagDescription TagDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333334"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333343"><span class="annot"><span class="annottext">Text
 resourceType :: Text
 $sel:resourceType:TagDescription' :: TagDescription -&gt; Text
-</span><a href="#local-6989586621679333334"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333334"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333333"><span class="annot"><span class="annottext">s :: TagDescription
-</span><a href="#local-6989586621679333333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333332"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDescription
-</span><a href="#local-6989586621679333333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:TagDescription' :: Text
+</span><a href="#local-6989586621679333343"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333343"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333342"><span class="annot"><span class="annottext">s :: TagDescription
+</span><a href="#local-6989586621679333342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333341"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDescription
+</span><a href="#local-6989586621679333342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:TagDescription' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.TagDescription.html#%24sel%3AresourceType%3ATagDescription%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679333341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The tag key.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#tagDescription_key"><span class="hs-identifier hs-type">tagDescription_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -202,16 +202,16 @@ $sel:resourceType:TagDescription' :: TagDescription -&gt; Text
 -&gt; (TagDescription -&gt; Text -&gt; TagDescription)
 -&gt; Lens TagDescription TagDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333330"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333339"><span class="annot"><span class="annottext">Text
 key :: Text
 $sel:key:TagDescription' :: TagDescription -&gt; Text
-</span><a href="#local-6989586621679333330"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333330"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333329"><span class="annot"><span class="annottext">s :: TagDescription
-</span><a href="#local-6989586621679333329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333328"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDescription
-</span><a href="#local-6989586621679333329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:TagDescription' :: Text
+</span><a href="#local-6989586621679333339"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333339"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333338"><span class="annot"><span class="annottext">s :: TagDescription
+</span><a href="#local-6989586621679333338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333337"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDescription
+</span><a href="#local-6989586621679333338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:TagDescription' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.TagDescription.html#%24sel%3Akey%3ATagDescription%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679333337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | Determines whether the tag is added to new instances as they are</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- launched in the group.</span><span>
@@ -221,16 +221,16 @@ $sel:key:TagDescription' :: TagDescription -&gt; Text
 -&gt; (TagDescription -&gt; Bool -&gt; TagDescription)
 -&gt; Lens TagDescription TagDescription Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333326"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333335"><span class="annot"><span class="annottext">Bool
 propagateAtLaunch :: Bool
 $sel:propagateAtLaunch:TagDescription' :: TagDescription -&gt; Bool
-</span><a href="#local-6989586621679333326"><span class="hs-identifier hs-var hs-var">propagateAtLaunch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679333326"><span class="hs-identifier hs-var">propagateAtLaunch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333325"><span class="annot"><span class="annottext">s :: TagDescription
-</span><a href="#local-6989586621679333325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333324"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679333324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDescription
-</span><a href="#local-6989586621679333325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propagateAtLaunch:TagDescription' :: Bool
+</span><a href="#local-6989586621679333335"><span class="hs-identifier hs-var hs-var">propagateAtLaunch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679333335"><span class="hs-identifier hs-var">propagateAtLaunch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333334"><span class="annot"><span class="annottext">s :: TagDescription
+</span><a href="#local-6989586621679333334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333333"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679333333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDescription
+</span><a href="#local-6989586621679333334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propagateAtLaunch:TagDescription' :: Bool
 </span><a href="Network.AWS.AutoScaling.Types.TagDescription.html#%24sel%3ApropagateAtLaunch%3ATagDescription%27"><span class="hs-identifier hs-var">propagateAtLaunch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679333324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679333333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The tag value.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#tagDescription_value"><span class="hs-identifier hs-type">tagDescription_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -239,21 +239,21 @@ $sel:propagateAtLaunch:TagDescription' :: TagDescription -&gt; Bool
 -&gt; (TagDescription -&gt; Text -&gt; TagDescription)
 -&gt; Lens TagDescription TagDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333322"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333331"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:TagDescription' :: TagDescription -&gt; Text
-</span><a href="#local-6989586621679333322"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333322"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333321"><span class="annot"><span class="annottext">s :: TagDescription
-</span><a href="#local-6989586621679333321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333320"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDescription
-</span><a href="#local-6989586621679333321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:TagDescription' :: Text
+</span><a href="#local-6989586621679333331"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333331"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333330"><span class="annot"><span class="annottext">s :: TagDescription
+</span><a href="#local-6989586621679333330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333329"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDescription
+</span><a href="#local-6989586621679333330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:TagDescription' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.TagDescription.html#%24sel%3Avalue%3ATagDescription%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679333320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679333329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679333317"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TagDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679333315"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679333315"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679333326"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TagDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679333324"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679333324"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text -&gt; Bool -&gt; Text -&gt; TagDescription
 </span><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-var">TagDescription'</span></a></span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Text -&gt; Bool -&gt; Text -&gt; TagDescription)
@@ -261,7 +261,7 @@ $sel:value:TagDescription' :: TagDescription -&gt; Text
 -&gt; Either String (Text -&gt; Text -&gt; Bool -&gt; Text -&gt; TagDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679333315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679333324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -270,7 +270,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; Bool -&gt; Text -&gt; TagDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679333315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679333324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
@@ -279,7 +279,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Bool -&gt; Text -&gt; TagDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679333315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679333324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
@@ -287,7 +287,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Bool -&gt; Either String (Text -&gt; TagDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679333315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+</span><a href="#local-6989586621679333324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PropagateAtLaunch&quot;</span></span><span class="hs-special">)</span><span>
@@ -295,12 +295,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String TagDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679333315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679333324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333309"><span id="local-6989586621679333311"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333318"><span id="local-6989586621679333320"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span></span><span>
 </span><span id="line-121"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The dimension of a metric.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMetricDimension' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679790198"><span id="local-6989586621679790199"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricDimension"><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-var">MetricDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricDimension%27"><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-var">MetricDimension'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679790207"><span id="local-6989586621679790208"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricDimension"><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-var">MetricDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricDimension%27"><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-var">MetricDimension'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Defines how the @dimensionValues@ of a dimension are interpreted. For</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- example, for dimension type TOPIC_FILTER, the @IN@ operator, a message</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- will be counted only if its topic matches one of the topic filters. With</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AdimensionName%3AMetricDimension%27"><span class="annot"><span class="annottext">MetricDimension -&gt; Text
 </span><a href="Network.AWS.IoT.Types.MetricDimension.html#%24sel%3AdimensionName%3AMetricDimension%27"><span class="hs-identifier hs-var hs-var">dimensionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679790191"><span id="local-6989586621679790193"><span class="annot"><span class="annottext">MetricDimension -&gt; MetricDimension -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679790200"><span id="local-6989586621679790202"><span class="annot"><span class="annottext">MetricDimension -&gt; MetricDimension -&gt; Bool
 (MetricDimension -&gt; MetricDimension -&gt; Bool)
 -&gt; (MetricDimension -&gt; MetricDimension -&gt; Bool)
 -&gt; Eq MetricDimension
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetricDimension -&gt; MetricDimension -&gt; Bool
 == :: MetricDimension -&gt; MetricDimension -&gt; Bool
 $c== :: MetricDimension -&gt; MetricDimension -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790182"><span id="local-6989586621679790184"><span id="local-6989586621679790186"><span id="local-6989586621679790188"><span class="annot"><span class="annottext">ReadPrec [MetricDimension]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790191"><span id="local-6989586621679790193"><span id="local-6989586621679790195"><span id="local-6989586621679790197"><span class="annot"><span class="annottext">ReadPrec [MetricDimension]
 ReadPrec MetricDimension
 Int -&gt; ReadS MetricDimension
 ReadS [MetricDimension]
@@ -69,7 +69,7 @@ readList :: ReadS [MetricDimension]
 $creadList :: ReadS [MetricDimension]
 readsPrec :: Int -&gt; ReadS MetricDimension
 $creadsPrec :: Int -&gt; ReadS MetricDimension
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790175"><span id="local-6989586621679790177"><span id="local-6989586621679790179"><span class="annot"><span class="annottext">Int -&gt; MetricDimension -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790184"><span id="local-6989586621679790186"><span id="local-6989586621679790188"><span class="annot"><span class="annottext">Int -&gt; MetricDimension -&gt; ShowS
 [MetricDimension] -&gt; ShowS
 MetricDimension -&gt; String
 (Int -&gt; MetricDimension -&gt; ShowS)
@@ -116,8 +116,8 @@ $cfrom :: forall x. MetricDimension -&gt; Rep MetricDimension x
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span>
 </span><span id="line-63"></span><span id="newMetricDimension"><span class="annot"><span class="annottext">newMetricDimension :: Text -&gt; MetricDimension
-</span><a href="Network.AWS.IoT.Types.MetricDimension.html#newMetricDimension"><span class="hs-identifier hs-var hs-var">newMetricDimension</span></a></span></span><span> </span><span id="local-6989586621679790169"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790169"><span class="hs-identifier hs-var">pDimensionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.MetricDimension.html#newMetricDimension"><span class="hs-identifier hs-var hs-var">newMetricDimension</span></a></span></span><span> </span><span id="local-6989586621679790178"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679790178"><span class="hs-identifier hs-var">pDimensionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">MetricDimension' :: Maybe DimensionValueOperator -&gt; Text -&gt; MetricDimension
 </span><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operator:MetricDimension' :: Maybe DimensionValueOperator
@@ -126,7 +126,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:dimensionName:MetricDimension' :: Text
 </span><a href="Network.AWS.IoT.Types.MetricDimension.html#%24sel%3AdimensionName%3AMetricDimension%27"><span class="hs-identifier hs-var">dimensionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790169"><span class="hs-identifier hs-var">pDimensionName_</span></a></span><span>
+</span><a href="#local-6989586621679790178"><span class="hs-identifier hs-var">pDimensionName_</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | Defines how the @dimensionValues@ of a dimension are interpreted. For</span><span>
@@ -147,16 +147,16 @@ forall a. Maybe a
      (Maybe DimensionValueOperator)
      (Maybe DimensionValueOperator)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790165"><span class="annot"><span class="annottext">Maybe DimensionValueOperator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790174"><span class="annot"><span class="annottext">Maybe DimensionValueOperator
 operator :: Maybe DimensionValueOperator
 $sel:operator:MetricDimension' :: MetricDimension -&gt; Maybe DimensionValueOperator
-</span><a href="#local-6989586621679790165"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DimensionValueOperator
-</span><a href="#local-6989586621679790165"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790164"><span class="annot"><span class="annottext">s :: MetricDimension
-</span><a href="#local-6989586621679790164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790163"><span class="annot"><span class="annottext">Maybe DimensionValueOperator
-</span><a href="#local-6989586621679790163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDimension
-</span><a href="#local-6989586621679790164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operator:MetricDimension' :: Maybe DimensionValueOperator
+</span><a href="#local-6989586621679790174"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DimensionValueOperator
+</span><a href="#local-6989586621679790174"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790173"><span class="annot"><span class="annottext">s :: MetricDimension
+</span><a href="#local-6989586621679790173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790172"><span class="annot"><span class="annottext">Maybe DimensionValueOperator
+</span><a href="#local-6989586621679790172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDimension
+</span><a href="#local-6989586621679790173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operator:MetricDimension' :: Maybe DimensionValueOperator
 </span><a href="Network.AWS.IoT.Types.MetricDimension.html#%24sel%3Aoperator%3AMetricDimension%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DimensionValueOperator
-</span><a href="#local-6989586621679790163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679790172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | A unique identifier for the dimension.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#metricDimension_dimensionName"><span class="hs-identifier hs-type">metricDimension_dimensionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -165,19 +165,19 @@ $sel:operator:MetricDimension' :: MetricDimension -&gt; Maybe DimensionValueOper
 -&gt; (MetricDimension -&gt; Text -&gt; MetricDimension)
 -&gt; Lens MetricDimension MetricDimension Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790161"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790170"><span class="annot"><span class="annottext">Text
 dimensionName :: Text
 $sel:dimensionName:MetricDimension' :: MetricDimension -&gt; Text
-</span><a href="#local-6989586621679790161"><span class="hs-identifier hs-var hs-var">dimensionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790161"><span class="hs-identifier hs-var">dimensionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790160"><span class="annot"><span class="annottext">s :: MetricDimension
-</span><a href="#local-6989586621679790160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790159"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDimension
-</span><a href="#local-6989586621679790160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensionName:MetricDimension' :: Text
+</span><a href="#local-6989586621679790170"><span class="hs-identifier hs-var hs-var">dimensionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679790170"><span class="hs-identifier hs-var">dimensionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790169"><span class="annot"><span class="annottext">s :: MetricDimension
+</span><a href="#local-6989586621679790169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790168"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679790168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDimension
+</span><a href="#local-6989586621679790169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensionName:MetricDimension' :: Text
 </span><a href="Network.AWS.IoT.Types.MetricDimension.html#%24sel%3AdimensionName%3AMetricDimension%27"><span class="hs-identifier hs-var">dimensionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679790168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790156"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679790154"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricDimension
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790165"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679790163"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricDimension
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MetricDimension)
@@ -187,8 +187,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MetricDimension&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679790151"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790151"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679790160"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790160"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe DimensionValueOperator -&gt; Text -&gt; MetricDimension
 </span><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-var">MetricDimension'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DimensionValueOperator -&gt; Text -&gt; MetricDimension)
@@ -196,7 +196,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; MetricDimension)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DimensionValueOperator)
+</span><a href="#local-6989586621679790160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DimensionValueOperator)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operator&quot;</span></span><span class="hs-special">)</span><span>
@@ -204,25 +204,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser MetricDimension
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679790160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dimensionName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790144"><span id="local-6989586621679790146"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790153"><span id="local-6989586621679790155"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790133"><span id="local-6989586621679790135"><span id="local-6989586621679790137"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679790131"><span class="annot"><span class="annottext">toJSON :: MetricDimension -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790128"><span id="local-6989586621679790129"><span class="annot"><span class="annottext">Maybe DimensionValueOperator
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790142"><span id="local-6989586621679790144"><span id="local-6989586621679790146"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679790140"><span class="annot"><span class="annottext">toJSON :: MetricDimension -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension%27"><span class="hs-identifier hs-type">MetricDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790137"><span id="local-6989586621679790138"><span class="annot"><span class="annottext">Maybe DimensionValueOperator
 Text
 dimensionName :: Text
 operator :: Maybe DimensionValueOperator
 $sel:dimensionName:MetricDimension' :: MetricDimension -&gt; Text
 $sel:operator:MetricDimension' :: MetricDimension -&gt; Maybe DimensionValueOperator
-</span><a href="#local-6989586621679790128"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679790137"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -235,7 +235,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DimensionValueOperator -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DimensionValueOperator
-</span><a href="#local-6989586621679790129"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679790138"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -243,7 +243,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;dimensionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790128"><span class="hs-identifier hs-var">dimensionName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679790137"><span class="hs-identifier hs-var">dimensionName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

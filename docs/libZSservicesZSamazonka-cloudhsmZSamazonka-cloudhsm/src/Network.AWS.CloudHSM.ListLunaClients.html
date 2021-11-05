@@ -69,13 +69,13 @@
 </span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | /See:/ 'newListLunaClients' smart constructor.</span><span>
-</span><span id="line-72"></span><span id="local-6989586621679175986"><span id="local-6989586621679175987"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLunaClients"><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients"><span class="hs-identifier hs-var">ListLunaClients</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLunaClients%27"><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients%27"><span class="hs-identifier hs-var">ListLunaClients'</span></a></span></span><span>
+</span><span id="line-72"></span><span id="local-6989586621679175995"><span id="local-6989586621679175996"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLunaClients"><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients"><span class="hs-identifier hs-var">ListLunaClients</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLunaClients%27"><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients%27"><span class="hs-identifier hs-var">ListLunaClients'</span></a></span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @NextToken@ value from a previous call to @ListLunaClients@. Pass</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- null if this is the first call.</span><span>
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AnextToken%3AListLunaClients%27"><span class="annot"><span class="annottext">ListLunaClients -&gt; Maybe Text
 </span><a href="Network.AWS.CloudHSM.ListLunaClients.html#%24sel%3AnextToken%3AListLunaClients%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175980"><span id="local-6989586621679175982"><span class="annot"><span class="annottext">ListLunaClients -&gt; ListLunaClients -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175989"><span id="local-6989586621679175991"><span class="annot"><span class="annottext">ListLunaClients -&gt; ListLunaClients -&gt; Bool
 (ListLunaClients -&gt; ListLunaClients -&gt; Bool)
 -&gt; (ListLunaClients -&gt; ListLunaClients -&gt; Bool)
 -&gt; Eq ListLunaClients
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListLunaClients -&gt; ListLunaClients -&gt; Bool
 == :: ListLunaClients -&gt; ListLunaClients -&gt; Bool
 $c== :: ListLunaClients -&gt; ListLunaClients -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175971"><span id="local-6989586621679175973"><span id="local-6989586621679175975"><span id="local-6989586621679175977"><span class="annot"><span class="annottext">ReadPrec [ListLunaClients]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175980"><span id="local-6989586621679175982"><span id="local-6989586621679175984"><span id="local-6989586621679175986"><span class="annot"><span class="annottext">ReadPrec [ListLunaClients]
 ReadPrec ListLunaClients
 Int -&gt; ReadS ListLunaClients
 ReadS [ListLunaClients]
@@ -104,7 +104,7 @@ readList :: ReadS [ListLunaClients]
 $creadList :: ReadS [ListLunaClients]
 readsPrec :: Int -&gt; ReadS ListLunaClients
 $creadsPrec :: Int -&gt; ReadS ListLunaClients
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175964"><span id="local-6989586621679175966"><span id="local-6989586621679175968"><span class="annot"><span class="annottext">Int -&gt; ListLunaClients -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175973"><span id="local-6989586621679175975"><span id="local-6989586621679175977"><span class="annot"><span class="annottext">Int -&gt; ListLunaClients -&gt; ShowS
 [ListLunaClients] -&gt; ShowS
 ListLunaClients -&gt; String
 (Int -&gt; ListLunaClients -&gt; ShowS)
@@ -159,29 +159,29 @@ forall a. Maybe a
 -&gt; (ListLunaClients -&gt; Maybe Text -&gt; ListLunaClients)
 -&gt; Lens ListLunaClients ListLunaClients (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients%27"><span class="hs-identifier hs-type">ListLunaClients'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175958"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients%27"><span class="hs-identifier hs-type">ListLunaClients'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175967"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListLunaClients' :: ListLunaClients -&gt; Maybe Text
-</span><a href="#local-6989586621679175958"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175958"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175957"><span class="annot"><span class="annottext">s :: ListLunaClients
-</span><a href="#local-6989586621679175957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients%27"><span class="hs-identifier hs-type">ListLunaClients'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175956"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLunaClients
-</span><a href="#local-6989586621679175957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLunaClients' :: Maybe Text
+</span><a href="#local-6989586621679175967"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175967"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175966"><span class="annot"><span class="annottext">s :: ListLunaClients
+</span><a href="#local-6989586621679175966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients%27"><span class="hs-identifier hs-type">ListLunaClients'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175965"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLunaClients
+</span><a href="#local-6989586621679175966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLunaClients' :: Maybe Text
 </span><a href="Network.AWS.CloudHSM.ListLunaClients.html#%24sel%3AnextToken%3AListLunaClients%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients"><span class="hs-identifier hs-type">ListLunaClients</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients"><span class="hs-identifier hs-type">ListLunaClients</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients"><span class="hs-identifier hs-type">ListLunaClients</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679175952"><span class="annot"><span class="annottext">page :: ListLunaClients
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679175961"><span class="annot"><span class="annottext">page :: ListLunaClients
 -&gt; AWSResponse ListLunaClients -&gt; Maybe ListLunaClients
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679175950"><span class="annot"><span class="annottext">ListLunaClients
-</span><a href="#local-6989586621679175950"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679175949"><span class="annot"><span class="annottext">AWSResponse ListLunaClients
-</span><a href="#local-6989586621679175949"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679175959"><span class="annot"><span class="annottext">ListLunaClients
+</span><a href="#local-6989586621679175959"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679175958"><span class="annot"><span class="annottext">AWSResponse ListLunaClients
+</span><a href="#local-6989586621679175958"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-102"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListLunaClients
 ListLunaClientsResponse
-</span><a href="#local-6989586621679175949"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679175958"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">ListLunaClientsResponse
 -&gt; Getting (First Text) ListLunaClientsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -210,7 +210,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-108"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse ListLunaClients
 ListLunaClientsResponse
-</span><a href="#local-6989586621679175949"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListLunaClientsResponse
+</span><a href="#local-6989586621679175958"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListLunaClientsResponse
 -&gt; Getting [Text] ListLunaClientsResponse [Text] -&gt; [Text]
 forall s a. s -&gt; Getting a s a -&gt; a
 </span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting [Text] ListLunaClientsResponse [Text]
@@ -228,7 +228,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">ListLunaClients
-</span><a href="#local-6989586621679175950"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679175959"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">ListLunaClients
 -&gt; (ListLunaClients -&gt; ListLunaClients) -&gt; ListLunaClients
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -242,7 +242,7 @@ Lens ListLunaClients ListLunaClients (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListLunaClients
 ListLunaClientsResponse
-</span><a href="#local-6989586621679175949"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679175958"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">ListLunaClientsResponse
 -&gt; Getting (First Text) ListLunaClientsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -267,12 +267,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-119"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-120"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients"><span class="hs-identifier hs-type">ListLunaClients</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse"><span class="hs-identifier hs-type">ListLunaClientsResponse</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679175938"><span class="annot"><span class="annottext">request :: ListLunaClients -&gt; Request ListLunaClients
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679175947"><span class="annot"><span class="annottext">request :: ListLunaClients -&gt; Request ListLunaClients
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListLunaClients -&gt; Request ListLunaClients
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudHSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679175934"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679175943"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListLunaClients
 -&gt; ClientResponse ClientBody
@@ -296,10 +296,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175931"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175931"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175930"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679175930"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175929"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175929"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175940"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175940"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175939"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679175939"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175938"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175938"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [Text] -&gt; ListLunaClientsResponse
 </span><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse%27"><span class="hs-identifier hs-var">ListLunaClientsResponse'</span></a></span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [Text] -&gt; ListLunaClientsResponse)
@@ -307,7 +307,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; [Text] -&gt; ListLunaClientsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679175938"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -320,12 +320,12 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175931"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175940"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Text] -&gt; ListLunaClientsResponse)
 -&gt; Either String [Text] -&gt; Either String ListLunaClientsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Text])
+</span><a href="#local-6989586621679175938"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClientList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Text]) -&gt; [Text] -&gt; Either String [Text]
@@ -335,12 +335,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175920"><span id="local-6989586621679175922"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients"><span class="hs-identifier hs-type">ListLunaClients</span></a></span></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175929"><span id="local-6989586621679175931"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients"><span class="hs-identifier hs-type">ListLunaClients</span></a></span></span></span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175917"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients"><span class="hs-identifier hs-type">ListLunaClients</span></a></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175926"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients"><span class="hs-identifier hs-type">ListLunaClients</span></a></span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients"><span class="hs-identifier hs-type">ListLunaClients</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679175913"><span class="annot"><span class="annottext">toHeaders :: ListLunaClients -&gt; ResponseHeaders
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679175922"><span class="annot"><span class="annottext">toHeaders :: ListLunaClients -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListLunaClients -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -367,12 +367,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175903"><span id="local-6989586621679175905"><span id="local-6989586621679175907"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients"><span class="hs-identifier hs-type">ListLunaClients</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679175901"><span class="annot"><span class="annottext">toJSON :: ListLunaClients -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients%27"><span class="hs-identifier hs-type">ListLunaClients'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175899"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175912"><span id="local-6989586621679175914"><span id="local-6989586621679175916"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients"><span class="hs-identifier hs-type">ListLunaClients</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679175910"><span class="annot"><span class="annottext">toJSON :: ListLunaClients -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients%27"><span class="hs-identifier hs-type">ListLunaClients'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175908"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListLunaClients' :: ListLunaClients -&gt; Maybe Text
-</span><a href="#local-6989586621679175899"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679175908"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -384,18 +384,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175899"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679175908"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients"><span class="hs-identifier hs-type">ListLunaClients</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679175893"><span class="annot"><span class="annottext">toPath :: ListLunaClients -&gt; ByteString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679175902"><span class="annot"><span class="annottext">toPath :: ListLunaClients -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListLunaClients -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClients"><span class="hs-identifier hs-type">ListLunaClients</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679175889"><span class="annot"><span class="annottext">toQuery :: ListLunaClients -&gt; QueryString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679175898"><span class="annot"><span class="annottext">toQuery :: ListLunaClients -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListLunaClients -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -403,7 +403,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newListLunaClientsResponse' smart constructor.</span><span>
-</span><span id="line-165"></span><span id="local-6989586621679175886"><span id="local-6989586621679175887"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLunaClientsResponse"><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse"><span class="hs-identifier hs-var">ListLunaClientsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLunaClientsResponse%27"><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse%27"><span class="hs-identifier hs-var">ListLunaClientsResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span id="local-6989586621679175895"><span id="local-6989586621679175896"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLunaClientsResponse"><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse"><span class="hs-identifier hs-var">ListLunaClientsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLunaClientsResponse%27"><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse%27"><span class="hs-identifier hs-var">ListLunaClientsResponse'</span></a></span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If not null, more results are available. Pass this to @ListLunaClients@</span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-comment">-- to retrieve the next set of items.</span><span>
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3AnextToken%3AListLunaClientsResponse%27"><span class="annot"><span class="annottext">ListLunaClientsResponse -&gt; Maybe Text
@@ -415,7 +415,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-172"></span><span>    </span><span id="%24sel%3AclientList%3AListLunaClientsResponse%27"><span class="annot"><span class="annottext">ListLunaClientsResponse -&gt; [Text]
 </span><a href="Network.AWS.CloudHSM.ListLunaClients.html#%24sel%3AclientList%3AListLunaClientsResponse%27"><span class="hs-identifier hs-var hs-var">clientList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175879"><span id="local-6989586621679175881"><span class="annot"><span class="annottext">ListLunaClientsResponse -&gt; ListLunaClientsResponse -&gt; Bool
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175888"><span id="local-6989586621679175890"><span class="annot"><span class="annottext">ListLunaClientsResponse -&gt; ListLunaClientsResponse -&gt; Bool
 (ListLunaClientsResponse -&gt; ListLunaClientsResponse -&gt; Bool)
 -&gt; (ListLunaClientsResponse -&gt; ListLunaClientsResponse -&gt; Bool)
 -&gt; Eq ListLunaClientsResponse
@@ -424,7 +424,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListLunaClientsResponse -&gt; ListLunaClientsResponse -&gt; Bool
 == :: ListLunaClientsResponse -&gt; ListLunaClientsResponse -&gt; Bool
 $c== :: ListLunaClientsResponse -&gt; ListLunaClientsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175871"><span id="local-6989586621679175873"><span id="local-6989586621679175875"><span id="local-6989586621679175877"><span class="annot"><span class="annottext">ReadPrec [ListLunaClientsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175880"><span id="local-6989586621679175882"><span id="local-6989586621679175884"><span id="local-6989586621679175886"><span class="annot"><span class="annottext">ReadPrec [ListLunaClientsResponse]
 ReadPrec ListLunaClientsResponse
 Int -&gt; ReadS ListLunaClientsResponse
 ReadS [ListLunaClientsResponse]
@@ -444,7 +444,7 @@ readList :: ReadS [ListLunaClientsResponse]
 $creadList :: ReadS [ListLunaClientsResponse]
 readsPrec :: Int -&gt; ReadS ListLunaClientsResponse
 $creadsPrec :: Int -&gt; ReadS ListLunaClientsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175865"><span id="local-6989586621679175867"><span id="local-6989586621679175869"><span class="annot"><span class="annottext">Int -&gt; ListLunaClientsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175874"><span id="local-6989586621679175876"><span id="local-6989586621679175878"><span class="annot"><span class="annottext">Int -&gt; ListLunaClientsResponse -&gt; ShowS
 [ListLunaClientsResponse] -&gt; ShowS
 ListLunaClientsResponse -&gt; String
 (Int -&gt; ListLunaClientsResponse -&gt; ShowS)
@@ -491,8 +491,8 @@ $cfrom :: forall x. ListLunaClientsResponse -&gt; Rep ListLunaClientsResponse x
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse"><span class="hs-identifier hs-type">ListLunaClientsResponse</span></a></span><span>
 </span><span id="line-194"></span><span id="newListLunaClientsResponse"><span class="annot"><span class="annottext">newListLunaClientsResponse :: Int -&gt; ListLunaClientsResponse
-</span><a href="Network.AWS.CloudHSM.ListLunaClients.html#newListLunaClientsResponse"><span class="hs-identifier hs-var hs-var">newListLunaClientsResponse</span></a></span></span><span> </span><span id="local-6989586621679175862"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175862"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudHSM.ListLunaClients.html#newListLunaClientsResponse"><span class="hs-identifier hs-var hs-var">newListLunaClientsResponse</span></a></span></span><span> </span><span id="local-6989586621679175871"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175871"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><span class="annottext">ListLunaClientsResponse' :: Maybe Text -&gt; Int -&gt; [Text] -&gt; ListLunaClientsResponse
 </span><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse%27"><span class="hs-identifier hs-type">ListLunaClientsResponse'</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListLunaClientsResponse' :: Maybe Text
@@ -502,7 +502,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListLunaClientsResponse' :: Int
 </span><a href="Network.AWS.CloudHSM.ListLunaClients.html#%24sel%3AhttpStatus%3AListLunaClientsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175862"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175871"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientList:ListLunaClientsResponse' :: [Text]
 </span><a href="Network.AWS.CloudHSM.ListLunaClients.html#%24sel%3AclientList%3AListLunaClientsResponse%27"><span class="hs-identifier hs-var">clientList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -519,16 +519,16 @@ forall a. Monoid a =&gt; a
     -&gt; Maybe Text -&gt; ListLunaClientsResponse)
 -&gt; Lens' ListLunaClientsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse%27"><span class="hs-identifier hs-type">ListLunaClientsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175861"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse%27"><span class="hs-identifier hs-type">ListLunaClientsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175870"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListLunaClientsResponse' :: ListLunaClientsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679175861"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175861"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175860"><span class="annot"><span class="annottext">s :: ListLunaClientsResponse
-</span><a href="#local-6989586621679175860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse%27"><span class="hs-identifier hs-type">ListLunaClientsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175859"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLunaClientsResponse
-</span><a href="#local-6989586621679175860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLunaClientsResponse' :: Maybe Text
+</span><a href="#local-6989586621679175870"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175870"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175869"><span class="annot"><span class="annottext">s :: ListLunaClientsResponse
+</span><a href="#local-6989586621679175869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse%27"><span class="hs-identifier hs-type">ListLunaClientsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175868"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLunaClientsResponse
+</span><a href="#local-6989586621679175869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLunaClientsResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudHSM.ListLunaClients.html#%24sel%3AnextToken%3AListLunaClientsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse"><span class="hs-identifier hs-type">ListLunaClientsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse"><span class="hs-identifier hs-type">ListLunaClientsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-208"></span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#listLunaClientsResponse_httpStatus"><span class="hs-identifier hs-type">listLunaClientsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse"><span class="hs-identifier hs-type">ListLunaClientsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -538,16 +538,16 @@ $sel:nextToken:ListLunaClientsResponse' :: ListLunaClientsResponse -&gt; Maybe T
 -&gt; (ListLunaClientsResponse -&gt; Int -&gt; ListLunaClientsResponse)
 -&gt; Lens ListLunaClientsResponse ListLunaClientsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse%27"><span class="hs-identifier hs-type">ListLunaClientsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175858"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse%27"><span class="hs-identifier hs-type">ListLunaClientsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175867"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListLunaClientsResponse' :: ListLunaClientsResponse -&gt; Int
-</span><a href="#local-6989586621679175858"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175858"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175857"><span class="annot"><span class="annottext">s :: ListLunaClientsResponse
-</span><a href="#local-6989586621679175857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse%27"><span class="hs-identifier hs-type">ListLunaClientsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175856"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLunaClientsResponse
-</span><a href="#local-6989586621679175857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListLunaClientsResponse' :: Int
+</span><a href="#local-6989586621679175867"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175867"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175866"><span class="annot"><span class="annottext">s :: ListLunaClientsResponse
+</span><a href="#local-6989586621679175866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse%27"><span class="hs-identifier hs-type">ListLunaClientsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175865"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLunaClientsResponse
+</span><a href="#local-6989586621679175866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListLunaClientsResponse' :: Int
 </span><a href="Network.AWS.CloudHSM.ListLunaClients.html#%24sel%3AhttpStatus%3AListLunaClientsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse"><span class="hs-identifier hs-type">ListLunaClientsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse"><span class="hs-identifier hs-type">ListLunaClientsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | The list of clients.</span><span>
 </span><span id="line-212"></span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#listLunaClientsResponse_clientList"><span class="hs-identifier hs-type">listLunaClientsResponse_clientList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse"><span class="hs-identifier hs-type">ListLunaClientsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -557,16 +557,16 @@ $sel:httpStatus:ListLunaClientsResponse' :: ListLunaClientsResponse -&gt; Int
 -&gt; (ListLunaClientsResponse -&gt; [Text] -&gt; ListLunaClientsResponse)
 -&gt; Lens' ListLunaClientsResponse [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse%27"><span class="hs-identifier hs-type">ListLunaClientsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175855"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse%27"><span class="hs-identifier hs-type">ListLunaClientsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175864"><span class="annot"><span class="annottext">[Text]
 clientList :: [Text]
 $sel:clientList:ListLunaClientsResponse' :: ListLunaClientsResponse -&gt; [Text]
-</span><a href="#local-6989586621679175855"><span class="hs-identifier hs-var hs-var">clientList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679175855"><span class="hs-identifier hs-var">clientList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175854"><span class="annot"><span class="annottext">s :: ListLunaClientsResponse
-</span><a href="#local-6989586621679175854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse%27"><span class="hs-identifier hs-type">ListLunaClientsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175853"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679175853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLunaClientsResponse
-</span><a href="#local-6989586621679175854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientList:ListLunaClientsResponse' :: [Text]
+</span><a href="#local-6989586621679175864"><span class="hs-identifier hs-var hs-var">clientList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679175864"><span class="hs-identifier hs-var">clientList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175863"><span class="annot"><span class="annottext">s :: ListLunaClientsResponse
+</span><a href="#local-6989586621679175863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse%27"><span class="hs-identifier hs-type">ListLunaClientsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175862"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679175862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLunaClientsResponse
+</span><a href="#local-6989586621679175863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientList:ListLunaClientsResponse' :: [Text]
 </span><a href="Network.AWS.CloudHSM.ListLunaClients.html#%24sel%3AclientList%3AListLunaClientsResponse%27"><span class="hs-identifier hs-var">clientList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679175853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse"><span class="hs-identifier hs-type">ListLunaClientsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679175862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse"><span class="hs-identifier hs-type">ListLunaClientsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; ListLunaClientsResponse -&gt; f ListLunaClientsResponse)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -577,5 +577,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175850"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse"><span class="hs-identifier hs-type">ListLunaClientsResponse</span></a></span></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ListLunaClients.html#ListLunaClientsResponse"><span class="hs-identifier hs-type">ListLunaClientsResponse</span></a></span></span><span>
 </span><span id="line-216"></span></pre></body></html>

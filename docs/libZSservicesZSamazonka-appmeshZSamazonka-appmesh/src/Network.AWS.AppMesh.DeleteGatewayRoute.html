@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.DeleteGatewayRoute</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an existing gateway route.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.DeleteGatewayRoute</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier">DeleteGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#newDeleteGatewayRoute"><span class="hs-identifier">newDeleteGatewayRoute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRoute_meshOwner"><span class="hs-identifier">deleteGatewayRoute_meshOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRoute_gatewayRouteName"><span class="hs-identifier">deleteGatewayRoute_gatewayRouteName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRoute_meshName"><span class="hs-identifier">deleteGatewayRoute_meshName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRoute_virtualGatewayName"><span class="hs-identifier">deleteGatewayRoute_virtualGatewayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRouteResponse"><span class="hs-identifier">DeleteGatewayRouteResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#newDeleteGatewayRouteResponse"><span class="hs-identifier">newDeleteGatewayRouteResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRouteResponse_httpStatus"><span class="hs-identifier">deleteGatewayRouteResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRouteResponse_gatewayRoute"><span class="hs-identifier">deleteGatewayRouteResponse_gatewayRoute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.html"><span class="hs-identifier">Network.AWS.AppMesh.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteGatewayRoute' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679350051"><span id="local-6989586621679350052"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGatewayRoute"><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-var">DeleteGatewayRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGatewayRoute%27"><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute%27"><span class="hs-identifier hs-var">DeleteGatewayRoute'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AmeshOwner%3ADeleteGatewayRoute%27"><span class="annot"><span class="annottext">DeleteGatewayRoute -&gt; Maybe Text
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AmeshOwner%3ADeleteGatewayRoute%27"><span class="hs-identifier hs-var hs-var">meshOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the gateway route to delete.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AgatewayRouteName%3ADeleteGatewayRoute%27"><span class="annot"><span class="annottext">DeleteGatewayRoute -&gt; Text
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AgatewayRouteName%3ADeleteGatewayRoute%27"><span class="hs-identifier hs-var hs-var">gatewayRouteName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The name of the service mesh to delete the gateway route from.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmeshName%3ADeleteGatewayRoute%27"><span class="annot"><span class="annottext">DeleteGatewayRoute -&gt; Text
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AmeshName%3ADeleteGatewayRoute%27"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The name of the virtual gateway to delete the route from.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AvirtualGatewayName%3ADeleteGatewayRoute%27"><span class="annot"><span class="annottext">DeleteGatewayRoute -&gt; Text
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AvirtualGatewayName%3ADeleteGatewayRoute%27"><span class="hs-identifier hs-var hs-var">virtualGatewayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350042"><span id="local-6989586621679350044"><span class="annot"><span class="annottext">DeleteGatewayRoute -&gt; DeleteGatewayRoute -&gt; Bool
+(DeleteGatewayRoute -&gt; DeleteGatewayRoute -&gt; Bool)
+-&gt; (DeleteGatewayRoute -&gt; DeleteGatewayRoute -&gt; Bool)
+-&gt; Eq DeleteGatewayRoute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteGatewayRoute -&gt; DeleteGatewayRoute -&gt; Bool
+$c/= :: DeleteGatewayRoute -&gt; DeleteGatewayRoute -&gt; Bool
+== :: DeleteGatewayRoute -&gt; DeleteGatewayRoute -&gt; Bool
+$c== :: DeleteGatewayRoute -&gt; DeleteGatewayRoute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350033"><span id="local-6989586621679350035"><span id="local-6989586621679350037"><span id="local-6989586621679350039"><span class="annot"><span class="annottext">ReadPrec [DeleteGatewayRoute]
+ReadPrec DeleteGatewayRoute
+Int -&gt; ReadS DeleteGatewayRoute
+ReadS [DeleteGatewayRoute]
+(Int -&gt; ReadS DeleteGatewayRoute)
+-&gt; ReadS [DeleteGatewayRoute]
+-&gt; ReadPrec DeleteGatewayRoute
+-&gt; ReadPrec [DeleteGatewayRoute]
+-&gt; Read DeleteGatewayRoute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteGatewayRoute]
+$creadListPrec :: ReadPrec [DeleteGatewayRoute]
+readPrec :: ReadPrec DeleteGatewayRoute
+$creadPrec :: ReadPrec DeleteGatewayRoute
+readList :: ReadS [DeleteGatewayRoute]
+$creadList :: ReadS [DeleteGatewayRoute]
+readsPrec :: Int -&gt; ReadS DeleteGatewayRoute
+$creadsPrec :: Int -&gt; ReadS DeleteGatewayRoute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350026"><span id="local-6989586621679350028"><span id="local-6989586621679350030"><span class="annot"><span class="annottext">Int -&gt; DeleteGatewayRoute -&gt; ShowS
+[DeleteGatewayRoute] -&gt; ShowS
+DeleteGatewayRoute -&gt; String
+(Int -&gt; DeleteGatewayRoute -&gt; ShowS)
+-&gt; (DeleteGatewayRoute -&gt; String)
+-&gt; ([DeleteGatewayRoute] -&gt; ShowS)
+-&gt; Show DeleteGatewayRoute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteGatewayRoute] -&gt; ShowS
+$cshowList :: [DeleteGatewayRoute] -&gt; ShowS
+show :: DeleteGatewayRoute -&gt; String
+$cshow :: DeleteGatewayRoute -&gt; String
+showsPrec :: Int -&gt; DeleteGatewayRoute -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteGatewayRoute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteGatewayRoute -&gt; Rep DeleteGatewayRoute x)
+-&gt; (forall x. Rep DeleteGatewayRoute x -&gt; DeleteGatewayRoute)
+-&gt; Generic DeleteGatewayRoute
+forall x. Rep DeleteGatewayRoute x -&gt; DeleteGatewayRoute
+forall x. DeleteGatewayRoute -&gt; Rep DeleteGatewayRoute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteGatewayRoute x -&gt; DeleteGatewayRoute
+$cfrom :: forall x. DeleteGatewayRoute -&gt; Rep DeleteGatewayRoute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'DeleteGatewayRoute' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'meshOwner', 'deleteGatewayRoute_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'gatewayRouteName', 'deleteGatewayRoute_gatewayRouteName' - The name of the gateway route to delete.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'meshName', 'deleteGatewayRoute_meshName' - The name of the service mesh to delete the gateway route from.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'virtualGatewayName', 'deleteGatewayRoute_virtualGatewayName' - The name of the virtual gateway to delete the route from.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#newDeleteGatewayRoute"><span class="hs-identifier hs-type">newDeleteGatewayRoute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'gatewayRouteName'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'meshName'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'virtualGatewayName'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-type">DeleteGatewayRoute</span></a></span><span>
+</span><span id="line-94"></span><span id="newDeleteGatewayRoute"><span class="annot"><span class="annottext">newDeleteGatewayRoute :: Text -&gt; Text -&gt; Text -&gt; DeleteGatewayRoute
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#newDeleteGatewayRoute"><span class="hs-identifier hs-var hs-var">newDeleteGatewayRoute</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679350021"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350021"><span class="hs-identifier hs-var">pGatewayRouteName_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679350020"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350020"><span class="hs-identifier hs-var">pMeshName_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679350019"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350019"><span class="hs-identifier hs-var">pVirtualGatewayName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">DeleteGatewayRoute' :: Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; DeleteGatewayRoute
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute%27"><span class="hs-identifier hs-type">DeleteGatewayRoute'</span></a></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:meshOwner:DeleteGatewayRoute' :: Maybe Text
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AmeshOwner%3ADeleteGatewayRoute%27"><span class="hs-identifier hs-var">meshOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayRouteName:DeleteGatewayRoute' :: Text
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AgatewayRouteName%3ADeleteGatewayRoute%27"><span class="hs-identifier hs-var">gatewayRouteName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350021"><span class="hs-identifier hs-var">pGatewayRouteName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:meshName:DeleteGatewayRoute' :: Text
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AmeshName%3ADeleteGatewayRoute%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350020"><span class="hs-identifier hs-var">pMeshName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:virtualGatewayName:DeleteGatewayRoute' :: Text
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AvirtualGatewayName%3ADeleteGatewayRoute%27"><span class="hs-identifier hs-var">virtualGatewayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350019"><span class="hs-identifier hs-var">pVirtualGatewayName_</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRoute_meshOwner"><span class="hs-identifier hs-type">deleteGatewayRoute_meshOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-type">DeleteGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="deleteGatewayRoute_meshOwner"><span class="annot"><span class="annottext">deleteGatewayRoute_meshOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteGatewayRoute -&gt; f DeleteGatewayRoute
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRoute_meshOwner"><span class="hs-identifier hs-var hs-var">deleteGatewayRoute_meshOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGatewayRoute -&gt; Maybe Text)
+-&gt; (DeleteGatewayRoute -&gt; Maybe Text -&gt; DeleteGatewayRoute)
+-&gt; Lens
+     DeleteGatewayRoute DeleteGatewayRoute (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute%27"><span class="hs-identifier hs-type">DeleteGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350016"><span class="annot"><span class="annottext">Maybe Text
+meshOwner :: Maybe Text
+$sel:meshOwner:DeleteGatewayRoute' :: DeleteGatewayRoute -&gt; Maybe Text
+</span><a href="#local-6989586621679350016"><span class="hs-identifier hs-var hs-var">meshOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350016"><span class="hs-identifier hs-var">meshOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350015"><span class="annot"><span class="annottext">s :: DeleteGatewayRoute
+</span><a href="#local-6989586621679350015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute%27"><span class="hs-identifier hs-type">DeleteGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350014"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGatewayRoute
+</span><a href="#local-6989586621679350015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshOwner:DeleteGatewayRoute' :: Maybe Text
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AmeshOwner%3ADeleteGatewayRoute%27"><span class="hs-identifier hs-var">meshOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-type">DeleteGatewayRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The name of the gateway route to delete.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRoute_gatewayRouteName"><span class="hs-identifier hs-type">deleteGatewayRoute_gatewayRouteName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-type">DeleteGatewayRoute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="deleteGatewayRoute_gatewayRouteName"><span class="annot"><span class="annottext">deleteGatewayRoute_gatewayRouteName :: (Text -&gt; f Text) -&gt; DeleteGatewayRoute -&gt; f DeleteGatewayRoute
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRoute_gatewayRouteName"><span class="hs-identifier hs-var hs-var">deleteGatewayRoute_gatewayRouteName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGatewayRoute -&gt; Text)
+-&gt; (DeleteGatewayRoute -&gt; Text -&gt; DeleteGatewayRoute)
+-&gt; Lens DeleteGatewayRoute DeleteGatewayRoute Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute%27"><span class="hs-identifier hs-type">DeleteGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350013"><span class="annot"><span class="annottext">Text
+gatewayRouteName :: Text
+$sel:gatewayRouteName:DeleteGatewayRoute' :: DeleteGatewayRoute -&gt; Text
+</span><a href="#local-6989586621679350013"><span class="hs-identifier hs-var hs-var">gatewayRouteName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350013"><span class="hs-identifier hs-var">gatewayRouteName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350012"><span class="annot"><span class="annottext">s :: DeleteGatewayRoute
+</span><a href="#local-6989586621679350012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute%27"><span class="hs-identifier hs-type">DeleteGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350011"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGatewayRoute
+</span><a href="#local-6989586621679350012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayRouteName:DeleteGatewayRoute' :: Text
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AgatewayRouteName%3ADeleteGatewayRoute%27"><span class="hs-identifier hs-var">gatewayRouteName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-type">DeleteGatewayRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The name of the service mesh to delete the gateway route from.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRoute_meshName"><span class="hs-identifier hs-type">deleteGatewayRoute_meshName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-type">DeleteGatewayRoute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="deleteGatewayRoute_meshName"><span class="annot"><span class="annottext">deleteGatewayRoute_meshName :: (Text -&gt; f Text) -&gt; DeleteGatewayRoute -&gt; f DeleteGatewayRoute
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRoute_meshName"><span class="hs-identifier hs-var hs-var">deleteGatewayRoute_meshName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGatewayRoute -&gt; Text)
+-&gt; (DeleteGatewayRoute -&gt; Text -&gt; DeleteGatewayRoute)
+-&gt; Lens DeleteGatewayRoute DeleteGatewayRoute Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute%27"><span class="hs-identifier hs-type">DeleteGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350010"><span class="annot"><span class="annottext">Text
+meshName :: Text
+$sel:meshName:DeleteGatewayRoute' :: DeleteGatewayRoute -&gt; Text
+</span><a href="#local-6989586621679350010"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350010"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350009"><span class="annot"><span class="annottext">s :: DeleteGatewayRoute
+</span><a href="#local-6989586621679350009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute%27"><span class="hs-identifier hs-type">DeleteGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350008"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGatewayRoute
+</span><a href="#local-6989586621679350009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshName:DeleteGatewayRoute' :: Text
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AmeshName%3ADeleteGatewayRoute%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-type">DeleteGatewayRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The name of the virtual gateway to delete the route from.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRoute_virtualGatewayName"><span class="hs-identifier hs-type">deleteGatewayRoute_virtualGatewayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-type">DeleteGatewayRoute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="deleteGatewayRoute_virtualGatewayName"><span class="annot"><span class="annottext">deleteGatewayRoute_virtualGatewayName :: (Text -&gt; f Text) -&gt; DeleteGatewayRoute -&gt; f DeleteGatewayRoute
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRoute_virtualGatewayName"><span class="hs-identifier hs-var hs-var">deleteGatewayRoute_virtualGatewayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGatewayRoute -&gt; Text)
+-&gt; (DeleteGatewayRoute -&gt; Text -&gt; DeleteGatewayRoute)
+-&gt; Lens DeleteGatewayRoute DeleteGatewayRoute Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute%27"><span class="hs-identifier hs-type">DeleteGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350007"><span class="annot"><span class="annottext">Text
+virtualGatewayName :: Text
+$sel:virtualGatewayName:DeleteGatewayRoute' :: DeleteGatewayRoute -&gt; Text
+</span><a href="#local-6989586621679350007"><span class="hs-identifier hs-var hs-var">virtualGatewayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350007"><span class="hs-identifier hs-var">virtualGatewayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350006"><span class="annot"><span class="annottext">s :: DeleteGatewayRoute
+</span><a href="#local-6989586621679350006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute%27"><span class="hs-identifier hs-type">DeleteGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350005"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGatewayRoute
+</span><a href="#local-6989586621679350006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualGatewayName:DeleteGatewayRoute' :: Text
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AvirtualGatewayName%3ADeleteGatewayRoute%27"><span class="hs-identifier hs-var">virtualGatewayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-type">DeleteGatewayRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-type">DeleteGatewayRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-type">DeleteGatewayRoute</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRouteResponse"><span class="hs-identifier hs-type">DeleteGatewayRouteResponse</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679350001"><span class="annot"><span class="annottext">request :: DeleteGatewayRoute -&gt; Request DeleteGatewayRoute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteGatewayRoute -&gt; Request DeleteGatewayRoute
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppMesh.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679349997"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteGatewayRoute
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteGatewayRoute)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteGatewayRoute))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteGatewayRoute
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteGatewayRoute)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349994"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349994"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679349993"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679349993"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679349992"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349992"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; GatewayRouteData -&gt; DeleteGatewayRouteResponse
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRouteResponse%27"><span class="hs-identifier hs-var">DeleteGatewayRouteResponse'</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; GatewayRouteData -&gt; DeleteGatewayRouteResponse)
+-&gt; Either String Int
+-&gt; Either String (GatewayRouteData -&gt; DeleteGatewayRouteResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349994"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either String (GatewayRouteData -&gt; DeleteGatewayRouteResponse)
+-&gt; Either String GatewayRouteData
+-&gt; Either String DeleteGatewayRouteResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String GatewayRouteData
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349992"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349984"><span id="local-6989586621679349986"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-type">DeleteGatewayRoute</span></a></span></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349981"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-type">DeleteGatewayRoute</span></a></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-type">DeleteGatewayRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679349977"><span class="annot"><span class="annottext">toHeaders :: DeleteGatewayRoute -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteGatewayRoute -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-148"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-type">DeleteGatewayRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679349971"><span class="annot"><span class="annottext">toPath :: DeleteGatewayRoute -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute%27"><span class="hs-identifier hs-type">DeleteGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349966"><span id="local-6989586621679349967"><span id="local-6989586621679349968"><span id="local-6989586621679349969"><span class="annot"><span class="annottext">Maybe Text
+Text
+virtualGatewayName :: Text
+meshName :: Text
+gatewayRouteName :: Text
+meshOwner :: Maybe Text
+$sel:virtualGatewayName:DeleteGatewayRoute' :: DeleteGatewayRoute -&gt; Text
+$sel:meshName:DeleteGatewayRoute' :: DeleteGatewayRoute -&gt; Text
+$sel:gatewayRouteName:DeleteGatewayRoute' :: DeleteGatewayRoute -&gt; Text
+$sel:meshOwner:DeleteGatewayRoute' :: DeleteGatewayRoute -&gt; Maybe Text
+</span><a href="#local-6989586621679349966"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v20190125/meshes/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349967"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/virtualGateway/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349966"><span class="hs-identifier hs-var">virtualGatewayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/gatewayRoutes/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349968"><span class="hs-identifier hs-var">gatewayRouteName</span></a></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute"><span class="hs-identifier hs-type">DeleteGatewayRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679349962"><span class="annot"><span class="annottext">toQuery :: DeleteGatewayRoute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRoute%27"><span class="hs-identifier hs-type">DeleteGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349957"><span id="local-6989586621679349958"><span id="local-6989586621679349959"><span id="local-6989586621679349960"><span class="annot"><span class="annottext">Maybe Text
+Text
+virtualGatewayName :: Text
+meshName :: Text
+gatewayRouteName :: Text
+meshOwner :: Maybe Text
+$sel:virtualGatewayName:DeleteGatewayRoute' :: DeleteGatewayRoute -&gt; Text
+$sel:meshName:DeleteGatewayRoute' :: DeleteGatewayRoute -&gt; Text
+$sel:gatewayRouteName:DeleteGatewayRoute' :: DeleteGatewayRoute -&gt; Text
+$sel:meshOwner:DeleteGatewayRoute' :: DeleteGatewayRoute -&gt; Maybe Text
+</span><a href="#local-6989586621679349957"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;meshOwner&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349960"><span class="hs-identifier hs-var">meshOwner</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | /See:/ 'newDeleteGatewayRouteResponse' smart constructor.</span><span>
+</span><span id="line-168"></span><span id="local-6989586621679349954"><span id="local-6989586621679349955"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGatewayRouteResponse"><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRouteResponse"><span class="hs-identifier hs-var">DeleteGatewayRouteResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGatewayRouteResponse%27"><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRouteResponse%27"><span class="hs-identifier hs-var">DeleteGatewayRouteResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteGatewayRouteResponse%27"><span class="annot"><span class="annottext">DeleteGatewayRouteResponse -&gt; Int
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AhttpStatus%3ADeleteGatewayRouteResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The gateway route that was deleted.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AgatewayRoute%3ADeleteGatewayRouteResponse%27"><span class="annot"><span class="annottext">DeleteGatewayRouteResponse -&gt; GatewayRouteData
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AgatewayRoute%3ADeleteGatewayRouteResponse%27"><span class="hs-identifier hs-var hs-var">gatewayRoute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteData.html#GatewayRouteData"><span class="hs-identifier hs-type">GatewayRouteData</span></a></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349948"><span id="local-6989586621679349950"><span class="annot"><span class="annottext">DeleteGatewayRouteResponse -&gt; DeleteGatewayRouteResponse -&gt; Bool
+(DeleteGatewayRouteResponse -&gt; DeleteGatewayRouteResponse -&gt; Bool)
+-&gt; (DeleteGatewayRouteResponse
+    -&gt; DeleteGatewayRouteResponse -&gt; Bool)
+-&gt; Eq DeleteGatewayRouteResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteGatewayRouteResponse -&gt; DeleteGatewayRouteResponse -&gt; Bool
+$c/= :: DeleteGatewayRouteResponse -&gt; DeleteGatewayRouteResponse -&gt; Bool
+== :: DeleteGatewayRouteResponse -&gt; DeleteGatewayRouteResponse -&gt; Bool
+$c== :: DeleteGatewayRouteResponse -&gt; DeleteGatewayRouteResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349940"><span id="local-6989586621679349942"><span id="local-6989586621679349944"><span id="local-6989586621679349946"><span class="annot"><span class="annottext">ReadPrec [DeleteGatewayRouteResponse]
+ReadPrec DeleteGatewayRouteResponse
+Int -&gt; ReadS DeleteGatewayRouteResponse
+ReadS [DeleteGatewayRouteResponse]
+(Int -&gt; ReadS DeleteGatewayRouteResponse)
+-&gt; ReadS [DeleteGatewayRouteResponse]
+-&gt; ReadPrec DeleteGatewayRouteResponse
+-&gt; ReadPrec [DeleteGatewayRouteResponse]
+-&gt; Read DeleteGatewayRouteResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteGatewayRouteResponse]
+$creadListPrec :: ReadPrec [DeleteGatewayRouteResponse]
+readPrec :: ReadPrec DeleteGatewayRouteResponse
+$creadPrec :: ReadPrec DeleteGatewayRouteResponse
+readList :: ReadS [DeleteGatewayRouteResponse]
+$creadList :: ReadS [DeleteGatewayRouteResponse]
+readsPrec :: Int -&gt; ReadS DeleteGatewayRouteResponse
+$creadsPrec :: Int -&gt; ReadS DeleteGatewayRouteResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349934"><span id="local-6989586621679349936"><span id="local-6989586621679349938"><span class="annot"><span class="annottext">Int -&gt; DeleteGatewayRouteResponse -&gt; ShowS
+[DeleteGatewayRouteResponse] -&gt; ShowS
+DeleteGatewayRouteResponse -&gt; String
+(Int -&gt; DeleteGatewayRouteResponse -&gt; ShowS)
+-&gt; (DeleteGatewayRouteResponse -&gt; String)
+-&gt; ([DeleteGatewayRouteResponse] -&gt; ShowS)
+-&gt; Show DeleteGatewayRouteResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteGatewayRouteResponse] -&gt; ShowS
+$cshowList :: [DeleteGatewayRouteResponse] -&gt; ShowS
+show :: DeleteGatewayRouteResponse -&gt; String
+$cshow :: DeleteGatewayRouteResponse -&gt; String
+showsPrec :: Int -&gt; DeleteGatewayRouteResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteGatewayRouteResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteGatewayRouteResponse -&gt; Rep DeleteGatewayRouteResponse x)
+-&gt; (forall x.
+    Rep DeleteGatewayRouteResponse x -&gt; DeleteGatewayRouteResponse)
+-&gt; Generic DeleteGatewayRouteResponse
+forall x.
+Rep DeleteGatewayRouteResponse x -&gt; DeleteGatewayRouteResponse
+forall x.
+DeleteGatewayRouteResponse -&gt; Rep DeleteGatewayRouteResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteGatewayRouteResponse x -&gt; DeleteGatewayRouteResponse
+$cfrom :: forall x.
+DeleteGatewayRouteResponse -&gt; Rep DeleteGatewayRouteResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Create a value of 'DeleteGatewayRouteResponse' with all optional fields omitted.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'httpStatus', 'deleteGatewayRouteResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'gatewayRoute', 'deleteGatewayRouteResponse_gatewayRoute' - The gateway route that was deleted.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#newDeleteGatewayRouteResponse"><span class="hs-identifier hs-type">newDeleteGatewayRouteResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-comment">-- | 'gatewayRoute'</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteData.html#GatewayRouteData"><span class="hs-identifier hs-type">GatewayRouteData</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRouteResponse"><span class="hs-identifier hs-type">DeleteGatewayRouteResponse</span></a></span><span>
+</span><span id="line-193"></span><span id="newDeleteGatewayRouteResponse"><span class="annot"><span class="annottext">newDeleteGatewayRouteResponse :: Int -&gt; GatewayRouteData -&gt; DeleteGatewayRouteResponse
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#newDeleteGatewayRouteResponse"><span class="hs-identifier hs-var hs-var">newDeleteGatewayRouteResponse</span></a></span></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679349931"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349931"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679349930"><span class="annot"><span class="annottext">GatewayRouteData
+</span><a href="#local-6989586621679349930"><span class="hs-identifier hs-var">pGatewayRoute_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">DeleteGatewayRouteResponse' :: Int -&gt; GatewayRouteData -&gt; DeleteGatewayRouteResponse
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRouteResponse%27"><span class="hs-identifier hs-type">DeleteGatewayRouteResponse'</span></a></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGatewayRouteResponse' :: Int
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AhttpStatus%3ADeleteGatewayRouteResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349931"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayRoute:DeleteGatewayRouteResponse' :: GatewayRouteData
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AgatewayRoute%3ADeleteGatewayRouteResponse%27"><span class="hs-identifier hs-var">gatewayRoute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GatewayRouteData
+</span><a href="#local-6989586621679349930"><span class="hs-identifier hs-var">pGatewayRoute_</span></a></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRouteResponse_httpStatus"><span class="hs-identifier hs-type">deleteGatewayRouteResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRouteResponse"><span class="hs-identifier hs-type">DeleteGatewayRouteResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-204"></span><span id="deleteGatewayRouteResponse_httpStatus"><span class="annot"><span class="annottext">deleteGatewayRouteResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteGatewayRouteResponse -&gt; f DeleteGatewayRouteResponse
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRouteResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteGatewayRouteResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGatewayRouteResponse -&gt; Int)
+-&gt; (DeleteGatewayRouteResponse
+    -&gt; Int -&gt; DeleteGatewayRouteResponse)
+-&gt; Lens
+     DeleteGatewayRouteResponse DeleteGatewayRouteResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRouteResponse%27"><span class="hs-identifier hs-type">DeleteGatewayRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349929"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteGatewayRouteResponse' :: DeleteGatewayRouteResponse -&gt; Int
+</span><a href="#local-6989586621679349929"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349929"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349928"><span class="annot"><span class="annottext">s :: DeleteGatewayRouteResponse
+</span><a href="#local-6989586621679349928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRouteResponse%27"><span class="hs-identifier hs-type">DeleteGatewayRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349927"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGatewayRouteResponse
+</span><a href="#local-6989586621679349928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGatewayRouteResponse' :: Int
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AhttpStatus%3ADeleteGatewayRouteResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRouteResponse"><span class="hs-identifier hs-type">DeleteGatewayRouteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The gateway route that was deleted.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRouteResponse_gatewayRoute"><span class="hs-identifier hs-type">deleteGatewayRouteResponse_gatewayRoute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRouteResponse"><span class="hs-identifier hs-type">DeleteGatewayRouteResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GatewayRouteData.html#GatewayRouteData"><span class="hs-identifier hs-type">GatewayRouteData</span></a></span><span>
+</span><span id="line-208"></span><span id="deleteGatewayRouteResponse_gatewayRoute"><span class="annot"><span class="annottext">deleteGatewayRouteResponse_gatewayRoute :: (GatewayRouteData -&gt; f GatewayRouteData)
+-&gt; DeleteGatewayRouteResponse -&gt; f DeleteGatewayRouteResponse
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#deleteGatewayRouteResponse_gatewayRoute"><span class="hs-identifier hs-var hs-var">deleteGatewayRouteResponse_gatewayRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGatewayRouteResponse -&gt; GatewayRouteData)
+-&gt; (DeleteGatewayRouteResponse
+    -&gt; GatewayRouteData -&gt; DeleteGatewayRouteResponse)
+-&gt; Lens
+     DeleteGatewayRouteResponse
+     DeleteGatewayRouteResponse
+     GatewayRouteData
+     GatewayRouteData
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRouteResponse%27"><span class="hs-identifier hs-type">DeleteGatewayRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349926"><span class="annot"><span class="annottext">GatewayRouteData
+gatewayRoute :: GatewayRouteData
+$sel:gatewayRoute:DeleteGatewayRouteResponse' :: DeleteGatewayRouteResponse -&gt; GatewayRouteData
+</span><a href="#local-6989586621679349926"><span class="hs-identifier hs-var hs-var">gatewayRoute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatewayRouteData
+</span><a href="#local-6989586621679349926"><span class="hs-identifier hs-var">gatewayRoute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349925"><span class="annot"><span class="annottext">s :: DeleteGatewayRouteResponse
+</span><a href="#local-6989586621679349925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRouteResponse%27"><span class="hs-identifier hs-type">DeleteGatewayRouteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349924"><span class="annot"><span class="annottext">GatewayRouteData
+</span><a href="#local-6989586621679349924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGatewayRouteResponse
+</span><a href="#local-6989586621679349925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayRoute:DeleteGatewayRouteResponse' :: GatewayRouteData
+</span><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#%24sel%3AgatewayRoute%3ADeleteGatewayRouteResponse%27"><span class="hs-identifier hs-var">gatewayRoute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GatewayRouteData
+</span><a href="#local-6989586621679349924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRouteResponse"><span class="hs-identifier hs-type">DeleteGatewayRouteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349922"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteGatewayRoute.html#DeleteGatewayRouteResponse"><span class="hs-identifier hs-type">DeleteGatewayRouteResponse</span></a></span></span><span>
+</span><span id="line-211"></span></pre></body></html>

@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span class="hs-comment">-- in the /Amazon Pinpoint Developer Guide/.</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newMultiConditionalSplitActivity' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679618693"><span id="local-6989586621679618694"></span></span><span class="hs-keyword">data</span><span> </span><span id="MultiConditionalSplitActivity"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity"><span class="hs-identifier hs-var">MultiConditionalSplitActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MultiConditionalSplitActivity%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-var">MultiConditionalSplitActivity'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679618702"><span id="local-6989586621679618703"></span></span><span class="hs-keyword">data</span><span> </span><span id="MultiConditionalSplitActivity"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity"><span class="hs-identifier hs-var">MultiConditionalSplitActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MultiConditionalSplitActivity%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-var">MultiConditionalSplitActivity'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The paths for the activity, including the conditions for entering each</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- path and the activity to perform for each path.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Abranches%3AMultiConditionalSplitActivity%27"><span class="annot"><span class="annottext">MultiConditionalSplitActivity -&gt; Maybe [MultiConditionalBranch]
@@ -53,7 +53,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AdefaultActivity%3AMultiConditionalSplitActivity%27"><span class="annot"><span class="annottext">MultiConditionalSplitActivity -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#%24sel%3AdefaultActivity%3AMultiConditionalSplitActivity%27"><span class="hs-identifier hs-var hs-var">defaultActivity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679618685"><span id="local-6989586621679618687"><span class="annot"><span class="annottext">MultiConditionalSplitActivity
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679618694"><span id="local-6989586621679618696"><span class="annot"><span class="annottext">MultiConditionalSplitActivity
 -&gt; MultiConditionalSplitActivity -&gt; Bool
 (MultiConditionalSplitActivity
  -&gt; MultiConditionalSplitActivity -&gt; Bool)
@@ -69,7 +69,7 @@ $c/= :: MultiConditionalSplitActivity
 -&gt; MultiConditionalSplitActivity -&gt; Bool
 $c== :: MultiConditionalSplitActivity
 -&gt; MultiConditionalSplitActivity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679618676"><span id="local-6989586621679618678"><span id="local-6989586621679618680"><span id="local-6989586621679618682"><span class="annot"><span class="annottext">ReadPrec [MultiConditionalSplitActivity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679618685"><span id="local-6989586621679618687"><span id="local-6989586621679618689"><span id="local-6989586621679618691"><span class="annot"><span class="annottext">ReadPrec [MultiConditionalSplitActivity]
 ReadPrec MultiConditionalSplitActivity
 Int -&gt; ReadS MultiConditionalSplitActivity
 ReadS [MultiConditionalSplitActivity]
@@ -89,7 +89,7 @@ readList :: ReadS [MultiConditionalSplitActivity]
 $creadList :: ReadS [MultiConditionalSplitActivity]
 readsPrec :: Int -&gt; ReadS MultiConditionalSplitActivity
 $creadsPrec :: Int -&gt; ReadS MultiConditionalSplitActivity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679618669"><span id="local-6989586621679618671"><span id="local-6989586621679618673"><span class="annot"><span class="annottext">Int -&gt; MultiConditionalSplitActivity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679618678"><span id="local-6989586621679618680"><span id="local-6989586621679618682"><span class="annot"><span class="annottext">Int -&gt; MultiConditionalSplitActivity -&gt; ShowS
 [MultiConditionalSplitActivity] -&gt; ShowS
 MultiConditionalSplitActivity -&gt; String
 (Int -&gt; MultiConditionalSplitActivity -&gt; ShowS)
@@ -181,16 +181,16 @@ forall a. Maybe a
      (Maybe [MultiConditionalBranch])
      (Maybe [MultiConditionalBranch])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-type">MultiConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618660"><span class="annot"><span class="annottext">Maybe [MultiConditionalBranch]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-type">MultiConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618669"><span class="annot"><span class="annottext">Maybe [MultiConditionalBranch]
 branches :: Maybe [MultiConditionalBranch]
 $sel:branches:MultiConditionalSplitActivity' :: MultiConditionalSplitActivity -&gt; Maybe [MultiConditionalBranch]
-</span><a href="#local-6989586621679618660"><span class="hs-identifier hs-var hs-var">branches</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MultiConditionalBranch]
-</span><a href="#local-6989586621679618660"><span class="hs-identifier hs-var">branches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618659"><span class="annot"><span class="annottext">s :: MultiConditionalSplitActivity
-</span><a href="#local-6989586621679618659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-type">MultiConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618658"><span class="annot"><span class="annottext">Maybe [MultiConditionalBranch]
-</span><a href="#local-6989586621679618658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiConditionalSplitActivity
-</span><a href="#local-6989586621679618659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branches:MultiConditionalSplitActivity' :: Maybe [MultiConditionalBranch]
+</span><a href="#local-6989586621679618669"><span class="hs-identifier hs-var hs-var">branches</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MultiConditionalBranch]
+</span><a href="#local-6989586621679618669"><span class="hs-identifier hs-var">branches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618668"><span class="annot"><span class="annottext">s :: MultiConditionalSplitActivity
+</span><a href="#local-6989586621679618668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-type">MultiConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618667"><span class="annot"><span class="annottext">Maybe [MultiConditionalBranch]
+</span><a href="#local-6989586621679618667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiConditionalSplitActivity
+</span><a href="#local-6989586621679618668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branches:MultiConditionalSplitActivity' :: Maybe [MultiConditionalBranch]
 </span><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#%24sel%3Abranches%3AMultiConditionalSplitActivity%27"><span class="hs-identifier hs-var">branches</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MultiConditionalBranch]
-</span><a href="#local-6989586621679618658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity"><span class="hs-identifier hs-type">MultiConditionalSplitActivity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MultiConditionalBranch]
+</span><a href="#local-6989586621679618667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity"><span class="hs-identifier hs-type">MultiConditionalSplitActivity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MultiConditionalBranch]
   -&gt; f (Maybe [MultiConditionalBranch]))
  -&gt; MultiConditionalSplitActivity
  -&gt; f MultiConditionalSplitActivity)
@@ -238,16 +238,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe WaitTime)
      (Maybe WaitTime)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-type">MultiConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618653"><span class="annot"><span class="annottext">Maybe WaitTime
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-type">MultiConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618662"><span class="annot"><span class="annottext">Maybe WaitTime
 evaluationWaitTime :: Maybe WaitTime
 $sel:evaluationWaitTime:MultiConditionalSplitActivity' :: MultiConditionalSplitActivity -&gt; Maybe WaitTime
-</span><a href="#local-6989586621679618653"><span class="hs-identifier hs-var hs-var">evaluationWaitTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WaitTime
-</span><a href="#local-6989586621679618653"><span class="hs-identifier hs-var">evaluationWaitTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618652"><span class="annot"><span class="annottext">s :: MultiConditionalSplitActivity
-</span><a href="#local-6989586621679618652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-type">MultiConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618651"><span class="annot"><span class="annottext">Maybe WaitTime
-</span><a href="#local-6989586621679618651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiConditionalSplitActivity
-</span><a href="#local-6989586621679618652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationWaitTime:MultiConditionalSplitActivity' :: Maybe WaitTime
+</span><a href="#local-6989586621679618662"><span class="hs-identifier hs-var hs-var">evaluationWaitTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WaitTime
+</span><a href="#local-6989586621679618662"><span class="hs-identifier hs-var">evaluationWaitTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618661"><span class="annot"><span class="annottext">s :: MultiConditionalSplitActivity
+</span><a href="#local-6989586621679618661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-type">MultiConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618660"><span class="annot"><span class="annottext">Maybe WaitTime
+</span><a href="#local-6989586621679618660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiConditionalSplitActivity
+</span><a href="#local-6989586621679618661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationWaitTime:MultiConditionalSplitActivity' :: Maybe WaitTime
 </span><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#%24sel%3AevaluationWaitTime%3AMultiConditionalSplitActivity%27"><span class="hs-identifier hs-var">evaluationWaitTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WaitTime
-</span><a href="#local-6989586621679618651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity"><span class="hs-identifier hs-type">MultiConditionalSplitActivity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity"><span class="hs-identifier hs-type">MultiConditionalSplitActivity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The unique identifier for the activity to perform for participants who</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- don\'t meet any of the conditions specified for other paths in the</span><span>
@@ -264,19 +264,19 @@ $sel:evaluationWaitTime:MultiConditionalSplitActivity' :: MultiConditionalSplitA
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-type">MultiConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618649"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-type">MultiConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618658"><span class="annot"><span class="annottext">Maybe Text
 defaultActivity :: Maybe Text
 $sel:defaultActivity:MultiConditionalSplitActivity' :: MultiConditionalSplitActivity -&gt; Maybe Text
-</span><a href="#local-6989586621679618649"><span class="hs-identifier hs-var hs-var">defaultActivity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679618649"><span class="hs-identifier hs-var">defaultActivity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618648"><span class="annot"><span class="annottext">s :: MultiConditionalSplitActivity
-</span><a href="#local-6989586621679618648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-type">MultiConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618647"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679618647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiConditionalSplitActivity
-</span><a href="#local-6989586621679618648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultActivity:MultiConditionalSplitActivity' :: Maybe Text
+</span><a href="#local-6989586621679618658"><span class="hs-identifier hs-var hs-var">defaultActivity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679618658"><span class="hs-identifier hs-var">defaultActivity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618657"><span class="annot"><span class="annottext">s :: MultiConditionalSplitActivity
+</span><a href="#local-6989586621679618657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-type">MultiConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618656"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679618656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiConditionalSplitActivity
+</span><a href="#local-6989586621679618657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultActivity:MultiConditionalSplitActivity' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#%24sel%3AdefaultActivity%3AMultiConditionalSplitActivity%27"><span class="hs-identifier hs-var">defaultActivity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679618647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity"><span class="hs-identifier hs-type">MultiConditionalSplitActivity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity"><span class="hs-identifier hs-type">MultiConditionalSplitActivity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618644"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity"><span class="hs-identifier hs-type">MultiConditionalSplitActivity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679618642"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MultiConditionalSplitActivity
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618653"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity"><span class="hs-identifier hs-type">MultiConditionalSplitActivity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679618651"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MultiConditionalSplitActivity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MultiConditionalSplitActivity)
@@ -286,8 +286,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MultiConditionalSplitActivity&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679618639"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679618639"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679618648"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679618648"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe [MultiConditionalBranch]
 -&gt; Maybe WaitTime -&gt; Maybe Text -&gt; MultiConditionalSplitActivity
 </span><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-var">MultiConditionalSplitActivity'</span></a></span><span>
@@ -298,7 +298,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe WaitTime -&gt; Maybe Text -&gt; MultiConditionalSplitActivity)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679618639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MultiConditionalBranch]))
+</span><a href="#local-6989586621679618648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MultiConditionalBranch]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Branches&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [MultiConditionalBranch]))
@@ -314,7 +314,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text -&gt; MultiConditionalSplitActivity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679618639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WaitTime)
+</span><a href="#local-6989586621679618648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WaitTime)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EvaluationWaitTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -322,21 +322,21 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser MultiConditionalSplitActivity
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679618639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679618648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultActivity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679618632"><span id="local-6989586621679618634"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679618641"><span id="local-6989586621679618643"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity"><span class="hs-identifier hs-type">MultiConditionalSplitActivity</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618629"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity"><span class="hs-identifier hs-type">MultiConditionalSplitActivity</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618638"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity"><span class="hs-identifier hs-type">MultiConditionalSplitActivity</span></a></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618621"><span id="local-6989586621679618623"><span id="local-6989586621679618625"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity"><span class="hs-identifier hs-type">MultiConditionalSplitActivity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679618619"><span class="annot"><span class="annottext">toJSON :: MultiConditionalSplitActivity -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-type">MultiConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618615"><span id="local-6989586621679618616"><span id="local-6989586621679618617"><span class="annot"><span class="annottext">Maybe [MultiConditionalBranch]
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618630"><span id="local-6989586621679618632"><span id="local-6989586621679618634"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity"><span class="hs-identifier hs-type">MultiConditionalSplitActivity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679618628"><span class="annot"><span class="annottext">toJSON :: MultiConditionalSplitActivity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity.html#MultiConditionalSplitActivity%27"><span class="hs-identifier hs-type">MultiConditionalSplitActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618624"><span id="local-6989586621679618625"><span id="local-6989586621679618626"><span class="annot"><span class="annottext">Maybe [MultiConditionalBranch]
 Maybe Text
 Maybe WaitTime
 defaultActivity :: Maybe Text
@@ -345,7 +345,7 @@ branches :: Maybe [MultiConditionalBranch]
 $sel:defaultActivity:MultiConditionalSplitActivity' :: MultiConditionalSplitActivity -&gt; Maybe Text
 $sel:evaluationWaitTime:MultiConditionalSplitActivity' :: MultiConditionalSplitActivity -&gt; Maybe WaitTime
 $sel:branches:MultiConditionalSplitActivity' :: MultiConditionalSplitActivity -&gt; Maybe [MultiConditionalBranch]
-</span><a href="#local-6989586621679618615"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679618624"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -358,7 +358,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [MultiConditionalBranch] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MultiConditionalBranch]
-</span><a href="#local-6989586621679618617"><span class="hs-identifier hs-var">branches</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618626"><span class="hs-identifier hs-var">branches</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EvaluationWaitTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WaitTime -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -366,7 +366,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">(WaitTime -&gt; Pair) -&gt; Maybe WaitTime -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WaitTime
-</span><a href="#local-6989586621679618616"><span class="hs-identifier hs-var">evaluationWaitTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618625"><span class="hs-identifier hs-var">evaluationWaitTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultActivity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -374,7 +374,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679618615"><span class="hs-identifier hs-var">defaultActivity</span></a></span><span>
+</span><a href="#local-6989586621679618624"><span class="hs-identifier hs-var">defaultActivity</span></a></span><span>
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span></pre></body></html>

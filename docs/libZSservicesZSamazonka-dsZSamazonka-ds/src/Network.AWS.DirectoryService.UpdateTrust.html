@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateTrust' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679317217"><span id="local-6989586621679317218"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTrust"><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-var">UpdateTrust</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTrust%27"><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust%27"><span class="hs-identifier hs-var">UpdateTrust'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679317226"><span id="local-6989586621679317227"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTrust"><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-var">UpdateTrust</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTrust%27"><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust%27"><span class="hs-identifier hs-var">UpdateTrust'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Updates selective authentication for the trust.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AselectiveAuth%3AUpdateTrust%27"><span class="annot"><span class="annottext">UpdateTrust -&gt; Maybe SelectiveAuth
 </span><a href="Network.AWS.DirectoryService.UpdateTrust.html#%24sel%3AselectiveAuth%3AUpdateTrust%27"><span class="hs-identifier hs-var hs-var">selectiveAuth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SelectiveAuth.html#SelectiveAuth"><span class="hs-identifier hs-type">SelectiveAuth</span></a></span><span class="hs-special">,</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AtrustId%3AUpdateTrust%27"><span class="annot"><span class="annottext">UpdateTrust -&gt; Text
 </span><a href="Network.AWS.DirectoryService.UpdateTrust.html#%24sel%3AtrustId%3AUpdateTrust%27"><span class="hs-identifier hs-var hs-var">trustId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317210"><span id="local-6989586621679317212"><span class="annot"><span class="annottext">UpdateTrust -&gt; UpdateTrust -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317219"><span id="local-6989586621679317221"><span class="annot"><span class="annottext">UpdateTrust -&gt; UpdateTrust -&gt; Bool
 (UpdateTrust -&gt; UpdateTrust -&gt; Bool)
 -&gt; (UpdateTrust -&gt; UpdateTrust -&gt; Bool) -&gt; Eq UpdateTrust
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateTrust -&gt; UpdateTrust -&gt; Bool
 == :: UpdateTrust -&gt; UpdateTrust -&gt; Bool
 $c== :: UpdateTrust -&gt; UpdateTrust -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317201"><span id="local-6989586621679317203"><span id="local-6989586621679317205"><span id="local-6989586621679317207"><span class="annot"><span class="annottext">ReadPrec [UpdateTrust]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317210"><span id="local-6989586621679317212"><span id="local-6989586621679317214"><span id="local-6989586621679317216"><span class="annot"><span class="annottext">ReadPrec [UpdateTrust]
 ReadPrec UpdateTrust
 Int -&gt; ReadS UpdateTrust
 ReadS [UpdateTrust]
@@ -86,7 +86,7 @@ readList :: ReadS [UpdateTrust]
 $creadList :: ReadS [UpdateTrust]
 readsPrec :: Int -&gt; ReadS UpdateTrust
 $creadsPrec :: Int -&gt; ReadS UpdateTrust
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317194"><span id="local-6989586621679317196"><span id="local-6989586621679317198"><span class="annot"><span class="annottext">Int -&gt; UpdateTrust -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317203"><span id="local-6989586621679317205"><span id="local-6989586621679317207"><span class="annot"><span class="annottext">Int -&gt; UpdateTrust -&gt; ShowS
 [UpdateTrust] -&gt; ShowS
 UpdateTrust -&gt; String
 (Int -&gt; UpdateTrust -&gt; ShowS)
@@ -128,8 +128,8 @@ $cfrom :: forall x. UpdateTrust -&gt; Rep UpdateTrust x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span><span>
 </span><span id="line-76"></span><span id="newUpdateTrust"><span class="annot"><span class="annottext">newUpdateTrust :: Text -&gt; UpdateTrust
-</span><a href="Network.AWS.DirectoryService.UpdateTrust.html#newUpdateTrust"><span class="hs-identifier hs-var hs-var">newUpdateTrust</span></a></span></span><span> </span><span id="local-6989586621679317189"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317189"><span class="hs-identifier hs-var">pTrustId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.UpdateTrust.html#newUpdateTrust"><span class="hs-identifier hs-var hs-var">newUpdateTrust</span></a></span></span><span> </span><span id="local-6989586621679317198"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317198"><span class="hs-identifier hs-var">pTrustId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">UpdateTrust' :: Maybe SelectiveAuth -&gt; Text -&gt; UpdateTrust
 </span><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust%27"><span class="hs-identifier hs-type">UpdateTrust'</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:selectiveAuth:UpdateTrust' :: Maybe SelectiveAuth
@@ -138,7 +138,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:trustId:UpdateTrust' :: Text
 </span><a href="Network.AWS.DirectoryService.UpdateTrust.html#%24sel%3AtrustId%3AUpdateTrust%27"><span class="hs-identifier hs-var">trustId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317189"><span class="hs-identifier hs-var">pTrustId_</span></a></span><span>
+</span><a href="#local-6989586621679317198"><span class="hs-identifier hs-var">pTrustId_</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | Updates selective authentication for the trust.</span><span>
@@ -150,16 +150,16 @@ forall a. Maybe a
 -&gt; Lens
      UpdateTrust UpdateTrust (Maybe SelectiveAuth) (Maybe SelectiveAuth)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust%27"><span class="hs-identifier hs-type">UpdateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317186"><span class="annot"><span class="annottext">Maybe SelectiveAuth
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust%27"><span class="hs-identifier hs-type">UpdateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317195"><span class="annot"><span class="annottext">Maybe SelectiveAuth
 selectiveAuth :: Maybe SelectiveAuth
 $sel:selectiveAuth:UpdateTrust' :: UpdateTrust -&gt; Maybe SelectiveAuth
-</span><a href="#local-6989586621679317186"><span class="hs-identifier hs-var hs-var">selectiveAuth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SelectiveAuth
-</span><a href="#local-6989586621679317186"><span class="hs-identifier hs-var">selectiveAuth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317185"><span class="annot"><span class="annottext">s :: UpdateTrust
-</span><a href="#local-6989586621679317185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust%27"><span class="hs-identifier hs-type">UpdateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317184"><span class="annot"><span class="annottext">Maybe SelectiveAuth
-</span><a href="#local-6989586621679317184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrust
-</span><a href="#local-6989586621679317185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectiveAuth:UpdateTrust' :: Maybe SelectiveAuth
+</span><a href="#local-6989586621679317195"><span class="hs-identifier hs-var hs-var">selectiveAuth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SelectiveAuth
+</span><a href="#local-6989586621679317195"><span class="hs-identifier hs-var">selectiveAuth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317194"><span class="annot"><span class="annottext">s :: UpdateTrust
+</span><a href="#local-6989586621679317194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust%27"><span class="hs-identifier hs-type">UpdateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317193"><span class="annot"><span class="annottext">Maybe SelectiveAuth
+</span><a href="#local-6989586621679317193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrust
+</span><a href="#local-6989586621679317194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectiveAuth:UpdateTrust' :: Maybe SelectiveAuth
 </span><a href="Network.AWS.DirectoryService.UpdateTrust.html#%24sel%3AselectiveAuth%3AUpdateTrust%27"><span class="hs-identifier hs-var">selectiveAuth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SelectiveAuth
-</span><a href="#local-6989586621679317184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | Identifier of the trust relationship.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#updateTrust_trustId"><span class="hs-identifier hs-type">updateTrust_trustId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -168,25 +168,25 @@ $sel:selectiveAuth:UpdateTrust' :: UpdateTrust -&gt; Maybe SelectiveAuth
 -&gt; (UpdateTrust -&gt; Text -&gt; UpdateTrust)
 -&gt; Lens UpdateTrust UpdateTrust Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust%27"><span class="hs-identifier hs-type">UpdateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317183"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust%27"><span class="hs-identifier hs-type">UpdateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317192"><span class="annot"><span class="annottext">Text
 trustId :: Text
 $sel:trustId:UpdateTrust' :: UpdateTrust -&gt; Text
-</span><a href="#local-6989586621679317183"><span class="hs-identifier hs-var hs-var">trustId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317183"><span class="hs-identifier hs-var">trustId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317182"><span class="annot"><span class="annottext">s :: UpdateTrust
-</span><a href="#local-6989586621679317182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust%27"><span class="hs-identifier hs-type">UpdateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317181"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrust
-</span><a href="#local-6989586621679317182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustId:UpdateTrust' :: Text
+</span><a href="#local-6989586621679317192"><span class="hs-identifier hs-var hs-var">trustId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317192"><span class="hs-identifier hs-var">trustId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317191"><span class="annot"><span class="annottext">s :: UpdateTrust
+</span><a href="#local-6989586621679317191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust%27"><span class="hs-identifier hs-type">UpdateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317190"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrust
+</span><a href="#local-6989586621679317191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustId:UpdateTrust' :: Text
 </span><a href="Network.AWS.DirectoryService.UpdateTrust.html#%24sel%3AtrustId%3AUpdateTrust%27"><span class="hs-identifier hs-var">trustId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse"><span class="hs-identifier hs-type">UpdateTrustResponse</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679317177"><span class="annot"><span class="annottext">request :: UpdateTrust -&gt; Request UpdateTrust
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679317186"><span class="annot"><span class="annottext">request :: UpdateTrust -&gt; Request UpdateTrust
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateTrust -&gt; Request UpdateTrust
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679317173"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679317182"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateTrust
 -&gt; ClientResponse ClientBody
@@ -210,10 +210,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317170"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317170"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317169"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679317169"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317168"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679317168"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317179"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317179"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317178"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679317178"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317177"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317177"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateTrustResponse
 </span><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse%27"><span class="hs-identifier hs-var">UpdateTrustResponse'</span></a></span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateTrustResponse)
@@ -221,7 +221,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; UpdateTrustResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679317168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679317177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
@@ -230,7 +230,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; UpdateTrustResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679317168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679317177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrustId&quot;</span></span><span class="hs-special">)</span><span>
@@ -242,15 +242,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317170"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317179"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317160"><span id="local-6989586621679317162"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317169"><span id="local-6989586621679317171"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317157"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317166"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679317153"><span class="annot"><span class="annottext">toHeaders :: UpdateTrust -&gt; ResponseHeaders
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679317162"><span class="annot"><span class="annottext">toHeaders :: UpdateTrust -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateTrust -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -277,15 +277,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317143"><span id="local-6989586621679317145"><span id="local-6989586621679317147"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679317141"><span class="annot"><span class="annottext">toJSON :: UpdateTrust -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust%27"><span class="hs-identifier hs-type">UpdateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317138"><span id="local-6989586621679317139"><span class="annot"><span class="annottext">Maybe SelectiveAuth
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317152"><span id="local-6989586621679317154"><span id="local-6989586621679317156"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679317150"><span class="annot"><span class="annottext">toJSON :: UpdateTrust -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust%27"><span class="hs-identifier hs-type">UpdateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317147"><span id="local-6989586621679317148"><span class="annot"><span class="annottext">Maybe SelectiveAuth
 Text
 trustId :: Text
 selectiveAuth :: Maybe SelectiveAuth
 $sel:trustId:UpdateTrust' :: UpdateTrust -&gt; Text
 $sel:selectiveAuth:UpdateTrust' :: UpdateTrust -&gt; Maybe SelectiveAuth
-</span><a href="#local-6989586621679317138"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679317147"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -297,26 +297,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SelectiveAuth -&gt; Pair) -&gt; Maybe SelectiveAuth -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SelectiveAuth
-</span><a href="#local-6989586621679317139"><span class="hs-identifier hs-var">selectiveAuth</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679317148"><span class="hs-identifier hs-var">selectiveAuth</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrustId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317138"><span class="hs-identifier hs-var">trustId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317147"><span class="hs-identifier hs-var">trustId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679317132"><span class="annot"><span class="annottext">toPath :: UpdateTrust -&gt; ByteString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679317141"><span class="annot"><span class="annottext">toPath :: UpdateTrust -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateTrust -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrust"><span class="hs-identifier hs-type">UpdateTrust</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679317128"><span class="annot"><span class="annottext">toQuery :: UpdateTrust -&gt; QueryString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679317137"><span class="annot"><span class="annottext">toQuery :: UpdateTrust -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateTrust -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -324,7 +324,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newUpdateTrustResponse' smart constructor.</span><span>
-</span><span id="line-137"></span><span id="local-6989586621679317125"><span id="local-6989586621679317126"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTrustResponse"><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse"><span class="hs-identifier hs-var">UpdateTrustResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTrustResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse%27"><span class="hs-identifier hs-var">UpdateTrustResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621679317134"><span id="local-6989586621679317135"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTrustResponse"><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse"><span class="hs-identifier hs-var">UpdateTrustResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTrustResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse%27"><span class="hs-identifier hs-var">UpdateTrustResponse'</span></a></span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3ArequestId%3AUpdateTrustResponse%27"><span class="annot"><span class="annottext">UpdateTrustResponse -&gt; Maybe Text
 </span><a href="Network.AWS.DirectoryService.UpdateTrust.html#%24sel%3ArequestId%3AUpdateTrustResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | Identifier of the trust relationship.</span><span>
@@ -334,7 +334,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateTrustResponse%27"><span class="annot"><span class="annottext">UpdateTrustResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.UpdateTrust.html#%24sel%3AhttpStatus%3AUpdateTrustResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317118"><span id="local-6989586621679317120"><span class="annot"><span class="annottext">UpdateTrustResponse -&gt; UpdateTrustResponse -&gt; Bool
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317127"><span id="local-6989586621679317129"><span class="annot"><span class="annottext">UpdateTrustResponse -&gt; UpdateTrustResponse -&gt; Bool
 (UpdateTrustResponse -&gt; UpdateTrustResponse -&gt; Bool)
 -&gt; (UpdateTrustResponse -&gt; UpdateTrustResponse -&gt; Bool)
 -&gt; Eq UpdateTrustResponse
@@ -343,7 +343,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateTrustResponse -&gt; UpdateTrustResponse -&gt; Bool
 == :: UpdateTrustResponse -&gt; UpdateTrustResponse -&gt; Bool
 $c== :: UpdateTrustResponse -&gt; UpdateTrustResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317110"><span id="local-6989586621679317112"><span id="local-6989586621679317114"><span id="local-6989586621679317116"><span class="annot"><span class="annottext">ReadPrec [UpdateTrustResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317119"><span id="local-6989586621679317121"><span id="local-6989586621679317123"><span id="local-6989586621679317125"><span class="annot"><span class="annottext">ReadPrec [UpdateTrustResponse]
 ReadPrec UpdateTrustResponse
 Int -&gt; ReadS UpdateTrustResponse
 ReadS [UpdateTrustResponse]
@@ -363,7 +363,7 @@ readList :: ReadS [UpdateTrustResponse]
 $creadList :: ReadS [UpdateTrustResponse]
 readsPrec :: Int -&gt; ReadS UpdateTrustResponse
 $creadsPrec :: Int -&gt; ReadS UpdateTrustResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317104"><span id="local-6989586621679317106"><span id="local-6989586621679317108"><span class="annot"><span class="annottext">Int -&gt; UpdateTrustResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317113"><span id="local-6989586621679317115"><span id="local-6989586621679317117"><span class="annot"><span class="annottext">Int -&gt; UpdateTrustResponse -&gt; ShowS
 [UpdateTrustResponse] -&gt; ShowS
 UpdateTrustResponse -&gt; String
 (Int -&gt; UpdateTrustResponse -&gt; ShowS)
@@ -407,8 +407,8 @@ $cfrom :: forall x. UpdateTrustResponse -&gt; Rep UpdateTrustResponse x
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse"><span class="hs-identifier hs-type">UpdateTrustResponse</span></a></span><span>
 </span><span id="line-163"></span><span id="newUpdateTrustResponse"><span class="annot"><span class="annottext">newUpdateTrustResponse :: Int -&gt; UpdateTrustResponse
-</span><a href="Network.AWS.DirectoryService.UpdateTrust.html#newUpdateTrustResponse"><span class="hs-identifier hs-var hs-var">newUpdateTrustResponse</span></a></span></span><span> </span><span id="local-6989586621679317101"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317101"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.UpdateTrust.html#newUpdateTrustResponse"><span class="hs-identifier hs-var hs-var">newUpdateTrustResponse</span></a></span></span><span> </span><span id="local-6989586621679317110"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317110"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">UpdateTrustResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateTrustResponse
 </span><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse%27"><span class="hs-identifier hs-type">UpdateTrustResponse'</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:UpdateTrustResponse' :: Maybe Text
@@ -421,7 +421,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTrustResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.UpdateTrust.html#%24sel%3AhttpStatus%3AUpdateTrustResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317101"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679317110"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -433,16 +433,16 @@ forall a. Maybe a
 -&gt; Lens
      UpdateTrustResponse UpdateTrustResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse%27"><span class="hs-identifier hs-type">UpdateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317100"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse%27"><span class="hs-identifier hs-type">UpdateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317109"><span class="annot"><span class="annottext">Maybe Text
 requestId :: Maybe Text
 $sel:requestId:UpdateTrustResponse' :: UpdateTrustResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679317100"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317100"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317099"><span class="annot"><span class="annottext">s :: UpdateTrustResponse
-</span><a href="#local-6989586621679317099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse%27"><span class="hs-identifier hs-type">UpdateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317098"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrustResponse
-</span><a href="#local-6989586621679317099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:UpdateTrustResponse' :: Maybe Text
+</span><a href="#local-6989586621679317109"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317109"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317108"><span class="annot"><span class="annottext">s :: UpdateTrustResponse
+</span><a href="#local-6989586621679317108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse%27"><span class="hs-identifier hs-type">UpdateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317107"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrustResponse
+</span><a href="#local-6989586621679317108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:UpdateTrustResponse' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.UpdateTrust.html#%24sel%3ArequestId%3AUpdateTrustResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse"><span class="hs-identifier hs-type">UpdateTrustResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse"><span class="hs-identifier hs-type">UpdateTrustResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | Identifier of the trust relationship.</span><span>
 </span><span id="line-175"></span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#updateTrustResponse_trustId"><span class="hs-identifier hs-type">updateTrustResponse_trustId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse"><span class="hs-identifier hs-type">UpdateTrustResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -453,16 +453,16 @@ $sel:requestId:UpdateTrustResponse' :: UpdateTrustResponse -&gt; Maybe Text
 -&gt; Lens
      UpdateTrustResponse UpdateTrustResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse%27"><span class="hs-identifier hs-type">UpdateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317097"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse%27"><span class="hs-identifier hs-type">UpdateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317106"><span class="annot"><span class="annottext">Maybe Text
 trustId :: Maybe Text
 $sel:trustId:UpdateTrustResponse' :: UpdateTrustResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679317097"><span class="hs-identifier hs-var hs-var">trustId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317097"><span class="hs-identifier hs-var">trustId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317096"><span class="annot"><span class="annottext">s :: UpdateTrustResponse
-</span><a href="#local-6989586621679317096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse%27"><span class="hs-identifier hs-type">UpdateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317095"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrustResponse
-</span><a href="#local-6989586621679317096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustId:UpdateTrustResponse' :: Maybe Text
+</span><a href="#local-6989586621679317106"><span class="hs-identifier hs-var hs-var">trustId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317106"><span class="hs-identifier hs-var">trustId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317105"><span class="annot"><span class="annottext">s :: UpdateTrustResponse
+</span><a href="#local-6989586621679317105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse%27"><span class="hs-identifier hs-type">UpdateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317104"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrustResponse
+</span><a href="#local-6989586621679317105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustId:UpdateTrustResponse' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.UpdateTrust.html#%24sel%3AtrustId%3AUpdateTrustResponse%27"><span class="hs-identifier hs-var">trustId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse"><span class="hs-identifier hs-type">UpdateTrustResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse"><span class="hs-identifier hs-type">UpdateTrustResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-179"></span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#updateTrustResponse_httpStatus"><span class="hs-identifier hs-type">updateTrustResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse"><span class="hs-identifier hs-type">UpdateTrustResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -471,16 +471,16 @@ $sel:trustId:UpdateTrustResponse' :: UpdateTrustResponse -&gt; Maybe Text
 -&gt; (UpdateTrustResponse -&gt; Int -&gt; UpdateTrustResponse)
 -&gt; Lens UpdateTrustResponse UpdateTrustResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse%27"><span class="hs-identifier hs-type">UpdateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317094"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse%27"><span class="hs-identifier hs-type">UpdateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317103"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateTrustResponse' :: UpdateTrustResponse -&gt; Int
-</span><a href="#local-6989586621679317094"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317094"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317093"><span class="annot"><span class="annottext">s :: UpdateTrustResponse
-</span><a href="#local-6989586621679317093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse%27"><span class="hs-identifier hs-type">UpdateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317092"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrustResponse
-</span><a href="#local-6989586621679317093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTrustResponse' :: Int
+</span><a href="#local-6989586621679317103"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317103"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317102"><span class="annot"><span class="annottext">s :: UpdateTrustResponse
+</span><a href="#local-6989586621679317102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse%27"><span class="hs-identifier hs-type">UpdateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317101"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrustResponse
+</span><a href="#local-6989586621679317102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTrustResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.UpdateTrust.html#%24sel%3AhttpStatus%3AUpdateTrustResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse"><span class="hs-identifier hs-type">UpdateTrustResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse"><span class="hs-identifier hs-type">UpdateTrustResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317090"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse"><span class="hs-identifier hs-type">UpdateTrustResponse</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317099"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UpdateTrust.html#UpdateTrustResponse"><span class="hs-identifier hs-type">UpdateTrustResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

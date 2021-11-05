@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679609553"><span id="local-6989586621679609554"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DiskSnapshotState"><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotState.html#DiskSnapshotState"><span class="hs-identifier hs-var">DiskSnapshotState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiskSnapshotState%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotState.html#DiskSnapshotState%27"><span class="hs-identifier hs-var">DiskSnapshotState'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679609562"><span id="local-6989586621679609563"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DiskSnapshotState"><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotState.html#DiskSnapshotState"><span class="hs-identifier hs-var">DiskSnapshotState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiskSnapshotState%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotState.html#DiskSnapshotState%27"><span class="hs-identifier hs-var">DiskSnapshotState'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDiskSnapshotState"><span class="annot"><span class="annottext">DiskSnapshotState -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.DiskSnapshotState.html#fromDiskSnapshotState"><span class="hs-identifier hs-var hs-var">fromDiskSnapshotState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679609545"><span id="local-6989586621679609547"><span id="local-6989586621679609549"><span class="annot"><span class="annottext">Int -&gt; DiskSnapshotState -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679609554"><span id="local-6989586621679609556"><span id="local-6989586621679609558"><span class="annot"><span class="annottext">Int -&gt; DiskSnapshotState -&gt; ShowS
 [DiskSnapshotState] -&gt; ShowS
 DiskSnapshotState -&gt; String
 (Int -&gt; DiskSnapshotState -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: DiskSnapshotState -&gt; String
 showsPrec :: Int -&gt; DiskSnapshotState -&gt; ShowS
 $cshowsPrec :: Int -&gt; DiskSnapshotState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679609536"><span id="local-6989586621679609538"><span id="local-6989586621679609540"><span id="local-6989586621679609542"><span class="annot"><span class="annottext">ReadPrec [DiskSnapshotState]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679609545"><span id="local-6989586621679609547"><span id="local-6989586621679609549"><span id="local-6989586621679609551"><span class="annot"><span class="annottext">ReadPrec [DiskSnapshotState]
 ReadPrec DiskSnapshotState
 Int -&gt; ReadS DiskSnapshotState
 ReadS [DiskSnapshotState]
@@ -74,7 +74,7 @@ $creadList :: ReadS [DiskSnapshotState]
 readsPrec :: Int -&gt; ReadS DiskSnapshotState
 $creadsPrec :: Int -&gt; ReadS DiskSnapshotState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679609531"><span id="local-6989586621679609533"><span class="annot"><span class="annottext">DiskSnapshotState -&gt; DiskSnapshotState -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679609540"><span id="local-6989586621679609542"><span class="annot"><span class="annottext">DiskSnapshotState -&gt; DiskSnapshotState -&gt; Bool
 (DiskSnapshotState -&gt; DiskSnapshotState -&gt; Bool)
 -&gt; (DiskSnapshotState -&gt; DiskSnapshotState -&gt; Bool)
 -&gt; Eq DiskSnapshotState
@@ -84,7 +84,7 @@ $c/= :: DiskSnapshotState -&gt; DiskSnapshotState -&gt; Bool
 == :: DiskSnapshotState -&gt; DiskSnapshotState -&gt; Bool
 $c== :: DiskSnapshotState -&gt; DiskSnapshotState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679609515"><span id="local-6989586621679609517"><span id="local-6989586621679609519"><span id="local-6989586621679609521"><span id="local-6989586621679609523"><span id="local-6989586621679609525"><span id="local-6989586621679609527"><span class="annot"><span class="annottext">Eq DiskSnapshotState
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679609524"><span id="local-6989586621679609526"><span id="local-6989586621679609528"><span id="local-6989586621679609530"><span id="local-6989586621679609532"><span id="local-6989586621679609534"><span id="local-6989586621679609536"><span class="annot"><span class="annottext">Eq DiskSnapshotState
 Eq DiskSnapshotState
 -&gt; (DiskSnapshotState -&gt; DiskSnapshotState -&gt; Ordering)
 -&gt; (DiskSnapshotState -&gt; DiskSnapshotState -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. DiskSnapshotState -&gt; Rep DiskSnapshotState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679609507"><span id="local-6989586621679609509"><span class="annot"><span class="annottext">Int -&gt; DiskSnapshotState -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679609516"><span id="local-6989586621679609518"><span class="annot"><span class="annottext">Int -&gt; DiskSnapshotState -&gt; Int
 DiskSnapshotState -&gt; Int
 (Int -&gt; DiskSnapshotState -&gt; Int)
 -&gt; (DiskSnapshotState -&gt; Int) -&gt; Hashable DiskSnapshotState
@@ -145,51 +145,51 @@ $chash :: DiskSnapshotState -&gt; Int
 hashWithSalt :: Int -&gt; DiskSnapshotState -&gt; Int
 $chashWithSalt :: Int -&gt; DiskSnapshotState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679609504"><span class="annot"><span class="annottext">DiskSnapshotState -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679609513"><span class="annot"><span class="annottext">DiskSnapshotState -&gt; ()
 (DiskSnapshotState -&gt; ()) -&gt; NFData DiskSnapshotState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DiskSnapshotState -&gt; ()
 $crnf :: DiskSnapshotState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679609501"><span class="annot"><span class="annottext">Text -&gt; Either String DiskSnapshotState
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679609510"><span class="annot"><span class="annottext">Text -&gt; Either String DiskSnapshotState
 (Text -&gt; Either String DiskSnapshotState)
 -&gt; FromText DiskSnapshotState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DiskSnapshotState
 $cfromText :: Text -&gt; Either String DiskSnapshotState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679609498"><span class="annot"><span class="annottext">DiskSnapshotState -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679609507"><span class="annot"><span class="annottext">DiskSnapshotState -&gt; Text
 (DiskSnapshotState -&gt; Text) -&gt; ToText DiskSnapshotState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DiskSnapshotState -&gt; Text
 $ctoText :: DiskSnapshotState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679609495"><span class="annot"><span class="annottext">DiskSnapshotState -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679609504"><span class="annot"><span class="annottext">DiskSnapshotState -&gt; ByteString
 (DiskSnapshotState -&gt; ByteString) -&gt; ToByteString DiskSnapshotState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DiskSnapshotState -&gt; ByteString
 $ctoBS :: DiskSnapshotState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679609492"><span class="annot"><span class="annottext">DiskSnapshotState -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679609501"><span class="annot"><span class="annottext">DiskSnapshotState -&gt; ByteStringBuilder
 (DiskSnapshotState -&gt; ByteStringBuilder) -&gt; ToLog DiskSnapshotState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DiskSnapshotState -&gt; ByteStringBuilder
 $cbuild :: DiskSnapshotState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679609489"><span class="annot"><span class="annottext">HeaderName -&gt; DiskSnapshotState -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679609498"><span class="annot"><span class="annottext">HeaderName -&gt; DiskSnapshotState -&gt; [Header]
 (HeaderName -&gt; DiskSnapshotState -&gt; [Header])
 -&gt; ToHeader DiskSnapshotState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DiskSnapshotState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DiskSnapshotState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679609486"><span class="annot"><span class="annottext">DiskSnapshotState -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679609495"><span class="annot"><span class="annottext">DiskSnapshotState -&gt; QueryString
 (DiskSnapshotState -&gt; QueryString) -&gt; ToQuery DiskSnapshotState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DiskSnapshotState -&gt; QueryString
 $ctoQuery :: DiskSnapshotState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679609481"><span id="local-6989586621679609483"><span class="annot"><span class="annottext">Value -&gt; Parser [DiskSnapshotState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679609490"><span id="local-6989586621679609492"><span class="annot"><span class="annottext">Value -&gt; Parser [DiskSnapshotState]
 Value -&gt; Parser DiskSnapshotState
 (Value -&gt; Parser DiskSnapshotState)
 -&gt; (Value -&gt; Parser [DiskSnapshotState])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [DiskSnapshotState]
 parseJSON :: Value -&gt; Parser DiskSnapshotState
 $cparseJSON :: Value -&gt; Parser DiskSnapshotState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679609476"><span id="local-6989586621679609478"><span class="annot"><span class="annottext">FromJSONKeyFunction [DiskSnapshotState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679609485"><span id="local-6989586621679609487"><span class="annot"><span class="annottext">FromJSONKeyFunction [DiskSnapshotState]
 FromJSONKeyFunction DiskSnapshotState
 FromJSONKeyFunction DiskSnapshotState
 -&gt; FromJSONKeyFunction [DiskSnapshotState]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DiskSnapshotState]
 fromJSONKey :: FromJSONKeyFunction DiskSnapshotState
 $cfromJSONKey :: FromJSONKeyFunction DiskSnapshotState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679609467"><span id="local-6989586621679609469"><span id="local-6989586621679609471"><span id="local-6989586621679609473"><span class="annot"><span class="annottext">[DiskSnapshotState] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679609476"><span id="local-6989586621679609478"><span id="local-6989586621679609480"><span id="local-6989586621679609482"><span class="annot"><span class="annottext">[DiskSnapshotState] -&gt; Encoding
 [DiskSnapshotState] -&gt; Value
 DiskSnapshotState -&gt; Encoding
 DiskSnapshotState -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: DiskSnapshotState -&gt; Encoding
 toJSON :: DiskSnapshotState -&gt; Value
 $ctoJSON :: DiskSnapshotState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679609462"><span id="local-6989586621679609464"><span class="annot"><span class="annottext">ToJSONKeyFunction [DiskSnapshotState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679609471"><span id="local-6989586621679609473"><span class="annot"><span class="annottext">ToJSONKeyFunction [DiskSnapshotState]
 ToJSONKeyFunction DiskSnapshotState
 ToJSONKeyFunction DiskSnapshotState
 -&gt; ToJSONKeyFunction [DiskSnapshotState]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DiskSnapshotState]
 toJSONKey :: ToJSONKeyFunction DiskSnapshotState
 $ctoJSONKey :: ToJSONKeyFunction DiskSnapshotState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679609459"><span class="annot"><span class="annottext">[Node] -&gt; Either String DiskSnapshotState
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679609468"><span class="annot"><span class="annottext">[Node] -&gt; Either String DiskSnapshotState
 ([Node] -&gt; Either String DiskSnapshotState)
 -&gt; FromXML DiskSnapshotState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DiskSnapshotState
 $cparseXML :: [Node] -&gt; Either String DiskSnapshotState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679609456"><span class="annot"><span class="annottext">DiskSnapshotState -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679609465"><span class="annot"><span class="annottext">DiskSnapshotState -&gt; XML
 (DiskSnapshotState -&gt; XML) -&gt; ToXML DiskSnapshotState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DiskSnapshotState -&gt; XML

@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTWireless.Types.WirelessDeviceIdType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTWireless.Types.WirelessDeviceIdType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType"><span class="hs-identifier">WirelessDeviceIdType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType_DevEui"><span class="hs-identifier">WirelessDeviceIdType_DevEui</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType_SidewalkManufacturingSn"><span class="hs-identifier">WirelessDeviceIdType_SidewalkManufacturingSn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType_ThingName"><span class="hs-identifier">WirelessDeviceIdType_ThingName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType_WirelessDeviceId"><span class="hs-identifier">WirelessDeviceIdType_WirelessDeviceId</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679279267"><span id="local-6989586621679279268"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WirelessDeviceIdType"><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType"><span class="hs-identifier hs-var">WirelessDeviceIdType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WirelessDeviceIdType%27"><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType%27"><span class="hs-identifier hs-var">WirelessDeviceIdType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWirelessDeviceIdType"><span class="annot"><span class="annottext">WirelessDeviceIdType -&gt; Text
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#fromWirelessDeviceIdType"><span class="hs-identifier hs-var hs-var">fromWirelessDeviceIdType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679279259"><span id="local-6989586621679279261"><span id="local-6989586621679279263"><span class="annot"><span class="annottext">Int -&gt; WirelessDeviceIdType -&gt; ShowS
+[WirelessDeviceIdType] -&gt; ShowS
+WirelessDeviceIdType -&gt; String
+(Int -&gt; WirelessDeviceIdType -&gt; ShowS)
+-&gt; (WirelessDeviceIdType -&gt; String)
+-&gt; ([WirelessDeviceIdType] -&gt; ShowS)
+-&gt; Show WirelessDeviceIdType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WirelessDeviceIdType] -&gt; ShowS
+$cshowList :: [WirelessDeviceIdType] -&gt; ShowS
+show :: WirelessDeviceIdType -&gt; String
+$cshow :: WirelessDeviceIdType -&gt; String
+showsPrec :: Int -&gt; WirelessDeviceIdType -&gt; ShowS
+$cshowsPrec :: Int -&gt; WirelessDeviceIdType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679279250"><span id="local-6989586621679279252"><span id="local-6989586621679279254"><span id="local-6989586621679279256"><span class="annot"><span class="annottext">ReadPrec [WirelessDeviceIdType]
+ReadPrec WirelessDeviceIdType
+Int -&gt; ReadS WirelessDeviceIdType
+ReadS [WirelessDeviceIdType]
+(Int -&gt; ReadS WirelessDeviceIdType)
+-&gt; ReadS [WirelessDeviceIdType]
+-&gt; ReadPrec WirelessDeviceIdType
+-&gt; ReadPrec [WirelessDeviceIdType]
+-&gt; Read WirelessDeviceIdType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WirelessDeviceIdType]
+$creadListPrec :: ReadPrec [WirelessDeviceIdType]
+readPrec :: ReadPrec WirelessDeviceIdType
+$creadPrec :: ReadPrec WirelessDeviceIdType
+readList :: ReadS [WirelessDeviceIdType]
+$creadList :: ReadS [WirelessDeviceIdType]
+readsPrec :: Int -&gt; ReadS WirelessDeviceIdType
+$creadsPrec :: Int -&gt; ReadS WirelessDeviceIdType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679279245"><span id="local-6989586621679279247"><span class="annot"><span class="annottext">WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool
+(WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool)
+-&gt; (WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool)
+-&gt; Eq WirelessDeviceIdType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool
+$c/= :: WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool
+== :: WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool
+$c== :: WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679279229"><span id="local-6989586621679279231"><span id="local-6989586621679279233"><span id="local-6989586621679279235"><span id="local-6989586621679279237"><span id="local-6989586621679279239"><span id="local-6989586621679279241"><span class="annot"><span class="annottext">Eq WirelessDeviceIdType
+Eq WirelessDeviceIdType
+-&gt; (WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Ordering)
+-&gt; (WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool)
+-&gt; (WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool)
+-&gt; (WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool)
+-&gt; (WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool)
+-&gt; (WirelessDeviceIdType
+    -&gt; WirelessDeviceIdType -&gt; WirelessDeviceIdType)
+-&gt; (WirelessDeviceIdType
+    -&gt; WirelessDeviceIdType -&gt; WirelessDeviceIdType)
+-&gt; Ord WirelessDeviceIdType
+WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool
+WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Ordering
+WirelessDeviceIdType
+-&gt; WirelessDeviceIdType -&gt; WirelessDeviceIdType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: WirelessDeviceIdType
+-&gt; WirelessDeviceIdType -&gt; WirelessDeviceIdType
+$cmin :: WirelessDeviceIdType
+-&gt; WirelessDeviceIdType -&gt; WirelessDeviceIdType
+max :: WirelessDeviceIdType
+-&gt; WirelessDeviceIdType -&gt; WirelessDeviceIdType
+$cmax :: WirelessDeviceIdType
+-&gt; WirelessDeviceIdType -&gt; WirelessDeviceIdType
+&gt;= :: WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool
+$c&gt;= :: WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool
+&gt; :: WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool
+$c&gt; :: WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool
+&lt;= :: WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool
+$c&lt;= :: WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool
+&lt; :: WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool
+$c&lt; :: WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Bool
+compare :: WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Ordering
+$ccompare :: WirelessDeviceIdType -&gt; WirelessDeviceIdType -&gt; Ordering
+$cp1Ord :: Eq WirelessDeviceIdType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. WirelessDeviceIdType -&gt; Rep WirelessDeviceIdType x)
+-&gt; (forall x. Rep WirelessDeviceIdType x -&gt; WirelessDeviceIdType)
+-&gt; Generic WirelessDeviceIdType
+forall x. Rep WirelessDeviceIdType x -&gt; WirelessDeviceIdType
+forall x. WirelessDeviceIdType -&gt; Rep WirelessDeviceIdType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WirelessDeviceIdType x -&gt; WirelessDeviceIdType
+$cfrom :: forall x. WirelessDeviceIdType -&gt; Rep WirelessDeviceIdType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679279221"><span id="local-6989586621679279223"><span class="annot"><span class="annottext">Int -&gt; WirelessDeviceIdType -&gt; Int
+WirelessDeviceIdType -&gt; Int
+(Int -&gt; WirelessDeviceIdType -&gt; Int)
+-&gt; (WirelessDeviceIdType -&gt; Int) -&gt; Hashable WirelessDeviceIdType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: WirelessDeviceIdType -&gt; Int
+$chash :: WirelessDeviceIdType -&gt; Int
+hashWithSalt :: Int -&gt; WirelessDeviceIdType -&gt; Int
+$chashWithSalt :: Int -&gt; WirelessDeviceIdType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679279218"><span class="annot"><span class="annottext">WirelessDeviceIdType -&gt; ()
+(WirelessDeviceIdType -&gt; ()) -&gt; NFData WirelessDeviceIdType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: WirelessDeviceIdType -&gt; ()
+$crnf :: WirelessDeviceIdType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679279215"><span class="annot"><span class="annottext">Text -&gt; Either String WirelessDeviceIdType
+(Text -&gt; Either String WirelessDeviceIdType)
+-&gt; FromText WirelessDeviceIdType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String WirelessDeviceIdType
+$cfromText :: Text -&gt; Either String WirelessDeviceIdType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679279212"><span class="annot"><span class="annottext">WirelessDeviceIdType -&gt; Text
+(WirelessDeviceIdType -&gt; Text) -&gt; ToText WirelessDeviceIdType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: WirelessDeviceIdType -&gt; Text
+$ctoText :: WirelessDeviceIdType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679279209"><span class="annot"><span class="annottext">WirelessDeviceIdType -&gt; ByteString
+(WirelessDeviceIdType -&gt; ByteString)
+-&gt; ToByteString WirelessDeviceIdType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: WirelessDeviceIdType -&gt; ByteString
+$ctoBS :: WirelessDeviceIdType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679279206"><span class="annot"><span class="annottext">WirelessDeviceIdType -&gt; ByteStringBuilder
+(WirelessDeviceIdType -&gt; ByteStringBuilder)
+-&gt; ToLog WirelessDeviceIdType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: WirelessDeviceIdType -&gt; ByteStringBuilder
+$cbuild :: WirelessDeviceIdType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679279203"><span class="annot"><span class="annottext">HeaderName -&gt; WirelessDeviceIdType -&gt; [Header]
+(HeaderName -&gt; WirelessDeviceIdType -&gt; [Header])
+-&gt; ToHeader WirelessDeviceIdType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; WirelessDeviceIdType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; WirelessDeviceIdType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679279200"><span class="annot"><span class="annottext">WirelessDeviceIdType -&gt; QueryString
+(WirelessDeviceIdType -&gt; QueryString)
+-&gt; ToQuery WirelessDeviceIdType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: WirelessDeviceIdType -&gt; QueryString
+$ctoQuery :: WirelessDeviceIdType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679279195"><span id="local-6989586621679279197"><span class="annot"><span class="annottext">Value -&gt; Parser [WirelessDeviceIdType]
+Value -&gt; Parser WirelessDeviceIdType
+(Value -&gt; Parser WirelessDeviceIdType)
+-&gt; (Value -&gt; Parser [WirelessDeviceIdType])
+-&gt; FromJSON WirelessDeviceIdType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [WirelessDeviceIdType]
+$cparseJSONList :: Value -&gt; Parser [WirelessDeviceIdType]
+parseJSON :: Value -&gt; Parser WirelessDeviceIdType
+$cparseJSON :: Value -&gt; Parser WirelessDeviceIdType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679279190"><span id="local-6989586621679279192"><span class="annot"><span class="annottext">FromJSONKeyFunction [WirelessDeviceIdType]
+FromJSONKeyFunction WirelessDeviceIdType
+FromJSONKeyFunction WirelessDeviceIdType
+-&gt; FromJSONKeyFunction [WirelessDeviceIdType]
+-&gt; FromJSONKey WirelessDeviceIdType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [WirelessDeviceIdType]
+$cfromJSONKeyList :: FromJSONKeyFunction [WirelessDeviceIdType]
+fromJSONKey :: FromJSONKeyFunction WirelessDeviceIdType
+$cfromJSONKey :: FromJSONKeyFunction WirelessDeviceIdType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679279181"><span id="local-6989586621679279183"><span id="local-6989586621679279185"><span id="local-6989586621679279187"><span class="annot"><span class="annottext">[WirelessDeviceIdType] -&gt; Encoding
+[WirelessDeviceIdType] -&gt; Value
+WirelessDeviceIdType -&gt; Encoding
+WirelessDeviceIdType -&gt; Value
+(WirelessDeviceIdType -&gt; Value)
+-&gt; (WirelessDeviceIdType -&gt; Encoding)
+-&gt; ([WirelessDeviceIdType] -&gt; Value)
+-&gt; ([WirelessDeviceIdType] -&gt; Encoding)
+-&gt; ToJSON WirelessDeviceIdType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [WirelessDeviceIdType] -&gt; Encoding
+$ctoEncodingList :: [WirelessDeviceIdType] -&gt; Encoding
+toJSONList :: [WirelessDeviceIdType] -&gt; Value
+$ctoJSONList :: [WirelessDeviceIdType] -&gt; Value
+toEncoding :: WirelessDeviceIdType -&gt; Encoding
+$ctoEncoding :: WirelessDeviceIdType -&gt; Encoding
+toJSON :: WirelessDeviceIdType -&gt; Value
+$ctoJSON :: WirelessDeviceIdType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679279176"><span id="local-6989586621679279178"><span class="annot"><span class="annottext">ToJSONKeyFunction [WirelessDeviceIdType]
+ToJSONKeyFunction WirelessDeviceIdType
+ToJSONKeyFunction WirelessDeviceIdType
+-&gt; ToJSONKeyFunction [WirelessDeviceIdType]
+-&gt; ToJSONKey WirelessDeviceIdType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [WirelessDeviceIdType]
+$ctoJSONKeyList :: ToJSONKeyFunction [WirelessDeviceIdType]
+toJSONKey :: ToJSONKeyFunction WirelessDeviceIdType
+$ctoJSONKey :: ToJSONKeyFunction WirelessDeviceIdType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679279173"><span class="annot"><span class="annottext">[Node] -&gt; Either String WirelessDeviceIdType
+([Node] -&gt; Either String WirelessDeviceIdType)
+-&gt; FromXML WirelessDeviceIdType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String WirelessDeviceIdType
+$cparseXML :: [Node] -&gt; Either String WirelessDeviceIdType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679279170"><span class="annot"><span class="annottext">WirelessDeviceIdType -&gt; XML
+(WirelessDeviceIdType -&gt; XML) -&gt; ToXML WirelessDeviceIdType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: WirelessDeviceIdType -&gt; XML
+$ctoXML :: WirelessDeviceIdType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType_DevEui"><span class="hs-identifier hs-type">WirelessDeviceIdType_DevEui</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType"><span class="hs-identifier hs-type">WirelessDeviceIdType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWirelessDeviceIdType_DevEui"><span id="%24mWirelessDeviceIdType_DevEui"><span id="WirelessDeviceIdType_DevEui"><span class="annot"><span class="annottext">$bWirelessDeviceIdType_DevEui :: WirelessDeviceIdType
+$mWirelessDeviceIdType_DevEui :: forall r. WirelessDeviceIdType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#%24bWirelessDeviceIdType_DevEui"><span class="hs-identifier hs-var hs-var hs-var">WirelessDeviceIdType_DevEui</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType%27"><span class="hs-identifier hs-type">WirelessDeviceIdType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DevEui&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType_SidewalkManufacturingSn"><span class="hs-identifier hs-type">WirelessDeviceIdType_SidewalkManufacturingSn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType"><span class="hs-identifier hs-type">WirelessDeviceIdType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWirelessDeviceIdType_SidewalkManufacturingSn"><span id="%24mWirelessDeviceIdType_SidewalkManufacturingSn"><span id="WirelessDeviceIdType_SidewalkManufacturingSn"><span class="annot"><span class="annottext">$bWirelessDeviceIdType_SidewalkManufacturingSn :: WirelessDeviceIdType
+$mWirelessDeviceIdType_SidewalkManufacturingSn :: forall r. WirelessDeviceIdType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#%24bWirelessDeviceIdType_SidewalkManufacturingSn"><span class="hs-identifier hs-var hs-var hs-var">WirelessDeviceIdType_SidewalkManufacturingSn</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType%27"><span class="hs-identifier hs-type">WirelessDeviceIdType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SidewalkManufacturingSn&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType_ThingName"><span class="hs-identifier hs-type">WirelessDeviceIdType_ThingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType"><span class="hs-identifier hs-type">WirelessDeviceIdType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWirelessDeviceIdType_ThingName"><span id="%24mWirelessDeviceIdType_ThingName"><span id="WirelessDeviceIdType_ThingName"><span class="annot"><span class="annottext">$bWirelessDeviceIdType_ThingName :: WirelessDeviceIdType
+$mWirelessDeviceIdType_ThingName :: forall r. WirelessDeviceIdType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#%24bWirelessDeviceIdType_ThingName"><span class="hs-identifier hs-var hs-var hs-var">WirelessDeviceIdType_ThingName</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType%27"><span class="hs-identifier hs-type">WirelessDeviceIdType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ThingName&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType_WirelessDeviceId"><span class="hs-identifier hs-type">WirelessDeviceIdType_WirelessDeviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType"><span class="hs-identifier hs-type">WirelessDeviceIdType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWirelessDeviceIdType_WirelessDeviceId"><span id="%24mWirelessDeviceIdType_WirelessDeviceId"><span id="WirelessDeviceIdType_WirelessDeviceId"><span class="annot"><span class="annottext">$bWirelessDeviceIdType_WirelessDeviceId :: WirelessDeviceIdType
+$mWirelessDeviceIdType_WirelessDeviceId :: forall r. WirelessDeviceIdType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#%24bWirelessDeviceIdType_WirelessDeviceId"><span class="hs-identifier hs-var hs-var hs-var">WirelessDeviceIdType_WirelessDeviceId</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType%27"><span class="hs-identifier hs-type">WirelessDeviceIdType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WirelessDeviceId&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType_DevEui"><span class="hs-pragma hs-type">WirelessDeviceIdType_DevEui</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType_SidewalkManufacturingSn"><span class="hs-pragma hs-type">WirelessDeviceIdType_SidewalkManufacturingSn</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType_ThingName"><span class="hs-pragma hs-type">WirelessDeviceIdType_ThingName</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType_WirelessDeviceId"><span class="hs-pragma hs-type">WirelessDeviceIdType_WirelessDeviceId</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.WirelessDeviceIdType.html#WirelessDeviceIdType%27"><span class="hs-pragma hs-type">WirelessDeviceIdType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

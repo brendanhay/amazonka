@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteModel' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621680408287"><span id="local-6989586621680408288"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteModel"><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-var">DeleteModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteModel%27"><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel%27"><span class="hs-identifier hs-var">DeleteModel'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621680408296"><span id="local-6989586621680408297"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteModel"><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-var">DeleteModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteModel%27"><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel%27"><span class="hs-identifier hs-var">DeleteModel'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the model to delete.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AmodelName%3ADeleteModel%27"><span class="annot"><span class="annottext">DeleteModel -&gt; Text
 </span><a href="Network.AWS.SageMaker.DeleteModel.html#%24sel%3AmodelName%3ADeleteModel%27"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680408281"><span id="local-6989586621680408283"><span class="annot"><span class="annottext">DeleteModel -&gt; DeleteModel -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680408290"><span id="local-6989586621680408292"><span class="annot"><span class="annottext">DeleteModel -&gt; DeleteModel -&gt; Bool
 (DeleteModel -&gt; DeleteModel -&gt; Bool)
 -&gt; (DeleteModel -&gt; DeleteModel -&gt; Bool) -&gt; Eq DeleteModel
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteModel -&gt; DeleteModel -&gt; Bool
 == :: DeleteModel -&gt; DeleteModel -&gt; Bool
 $c== :: DeleteModel -&gt; DeleteModel -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408272"><span id="local-6989586621680408274"><span id="local-6989586621680408276"><span id="local-6989586621680408278"><span class="annot"><span class="annottext">ReadPrec [DeleteModel]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408281"><span id="local-6989586621680408283"><span id="local-6989586621680408285"><span id="local-6989586621680408287"><span class="annot"><span class="annottext">ReadPrec [DeleteModel]
 ReadPrec DeleteModel
 Int -&gt; ReadS DeleteModel
 ReadS [DeleteModel]
@@ -79,7 +79,7 @@ readList :: ReadS [DeleteModel]
 $creadList :: ReadS [DeleteModel]
 readsPrec :: Int -&gt; ReadS DeleteModel
 $creadsPrec :: Int -&gt; ReadS DeleteModel
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408265"><span id="local-6989586621680408267"><span id="local-6989586621680408269"><span class="annot"><span class="annottext">Int -&gt; DeleteModel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408274"><span id="local-6989586621680408276"><span id="local-6989586621680408278"><span class="annot"><span class="annottext">Int -&gt; DeleteModel -&gt; ShowS
 [DeleteModel] -&gt; ShowS
 DeleteModel -&gt; String
 (Int -&gt; DeleteModel -&gt; ShowS)
@@ -119,12 +119,12 @@ $cfrom :: forall x. DeleteModel -&gt; Rep DeleteModel x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-type">DeleteModel</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeleteModel"><span class="annot"><span class="annottext">newDeleteModel :: Text -&gt; DeleteModel
-</span><a href="Network.AWS.SageMaker.DeleteModel.html#newDeleteModel"><span class="hs-identifier hs-var hs-var">newDeleteModel</span></a></span></span><span> </span><span id="local-6989586621680408260"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680408260"><span class="hs-identifier hs-var">pModelName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.DeleteModel.html#newDeleteModel"><span class="hs-identifier hs-var hs-var">newDeleteModel</span></a></span></span><span> </span><span id="local-6989586621680408269"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680408269"><span class="hs-identifier hs-var">pModelName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteModel' :: Text -&gt; DeleteModel
 </span><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel%27"><span class="hs-identifier hs-type">DeleteModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelName:DeleteModel' :: Text
 </span><a href="Network.AWS.SageMaker.DeleteModel.html#%24sel%3AmodelName%3ADeleteModel%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680408260"><span class="hs-identifier hs-var">pModelName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680408269"><span class="hs-identifier hs-var">pModelName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The name of the model to delete.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#deleteModel_modelName"><span class="hs-identifier hs-type">deleteModel_modelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-type">DeleteModel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -133,25 +133,25 @@ $cfrom :: forall x. DeleteModel -&gt; Rep DeleteModel x
 -&gt; (DeleteModel -&gt; Text -&gt; DeleteModel)
 -&gt; Lens DeleteModel DeleteModel Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel%27"><span class="hs-identifier hs-type">DeleteModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680408257"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel%27"><span class="hs-identifier hs-type">DeleteModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680408266"><span class="annot"><span class="annottext">Text
 modelName :: Text
 $sel:modelName:DeleteModel' :: DeleteModel -&gt; Text
-</span><a href="#local-6989586621680408257"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680408257"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680408256"><span class="annot"><span class="annottext">s :: DeleteModel
-</span><a href="#local-6989586621680408256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel%27"><span class="hs-identifier hs-type">DeleteModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680408255"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680408255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteModel
-</span><a href="#local-6989586621680408256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelName:DeleteModel' :: Text
+</span><a href="#local-6989586621680408266"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680408266"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680408265"><span class="annot"><span class="annottext">s :: DeleteModel
+</span><a href="#local-6989586621680408265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel%27"><span class="hs-identifier hs-type">DeleteModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680408264"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680408264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteModel
+</span><a href="#local-6989586621680408265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelName:DeleteModel' :: Text
 </span><a href="Network.AWS.SageMaker.DeleteModel.html#%24sel%3AmodelName%3ADeleteModel%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680408255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-type">DeleteModel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680408264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-type">DeleteModel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-type">DeleteModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-type">DeleteModel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModelResponse"><span class="hs-identifier hs-type">DeleteModelResponse</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621680408251"><span class="annot"><span class="annottext">request :: DeleteModel -&gt; Request DeleteModel
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621680408260"><span class="annot"><span class="annottext">request :: DeleteModel -&gt; Request DeleteModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteModel -&gt; Request DeleteModel
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621680408247"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621680408256"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteModel
 -&gt; ClientResponse ClientBody
@@ -174,12 +174,12 @@ AWSResponse a
 DeleteModelResponse
 </span><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModelResponse%27"><span class="hs-identifier hs-var">DeleteModelResponse'</span></a></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408240"><span id="local-6989586621680408242"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-type">DeleteModel</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408249"><span id="local-6989586621680408251"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-type">DeleteModel</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408237"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-type">DeleteModel</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408246"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-type">DeleteModel</span></a></span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-type">DeleteModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621680408233"><span class="annot"><span class="annottext">toHeaders :: DeleteModel -&gt; [Header]
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621680408242"><span class="annot"><span class="annottext">toHeaders :: DeleteModel -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteModel -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -204,12 +204,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408223"><span id="local-6989586621680408225"><span id="local-6989586621680408227"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-type">DeleteModel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621680408221"><span class="annot"><span class="annottext">toJSON :: DeleteModel -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel%27"><span class="hs-identifier hs-type">DeleteModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680408219"><span class="annot"><span class="annottext">Text
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408232"><span id="local-6989586621680408234"><span id="local-6989586621680408236"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-type">DeleteModel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621680408230"><span class="annot"><span class="annottext">toJSON :: DeleteModel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel%27"><span class="hs-identifier hs-type">DeleteModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680408228"><span class="annot"><span class="annottext">Text
 modelName :: Text
 $sel:modelName:DeleteModel' :: DeleteModel -&gt; Text
-</span><a href="#local-6989586621680408219"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680408228"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -221,18 +221,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ModelName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680408219"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680408228"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-type">DeleteModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621680408213"><span class="annot"><span class="annottext">toPath :: DeleteModel -&gt; ByteString
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621680408222"><span class="annot"><span class="annottext">toPath :: DeleteModel -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteModel -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModel"><span class="hs-identifier hs-type">DeleteModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621680408209"><span class="annot"><span class="annottext">toQuery :: DeleteModel -&gt; QueryString
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621680408218"><span class="annot"><span class="annottext">toQuery :: DeleteModel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteModel -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -240,10 +240,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | /See:/ 'newDeleteModelResponse' smart constructor.</span><span>
-</span><span id="line-111"></span><span id="local-6989586621680408206"><span id="local-6989586621680408207"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteModelResponse"><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModelResponse"><span class="hs-identifier hs-var">DeleteModelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteModelResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModelResponse%27"><span class="hs-identifier hs-var">DeleteModelResponse'</span></a></span></span><span>
+</span><span id="line-111"></span><span id="local-6989586621680408215"><span id="local-6989586621680408216"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteModelResponse"><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModelResponse"><span class="hs-identifier hs-var">DeleteModelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteModelResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModelResponse%27"><span class="hs-identifier hs-var">DeleteModelResponse'</span></a></span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680408202"><span id="local-6989586621680408204"><span class="annot"><span class="annottext">DeleteModelResponse -&gt; DeleteModelResponse -&gt; Bool
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680408211"><span id="local-6989586621680408213"><span class="annot"><span class="annottext">DeleteModelResponse -&gt; DeleteModelResponse -&gt; Bool
 (DeleteModelResponse -&gt; DeleteModelResponse -&gt; Bool)
 -&gt; (DeleteModelResponse -&gt; DeleteModelResponse -&gt; Bool)
 -&gt; Eq DeleteModelResponse
@@ -252,7 +252,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteModelResponse -&gt; DeleteModelResponse -&gt; Bool
 == :: DeleteModelResponse -&gt; DeleteModelResponse -&gt; Bool
 $c== :: DeleteModelResponse -&gt; DeleteModelResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408194"><span id="local-6989586621680408196"><span id="local-6989586621680408198"><span id="local-6989586621680408200"><span class="annot"><span class="annottext">ReadPrec [DeleteModelResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408203"><span id="local-6989586621680408205"><span id="local-6989586621680408207"><span id="local-6989586621680408209"><span class="annot"><span class="annottext">ReadPrec [DeleteModelResponse]
 ReadPrec DeleteModelResponse
 Int -&gt; ReadS DeleteModelResponse
 ReadS [DeleteModelResponse]
@@ -272,7 +272,7 @@ readList :: ReadS [DeleteModelResponse]
 $creadList :: ReadS [DeleteModelResponse]
 readsPrec :: Int -&gt; ReadS DeleteModelResponse
 $creadsPrec :: Int -&gt; ReadS DeleteModelResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408188"><span id="local-6989586621680408190"><span id="local-6989586621680408192"><span class="annot"><span class="annottext">Int -&gt; DeleteModelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408197"><span id="local-6989586621680408199"><span id="local-6989586621680408201"><span class="annot"><span class="annottext">Int -&gt; DeleteModelResponse -&gt; ShowS
 [DeleteModelResponse] -&gt; ShowS
 DeleteModelResponse -&gt; String
 (Int -&gt; DeleteModelResponse -&gt; ShowS)
@@ -308,5 +308,5 @@ $cfrom :: forall x. DeleteModelResponse -&gt; Rep DeleteModelResponse x
 </span><a href="Network.AWS.SageMaker.DeleteModel.html#newDeleteModelResponse"><span class="hs-identifier hs-var hs-var">newDeleteModelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteModelResponse
 </span><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModelResponse%27"><span class="hs-identifier hs-var">DeleteModelResponse'</span></a></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408184"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModelResponse"><span class="hs-identifier hs-type">DeleteModelResponse</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408193"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteModel.html#DeleteModelResponse"><span class="hs-identifier hs-type">DeleteModelResponse</span></a></span></span><span>
 </span><span id="line-125"></span></pre></body></html>

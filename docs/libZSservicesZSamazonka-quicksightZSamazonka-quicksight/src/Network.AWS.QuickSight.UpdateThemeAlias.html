@@ -1,0 +1,592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.UpdateThemeAlias</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates an alias of a theme.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.UpdateThemeAlias</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier">UpdateThemeAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#newUpdateThemeAlias"><span class="hs-identifier">newUpdateThemeAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAlias_awsAccountId"><span class="hs-identifier">updateThemeAlias_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAlias_themeId"><span class="hs-identifier">updateThemeAlias_themeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAlias_aliasName"><span class="hs-identifier">updateThemeAlias_aliasName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAlias_themeVersionNumber"><span class="hs-identifier">updateThemeAlias_themeVersionNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse"><span class="hs-identifier">UpdateThemeAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#newUpdateThemeAliasResponse"><span class="hs-identifier">newUpdateThemeAliasResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAliasResponse_requestId"><span class="hs-identifier">updateThemeAliasResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAliasResponse_themeAlias"><span class="hs-identifier">updateThemeAliasResponse_themeAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAliasResponse_status"><span class="hs-identifier">updateThemeAliasResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.html"><span class="hs-identifier">Network.AWS.QuickSight.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newUpdateThemeAlias' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679603135"><span id="local-6989586621679603136"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateThemeAlias"><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-var">UpdateThemeAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateThemeAlias%27"><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias%27"><span class="hs-identifier hs-var">UpdateThemeAlias'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the theme alias</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- that you\'re updating.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AawsAccountId%3AUpdateThemeAlias%27"><span class="annot"><span class="annottext">UpdateThemeAlias -&gt; Text
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3AawsAccountId%3AUpdateThemeAlias%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ID for the theme.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AthemeId%3AUpdateThemeAlias%27"><span class="annot"><span class="annottext">UpdateThemeAlias -&gt; Text
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3AthemeId%3AUpdateThemeAlias%27"><span class="hs-identifier hs-var hs-var">themeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the theme alias that you want to update.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AaliasName%3AUpdateThemeAlias%27"><span class="annot"><span class="annottext">UpdateThemeAlias -&gt; Text
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3AaliasName%3AUpdateThemeAlias%27"><span class="hs-identifier hs-var hs-var">aliasName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The version number of the theme that the alias should reference.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AthemeVersionNumber%3AUpdateThemeAlias%27"><span class="annot"><span class="annottext">UpdateThemeAlias -&gt; Natural
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3AthemeVersionNumber%3AUpdateThemeAlias%27"><span class="hs-identifier hs-var hs-var">themeVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679603126"><span id="local-6989586621679603128"><span class="annot"><span class="annottext">UpdateThemeAlias -&gt; UpdateThemeAlias -&gt; Bool
+(UpdateThemeAlias -&gt; UpdateThemeAlias -&gt; Bool)
+-&gt; (UpdateThemeAlias -&gt; UpdateThemeAlias -&gt; Bool)
+-&gt; Eq UpdateThemeAlias
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateThemeAlias -&gt; UpdateThemeAlias -&gt; Bool
+$c/= :: UpdateThemeAlias -&gt; UpdateThemeAlias -&gt; Bool
+== :: UpdateThemeAlias -&gt; UpdateThemeAlias -&gt; Bool
+$c== :: UpdateThemeAlias -&gt; UpdateThemeAlias -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603117"><span id="local-6989586621679603119"><span id="local-6989586621679603121"><span id="local-6989586621679603123"><span class="annot"><span class="annottext">ReadPrec [UpdateThemeAlias]
+ReadPrec UpdateThemeAlias
+Int -&gt; ReadS UpdateThemeAlias
+ReadS [UpdateThemeAlias]
+(Int -&gt; ReadS UpdateThemeAlias)
+-&gt; ReadS [UpdateThemeAlias]
+-&gt; ReadPrec UpdateThemeAlias
+-&gt; ReadPrec [UpdateThemeAlias]
+-&gt; Read UpdateThemeAlias
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateThemeAlias]
+$creadListPrec :: ReadPrec [UpdateThemeAlias]
+readPrec :: ReadPrec UpdateThemeAlias
+$creadPrec :: ReadPrec UpdateThemeAlias
+readList :: ReadS [UpdateThemeAlias]
+$creadList :: ReadS [UpdateThemeAlias]
+readsPrec :: Int -&gt; ReadS UpdateThemeAlias
+$creadsPrec :: Int -&gt; ReadS UpdateThemeAlias
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603110"><span id="local-6989586621679603112"><span id="local-6989586621679603114"><span class="annot"><span class="annottext">Int -&gt; UpdateThemeAlias -&gt; ShowS
+[UpdateThemeAlias] -&gt; ShowS
+UpdateThemeAlias -&gt; String
+(Int -&gt; UpdateThemeAlias -&gt; ShowS)
+-&gt; (UpdateThemeAlias -&gt; String)
+-&gt; ([UpdateThemeAlias] -&gt; ShowS)
+-&gt; Show UpdateThemeAlias
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateThemeAlias] -&gt; ShowS
+$cshowList :: [UpdateThemeAlias] -&gt; ShowS
+show :: UpdateThemeAlias -&gt; String
+$cshow :: UpdateThemeAlias -&gt; String
+showsPrec :: Int -&gt; UpdateThemeAlias -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateThemeAlias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateThemeAlias -&gt; Rep UpdateThemeAlias x)
+-&gt; (forall x. Rep UpdateThemeAlias x -&gt; UpdateThemeAlias)
+-&gt; Generic UpdateThemeAlias
+forall x. Rep UpdateThemeAlias x -&gt; UpdateThemeAlias
+forall x. UpdateThemeAlias -&gt; Rep UpdateThemeAlias x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateThemeAlias x -&gt; UpdateThemeAlias
+$cfrom :: forall x. UpdateThemeAlias -&gt; Rep UpdateThemeAlias x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'UpdateThemeAlias' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'awsAccountId', 'updateThemeAlias_awsAccountId' - The ID of the Amazon Web Services account that contains the theme alias</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- that you\'re updating.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'themeId', 'updateThemeAlias_themeId' - The ID for the theme.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'aliasName', 'updateThemeAlias_aliasName' - The name of the theme alias that you want to update.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'themeVersionNumber', 'updateThemeAlias_themeVersionNumber' - The version number of the theme that the alias should reference.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#newUpdateThemeAlias"><span class="hs-identifier hs-type">newUpdateThemeAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'themeId'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'aliasName'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'themeVersionNumber'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span><span>
+</span><span id="line-93"></span><span id="newUpdateThemeAlias"><span class="annot"><span class="annottext">newUpdateThemeAlias :: Text -&gt; Text -&gt; Text -&gt; Natural -&gt; UpdateThemeAlias
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#newUpdateThemeAlias"><span class="hs-identifier hs-var hs-var">newUpdateThemeAlias</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679603105"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603105"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679603104"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603104"><span class="hs-identifier hs-var">pThemeId_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679603103"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603103"><span class="hs-identifier hs-var">pAliasName_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679603102"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679603102"><span class="hs-identifier hs-var">pThemeVersionNumber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">UpdateThemeAlias' :: Text -&gt; Text -&gt; Text -&gt; Natural -&gt; UpdateThemeAlias
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias%27"><span class="hs-identifier hs-type">UpdateThemeAlias'</span></a></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsAccountId:UpdateThemeAlias' :: Text
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3AawsAccountId%3AUpdateThemeAlias%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603105"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:themeId:UpdateThemeAlias' :: Text
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3AthemeId%3AUpdateThemeAlias%27"><span class="hs-identifier hs-var">themeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603104"><span class="hs-identifier hs-var">pThemeId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:aliasName:UpdateThemeAlias' :: Text
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3AaliasName%3AUpdateThemeAlias%27"><span class="hs-identifier hs-var">aliasName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603103"><span class="hs-identifier hs-var">pAliasName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:themeVersionNumber:UpdateThemeAlias' :: Natural
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3AthemeVersionNumber%3AUpdateThemeAlias%27"><span class="hs-identifier hs-var">themeVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679603102"><span class="hs-identifier hs-var">pThemeVersionNumber_</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the theme alias</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- that you\'re updating.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAlias_awsAccountId"><span class="hs-identifier hs-type">updateThemeAlias_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="updateThemeAlias_awsAccountId"><span class="annot"><span class="annottext">updateThemeAlias_awsAccountId :: (Text -&gt; f Text) -&gt; UpdateThemeAlias -&gt; f UpdateThemeAlias
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAlias_awsAccountId"><span class="hs-identifier hs-var hs-var">updateThemeAlias_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateThemeAlias -&gt; Text)
+-&gt; (UpdateThemeAlias -&gt; Text -&gt; UpdateThemeAlias)
+-&gt; Lens UpdateThemeAlias UpdateThemeAlias Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias%27"><span class="hs-identifier hs-type">UpdateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603099"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:UpdateThemeAlias' :: UpdateThemeAlias -&gt; Text
+</span><a href="#local-6989586621679603099"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603099"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603098"><span class="annot"><span class="annottext">s :: UpdateThemeAlias
+</span><a href="#local-6989586621679603098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias%27"><span class="hs-identifier hs-type">UpdateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603097"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThemeAlias
+</span><a href="#local-6989586621679603098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:UpdateThemeAlias' :: Text
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3AawsAccountId%3AUpdateThemeAlias%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The ID for the theme.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAlias_themeId"><span class="hs-identifier hs-type">updateThemeAlias_themeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="updateThemeAlias_themeId"><span class="annot"><span class="annottext">updateThemeAlias_themeId :: (Text -&gt; f Text) -&gt; UpdateThemeAlias -&gt; f UpdateThemeAlias
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAlias_themeId"><span class="hs-identifier hs-var hs-var">updateThemeAlias_themeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateThemeAlias -&gt; Text)
+-&gt; (UpdateThemeAlias -&gt; Text -&gt; UpdateThemeAlias)
+-&gt; Lens UpdateThemeAlias UpdateThemeAlias Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias%27"><span class="hs-identifier hs-type">UpdateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603096"><span class="annot"><span class="annottext">Text
+themeId :: Text
+$sel:themeId:UpdateThemeAlias' :: UpdateThemeAlias -&gt; Text
+</span><a href="#local-6989586621679603096"><span class="hs-identifier hs-var hs-var">themeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603096"><span class="hs-identifier hs-var">themeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603095"><span class="annot"><span class="annottext">s :: UpdateThemeAlias
+</span><a href="#local-6989586621679603095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias%27"><span class="hs-identifier hs-type">UpdateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603094"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThemeAlias
+</span><a href="#local-6989586621679603095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:themeId:UpdateThemeAlias' :: Text
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3AthemeId%3AUpdateThemeAlias%27"><span class="hs-identifier hs-var">themeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The name of the theme alias that you want to update.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAlias_aliasName"><span class="hs-identifier hs-type">updateThemeAlias_aliasName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span id="updateThemeAlias_aliasName"><span class="annot"><span class="annottext">updateThemeAlias_aliasName :: (Text -&gt; f Text) -&gt; UpdateThemeAlias -&gt; f UpdateThemeAlias
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAlias_aliasName"><span class="hs-identifier hs-var hs-var">updateThemeAlias_aliasName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateThemeAlias -&gt; Text)
+-&gt; (UpdateThemeAlias -&gt; Text -&gt; UpdateThemeAlias)
+-&gt; Lens UpdateThemeAlias UpdateThemeAlias Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias%27"><span class="hs-identifier hs-type">UpdateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603093"><span class="annot"><span class="annottext">Text
+aliasName :: Text
+$sel:aliasName:UpdateThemeAlias' :: UpdateThemeAlias -&gt; Text
+</span><a href="#local-6989586621679603093"><span class="hs-identifier hs-var hs-var">aliasName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603093"><span class="hs-identifier hs-var">aliasName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603092"><span class="annot"><span class="annottext">s :: UpdateThemeAlias
+</span><a href="#local-6989586621679603092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias%27"><span class="hs-identifier hs-type">UpdateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603091"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThemeAlias
+</span><a href="#local-6989586621679603092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasName:UpdateThemeAlias' :: Text
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3AaliasName%3AUpdateThemeAlias%27"><span class="hs-identifier hs-var">aliasName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The version number of the theme that the alias should reference.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAlias_themeVersionNumber"><span class="hs-identifier hs-type">updateThemeAlias_themeVersionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-120"></span><span id="updateThemeAlias_themeVersionNumber"><span class="annot"><span class="annottext">updateThemeAlias_themeVersionNumber :: (Natural -&gt; f Natural) -&gt; UpdateThemeAlias -&gt; f UpdateThemeAlias
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAlias_themeVersionNumber"><span class="hs-identifier hs-var hs-var">updateThemeAlias_themeVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateThemeAlias -&gt; Natural)
+-&gt; (UpdateThemeAlias -&gt; Natural -&gt; UpdateThemeAlias)
+-&gt; Lens UpdateThemeAlias UpdateThemeAlias Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias%27"><span class="hs-identifier hs-type">UpdateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603090"><span class="annot"><span class="annottext">Natural
+themeVersionNumber :: Natural
+$sel:themeVersionNumber:UpdateThemeAlias' :: UpdateThemeAlias -&gt; Natural
+</span><a href="#local-6989586621679603090"><span class="hs-identifier hs-var hs-var">themeVersionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679603090"><span class="hs-identifier hs-var">themeVersionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603089"><span class="annot"><span class="annottext">s :: UpdateThemeAlias
+</span><a href="#local-6989586621679603089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias%27"><span class="hs-identifier hs-type">UpdateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603088"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679603088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThemeAlias
+</span><a href="#local-6989586621679603089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:themeVersionNumber:UpdateThemeAlias' :: Natural
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3AthemeVersionNumber%3AUpdateThemeAlias%27"><span class="hs-identifier hs-var">themeVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679603088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse"><span class="hs-identifier hs-type">UpdateThemeAliasResponse</span></a></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679603084"><span class="annot"><span class="annottext">request :: UpdateThemeAlias -&gt; Request UpdateThemeAlias
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateThemeAlias -&gt; Request UpdateThemeAlias
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679603080"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateThemeAlias
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateThemeAlias)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateThemeAlias))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateThemeAlias
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateThemeAlias)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679603077"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679603077"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679603076"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679603076"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679603075"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679603075"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe ThemeAlias -&gt; Int -&gt; UpdateThemeAliasResponse
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse%27"><span class="hs-identifier hs-var">UpdateThemeAliasResponse'</span></a></span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe ThemeAlias -&gt; Int -&gt; UpdateThemeAliasResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe ThemeAlias -&gt; Int -&gt; UpdateThemeAliasResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679603075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe ThemeAlias -&gt; Int -&gt; UpdateThemeAliasResponse)
+-&gt; Either String (Maybe ThemeAlias)
+-&gt; Either String (Int -&gt; UpdateThemeAliasResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679603075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ThemeAlias)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ThemeAlias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateThemeAliasResponse)
+-&gt; Either String Int -&gt; Either String UpdateThemeAliasResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679603077"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603067"><span id="local-6989586621679603069"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603064"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679603060"><span class="annot"><span class="annottext">toHeaders :: UpdateThemeAlias -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateThemeAlias -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-147"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603050"><span id="local-6989586621679603052"><span id="local-6989586621679603054"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679603048"><span class="annot"><span class="annottext">toJSON :: UpdateThemeAlias -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias%27"><span class="hs-identifier hs-type">UpdateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603043"><span id="local-6989586621679603044"><span id="local-6989586621679603045"><span id="local-6989586621679603046"><span class="annot"><span class="annottext">Natural
+Text
+themeVersionNumber :: Natural
+aliasName :: Text
+themeId :: Text
+awsAccountId :: Text
+$sel:themeVersionNumber:UpdateThemeAlias' :: UpdateThemeAlias -&gt; Natural
+$sel:aliasName:UpdateThemeAlias' :: UpdateThemeAlias -&gt; Text
+$sel:themeId:UpdateThemeAlias' :: UpdateThemeAlias -&gt; Text
+$sel:awsAccountId:UpdateThemeAlias' :: UpdateThemeAlias -&gt; Text
+</span><a href="#local-6989586621679603043"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-156"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ThemeVersionNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679603043"><span class="hs-identifier hs-var">themeVersionNumber</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679603037"><span class="annot"><span class="annottext">toPath :: UpdateThemeAlias -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias%27"><span class="hs-identifier hs-type">UpdateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603032"><span id="local-6989586621679603033"><span id="local-6989586621679603034"><span id="local-6989586621679603035"><span class="annot"><span class="annottext">Natural
+Text
+themeVersionNumber :: Natural
+aliasName :: Text
+themeId :: Text
+awsAccountId :: Text
+$sel:themeVersionNumber:UpdateThemeAlias' :: UpdateThemeAlias -&gt; Natural
+$sel:aliasName:UpdateThemeAlias' :: UpdateThemeAlias -&gt; Text
+$sel:themeId:UpdateThemeAlias' :: UpdateThemeAlias -&gt; Text
+$sel:awsAccountId:UpdateThemeAlias' :: UpdateThemeAlias -&gt; Text
+</span><a href="#local-6989586621679603032"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603035"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/themes/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603034"><span class="hs-identifier hs-var">themeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/aliases/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679603033"><span class="hs-identifier hs-var">aliasName</span></a></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAlias"><span class="hs-identifier hs-type">UpdateThemeAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679603028"><span class="annot"><span class="annottext">toQuery :: UpdateThemeAlias -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateThemeAlias -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newUpdateThemeAliasResponse' smart constructor.</span><span>
+</span><span id="line-175"></span><span id="local-6989586621679603025"><span id="local-6989586621679603026"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateThemeAliasResponse"><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse"><span class="hs-identifier hs-var">UpdateThemeAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateThemeAliasResponse%27"><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse%27"><span class="hs-identifier hs-var">UpdateThemeAliasResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3ArequestId%3AUpdateThemeAliasResponse%27"><span class="annot"><span class="annottext">UpdateThemeAliasResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3ArequestId%3AUpdateThemeAliasResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | Information about the theme alias.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AthemeAlias%3AUpdateThemeAliasResponse%27"><span class="annot"><span class="annottext">UpdateThemeAliasResponse -&gt; Maybe ThemeAlias
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3AthemeAlias%3AUpdateThemeAliasResponse%27"><span class="hs-identifier hs-var hs-var">themeAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.ThemeAlias.html#ThemeAlias"><span class="hs-identifier hs-type">ThemeAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3Astatus%3AUpdateThemeAliasResponse%27"><span class="annot"><span class="annottext">UpdateThemeAliasResponse -&gt; Int
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3Astatus%3AUpdateThemeAliasResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679603018"><span id="local-6989586621679603020"><span class="annot"><span class="annottext">UpdateThemeAliasResponse -&gt; UpdateThemeAliasResponse -&gt; Bool
+(UpdateThemeAliasResponse -&gt; UpdateThemeAliasResponse -&gt; Bool)
+-&gt; (UpdateThemeAliasResponse -&gt; UpdateThemeAliasResponse -&gt; Bool)
+-&gt; Eq UpdateThemeAliasResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateThemeAliasResponse -&gt; UpdateThemeAliasResponse -&gt; Bool
+$c/= :: UpdateThemeAliasResponse -&gt; UpdateThemeAliasResponse -&gt; Bool
+== :: UpdateThemeAliasResponse -&gt; UpdateThemeAliasResponse -&gt; Bool
+$c== :: UpdateThemeAliasResponse -&gt; UpdateThemeAliasResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603010"><span id="local-6989586621679603012"><span id="local-6989586621679603014"><span id="local-6989586621679603016"><span class="annot"><span class="annottext">ReadPrec [UpdateThemeAliasResponse]
+ReadPrec UpdateThemeAliasResponse
+Int -&gt; ReadS UpdateThemeAliasResponse
+ReadS [UpdateThemeAliasResponse]
+(Int -&gt; ReadS UpdateThemeAliasResponse)
+-&gt; ReadS [UpdateThemeAliasResponse]
+-&gt; ReadPrec UpdateThemeAliasResponse
+-&gt; ReadPrec [UpdateThemeAliasResponse]
+-&gt; Read UpdateThemeAliasResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateThemeAliasResponse]
+$creadListPrec :: ReadPrec [UpdateThemeAliasResponse]
+readPrec :: ReadPrec UpdateThemeAliasResponse
+$creadPrec :: ReadPrec UpdateThemeAliasResponse
+readList :: ReadS [UpdateThemeAliasResponse]
+$creadList :: ReadS [UpdateThemeAliasResponse]
+readsPrec :: Int -&gt; ReadS UpdateThemeAliasResponse
+$creadsPrec :: Int -&gt; ReadS UpdateThemeAliasResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603004"><span id="local-6989586621679603006"><span id="local-6989586621679603008"><span class="annot"><span class="annottext">Int -&gt; UpdateThemeAliasResponse -&gt; ShowS
+[UpdateThemeAliasResponse] -&gt; ShowS
+UpdateThemeAliasResponse -&gt; String
+(Int -&gt; UpdateThemeAliasResponse -&gt; ShowS)
+-&gt; (UpdateThemeAliasResponse -&gt; String)
+-&gt; ([UpdateThemeAliasResponse] -&gt; ShowS)
+-&gt; Show UpdateThemeAliasResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateThemeAliasResponse] -&gt; ShowS
+$cshowList :: [UpdateThemeAliasResponse] -&gt; ShowS
+show :: UpdateThemeAliasResponse -&gt; String
+$cshow :: UpdateThemeAliasResponse -&gt; String
+showsPrec :: Int -&gt; UpdateThemeAliasResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateThemeAliasResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateThemeAliasResponse -&gt; Rep UpdateThemeAliasResponse x)
+-&gt; (forall x.
+    Rep UpdateThemeAliasResponse x -&gt; UpdateThemeAliasResponse)
+-&gt; Generic UpdateThemeAliasResponse
+forall x.
+Rep UpdateThemeAliasResponse x -&gt; UpdateThemeAliasResponse
+forall x.
+UpdateThemeAliasResponse -&gt; Rep UpdateThemeAliasResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateThemeAliasResponse x -&gt; UpdateThemeAliasResponse
+$cfrom :: forall x.
+UpdateThemeAliasResponse -&gt; Rep UpdateThemeAliasResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Create a value of 'UpdateThemeAliasResponse' with all optional fields omitted.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'requestId', 'updateThemeAliasResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'themeAlias', 'updateThemeAliasResponse_themeAlias' - Information about the theme alias.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'status', 'updateThemeAliasResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#newUpdateThemeAliasResponse"><span class="hs-identifier hs-type">newUpdateThemeAliasResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse"><span class="hs-identifier hs-type">UpdateThemeAliasResponse</span></a></span><span>
+</span><span id="line-202"></span><span id="newUpdateThemeAliasResponse"><span class="annot"><span class="annottext">newUpdateThemeAliasResponse :: Int -&gt; UpdateThemeAliasResponse
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#newUpdateThemeAliasResponse"><span class="hs-identifier hs-var hs-var">newUpdateThemeAliasResponse</span></a></span></span><span> </span><span id="local-6989586621679603001"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679603001"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="annottext">UpdateThemeAliasResponse' :: Maybe Text -&gt; Maybe ThemeAlias -&gt; Int -&gt; UpdateThemeAliasResponse
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse%27"><span class="hs-identifier hs-type">UpdateThemeAliasResponse'</span></a></span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:UpdateThemeAliasResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3ArequestId%3AUpdateThemeAliasResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:themeAlias:UpdateThemeAliasResponse' :: Maybe ThemeAlias
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3AthemeAlias%3AUpdateThemeAliasResponse%27"><span class="hs-identifier hs-var">themeAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThemeAlias
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:UpdateThemeAliasResponse' :: Int
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3Astatus%3AUpdateThemeAliasResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679603001"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAliasResponse_requestId"><span class="hs-identifier hs-type">updateThemeAliasResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse"><span class="hs-identifier hs-type">UpdateThemeAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="updateThemeAliasResponse_requestId"><span class="annot"><span class="annottext">updateThemeAliasResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateThemeAliasResponse -&gt; f UpdateThemeAliasResponse
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAliasResponse_requestId"><span class="hs-identifier hs-var hs-var">updateThemeAliasResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateThemeAliasResponse -&gt; Maybe Text)
+-&gt; (UpdateThemeAliasResponse
+    -&gt; Maybe Text -&gt; UpdateThemeAliasResponse)
+-&gt; Lens
+     UpdateThemeAliasResponse
+     UpdateThemeAliasResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse%27"><span class="hs-identifier hs-type">UpdateThemeAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603000"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:UpdateThemeAliasResponse' :: UpdateThemeAliasResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679603000"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603000"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679602999"><span class="annot"><span class="annottext">s :: UpdateThemeAliasResponse
+</span><a href="#local-6989586621679602999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse%27"><span class="hs-identifier hs-type">UpdateThemeAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679602998"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679602998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThemeAliasResponse
+</span><a href="#local-6989586621679602999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:UpdateThemeAliasResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3ArequestId%3AUpdateThemeAliasResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679602998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse"><span class="hs-identifier hs-type">UpdateThemeAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | Information about the theme alias.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAliasResponse_themeAlias"><span class="hs-identifier hs-type">updateThemeAliasResponse_themeAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse"><span class="hs-identifier hs-type">UpdateThemeAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.ThemeAlias.html#ThemeAlias"><span class="hs-identifier hs-type">ThemeAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="updateThemeAliasResponse_themeAlias"><span class="annot"><span class="annottext">updateThemeAliasResponse_themeAlias :: (Maybe ThemeAlias -&gt; f (Maybe ThemeAlias))
+-&gt; UpdateThemeAliasResponse -&gt; f UpdateThemeAliasResponse
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAliasResponse_themeAlias"><span class="hs-identifier hs-var hs-var">updateThemeAliasResponse_themeAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateThemeAliasResponse -&gt; Maybe ThemeAlias)
+-&gt; (UpdateThemeAliasResponse
+    -&gt; Maybe ThemeAlias -&gt; UpdateThemeAliasResponse)
+-&gt; Lens
+     UpdateThemeAliasResponse
+     UpdateThemeAliasResponse
+     (Maybe ThemeAlias)
+     (Maybe ThemeAlias)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse%27"><span class="hs-identifier hs-type">UpdateThemeAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679602997"><span class="annot"><span class="annottext">Maybe ThemeAlias
+themeAlias :: Maybe ThemeAlias
+$sel:themeAlias:UpdateThemeAliasResponse' :: UpdateThemeAliasResponse -&gt; Maybe ThemeAlias
+</span><a href="#local-6989586621679602997"><span class="hs-identifier hs-var hs-var">themeAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThemeAlias
+</span><a href="#local-6989586621679602997"><span class="hs-identifier hs-var">themeAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679602996"><span class="annot"><span class="annottext">s :: UpdateThemeAliasResponse
+</span><a href="#local-6989586621679602996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse%27"><span class="hs-identifier hs-type">UpdateThemeAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679602995"><span class="annot"><span class="annottext">Maybe ThemeAlias
+</span><a href="#local-6989586621679602995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThemeAliasResponse
+</span><a href="#local-6989586621679602996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:themeAlias:UpdateThemeAliasResponse' :: Maybe ThemeAlias
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3AthemeAlias%3AUpdateThemeAliasResponse%27"><span class="hs-identifier hs-var">themeAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThemeAlias
+</span><a href="#local-6989586621679602995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse"><span class="hs-identifier hs-type">UpdateThemeAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAliasResponse_status"><span class="hs-identifier hs-type">updateThemeAliasResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse"><span class="hs-identifier hs-type">UpdateThemeAliasResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-220"></span><span id="updateThemeAliasResponse_status"><span class="annot"><span class="annottext">updateThemeAliasResponse_status :: (Int -&gt; f Int)
+-&gt; UpdateThemeAliasResponse -&gt; f UpdateThemeAliasResponse
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#updateThemeAliasResponse_status"><span class="hs-identifier hs-var hs-var">updateThemeAliasResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateThemeAliasResponse -&gt; Int)
+-&gt; (UpdateThemeAliasResponse -&gt; Int -&gt; UpdateThemeAliasResponse)
+-&gt; Lens UpdateThemeAliasResponse UpdateThemeAliasResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse%27"><span class="hs-identifier hs-type">UpdateThemeAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679602994"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:UpdateThemeAliasResponse' :: UpdateThemeAliasResponse -&gt; Int
+</span><a href="#local-6989586621679602994"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679602994"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679602993"><span class="annot"><span class="annottext">s :: UpdateThemeAliasResponse
+</span><a href="#local-6989586621679602993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse%27"><span class="hs-identifier hs-type">UpdateThemeAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679602992"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679602992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateThemeAliasResponse
+</span><a href="#local-6989586621679602993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdateThemeAliasResponse' :: Int
+</span><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#%24sel%3Astatus%3AUpdateThemeAliasResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679602992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse"><span class="hs-identifier hs-type">UpdateThemeAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602990"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateThemeAlias.html#UpdateThemeAliasResponse"><span class="hs-identifier hs-type">UpdateThemeAliasResponse</span></a></span></span><span>
+</span><span id="line-223"></span></pre></body></html>

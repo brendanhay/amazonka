@@ -71,13 +71,13 @@
 </span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span id="local-6989586621680329679"><span id="local-6989586621680329680"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProcessingInstanceType"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInstanceType.html#ProcessingInstanceType"><span class="hs-identifier hs-var">ProcessingInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingInstanceType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInstanceType.html#ProcessingInstanceType%27"><span class="hs-identifier hs-var">ProcessingInstanceType'</span></a></span></span><span>
+</span><span id="line-74"></span><span id="local-6989586621680329688"><span id="local-6989586621680329689"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProcessingInstanceType"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInstanceType.html#ProcessingInstanceType"><span class="hs-identifier hs-var">ProcessingInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingInstanceType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInstanceType.html#ProcessingInstanceType%27"><span class="hs-identifier hs-var">ProcessingInstanceType'</span></a></span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProcessingInstanceType"><span class="annot"><span class="annottext">ProcessingInstanceType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ProcessingInstanceType.html#fromProcessingInstanceType"><span class="hs-identifier hs-var hs-var">fromProcessingInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680329671"><span id="local-6989586621680329673"><span id="local-6989586621680329675"><span class="annot"><span class="annottext">Int -&gt; ProcessingInstanceType -&gt; ShowS
+</span><span id="line-79"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680329680"><span id="local-6989586621680329682"><span id="local-6989586621680329684"><span class="annot"><span class="annottext">Int -&gt; ProcessingInstanceType -&gt; ShowS
 [ProcessingInstanceType] -&gt; ShowS
 ProcessingInstanceType -&gt; String
 (Int -&gt; ProcessingInstanceType -&gt; ShowS)
@@ -93,7 +93,7 @@ $cshow :: ProcessingInstanceType -&gt; String
 showsPrec :: Int -&gt; ProcessingInstanceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProcessingInstanceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621680329662"><span id="local-6989586621680329664"><span id="local-6989586621680329666"><span id="local-6989586621680329668"><span class="annot"><span class="annottext">ReadPrec [ProcessingInstanceType]
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621680329671"><span id="local-6989586621680329673"><span id="local-6989586621680329675"><span id="local-6989586621680329677"><span class="annot"><span class="annottext">ReadPrec [ProcessingInstanceType]
 ReadPrec ProcessingInstanceType
 Int -&gt; ReadS ProcessingInstanceType
 ReadS [ProcessingInstanceType]
@@ -114,7 +114,7 @@ $creadList :: ReadS [ProcessingInstanceType]
 readsPrec :: Int -&gt; ReadS ProcessingInstanceType
 $creadsPrec :: Int -&gt; ReadS ProcessingInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621680329657"><span id="local-6989586621680329659"><span class="annot"><span class="annottext">ProcessingInstanceType -&gt; ProcessingInstanceType -&gt; Bool
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621680329666"><span id="local-6989586621680329668"><span class="annot"><span class="annottext">ProcessingInstanceType -&gt; ProcessingInstanceType -&gt; Bool
 (ProcessingInstanceType -&gt; ProcessingInstanceType -&gt; Bool)
 -&gt; (ProcessingInstanceType -&gt; ProcessingInstanceType -&gt; Bool)
 -&gt; Eq ProcessingInstanceType
@@ -124,7 +124,7 @@ $c/= :: ProcessingInstanceType -&gt; ProcessingInstanceType -&gt; Bool
 == :: ProcessingInstanceType -&gt; ProcessingInstanceType -&gt; Bool
 $c== :: ProcessingInstanceType -&gt; ProcessingInstanceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621680329641"><span id="local-6989586621680329643"><span id="local-6989586621680329645"><span id="local-6989586621680329647"><span id="local-6989586621680329649"><span id="local-6989586621680329651"><span id="local-6989586621680329653"><span class="annot"><span class="annottext">Eq ProcessingInstanceType
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621680329650"><span id="local-6989586621680329652"><span id="local-6989586621680329654"><span id="local-6989586621680329656"><span id="local-6989586621680329658"><span id="local-6989586621680329660"><span id="local-6989586621680329662"><span class="annot"><span class="annottext">Eq ProcessingInstanceType
 Eq ProcessingInstanceType
 -&gt; (ProcessingInstanceType -&gt; ProcessingInstanceType -&gt; Ordering)
 -&gt; (ProcessingInstanceType -&gt; ProcessingInstanceType -&gt; Bool)
@@ -183,7 +183,7 @@ $cfrom :: forall x. ProcessingInstanceType -&gt; Rep ProcessingInstanceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680329633"><span id="local-6989586621680329635"><span class="annot"><span class="annottext">Int -&gt; ProcessingInstanceType -&gt; Int
+</span><span id="line-86"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680329642"><span id="local-6989586621680329644"><span class="annot"><span class="annottext">Int -&gt; ProcessingInstanceType -&gt; Int
 ProcessingInstanceType -&gt; Int
 (Int -&gt; ProcessingInstanceType -&gt; Int)
 -&gt; (ProcessingInstanceType -&gt; Int)
@@ -194,54 +194,54 @@ $chash :: ProcessingInstanceType -&gt; Int
 hashWithSalt :: Int -&gt; ProcessingInstanceType -&gt; Int
 $chashWithSalt :: Int -&gt; ProcessingInstanceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span id="local-6989586621680329630"><span class="annot"><span class="annottext">ProcessingInstanceType -&gt; ()
+</span><span id="line-87"></span><span>      </span><span id="local-6989586621680329639"><span class="annot"><span class="annottext">ProcessingInstanceType -&gt; ()
 (ProcessingInstanceType -&gt; ()) -&gt; NFData ProcessingInstanceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProcessingInstanceType -&gt; ()
 $crnf :: ProcessingInstanceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span id="local-6989586621680329627"><span class="annot"><span class="annottext">Text -&gt; Either String ProcessingInstanceType
+</span><span id="line-88"></span><span>      </span><span id="local-6989586621680329636"><span class="annot"><span class="annottext">Text -&gt; Either String ProcessingInstanceType
 (Text -&gt; Either String ProcessingInstanceType)
 -&gt; FromText ProcessingInstanceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProcessingInstanceType
 $cfromText :: Text -&gt; Either String ProcessingInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span id="local-6989586621680329624"><span class="annot"><span class="annottext">ProcessingInstanceType -&gt; Text
+</span><span id="line-89"></span><span>      </span><span id="local-6989586621680329633"><span class="annot"><span class="annottext">ProcessingInstanceType -&gt; Text
 (ProcessingInstanceType -&gt; Text) -&gt; ToText ProcessingInstanceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProcessingInstanceType -&gt; Text
 $ctoText :: ProcessingInstanceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span id="local-6989586621680329621"><span class="annot"><span class="annottext">ProcessingInstanceType -&gt; ByteString
+</span><span id="line-90"></span><span>      </span><span id="local-6989586621680329630"><span class="annot"><span class="annottext">ProcessingInstanceType -&gt; ByteString
 (ProcessingInstanceType -&gt; ByteString)
 -&gt; ToByteString ProcessingInstanceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProcessingInstanceType -&gt; ByteString
 $ctoBS :: ProcessingInstanceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span id="local-6989586621680329618"><span class="annot"><span class="annottext">ProcessingInstanceType -&gt; ByteStringBuilder
+</span><span id="line-91"></span><span>      </span><span id="local-6989586621680329627"><span class="annot"><span class="annottext">ProcessingInstanceType -&gt; ByteStringBuilder
 (ProcessingInstanceType -&gt; ByteStringBuilder)
 -&gt; ToLog ProcessingInstanceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProcessingInstanceType -&gt; ByteStringBuilder
 $cbuild :: ProcessingInstanceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span id="local-6989586621680329615"><span class="annot"><span class="annottext">HeaderName -&gt; ProcessingInstanceType -&gt; [Header]
+</span><span id="line-92"></span><span>      </span><span id="local-6989586621680329624"><span class="annot"><span class="annottext">HeaderName -&gt; ProcessingInstanceType -&gt; [Header]
 (HeaderName -&gt; ProcessingInstanceType -&gt; [Header])
 -&gt; ToHeader ProcessingInstanceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProcessingInstanceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProcessingInstanceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span id="local-6989586621680329612"><span class="annot"><span class="annottext">ProcessingInstanceType -&gt; QueryString
+</span><span id="line-93"></span><span>      </span><span id="local-6989586621680329621"><span class="annot"><span class="annottext">ProcessingInstanceType -&gt; QueryString
 (ProcessingInstanceType -&gt; QueryString)
 -&gt; ToQuery ProcessingInstanceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProcessingInstanceType -&gt; QueryString
 $ctoQuery :: ProcessingInstanceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span id="local-6989586621680329607"><span id="local-6989586621680329609"><span class="annot"><span class="annottext">Value -&gt; Parser [ProcessingInstanceType]
+</span><span id="line-94"></span><span>      </span><span id="local-6989586621680329616"><span id="local-6989586621680329618"><span class="annot"><span class="annottext">Value -&gt; Parser [ProcessingInstanceType]
 Value -&gt; Parser ProcessingInstanceType
 (Value -&gt; Parser ProcessingInstanceType)
 -&gt; (Value -&gt; Parser [ProcessingInstanceType])
@@ -253,7 +253,7 @@ $cparseJSONList :: Value -&gt; Parser [ProcessingInstanceType]
 parseJSON :: Value -&gt; Parser ProcessingInstanceType
 $cparseJSON :: Value -&gt; Parser ProcessingInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span id="local-6989586621680329602"><span id="local-6989586621680329604"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProcessingInstanceType]
+</span><span id="line-95"></span><span>      </span><span id="local-6989586621680329611"><span id="local-6989586621680329613"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProcessingInstanceType]
 FromJSONKeyFunction ProcessingInstanceType
 FromJSONKeyFunction ProcessingInstanceType
 -&gt; FromJSONKeyFunction [ProcessingInstanceType]
@@ -265,7 +265,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProcessingInstanceType]
 fromJSONKey :: FromJSONKeyFunction ProcessingInstanceType
 $cfromJSONKey :: FromJSONKeyFunction ProcessingInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span id="local-6989586621680329593"><span id="local-6989586621680329595"><span id="local-6989586621680329597"><span id="local-6989586621680329599"><span class="annot"><span class="annottext">[ProcessingInstanceType] -&gt; Encoding
+</span><span id="line-96"></span><span>      </span><span id="local-6989586621680329602"><span id="local-6989586621680329604"><span id="local-6989586621680329606"><span id="local-6989586621680329608"><span class="annot"><span class="annottext">[ProcessingInstanceType] -&gt; Encoding
 [ProcessingInstanceType] -&gt; Value
 ProcessingInstanceType -&gt; Encoding
 ProcessingInstanceType -&gt; Value
@@ -289,7 +289,7 @@ $ctoEncoding :: ProcessingInstanceType -&gt; Encoding
 toJSON :: ProcessingInstanceType -&gt; Value
 $ctoJSON :: ProcessingInstanceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span id="local-6989586621680329588"><span id="local-6989586621680329590"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProcessingInstanceType]
+</span><span id="line-97"></span><span>      </span><span id="local-6989586621680329597"><span id="local-6989586621680329599"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProcessingInstanceType]
 ToJSONKeyFunction ProcessingInstanceType
 ToJSONKeyFunction ProcessingInstanceType
 -&gt; ToJSONKeyFunction [ProcessingInstanceType]
@@ -301,14 +301,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProcessingInstanceType]
 toJSONKey :: ToJSONKeyFunction ProcessingInstanceType
 $ctoJSONKey :: ToJSONKeyFunction ProcessingInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span id="local-6989586621680329585"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProcessingInstanceType
+</span><span id="line-98"></span><span>      </span><span id="local-6989586621680329594"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProcessingInstanceType
 ([Node] -&gt; Either String ProcessingInstanceType)
 -&gt; FromXML ProcessingInstanceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProcessingInstanceType
 $cparseXML :: [Node] -&gt; Either String ProcessingInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span id="local-6989586621680329582"><span class="annot"><span class="annottext">ProcessingInstanceType -&gt; XML
+</span><span id="line-99"></span><span>      </span><span id="local-6989586621680329591"><span class="annot"><span class="annottext">ProcessingInstanceType -&gt; XML
 (ProcessingInstanceType -&gt; XML) -&gt; ToXML ProcessingInstanceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ProcessingInstanceType -&gt; XML

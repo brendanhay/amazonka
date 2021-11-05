@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | The @ApiCache@ object.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newApiCache' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679247493"><span id="local-6989586621679247494"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApiCache"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-var">ApiCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiCache%27"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-var">ApiCache'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679247502"><span id="local-6989586621679247503"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApiCache"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-var">ApiCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiCache%27"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-var">ApiCache'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | TTL in seconds for cache entries.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Valid values are between 1 and 3600 seconds.</span><span>
@@ -105,7 +105,7 @@
 </span><span id="line-100"></span><span>    </span><span id="%24sel%3Atype%27%3AApiCache%27"><span class="annot"><span class="annottext">ApiCache -&gt; Maybe ApiCacheType
 </span><a href="Network.AWS.AppSync.Types.ApiCache.html#%24sel%3Atype%27%3AApiCache%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCacheType.html#ApiCacheType"><span class="hs-identifier hs-type">ApiCacheType</span></a></span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247482"><span id="local-6989586621679247484"><span class="annot"><span class="annottext">ApiCache -&gt; ApiCache -&gt; Bool
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247491"><span id="local-6989586621679247493"><span class="annot"><span class="annottext">ApiCache -&gt; ApiCache -&gt; Bool
 (ApiCache -&gt; ApiCache -&gt; Bool)
 -&gt; (ApiCache -&gt; ApiCache -&gt; Bool) -&gt; Eq ApiCache
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -113,7 +113,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ApiCache -&gt; ApiCache -&gt; Bool
 == :: ApiCache -&gt; ApiCache -&gt; Bool
 $c== :: ApiCache -&gt; ApiCache -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247473"><span id="local-6989586621679247475"><span id="local-6989586621679247477"><span id="local-6989586621679247479"><span class="annot"><span class="annottext">ReadPrec [ApiCache]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247482"><span id="local-6989586621679247484"><span id="local-6989586621679247486"><span id="local-6989586621679247488"><span class="annot"><span class="annottext">ReadPrec [ApiCache]
 ReadPrec ApiCache
 Int -&gt; ReadS ApiCache
 ReadS [ApiCache]
@@ -133,7 +133,7 @@ readList :: ReadS [ApiCache]
 $creadList :: ReadS [ApiCache]
 readsPrec :: Int -&gt; ReadS ApiCache
 $creadsPrec :: Int -&gt; ReadS ApiCache
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247466"><span id="local-6989586621679247468"><span id="local-6989586621679247470"><span class="annot"><span class="annottext">Int -&gt; ApiCache -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247475"><span id="local-6989586621679247477"><span id="local-6989586621679247479"><span class="annot"><span class="annottext">Int -&gt; ApiCache -&gt; ShowS
 [ApiCache] -&gt; ShowS
 ApiCache -&gt; String
 (Int -&gt; ApiCache -&gt; ShowS)
@@ -278,16 +278,16 @@ forall a. Maybe a
 -&gt; (ApiCache -&gt; Maybe Integer -&gt; ApiCache)
 -&gt; Lens ApiCache ApiCache (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247457"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247466"><span class="annot"><span class="annottext">Maybe Integer
 ttl :: Maybe Integer
 $sel:ttl:ApiCache' :: ApiCache -&gt; Maybe Integer
-</span><a href="#local-6989586621679247457"><span class="hs-identifier hs-var hs-var">ttl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679247457"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247456"><span class="annot"><span class="annottext">s :: ApiCache
-</span><a href="#local-6989586621679247456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247455"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679247455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiCache
-</span><a href="#local-6989586621679247456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ttl:ApiCache' :: Maybe Integer
+</span><a href="#local-6989586621679247466"><span class="hs-identifier hs-var hs-var">ttl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679247466"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247465"><span class="annot"><span class="annottext">s :: ApiCache
+</span><a href="#local-6989586621679247465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247464"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679247464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiCache
+</span><a href="#local-6989586621679247465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ttl:ApiCache' :: Maybe Integer
 </span><a href="Network.AWS.AppSync.Types.ApiCache.html#%24sel%3Attl%3AApiCache%27"><span class="hs-identifier hs-var">ttl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679247455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | The cache instance status.</span><span>
 </span><span id="line-198"></span><span class="hs-comment">--</span><span>
@@ -308,16 +308,16 @@ $sel:ttl:ApiCache' :: ApiCache -&gt; Maybe Integer
 -&gt; Lens
      ApiCache ApiCache (Maybe ApiCacheStatus) (Maybe ApiCacheStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247453"><span class="annot"><span class="annottext">Maybe ApiCacheStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247462"><span class="annot"><span class="annottext">Maybe ApiCacheStatus
 status :: Maybe ApiCacheStatus
 $sel:status:ApiCache' :: ApiCache -&gt; Maybe ApiCacheStatus
-</span><a href="#local-6989586621679247453"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApiCacheStatus
-</span><a href="#local-6989586621679247453"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247452"><span class="annot"><span class="annottext">s :: ApiCache
-</span><a href="#local-6989586621679247452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247451"><span class="annot"><span class="annottext">Maybe ApiCacheStatus
-</span><a href="#local-6989586621679247451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiCache
-</span><a href="#local-6989586621679247452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ApiCache' :: Maybe ApiCacheStatus
+</span><a href="#local-6989586621679247462"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApiCacheStatus
+</span><a href="#local-6989586621679247462"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247461"><span class="annot"><span class="annottext">s :: ApiCache
+</span><a href="#local-6989586621679247461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247460"><span class="annot"><span class="annottext">Maybe ApiCacheStatus
+</span><a href="#local-6989586621679247460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiCache
+</span><a href="#local-6989586621679247461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ApiCache' :: Maybe ApiCacheStatus
 </span><a href="Network.AWS.AppSync.Types.ApiCache.html#%24sel%3Astatus%3AApiCache%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApiCacheStatus
-</span><a href="#local-6989586621679247451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | At rest encryption flag for cache. This setting cannot be updated after</span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- creation.</span><span>
@@ -327,16 +327,16 @@ $sel:status:ApiCache' :: ApiCache -&gt; Maybe ApiCacheStatus
 -&gt; (ApiCache -&gt; Maybe Bool -&gt; ApiCache)
 -&gt; Lens ApiCache ApiCache (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247449"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247458"><span class="annot"><span class="annottext">Maybe Bool
 atRestEncryptionEnabled :: Maybe Bool
 $sel:atRestEncryptionEnabled:ApiCache' :: ApiCache -&gt; Maybe Bool
-</span><a href="#local-6989586621679247449"><span class="hs-identifier hs-var hs-var">atRestEncryptionEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679247449"><span class="hs-identifier hs-var">atRestEncryptionEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247448"><span class="annot"><span class="annottext">s :: ApiCache
-</span><a href="#local-6989586621679247448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247447"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679247447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiCache
-</span><a href="#local-6989586621679247448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:atRestEncryptionEnabled:ApiCache' :: Maybe Bool
+</span><a href="#local-6989586621679247458"><span class="hs-identifier hs-var hs-var">atRestEncryptionEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679247458"><span class="hs-identifier hs-var">atRestEncryptionEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247457"><span class="annot"><span class="annottext">s :: ApiCache
+</span><a href="#local-6989586621679247457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247456"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679247456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiCache
+</span><a href="#local-6989586621679247457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:atRestEncryptionEnabled:ApiCache' :: Maybe Bool
 </span><a href="Network.AWS.AppSync.Types.ApiCache.html#%24sel%3AatRestEncryptionEnabled%3AApiCache%27"><span class="hs-identifier hs-var">atRestEncryptionEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679247447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | Transit encryption flag when connecting to cache. This setting cannot be</span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- updated after creation.</span><span>
@@ -346,16 +346,16 @@ $sel:atRestEncryptionEnabled:ApiCache' :: ApiCache -&gt; Maybe Bool
 -&gt; (ApiCache -&gt; Maybe Bool -&gt; ApiCache)
 -&gt; Lens ApiCache ApiCache (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247445"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247454"><span class="annot"><span class="annottext">Maybe Bool
 transitEncryptionEnabled :: Maybe Bool
 $sel:transitEncryptionEnabled:ApiCache' :: ApiCache -&gt; Maybe Bool
-</span><a href="#local-6989586621679247445"><span class="hs-identifier hs-var hs-var">transitEncryptionEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679247445"><span class="hs-identifier hs-var">transitEncryptionEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247444"><span class="annot"><span class="annottext">s :: ApiCache
-</span><a href="#local-6989586621679247444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247443"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679247443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiCache
-</span><a href="#local-6989586621679247444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitEncryptionEnabled:ApiCache' :: Maybe Bool
+</span><a href="#local-6989586621679247454"><span class="hs-identifier hs-var hs-var">transitEncryptionEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679247454"><span class="hs-identifier hs-var">transitEncryptionEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247453"><span class="annot"><span class="annottext">s :: ApiCache
+</span><a href="#local-6989586621679247453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247452"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679247452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiCache
+</span><a href="#local-6989586621679247453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitEncryptionEnabled:ApiCache' :: Maybe Bool
 </span><a href="Network.AWS.AppSync.Types.ApiCache.html#%24sel%3AtransitEncryptionEnabled%3AApiCache%27"><span class="hs-identifier hs-var">transitEncryptionEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679247443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | Caching behavior.</span><span>
 </span><span id="line-222"></span><span class="hs-comment">--</span><span>
@@ -374,16 +374,16 @@ $sel:transitEncryptionEnabled:ApiCache' :: ApiCache -&gt; Maybe Bool
      (Maybe ApiCachingBehavior)
      (Maybe ApiCachingBehavior)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247441"><span class="annot"><span class="annottext">Maybe ApiCachingBehavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247450"><span class="annot"><span class="annottext">Maybe ApiCachingBehavior
 apiCachingBehavior :: Maybe ApiCachingBehavior
 $sel:apiCachingBehavior:ApiCache' :: ApiCache -&gt; Maybe ApiCachingBehavior
-</span><a href="#local-6989586621679247441"><span class="hs-identifier hs-var hs-var">apiCachingBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApiCachingBehavior
-</span><a href="#local-6989586621679247441"><span class="hs-identifier hs-var">apiCachingBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247440"><span class="annot"><span class="annottext">s :: ApiCache
-</span><a href="#local-6989586621679247440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247439"><span class="annot"><span class="annottext">Maybe ApiCachingBehavior
-</span><a href="#local-6989586621679247439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiCache
-</span><a href="#local-6989586621679247440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiCachingBehavior:ApiCache' :: Maybe ApiCachingBehavior
+</span><a href="#local-6989586621679247450"><span class="hs-identifier hs-var hs-var">apiCachingBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApiCachingBehavior
+</span><a href="#local-6989586621679247450"><span class="hs-identifier hs-var">apiCachingBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247449"><span class="annot"><span class="annottext">s :: ApiCache
+</span><a href="#local-6989586621679247449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247448"><span class="annot"><span class="annottext">Maybe ApiCachingBehavior
+</span><a href="#local-6989586621679247448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiCache
+</span><a href="#local-6989586621679247449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiCachingBehavior:ApiCache' :: Maybe ApiCachingBehavior
 </span><a href="Network.AWS.AppSync.Types.ApiCache.html#%24sel%3AapiCachingBehavior%3AApiCache%27"><span class="hs-identifier hs-var">apiCachingBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApiCachingBehavior
-</span><a href="#local-6989586621679247439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The cache instance type. Valid values are</span><span>
 </span><span id="line-231"></span><span class="hs-comment">--</span><span>
@@ -430,27 +430,27 @@ $sel:apiCachingBehavior:ApiCache' :: ApiCache -&gt; Maybe ApiCachingBehavior
 -&gt; (ApiCache -&gt; Maybe ApiCacheType -&gt; ApiCache)
 -&gt; Lens ApiCache ApiCache (Maybe ApiCacheType) (Maybe ApiCacheType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247437"><span class="annot"><span class="annottext">Maybe ApiCacheType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247446"><span class="annot"><span class="annottext">Maybe ApiCacheType
 type' :: Maybe ApiCacheType
 $sel:type':ApiCache' :: ApiCache -&gt; Maybe ApiCacheType
-</span><a href="#local-6989586621679247437"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApiCacheType
-</span><a href="#local-6989586621679247437"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247436"><span class="annot"><span class="annottext">s :: ApiCache
-</span><a href="#local-6989586621679247436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247435"><span class="annot"><span class="annottext">Maybe ApiCacheType
-</span><a href="#local-6989586621679247435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiCache
-</span><a href="#local-6989586621679247436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ApiCache' :: Maybe ApiCacheType
+</span><a href="#local-6989586621679247446"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApiCacheType
+</span><a href="#local-6989586621679247446"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247445"><span class="annot"><span class="annottext">s :: ApiCache
+</span><a href="#local-6989586621679247445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache%27"><span class="hs-identifier hs-type">ApiCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247444"><span class="annot"><span class="annottext">Maybe ApiCacheType
+</span><a href="#local-6989586621679247444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiCache
+</span><a href="#local-6989586621679247445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ApiCache' :: Maybe ApiCacheType
 </span><a href="Network.AWS.AppSync.Types.ApiCache.html#%24sel%3Atype%27%3AApiCache%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApiCacheType
-</span><a href="#local-6989586621679247435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
-</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247432"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-272"></span><span>  </span><span id="local-6989586621679247430"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApiCache
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247441"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-272"></span><span>  </span><span id="local-6989586621679247439"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApiCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-273"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser ApiCache) -&gt; Value -&gt; Parser ApiCache
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ApiCache&quot;</span></span><span>
-</span><span id="line-275"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247427"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247427"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-275"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247436"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247436"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-276"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
 -&gt; Maybe ApiCacheStatus
 -&gt; Maybe Bool
@@ -476,7 +476,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ApiCache)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247427"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679247436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ttl&quot;</span></span><span class="hs-special">)</span><span>
@@ -496,7 +496,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ApiCache)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247427"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ApiCacheStatus)
+</span><a href="#local-6989586621679247436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ApiCacheStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
@@ -512,7 +512,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe ApiCachingBehavior -&gt; Maybe ApiCacheType -&gt; ApiCache)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247427"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679247436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;atRestEncryptionEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -524,7 +524,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe ApiCachingBehavior -&gt; Maybe ApiCacheType -&gt; ApiCache)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247427"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679247436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transitEncryptionEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -533,7 +533,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe ApiCacheType -&gt; ApiCache)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247427"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ApiCachingBehavior)
+</span><a href="#local-6989586621679247436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ApiCachingBehavior)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;apiCachingBehavior&quot;</span></span><span class="hs-special">)</span><span>
@@ -541,13 +541,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe ApiCacheType) -&gt; Parser ApiCache
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247427"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ApiCacheType)
+</span><a href="#local-6989586621679247436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ApiCacheType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
-</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247421"><span id="local-6989586621679247423"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span></span></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247430"><span id="local-6989586621679247432"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span></span></span><span>
 </span><span id="line-286"></span><span>
-</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247418"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247427"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCache.html#ApiCache"><span class="hs-identifier hs-type">ApiCache</span></a></span></span><span>
 </span><span id="line-288"></span></pre></body></html>

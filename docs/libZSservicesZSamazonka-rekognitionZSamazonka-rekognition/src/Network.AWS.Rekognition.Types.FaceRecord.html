@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- the database.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newFaceRecord' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679332812"><span id="local-6989586621679332813"></span></span><span class="hs-keyword">data</span><span> </span><span id="FaceRecord"><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord"><span class="hs-identifier hs-var">FaceRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FaceRecord%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord%27"><span class="hs-identifier hs-var">FaceRecord'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679332821"><span id="local-6989586621679332822"></span></span><span class="hs-keyword">data</span><span> </span><span id="FaceRecord"><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord"><span class="hs-identifier hs-var">FaceRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FaceRecord%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord%27"><span class="hs-identifier hs-var">FaceRecord'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Structure containing attributes of the face that the algorithm detected.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AfaceDetail%3AFaceRecord%27"><span class="annot"><span class="annottext">FaceRecord -&gt; Maybe FaceDetail
 </span><a href="Network.AWS.Rekognition.Types.FaceRecord.html#%24sel%3AfaceDetail%3AFaceRecord%27"><span class="hs-identifier hs-var hs-var">faceDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetail.html#FaceDetail"><span class="hs-identifier hs-type">FaceDetail</span></a></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aface%3AFaceRecord%27"><span class="annot"><span class="annottext">FaceRecord -&gt; Maybe Face
 </span><a href="Network.AWS.Rekognition.Types.FaceRecord.html#%24sel%3Aface%3AFaceRecord%27"><span class="hs-identifier hs-var hs-var">face</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Face.html#Face"><span class="hs-identifier hs-type">Face</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332805"><span id="local-6989586621679332807"><span class="annot"><span class="annottext">FaceRecord -&gt; FaceRecord -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332814"><span id="local-6989586621679332816"><span class="annot"><span class="annottext">FaceRecord -&gt; FaceRecord -&gt; Bool
 (FaceRecord -&gt; FaceRecord -&gt; Bool)
 -&gt; (FaceRecord -&gt; FaceRecord -&gt; Bool) -&gt; Eq FaceRecord
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FaceRecord -&gt; FaceRecord -&gt; Bool
 == :: FaceRecord -&gt; FaceRecord -&gt; Bool
 $c== :: FaceRecord -&gt; FaceRecord -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332796"><span id="local-6989586621679332798"><span id="local-6989586621679332800"><span id="local-6989586621679332802"><span class="annot"><span class="annottext">ReadPrec [FaceRecord]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332805"><span id="local-6989586621679332807"><span id="local-6989586621679332809"><span id="local-6989586621679332811"><span class="annot"><span class="annottext">ReadPrec [FaceRecord]
 ReadPrec FaceRecord
 Int -&gt; ReadS FaceRecord
 ReadS [FaceRecord]
@@ -67,7 +67,7 @@ readList :: ReadS [FaceRecord]
 $creadList :: ReadS [FaceRecord]
 readsPrec :: Int -&gt; ReadS FaceRecord
 $creadsPrec :: Int -&gt; ReadS FaceRecord
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332789"><span id="local-6989586621679332791"><span id="local-6989586621679332793"><span class="annot"><span class="annottext">Int -&gt; FaceRecord -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332798"><span id="local-6989586621679332800"><span id="local-6989586621679332802"><span class="annot"><span class="annottext">Int -&gt; FaceRecord -&gt; ShowS
 [FaceRecord] -&gt; ShowS
 FaceRecord -&gt; String
 (Int -&gt; FaceRecord -&gt; ShowS)
@@ -128,16 +128,16 @@ forall a. Maybe a
 -&gt; (FaceRecord -&gt; Maybe FaceDetail -&gt; FaceRecord)
 -&gt; Lens FaceRecord FaceRecord (Maybe FaceDetail) (Maybe FaceDetail)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord%27"><span class="hs-identifier hs-type">FaceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332780"><span class="annot"><span class="annottext">Maybe FaceDetail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord%27"><span class="hs-identifier hs-type">FaceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332789"><span class="annot"><span class="annottext">Maybe FaceDetail
 faceDetail :: Maybe FaceDetail
 $sel:faceDetail:FaceRecord' :: FaceRecord -&gt; Maybe FaceDetail
-</span><a href="#local-6989586621679332780"><span class="hs-identifier hs-var hs-var">faceDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FaceDetail
-</span><a href="#local-6989586621679332780"><span class="hs-identifier hs-var">faceDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332779"><span class="annot"><span class="annottext">s :: FaceRecord
-</span><a href="#local-6989586621679332779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord%27"><span class="hs-identifier hs-type">FaceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332778"><span class="annot"><span class="annottext">Maybe FaceDetail
-</span><a href="#local-6989586621679332778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FaceRecord
-</span><a href="#local-6989586621679332779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceDetail:FaceRecord' :: Maybe FaceDetail
+</span><a href="#local-6989586621679332789"><span class="hs-identifier hs-var hs-var">faceDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FaceDetail
+</span><a href="#local-6989586621679332789"><span class="hs-identifier hs-var">faceDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332788"><span class="annot"><span class="annottext">s :: FaceRecord
+</span><a href="#local-6989586621679332788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord%27"><span class="hs-identifier hs-type">FaceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332787"><span class="annot"><span class="annottext">Maybe FaceDetail
+</span><a href="#local-6989586621679332787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FaceRecord
+</span><a href="#local-6989586621679332788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceDetail:FaceRecord' :: Maybe FaceDetail
 </span><a href="Network.AWS.Rekognition.Types.FaceRecord.html#%24sel%3AfaceDetail%3AFaceRecord%27"><span class="hs-identifier hs-var">faceDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FaceDetail
-</span><a href="#local-6989586621679332778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord"><span class="hs-identifier hs-type">FaceRecord</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679332787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord"><span class="hs-identifier hs-type">FaceRecord</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | Describes the face properties such as the bounding box, face ID, image</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- ID of the input image, and external image ID that you assigned.</span><span>
@@ -147,19 +147,19 @@ $sel:faceDetail:FaceRecord' :: FaceRecord -&gt; Maybe FaceDetail
 -&gt; (FaceRecord -&gt; Maybe Face -&gt; FaceRecord)
 -&gt; Lens FaceRecord FaceRecord (Maybe Face) (Maybe Face)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord%27"><span class="hs-identifier hs-type">FaceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332776"><span class="annot"><span class="annottext">Maybe Face
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord%27"><span class="hs-identifier hs-type">FaceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332785"><span class="annot"><span class="annottext">Maybe Face
 face :: Maybe Face
 $sel:face:FaceRecord' :: FaceRecord -&gt; Maybe Face
-</span><a href="#local-6989586621679332776"><span class="hs-identifier hs-var hs-var">face</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Face
-</span><a href="#local-6989586621679332776"><span class="hs-identifier hs-var">face</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332775"><span class="annot"><span class="annottext">s :: FaceRecord
-</span><a href="#local-6989586621679332775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord%27"><span class="hs-identifier hs-type">FaceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332774"><span class="annot"><span class="annottext">Maybe Face
-</span><a href="#local-6989586621679332774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FaceRecord
-</span><a href="#local-6989586621679332775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:face:FaceRecord' :: Maybe Face
+</span><a href="#local-6989586621679332785"><span class="hs-identifier hs-var hs-var">face</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Face
+</span><a href="#local-6989586621679332785"><span class="hs-identifier hs-var">face</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332784"><span class="annot"><span class="annottext">s :: FaceRecord
+</span><a href="#local-6989586621679332784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord%27"><span class="hs-identifier hs-type">FaceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332783"><span class="annot"><span class="annottext">Maybe Face
+</span><a href="#local-6989586621679332783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FaceRecord
+</span><a href="#local-6989586621679332784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:face:FaceRecord' :: Maybe Face
 </span><a href="Network.AWS.Rekognition.Types.FaceRecord.html#%24sel%3Aface%3AFaceRecord%27"><span class="hs-identifier hs-var">face</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Face
-</span><a href="#local-6989586621679332774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord"><span class="hs-identifier hs-type">FaceRecord</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679332783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord"><span class="hs-identifier hs-type">FaceRecord</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332771"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord"><span class="hs-identifier hs-type">FaceRecord</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679332769"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FaceRecord
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332780"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord"><span class="hs-identifier hs-type">FaceRecord</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679332778"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FaceRecord
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FaceRecord) -&gt; Value -&gt; Parser FaceRecord
@@ -167,15 +167,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FaceRecord&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679332766"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679332775"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679332775"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe FaceDetail -&gt; Maybe Face -&gt; FaceRecord
 </span><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord%27"><span class="hs-identifier hs-var">FaceRecord'</span></a></span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FaceDetail -&gt; Maybe Face -&gt; FaceRecord)
 -&gt; Parser (Maybe FaceDetail) -&gt; Parser (Maybe Face -&gt; FaceRecord)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FaceDetail)
+</span><a href="#local-6989586621679332775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FaceDetail)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FaceDetail&quot;</span></span><span class="hs-special">)</span><span>
@@ -183,13 +183,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Face) -&gt; Parser FaceRecord
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Face)
+</span><a href="#local-6989586621679332775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Face)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Face&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332760"><span id="local-6989586621679332762"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord"><span class="hs-identifier hs-type">FaceRecord</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332769"><span id="local-6989586621679332771"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord"><span class="hs-identifier hs-type">FaceRecord</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332757"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord"><span class="hs-identifier hs-type">FaceRecord</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332766"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceRecord.html#FaceRecord"><span class="hs-identifier hs-type">FaceRecord</span></a></span></span><span>
 </span><span id="line-84"></span></pre></body></html>

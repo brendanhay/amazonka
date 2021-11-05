@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newPutDestinationPolicy' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679226321"><span id="local-6989586621679226322"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDestinationPolicy"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-var">PutDestinationPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDestinationPolicy%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy%27"><span class="hs-identifier hs-var">PutDestinationPolicy'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679226330"><span id="local-6989586621679226331"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDestinationPolicy"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-var">PutDestinationPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDestinationPolicy%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy%27"><span class="hs-identifier hs-var">PutDestinationPolicy'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A name for an existing destination.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdestinationName%3APutDestinationPolicy%27"><span class="annot"><span class="annottext">PutDestinationPolicy -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#%24sel%3AdestinationName%3APutDestinationPolicy%27"><span class="hs-identifier hs-var hs-var">destinationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AaccessPolicy%3APutDestinationPolicy%27"><span class="annot"><span class="annottext">PutDestinationPolicy -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#%24sel%3AaccessPolicy%3APutDestinationPolicy%27"><span class="hs-identifier hs-var hs-var">accessPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226314"><span id="local-6989586621679226316"><span class="annot"><span class="annottext">PutDestinationPolicy -&gt; PutDestinationPolicy -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226323"><span id="local-6989586621679226325"><span class="annot"><span class="annottext">PutDestinationPolicy -&gt; PutDestinationPolicy -&gt; Bool
 (PutDestinationPolicy -&gt; PutDestinationPolicy -&gt; Bool)
 -&gt; (PutDestinationPolicy -&gt; PutDestinationPolicy -&gt; Bool)
 -&gt; Eq PutDestinationPolicy
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutDestinationPolicy -&gt; PutDestinationPolicy -&gt; Bool
 == :: PutDestinationPolicy -&gt; PutDestinationPolicy -&gt; Bool
 $c== :: PutDestinationPolicy -&gt; PutDestinationPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226305"><span id="local-6989586621679226307"><span id="local-6989586621679226309"><span id="local-6989586621679226311"><span class="annot"><span class="annottext">ReadPrec [PutDestinationPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226314"><span id="local-6989586621679226316"><span id="local-6989586621679226318"><span id="local-6989586621679226320"><span class="annot"><span class="annottext">ReadPrec [PutDestinationPolicy]
 ReadPrec PutDestinationPolicy
 Int -&gt; ReadS PutDestinationPolicy
 ReadS [PutDestinationPolicy]
@@ -92,7 +92,7 @@ readList :: ReadS [PutDestinationPolicy]
 $creadList :: ReadS [PutDestinationPolicy]
 readsPrec :: Int -&gt; ReadS PutDestinationPolicy
 $creadsPrec :: Int -&gt; ReadS PutDestinationPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226298"><span id="local-6989586621679226300"><span id="local-6989586621679226302"><span class="annot"><span class="annottext">Int -&gt; PutDestinationPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226307"><span id="local-6989586621679226309"><span id="local-6989586621679226311"><span class="annot"><span class="annottext">Int -&gt; PutDestinationPolicy -&gt; ShowS
 [PutDestinationPolicy] -&gt; ShowS
 PutDestinationPolicy -&gt; String
 (Int -&gt; PutDestinationPolicy -&gt; ShowS)
@@ -139,19 +139,19 @@ $cfrom :: forall x. PutDestinationPolicy -&gt; Rep PutDestinationPolicy x
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-type">PutDestinationPolicy</span></a></span><span>
 </span><span id="line-85"></span><span id="newPutDestinationPolicy"><span class="annot"><span class="annottext">newPutDestinationPolicy :: Text -&gt; Text -&gt; PutDestinationPolicy
 </span><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#newPutDestinationPolicy"><span class="hs-identifier hs-var hs-var">newPutDestinationPolicy</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679226293"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226293"><span class="hs-identifier hs-var">pDestinationName_</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679226292"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226292"><span class="hs-identifier hs-var">pAccessPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679226302"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226302"><span class="hs-identifier hs-var">pDestinationName_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679226301"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226301"><span class="hs-identifier hs-var">pAccessPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">PutDestinationPolicy' :: Text -&gt; Text -&gt; PutDestinationPolicy
 </span><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy%27"><span class="hs-identifier hs-type">PutDestinationPolicy'</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destinationName:PutDestinationPolicy' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#%24sel%3AdestinationName%3APutDestinationPolicy%27"><span class="hs-identifier hs-var">destinationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226293"><span class="hs-identifier hs-var">pDestinationName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226302"><span class="hs-identifier hs-var">pDestinationName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:accessPolicy:PutDestinationPolicy' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#%24sel%3AaccessPolicy%3APutDestinationPolicy%27"><span class="hs-identifier hs-var">accessPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226292"><span class="hs-identifier hs-var">pAccessPolicy_</span></a></span><span>
+</span><a href="#local-6989586621679226301"><span class="hs-identifier hs-var">pAccessPolicy_</span></a></span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | A name for an existing destination.</span><span>
@@ -161,16 +161,16 @@ $cfrom :: forall x. PutDestinationPolicy -&gt; Rep PutDestinationPolicy x
 -&gt; (PutDestinationPolicy -&gt; Text -&gt; PutDestinationPolicy)
 -&gt; Lens PutDestinationPolicy PutDestinationPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy%27"><span class="hs-identifier hs-type">PutDestinationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226289"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy%27"><span class="hs-identifier hs-type">PutDestinationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226298"><span class="annot"><span class="annottext">Text
 destinationName :: Text
 $sel:destinationName:PutDestinationPolicy' :: PutDestinationPolicy -&gt; Text
-</span><a href="#local-6989586621679226289"><span class="hs-identifier hs-var hs-var">destinationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226289"><span class="hs-identifier hs-var">destinationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226288"><span class="annot"><span class="annottext">s :: PutDestinationPolicy
-</span><a href="#local-6989586621679226288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy%27"><span class="hs-identifier hs-type">PutDestinationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226287"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDestinationPolicy
-</span><a href="#local-6989586621679226288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationName:PutDestinationPolicy' :: Text
+</span><a href="#local-6989586621679226298"><span class="hs-identifier hs-var hs-var">destinationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226298"><span class="hs-identifier hs-var">destinationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226297"><span class="annot"><span class="annottext">s :: PutDestinationPolicy
+</span><a href="#local-6989586621679226297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy%27"><span class="hs-identifier hs-type">PutDestinationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226296"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDestinationPolicy
+</span><a href="#local-6989586621679226297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationName:PutDestinationPolicy' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#%24sel%3AdestinationName%3APutDestinationPolicy%27"><span class="hs-identifier hs-var">destinationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-type">PutDestinationPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-type">PutDestinationPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | An IAM policy document that authorizes cross-account users to deliver</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- their log events to the associated destination. This can be up to 5120</span><span>
@@ -181,27 +181,27 @@ $sel:destinationName:PutDestinationPolicy' :: PutDestinationPolicy -&gt; Text
 -&gt; (PutDestinationPolicy -&gt; Text -&gt; PutDestinationPolicy)
 -&gt; Lens PutDestinationPolicy PutDestinationPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy%27"><span class="hs-identifier hs-type">PutDestinationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226286"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy%27"><span class="hs-identifier hs-type">PutDestinationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226295"><span class="annot"><span class="annottext">Text
 accessPolicy :: Text
 $sel:accessPolicy:PutDestinationPolicy' :: PutDestinationPolicy -&gt; Text
-</span><a href="#local-6989586621679226286"><span class="hs-identifier hs-var hs-var">accessPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226286"><span class="hs-identifier hs-var">accessPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226285"><span class="annot"><span class="annottext">s :: PutDestinationPolicy
-</span><a href="#local-6989586621679226285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy%27"><span class="hs-identifier hs-type">PutDestinationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226284"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDestinationPolicy
-</span><a href="#local-6989586621679226285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessPolicy:PutDestinationPolicy' :: Text
+</span><a href="#local-6989586621679226295"><span class="hs-identifier hs-var hs-var">accessPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226295"><span class="hs-identifier hs-var">accessPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226294"><span class="annot"><span class="annottext">s :: PutDestinationPolicy
+</span><a href="#local-6989586621679226294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy%27"><span class="hs-identifier hs-type">PutDestinationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226293"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDestinationPolicy
+</span><a href="#local-6989586621679226294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessPolicy:PutDestinationPolicy' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#%24sel%3AaccessPolicy%3APutDestinationPolicy%27"><span class="hs-identifier hs-var">accessPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-type">PutDestinationPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-type">PutDestinationPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-type">PutDestinationPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-type">PutDestinationPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicyResponse"><span class="hs-identifier hs-type">PutDestinationPolicyResponse</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679226280"><span class="annot"><span class="annottext">request :: PutDestinationPolicy -&gt; Request PutDestinationPolicy
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679226289"><span class="annot"><span class="annottext">request :: PutDestinationPolicy -&gt; Request PutDestinationPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutDestinationPolicy -&gt; Request PutDestinationPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679226276"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679226285"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutDestinationPolicy
 -&gt; ClientResponse ClientBody
@@ -227,12 +227,12 @@ AWSResponse a
 PutDestinationPolicyResponse
 </span><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicyResponse%27"><span class="hs-identifier hs-var">PutDestinationPolicyResponse'</span></a></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226269"><span id="local-6989586621679226271"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-type">PutDestinationPolicy</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226278"><span id="local-6989586621679226280"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-type">PutDestinationPolicy</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-type">PutDestinationPolicy</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-type">PutDestinationPolicy</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-type">PutDestinationPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679226262"><span class="annot"><span class="annottext">toHeaders :: PutDestinationPolicy -&gt; [Header]
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679226271"><span class="annot"><span class="annottext">toHeaders :: PutDestinationPolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PutDestinationPolicy -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -259,14 +259,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226252"><span id="local-6989586621679226254"><span id="local-6989586621679226256"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-type">PutDestinationPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679226250"><span class="annot"><span class="annottext">toJSON :: PutDestinationPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy%27"><span class="hs-identifier hs-type">PutDestinationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226247"><span id="local-6989586621679226248"><span class="annot"><span class="annottext">Text
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226261"><span id="local-6989586621679226263"><span id="local-6989586621679226265"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-type">PutDestinationPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679226259"><span class="annot"><span class="annottext">toJSON :: PutDestinationPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy%27"><span class="hs-identifier hs-type">PutDestinationPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226256"><span id="local-6989586621679226257"><span class="annot"><span class="annottext">Text
 accessPolicy :: Text
 destinationName :: Text
 $sel:accessPolicy:PutDestinationPolicy' :: PutDestinationPolicy -&gt; Text
 $sel:destinationName:PutDestinationPolicy' :: PutDestinationPolicy -&gt; Text
-</span><a href="#local-6989586621679226247"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679226256"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -279,26 +279,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;destinationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226248"><span class="hs-identifier hs-var">destinationName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226257"><span class="hs-identifier hs-var">destinationName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;accessPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226247"><span class="hs-identifier hs-var">accessPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226256"><span class="hs-identifier hs-var">accessPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-type">PutDestinationPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679226241"><span class="annot"><span class="annottext">toPath :: PutDestinationPolicy -&gt; ByteString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679226250"><span class="annot"><span class="annottext">toPath :: PutDestinationPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutDestinationPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicy"><span class="hs-identifier hs-type">PutDestinationPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679226237"><span class="annot"><span class="annottext">toQuery :: PutDestinationPolicy -&gt; QueryString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679226246"><span class="annot"><span class="annottext">toQuery :: PutDestinationPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutDestinationPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -306,10 +306,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newPutDestinationPolicyResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679226234"><span id="local-6989586621679226235"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDestinationPolicyResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicyResponse"><span class="hs-identifier hs-var">PutDestinationPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDestinationPolicyResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicyResponse%27"><span class="hs-identifier hs-var">PutDestinationPolicyResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span id="local-6989586621679226243"><span id="local-6989586621679226244"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDestinationPolicyResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicyResponse"><span class="hs-identifier hs-var">PutDestinationPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDestinationPolicyResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicyResponse%27"><span class="hs-identifier hs-var">PutDestinationPolicyResponse'</span></a></span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226230"><span id="local-6989586621679226232"><span class="annot"><span class="annottext">PutDestinationPolicyResponse
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226239"><span id="local-6989586621679226241"><span class="annot"><span class="annottext">PutDestinationPolicyResponse
 -&gt; PutDestinationPolicyResponse -&gt; Bool
 (PutDestinationPolicyResponse
  -&gt; PutDestinationPolicyResponse -&gt; Bool)
@@ -325,7 +325,7 @@ $c/= :: PutDestinationPolicyResponse
 -&gt; PutDestinationPolicyResponse -&gt; Bool
 $c== :: PutDestinationPolicyResponse
 -&gt; PutDestinationPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226222"><span id="local-6989586621679226224"><span id="local-6989586621679226226"><span id="local-6989586621679226228"><span class="annot"><span class="annottext">ReadPrec [PutDestinationPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226231"><span id="local-6989586621679226233"><span id="local-6989586621679226235"><span id="local-6989586621679226237"><span class="annot"><span class="annottext">ReadPrec [PutDestinationPolicyResponse]
 ReadPrec PutDestinationPolicyResponse
 Int -&gt; ReadS PutDestinationPolicyResponse
 ReadS [PutDestinationPolicyResponse]
@@ -345,7 +345,7 @@ readList :: ReadS [PutDestinationPolicyResponse]
 $creadList :: ReadS [PutDestinationPolicyResponse]
 readsPrec :: Int -&gt; ReadS PutDestinationPolicyResponse
 $creadsPrec :: Int -&gt; ReadS PutDestinationPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226216"><span id="local-6989586621679226218"><span id="local-6989586621679226220"><span class="annot"><span class="annottext">Int -&gt; PutDestinationPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226225"><span id="local-6989586621679226227"><span id="local-6989586621679226229"><span class="annot"><span class="annottext">Int -&gt; PutDestinationPolicyResponse -&gt; ShowS
 [PutDestinationPolicyResponse] -&gt; ShowS
 PutDestinationPolicyResponse -&gt; String
 (Int -&gt; PutDestinationPolicyResponse -&gt; ShowS)
@@ -388,5 +388,5 @@ PutDestinationPolicyResponse -&gt; Rep PutDestinationPolicyResponse x
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">PutDestinationPolicyResponse
 </span><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicyResponse%27"><span class="hs-identifier hs-var">PutDestinationPolicyResponse'</span></a></span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicyResponse"><span class="hs-identifier hs-type">PutDestinationPolicyResponse</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226221"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutDestinationPolicy.html#PutDestinationPolicyResponse"><span class="hs-identifier hs-type">PutDestinationPolicyResponse</span></a></span></span><span>
 </span><span id="line-163"></span></pre></body></html>

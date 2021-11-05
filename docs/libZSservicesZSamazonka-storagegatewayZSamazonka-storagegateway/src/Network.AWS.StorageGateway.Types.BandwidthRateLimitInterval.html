@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- specified for uploading, downloading, or both.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newBandwidthRateLimitInterval' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679370872"><span id="local-6989586621679370873"></span></span><span class="hs-keyword">data</span><span> </span><span id="BandwidthRateLimitInterval"><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-var">BandwidthRateLimitInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BandwidthRateLimitInterval%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-var">BandwidthRateLimitInterval'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679370881"><span id="local-6989586621679370882"></span></span><span class="hs-keyword">data</span><span> </span><span id="BandwidthRateLimitInterval"><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-var">BandwidthRateLimitInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BandwidthRateLimitInterval%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-var">BandwidthRateLimitInterval'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The average upload rate limit component of the bandwidth rate limit</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- interval, in bits per second. This field does not appear in the response</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- if the upload rate limit is not set.</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdaysOfWeek%3ABandwidthRateLimitInterval%27"><span class="annot"><span class="annottext">BandwidthRateLimitInterval -&gt; NonEmpty Natural
 </span><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#%24sel%3AdaysOfWeek%3ABandwidthRateLimitInterval%27"><span class="hs-identifier hs-var hs-var">daysOfWeek</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370860"><span id="local-6989586621679370862"><span class="annot"><span class="annottext">BandwidthRateLimitInterval -&gt; BandwidthRateLimitInterval -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370869"><span id="local-6989586621679370871"><span class="annot"><span class="annottext">BandwidthRateLimitInterval -&gt; BandwidthRateLimitInterval -&gt; Bool
 (BandwidthRateLimitInterval -&gt; BandwidthRateLimitInterval -&gt; Bool)
 -&gt; (BandwidthRateLimitInterval
     -&gt; BandwidthRateLimitInterval -&gt; Bool)
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BandwidthRateLimitInterval -&gt; BandwidthRateLimitInterval -&gt; Bool
 == :: BandwidthRateLimitInterval -&gt; BandwidthRateLimitInterval -&gt; Bool
 $c== :: BandwidthRateLimitInterval -&gt; BandwidthRateLimitInterval -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370851"><span id="local-6989586621679370853"><span id="local-6989586621679370855"><span id="local-6989586621679370857"><span class="annot"><span class="annottext">ReadPrec [BandwidthRateLimitInterval]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370860"><span id="local-6989586621679370862"><span id="local-6989586621679370864"><span id="local-6989586621679370866"><span class="annot"><span class="annottext">ReadPrec [BandwidthRateLimitInterval]
 ReadPrec BandwidthRateLimitInterval
 Int -&gt; ReadS BandwidthRateLimitInterval
 ReadS [BandwidthRateLimitInterval]
@@ -94,7 +94,7 @@ readList :: ReadS [BandwidthRateLimitInterval]
 $creadList :: ReadS [BandwidthRateLimitInterval]
 readsPrec :: Int -&gt; ReadS BandwidthRateLimitInterval
 $creadsPrec :: Int -&gt; ReadS BandwidthRateLimitInterval
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370844"><span id="local-6989586621679370846"><span id="local-6989586621679370848"><span class="annot"><span class="annottext">Int -&gt; BandwidthRateLimitInterval -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370853"><span id="local-6989586621679370855"><span id="local-6989586621679370857"><span class="annot"><span class="annottext">Int -&gt; BandwidthRateLimitInterval -&gt; ShowS
 [BandwidthRateLimitInterval] -&gt; ShowS
 BandwidthRateLimitInterval -&gt; String
 (Int -&gt; BandwidthRateLimitInterval -&gt; ShowS)
@@ -177,16 +177,16 @@ BandwidthRateLimitInterval -&gt; Rep BandwidthRateLimitInterval x
 -&gt; NonEmpty Natural
 -&gt; BandwidthRateLimitInterval
 </span><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#newBandwidthRateLimitInterval"><span class="hs-identifier hs-var hs-var">newBandwidthRateLimitInterval</span></a></span></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679370838"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370838"><span class="hs-identifier hs-var">pStartHourOfDay_</span></a></span></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679370837"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370837"><span class="hs-identifier hs-var">pStartMinuteOfHour_</span></a></span></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679370836"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370836"><span class="hs-identifier hs-var">pEndHourOfDay_</span></a></span></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679370835"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370835"><span class="hs-identifier hs-var">pEndMinuteOfHour_</span></a></span></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679370834"><span class="annot"><span class="annottext">NonEmpty Natural
-</span><a href="#local-6989586621679370834"><span class="hs-identifier hs-var">pDaysOfWeek_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679370847"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679370847"><span class="hs-identifier hs-var">pStartHourOfDay_</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679370846"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679370846"><span class="hs-identifier hs-var">pStartMinuteOfHour_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679370845"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679370845"><span class="hs-identifier hs-var">pEndHourOfDay_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679370844"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679370844"><span class="hs-identifier hs-var">pEndMinuteOfHour_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679370843"><span class="annot"><span class="annottext">NonEmpty Natural
+</span><a href="#local-6989586621679370843"><span class="hs-identifier hs-var">pDaysOfWeek_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">BandwidthRateLimitInterval' :: Maybe Natural
 -&gt; Maybe Natural
 -&gt; Natural
@@ -208,16 +208,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:startHourOfDay:BandwidthRateLimitInterval' :: Natural
 </span><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#%24sel%3AstartHourOfDay%3ABandwidthRateLimitInterval%27"><span class="hs-identifier hs-var">startHourOfDay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370838"><span class="hs-identifier hs-var">pStartHourOfDay_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370847"><span class="hs-identifier hs-var">pStartHourOfDay_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:startMinuteOfHour:BandwidthRateLimitInterval' :: Natural
 </span><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#%24sel%3AstartMinuteOfHour%3ABandwidthRateLimitInterval%27"><span class="hs-identifier hs-var">startMinuteOfHour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370837"><span class="hs-identifier hs-var">pStartMinuteOfHour_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370846"><span class="hs-identifier hs-var">pStartMinuteOfHour_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:endHourOfDay:BandwidthRateLimitInterval' :: Natural
 </span><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#%24sel%3AendHourOfDay%3ABandwidthRateLimitInterval%27"><span class="hs-identifier hs-var">endHourOfDay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370836"><span class="hs-identifier hs-var">pEndHourOfDay_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370845"><span class="hs-identifier hs-var">pEndHourOfDay_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:endMinuteOfHour:BandwidthRateLimitInterval' :: Natural
 </span><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#%24sel%3AendMinuteOfHour%3ABandwidthRateLimitInterval%27"><span class="hs-identifier hs-var">endMinuteOfHour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370835"><span class="hs-identifier hs-var">pEndMinuteOfHour_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370844"><span class="hs-identifier hs-var">pEndMinuteOfHour_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:daysOfWeek:BandwidthRateLimitInterval' :: NonEmpty Natural
 </span><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#%24sel%3AdaysOfWeek%3ABandwidthRateLimitInterval%27"><span class="hs-identifier hs-var">daysOfWeek</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Natural) (Identity (NonEmpty Natural))
 -&gt; Tagged (NonEmpty Natural) (Identity (NonEmpty Natural))
@@ -227,7 +227,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Natural -&gt; NonEmpty Natural
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Natural
-</span><a href="#local-6989586621679370834"><span class="hs-identifier hs-var">pDaysOfWeek_</span></a></span><span>
+</span><a href="#local-6989586621679370843"><span class="hs-identifier hs-var">pDaysOfWeek_</span></a></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The average upload rate limit component of the bandwidth rate limit</span><span>
@@ -245,16 +245,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370828"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370837"><span class="annot"><span class="annottext">Maybe Natural
 averageUploadRateLimitInBitsPerSec :: Maybe Natural
 $sel:averageUploadRateLimitInBitsPerSec:BandwidthRateLimitInterval' :: BandwidthRateLimitInterval -&gt; Maybe Natural
-</span><a href="#local-6989586621679370828"><span class="hs-identifier hs-var hs-var">averageUploadRateLimitInBitsPerSec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679370828"><span class="hs-identifier hs-var">averageUploadRateLimitInBitsPerSec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370827"><span class="annot"><span class="annottext">s :: BandwidthRateLimitInterval
-</span><a href="#local-6989586621679370827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370826"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679370826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BandwidthRateLimitInterval
-</span><a href="#local-6989586621679370827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:averageUploadRateLimitInBitsPerSec:BandwidthRateLimitInterval' :: Maybe Natural
+</span><a href="#local-6989586621679370837"><span class="hs-identifier hs-var hs-var">averageUploadRateLimitInBitsPerSec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679370837"><span class="hs-identifier hs-var">averageUploadRateLimitInBitsPerSec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370836"><span class="annot"><span class="annottext">s :: BandwidthRateLimitInterval
+</span><a href="#local-6989586621679370836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370835"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679370835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BandwidthRateLimitInterval
+</span><a href="#local-6989586621679370836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:averageUploadRateLimitInBitsPerSec:BandwidthRateLimitInterval' :: Maybe Natural
 </span><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#%24sel%3AaverageUploadRateLimitInBitsPerSec%3ABandwidthRateLimitInterval%27"><span class="hs-identifier hs-var">averageUploadRateLimitInBitsPerSec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679370826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The average download rate limit component of the bandwidth rate limit</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- interval, in bits per second. This field does not appear in the response</span><span>
@@ -271,16 +271,16 @@ $sel:averageUploadRateLimitInBitsPerSec:BandwidthRateLimitInterval' :: Bandwidth
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370824"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370833"><span class="annot"><span class="annottext">Maybe Natural
 averageDownloadRateLimitInBitsPerSec :: Maybe Natural
 $sel:averageDownloadRateLimitInBitsPerSec:BandwidthRateLimitInterval' :: BandwidthRateLimitInterval -&gt; Maybe Natural
-</span><a href="#local-6989586621679370824"><span class="hs-identifier hs-var hs-var">averageDownloadRateLimitInBitsPerSec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679370824"><span class="hs-identifier hs-var">averageDownloadRateLimitInBitsPerSec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370823"><span class="annot"><span class="annottext">s :: BandwidthRateLimitInterval
-</span><a href="#local-6989586621679370823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370822"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679370822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BandwidthRateLimitInterval
-</span><a href="#local-6989586621679370823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:averageDownloadRateLimitInBitsPerSec:BandwidthRateLimitInterval' :: Maybe Natural
+</span><a href="#local-6989586621679370833"><span class="hs-identifier hs-var hs-var">averageDownloadRateLimitInBitsPerSec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679370833"><span class="hs-identifier hs-var">averageDownloadRateLimitInBitsPerSec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370832"><span class="annot"><span class="annottext">s :: BandwidthRateLimitInterval
+</span><a href="#local-6989586621679370832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370831"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679370831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BandwidthRateLimitInterval
+</span><a href="#local-6989586621679370832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:averageDownloadRateLimitInBitsPerSec:BandwidthRateLimitInterval' :: Maybe Natural
 </span><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#%24sel%3AaverageDownloadRateLimitInBitsPerSec%3ABandwidthRateLimitInterval%27"><span class="hs-identifier hs-var">averageDownloadRateLimitInBitsPerSec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679370822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | The hour of the day to start the bandwidth rate limit interval.</span><span>
 </span><span id="line-137"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#bandwidthRateLimitInterval_startHourOfDay"><span class="hs-identifier hs-type">bandwidthRateLimitInterval_startHourOfDay</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -295,16 +295,16 @@ $sel:averageDownloadRateLimitInBitsPerSec:BandwidthRateLimitInterval' :: Bandwid
      Natural
      Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370820"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370829"><span class="annot"><span class="annottext">Natural
 startHourOfDay :: Natural
 $sel:startHourOfDay:BandwidthRateLimitInterval' :: BandwidthRateLimitInterval -&gt; Natural
-</span><a href="#local-6989586621679370820"><span class="hs-identifier hs-var hs-var">startHourOfDay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370820"><span class="hs-identifier hs-var">startHourOfDay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370819"><span class="annot"><span class="annottext">s :: BandwidthRateLimitInterval
-</span><a href="#local-6989586621679370819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370818"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BandwidthRateLimitInterval
-</span><a href="#local-6989586621679370819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startHourOfDay:BandwidthRateLimitInterval' :: Natural
+</span><a href="#local-6989586621679370829"><span class="hs-identifier hs-var hs-var">startHourOfDay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679370829"><span class="hs-identifier hs-var">startHourOfDay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370828"><span class="annot"><span class="annottext">s :: BandwidthRateLimitInterval
+</span><a href="#local-6989586621679370828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370827"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679370827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BandwidthRateLimitInterval
+</span><a href="#local-6989586621679370828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startHourOfDay:BandwidthRateLimitInterval' :: Natural
 </span><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#%24sel%3AstartHourOfDay%3ABandwidthRateLimitInterval%27"><span class="hs-identifier hs-var">startHourOfDay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | The minute of the hour to start the bandwidth rate limit interval. The</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- interval begins at the start of that minute. To begin an interval</span><span>
@@ -321,16 +321,16 @@ $sel:startHourOfDay:BandwidthRateLimitInterval' :: BandwidthRateLimitInterval -&
      Natural
      Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370816"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370825"><span class="annot"><span class="annottext">Natural
 startMinuteOfHour :: Natural
 $sel:startMinuteOfHour:BandwidthRateLimitInterval' :: BandwidthRateLimitInterval -&gt; Natural
-</span><a href="#local-6989586621679370816"><span class="hs-identifier hs-var hs-var">startMinuteOfHour</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370816"><span class="hs-identifier hs-var">startMinuteOfHour</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370815"><span class="annot"><span class="annottext">s :: BandwidthRateLimitInterval
-</span><a href="#local-6989586621679370815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370814"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BandwidthRateLimitInterval
-</span><a href="#local-6989586621679370815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startMinuteOfHour:BandwidthRateLimitInterval' :: Natural
+</span><a href="#local-6989586621679370825"><span class="hs-identifier hs-var hs-var">startMinuteOfHour</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679370825"><span class="hs-identifier hs-var">startMinuteOfHour</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370824"><span class="annot"><span class="annottext">s :: BandwidthRateLimitInterval
+</span><a href="#local-6989586621679370824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370823"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679370823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BandwidthRateLimitInterval
+</span><a href="#local-6989586621679370824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startMinuteOfHour:BandwidthRateLimitInterval' :: Natural
 </span><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#%24sel%3AstartMinuteOfHour%3ABandwidthRateLimitInterval%27"><span class="hs-identifier hs-var">startMinuteOfHour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The hour of the day to end the bandwidth rate limit interval.</span><span>
 </span><span id="line-147"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#bandwidthRateLimitInterval_endHourOfDay"><span class="hs-identifier hs-type">bandwidthRateLimitInterval_endHourOfDay</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -345,16 +345,16 @@ $sel:startMinuteOfHour:BandwidthRateLimitInterval' :: BandwidthRateLimitInterval
      Natural
      Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370812"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370821"><span class="annot"><span class="annottext">Natural
 endHourOfDay :: Natural
 $sel:endHourOfDay:BandwidthRateLimitInterval' :: BandwidthRateLimitInterval -&gt; Natural
-</span><a href="#local-6989586621679370812"><span class="hs-identifier hs-var hs-var">endHourOfDay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370812"><span class="hs-identifier hs-var">endHourOfDay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370811"><span class="annot"><span class="annottext">s :: BandwidthRateLimitInterval
-</span><a href="#local-6989586621679370811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370810"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BandwidthRateLimitInterval
-</span><a href="#local-6989586621679370811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endHourOfDay:BandwidthRateLimitInterval' :: Natural
+</span><a href="#local-6989586621679370821"><span class="hs-identifier hs-var hs-var">endHourOfDay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679370821"><span class="hs-identifier hs-var">endHourOfDay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370820"><span class="annot"><span class="annottext">s :: BandwidthRateLimitInterval
+</span><a href="#local-6989586621679370820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370819"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679370819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BandwidthRateLimitInterval
+</span><a href="#local-6989586621679370820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endHourOfDay:BandwidthRateLimitInterval' :: Natural
 </span><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#%24sel%3AendHourOfDay%3ABandwidthRateLimitInterval%27"><span class="hs-identifier hs-var">endHourOfDay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The minute of the hour to end the bandwidth rate limit interval.</span><span>
 </span><span id="line-151"></span><span class="hs-comment">--</span><span>
@@ -372,16 +372,16 @@ $sel:endHourOfDay:BandwidthRateLimitInterval' :: BandwidthRateLimitInterval -&gt
      Natural
      Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370808"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370817"><span class="annot"><span class="annottext">Natural
 endMinuteOfHour :: Natural
 $sel:endMinuteOfHour:BandwidthRateLimitInterval' :: BandwidthRateLimitInterval -&gt; Natural
-</span><a href="#local-6989586621679370808"><span class="hs-identifier hs-var hs-var">endMinuteOfHour</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370808"><span class="hs-identifier hs-var">endMinuteOfHour</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370807"><span class="annot"><span class="annottext">s :: BandwidthRateLimitInterval
-</span><a href="#local-6989586621679370807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370806"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BandwidthRateLimitInterval
-</span><a href="#local-6989586621679370807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endMinuteOfHour:BandwidthRateLimitInterval' :: Natural
+</span><a href="#local-6989586621679370817"><span class="hs-identifier hs-var hs-var">endMinuteOfHour</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679370817"><span class="hs-identifier hs-var">endMinuteOfHour</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370816"><span class="annot"><span class="annottext">s :: BandwidthRateLimitInterval
+</span><a href="#local-6989586621679370816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370815"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679370815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BandwidthRateLimitInterval
+</span><a href="#local-6989586621679370816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endMinuteOfHour:BandwidthRateLimitInterval' :: Natural
 </span><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#%24sel%3AendMinuteOfHour%3ABandwidthRateLimitInterval%27"><span class="hs-identifier hs-var">endMinuteOfHour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The days of the week component of the bandwidth rate limit interval,</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- represented as ordinal numbers from 0 to 6, where 0 represents Sunday</span><span>
@@ -398,16 +398,16 @@ $sel:endMinuteOfHour:BandwidthRateLimitInterval' :: BandwidthRateLimitInterval -
      (NonEmpty Natural)
      (NonEmpty Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370804"><span class="annot"><span class="annottext">NonEmpty Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370813"><span class="annot"><span class="annottext">NonEmpty Natural
 daysOfWeek :: NonEmpty Natural
 $sel:daysOfWeek:BandwidthRateLimitInterval' :: BandwidthRateLimitInterval -&gt; NonEmpty Natural
-</span><a href="#local-6989586621679370804"><span class="hs-identifier hs-var hs-var">daysOfWeek</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Natural
-</span><a href="#local-6989586621679370804"><span class="hs-identifier hs-var">daysOfWeek</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370803"><span class="annot"><span class="annottext">s :: BandwidthRateLimitInterval
-</span><a href="#local-6989586621679370803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370802"><span class="annot"><span class="annottext">NonEmpty Natural
-</span><a href="#local-6989586621679370802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BandwidthRateLimitInterval
-</span><a href="#local-6989586621679370803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:daysOfWeek:BandwidthRateLimitInterval' :: NonEmpty Natural
+</span><a href="#local-6989586621679370813"><span class="hs-identifier hs-var hs-var">daysOfWeek</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Natural
+</span><a href="#local-6989586621679370813"><span class="hs-identifier hs-var">daysOfWeek</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370812"><span class="annot"><span class="annottext">s :: BandwidthRateLimitInterval
+</span><a href="#local-6989586621679370812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370811"><span class="annot"><span class="annottext">NonEmpty Natural
+</span><a href="#local-6989586621679370811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BandwidthRateLimitInterval
+</span><a href="#local-6989586621679370812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:daysOfWeek:BandwidthRateLimitInterval' :: NonEmpty Natural
 </span><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#%24sel%3AdaysOfWeek%3ABandwidthRateLimitInterval%27"><span class="hs-identifier hs-var">daysOfWeek</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Natural
-</span><a href="#local-6989586621679370802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Natural -&gt; f (NonEmpty Natural))
+</span><a href="#local-6989586621679370811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Natural -&gt; f (NonEmpty Natural))
  -&gt; BandwidthRateLimitInterval -&gt; f BandwidthRateLimitInterval)
 -&gt; ((NonEmpty Natural -&gt; f (NonEmpty Natural))
     -&gt; NonEmpty Natural -&gt; f (NonEmpty Natural))
@@ -420,8 +420,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370798"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679370796"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BandwidthRateLimitInterval
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370807"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679370805"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BandwidthRateLimitInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BandwidthRateLimitInterval)
@@ -431,8 +431,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BandwidthRateLimitInterval&quot;</span></span><span>
-</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370793"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370793"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370802"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370802"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Natural
 -&gt; Natural
@@ -461,7 +461,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; BandwidthRateLimitInterval)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679370802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AverageUploadRateLimitInBitsPerSec&quot;</span></span><span class="hs-special">)</span><span>
@@ -483,7 +483,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; BandwidthRateLimitInterval)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679370802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AverageDownloadRateLimitInBitsPerSec&quot;</span></span><span class="hs-special">)</span><span>
@@ -503,7 +503,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; BandwidthRateLimitInterval)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679370802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartHourOfDay&quot;</span></span><span class="hs-special">)</span><span>
@@ -519,7 +519,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; Natural -&gt; NonEmpty Natural -&gt; BandwidthRateLimitInterval)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679370802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartMinuteOfHour&quot;</span></span><span class="hs-special">)</span><span>
@@ -531,7 +531,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      (Natural -&gt; NonEmpty Natural -&gt; BandwidthRateLimitInterval)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679370802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndHourOfDay&quot;</span></span><span class="hs-special">)</span><span>
@@ -540,7 +540,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (NonEmpty Natural -&gt; BandwidthRateLimitInterval)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679370802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndMinuteOfHour&quot;</span></span><span class="hs-special">)</span><span>
@@ -548,19 +548,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (NonEmpty Natural) -&gt; Parser BandwidthRateLimitInterval
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Natural)
+</span><a href="#local-6989586621679370802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DaysOfWeek&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370786"><span id="local-6989586621679370788"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370795"><span id="local-6989586621679370797"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span></span></span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370783"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370792"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span></span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370775"><span id="local-6989586621679370777"><span id="local-6989586621679370779"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679370773"><span class="annot"><span class="annottext">toJSON :: BandwidthRateLimitInterval -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370765"><span id="local-6989586621679370766"><span id="local-6989586621679370767"><span id="local-6989586621679370768"><span id="local-6989586621679370769"><span id="local-6989586621679370770"><span id="local-6989586621679370771"><span class="annot"><span class="annottext">Natural
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370784"><span id="local-6989586621679370786"><span id="local-6989586621679370788"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval"><span class="hs-identifier hs-type">BandwidthRateLimitInterval</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679370782"><span class="annot"><span class="annottext">toJSON :: BandwidthRateLimitInterval -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval.html#BandwidthRateLimitInterval%27"><span class="hs-identifier hs-type">BandwidthRateLimitInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370774"><span id="local-6989586621679370775"><span id="local-6989586621679370776"><span id="local-6989586621679370777"><span id="local-6989586621679370778"><span id="local-6989586621679370779"><span id="local-6989586621679370780"><span class="annot"><span class="annottext">Natural
 Maybe Natural
 NonEmpty Natural
 daysOfWeek :: NonEmpty Natural
@@ -577,7 +577,7 @@ $sel:startMinuteOfHour:BandwidthRateLimitInterval' :: BandwidthRateLimitInterval
 $sel:startHourOfDay:BandwidthRateLimitInterval' :: BandwidthRateLimitInterval -&gt; Natural
 $sel:averageDownloadRateLimitInBitsPerSec:BandwidthRateLimitInterval' :: BandwidthRateLimitInterval -&gt; Maybe Natural
 $sel:averageUploadRateLimitInBitsPerSec:BandwidthRateLimitInterval' :: BandwidthRateLimitInterval -&gt; Maybe Natural
-</span><a href="#local-6989586621679370765"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679370774"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -590,7 +590,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679370771"><span class="hs-identifier hs-var">averageUploadRateLimitInBitsPerSec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370780"><span class="hs-identifier hs-var">averageUploadRateLimitInBitsPerSec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AverageDownloadRateLimitInBitsPerSec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -598,7 +598,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-189"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679370770"><span class="hs-identifier hs-var">averageDownloadRateLimitInBitsPerSec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370779"><span class="hs-identifier hs-var">averageDownloadRateLimitInBitsPerSec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -606,7 +606,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StartHourOfDay&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370769"><span class="hs-identifier hs-var">startHourOfDay</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370778"><span class="hs-identifier hs-var">startHourOfDay</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -614,14 +614,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StartMinuteOfHour&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370768"><span class="hs-identifier hs-var">startMinuteOfHour</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370777"><span class="hs-identifier hs-var">startMinuteOfHour</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndHourOfDay&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370767"><span class="hs-identifier hs-var">endHourOfDay</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370776"><span class="hs-identifier hs-var">endHourOfDay</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -629,14 +629,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;EndMinuteOfHour&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679370766"><span class="hs-identifier hs-var">endMinuteOfHour</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370775"><span class="hs-identifier hs-var">endMinuteOfHour</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DaysOfWeek&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Natural
-</span><a href="#local-6989586621679370765"><span class="hs-identifier hs-var">daysOfWeek</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370774"><span class="hs-identifier hs-var">daysOfWeek</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span></pre></body></html>

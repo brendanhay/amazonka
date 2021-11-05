@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-comment">-- delivery medium.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newAdminSetUserSettings' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679455049"><span id="local-6989586621679455050"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminSetUserSettings"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-var">AdminSetUserSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminSetUserSettings%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-var">AdminSetUserSettings'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679455058"><span id="local-6989586621679455059"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminSetUserSettings"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-var">AdminSetUserSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminSetUserSettings%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-var">AdminSetUserSettings'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the user pool that contains the user that you are setting</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- options for.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AuserPoolId%3AAdminSetUserSettings%27"><span class="annot"><span class="annottext">AdminSetUserSettings -&gt; Text
@@ -68,7 +68,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AmfaOptions%3AAdminSetUserSettings%27"><span class="annot"><span class="annottext">AdminSetUserSettings -&gt; [MFAOptionType]
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#%24sel%3AmfaOptions%3AAdminSetUserSettings%27"><span class="hs-identifier hs-var hs-var">mfaOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType"><span class="hs-identifier hs-type">MFAOptionType</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679455041"><span id="local-6989586621679455043"><span class="annot"><span class="annottext">AdminSetUserSettings -&gt; AdminSetUserSettings -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679455050"><span id="local-6989586621679455052"><span class="annot"><span class="annottext">AdminSetUserSettings -&gt; AdminSetUserSettings -&gt; Bool
 (AdminSetUserSettings -&gt; AdminSetUserSettings -&gt; Bool)
 -&gt; (AdminSetUserSettings -&gt; AdminSetUserSettings -&gt; Bool)
 -&gt; Eq AdminSetUserSettings
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AdminSetUserSettings -&gt; AdminSetUserSettings -&gt; Bool
 == :: AdminSetUserSettings -&gt; AdminSetUserSettings -&gt; Bool
 $c== :: AdminSetUserSettings -&gt; AdminSetUserSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455034"><span id="local-6989586621679455036"><span id="local-6989586621679455038"><span class="annot"><span class="annottext">Int -&gt; AdminSetUserSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455043"><span id="local-6989586621679455045"><span id="local-6989586621679455047"><span class="annot"><span class="annottext">Int -&gt; AdminSetUserSettings -&gt; ShowS
 [AdminSetUserSettings] -&gt; ShowS
 AdminSetUserSettings -&gt; String
 (Int -&gt; AdminSetUserSettings -&gt; ShowS)
@@ -125,14 +125,14 @@ $cfrom :: forall x. AdminSetUserSettings -&gt; Rep AdminSetUserSettings x
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span><span>
 </span><span id="line-91"></span><span id="newAdminSetUserSettings"><span class="annot"><span class="annottext">newAdminSetUserSettings :: Text -&gt; Text -&gt; AdminSetUserSettings
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#newAdminSetUserSettings"><span class="hs-identifier hs-var hs-var">newAdminSetUserSettings</span></a></span></span><span> </span><span id="local-6989586621679455029"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455029"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679455028"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455028"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#newAdminSetUserSettings"><span class="hs-identifier hs-var hs-var">newAdminSetUserSettings</span></a></span></span><span> </span><span id="local-6989586621679455038"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455038"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679455037"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455037"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">AdminSetUserSettings' :: Text -&gt; Sensitive Text -&gt; [MFAOptionType] -&gt; AdminSetUserSettings
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-type">AdminSetUserSettings'</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userPoolId:AdminSetUserSettings' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#%24sel%3AuserPoolId%3AAdminSetUserSettings%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455029"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679455038"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:AdminSetUserSettings' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#%24sel%3Ausername%3AAdminSetUserSettings%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -142,7 +142,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455028"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679455037"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:mfaOptions:AdminSetUserSettings' :: [MFAOptionType]
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#%24sel%3AmfaOptions%3AAdminSetUserSettings%27"><span class="hs-identifier hs-var">mfaOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MFAOptionType]
 forall a. Monoid a =&gt; a
@@ -157,16 +157,16 @@ forall a. Monoid a =&gt; a
 -&gt; (AdminSetUserSettings -&gt; Text -&gt; AdminSetUserSettings)
 -&gt; Lens AdminSetUserSettings AdminSetUserSettings Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-type">AdminSetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455023"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-type">AdminSetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455032"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 $sel:userPoolId:AdminSetUserSettings' :: AdminSetUserSettings -&gt; Text
-</span><a href="#local-6989586621679455023"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455023"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455022"><span class="annot"><span class="annottext">s :: AdminSetUserSettings
-</span><a href="#local-6989586621679455022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-type">AdminSetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455021"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminSetUserSettings
-</span><a href="#local-6989586621679455022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:AdminSetUserSettings' :: Text
+</span><a href="#local-6989586621679455032"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455032"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455031"><span class="annot"><span class="annottext">s :: AdminSetUserSettings
+</span><a href="#local-6989586621679455031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-type">AdminSetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455030"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminSetUserSettings
+</span><a href="#local-6989586621679455031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:AdminSetUserSettings' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#%24sel%3AuserPoolId%3AAdminSetUserSettings%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The user name of the user that you are setting options for.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#adminSetUserSettings_username"><span class="hs-identifier hs-type">adminSetUserSettings_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -179,16 +179,16 @@ $sel:userPoolId:AdminSetUserSettings' :: AdminSetUserSettings -&gt; Text
      (Sensitive Text)
      (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-type">AdminSetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455020"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-type">AdminSetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455029"><span class="annot"><span class="annottext">Sensitive Text
 username :: Sensitive Text
 $sel:username:AdminSetUserSettings' :: AdminSetUserSettings -&gt; Sensitive Text
-</span><a href="#local-6989586621679455020"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679455020"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455019"><span class="annot"><span class="annottext">s :: AdminSetUserSettings
-</span><a href="#local-6989586621679455019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-type">AdminSetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455018"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679455018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminSetUserSettings
-</span><a href="#local-6989586621679455019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:AdminSetUserSettings' :: Sensitive Text
+</span><a href="#local-6989586621679455029"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679455029"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455028"><span class="annot"><span class="annottext">s :: AdminSetUserSettings
+</span><a href="#local-6989586621679455028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-type">AdminSetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455027"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679455027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminSetUserSettings
+</span><a href="#local-6989586621679455028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:AdminSetUserSettings' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#%24sel%3Ausername%3AAdminSetUserSettings%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679455018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679455027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; AdminSetUserSettings -&gt; f AdminSetUserSettings)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -213,16 +213,16 @@ forall a. Iso' (Sensitive a) a
      [MFAOptionType]
      [MFAOptionType]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-type">AdminSetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455016"><span class="annot"><span class="annottext">[MFAOptionType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-type">AdminSetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455025"><span class="annot"><span class="annottext">[MFAOptionType]
 mfaOptions :: [MFAOptionType]
 $sel:mfaOptions:AdminSetUserSettings' :: AdminSetUserSettings -&gt; [MFAOptionType]
-</span><a href="#local-6989586621679455016"><span class="hs-identifier hs-var hs-var">mfaOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MFAOptionType]
-</span><a href="#local-6989586621679455016"><span class="hs-identifier hs-var">mfaOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455015"><span class="annot"><span class="annottext">s :: AdminSetUserSettings
-</span><a href="#local-6989586621679455015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-type">AdminSetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455014"><span class="annot"><span class="annottext">[MFAOptionType]
-</span><a href="#local-6989586621679455014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminSetUserSettings
-</span><a href="#local-6989586621679455015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mfaOptions:AdminSetUserSettings' :: [MFAOptionType]
+</span><a href="#local-6989586621679455025"><span class="hs-identifier hs-var hs-var">mfaOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MFAOptionType]
+</span><a href="#local-6989586621679455025"><span class="hs-identifier hs-var">mfaOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455024"><span class="annot"><span class="annottext">s :: AdminSetUserSettings
+</span><a href="#local-6989586621679455024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-type">AdminSetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455023"><span class="annot"><span class="annottext">[MFAOptionType]
+</span><a href="#local-6989586621679455023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminSetUserSettings
+</span><a href="#local-6989586621679455024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mfaOptions:AdminSetUserSettings' :: [MFAOptionType]
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#%24sel%3AmfaOptions%3AAdminSetUserSettings%27"><span class="hs-identifier hs-var">mfaOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MFAOptionType]
-</span><a href="#local-6989586621679455014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MFAOptionType] -&gt; f [MFAOptionType])
+</span><a href="#local-6989586621679455023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MFAOptionType] -&gt; f [MFAOptionType])
  -&gt; AdminSetUserSettings -&gt; f AdminSetUserSettings)
 -&gt; (([MFAOptionType] -&gt; f [MFAOptionType])
     -&gt; [MFAOptionType] -&gt; f [MFAOptionType])
@@ -239,12 +239,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-114"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettingsResponse"><span class="hs-identifier hs-type">AdminSetUserSettingsResponse</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679455009"><span class="annot"><span class="annottext">request :: AdminSetUserSettings -&gt; Request AdminSetUserSettings
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679455018"><span class="annot"><span class="annottext">request :: AdminSetUserSettings -&gt; Request AdminSetUserSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AdminSetUserSettings -&gt; Request AdminSetUserSettings
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679455005"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679455014"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AdminSetUserSettings
 -&gt; ClientResponse ClientBody
@@ -270,10 +270,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679455002"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679455002"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679455001"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679455001"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679455000"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679455000"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679455011"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679455011"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679455010"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679455010"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679455009"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679455009"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AdminSetUserSettingsResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettingsResponse%27"><span class="hs-identifier hs-var">AdminSetUserSettingsResponse'</span></a></span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AdminSetUserSettingsResponse)
@@ -284,15 +284,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679455002"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455011"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454993"><span id="local-6989586621679454995"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455002"><span id="local-6989586621679455004"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454990"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454999"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679454986"><span class="annot"><span class="annottext">toHeaders :: AdminSetUserSettings -&gt; ResponseHeaders
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679454995"><span class="annot"><span class="annottext">toHeaders :: AdminSetUserSettings -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AdminSetUserSettings -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -319,9 +319,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454976"><span id="local-6989586621679454978"><span id="local-6989586621679454980"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679454974"><span class="annot"><span class="annottext">toJSON :: AdminSetUserSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-type">AdminSetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454970"><span id="local-6989586621679454971"><span id="local-6989586621679454972"><span class="annot"><span class="annottext">[MFAOptionType]
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454985"><span id="local-6989586621679454987"><span id="local-6989586621679454989"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679454983"><span class="annot"><span class="annottext">toJSON :: AdminSetUserSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings%27"><span class="hs-identifier hs-type">AdminSetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454979"><span id="local-6989586621679454980"><span id="local-6989586621679454981"><span class="annot"><span class="annottext">[MFAOptionType]
 Text
 Sensitive Text
 mfaOptions :: [MFAOptionType]
@@ -330,7 +330,7 @@ userPoolId :: Text
 $sel:mfaOptions:AdminSetUserSettings' :: AdminSetUserSettings -&gt; [MFAOptionType]
 $sel:username:AdminSetUserSettings' :: AdminSetUserSettings -&gt; Sensitive Text
 $sel:userPoolId:AdminSetUserSettings' :: AdminSetUserSettings -&gt; Text
-</span><a href="#local-6989586621679454970"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679454979"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -342,33 +342,33 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454972"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679454981"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679454971"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679454980"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MFAOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MFAOptionType] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[MFAOptionType]
-</span><a href="#local-6989586621679454970"><span class="hs-identifier hs-var">mfaOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454979"><span class="hs-identifier hs-var">mfaOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679454964"><span class="annot"><span class="annottext">toPath :: AdminSetUserSettings -&gt; ByteString
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679454973"><span class="annot"><span class="annottext">toPath :: AdminSetUserSettings -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AdminSetUserSettings -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettings"><span class="hs-identifier hs-type">AdminSetUserSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679454960"><span class="annot"><span class="annottext">toQuery :: AdminSetUserSettings -&gt; QueryString
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679454969"><span class="annot"><span class="annottext">toQuery :: AdminSetUserSettings -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AdminSetUserSettings -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -379,12 +379,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-160"></span><span class="hs-comment">-- administrator.</span><span>
 </span><span id="line-161"></span><span class="hs-comment">--</span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- /See:/ 'newAdminSetUserSettingsResponse' smart constructor.</span><span>
-</span><span id="line-163"></span><span id="local-6989586621679454957"><span id="local-6989586621679454958"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminSetUserSettingsResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettingsResponse"><span class="hs-identifier hs-var">AdminSetUserSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminSetUserSettingsResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettingsResponse%27"><span class="hs-identifier hs-var">AdminSetUserSettingsResponse'</span></a></span></span><span>
+</span><span id="line-163"></span><span id="local-6989586621679454966"><span id="local-6989586621679454967"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminSetUserSettingsResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettingsResponse"><span class="hs-identifier hs-var">AdminSetUserSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminSetUserSettingsResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettingsResponse%27"><span class="hs-identifier hs-var">AdminSetUserSettingsResponse'</span></a></span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-165"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAdminSetUserSettingsResponse%27"><span class="annot"><span class="annottext">AdminSetUserSettingsResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#%24sel%3AhttpStatus%3AAdminSetUserSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-167"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454952"><span id="local-6989586621679454954"><span class="annot"><span class="annottext">AdminSetUserSettingsResponse
+</span><span id="line-167"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454961"><span id="local-6989586621679454963"><span class="annot"><span class="annottext">AdminSetUserSettingsResponse
 -&gt; AdminSetUserSettingsResponse -&gt; Bool
 (AdminSetUserSettingsResponse
  -&gt; AdminSetUserSettingsResponse -&gt; Bool)
@@ -400,7 +400,7 @@ $c/= :: AdminSetUserSettingsResponse
 -&gt; AdminSetUserSettingsResponse -&gt; Bool
 $c== :: AdminSetUserSettingsResponse
 -&gt; AdminSetUserSettingsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454944"><span id="local-6989586621679454946"><span id="local-6989586621679454948"><span id="local-6989586621679454950"><span class="annot"><span class="annottext">ReadPrec [AdminSetUserSettingsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454953"><span id="local-6989586621679454955"><span id="local-6989586621679454957"><span id="local-6989586621679454959"><span class="annot"><span class="annottext">ReadPrec [AdminSetUserSettingsResponse]
 ReadPrec AdminSetUserSettingsResponse
 Int -&gt; ReadS AdminSetUserSettingsResponse
 ReadS [AdminSetUserSettingsResponse]
@@ -420,7 +420,7 @@ readList :: ReadS [AdminSetUserSettingsResponse]
 $creadList :: ReadS [AdminSetUserSettingsResponse]
 readsPrec :: Int -&gt; ReadS AdminSetUserSettingsResponse
 $creadsPrec :: Int -&gt; ReadS AdminSetUserSettingsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454937"><span id="local-6989586621679454939"><span id="local-6989586621679454941"><span class="annot"><span class="annottext">Int -&gt; AdminSetUserSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454946"><span id="local-6989586621679454948"><span id="local-6989586621679454950"><span class="annot"><span class="annottext">Int -&gt; AdminSetUserSettingsResponse -&gt; ShowS
 [AdminSetUserSettingsResponse] -&gt; ShowS
 AdminSetUserSettingsResponse -&gt; String
 (Int -&gt; AdminSetUserSettingsResponse -&gt; ShowS)
@@ -466,14 +466,14 @@ AdminSetUserSettingsResponse -&gt; Rep AdminSetUserSettingsResponse x
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettingsResponse"><span class="hs-identifier hs-type">AdminSetUserSettingsResponse</span></a></span><span>
 </span><span id="line-182"></span><span id="newAdminSetUserSettingsResponse"><span class="annot"><span class="annottext">newAdminSetUserSettingsResponse :: Int -&gt; AdminSetUserSettingsResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#newAdminSetUserSettingsResponse"><span class="hs-identifier hs-var hs-var">newAdminSetUserSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679454934"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454934"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#newAdminSetUserSettingsResponse"><span class="hs-identifier hs-var hs-var">newAdminSetUserSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679454943"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454943"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">AdminSetUserSettingsResponse' :: Int -&gt; AdminSetUserSettingsResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettingsResponse%27"><span class="hs-identifier hs-type">AdminSetUserSettingsResponse'</span></a></span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AdminSetUserSettingsResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#%24sel%3AhttpStatus%3AAdminSetUserSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454934"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679454943"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -486,16 +486,16 @@ AdminSetUserSettingsResponse -&gt; Rep AdminSetUserSettingsResponse x
 -&gt; Lens
      AdminSetUserSettingsResponse AdminSetUserSettingsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettingsResponse%27"><span class="hs-identifier hs-type">AdminSetUserSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454933"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettingsResponse%27"><span class="hs-identifier hs-type">AdminSetUserSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454942"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AdminSetUserSettingsResponse' :: AdminSetUserSettingsResponse -&gt; Int
-</span><a href="#local-6989586621679454933"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454933"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454932"><span class="annot"><span class="annottext">s :: AdminSetUserSettingsResponse
-</span><a href="#local-6989586621679454932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettingsResponse%27"><span class="hs-identifier hs-type">AdminSetUserSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454931"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminSetUserSettingsResponse
-</span><a href="#local-6989586621679454932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AdminSetUserSettingsResponse' :: Int
+</span><a href="#local-6989586621679454942"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454942"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454941"><span class="annot"><span class="annottext">s :: AdminSetUserSettingsResponse
+</span><a href="#local-6989586621679454941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettingsResponse%27"><span class="hs-identifier hs-type">AdminSetUserSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454940"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminSetUserSettingsResponse
+</span><a href="#local-6989586621679454941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AdminSetUserSettingsResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#%24sel%3AhttpStatus%3AAdminSetUserSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettingsResponse"><span class="hs-identifier hs-type">AdminSetUserSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettingsResponse"><span class="hs-identifier hs-type">AdminSetUserSettingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettingsResponse"><span class="hs-identifier hs-type">AdminSetUserSettingsResponse</span></a></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminSetUserSettings.html#AdminSetUserSettingsResponse"><span class="hs-identifier hs-type">AdminSetUserSettingsResponse</span></a></span></span><span>
 </span><span id="line-193"></span></pre></body></html>

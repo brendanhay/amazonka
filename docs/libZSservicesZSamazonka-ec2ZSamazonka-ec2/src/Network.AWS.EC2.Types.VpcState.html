@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681188691"><span id="local-6989586621681188692"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VpcState"><span class="annot"><a href="Network.AWS.EC2.Types.VpcState.html#VpcState"><span class="hs-identifier hs-var">VpcState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcState%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpcState.html#VpcState%27"><span class="hs-identifier hs-var">VpcState'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681188700"><span id="local-6989586621681188701"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VpcState"><span class="annot"><a href="Network.AWS.EC2.Types.VpcState.html#VpcState"><span class="hs-identifier hs-var">VpcState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcState%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpcState.html#VpcState%27"><span class="hs-identifier hs-var">VpcState'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVpcState"><span class="annot"><span class="annottext">VpcState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.VpcState.html#fromVpcState"><span class="hs-identifier hs-var hs-var">fromVpcState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681188683"><span id="local-6989586621681188685"><span id="local-6989586621681188687"><span class="annot"><span class="annottext">Int -&gt; VpcState -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681188692"><span id="local-6989586621681188694"><span id="local-6989586621681188696"><span class="annot"><span class="annottext">Int -&gt; VpcState -&gt; ShowS
 [VpcState] -&gt; ShowS
 VpcState -&gt; String
 (Int -&gt; VpcState -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: VpcState -&gt; String
 showsPrec :: Int -&gt; VpcState -&gt; ShowS
 $cshowsPrec :: Int -&gt; VpcState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681188674"><span id="local-6989586621681188676"><span id="local-6989586621681188678"><span id="local-6989586621681188680"><span class="annot"><span class="annottext">ReadPrec [VpcState]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681188683"><span id="local-6989586621681188685"><span id="local-6989586621681188687"><span id="local-6989586621681188689"><span class="annot"><span class="annottext">ReadPrec [VpcState]
 ReadPrec VpcState
 Int -&gt; ReadS VpcState
 ReadS [VpcState]
@@ -71,7 +71,7 @@ $creadList :: ReadS [VpcState]
 readsPrec :: Int -&gt; ReadS VpcState
 $creadsPrec :: Int -&gt; ReadS VpcState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681188669"><span id="local-6989586621681188671"><span class="annot"><span class="annottext">VpcState -&gt; VpcState -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681188678"><span id="local-6989586621681188680"><span class="annot"><span class="annottext">VpcState -&gt; VpcState -&gt; Bool
 (VpcState -&gt; VpcState -&gt; Bool)
 -&gt; (VpcState -&gt; VpcState -&gt; Bool) -&gt; Eq VpcState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: VpcState -&gt; VpcState -&gt; Bool
 == :: VpcState -&gt; VpcState -&gt; Bool
 $c== :: VpcState -&gt; VpcState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681188653"><span id="local-6989586621681188655"><span id="local-6989586621681188657"><span id="local-6989586621681188659"><span id="local-6989586621681188661"><span id="local-6989586621681188663"><span id="local-6989586621681188665"><span class="annot"><span class="annottext">Eq VpcState
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681188662"><span id="local-6989586621681188664"><span id="local-6989586621681188666"><span id="local-6989586621681188668"><span id="local-6989586621681188670"><span id="local-6989586621681188672"><span id="local-6989586621681188674"><span class="annot"><span class="annottext">Eq VpcState
 Eq VpcState
 -&gt; (VpcState -&gt; VpcState -&gt; Ordering)
 -&gt; (VpcState -&gt; VpcState -&gt; Bool)
@@ -130,7 +130,7 @@ $cfrom :: forall x. VpcState -&gt; Rep VpcState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681188645"><span id="local-6989586621681188647"><span class="annot"><span class="annottext">Int -&gt; VpcState -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681188654"><span id="local-6989586621681188656"><span class="annot"><span class="annottext">Int -&gt; VpcState -&gt; Int
 VpcState -&gt; Int
 (Int -&gt; VpcState -&gt; Int) -&gt; (VpcState -&gt; Int) -&gt; Hashable VpcState
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -139,49 +139,49 @@ $chash :: VpcState -&gt; Int
 hashWithSalt :: Int -&gt; VpcState -&gt; Int
 $chashWithSalt :: Int -&gt; VpcState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681188642"><span class="annot"><span class="annottext">VpcState -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681188651"><span class="annot"><span class="annottext">VpcState -&gt; ()
 (VpcState -&gt; ()) -&gt; NFData VpcState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VpcState -&gt; ()
 $crnf :: VpcState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681188639"><span class="annot"><span class="annottext">Text -&gt; Either String VpcState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681188648"><span class="annot"><span class="annottext">Text -&gt; Either String VpcState
 (Text -&gt; Either String VpcState) -&gt; FromText VpcState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VpcState
 $cfromText :: Text -&gt; Either String VpcState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681188636"><span class="annot"><span class="annottext">VpcState -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681188645"><span class="annot"><span class="annottext">VpcState -&gt; Text
 (VpcState -&gt; Text) -&gt; ToText VpcState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VpcState -&gt; Text
 $ctoText :: VpcState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681188633"><span class="annot"><span class="annottext">VpcState -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681188642"><span class="annot"><span class="annottext">VpcState -&gt; ByteString
 (VpcState -&gt; ByteString) -&gt; ToByteString VpcState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VpcState -&gt; ByteString
 $ctoBS :: VpcState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681188630"><span class="annot"><span class="annottext">VpcState -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681188639"><span class="annot"><span class="annottext">VpcState -&gt; ByteStringBuilder
 (VpcState -&gt; ByteStringBuilder) -&gt; ToLog VpcState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VpcState -&gt; ByteStringBuilder
 $cbuild :: VpcState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681188627"><span class="annot"><span class="annottext">HeaderName -&gt; VpcState -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681188636"><span class="annot"><span class="annottext">HeaderName -&gt; VpcState -&gt; [Header]
 (HeaderName -&gt; VpcState -&gt; [Header]) -&gt; ToHeader VpcState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VpcState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VpcState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681188624"><span class="annot"><span class="annottext">VpcState -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681188633"><span class="annot"><span class="annottext">VpcState -&gt; QueryString
 (VpcState -&gt; QueryString) -&gt; ToQuery VpcState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VpcState -&gt; QueryString
 $ctoQuery :: VpcState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681188619"><span id="local-6989586621681188621"><span class="annot"><span class="annottext">Value -&gt; Parser [VpcState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681188628"><span id="local-6989586621681188630"><span class="annot"><span class="annottext">Value -&gt; Parser [VpcState]
 Value -&gt; Parser VpcState
 (Value -&gt; Parser VpcState)
 -&gt; (Value -&gt; Parser [VpcState]) -&gt; FromJSON VpcState
@@ -192,7 +192,7 @@ $cparseJSONList :: Value -&gt; Parser [VpcState]
 parseJSON :: Value -&gt; Parser VpcState
 $cparseJSON :: Value -&gt; Parser VpcState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681188614"><span id="local-6989586621681188616"><span class="annot"><span class="annottext">FromJSONKeyFunction [VpcState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681188623"><span id="local-6989586621681188625"><span class="annot"><span class="annottext">FromJSONKeyFunction [VpcState]
 FromJSONKeyFunction VpcState
 FromJSONKeyFunction VpcState
 -&gt; FromJSONKeyFunction [VpcState] -&gt; FromJSONKey VpcState
@@ -203,7 +203,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VpcState]
 fromJSONKey :: FromJSONKeyFunction VpcState
 $cfromJSONKey :: FromJSONKeyFunction VpcState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681188605"><span id="local-6989586621681188607"><span id="local-6989586621681188609"><span id="local-6989586621681188611"><span class="annot"><span class="annottext">[VpcState] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681188614"><span id="local-6989586621681188616"><span id="local-6989586621681188618"><span id="local-6989586621681188620"><span class="annot"><span class="annottext">[VpcState] -&gt; Encoding
 [VpcState] -&gt; Value
 VpcState -&gt; Encoding
 VpcState -&gt; Value
@@ -227,7 +227,7 @@ $ctoEncoding :: VpcState -&gt; Encoding
 toJSON :: VpcState -&gt; Value
 $ctoJSON :: VpcState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681188600"><span id="local-6989586621681188602"><span class="annot"><span class="annottext">ToJSONKeyFunction [VpcState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681188609"><span id="local-6989586621681188611"><span class="annot"><span class="annottext">ToJSONKeyFunction [VpcState]
 ToJSONKeyFunction VpcState
 ToJSONKeyFunction VpcState
 -&gt; ToJSONKeyFunction [VpcState] -&gt; ToJSONKey VpcState
@@ -238,13 +238,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VpcState]
 toJSONKey :: ToJSONKeyFunction VpcState
 $ctoJSONKey :: ToJSONKeyFunction VpcState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681188597"><span class="annot"><span class="annottext">[Node] -&gt; Either String VpcState
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681188606"><span class="annot"><span class="annottext">[Node] -&gt; Either String VpcState
 ([Node] -&gt; Either String VpcState) -&gt; FromXML VpcState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VpcState
 $cparseXML :: [Node] -&gt; Either String VpcState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681188594"><span class="annot"><span class="annottext">VpcState -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681188603"><span class="annot"><span class="annottext">VpcState -&gt; XML
 (VpcState -&gt; XML) -&gt; ToXML VpcState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VpcState -&gt; XML

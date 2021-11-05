@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- to the value VC3</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newVc3Settings' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621680012702"><span id="local-6989586621680012703"></span></span><span class="hs-keyword">data</span><span> </span><span id="Vc3Settings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-var">Vc3Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vc3Settings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-var">Vc3Settings'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621680012711"><span id="local-6989586621680012712"></span></span><span class="hs-keyword">data</span><span> </span><span id="Vc3Settings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-var">Vc3Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vc3Settings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-var">Vc3Settings'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Ignore this setting unless your input frame rate is 23.976 or 24 frames</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- per second (fps). Enable slow PAL to create a 25 fps output by</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- relabeling the video frames and resampling your audio. Note that</span><span>
@@ -131,7 +131,7 @@
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3AframerateNumerator%3AVc3Settings%27"><span class="annot"><span class="annottext">Vc3Settings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateNumerator%3AVc3Settings%27"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680012688"><span id="local-6989586621680012690"><span class="annot"><span class="annottext">Vc3Settings -&gt; Vc3Settings -&gt; Bool
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680012697"><span id="local-6989586621680012699"><span class="annot"><span class="annottext">Vc3Settings -&gt; Vc3Settings -&gt; Bool
 (Vc3Settings -&gt; Vc3Settings -&gt; Bool)
 -&gt; (Vc3Settings -&gt; Vc3Settings -&gt; Bool) -&gt; Eq Vc3Settings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -139,7 +139,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Vc3Settings -&gt; Vc3Settings -&gt; Bool
 == :: Vc3Settings -&gt; Vc3Settings -&gt; Bool
 $c== :: Vc3Settings -&gt; Vc3Settings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680012679"><span id="local-6989586621680012681"><span id="local-6989586621680012683"><span id="local-6989586621680012685"><span class="annot"><span class="annottext">ReadPrec [Vc3Settings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680012688"><span id="local-6989586621680012690"><span id="local-6989586621680012692"><span id="local-6989586621680012694"><span class="annot"><span class="annottext">ReadPrec [Vc3Settings]
 ReadPrec Vc3Settings
 Int -&gt; ReadS Vc3Settings
 ReadS [Vc3Settings]
@@ -159,7 +159,7 @@ readList :: ReadS [Vc3Settings]
 $creadList :: ReadS [Vc3Settings]
 readsPrec :: Int -&gt; ReadS Vc3Settings
 $creadsPrec :: Int -&gt; ReadS Vc3Settings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680012672"><span id="local-6989586621680012674"><span id="local-6989586621680012676"><span class="annot"><span class="annottext">Int -&gt; Vc3Settings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680012681"><span id="local-6989586621680012683"><span id="local-6989586621680012685"><span class="annot"><span class="annottext">Int -&gt; Vc3Settings -&gt; ShowS
 [Vc3Settings] -&gt; ShowS
 Vc3Settings -&gt; String
 (Int -&gt; Vc3Settings -&gt; ShowS)
@@ -346,16 +346,16 @@ forall a. Maybe a
 -&gt; Lens
      Vc3Settings Vc3Settings (Maybe Vc3SlowPal) (Maybe Vc3SlowPal)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012663"><span class="annot"><span class="annottext">Maybe Vc3SlowPal
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012672"><span class="annot"><span class="annottext">Maybe Vc3SlowPal
 slowPal :: Maybe Vc3SlowPal
 $sel:slowPal:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3SlowPal
-</span><a href="#local-6989586621680012663"><span class="hs-identifier hs-var hs-var">slowPal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3SlowPal
-</span><a href="#local-6989586621680012663"><span class="hs-identifier hs-var">slowPal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012662"><span class="annot"><span class="annottext">s :: Vc3Settings
-</span><a href="#local-6989586621680012662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012661"><span class="annot"><span class="annottext">Maybe Vc3SlowPal
-</span><a href="#local-6989586621680012661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
-</span><a href="#local-6989586621680012662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slowPal:Vc3Settings' :: Maybe Vc3SlowPal
+</span><a href="#local-6989586621680012672"><span class="hs-identifier hs-var hs-var">slowPal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3SlowPal
+</span><a href="#local-6989586621680012672"><span class="hs-identifier hs-var">slowPal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012671"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012670"><span class="annot"><span class="annottext">Maybe Vc3SlowPal
+</span><a href="#local-6989586621680012670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slowPal:Vc3Settings' :: Maybe Vc3SlowPal
 </span><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#%24sel%3AslowPal%3AVc3Settings%27"><span class="hs-identifier hs-var">slowPal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3SlowPal
-</span><a href="#local-6989586621680012661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680012670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | When you do frame rate conversion from 23.976 frames per second (fps) to</span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- 29.97 fps, and your output scan type is interlaced, you can optionally</span><span>
@@ -371,16 +371,16 @@ $sel:slowPal:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3SlowPal
 -&gt; Lens
      Vc3Settings Vc3Settings (Maybe Vc3Telecine) (Maybe Vc3Telecine)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012659"><span class="annot"><span class="annottext">Maybe Vc3Telecine
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012668"><span class="annot"><span class="annottext">Maybe Vc3Telecine
 telecine :: Maybe Vc3Telecine
 $sel:telecine:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3Telecine
-</span><a href="#local-6989586621680012659"><span class="hs-identifier hs-var hs-var">telecine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3Telecine
-</span><a href="#local-6989586621680012659"><span class="hs-identifier hs-var">telecine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012658"><span class="annot"><span class="annottext">s :: Vc3Settings
-</span><a href="#local-6989586621680012658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012657"><span class="annot"><span class="annottext">Maybe Vc3Telecine
-</span><a href="#local-6989586621680012657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
-</span><a href="#local-6989586621680012658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:telecine:Vc3Settings' :: Maybe Vc3Telecine
+</span><a href="#local-6989586621680012668"><span class="hs-identifier hs-var hs-var">telecine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3Telecine
+</span><a href="#local-6989586621680012668"><span class="hs-identifier hs-var">telecine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012667"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012666"><span class="annot"><span class="annottext">Maybe Vc3Telecine
+</span><a href="#local-6989586621680012666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:telecine:Vc3Settings' :: Maybe Vc3Telecine
 </span><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#%24sel%3Atelecine%3AVc3Settings%27"><span class="hs-identifier hs-var">telecine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3Telecine
-</span><a href="#local-6989586621680012657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680012666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- | Optional. Choose the scan line type for this output. If you don\'t</span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- specify a value, MediaConvert will create a progressive output.</span><span>
@@ -395,16 +395,16 @@ $sel:telecine:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3Telecine
      (Maybe Vc3InterlaceMode)
      (Maybe Vc3InterlaceMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012655"><span class="annot"><span class="annottext">Maybe Vc3InterlaceMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012664"><span class="annot"><span class="annottext">Maybe Vc3InterlaceMode
 interlaceMode :: Maybe Vc3InterlaceMode
 $sel:interlaceMode:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3InterlaceMode
-</span><a href="#local-6989586621680012655"><span class="hs-identifier hs-var hs-var">interlaceMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3InterlaceMode
-</span><a href="#local-6989586621680012655"><span class="hs-identifier hs-var">interlaceMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012654"><span class="annot"><span class="annottext">s :: Vc3Settings
-</span><a href="#local-6989586621680012654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012653"><span class="annot"><span class="annottext">Maybe Vc3InterlaceMode
-</span><a href="#local-6989586621680012653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
-</span><a href="#local-6989586621680012654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interlaceMode:Vc3Settings' :: Maybe Vc3InterlaceMode
+</span><a href="#local-6989586621680012664"><span class="hs-identifier hs-var hs-var">interlaceMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3InterlaceMode
+</span><a href="#local-6989586621680012664"><span class="hs-identifier hs-var">interlaceMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012663"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012662"><span class="annot"><span class="annottext">Maybe Vc3InterlaceMode
+</span><a href="#local-6989586621680012662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interlaceMode:Vc3Settings' :: Maybe Vc3InterlaceMode
 </span><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#%24sel%3AinterlaceMode%3AVc3Settings%27"><span class="hs-identifier hs-var">interlaceMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3InterlaceMode
-</span><a href="#local-6989586621680012653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680012662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- | Use this setting for interlaced outputs, when your output frame rate is</span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- half of your input frame rate. In this situation, choose Optimized</span><span>
@@ -433,16 +433,16 @@ $sel:interlaceMode:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3InterlaceMode
      (Maybe Vc3ScanTypeConversionMode)
      (Maybe Vc3ScanTypeConversionMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012651"><span class="annot"><span class="annottext">Maybe Vc3ScanTypeConversionMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012660"><span class="annot"><span class="annottext">Maybe Vc3ScanTypeConversionMode
 scanTypeConversionMode :: Maybe Vc3ScanTypeConversionMode
 $sel:scanTypeConversionMode:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3ScanTypeConversionMode
-</span><a href="#local-6989586621680012651"><span class="hs-identifier hs-var hs-var">scanTypeConversionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3ScanTypeConversionMode
-</span><a href="#local-6989586621680012651"><span class="hs-identifier hs-var">scanTypeConversionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012650"><span class="annot"><span class="annottext">s :: Vc3Settings
-</span><a href="#local-6989586621680012650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012649"><span class="annot"><span class="annottext">Maybe Vc3ScanTypeConversionMode
-</span><a href="#local-6989586621680012649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
-</span><a href="#local-6989586621680012650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanTypeConversionMode:Vc3Settings' :: Maybe Vc3ScanTypeConversionMode
+</span><a href="#local-6989586621680012660"><span class="hs-identifier hs-var hs-var">scanTypeConversionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3ScanTypeConversionMode
+</span><a href="#local-6989586621680012660"><span class="hs-identifier hs-var">scanTypeConversionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012659"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012658"><span class="annot"><span class="annottext">Maybe Vc3ScanTypeConversionMode
+</span><a href="#local-6989586621680012658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanTypeConversionMode:Vc3Settings' :: Maybe Vc3ScanTypeConversionMode
 </span><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#%24sel%3AscanTypeConversionMode%3AVc3Settings%27"><span class="hs-identifier hs-var">scanTypeConversionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3ScanTypeConversionMode
-</span><a href="#local-6989586621680012649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680012658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-276"></span><span>
 </span><span id="line-277"></span><span class="hs-comment">-- | When you use the API for transcode jobs that use frame rate conversion,</span><span>
 </span><span id="line-278"></span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
@@ -458,16 +458,16 @@ $sel:scanTypeConversionMode:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3ScanTypeC
 -&gt; (Vc3Settings -&gt; Maybe Natural -&gt; Vc3Settings)
 -&gt; Lens Vc3Settings Vc3Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012647"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012656"><span class="annot"><span class="annottext">Maybe Natural
 framerateDenominator :: Maybe Natural
 $sel:framerateDenominator:Vc3Settings' :: Vc3Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621680012647"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680012647"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012646"><span class="annot"><span class="annottext">s :: Vc3Settings
-</span><a href="#local-6989586621680012646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012645"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680012645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
-</span><a href="#local-6989586621680012646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateDenominator:Vc3Settings' :: Maybe Natural
+</span><a href="#local-6989586621680012656"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680012656"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012655"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012654"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680012654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateDenominator:Vc3Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateDenominator%3AVc3Settings%27"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680012645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680012654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>
 </span><span id="line-287"></span><span class="hs-comment">-- | Specify the VC3 class to choose the quality characteristics for this</span><span>
 </span><span id="line-288"></span><span class="hs-comment">-- output. VC3 class, together with the settings Framerate</span><span>
@@ -485,16 +485,16 @@ $sel:framerateDenominator:Vc3Settings' :: Vc3Settings -&gt; Maybe Natural
 -&gt; (Vc3Settings -&gt; Maybe Vc3Class -&gt; Vc3Settings)
 -&gt; Lens Vc3Settings Vc3Settings (Maybe Vc3Class) (Maybe Vc3Class)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012643"><span class="annot"><span class="annottext">Maybe Vc3Class
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012652"><span class="annot"><span class="annottext">Maybe Vc3Class
 vc3Class :: Maybe Vc3Class
 $sel:vc3Class:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3Class
-</span><a href="#local-6989586621680012643"><span class="hs-identifier hs-var hs-var">vc3Class</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3Class
-</span><a href="#local-6989586621680012643"><span class="hs-identifier hs-var">vc3Class</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012642"><span class="annot"><span class="annottext">s :: Vc3Settings
-</span><a href="#local-6989586621680012642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012641"><span class="annot"><span class="annottext">Maybe Vc3Class
-</span><a href="#local-6989586621680012641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
-</span><a href="#local-6989586621680012642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vc3Class:Vc3Settings' :: Maybe Vc3Class
+</span><a href="#local-6989586621680012652"><span class="hs-identifier hs-var hs-var">vc3Class</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3Class
+</span><a href="#local-6989586621680012652"><span class="hs-identifier hs-var">vc3Class</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012651"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012650"><span class="annot"><span class="annottext">Maybe Vc3Class
+</span><a href="#local-6989586621680012650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vc3Class:Vc3Settings' :: Maybe Vc3Class
 </span><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#%24sel%3Avc3Class%3AVc3Settings%27"><span class="hs-identifier hs-var">vc3Class</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3Class
-</span><a href="#local-6989586621680012641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680012650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-298"></span><span>
 </span><span id="line-299"></span><span class="hs-comment">-- | Choose the method that you want MediaConvert to use when increasing or</span><span>
 </span><span id="line-300"></span><span class="hs-comment">-- decreasing the frame rate. We recommend using drop duplicate</span><span>
@@ -520,16 +520,16 @@ $sel:vc3Class:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3Class
      (Maybe Vc3FramerateConversionAlgorithm)
      (Maybe Vc3FramerateConversionAlgorithm)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012639"><span class="annot"><span class="annottext">Maybe Vc3FramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012648"><span class="annot"><span class="annottext">Maybe Vc3FramerateConversionAlgorithm
 framerateConversionAlgorithm :: Maybe Vc3FramerateConversionAlgorithm
 $sel:framerateConversionAlgorithm:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3FramerateConversionAlgorithm
-</span><a href="#local-6989586621680012639"><span class="hs-identifier hs-var hs-var">framerateConversionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3FramerateConversionAlgorithm
-</span><a href="#local-6989586621680012639"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012638"><span class="annot"><span class="annottext">s :: Vc3Settings
-</span><a href="#local-6989586621680012638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012637"><span class="annot"><span class="annottext">Maybe Vc3FramerateConversionAlgorithm
-</span><a href="#local-6989586621680012637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
-</span><a href="#local-6989586621680012638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateConversionAlgorithm:Vc3Settings' :: Maybe Vc3FramerateConversionAlgorithm
+</span><a href="#local-6989586621680012648"><span class="hs-identifier hs-var hs-var">framerateConversionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3FramerateConversionAlgorithm
+</span><a href="#local-6989586621680012648"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012647"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012646"><span class="annot"><span class="annottext">Maybe Vc3FramerateConversionAlgorithm
+</span><a href="#local-6989586621680012646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateConversionAlgorithm:Vc3Settings' :: Maybe Vc3FramerateConversionAlgorithm
 </span><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateConversionAlgorithm%3AVc3Settings%27"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3FramerateConversionAlgorithm
-</span><a href="#local-6989586621680012637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680012646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-312"></span><span>
 </span><span id="line-313"></span><span class="hs-comment">-- | If you are using the console, use the Framerate setting to specify the</span><span>
 </span><span id="line-314"></span><span class="hs-comment">-- frame rate for this output. If you want to keep the same frame rate as</span><span>
@@ -555,16 +555,16 @@ $sel:framerateConversionAlgorithm:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3Fra
      (Maybe Vc3FramerateControl)
      (Maybe Vc3FramerateControl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012635"><span class="annot"><span class="annottext">Maybe Vc3FramerateControl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012644"><span class="annot"><span class="annottext">Maybe Vc3FramerateControl
 framerateControl :: Maybe Vc3FramerateControl
 $sel:framerateControl:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3FramerateControl
-</span><a href="#local-6989586621680012635"><span class="hs-identifier hs-var hs-var">framerateControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3FramerateControl
-</span><a href="#local-6989586621680012635"><span class="hs-identifier hs-var">framerateControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012634"><span class="annot"><span class="annottext">s :: Vc3Settings
-</span><a href="#local-6989586621680012634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012633"><span class="annot"><span class="annottext">Maybe Vc3FramerateControl
-</span><a href="#local-6989586621680012633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
-</span><a href="#local-6989586621680012634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateControl:Vc3Settings' :: Maybe Vc3FramerateControl
+</span><a href="#local-6989586621680012644"><span class="hs-identifier hs-var hs-var">framerateControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3FramerateControl
+</span><a href="#local-6989586621680012644"><span class="hs-identifier hs-var">framerateControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012643"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012642"><span class="annot"><span class="annottext">Maybe Vc3FramerateControl
+</span><a href="#local-6989586621680012642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateControl:Vc3Settings' :: Maybe Vc3FramerateControl
 </span><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateControl%3AVc3Settings%27"><span class="hs-identifier hs-var">framerateControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Vc3FramerateControl
-</span><a href="#local-6989586621680012633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680012642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-328"></span><span>
 </span><span id="line-329"></span><span class="hs-comment">-- | When you use the API for transcode jobs that use frame rate conversion,</span><span>
 </span><span id="line-330"></span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
@@ -580,19 +580,19 @@ $sel:framerateControl:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3FramerateContro
 -&gt; (Vc3Settings -&gt; Maybe Natural -&gt; Vc3Settings)
 -&gt; Lens Vc3Settings Vc3Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012631"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012640"><span class="annot"><span class="annottext">Maybe Natural
 framerateNumerator :: Maybe Natural
 $sel:framerateNumerator:Vc3Settings' :: Vc3Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621680012631"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680012631"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012630"><span class="annot"><span class="annottext">s :: Vc3Settings
-</span><a href="#local-6989586621680012630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012629"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680012629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
-</span><a href="#local-6989586621680012630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateNumerator:Vc3Settings' :: Maybe Natural
+</span><a href="#local-6989586621680012640"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680012640"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680012639"><span class="annot"><span class="annottext">s :: Vc3Settings
+</span><a href="#local-6989586621680012639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680012638"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680012638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Vc3Settings
+</span><a href="#local-6989586621680012639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateNumerator:Vc3Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#%24sel%3AframerateNumerator%3AVc3Settings%27"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680012629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680012638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-338"></span><span>
-</span><span id="line-339"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680012626"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-340"></span><span>  </span><span id="local-6989586621680012624"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Vc3Settings
+</span><span id="line-339"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680012635"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-340"></span><span>  </span><span id="local-6989586621680012633"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Vc3Settings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-341"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Vc3Settings) -&gt; Value -&gt; Parser Vc3Settings
@@ -600,8 +600,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-342"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Vc3Settings&quot;</span></span><span>
-</span><span id="line-343"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680012621"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680012621"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-343"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680012630"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680012630"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-344"></span><span>          </span><span class="annot"><span class="annottext">Maybe Vc3SlowPal
 -&gt; Maybe Vc3Telecine
 -&gt; Maybe Vc3InterlaceMode
@@ -636,7 +636,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Vc3Settings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680012621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3SlowPal)
+</span><a href="#local-6989586621680012630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3SlowPal)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;slowPal&quot;</span></span><span class="hs-special">)</span><span>
@@ -662,7 +662,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Vc3Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680012621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3Telecine)
+</span><a href="#local-6989586621680012630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3Telecine)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;telecine&quot;</span></span><span class="hs-special">)</span><span>
@@ -686,7 +686,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Vc3Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680012621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3InterlaceMode)
+</span><a href="#local-6989586621680012630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3InterlaceMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;interlaceMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -708,7 +708,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Vc3Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680012621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3ScanTypeConversionMode)
+</span><a href="#local-6989586621680012630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3ScanTypeConversionMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scanTypeConversionMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -728,7 +728,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Vc3Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680012621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680012630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span class="hs-special">)</span><span>
@@ -744,7 +744,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Vc3FramerateControl -&gt; Maybe Natural -&gt; Vc3Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680012621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3Class)
+</span><a href="#local-6989586621680012630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3Class)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vc3Class&quot;</span></span><span class="hs-special">)</span><span>
@@ -756,7 +756,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Vc3FramerateControl -&gt; Maybe Natural -&gt; Vc3Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680012621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3FramerateConversionAlgorithm)
+</span><a href="#local-6989586621680012630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3FramerateConversionAlgorithm)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateConversionAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
@@ -765,7 +765,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; Vc3Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680012621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3FramerateControl)
+</span><a href="#local-6989586621680012630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Vc3FramerateControl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateControl&quot;</span></span><span class="hs-special">)</span><span>
@@ -773,19 +773,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser Vc3Settings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680012621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680012630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-354"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-355"></span><span>
-</span><span id="line-356"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680012615"><span id="local-6989586621680012617"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span></span></span><span>
+</span><span id="line-356"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680012624"><span id="local-6989586621680012626"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span></span></span><span>
 </span><span id="line-357"></span><span>
-</span><span id="line-358"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680012612"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span></span><span>
+</span><span id="line-358"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680012621"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span></span><span>
 </span><span id="line-359"></span><span>
-</span><span id="line-360"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680012604"><span id="local-6989586621680012606"><span id="local-6989586621680012608"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-361"></span><span>  </span><span id="local-6989586621680012602"><span class="annot"><span class="annottext">toJSON :: Vc3Settings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012592"><span id="local-6989586621680012593"><span id="local-6989586621680012594"><span id="local-6989586621680012595"><span id="local-6989586621680012596"><span id="local-6989586621680012597"><span id="local-6989586621680012598"><span id="local-6989586621680012599"><span id="local-6989586621680012600"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-360"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680012613"><span id="local-6989586621680012615"><span id="local-6989586621680012617"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings"><span class="hs-identifier hs-type">Vc3Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-361"></span><span>  </span><span id="local-6989586621680012611"><span class="annot"><span class="annottext">toJSON :: Vc3Settings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vc3Settings.html#Vc3Settings%27"><span class="hs-identifier hs-type">Vc3Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680012601"><span id="local-6989586621680012602"><span id="local-6989586621680012603"><span id="local-6989586621680012604"><span id="local-6989586621680012605"><span id="local-6989586621680012606"><span id="local-6989586621680012607"><span id="local-6989586621680012608"><span id="local-6989586621680012609"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Vc3Class
 Maybe Vc3FramerateControl
 Maybe Vc3FramerateConversionAlgorithm
@@ -811,7 +811,7 @@ $sel:scanTypeConversionMode:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3ScanTypeC
 $sel:interlaceMode:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3InterlaceMode
 $sel:telecine:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3Telecine
 $sel:slowPal:Vc3Settings' :: Vc3Settings -&gt; Maybe Vc3SlowPal
-</span><a href="#local-6989586621680012592"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680012601"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-362"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-363"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -823,21 +823,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Vc3SlowPal -&gt; Pair) -&gt; Maybe Vc3SlowPal -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vc3SlowPal
-</span><a href="#local-6989586621680012600"><span class="hs-identifier hs-var">slowPal</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680012609"><span class="hs-identifier hs-var">slowPal</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-365"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;telecine&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vc3Telecine -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Vc3Telecine -&gt; Pair) -&gt; Maybe Vc3Telecine -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vc3Telecine
-</span><a href="#local-6989586621680012599"><span class="hs-identifier hs-var">telecine</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680012608"><span class="hs-identifier hs-var">telecine</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-366"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;interlaceMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vc3InterlaceMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Vc3InterlaceMode -&gt; Pair) -&gt; Maybe Vc3InterlaceMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vc3InterlaceMode
-</span><a href="#local-6989586621680012598"><span class="hs-identifier hs-var">interlaceMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680012607"><span class="hs-identifier hs-var">interlaceMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-367"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scanTypeConversionMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vc3ScanTypeConversionMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -846,7 +846,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Vc3ScanTypeConversionMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vc3ScanTypeConversionMode
-</span><a href="#local-6989586621680012597"><span class="hs-identifier hs-var">scanTypeConversionMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680012606"><span class="hs-identifier hs-var">scanTypeConversionMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-369"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -854,14 +854,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-370"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680012596"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680012605"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-371"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vc3Class&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vc3Class -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Vc3Class -&gt; Pair) -&gt; Maybe Vc3Class -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vc3Class
-</span><a href="#local-6989586621680012595"><span class="hs-identifier hs-var">vc3Class</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680012604"><span class="hs-identifier hs-var">vc3Class</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-372"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateConversionAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vc3FramerateConversionAlgorithm -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -870,7 +870,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Vc3FramerateConversionAlgorithm -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vc3FramerateConversionAlgorithm
-</span><a href="#local-6989586621680012594"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680012603"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-374"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateControl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Vc3FramerateControl -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -879,7 +879,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Vc3FramerateControl -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Vc3FramerateControl
-</span><a href="#local-6989586621680012593"><span class="hs-identifier hs-var">framerateControl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680012602"><span class="hs-identifier hs-var">framerateControl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-376"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -887,7 +887,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-377"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680012592"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span>
+</span><a href="#local-6989586621680012601"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span>
 </span><span id="line-378"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-379"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-380"></span></pre></body></html>

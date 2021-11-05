@@ -39,7 +39,7 @@
 </span><span id="line-39"></span><span class="hs-comment">-- https:\/\/pro-av.panasonic.net\/en\/avc-ultra\/AVC-ULTRAoverview.pdf.</span><span>
 </span><span id="line-40"></span><span class="hs-comment">--</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newAvcIntraSettings' smart constructor.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679945966"><span id="local-6989586621679945967"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvcIntraSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-var">AvcIntraSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvcIntraSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-var">AvcIntraSettings'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679945975"><span id="local-6989586621679945976"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvcIntraSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-var">AvcIntraSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvcIntraSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-var">AvcIntraSettings'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Ignore this setting unless your input frame rate is 23.976 or 24 frames</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- per second (fps). Enable slow PAL to create a 25 fps output. When you</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- enable slow PAL, MediaConvert relabels the video frames to 25 fps and</span><span>
@@ -149,7 +149,7 @@
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3AframerateNumerator%3AAvcIntraSettings%27"><span class="annot"><span class="annottext">AvcIntraSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#%24sel%3AframerateNumerator%3AAvcIntraSettings%27"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679945951"><span id="local-6989586621679945953"><span class="annot"><span class="annottext">AvcIntraSettings -&gt; AvcIntraSettings -&gt; Bool
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679945960"><span id="local-6989586621679945962"><span class="annot"><span class="annottext">AvcIntraSettings -&gt; AvcIntraSettings -&gt; Bool
 (AvcIntraSettings -&gt; AvcIntraSettings -&gt; Bool)
 -&gt; (AvcIntraSettings -&gt; AvcIntraSettings -&gt; Bool)
 -&gt; Eq AvcIntraSettings
@@ -158,7 +158,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AvcIntraSettings -&gt; AvcIntraSettings -&gt; Bool
 == :: AvcIntraSettings -&gt; AvcIntraSettings -&gt; Bool
 $c== :: AvcIntraSettings -&gt; AvcIntraSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679945942"><span id="local-6989586621679945944"><span id="local-6989586621679945946"><span id="local-6989586621679945948"><span class="annot"><span class="annottext">ReadPrec [AvcIntraSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679945951"><span id="local-6989586621679945953"><span id="local-6989586621679945955"><span id="local-6989586621679945957"><span class="annot"><span class="annottext">ReadPrec [AvcIntraSettings]
 ReadPrec AvcIntraSettings
 Int -&gt; ReadS AvcIntraSettings
 ReadS [AvcIntraSettings]
@@ -178,7 +178,7 @@ readList :: ReadS [AvcIntraSettings]
 $creadList :: ReadS [AvcIntraSettings]
 readsPrec :: Int -&gt; ReadS AvcIntraSettings
 $creadsPrec :: Int -&gt; ReadS AvcIntraSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679945935"><span id="local-6989586621679945937"><span id="local-6989586621679945939"><span class="annot"><span class="annottext">Int -&gt; AvcIntraSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679945944"><span id="local-6989586621679945946"><span id="local-6989586621679945948"><span class="annot"><span class="annottext">Int -&gt; AvcIntraSettings -&gt; ShowS
 [AvcIntraSettings] -&gt; ShowS
 AvcIntraSettings -&gt; String
 (Int -&gt; AvcIntraSettings -&gt; ShowS)
@@ -386,16 +386,16 @@ forall a. Maybe a
      (Maybe AvcIntraSlowPal)
      (Maybe AvcIntraSlowPal)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945926"><span class="annot"><span class="annottext">Maybe AvcIntraSlowPal
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945935"><span class="annot"><span class="annottext">Maybe AvcIntraSlowPal
 slowPal :: Maybe AvcIntraSlowPal
 $sel:slowPal:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntraSlowPal
-</span><a href="#local-6989586621679945926"><span class="hs-identifier hs-var hs-var">slowPal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraSlowPal
-</span><a href="#local-6989586621679945926"><span class="hs-identifier hs-var">slowPal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945925"><span class="annot"><span class="annottext">s :: AvcIntraSettings
-</span><a href="#local-6989586621679945925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945924"><span class="annot"><span class="annottext">Maybe AvcIntraSlowPal
-</span><a href="#local-6989586621679945924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
-</span><a href="#local-6989586621679945925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slowPal:AvcIntraSettings' :: Maybe AvcIntraSlowPal
+</span><a href="#local-6989586621679945935"><span class="hs-identifier hs-var hs-var">slowPal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraSlowPal
+</span><a href="#local-6989586621679945935"><span class="hs-identifier hs-var">slowPal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945934"><span class="annot"><span class="annottext">s :: AvcIntraSettings
+</span><a href="#local-6989586621679945934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945933"><span class="annot"><span class="annottext">Maybe AvcIntraSlowPal
+</span><a href="#local-6989586621679945933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
+</span><a href="#local-6989586621679945934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slowPal:AvcIntraSettings' :: Maybe AvcIntraSlowPal
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#%24sel%3AslowPal%3AAvcIntraSettings%27"><span class="hs-identifier hs-var">slowPal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraSlowPal
-</span><a href="#local-6989586621679945924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679945933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-275"></span><span>
 </span><span id="line-276"></span><span class="hs-comment">-- | Optional when you set AVC-Intra class (avcIntraClass) to Class 4K\/2K</span><span>
 </span><span id="line-277"></span><span class="hs-comment">-- (CLASS_4K_2K). When you set AVC-Intra class to a different value, this</span><span>
@@ -412,16 +412,16 @@ $sel:slowPal:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntraSlowPal
      (Maybe AvcIntraUhdSettings)
      (Maybe AvcIntraUhdSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945922"><span class="annot"><span class="annottext">Maybe AvcIntraUhdSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945931"><span class="annot"><span class="annottext">Maybe AvcIntraUhdSettings
 avcIntraUhdSettings :: Maybe AvcIntraUhdSettings
 $sel:avcIntraUhdSettings:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntraUhdSettings
-</span><a href="#local-6989586621679945922"><span class="hs-identifier hs-var hs-var">avcIntraUhdSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraUhdSettings
-</span><a href="#local-6989586621679945922"><span class="hs-identifier hs-var">avcIntraUhdSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945921"><span class="annot"><span class="annottext">s :: AvcIntraSettings
-</span><a href="#local-6989586621679945921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945920"><span class="annot"><span class="annottext">Maybe AvcIntraUhdSettings
-</span><a href="#local-6989586621679945920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
-</span><a href="#local-6989586621679945921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:avcIntraUhdSettings:AvcIntraSettings' :: Maybe AvcIntraUhdSettings
+</span><a href="#local-6989586621679945931"><span class="hs-identifier hs-var hs-var">avcIntraUhdSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraUhdSettings
+</span><a href="#local-6989586621679945931"><span class="hs-identifier hs-var">avcIntraUhdSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945930"><span class="annot"><span class="annottext">s :: AvcIntraSettings
+</span><a href="#local-6989586621679945930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945929"><span class="annot"><span class="annottext">Maybe AvcIntraUhdSettings
+</span><a href="#local-6989586621679945929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
+</span><a href="#local-6989586621679945930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:avcIntraUhdSettings:AvcIntraSettings' :: Maybe AvcIntraUhdSettings
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#%24sel%3AavcIntraUhdSettings%3AAvcIntraSettings%27"><span class="hs-identifier hs-var">avcIntraUhdSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraUhdSettings
-</span><a href="#local-6989586621679945920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679945929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>
 </span><span id="line-282"></span><span class="hs-comment">-- | When you do frame rate conversion from 23.976 frames per second (fps) to</span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- 29.97 fps, and your output scan type is interlaced, you can optionally</span><span>
@@ -440,16 +440,16 @@ $sel:avcIntraUhdSettings:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIn
      (Maybe AvcIntraTelecine)
      (Maybe AvcIntraTelecine)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945918"><span class="annot"><span class="annottext">Maybe AvcIntraTelecine
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945927"><span class="annot"><span class="annottext">Maybe AvcIntraTelecine
 telecine :: Maybe AvcIntraTelecine
 $sel:telecine:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntraTelecine
-</span><a href="#local-6989586621679945918"><span class="hs-identifier hs-var hs-var">telecine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraTelecine
-</span><a href="#local-6989586621679945918"><span class="hs-identifier hs-var">telecine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945917"><span class="annot"><span class="annottext">s :: AvcIntraSettings
-</span><a href="#local-6989586621679945917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945916"><span class="annot"><span class="annottext">Maybe AvcIntraTelecine
-</span><a href="#local-6989586621679945916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
-</span><a href="#local-6989586621679945917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:telecine:AvcIntraSettings' :: Maybe AvcIntraTelecine
+</span><a href="#local-6989586621679945927"><span class="hs-identifier hs-var hs-var">telecine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraTelecine
+</span><a href="#local-6989586621679945927"><span class="hs-identifier hs-var">telecine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945926"><span class="annot"><span class="annottext">s :: AvcIntraSettings
+</span><a href="#local-6989586621679945926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945925"><span class="annot"><span class="annottext">Maybe AvcIntraTelecine
+</span><a href="#local-6989586621679945925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
+</span><a href="#local-6989586621679945926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:telecine:AvcIntraSettings' :: Maybe AvcIntraTelecine
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#%24sel%3Atelecine%3AAvcIntraSettings%27"><span class="hs-identifier hs-var">telecine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraTelecine
-</span><a href="#local-6989586621679945916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679945925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- | Choose the scan line type for the output. Keep the default value,</span><span>
 </span><span id="line-292"></span><span class="hs-comment">-- Progressive (PROGRESSIVE) to create a progressive output, regardless of</span><span>
@@ -476,16 +476,16 @@ $sel:telecine:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntraTelecine
      (Maybe AvcIntraInterlaceMode)
      (Maybe AvcIntraInterlaceMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945914"><span class="annot"><span class="annottext">Maybe AvcIntraInterlaceMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945923"><span class="annot"><span class="annottext">Maybe AvcIntraInterlaceMode
 interlaceMode :: Maybe AvcIntraInterlaceMode
 $sel:interlaceMode:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntraInterlaceMode
-</span><a href="#local-6989586621679945914"><span class="hs-identifier hs-var hs-var">interlaceMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraInterlaceMode
-</span><a href="#local-6989586621679945914"><span class="hs-identifier hs-var">interlaceMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945913"><span class="annot"><span class="annottext">s :: AvcIntraSettings
-</span><a href="#local-6989586621679945913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945912"><span class="annot"><span class="annottext">Maybe AvcIntraInterlaceMode
-</span><a href="#local-6989586621679945912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
-</span><a href="#local-6989586621679945913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interlaceMode:AvcIntraSettings' :: Maybe AvcIntraInterlaceMode
+</span><a href="#local-6989586621679945923"><span class="hs-identifier hs-var hs-var">interlaceMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraInterlaceMode
+</span><a href="#local-6989586621679945923"><span class="hs-identifier hs-var">interlaceMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945922"><span class="annot"><span class="annottext">s :: AvcIntraSettings
+</span><a href="#local-6989586621679945922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945921"><span class="annot"><span class="annottext">Maybe AvcIntraInterlaceMode
+</span><a href="#local-6989586621679945921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
+</span><a href="#local-6989586621679945922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interlaceMode:AvcIntraSettings' :: Maybe AvcIntraInterlaceMode
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#%24sel%3AinterlaceMode%3AAvcIntraSettings%27"><span class="hs-identifier hs-var">interlaceMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraInterlaceMode
-</span><a href="#local-6989586621679945912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679945921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-306"></span><span>
 </span><span id="line-307"></span><span class="hs-comment">-- | Use this setting for interlaced outputs, when your output frame rate is</span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- half of your input frame rate. In this situation, choose Optimized</span><span>
@@ -515,16 +515,16 @@ $sel:interlaceMode:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntraInt
      (Maybe AvcIntraScanTypeConversionMode)
      (Maybe AvcIntraScanTypeConversionMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945910"><span class="annot"><span class="annottext">Maybe AvcIntraScanTypeConversionMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945919"><span class="annot"><span class="annottext">Maybe AvcIntraScanTypeConversionMode
 scanTypeConversionMode :: Maybe AvcIntraScanTypeConversionMode
 $sel:scanTypeConversionMode:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntraScanTypeConversionMode
-</span><a href="#local-6989586621679945910"><span class="hs-identifier hs-var hs-var">scanTypeConversionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraScanTypeConversionMode
-</span><a href="#local-6989586621679945910"><span class="hs-identifier hs-var">scanTypeConversionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945909"><span class="annot"><span class="annottext">s :: AvcIntraSettings
-</span><a href="#local-6989586621679945909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945908"><span class="annot"><span class="annottext">Maybe AvcIntraScanTypeConversionMode
-</span><a href="#local-6989586621679945908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
-</span><a href="#local-6989586621679945909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanTypeConversionMode:AvcIntraSettings' :: Maybe AvcIntraScanTypeConversionMode
+</span><a href="#local-6989586621679945919"><span class="hs-identifier hs-var hs-var">scanTypeConversionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraScanTypeConversionMode
+</span><a href="#local-6989586621679945919"><span class="hs-identifier hs-var">scanTypeConversionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945918"><span class="annot"><span class="annottext">s :: AvcIntraSettings
+</span><a href="#local-6989586621679945918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945917"><span class="annot"><span class="annottext">Maybe AvcIntraScanTypeConversionMode
+</span><a href="#local-6989586621679945917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
+</span><a href="#local-6989586621679945918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanTypeConversionMode:AvcIntraSettings' :: Maybe AvcIntraScanTypeConversionMode
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#%24sel%3AscanTypeConversionMode%3AAvcIntraSettings%27"><span class="hs-identifier hs-var">scanTypeConversionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraScanTypeConversionMode
-</span><a href="#local-6989586621679945908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679945917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-324"></span><span>
 </span><span id="line-325"></span><span class="hs-comment">-- | Specify the AVC-Intra class of your output. The AVC-Intra class</span><span>
 </span><span id="line-326"></span><span class="hs-comment">-- selection determines the output video bit rate depending on the frame</span><span>
@@ -542,16 +542,16 @@ $sel:scanTypeConversionMode:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe Av
      (Maybe AvcIntraClass)
      (Maybe AvcIntraClass)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945906"><span class="annot"><span class="annottext">Maybe AvcIntraClass
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945915"><span class="annot"><span class="annottext">Maybe AvcIntraClass
 avcIntraClass :: Maybe AvcIntraClass
 $sel:avcIntraClass:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntraClass
-</span><a href="#local-6989586621679945906"><span class="hs-identifier hs-var hs-var">avcIntraClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraClass
-</span><a href="#local-6989586621679945906"><span class="hs-identifier hs-var">avcIntraClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945905"><span class="annot"><span class="annottext">s :: AvcIntraSettings
-</span><a href="#local-6989586621679945905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945904"><span class="annot"><span class="annottext">Maybe AvcIntraClass
-</span><a href="#local-6989586621679945904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
-</span><a href="#local-6989586621679945905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:avcIntraClass:AvcIntraSettings' :: Maybe AvcIntraClass
+</span><a href="#local-6989586621679945915"><span class="hs-identifier hs-var hs-var">avcIntraClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraClass
+</span><a href="#local-6989586621679945915"><span class="hs-identifier hs-var">avcIntraClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945914"><span class="annot"><span class="annottext">s :: AvcIntraSettings
+</span><a href="#local-6989586621679945914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945913"><span class="annot"><span class="annottext">Maybe AvcIntraClass
+</span><a href="#local-6989586621679945913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
+</span><a href="#local-6989586621679945914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:avcIntraClass:AvcIntraSettings' :: Maybe AvcIntraClass
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#%24sel%3AavcIntraClass%3AAvcIntraSettings%27"><span class="hs-identifier hs-var">avcIntraClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraClass
-</span><a href="#local-6989586621679945904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679945913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-332"></span><span>
 </span><span id="line-333"></span><span class="hs-comment">-- | When you use the API for transcode jobs that use frame rate conversion,</span><span>
 </span><span id="line-334"></span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
@@ -568,16 +568,16 @@ $sel:avcIntraClass:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntraCla
 -&gt; Lens
      AvcIntraSettings AvcIntraSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945902"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945911"><span class="annot"><span class="annottext">Maybe Natural
 framerateDenominator :: Maybe Natural
 $sel:framerateDenominator:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679945902"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679945902"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945901"><span class="annot"><span class="annottext">s :: AvcIntraSettings
-</span><a href="#local-6989586621679945901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945900"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679945900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
-</span><a href="#local-6989586621679945901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateDenominator:AvcIntraSettings' :: Maybe Natural
+</span><a href="#local-6989586621679945911"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679945911"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945910"><span class="annot"><span class="annottext">s :: AvcIntraSettings
+</span><a href="#local-6989586621679945910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945909"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679945909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
+</span><a href="#local-6989586621679945910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateDenominator:AvcIntraSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#%24sel%3AframerateDenominator%3AAvcIntraSettings%27"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679945900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679945909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-342"></span><span>
 </span><span id="line-343"></span><span class="hs-comment">-- | Choose the method that you want MediaConvert to use when increasing or</span><span>
 </span><span id="line-344"></span><span class="hs-comment">-- decreasing the frame rate. We recommend using drop duplicate</span><span>
@@ -603,16 +603,16 @@ $sel:framerateDenominator:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe Natu
      (Maybe AvcIntraFramerateConversionAlgorithm)
      (Maybe AvcIntraFramerateConversionAlgorithm)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945898"><span class="annot"><span class="annottext">Maybe AvcIntraFramerateConversionAlgorithm
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945907"><span class="annot"><span class="annottext">Maybe AvcIntraFramerateConversionAlgorithm
 framerateConversionAlgorithm :: Maybe AvcIntraFramerateConversionAlgorithm
 $sel:framerateConversionAlgorithm:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntraFramerateConversionAlgorithm
-</span><a href="#local-6989586621679945898"><span class="hs-identifier hs-var hs-var">framerateConversionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraFramerateConversionAlgorithm
-</span><a href="#local-6989586621679945898"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945897"><span class="annot"><span class="annottext">s :: AvcIntraSettings
-</span><a href="#local-6989586621679945897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945896"><span class="annot"><span class="annottext">Maybe AvcIntraFramerateConversionAlgorithm
-</span><a href="#local-6989586621679945896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
-</span><a href="#local-6989586621679945897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateConversionAlgorithm:AvcIntraSettings' :: Maybe AvcIntraFramerateConversionAlgorithm
+</span><a href="#local-6989586621679945907"><span class="hs-identifier hs-var hs-var">framerateConversionAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraFramerateConversionAlgorithm
+</span><a href="#local-6989586621679945907"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945906"><span class="annot"><span class="annottext">s :: AvcIntraSettings
+</span><a href="#local-6989586621679945906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945905"><span class="annot"><span class="annottext">Maybe AvcIntraFramerateConversionAlgorithm
+</span><a href="#local-6989586621679945905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
+</span><a href="#local-6989586621679945906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateConversionAlgorithm:AvcIntraSettings' :: Maybe AvcIntraFramerateConversionAlgorithm
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#%24sel%3AframerateConversionAlgorithm%3AAvcIntraSettings%27"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraFramerateConversionAlgorithm
-</span><a href="#local-6989586621679945896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679945905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-356"></span><span>
 </span><span id="line-357"></span><span class="hs-comment">-- | If you are using the console, use the Framerate setting to specify the</span><span>
 </span><span id="line-358"></span><span class="hs-comment">-- frame rate for this output. If you want to keep the same frame rate as</span><span>
@@ -640,16 +640,16 @@ $sel:framerateConversionAlgorithm:AvcIntraSettings' :: AvcIntraSettings -&gt; Ma
      (Maybe AvcIntraFramerateControl)
      (Maybe AvcIntraFramerateControl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945894"><span class="annot"><span class="annottext">Maybe AvcIntraFramerateControl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945903"><span class="annot"><span class="annottext">Maybe AvcIntraFramerateControl
 framerateControl :: Maybe AvcIntraFramerateControl
 $sel:framerateControl:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntraFramerateControl
-</span><a href="#local-6989586621679945894"><span class="hs-identifier hs-var hs-var">framerateControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraFramerateControl
-</span><a href="#local-6989586621679945894"><span class="hs-identifier hs-var">framerateControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945893"><span class="annot"><span class="annottext">s :: AvcIntraSettings
-</span><a href="#local-6989586621679945893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945892"><span class="annot"><span class="annottext">Maybe AvcIntraFramerateControl
-</span><a href="#local-6989586621679945892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
-</span><a href="#local-6989586621679945893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateControl:AvcIntraSettings' :: Maybe AvcIntraFramerateControl
+</span><a href="#local-6989586621679945903"><span class="hs-identifier hs-var hs-var">framerateControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraFramerateControl
+</span><a href="#local-6989586621679945903"><span class="hs-identifier hs-var">framerateControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945902"><span class="annot"><span class="annottext">s :: AvcIntraSettings
+</span><a href="#local-6989586621679945902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945901"><span class="annot"><span class="annottext">Maybe AvcIntraFramerateControl
+</span><a href="#local-6989586621679945901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
+</span><a href="#local-6989586621679945902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateControl:AvcIntraSettings' :: Maybe AvcIntraFramerateControl
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#%24sel%3AframerateControl%3AAvcIntraSettings%27"><span class="hs-identifier hs-var">framerateControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraFramerateControl
-</span><a href="#local-6989586621679945892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679945901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-372"></span><span>
 </span><span id="line-373"></span><span class="hs-comment">-- | When you use the API for transcode jobs that use frame rate conversion,</span><span>
 </span><span id="line-374"></span><span class="hs-comment">-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =</span><span>
@@ -666,19 +666,19 @@ $sel:framerateControl:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntra
 -&gt; Lens
      AvcIntraSettings AvcIntraSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945890"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945899"><span class="annot"><span class="annottext">Maybe Natural
 framerateNumerator :: Maybe Natural
 $sel:framerateNumerator:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679945890"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679945890"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945889"><span class="annot"><span class="annottext">s :: AvcIntraSettings
-</span><a href="#local-6989586621679945889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945888"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679945888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
-</span><a href="#local-6989586621679945889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateNumerator:AvcIntraSettings' :: Maybe Natural
+</span><a href="#local-6989586621679945899"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679945899"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679945898"><span class="annot"><span class="annottext">s :: AvcIntraSettings
+</span><a href="#local-6989586621679945898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679945897"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679945897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvcIntraSettings
+</span><a href="#local-6989586621679945898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateNumerator:AvcIntraSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#%24sel%3AframerateNumerator%3AAvcIntraSettings%27"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679945888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679945897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-382"></span><span>
-</span><span id="line-383"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679945885"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-384"></span><span>  </span><span id="local-6989586621679945883"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AvcIntraSettings
+</span><span id="line-383"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679945894"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-384"></span><span>  </span><span id="local-6989586621679945892"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AvcIntraSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-385"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AvcIntraSettings)
@@ -688,8 +688,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-386"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AvcIntraSettings&quot;</span></span><span>
-</span><span id="line-387"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679945880"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679945880"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-387"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679945889"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679945889"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-388"></span><span>          </span><span class="annot"><span class="annottext">Maybe AvcIntraSlowPal
 -&gt; Maybe AvcIntraUhdSettings
 -&gt; Maybe AvcIntraTelecine
@@ -727,7 +727,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AvcIntraSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679945880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvcIntraSlowPal)
+</span><a href="#local-6989586621679945889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvcIntraSlowPal)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;slowPal&quot;</span></span><span class="hs-special">)</span><span>
@@ -755,7 +755,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AvcIntraSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679945880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvcIntraUhdSettings)
+</span><a href="#local-6989586621679945889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvcIntraUhdSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;avcIntraUhdSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -781,7 +781,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AvcIntraSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679945880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvcIntraTelecine)
+</span><a href="#local-6989586621679945889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvcIntraTelecine)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;telecine&quot;</span></span><span class="hs-special">)</span><span>
@@ -805,7 +805,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AvcIntraSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679945880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvcIntraInterlaceMode)
+</span><a href="#local-6989586621679945889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvcIntraInterlaceMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;interlaceMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -827,7 +827,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AvcIntraSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679945880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvcIntraScanTypeConversionMode)
+</span><a href="#local-6989586621679945889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvcIntraScanTypeConversionMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scanTypeConversionMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -847,7 +847,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AvcIntraSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679945880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvcIntraClass)
+</span><a href="#local-6989586621679945889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvcIntraClass)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;avcIntraClass&quot;</span></span><span class="hs-special">)</span><span>
@@ -865,7 +865,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AvcIntraSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679945880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679945889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span class="hs-special">)</span><span>
@@ -880,7 +880,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Natural -&gt; AvcIntraSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679945880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679945889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe AvcIntraFramerateConversionAlgorithm)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -892,7 +892,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; AvcIntraSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679945880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvcIntraFramerateControl)
+</span><a href="#local-6989586621679945889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AvcIntraFramerateControl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateControl&quot;</span></span><span class="hs-special">)</span><span>
@@ -900,19 +900,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser AvcIntraSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679945880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679945889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-399"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-400"></span><span>
-</span><span id="line-401"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679945874"><span id="local-6989586621679945876"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span></span></span><span>
+</span><span id="line-401"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679945883"><span id="local-6989586621679945885"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span></span></span><span>
 </span><span id="line-402"></span><span>
-</span><span id="line-403"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679945871"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span></span><span>
+</span><span id="line-403"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679945880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span></span><span>
 </span><span id="line-404"></span><span>
-</span><span id="line-405"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679945863"><span id="local-6989586621679945865"><span id="local-6989586621679945867"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-406"></span><span>  </span><span id="local-6989586621679945861"><span class="annot"><span class="annottext">toJSON :: AvcIntraSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945850"><span id="local-6989586621679945851"><span id="local-6989586621679945852"><span id="local-6989586621679945853"><span id="local-6989586621679945854"><span id="local-6989586621679945855"><span id="local-6989586621679945856"><span id="local-6989586621679945857"><span id="local-6989586621679945858"><span id="local-6989586621679945859"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-405"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679945872"><span id="local-6989586621679945874"><span id="local-6989586621679945876"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings"><span class="hs-identifier hs-type">AvcIntraSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-406"></span><span>  </span><span id="local-6989586621679945870"><span class="annot"><span class="annottext">toJSON :: AvcIntraSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraSettings.html#AvcIntraSettings%27"><span class="hs-identifier hs-type">AvcIntraSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679945859"><span id="local-6989586621679945860"><span id="local-6989586621679945861"><span id="local-6989586621679945862"><span id="local-6989586621679945863"><span id="local-6989586621679945864"><span id="local-6989586621679945865"><span id="local-6989586621679945866"><span id="local-6989586621679945867"><span id="local-6989586621679945868"><span class="annot"><span class="annottext">Maybe Natural
 Maybe AvcIntraClass
 Maybe AvcIntraFramerateControl
 Maybe AvcIntraFramerateConversionAlgorithm
@@ -941,7 +941,7 @@ $sel:interlaceMode:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntraInt
 $sel:telecine:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntraTelecine
 $sel:avcIntraUhdSettings:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntraUhdSettings
 $sel:slowPal:AvcIntraSettings' :: AvcIntraSettings -&gt; Maybe AvcIntraSlowPal
-</span><a href="#local-6989586621679945850"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679945859"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-407"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-408"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -953,7 +953,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AvcIntraSlowPal -&gt; Pair) -&gt; Maybe AvcIntraSlowPal -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraSlowPal
-</span><a href="#local-6989586621679945859"><span class="hs-identifier hs-var">slowPal</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679945868"><span class="hs-identifier hs-var">slowPal</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-410"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;avcIntraUhdSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AvcIntraUhdSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -962,14 +962,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AvcIntraUhdSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraUhdSettings
-</span><a href="#local-6989586621679945858"><span class="hs-identifier hs-var">avcIntraUhdSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679945867"><span class="hs-identifier hs-var">avcIntraUhdSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-412"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;telecine&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AvcIntraTelecine -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AvcIntraTelecine -&gt; Pair) -&gt; Maybe AvcIntraTelecine -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraTelecine
-</span><a href="#local-6989586621679945857"><span class="hs-identifier hs-var">telecine</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679945866"><span class="hs-identifier hs-var">telecine</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-413"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;interlaceMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AvcIntraInterlaceMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -977,7 +977,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AvcIntraInterlaceMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraInterlaceMode
-</span><a href="#local-6989586621679945856"><span class="hs-identifier hs-var">interlaceMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679945865"><span class="hs-identifier hs-var">interlaceMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-414"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scanTypeConversionMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AvcIntraScanTypeConversionMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -986,14 +986,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AvcIntraScanTypeConversionMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraScanTypeConversionMode
-</span><a href="#local-6989586621679945855"><span class="hs-identifier hs-var">scanTypeConversionMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679945864"><span class="hs-identifier hs-var">scanTypeConversionMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-416"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;avcIntraClass&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AvcIntraClass -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AvcIntraClass -&gt; Pair) -&gt; Maybe AvcIntraClass -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraClass
-</span><a href="#local-6989586621679945854"><span class="hs-identifier hs-var">avcIntraClass</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679945863"><span class="hs-identifier hs-var">avcIntraClass</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-417"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1001,7 +1001,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-418"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679945853"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679945862"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-419"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateConversionAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AvcIntraFramerateConversionAlgorithm -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1010,7 +1010,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AvcIntraFramerateConversionAlgorithm -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraFramerateConversionAlgorithm
-</span><a href="#local-6989586621679945852"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679945861"><span class="hs-identifier hs-var">framerateConversionAlgorithm</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-421"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateControl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AvcIntraFramerateControl -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1019,7 +1019,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AvcIntraFramerateControl -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AvcIntraFramerateControl
-</span><a href="#local-6989586621679945851"><span class="hs-identifier hs-var">framerateControl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679945860"><span class="hs-identifier hs-var">framerateControl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-423"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1027,7 +1027,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-424"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679945850"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span>
+</span><a href="#local-6989586621679945859"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span>
 </span><span id="line-425"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-426"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-427"></span></pre></body></html>

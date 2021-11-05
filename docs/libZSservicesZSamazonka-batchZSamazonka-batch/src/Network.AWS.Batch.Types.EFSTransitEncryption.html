@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679260031"><span id="local-6989586621679260032"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EFSTransitEncryption"><span class="annot"><a href="Network.AWS.Batch.Types.EFSTransitEncryption.html#EFSTransitEncryption"><span class="hs-identifier hs-var">EFSTransitEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EFSTransitEncryption%27"><span class="annot"><a href="Network.AWS.Batch.Types.EFSTransitEncryption.html#EFSTransitEncryption%27"><span class="hs-identifier hs-var">EFSTransitEncryption'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679260040"><span id="local-6989586621679260041"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EFSTransitEncryption"><span class="annot"><a href="Network.AWS.Batch.Types.EFSTransitEncryption.html#EFSTransitEncryption"><span class="hs-identifier hs-var">EFSTransitEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EFSTransitEncryption%27"><span class="annot"><a href="Network.AWS.Batch.Types.EFSTransitEncryption.html#EFSTransitEncryption%27"><span class="hs-identifier hs-var">EFSTransitEncryption'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEFSTransitEncryption"><span class="annot"><span class="annottext">EFSTransitEncryption -&gt; Text
 </span><a href="Network.AWS.Batch.Types.EFSTransitEncryption.html#fromEFSTransitEncryption"><span class="hs-identifier hs-var hs-var">fromEFSTransitEncryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260023"><span id="local-6989586621679260025"><span id="local-6989586621679260027"><span class="annot"><span class="annottext">Int -&gt; EFSTransitEncryption -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260032"><span id="local-6989586621679260034"><span id="local-6989586621679260036"><span class="annot"><span class="annottext">Int -&gt; EFSTransitEncryption -&gt; ShowS
 [EFSTransitEncryption] -&gt; ShowS
 EFSTransitEncryption -&gt; String
 (Int -&gt; EFSTransitEncryption -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: EFSTransitEncryption -&gt; String
 showsPrec :: Int -&gt; EFSTransitEncryption -&gt; ShowS
 $cshowsPrec :: Int -&gt; EFSTransitEncryption -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679260014"><span id="local-6989586621679260016"><span id="local-6989586621679260018"><span id="local-6989586621679260020"><span class="annot"><span class="annottext">ReadPrec [EFSTransitEncryption]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679260023"><span id="local-6989586621679260025"><span id="local-6989586621679260027"><span id="local-6989586621679260029"><span class="annot"><span class="annottext">ReadPrec [EFSTransitEncryption]
 ReadPrec EFSTransitEncryption
 Int -&gt; ReadS EFSTransitEncryption
 ReadS [EFSTransitEncryption]
@@ -72,7 +72,7 @@ $creadList :: ReadS [EFSTransitEncryption]
 readsPrec :: Int -&gt; ReadS EFSTransitEncryption
 $creadsPrec :: Int -&gt; ReadS EFSTransitEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679260009"><span id="local-6989586621679260011"><span class="annot"><span class="annottext">EFSTransitEncryption -&gt; EFSTransitEncryption -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679260018"><span id="local-6989586621679260020"><span class="annot"><span class="annottext">EFSTransitEncryption -&gt; EFSTransitEncryption -&gt; Bool
 (EFSTransitEncryption -&gt; EFSTransitEncryption -&gt; Bool)
 -&gt; (EFSTransitEncryption -&gt; EFSTransitEncryption -&gt; Bool)
 -&gt; Eq EFSTransitEncryption
@@ -82,7 +82,7 @@ $c/= :: EFSTransitEncryption -&gt; EFSTransitEncryption -&gt; Bool
 == :: EFSTransitEncryption -&gt; EFSTransitEncryption -&gt; Bool
 $c== :: EFSTransitEncryption -&gt; EFSTransitEncryption -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679259993"><span id="local-6989586621679259995"><span id="local-6989586621679259997"><span id="local-6989586621679259999"><span id="local-6989586621679260001"><span id="local-6989586621679260003"><span id="local-6989586621679260005"><span class="annot"><span class="annottext">Eq EFSTransitEncryption
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679260002"><span id="local-6989586621679260004"><span id="local-6989586621679260006"><span id="local-6989586621679260008"><span id="local-6989586621679260010"><span id="local-6989586621679260012"><span id="local-6989586621679260014"><span class="annot"><span class="annottext">Eq EFSTransitEncryption
 Eq EFSTransitEncryption
 -&gt; (EFSTransitEncryption -&gt; EFSTransitEncryption -&gt; Ordering)
 -&gt; (EFSTransitEncryption -&gt; EFSTransitEncryption -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. EFSTransitEncryption -&gt; Rep EFSTransitEncryption x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259985"><span id="local-6989586621679259987"><span class="annot"><span class="annottext">Int -&gt; EFSTransitEncryption -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259994"><span id="local-6989586621679259996"><span class="annot"><span class="annottext">Int -&gt; EFSTransitEncryption -&gt; Int
 EFSTransitEncryption -&gt; Int
 (Int -&gt; EFSTransitEncryption -&gt; Int)
 -&gt; (EFSTransitEncryption -&gt; Int) -&gt; Hashable EFSTransitEncryption
@@ -150,54 +150,54 @@ $chash :: EFSTransitEncryption -&gt; Int
 hashWithSalt :: Int -&gt; EFSTransitEncryption -&gt; Int
 $chashWithSalt :: Int -&gt; EFSTransitEncryption -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679259982"><span class="annot"><span class="annottext">EFSTransitEncryption -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679259991"><span class="annot"><span class="annottext">EFSTransitEncryption -&gt; ()
 (EFSTransitEncryption -&gt; ()) -&gt; NFData EFSTransitEncryption
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EFSTransitEncryption -&gt; ()
 $crnf :: EFSTransitEncryption -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679259979"><span class="annot"><span class="annottext">Text -&gt; Either String EFSTransitEncryption
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679259988"><span class="annot"><span class="annottext">Text -&gt; Either String EFSTransitEncryption
 (Text -&gt; Either String EFSTransitEncryption)
 -&gt; FromText EFSTransitEncryption
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EFSTransitEncryption
 $cfromText :: Text -&gt; Either String EFSTransitEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679259976"><span class="annot"><span class="annottext">EFSTransitEncryption -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679259985"><span class="annot"><span class="annottext">EFSTransitEncryption -&gt; Text
 (EFSTransitEncryption -&gt; Text) -&gt; ToText EFSTransitEncryption
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EFSTransitEncryption -&gt; Text
 $ctoText :: EFSTransitEncryption -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679259973"><span class="annot"><span class="annottext">EFSTransitEncryption -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679259982"><span class="annot"><span class="annottext">EFSTransitEncryption -&gt; ByteString
 (EFSTransitEncryption -&gt; ByteString)
 -&gt; ToByteString EFSTransitEncryption
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EFSTransitEncryption -&gt; ByteString
 $ctoBS :: EFSTransitEncryption -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679259970"><span class="annot"><span class="annottext">EFSTransitEncryption -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679259979"><span class="annot"><span class="annottext">EFSTransitEncryption -&gt; ByteStringBuilder
 (EFSTransitEncryption -&gt; ByteStringBuilder)
 -&gt; ToLog EFSTransitEncryption
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EFSTransitEncryption -&gt; ByteStringBuilder
 $cbuild :: EFSTransitEncryption -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679259967"><span class="annot"><span class="annottext">HeaderName -&gt; EFSTransitEncryption -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679259976"><span class="annot"><span class="annottext">HeaderName -&gt; EFSTransitEncryption -&gt; [Header]
 (HeaderName -&gt; EFSTransitEncryption -&gt; [Header])
 -&gt; ToHeader EFSTransitEncryption
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EFSTransitEncryption -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EFSTransitEncryption -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679259964"><span class="annot"><span class="annottext">EFSTransitEncryption -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679259973"><span class="annot"><span class="annottext">EFSTransitEncryption -&gt; QueryString
 (EFSTransitEncryption -&gt; QueryString)
 -&gt; ToQuery EFSTransitEncryption
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EFSTransitEncryption -&gt; QueryString
 $ctoQuery :: EFSTransitEncryption -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679259959"><span id="local-6989586621679259961"><span class="annot"><span class="annottext">Value -&gt; Parser [EFSTransitEncryption]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679259968"><span id="local-6989586621679259970"><span class="annot"><span class="annottext">Value -&gt; Parser [EFSTransitEncryption]
 Value -&gt; Parser EFSTransitEncryption
 (Value -&gt; Parser EFSTransitEncryption)
 -&gt; (Value -&gt; Parser [EFSTransitEncryption])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [EFSTransitEncryption]
 parseJSON :: Value -&gt; Parser EFSTransitEncryption
 $cparseJSON :: Value -&gt; Parser EFSTransitEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679259954"><span id="local-6989586621679259956"><span class="annot"><span class="annottext">FromJSONKeyFunction [EFSTransitEncryption]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679259963"><span id="local-6989586621679259965"><span class="annot"><span class="annottext">FromJSONKeyFunction [EFSTransitEncryption]
 FromJSONKeyFunction EFSTransitEncryption
 FromJSONKeyFunction EFSTransitEncryption
 -&gt; FromJSONKeyFunction [EFSTransitEncryption]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EFSTransitEncryption]
 fromJSONKey :: FromJSONKeyFunction EFSTransitEncryption
 $cfromJSONKey :: FromJSONKeyFunction EFSTransitEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679259945"><span id="local-6989586621679259947"><span id="local-6989586621679259949"><span id="local-6989586621679259951"><span class="annot"><span class="annottext">[EFSTransitEncryption] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679259954"><span id="local-6989586621679259956"><span id="local-6989586621679259958"><span id="local-6989586621679259960"><span class="annot"><span class="annottext">[EFSTransitEncryption] -&gt; Encoding
 [EFSTransitEncryption] -&gt; Value
 EFSTransitEncryption -&gt; Encoding
 EFSTransitEncryption -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: EFSTransitEncryption -&gt; Encoding
 toJSON :: EFSTransitEncryption -&gt; Value
 $ctoJSON :: EFSTransitEncryption -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679259940"><span id="local-6989586621679259942"><span class="annot"><span class="annottext">ToJSONKeyFunction [EFSTransitEncryption]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679259949"><span id="local-6989586621679259951"><span class="annot"><span class="annottext">ToJSONKeyFunction [EFSTransitEncryption]
 ToJSONKeyFunction EFSTransitEncryption
 ToJSONKeyFunction EFSTransitEncryption
 -&gt; ToJSONKeyFunction [EFSTransitEncryption]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EFSTransitEncryption]
 toJSONKey :: ToJSONKeyFunction EFSTransitEncryption
 $ctoJSONKey :: ToJSONKeyFunction EFSTransitEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679259937"><span class="annot"><span class="annottext">[Node] -&gt; Either String EFSTransitEncryption
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679259946"><span class="annot"><span class="annottext">[Node] -&gt; Either String EFSTransitEncryption
 ([Node] -&gt; Either String EFSTransitEncryption)
 -&gt; FromXML EFSTransitEncryption
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EFSTransitEncryption
 $cparseXML :: [Node] -&gt; Either String EFSTransitEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679259934"><span class="annot"><span class="annottext">EFSTransitEncryption -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679259943"><span class="annot"><span class="annottext">EFSTransitEncryption -&gt; XML
 (EFSTransitEncryption -&gt; XML) -&gt; ToXML EFSTransitEncryption
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EFSTransitEncryption -&gt; XML

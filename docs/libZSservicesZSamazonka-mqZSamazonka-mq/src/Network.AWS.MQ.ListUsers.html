@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListUsers' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679226060"><span id="local-6989586621679226061"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListUsers"><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-var">ListUsers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListUsers%27"><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-var">ListUsers'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679226069"><span id="local-6989586621679226070"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListUsers"><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-var">ListUsers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListUsers%27"><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-var">ListUsers'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token that specifies the next page of results Amazon MQ should</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- return. To request the first page, leave nextToken empty.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListUsers%27"><span class="annot"><span class="annottext">ListUsers -&gt; Maybe Text
@@ -65,7 +65,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AbrokerId%3AListUsers%27"><span class="annot"><span class="annottext">ListUsers -&gt; Text
 </span><a href="Network.AWS.MQ.ListUsers.html#%24sel%3AbrokerId%3AListUsers%27"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226052"><span id="local-6989586621679226054"><span class="annot"><span class="annottext">ListUsers -&gt; ListUsers -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226061"><span id="local-6989586621679226063"><span class="annot"><span class="annottext">ListUsers -&gt; ListUsers -&gt; Bool
 (ListUsers -&gt; ListUsers -&gt; Bool)
 -&gt; (ListUsers -&gt; ListUsers -&gt; Bool) -&gt; Eq ListUsers
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListUsers -&gt; ListUsers -&gt; Bool
 == :: ListUsers -&gt; ListUsers -&gt; Bool
 $c== :: ListUsers -&gt; ListUsers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226043"><span id="local-6989586621679226045"><span id="local-6989586621679226047"><span id="local-6989586621679226049"><span class="annot"><span class="annottext">ReadPrec [ListUsers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226052"><span id="local-6989586621679226054"><span id="local-6989586621679226056"><span id="local-6989586621679226058"><span class="annot"><span class="annottext">ReadPrec [ListUsers]
 ReadPrec ListUsers
 Int -&gt; ReadS ListUsers
 ReadS [ListUsers]
@@ -93,7 +93,7 @@ readList :: ReadS [ListUsers]
 $creadList :: ReadS [ListUsers]
 readsPrec :: Int -&gt; ReadS ListUsers
 $creadsPrec :: Int -&gt; ReadS ListUsers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226036"><span id="local-6989586621679226038"><span id="local-6989586621679226040"><span class="annot"><span class="annottext">Int -&gt; ListUsers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226045"><span id="local-6989586621679226047"><span id="local-6989586621679226049"><span class="annot"><span class="annottext">Int -&gt; ListUsers -&gt; ShowS
 [ListUsers] -&gt; ShowS
 ListUsers -&gt; String
 (Int -&gt; ListUsers -&gt; ShowS)
@@ -138,8 +138,8 @@ $cfrom :: forall x. ListUsers -&gt; Rep ListUsers x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span>
 </span><span id="line-86"></span><span id="newListUsers"><span class="annot"><span class="annottext">newListUsers :: Text -&gt; ListUsers
-</span><a href="Network.AWS.MQ.ListUsers.html#newListUsers"><span class="hs-identifier hs-var hs-var">newListUsers</span></a></span></span><span> </span><span id="local-6989586621679226031"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226031"><span class="hs-identifier hs-var">pBrokerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.ListUsers.html#newListUsers"><span class="hs-identifier hs-var hs-var">newListUsers</span></a></span></span><span> </span><span id="local-6989586621679226040"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226040"><span class="hs-identifier hs-var">pBrokerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">ListUsers' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListUsers
 </span><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListUsers' :: Maybe Text
@@ -152,7 +152,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:brokerId:ListUsers' :: Text
 </span><a href="Network.AWS.MQ.ListUsers.html#%24sel%3AbrokerId%3AListUsers%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226031"><span class="hs-identifier hs-var">pBrokerId_</span></a></span><span>
+</span><a href="#local-6989586621679226040"><span class="hs-identifier hs-var">pBrokerId_</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The token that specifies the next page of results Amazon MQ should</span><span>
@@ -163,16 +163,16 @@ forall a. Maybe a
 -&gt; (ListUsers -&gt; Maybe Text -&gt; ListUsers)
 -&gt; Lens ListUsers ListUsers (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226028"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226037"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListUsers' :: ListUsers -&gt; Maybe Text
-</span><a href="#local-6989586621679226028"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226028"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226027"><span class="annot"><span class="annottext">s :: ListUsers
-</span><a href="#local-6989586621679226027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226026"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsers
-</span><a href="#local-6989586621679226027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListUsers' :: Maybe Text
+</span><a href="#local-6989586621679226037"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226037"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226036"><span class="annot"><span class="annottext">s :: ListUsers
+</span><a href="#local-6989586621679226036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226035"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsers
+</span><a href="#local-6989586621679226036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListUsers' :: Maybe Text
 </span><a href="Network.AWS.MQ.ListUsers.html#%24sel%3AnextToken%3AListUsers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The maximum number of brokers that Amazon MQ can return per page (20 by</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- default). This value must be an integer from 5 to 100.</span><span>
@@ -182,16 +182,16 @@ $sel:nextToken:ListUsers' :: ListUsers -&gt; Maybe Text
 -&gt; (ListUsers -&gt; Maybe Natural -&gt; ListUsers)
 -&gt; Lens ListUsers ListUsers (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226025"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226034"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListUsers' :: ListUsers -&gt; Maybe Natural
-</span><a href="#local-6989586621679226025"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679226025"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226024"><span class="annot"><span class="annottext">s :: ListUsers
-</span><a href="#local-6989586621679226024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226023"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679226023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsers
-</span><a href="#local-6989586621679226024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListUsers' :: Maybe Natural
+</span><a href="#local-6989586621679226034"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679226034"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226033"><span class="annot"><span class="annottext">s :: ListUsers
+</span><a href="#local-6989586621679226033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226032"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679226032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsers
+</span><a href="#local-6989586621679226033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListUsers' :: Maybe Natural
 </span><a href="Network.AWS.MQ.ListUsers.html#%24sel%3AmaxResults%3AListUsers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679226023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The unique ID that Amazon MQ generates for the broker.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#listUsers_brokerId"><span class="hs-identifier hs-type">listUsers_brokerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -200,25 +200,25 @@ $sel:maxResults:ListUsers' :: ListUsers -&gt; Maybe Natural
 -&gt; (ListUsers -&gt; Text -&gt; ListUsers)
 -&gt; Lens ListUsers ListUsers Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226022"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226031"><span class="annot"><span class="annottext">Text
 brokerId :: Text
 $sel:brokerId:ListUsers' :: ListUsers -&gt; Text
-</span><a href="#local-6989586621679226022"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226022"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226021"><span class="annot"><span class="annottext">s :: ListUsers
-</span><a href="#local-6989586621679226021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226020"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsers
-</span><a href="#local-6989586621679226021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:ListUsers' :: Text
+</span><a href="#local-6989586621679226031"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226031"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226030"><span class="annot"><span class="annottext">s :: ListUsers
+</span><a href="#local-6989586621679226030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226029"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsers
+</span><a href="#local-6989586621679226030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:ListUsers' :: Text
 </span><a href="Network.AWS.MQ.ListUsers.html#%24sel%3AbrokerId%3AListUsers%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679226016"><span class="annot"><span class="annottext">request :: ListUsers -&gt; Request ListUsers
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679226025"><span class="annot"><span class="annottext">request :: ListUsers -&gt; Request ListUsers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListUsers -&gt; Request ListUsers
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MQ.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679226012"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679226021"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListUsers
 -&gt; ClientResponse ClientBody
@@ -242,10 +242,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226009"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226009"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226008"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679226008"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226007"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226007"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226018"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226018"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226017"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679226017"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226016"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226016"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UserSummary]
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -266,7 +266,7 @@ MonadResource m =&gt;
       -&gt; Maybe Text -&gt; Maybe Natural -&gt; Int -&gt; ListUsersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [UserSummary]))
+</span><a href="#local-6989586621679226016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [UserSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;users&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [UserSummary]))
@@ -284,7 +284,7 @@ forall a. Monoid a =&gt; a
      String (Maybe Text -&gt; Maybe Natural -&gt; Int -&gt; ListUsersResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679226016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -294,7 +294,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Natural -&gt; Int -&gt; ListUsersResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679226016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;brokerId&quot;</span></span><span class="hs-special">)</span><span>
@@ -303,7 +303,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListUsersResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679226016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span class="hs-special">)</span><span>
@@ -315,15 +315,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226009"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226018"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225998"><span id="local-6989586621679226000"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226007"><span id="local-6989586621679226009"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225995"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679225991"><span class="annot"><span class="annottext">toHeaders :: ListUsers -&gt; ResponseHeaders
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679226000"><span class="annot"><span class="annottext">toHeaders :: ListUsers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListUsers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -343,8 +343,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679225985"><span class="annot"><span class="annottext">toPath :: ListUsers -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225981"><span id="local-6989586621679225982"><span id="local-6989586621679225983"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679225994"><span class="annot"><span class="annottext">toPath :: ListUsers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225990"><span id="local-6989586621679225991"><span id="local-6989586621679225992"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 brokerId :: Text
@@ -353,7 +353,7 @@ nextToken :: Maybe Text
 $sel:brokerId:ListUsers' :: ListUsers -&gt; Text
 $sel:maxResults:ListUsers' :: ListUsers -&gt; Maybe Natural
 $sel:nextToken:ListUsers' :: ListUsers -&gt; Maybe Text
-</span><a href="#local-6989586621679225981"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679225990"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -361,12 +361,12 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/v1/brokers/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225981"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679225990"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/users&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679225977"><span class="annot"><span class="annottext">toQuery :: ListUsers -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225973"><span id="local-6989586621679225974"><span id="local-6989586621679225975"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679225986"><span class="annot"><span class="annottext">toQuery :: ListUsers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225982"><span id="local-6989586621679225983"><span id="local-6989586621679225984"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 brokerId :: Text
@@ -375,7 +375,7 @@ nextToken :: Maybe Text
 $sel:brokerId:ListUsers' :: ListUsers -&gt; Text
 $sel:maxResults:ListUsers' :: ListUsers -&gt; Maybe Natural
 $sel:nextToken:ListUsers' :: ListUsers -&gt; Maybe Text
-</span><a href="#local-6989586621679225973"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679225982"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -383,16 +383,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225975"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225984"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679225974"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679225983"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newListUsersResponse' smart constructor.</span><span>
-</span><span id="line-149"></span><span id="local-6989586621679225970"><span id="local-6989586621679225971"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListUsersResponse"><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-var">ListUsersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListUsersResponse%27"><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-var">ListUsersResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span id="local-6989586621679225979"><span id="local-6989586621679225980"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListUsersResponse"><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-var">ListUsersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListUsersResponse%27"><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-var">ListUsersResponse'</span></a></span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Required. The list of all ActiveMQ usernames for the specified broker.</span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-comment">-- Does not apply to RabbitMQ brokers.</span><span>
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3Ausers%3AListUsersResponse%27"><span class="annot"><span class="annottext">ListUsersResponse -&gt; Maybe [UserSummary]
@@ -412,7 +412,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-162"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListUsersResponse%27"><span class="annot"><span class="annottext">ListUsersResponse -&gt; Int
 </span><a href="Network.AWS.MQ.ListUsers.html#%24sel%3AhttpStatus%3AListUsersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225961"><span id="local-6989586621679225963"><span class="annot"><span class="annottext">ListUsersResponse -&gt; ListUsersResponse -&gt; Bool
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225970"><span id="local-6989586621679225972"><span class="annot"><span class="annottext">ListUsersResponse -&gt; ListUsersResponse -&gt; Bool
 (ListUsersResponse -&gt; ListUsersResponse -&gt; Bool)
 -&gt; (ListUsersResponse -&gt; ListUsersResponse -&gt; Bool)
 -&gt; Eq ListUsersResponse
@@ -421,7 +421,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListUsersResponse -&gt; ListUsersResponse -&gt; Bool
 == :: ListUsersResponse -&gt; ListUsersResponse -&gt; Bool
 $c== :: ListUsersResponse -&gt; ListUsersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225953"><span id="local-6989586621679225955"><span id="local-6989586621679225957"><span id="local-6989586621679225959"><span class="annot"><span class="annottext">ReadPrec [ListUsersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225962"><span id="local-6989586621679225964"><span id="local-6989586621679225966"><span id="local-6989586621679225968"><span class="annot"><span class="annottext">ReadPrec [ListUsersResponse]
 ReadPrec ListUsersResponse
 Int -&gt; ReadS ListUsersResponse
 ReadS [ListUsersResponse]
@@ -441,7 +441,7 @@ readList :: ReadS [ListUsersResponse]
 $creadList :: ReadS [ListUsersResponse]
 readsPrec :: Int -&gt; ReadS ListUsersResponse
 $creadsPrec :: Int -&gt; ReadS ListUsersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225947"><span id="local-6989586621679225949"><span id="local-6989586621679225951"><span class="annot"><span class="annottext">Int -&gt; ListUsersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225956"><span id="local-6989586621679225958"><span id="local-6989586621679225960"><span class="annot"><span class="annottext">Int -&gt; ListUsersResponse -&gt; ShowS
 [ListUsersResponse] -&gt; ShowS
 ListUsersResponse -&gt; String
 (Int -&gt; ListUsersResponse -&gt; ShowS)
@@ -492,8 +492,8 @@ $cfrom :: forall x. ListUsersResponse -&gt; Rep ListUsersResponse x
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span>
 </span><span id="line-190"></span><span id="newListUsersResponse"><span class="annot"><span class="annottext">newListUsersResponse :: Int -&gt; ListUsersResponse
-</span><a href="Network.AWS.MQ.ListUsers.html#newListUsersResponse"><span class="hs-identifier hs-var hs-var">newListUsersResponse</span></a></span></span><span> </span><span id="local-6989586621679225944"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225944"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.ListUsers.html#newListUsersResponse"><span class="hs-identifier hs-var hs-var">newListUsersResponse</span></a></span></span><span> </span><span id="local-6989586621679225953"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225953"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="annottext">ListUsersResponse' :: Maybe [UserSummary]
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -519,7 +519,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListUsersResponse' :: Int
 </span><a href="Network.AWS.MQ.ListUsers.html#%24sel%3AhttpStatus%3AListUsersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225944"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679225953"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-197"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | Required. The list of all ActiveMQ usernames for the specified broker.</span><span>
@@ -535,16 +535,16 @@ forall a. Maybe a
      (Maybe [UserSummary])
      (Maybe [UserSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225943"><span class="annot"><span class="annottext">Maybe [UserSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225952"><span class="annot"><span class="annottext">Maybe [UserSummary]
 users :: Maybe [UserSummary]
 $sel:users:ListUsersResponse' :: ListUsersResponse -&gt; Maybe [UserSummary]
-</span><a href="#local-6989586621679225943"><span class="hs-identifier hs-var hs-var">users</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UserSummary]
-</span><a href="#local-6989586621679225943"><span class="hs-identifier hs-var">users</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225942"><span class="annot"><span class="annottext">s :: ListUsersResponse
-</span><a href="#local-6989586621679225942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225941"><span class="annot"><span class="annottext">Maybe [UserSummary]
-</span><a href="#local-6989586621679225941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsersResponse
-</span><a href="#local-6989586621679225942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:users:ListUsersResponse' :: Maybe [UserSummary]
+</span><a href="#local-6989586621679225952"><span class="hs-identifier hs-var hs-var">users</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UserSummary]
+</span><a href="#local-6989586621679225952"><span class="hs-identifier hs-var">users</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225951"><span class="annot"><span class="annottext">s :: ListUsersResponse
+</span><a href="#local-6989586621679225951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225950"><span class="annot"><span class="annottext">Maybe [UserSummary]
+</span><a href="#local-6989586621679225950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsersResponse
+</span><a href="#local-6989586621679225951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:users:ListUsersResponse' :: Maybe [UserSummary]
 </span><a href="Network.AWS.MQ.ListUsers.html#%24sel%3Ausers%3AListUsersResponse%27"><span class="hs-identifier hs-var">users</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UserSummary]
-</span><a href="#local-6989586621679225941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UserSummary] -&gt; f (Maybe [UserSummary]))
+</span><a href="#local-6989586621679225950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UserSummary] -&gt; f (Maybe [UserSummary]))
  -&gt; ListUsersResponse -&gt; f ListUsersResponse)
 -&gt; ((Maybe [UserSummary] -&gt; f (Maybe [UserSummary]))
     -&gt; Maybe [UserSummary] -&gt; f (Maybe [UserSummary]))
@@ -575,16 +575,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListUsersResponse ListUsersResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225937"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225946"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListUsersResponse' :: ListUsersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679225937"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225937"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225936"><span class="annot"><span class="annottext">s :: ListUsersResponse
-</span><a href="#local-6989586621679225936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225935"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsersResponse
-</span><a href="#local-6989586621679225936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListUsersResponse' :: Maybe Text
+</span><a href="#local-6989586621679225946"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225946"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225945"><span class="annot"><span class="annottext">s :: ListUsersResponse
+</span><a href="#local-6989586621679225945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225944"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsersResponse
+</span><a href="#local-6989586621679225945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListUsersResponse' :: Maybe Text
 </span><a href="Network.AWS.MQ.ListUsers.html#%24sel%3AnextToken%3AListUsersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | Required. The unique ID that Amazon MQ generates for the broker.</span><span>
 </span><span id="line-210"></span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#listUsersResponse_brokerId"><span class="hs-identifier hs-type">listUsersResponse_brokerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -595,16 +595,16 @@ $sel:nextToken:ListUsersResponse' :: ListUsersResponse -&gt; Maybe Text
 -&gt; Lens
      ListUsersResponse ListUsersResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225934"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225943"><span class="annot"><span class="annottext">Maybe Text
 brokerId :: Maybe Text
 $sel:brokerId:ListUsersResponse' :: ListUsersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679225934"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225934"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225933"><span class="annot"><span class="annottext">s :: ListUsersResponse
-</span><a href="#local-6989586621679225933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225932"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsersResponse
-</span><a href="#local-6989586621679225933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:ListUsersResponse' :: Maybe Text
+</span><a href="#local-6989586621679225943"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225943"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225942"><span class="annot"><span class="annottext">s :: ListUsersResponse
+</span><a href="#local-6989586621679225942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225941"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679225941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsersResponse
+</span><a href="#local-6989586621679225942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:ListUsersResponse' :: Maybe Text
 </span><a href="Network.AWS.MQ.ListUsers.html#%24sel%3AbrokerId%3AListUsersResponse%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679225932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | Required. The maximum number of ActiveMQ users that can be returned per</span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- page (20 by default). This value must be an integer from 5 to 100.</span><span>
@@ -616,16 +616,16 @@ $sel:brokerId:ListUsersResponse' :: ListUsersResponse -&gt; Maybe Text
 -&gt; Lens
      ListUsersResponse ListUsersResponse (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225931"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225940"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListUsersResponse' :: ListUsersResponse -&gt; Maybe Natural
-</span><a href="#local-6989586621679225931"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679225931"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225930"><span class="annot"><span class="annottext">s :: ListUsersResponse
-</span><a href="#local-6989586621679225930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225929"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679225929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsersResponse
-</span><a href="#local-6989586621679225930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListUsersResponse' :: Maybe Natural
+</span><a href="#local-6989586621679225940"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679225940"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225939"><span class="annot"><span class="annottext">s :: ListUsersResponse
+</span><a href="#local-6989586621679225939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225938"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679225938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsersResponse
+</span><a href="#local-6989586621679225939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListUsersResponse' :: Maybe Natural
 </span><a href="Network.AWS.MQ.ListUsers.html#%24sel%3AmaxResults%3AListUsersResponse%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679225929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-219"></span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#listUsersResponse_httpStatus"><span class="hs-identifier hs-type">listUsersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -634,16 +634,16 @@ $sel:maxResults:ListUsersResponse' :: ListUsersResponse -&gt; Maybe Natural
 -&gt; (ListUsersResponse -&gt; Int -&gt; ListUsersResponse)
 -&gt; Lens ListUsersResponse ListUsersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225928"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225937"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListUsersResponse' :: ListUsersResponse -&gt; Int
-</span><a href="#local-6989586621679225928"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225928"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225927"><span class="annot"><span class="annottext">s :: ListUsersResponse
-</span><a href="#local-6989586621679225927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225926"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsersResponse
-</span><a href="#local-6989586621679225927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListUsersResponse' :: Int
+</span><a href="#local-6989586621679225937"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225937"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225936"><span class="annot"><span class="annottext">s :: ListUsersResponse
+</span><a href="#local-6989586621679225936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225935"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsersResponse
+</span><a href="#local-6989586621679225936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListUsersResponse' :: Int
 </span><a href="Network.AWS.MQ.ListUsers.html#%24sel%3AhttpStatus%3AListUsersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225924"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225933"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span></span><span>
 </span><span id="line-223"></span></pre></body></html>

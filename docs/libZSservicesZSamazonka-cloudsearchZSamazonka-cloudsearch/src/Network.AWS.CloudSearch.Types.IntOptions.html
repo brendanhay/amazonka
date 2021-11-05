@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- default.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newIntOptions' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679207871"><span id="local-6989586621679207872"></span></span><span class="hs-keyword">data</span><span> </span><span id="IntOptions"><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-var">IntOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntOptions%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-var">IntOptions'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679207880"><span id="local-6989586621679207881"></span></span><span class="hs-keyword">data</span><span> </span><span id="IntOptions"><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-var">IntOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntOptions%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-var">IntOptions'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the source field to map to the field.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AsourceField%3AIntOptions%27"><span class="annot"><span class="annottext">IntOptions -&gt; Maybe Text
 </span><a href="Network.AWS.CloudSearch.Types.IntOptions.html#%24sel%3AsourceField%3AIntOptions%27"><span class="hs-identifier hs-var hs-var">sourceField</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -50,7 +50,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AdefaultValue%3AIntOptions%27"><span class="annot"><span class="annottext">IntOptions -&gt; Maybe Integer
 </span><a href="Network.AWS.CloudSearch.Types.IntOptions.html#%24sel%3AdefaultValue%3AIntOptions%27"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207860"><span id="local-6989586621679207862"><span class="annot"><span class="annottext">IntOptions -&gt; IntOptions -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207869"><span id="local-6989586621679207871"><span class="annot"><span class="annottext">IntOptions -&gt; IntOptions -&gt; Bool
 (IntOptions -&gt; IntOptions -&gt; Bool)
 -&gt; (IntOptions -&gt; IntOptions -&gt; Bool) -&gt; Eq IntOptions
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IntOptions -&gt; IntOptions -&gt; Bool
 == :: IntOptions -&gt; IntOptions -&gt; Bool
 $c== :: IntOptions -&gt; IntOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207851"><span id="local-6989586621679207853"><span id="local-6989586621679207855"><span id="local-6989586621679207857"><span class="annot"><span class="annottext">ReadPrec [IntOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207860"><span id="local-6989586621679207862"><span id="local-6989586621679207864"><span id="local-6989586621679207866"><span class="annot"><span class="annottext">ReadPrec [IntOptions]
 ReadPrec IntOptions
 Int -&gt; ReadS IntOptions
 ReadS [IntOptions]
@@ -78,7 +78,7 @@ readList :: ReadS [IntOptions]
 $creadList :: ReadS [IntOptions]
 readsPrec :: Int -&gt; ReadS IntOptions
 $creadsPrec :: Int -&gt; ReadS IntOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207844"><span id="local-6989586621679207846"><span id="local-6989586621679207848"><span class="annot"><span class="annottext">Int -&gt; IntOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207853"><span id="local-6989586621679207855"><span id="local-6989586621679207857"><span class="annot"><span class="annottext">Int -&gt; IntOptions -&gt; ShowS
 [IntOptions] -&gt; ShowS
 IntOptions -&gt; String
 (Int -&gt; IntOptions -&gt; ShowS)
@@ -169,16 +169,16 @@ forall a. Maybe a
 -&gt; (IntOptions -&gt; Maybe Text -&gt; IntOptions)
 -&gt; Lens IntOptions IntOptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207835"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207844"><span class="annot"><span class="annottext">Maybe Text
 sourceField :: Maybe Text
 $sel:sourceField:IntOptions' :: IntOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679207835"><span class="hs-identifier hs-var hs-var">sourceField</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679207835"><span class="hs-identifier hs-var">sourceField</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207834"><span class="annot"><span class="annottext">s :: IntOptions
-</span><a href="#local-6989586621679207834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207833"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679207833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntOptions
-</span><a href="#local-6989586621679207834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceField:IntOptions' :: Maybe Text
+</span><a href="#local-6989586621679207844"><span class="hs-identifier hs-var hs-var">sourceField</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207844"><span class="hs-identifier hs-var">sourceField</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207843"><span class="annot"><span class="annottext">s :: IntOptions
+</span><a href="#local-6989586621679207843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207842"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntOptions
+</span><a href="#local-6989586621679207843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceField:IntOptions' :: Maybe Text
 </span><a href="Network.AWS.CloudSearch.Types.IntOptions.html#%24sel%3AsourceField%3AIntOptions%27"><span class="hs-identifier hs-var">sourceField</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679207833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679207842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | Whether the contents of the field can be returned in the search results.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#intOptions_returnEnabled"><span class="hs-identifier hs-type">intOptions_returnEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -187,16 +187,16 @@ $sel:sourceField:IntOptions' :: IntOptions -&gt; Maybe Text
 -&gt; (IntOptions -&gt; Maybe Bool -&gt; IntOptions)
 -&gt; Lens IntOptions IntOptions (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207831"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207840"><span class="annot"><span class="annottext">Maybe Bool
 returnEnabled :: Maybe Bool
 $sel:returnEnabled:IntOptions' :: IntOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679207831"><span class="hs-identifier hs-var hs-var">returnEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679207831"><span class="hs-identifier hs-var">returnEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207830"><span class="annot"><span class="annottext">s :: IntOptions
-</span><a href="#local-6989586621679207830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207829"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679207829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntOptions
-</span><a href="#local-6989586621679207830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnEnabled:IntOptions' :: Maybe Bool
+</span><a href="#local-6989586621679207840"><span class="hs-identifier hs-var hs-var">returnEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679207840"><span class="hs-identifier hs-var">returnEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207839"><span class="annot"><span class="annottext">s :: IntOptions
+</span><a href="#local-6989586621679207839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207838"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679207838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntOptions
+</span><a href="#local-6989586621679207839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnEnabled:IntOptions' :: Maybe Bool
 </span><a href="Network.AWS.CloudSearch.Types.IntOptions.html#%24sel%3AreturnEnabled%3AIntOptions%27"><span class="hs-identifier hs-var">returnEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679207829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679207838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | Whether facet information can be returned for the field.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#intOptions_facetEnabled"><span class="hs-identifier hs-type">intOptions_facetEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -205,16 +205,16 @@ $sel:returnEnabled:IntOptions' :: IntOptions -&gt; Maybe Bool
 -&gt; (IntOptions -&gt; Maybe Bool -&gt; IntOptions)
 -&gt; Lens IntOptions IntOptions (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207827"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207836"><span class="annot"><span class="annottext">Maybe Bool
 facetEnabled :: Maybe Bool
 $sel:facetEnabled:IntOptions' :: IntOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679207827"><span class="hs-identifier hs-var hs-var">facetEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679207827"><span class="hs-identifier hs-var">facetEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207826"><span class="annot"><span class="annottext">s :: IntOptions
-</span><a href="#local-6989586621679207826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207825"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679207825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntOptions
-</span><a href="#local-6989586621679207826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:facetEnabled:IntOptions' :: Maybe Bool
+</span><a href="#local-6989586621679207836"><span class="hs-identifier hs-var hs-var">facetEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679207836"><span class="hs-identifier hs-var">facetEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207835"><span class="annot"><span class="annottext">s :: IntOptions
+</span><a href="#local-6989586621679207835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207834"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679207834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntOptions
+</span><a href="#local-6989586621679207835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:facetEnabled:IntOptions' :: Maybe Bool
 </span><a href="Network.AWS.CloudSearch.Types.IntOptions.html#%24sel%3AfacetEnabled%3AIntOptions%27"><span class="hs-identifier hs-var">facetEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679207825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679207834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | Whether the contents of the field are searchable.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#intOptions_searchEnabled"><span class="hs-identifier hs-type">intOptions_searchEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -223,16 +223,16 @@ $sel:facetEnabled:IntOptions' :: IntOptions -&gt; Maybe Bool
 -&gt; (IntOptions -&gt; Maybe Bool -&gt; IntOptions)
 -&gt; Lens IntOptions IntOptions (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207823"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207832"><span class="annot"><span class="annottext">Maybe Bool
 searchEnabled :: Maybe Bool
 $sel:searchEnabled:IntOptions' :: IntOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679207823"><span class="hs-identifier hs-var hs-var">searchEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679207823"><span class="hs-identifier hs-var">searchEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207822"><span class="annot"><span class="annottext">s :: IntOptions
-</span><a href="#local-6989586621679207822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207821"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679207821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntOptions
-</span><a href="#local-6989586621679207822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:searchEnabled:IntOptions' :: Maybe Bool
+</span><a href="#local-6989586621679207832"><span class="hs-identifier hs-var hs-var">searchEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679207832"><span class="hs-identifier hs-var">searchEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207831"><span class="annot"><span class="annottext">s :: IntOptions
+</span><a href="#local-6989586621679207831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207830"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679207830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntOptions
+</span><a href="#local-6989586621679207831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:searchEnabled:IntOptions' :: Maybe Bool
 </span><a href="Network.AWS.CloudSearch.Types.IntOptions.html#%24sel%3AsearchEnabled%3AIntOptions%27"><span class="hs-identifier hs-var">searchEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679207821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679207830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | Whether the field can be used to sort the search results.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#intOptions_sortEnabled"><span class="hs-identifier hs-type">intOptions_sortEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -241,16 +241,16 @@ $sel:searchEnabled:IntOptions' :: IntOptions -&gt; Maybe Bool
 -&gt; (IntOptions -&gt; Maybe Bool -&gt; IntOptions)
 -&gt; Lens IntOptions IntOptions (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207819"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207828"><span class="annot"><span class="annottext">Maybe Bool
 sortEnabled :: Maybe Bool
 $sel:sortEnabled:IntOptions' :: IntOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679207819"><span class="hs-identifier hs-var hs-var">sortEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679207819"><span class="hs-identifier hs-var">sortEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207818"><span class="annot"><span class="annottext">s :: IntOptions
-</span><a href="#local-6989586621679207818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207817"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679207817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntOptions
-</span><a href="#local-6989586621679207818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortEnabled:IntOptions' :: Maybe Bool
+</span><a href="#local-6989586621679207828"><span class="hs-identifier hs-var hs-var">sortEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679207828"><span class="hs-identifier hs-var">sortEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207827"><span class="annot"><span class="annottext">s :: IntOptions
+</span><a href="#local-6989586621679207827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207826"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679207826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntOptions
+</span><a href="#local-6989586621679207827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortEnabled:IntOptions' :: Maybe Bool
 </span><a href="Network.AWS.CloudSearch.Types.IntOptions.html#%24sel%3AsortEnabled%3AIntOptions%27"><span class="hs-identifier hs-var">sortEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679207817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679207826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | A value to use for the field if the field isn\'t specified for a</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- document. This can be important if you are using the field in an</span><span>
@@ -261,21 +261,21 @@ $sel:sortEnabled:IntOptions' :: IntOptions -&gt; Maybe Bool
 -&gt; (IntOptions -&gt; Maybe Integer -&gt; IntOptions)
 -&gt; Lens IntOptions IntOptions (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207815"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207824"><span class="annot"><span class="annottext">Maybe Integer
 defaultValue :: Maybe Integer
 $sel:defaultValue:IntOptions' :: IntOptions -&gt; Maybe Integer
-</span><a href="#local-6989586621679207815"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679207815"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207814"><span class="annot"><span class="annottext">s :: IntOptions
-</span><a href="#local-6989586621679207814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207813"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679207813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntOptions
-</span><a href="#local-6989586621679207814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValue:IntOptions' :: Maybe Integer
+</span><a href="#local-6989586621679207824"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679207824"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207823"><span class="annot"><span class="annottext">s :: IntOptions
+</span><a href="#local-6989586621679207823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207822"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679207822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntOptions
+</span><a href="#local-6989586621679207823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValue:IntOptions' :: Maybe Integer
 </span><a href="Network.AWS.CloudSearch.Types.IntOptions.html#%24sel%3AdefaultValue%3AIntOptions%27"><span class="hs-identifier hs-var">defaultValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679207813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679207822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679207810"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IntOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679207808"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679207808"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679207819"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IntOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679207817"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679207817"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Bool
 -&gt; Maybe Bool
@@ -302,7 +302,7 @@ $sel:defaultValue:IntOptions' :: IntOptions -&gt; Maybe Integer
       -&gt; IntOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679207808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679207817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceField&quot;</span></span><span class="hs-special">)</span><span>
@@ -321,7 +321,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Bool -&gt; Maybe Bool -&gt; Maybe Integer -&gt; IntOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679207808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679207817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReturnEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -334,7 +334,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Bool -&gt; Maybe Bool -&gt; Maybe Integer -&gt; IntOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679207808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679207817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FacetEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -344,7 +344,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Bool -&gt; Maybe Integer -&gt; IntOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679207808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679207817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SearchEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -353,7 +353,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Integer -&gt; IntOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679207808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679207817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -361,18 +361,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Integer) -&gt; Either String IntOptions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679207808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679207817"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207802"><span id="local-6989586621679207804"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207811"><span id="local-6989586621679207813"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207799"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207808"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions"><span class="hs-identifier hs-type">IntOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679207795"><span class="annot"><span class="annottext">toQuery :: IntOptions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207788"><span id="local-6989586621679207789"><span id="local-6989586621679207790"><span id="local-6989586621679207791"><span id="local-6989586621679207792"><span id="local-6989586621679207793"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679207804"><span class="annot"><span class="annottext">toQuery :: IntOptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.IntOptions.html#IntOptions%27"><span class="hs-identifier hs-type">IntOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207797"><span id="local-6989586621679207798"><span id="local-6989586621679207799"><span id="local-6989586621679207800"><span id="local-6989586621679207801"><span id="local-6989586621679207802"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Integer
 Maybe Text
 defaultValue :: Maybe Integer
@@ -387,7 +387,7 @@ $sel:searchEnabled:IntOptions' :: IntOptions -&gt; Maybe Bool
 $sel:facetEnabled:IntOptions' :: IntOptions -&gt; Maybe Bool
 $sel:returnEnabled:IntOptions' :: IntOptions -&gt; Maybe Bool
 $sel:sourceField:IntOptions' :: IntOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679207788"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679207797"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -395,31 +395,31 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;SourceField&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679207793"><span class="hs-identifier hs-var">sourceField</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679207802"><span class="hs-identifier hs-var">sourceField</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReturnEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679207792"><span class="hs-identifier hs-var">returnEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679207801"><span class="hs-identifier hs-var">returnEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;FacetEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679207791"><span class="hs-identifier hs-var">facetEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679207800"><span class="hs-identifier hs-var">facetEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SearchEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679207790"><span class="hs-identifier hs-var">searchEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679207799"><span class="hs-identifier hs-var">searchEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SortEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679207789"><span class="hs-identifier hs-var">sortEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679207798"><span class="hs-identifier hs-var">sortEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DefaultValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Integer -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679207788"><span class="hs-identifier hs-var">defaultValue</span></a></span><span>
+</span><a href="#local-6989586621679207797"><span class="hs-identifier hs-var">defaultValue</span></a></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- policy.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newFolderConfiguration' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679281997"><span id="local-6989586621679281998"></span></span><span class="hs-keyword">data</span><span> </span><span id="FolderConfiguration"><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-var">FolderConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FolderConfiguration%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-var">FolderConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679282006"><span id="local-6989586621679282007"></span></span><span class="hs-keyword">data</span><span> </span><span id="FolderConfiguration"><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-var">FolderConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FolderConfiguration%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-var">FolderConfiguration'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of days for which the folder-configuration action applies.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aperiod%3AFolderConfiguration%27"><span class="annot"><span class="annottext">FolderConfiguration -&gt; Maybe Natural
 </span><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#%24sel%3Aperiod%3AFolderConfiguration%27"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Aaction%3AFolderConfiguration%27"><span class="annot"><span class="annottext">FolderConfiguration -&gt; RetentionAction
 </span><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#%24sel%3Aaction%3AFolderConfiguration%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.RetentionAction.html#RetentionAction"><span class="hs-identifier hs-type">RetentionAction</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281989"><span id="local-6989586621679281991"><span class="annot"><span class="annottext">FolderConfiguration -&gt; FolderConfiguration -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281998"><span id="local-6989586621679282000"><span class="annot"><span class="annottext">FolderConfiguration -&gt; FolderConfiguration -&gt; Bool
 (FolderConfiguration -&gt; FolderConfiguration -&gt; Bool)
 -&gt; (FolderConfiguration -&gt; FolderConfiguration -&gt; Bool)
 -&gt; Eq FolderConfiguration
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FolderConfiguration -&gt; FolderConfiguration -&gt; Bool
 == :: FolderConfiguration -&gt; FolderConfiguration -&gt; Bool
 $c== :: FolderConfiguration -&gt; FolderConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281980"><span id="local-6989586621679281982"><span id="local-6989586621679281984"><span id="local-6989586621679281986"><span class="annot"><span class="annottext">ReadPrec [FolderConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281989"><span id="local-6989586621679281991"><span id="local-6989586621679281993"><span id="local-6989586621679281995"><span class="annot"><span class="annottext">ReadPrec [FolderConfiguration]
 ReadPrec FolderConfiguration
 Int -&gt; ReadS FolderConfiguration
 ReadS [FolderConfiguration]
@@ -70,7 +70,7 @@ readList :: ReadS [FolderConfiguration]
 $creadList :: ReadS [FolderConfiguration]
 readsPrec :: Int -&gt; ReadS FolderConfiguration
 $creadsPrec :: Int -&gt; ReadS FolderConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281973"><span id="local-6989586621679281975"><span id="local-6989586621679281977"><span class="annot"><span class="annottext">Int -&gt; FolderConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281982"><span id="local-6989586621679281984"><span id="local-6989586621679281986"><span class="annot"><span class="annottext">Int -&gt; FolderConfiguration -&gt; ShowS
 [FolderConfiguration] -&gt; ShowS
 FolderConfiguration -&gt; String
 (Int -&gt; FolderConfiguration -&gt; ShowS)
@@ -117,9 +117,9 @@ $cfrom :: forall x. FolderConfiguration -&gt; Rep FolderConfiguration x
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.Types.RetentionAction.html#RetentionAction"><span class="hs-identifier hs-type">RetentionAction</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span><span>
 </span><span id="line-63"></span><span id="newFolderConfiguration"><span class="annot"><span class="annottext">newFolderConfiguration :: FolderName -&gt; RetentionAction -&gt; FolderConfiguration
-</span><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#newFolderConfiguration"><span class="hs-identifier hs-var hs-var">newFolderConfiguration</span></a></span></span><span> </span><span id="local-6989586621679281967"><span class="annot"><span class="annottext">FolderName
-</span><a href="#local-6989586621679281967"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679281966"><span class="annot"><span class="annottext">RetentionAction
-</span><a href="#local-6989586621679281966"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#newFolderConfiguration"><span class="hs-identifier hs-var hs-var">newFolderConfiguration</span></a></span></span><span> </span><span id="local-6989586621679281976"><span class="annot"><span class="annottext">FolderName
+</span><a href="#local-6989586621679281976"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679281975"><span class="annot"><span class="annottext">RetentionAction
+</span><a href="#local-6989586621679281975"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">FolderConfiguration' :: Maybe Natural
 -&gt; FolderName -&gt; RetentionAction -&gt; FolderConfiguration
 </span><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-type">FolderConfiguration'</span></a></span><span>
@@ -129,10 +129,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:FolderConfiguration' :: FolderName
 </span><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#%24sel%3Aname%3AFolderConfiguration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FolderName
-</span><a href="#local-6989586621679281967"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679281976"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:action:FolderConfiguration' :: RetentionAction
 </span><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#%24sel%3Aaction%3AFolderConfiguration%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RetentionAction
-</span><a href="#local-6989586621679281966"><span class="hs-identifier hs-var">pAction_</span></a></span><span>
+</span><a href="#local-6989586621679281975"><span class="hs-identifier hs-var">pAction_</span></a></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The number of days for which the folder-configuration action applies.</span><span>
@@ -147,16 +147,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-type">FolderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281962"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-type">FolderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281971"><span class="annot"><span class="annottext">Maybe Natural
 period :: Maybe Natural
 $sel:period:FolderConfiguration' :: FolderConfiguration -&gt; Maybe Natural
-</span><a href="#local-6989586621679281962"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679281962"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281961"><span class="annot"><span class="annottext">s :: FolderConfiguration
-</span><a href="#local-6989586621679281961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-type">FolderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281960"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679281960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FolderConfiguration
-</span><a href="#local-6989586621679281961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:period:FolderConfiguration' :: Maybe Natural
+</span><a href="#local-6989586621679281971"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679281971"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281970"><span class="annot"><span class="annottext">s :: FolderConfiguration
+</span><a href="#local-6989586621679281970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-type">FolderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281969"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679281969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FolderConfiguration
+</span><a href="#local-6989586621679281970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:period:FolderConfiguration' :: Maybe Natural
 </span><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#%24sel%3Aperiod%3AFolderConfiguration%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679281960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The folder name.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#folderConfiguration_name"><span class="hs-identifier hs-type">folderConfiguration_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderName.html#FolderName"><span class="hs-identifier hs-type">FolderName</span></a></span><span>
@@ -167,16 +167,16 @@ $sel:period:FolderConfiguration' :: FolderConfiguration -&gt; Maybe Natural
 -&gt; Lens
      FolderConfiguration FolderConfiguration FolderName FolderName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-type">FolderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281958"><span class="annot"><span class="annottext">FolderName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-type">FolderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281967"><span class="annot"><span class="annottext">FolderName
 name :: FolderName
 $sel:name:FolderConfiguration' :: FolderConfiguration -&gt; FolderName
-</span><a href="#local-6989586621679281958"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FolderName
-</span><a href="#local-6989586621679281958"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281957"><span class="annot"><span class="annottext">s :: FolderConfiguration
-</span><a href="#local-6989586621679281957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-type">FolderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281956"><span class="annot"><span class="annottext">FolderName
-</span><a href="#local-6989586621679281956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FolderConfiguration
-</span><a href="#local-6989586621679281957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:FolderConfiguration' :: FolderName
+</span><a href="#local-6989586621679281967"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FolderName
+</span><a href="#local-6989586621679281967"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281966"><span class="annot"><span class="annottext">s :: FolderConfiguration
+</span><a href="#local-6989586621679281966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-type">FolderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281965"><span class="annot"><span class="annottext">FolderName
+</span><a href="#local-6989586621679281965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FolderConfiguration
+</span><a href="#local-6989586621679281966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:FolderConfiguration' :: FolderName
 </span><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#%24sel%3Aname%3AFolderConfiguration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FolderName
-</span><a href="#local-6989586621679281956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The action to take on the folder contents at the end of the folder</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- configuration period.</span><span>
@@ -191,19 +191,19 @@ $sel:name:FolderConfiguration' :: FolderConfiguration -&gt; FolderName
      RetentionAction
      RetentionAction
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-type">FolderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281954"><span class="annot"><span class="annottext">RetentionAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-type">FolderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281963"><span class="annot"><span class="annottext">RetentionAction
 action :: RetentionAction
 $sel:action:FolderConfiguration' :: FolderConfiguration -&gt; RetentionAction
-</span><a href="#local-6989586621679281954"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetentionAction
-</span><a href="#local-6989586621679281954"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281953"><span class="annot"><span class="annottext">s :: FolderConfiguration
-</span><a href="#local-6989586621679281953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-type">FolderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281952"><span class="annot"><span class="annottext">RetentionAction
-</span><a href="#local-6989586621679281952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FolderConfiguration
-</span><a href="#local-6989586621679281953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:FolderConfiguration' :: RetentionAction
+</span><a href="#local-6989586621679281963"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetentionAction
+</span><a href="#local-6989586621679281963"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281962"><span class="annot"><span class="annottext">s :: FolderConfiguration
+</span><a href="#local-6989586621679281962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-type">FolderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281961"><span class="annot"><span class="annottext">RetentionAction
+</span><a href="#local-6989586621679281961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FolderConfiguration
+</span><a href="#local-6989586621679281962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:FolderConfiguration' :: RetentionAction
 </span><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#%24sel%3Aaction%3AFolderConfiguration%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RetentionAction
-</span><a href="#local-6989586621679281952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281949"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679281947"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FolderConfiguration
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281958"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679281956"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FolderConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FolderConfiguration)
@@ -213,8 +213,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FolderConfiguration&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281944"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679281944"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281953"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281953"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; FolderName -&gt; RetentionAction -&gt; FolderConfiguration
 </span><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-var">FolderConfiguration'</span></a></span><span>
@@ -224,7 +224,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (FolderName -&gt; RetentionAction -&gt; FolderConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679281944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679281953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Period&quot;</span></span><span class="hs-special">)</span><span>
@@ -233,7 +233,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (RetentionAction -&gt; FolderConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679281944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FolderName
+</span><a href="#local-6989586621679281953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FolderName
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -241,19 +241,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser RetentionAction -&gt; Parser FolderConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679281944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RetentionAction
+</span><a href="#local-6989586621679281953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RetentionAction
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Action&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281937"><span id="local-6989586621679281939"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281946"><span id="local-6989586621679281948"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281934"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281926"><span id="local-6989586621679281928"><span id="local-6989586621679281930"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679281924"><span class="annot"><span class="annottext">toJSON :: FolderConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-type">FolderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281920"><span id="local-6989586621679281921"><span id="local-6989586621679281922"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281935"><span id="local-6989586621679281937"><span id="local-6989586621679281939"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration"><span class="hs-identifier hs-type">FolderConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679281933"><span class="annot"><span class="annottext">toJSON :: FolderConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.FolderConfiguration.html#FolderConfiguration%27"><span class="hs-identifier hs-type">FolderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281929"><span id="local-6989586621679281930"><span id="local-6989586621679281931"><span class="annot"><span class="annottext">Maybe Natural
 FolderName
 RetentionAction
 action :: RetentionAction
@@ -262,7 +262,7 @@ period :: Maybe Natural
 $sel:action:FolderConfiguration' :: FolderConfiguration -&gt; RetentionAction
 $sel:name:FolderConfiguration' :: FolderConfiguration -&gt; FolderName
 $sel:period:FolderConfiguration' :: FolderConfiguration -&gt; Maybe Natural
-</span><a href="#local-6989586621679281920"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679281929"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -274,21 +274,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679281922"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679281931"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FolderName -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">FolderName
-</span><a href="#local-6989586621679281921"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679281930"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Action&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RetentionAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RetentionAction
-</span><a href="#local-6989586621679281920"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281929"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span></pre></body></html>

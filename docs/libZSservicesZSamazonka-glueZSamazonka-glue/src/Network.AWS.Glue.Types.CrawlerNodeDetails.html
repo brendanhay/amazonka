@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The details of a Crawler node present in the workflow.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCrawlerNodeDetails' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679683077"><span id="local-6989586621679683078"></span></span><span class="hs-keyword">data</span><span> </span><span id="CrawlerNodeDetails"><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails"><span class="hs-identifier hs-var">CrawlerNodeDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CrawlerNodeDetails%27"><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails%27"><span class="hs-identifier hs-var">CrawlerNodeDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679683086"><span id="local-6989586621679683087"></span></span><span class="hs-keyword">data</span><span> </span><span id="CrawlerNodeDetails"><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails"><span class="hs-identifier hs-var">CrawlerNodeDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CrawlerNodeDetails%27"><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails%27"><span class="hs-identifier hs-var">CrawlerNodeDetails'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of crawls represented by the crawl node.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Acrawls%3ACrawlerNodeDetails%27"><span class="annot"><span class="annottext">CrawlerNodeDetails -&gt; Maybe [Crawl]
 </span><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#%24sel%3Acrawls%3ACrawlerNodeDetails%27"><span class="hs-identifier hs-var hs-var">crawls</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Crawl.html#Crawl"><span class="hs-identifier hs-type">Crawl</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679683071"><span id="local-6989586621679683073"><span class="annot"><span class="annottext">CrawlerNodeDetails -&gt; CrawlerNodeDetails -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679683080"><span id="local-6989586621679683082"><span class="annot"><span class="annottext">CrawlerNodeDetails -&gt; CrawlerNodeDetails -&gt; Bool
 (CrawlerNodeDetails -&gt; CrawlerNodeDetails -&gt; Bool)
 -&gt; (CrawlerNodeDetails -&gt; CrawlerNodeDetails -&gt; Bool)
 -&gt; Eq CrawlerNodeDetails
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CrawlerNodeDetails -&gt; CrawlerNodeDetails -&gt; Bool
 == :: CrawlerNodeDetails -&gt; CrawlerNodeDetails -&gt; Bool
 $c== :: CrawlerNodeDetails -&gt; CrawlerNodeDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679683062"><span id="local-6989586621679683064"><span id="local-6989586621679683066"><span id="local-6989586621679683068"><span class="annot"><span class="annottext">ReadPrec [CrawlerNodeDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679683071"><span id="local-6989586621679683073"><span id="local-6989586621679683075"><span id="local-6989586621679683077"><span class="annot"><span class="annottext">ReadPrec [CrawlerNodeDetails]
 ReadPrec CrawlerNodeDetails
 Int -&gt; ReadS CrawlerNodeDetails
 ReadS [CrawlerNodeDetails]
@@ -61,7 +61,7 @@ readList :: ReadS [CrawlerNodeDetails]
 $creadList :: ReadS [CrawlerNodeDetails]
 readsPrec :: Int -&gt; ReadS CrawlerNodeDetails
 $creadsPrec :: Int -&gt; ReadS CrawlerNodeDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679683055"><span id="local-6989586621679683057"><span id="local-6989586621679683059"><span class="annot"><span class="annottext">Int -&gt; CrawlerNodeDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679683064"><span id="local-6989586621679683066"><span id="local-6989586621679683068"><span class="annot"><span class="annottext">Int -&gt; CrawlerNodeDetails -&gt; ShowS
 [CrawlerNodeDetails] -&gt; ShowS
 CrawlerNodeDetails -&gt; String
 (Int -&gt; CrawlerNodeDetails -&gt; ShowS)
@@ -118,16 +118,16 @@ forall a. Maybe a
      (Maybe [Crawl])
      (Maybe [Crawl])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails%27"><span class="hs-identifier hs-type">CrawlerNodeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679683046"><span class="annot"><span class="annottext">Maybe [Crawl]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails%27"><span class="hs-identifier hs-type">CrawlerNodeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679683055"><span class="annot"><span class="annottext">Maybe [Crawl]
 crawls :: Maybe [Crawl]
 $sel:crawls:CrawlerNodeDetails' :: CrawlerNodeDetails -&gt; Maybe [Crawl]
-</span><a href="#local-6989586621679683046"><span class="hs-identifier hs-var hs-var">crawls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Crawl]
-</span><a href="#local-6989586621679683046"><span class="hs-identifier hs-var">crawls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679683045"><span class="annot"><span class="annottext">s :: CrawlerNodeDetails
-</span><a href="#local-6989586621679683045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails%27"><span class="hs-identifier hs-type">CrawlerNodeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679683044"><span class="annot"><span class="annottext">Maybe [Crawl]
-</span><a href="#local-6989586621679683044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrawlerNodeDetails
-</span><a href="#local-6989586621679683045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crawls:CrawlerNodeDetails' :: Maybe [Crawl]
+</span><a href="#local-6989586621679683055"><span class="hs-identifier hs-var hs-var">crawls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Crawl]
+</span><a href="#local-6989586621679683055"><span class="hs-identifier hs-var">crawls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679683054"><span class="annot"><span class="annottext">s :: CrawlerNodeDetails
+</span><a href="#local-6989586621679683054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails%27"><span class="hs-identifier hs-type">CrawlerNodeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679683053"><span class="annot"><span class="annottext">Maybe [Crawl]
+</span><a href="#local-6989586621679683053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrawlerNodeDetails
+</span><a href="#local-6989586621679683054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crawls:CrawlerNodeDetails' :: Maybe [Crawl]
 </span><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#%24sel%3Acrawls%3ACrawlerNodeDetails%27"><span class="hs-identifier hs-var">crawls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Crawl]
-</span><a href="#local-6989586621679683044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails"><span class="hs-identifier hs-type">CrawlerNodeDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Crawl] -&gt; f (Maybe [Crawl]))
+</span><a href="#local-6989586621679683053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails"><span class="hs-identifier hs-type">CrawlerNodeDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Crawl] -&gt; f (Maybe [Crawl]))
  -&gt; CrawlerNodeDetails -&gt; f CrawlerNodeDetails)
 -&gt; ((Maybe [Crawl] -&gt; f (Maybe [Crawl]))
     -&gt; Maybe [Crawl] -&gt; f (Maybe [Crawl]))
@@ -145,8 +145,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679683038"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails"><span class="hs-identifier hs-type">CrawlerNodeDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679683036"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CrawlerNodeDetails
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679683047"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails"><span class="hs-identifier hs-type">CrawlerNodeDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679683045"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CrawlerNodeDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CrawlerNodeDetails)
@@ -156,15 +156,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CrawlerNodeDetails&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679683033"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679683033"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679683042"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679683042"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Crawl] -&gt; CrawlerNodeDetails
 </span><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails%27"><span class="hs-identifier hs-var">CrawlerNodeDetails'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Crawl] -&gt; CrawlerNodeDetails)
 -&gt; Parser (Maybe [Crawl]) -&gt; Parser CrawlerNodeDetails
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679683033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Crawl]))
+</span><a href="#local-6989586621679683042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Crawl]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Crawls&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Crawl]))
@@ -175,7 +175,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679683026"><span id="local-6989586621679683028"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails"><span class="hs-identifier hs-type">CrawlerNodeDetails</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679683035"><span id="local-6989586621679683037"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails"><span class="hs-identifier hs-type">CrawlerNodeDetails</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679683023"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails"><span class="hs-identifier hs-type">CrawlerNodeDetails</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679683032"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerNodeDetails.html#CrawlerNodeDetails"><span class="hs-identifier hs-type">CrawlerNodeDetails</span></a></span></span><span>
 </span><span id="line-66"></span></pre></body></html>

@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- group used in a deployment.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newLoadBalancerInfo' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679315517"><span id="local-6989586621679315518"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoadBalancerInfo"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo"><span class="hs-identifier hs-var">LoadBalancerInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadBalancerInfo%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo%27"><span class="hs-identifier hs-var">LoadBalancerInfo'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679315526"><span id="local-6989586621679315527"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoadBalancerInfo"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo"><span class="hs-identifier hs-var">LoadBalancerInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadBalancerInfo%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo%27"><span class="hs-identifier hs-var">LoadBalancerInfo'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array that contains information about the load balancer to use for</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- load balancing in a deployment. In Elastic Load Balancing, load</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- balancers are used with Classic Load Balancers.</span><span>
@@ -50,7 +50,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AtargetGroupPairInfoList%3ALoadBalancerInfo%27"><span class="annot"><span class="annottext">LoadBalancerInfo -&gt; Maybe [TargetGroupPairInfo]
 </span><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#%24sel%3AtargetGroupPairInfoList%3ALoadBalancerInfo%27"><span class="hs-identifier hs-var hs-var">targetGroupPairInfoList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-type">TargetGroupPairInfo</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315509"><span id="local-6989586621679315511"><span class="annot"><span class="annottext">LoadBalancerInfo -&gt; LoadBalancerInfo -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315518"><span id="local-6989586621679315520"><span class="annot"><span class="annottext">LoadBalancerInfo -&gt; LoadBalancerInfo -&gt; Bool
 (LoadBalancerInfo -&gt; LoadBalancerInfo -&gt; Bool)
 -&gt; (LoadBalancerInfo -&gt; LoadBalancerInfo -&gt; Bool)
 -&gt; Eq LoadBalancerInfo
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LoadBalancerInfo -&gt; LoadBalancerInfo -&gt; Bool
 == :: LoadBalancerInfo -&gt; LoadBalancerInfo -&gt; Bool
 $c== :: LoadBalancerInfo -&gt; LoadBalancerInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315500"><span id="local-6989586621679315502"><span id="local-6989586621679315504"><span id="local-6989586621679315506"><span class="annot"><span class="annottext">ReadPrec [LoadBalancerInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315509"><span id="local-6989586621679315511"><span id="local-6989586621679315513"><span id="local-6989586621679315515"><span class="annot"><span class="annottext">ReadPrec [LoadBalancerInfo]
 ReadPrec LoadBalancerInfo
 Int -&gt; ReadS LoadBalancerInfo
 ReadS [LoadBalancerInfo]
@@ -79,7 +79,7 @@ readList :: ReadS [LoadBalancerInfo]
 $creadList :: ReadS [LoadBalancerInfo]
 readsPrec :: Int -&gt; ReadS LoadBalancerInfo
 $creadsPrec :: Int -&gt; ReadS LoadBalancerInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315493"><span id="local-6989586621679315495"><span id="local-6989586621679315497"><span class="annot"><span class="annottext">Int -&gt; LoadBalancerInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315502"><span id="local-6989586621679315504"><span id="local-6989586621679315506"><span class="annot"><span class="annottext">Int -&gt; LoadBalancerInfo -&gt; ShowS
 [LoadBalancerInfo] -&gt; ShowS
 LoadBalancerInfo -&gt; String
 (Int -&gt; LoadBalancerInfo -&gt; ShowS)
@@ -166,16 +166,16 @@ forall a. Maybe a
      (Maybe [ELBInfo])
      (Maybe [ELBInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo%27"><span class="hs-identifier hs-type">LoadBalancerInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315484"><span class="annot"><span class="annottext">Maybe [ELBInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo%27"><span class="hs-identifier hs-type">LoadBalancerInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315493"><span class="annot"><span class="annottext">Maybe [ELBInfo]
 elbInfoList :: Maybe [ELBInfo]
 $sel:elbInfoList:LoadBalancerInfo' :: LoadBalancerInfo -&gt; Maybe [ELBInfo]
-</span><a href="#local-6989586621679315484"><span class="hs-identifier hs-var hs-var">elbInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ELBInfo]
-</span><a href="#local-6989586621679315484"><span class="hs-identifier hs-var">elbInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315483"><span class="annot"><span class="annottext">s :: LoadBalancerInfo
-</span><a href="#local-6989586621679315483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo%27"><span class="hs-identifier hs-type">LoadBalancerInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315482"><span class="annot"><span class="annottext">Maybe [ELBInfo]
-</span><a href="#local-6989586621679315482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadBalancerInfo
-</span><a href="#local-6989586621679315483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elbInfoList:LoadBalancerInfo' :: Maybe [ELBInfo]
+</span><a href="#local-6989586621679315493"><span class="hs-identifier hs-var hs-var">elbInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ELBInfo]
+</span><a href="#local-6989586621679315493"><span class="hs-identifier hs-var">elbInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315492"><span class="annot"><span class="annottext">s :: LoadBalancerInfo
+</span><a href="#local-6989586621679315492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo%27"><span class="hs-identifier hs-type">LoadBalancerInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315491"><span class="annot"><span class="annottext">Maybe [ELBInfo]
+</span><a href="#local-6989586621679315491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadBalancerInfo
+</span><a href="#local-6989586621679315492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elbInfoList:LoadBalancerInfo' :: Maybe [ELBInfo]
 </span><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#%24sel%3AelbInfoList%3ALoadBalancerInfo%27"><span class="hs-identifier hs-var">elbInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ELBInfo]
-</span><a href="#local-6989586621679315482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo"><span class="hs-identifier hs-type">LoadBalancerInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ELBInfo] -&gt; f (Maybe [ELBInfo]))
+</span><a href="#local-6989586621679315491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo"><span class="hs-identifier hs-type">LoadBalancerInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ELBInfo] -&gt; f (Maybe [ELBInfo]))
  -&gt; LoadBalancerInfo -&gt; f LoadBalancerInfo)
 -&gt; ((Maybe [ELBInfo] -&gt; f (Maybe [ELBInfo]))
     -&gt; Maybe [ELBInfo] -&gt; f (Maybe [ELBInfo]))
@@ -213,16 +213,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [TargetGroupInfo])
      (Maybe [TargetGroupInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo%27"><span class="hs-identifier hs-type">LoadBalancerInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315477"><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo%27"><span class="hs-identifier hs-type">LoadBalancerInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315486"><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
 targetGroupInfoList :: Maybe [TargetGroupInfo]
 $sel:targetGroupInfoList:LoadBalancerInfo' :: LoadBalancerInfo -&gt; Maybe [TargetGroupInfo]
-</span><a href="#local-6989586621679315477"><span class="hs-identifier hs-var hs-var">targetGroupInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
-</span><a href="#local-6989586621679315477"><span class="hs-identifier hs-var">targetGroupInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315476"><span class="annot"><span class="annottext">s :: LoadBalancerInfo
-</span><a href="#local-6989586621679315476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo%27"><span class="hs-identifier hs-type">LoadBalancerInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315475"><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
-</span><a href="#local-6989586621679315475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadBalancerInfo
-</span><a href="#local-6989586621679315476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroupInfoList:LoadBalancerInfo' :: Maybe [TargetGroupInfo]
+</span><a href="#local-6989586621679315486"><span class="hs-identifier hs-var hs-var">targetGroupInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
+</span><a href="#local-6989586621679315486"><span class="hs-identifier hs-var">targetGroupInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315485"><span class="annot"><span class="annottext">s :: LoadBalancerInfo
+</span><a href="#local-6989586621679315485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo%27"><span class="hs-identifier hs-type">LoadBalancerInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315484"><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
+</span><a href="#local-6989586621679315484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadBalancerInfo
+</span><a href="#local-6989586621679315485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroupInfoList:LoadBalancerInfo' :: Maybe [TargetGroupInfo]
 </span><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#%24sel%3AtargetGroupInfoList%3ALoadBalancerInfo%27"><span class="hs-identifier hs-var">targetGroupInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
-</span><a href="#local-6989586621679315475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo"><span class="hs-identifier hs-type">LoadBalancerInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetGroupInfo] -&gt; f (Maybe [TargetGroupInfo]))
+</span><a href="#local-6989586621679315484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo"><span class="hs-identifier hs-type">LoadBalancerInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetGroupInfo] -&gt; f (Maybe [TargetGroupInfo]))
  -&gt; LoadBalancerInfo -&gt; f LoadBalancerInfo)
 -&gt; ((Maybe [TargetGroupInfo] -&gt; f (Maybe [TargetGroupInfo]))
     -&gt; Maybe [TargetGroupInfo] -&gt; f (Maybe [TargetGroupInfo]))
@@ -265,16 +265,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [TargetGroupPairInfo])
      (Maybe [TargetGroupPairInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo%27"><span class="hs-identifier hs-type">LoadBalancerInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315473"><span class="annot"><span class="annottext">Maybe [TargetGroupPairInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo%27"><span class="hs-identifier hs-type">LoadBalancerInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315482"><span class="annot"><span class="annottext">Maybe [TargetGroupPairInfo]
 targetGroupPairInfoList :: Maybe [TargetGroupPairInfo]
 $sel:targetGroupPairInfoList:LoadBalancerInfo' :: LoadBalancerInfo -&gt; Maybe [TargetGroupPairInfo]
-</span><a href="#local-6989586621679315473"><span class="hs-identifier hs-var hs-var">targetGroupPairInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGroupPairInfo]
-</span><a href="#local-6989586621679315473"><span class="hs-identifier hs-var">targetGroupPairInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315472"><span class="annot"><span class="annottext">s :: LoadBalancerInfo
-</span><a href="#local-6989586621679315472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo%27"><span class="hs-identifier hs-type">LoadBalancerInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315471"><span class="annot"><span class="annottext">Maybe [TargetGroupPairInfo]
-</span><a href="#local-6989586621679315471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadBalancerInfo
-</span><a href="#local-6989586621679315472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroupPairInfoList:LoadBalancerInfo' :: Maybe [TargetGroupPairInfo]
+</span><a href="#local-6989586621679315482"><span class="hs-identifier hs-var hs-var">targetGroupPairInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGroupPairInfo]
+</span><a href="#local-6989586621679315482"><span class="hs-identifier hs-var">targetGroupPairInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315481"><span class="annot"><span class="annottext">s :: LoadBalancerInfo
+</span><a href="#local-6989586621679315481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo%27"><span class="hs-identifier hs-type">LoadBalancerInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315480"><span class="annot"><span class="annottext">Maybe [TargetGroupPairInfo]
+</span><a href="#local-6989586621679315480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadBalancerInfo
+</span><a href="#local-6989586621679315481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroupPairInfoList:LoadBalancerInfo' :: Maybe [TargetGroupPairInfo]
 </span><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#%24sel%3AtargetGroupPairInfoList%3ALoadBalancerInfo%27"><span class="hs-identifier hs-var">targetGroupPairInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGroupPairInfo]
-</span><a href="#local-6989586621679315471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo"><span class="hs-identifier hs-type">LoadBalancerInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetGroupPairInfo] -&gt; f (Maybe [TargetGroupPairInfo]))
+</span><a href="#local-6989586621679315480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo"><span class="hs-identifier hs-type">LoadBalancerInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetGroupPairInfo] -&gt; f (Maybe [TargetGroupPairInfo]))
  -&gt; LoadBalancerInfo -&gt; f LoadBalancerInfo)
 -&gt; ((Maybe [TargetGroupPairInfo]
      -&gt; f (Maybe [TargetGroupPairInfo]))
@@ -304,8 +304,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315468"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo"><span class="hs-identifier hs-type">LoadBalancerInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679315466"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LoadBalancerInfo
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315477"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo"><span class="hs-identifier hs-type">LoadBalancerInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679315475"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LoadBalancerInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LoadBalancerInfo)
@@ -315,8 +315,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LoadBalancerInfo&quot;</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315463"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315463"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315472"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679315472"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ELBInfo]
 -&gt; Maybe [TargetGroupInfo]
 -&gt; Maybe [TargetGroupPairInfo]
@@ -332,7 +332,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe [TargetGroupPairInfo] -&gt; LoadBalancerInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ELBInfo]))
+</span><a href="#local-6989586621679315472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ELBInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;elbInfoList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ELBInfo]))
@@ -348,7 +348,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [TargetGroupPairInfo] -&gt; LoadBalancerInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TargetGroupInfo]))
+</span><a href="#local-6989586621679315472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TargetGroupInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetGroupInfoList&quot;</span></span><span>
@@ -363,7 +363,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [TargetGroupPairInfo]) -&gt; Parser LoadBalancerInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TargetGroupPairInfo]))
+</span><a href="#local-6989586621679315472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TargetGroupPairInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetGroupPairInfoList&quot;</span></span><span>
@@ -377,13 +377,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-116"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315456"><span id="local-6989586621679315458"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo"><span class="hs-identifier hs-type">LoadBalancerInfo</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315465"><span id="local-6989586621679315467"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo"><span class="hs-identifier hs-type">LoadBalancerInfo</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo"><span class="hs-identifier hs-type">LoadBalancerInfo</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315462"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo"><span class="hs-identifier hs-type">LoadBalancerInfo</span></a></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315445"><span id="local-6989586621679315447"><span id="local-6989586621679315449"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo"><span class="hs-identifier hs-type">LoadBalancerInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679315443"><span class="annot"><span class="annottext">toJSON :: LoadBalancerInfo -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo%27"><span class="hs-identifier hs-type">LoadBalancerInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315439"><span id="local-6989586621679315440"><span id="local-6989586621679315441"><span class="annot"><span class="annottext">Maybe [ELBInfo]
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315454"><span id="local-6989586621679315456"><span id="local-6989586621679315458"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo"><span class="hs-identifier hs-type">LoadBalancerInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679315452"><span class="annot"><span class="annottext">toJSON :: LoadBalancerInfo -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LoadBalancerInfo.html#LoadBalancerInfo%27"><span class="hs-identifier hs-type">LoadBalancerInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315448"><span id="local-6989586621679315449"><span id="local-6989586621679315450"><span class="annot"><span class="annottext">Maybe [ELBInfo]
 Maybe [TargetGroupInfo]
 Maybe [TargetGroupPairInfo]
 targetGroupPairInfoList :: Maybe [TargetGroupPairInfo]
@@ -392,7 +392,7 @@ elbInfoList :: Maybe [ELBInfo]
 $sel:targetGroupPairInfoList:LoadBalancerInfo' :: LoadBalancerInfo -&gt; Maybe [TargetGroupPairInfo]
 $sel:targetGroupInfoList:LoadBalancerInfo' :: LoadBalancerInfo -&gt; Maybe [TargetGroupInfo]
 $sel:elbInfoList:LoadBalancerInfo' :: LoadBalancerInfo -&gt; Maybe [ELBInfo]
-</span><a href="#local-6989586621679315439"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679315448"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -404,7 +404,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ELBInfo] -&gt; Pair) -&gt; Maybe [ELBInfo] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ELBInfo]
-</span><a href="#local-6989586621679315441"><span class="hs-identifier hs-var">elbInfoList</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315450"><span class="hs-identifier hs-var">elbInfoList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetGroupInfoList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TargetGroupInfo] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -413,7 +413,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [TargetGroupInfo] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
-</span><a href="#local-6989586621679315440"><span class="hs-identifier hs-var">targetGroupInfoList</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315449"><span class="hs-identifier hs-var">targetGroupInfoList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetGroupPairInfoList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TargetGroupPairInfo] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -422,7 +422,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [TargetGroupPairInfo] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGroupPairInfo]
-</span><a href="#local-6989586621679315439"><span class="hs-identifier hs-var">targetGroupPairInfoList</span></a></span><span>
+</span><a href="#local-6989586621679315448"><span class="hs-identifier hs-var">targetGroupPairInfoList</span></a></span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span></pre></body></html>

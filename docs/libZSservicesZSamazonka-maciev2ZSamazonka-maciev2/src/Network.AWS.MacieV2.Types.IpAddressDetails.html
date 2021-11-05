@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.Types.IpAddressDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.Types.IpAddressDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpCity.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.IpCity</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpCountry.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.IpCountry</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpGeoLocation.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.IpGeoLocation</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpOwner.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.IpOwner</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Provides information about the IP address of the device that an entity</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- used to perform an action on an affected resource.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newIpAddressDetails' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679388937"><span id="local-6989586621679388938"></span></span><span class="hs-keyword">data</span><span> </span><span id="IpAddressDetails"><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-var">IpAddressDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IpAddressDetails%27"><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails%27"><span class="hs-identifier hs-var">IpAddressDetails'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The city that the IP address originated from.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AipCity%3AIpAddressDetails%27"><span class="annot"><span class="annottext">IpAddressDetails -&gt; Maybe IpCity
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#%24sel%3AipCity%3AIpAddressDetails%27"><span class="hs-identifier hs-var hs-var">ipCity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpCity.html#IpCity"><span class="hs-identifier hs-type">IpCity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The geographic coordinates of the location that the IP address</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- originated from.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AipGeoLocation%3AIpAddressDetails%27"><span class="annot"><span class="annottext">IpAddressDetails -&gt; Maybe IpGeoLocation
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#%24sel%3AipGeoLocation%3AIpAddressDetails%27"><span class="hs-identifier hs-var hs-var">ipGeoLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpGeoLocation.html#IpGeoLocation"><span class="hs-identifier hs-type">IpGeoLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Internet Protocol version 4 (IPv4) address of the device.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AipAddressV4%3AIpAddressDetails%27"><span class="annot"><span class="annottext">IpAddressDetails -&gt; Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#%24sel%3AipAddressV4%3AIpAddressDetails%27"><span class="hs-identifier hs-var hs-var">ipAddressV4</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The registered owner of the IP address.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AipOwner%3AIpAddressDetails%27"><span class="annot"><span class="annottext">IpAddressDetails -&gt; Maybe IpOwner
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#%24sel%3AipOwner%3AIpAddressDetails%27"><span class="hs-identifier hs-var hs-var">ipOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpOwner.html#IpOwner"><span class="hs-identifier hs-type">IpOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The country that the IP address originated from.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AipCountry%3AIpAddressDetails%27"><span class="annot"><span class="annottext">IpAddressDetails -&gt; Maybe IpCountry
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#%24sel%3AipCountry%3AIpAddressDetails%27"><span class="hs-identifier hs-var hs-var">ipCountry</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpCountry.html#IpCountry"><span class="hs-identifier hs-type">IpCountry</span></a></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388927"><span id="local-6989586621679388929"><span class="annot"><span class="annottext">IpAddressDetails -&gt; IpAddressDetails -&gt; Bool
+(IpAddressDetails -&gt; IpAddressDetails -&gt; Bool)
+-&gt; (IpAddressDetails -&gt; IpAddressDetails -&gt; Bool)
+-&gt; Eq IpAddressDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: IpAddressDetails -&gt; IpAddressDetails -&gt; Bool
+$c/= :: IpAddressDetails -&gt; IpAddressDetails -&gt; Bool
+== :: IpAddressDetails -&gt; IpAddressDetails -&gt; Bool
+$c== :: IpAddressDetails -&gt; IpAddressDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388918"><span id="local-6989586621679388920"><span id="local-6989586621679388922"><span id="local-6989586621679388924"><span class="annot"><span class="annottext">ReadPrec [IpAddressDetails]
+ReadPrec IpAddressDetails
+Int -&gt; ReadS IpAddressDetails
+ReadS [IpAddressDetails]
+(Int -&gt; ReadS IpAddressDetails)
+-&gt; ReadS [IpAddressDetails]
+-&gt; ReadPrec IpAddressDetails
+-&gt; ReadPrec [IpAddressDetails]
+-&gt; Read IpAddressDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [IpAddressDetails]
+$creadListPrec :: ReadPrec [IpAddressDetails]
+readPrec :: ReadPrec IpAddressDetails
+$creadPrec :: ReadPrec IpAddressDetails
+readList :: ReadS [IpAddressDetails]
+$creadList :: ReadS [IpAddressDetails]
+readsPrec :: Int -&gt; ReadS IpAddressDetails
+$creadsPrec :: Int -&gt; ReadS IpAddressDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388911"><span id="local-6989586621679388913"><span id="local-6989586621679388915"><span class="annot"><span class="annottext">Int -&gt; IpAddressDetails -&gt; ShowS
+[IpAddressDetails] -&gt; ShowS
+IpAddressDetails -&gt; String
+(Int -&gt; IpAddressDetails -&gt; ShowS)
+-&gt; (IpAddressDetails -&gt; String)
+-&gt; ([IpAddressDetails] -&gt; ShowS)
+-&gt; Show IpAddressDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [IpAddressDetails] -&gt; ShowS
+$cshowList :: [IpAddressDetails] -&gt; ShowS
+show :: IpAddressDetails -&gt; String
+$cshow :: IpAddressDetails -&gt; String
+showsPrec :: Int -&gt; IpAddressDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; IpAddressDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. IpAddressDetails -&gt; Rep IpAddressDetails x)
+-&gt; (forall x. Rep IpAddressDetails x -&gt; IpAddressDetails)
+-&gt; Generic IpAddressDetails
+forall x. Rep IpAddressDetails x -&gt; IpAddressDetails
+forall x. IpAddressDetails -&gt; Rep IpAddressDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep IpAddressDetails x -&gt; IpAddressDetails
+$cfrom :: forall x. IpAddressDetails -&gt; Rep IpAddressDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'IpAddressDetails' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'ipCity', 'ipAddressDetails_ipCity' - The city that the IP address originated from.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'ipGeoLocation', 'ipAddressDetails_ipGeoLocation' - The geographic coordinates of the location that the IP address</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- originated from.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'ipAddressV4', 'ipAddressDetails_ipAddressV4' - The Internet Protocol version 4 (IPv4) address of the device.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'ipOwner', 'ipAddressDetails_ipOwner' - The registered owner of the IP address.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'ipCountry', 'ipAddressDetails_ipCountry' - The country that the IP address originated from.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#newIpAddressDetails"><span class="hs-identifier hs-type">newIpAddressDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-type">IpAddressDetails</span></a></span><span>
+</span><span id="line-69"></span><span id="newIpAddressDetails"><span class="annot"><span class="annottext">newIpAddressDetails :: IpAddressDetails
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#newIpAddressDetails"><span class="hs-identifier hs-var hs-var">newIpAddressDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">IpAddressDetails' :: Maybe IpCity
+-&gt; Maybe IpGeoLocation
+-&gt; Maybe Text
+-&gt; Maybe IpOwner
+-&gt; Maybe IpCountry
+-&gt; IpAddressDetails
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails%27"><span class="hs-identifier hs-type">IpAddressDetails'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ipCity:IpAddressDetails' :: Maybe IpCity
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#%24sel%3AipCity%3AIpAddressDetails%27"><span class="hs-identifier hs-var">ipCity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpCity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipGeoLocation:IpAddressDetails' :: Maybe IpGeoLocation
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#%24sel%3AipGeoLocation%3AIpAddressDetails%27"><span class="hs-identifier hs-var">ipGeoLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpGeoLocation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipAddressV4:IpAddressDetails' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#%24sel%3AipAddressV4%3AIpAddressDetails%27"><span class="hs-identifier hs-var">ipAddressV4</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipOwner:IpAddressDetails' :: Maybe IpOwner
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#%24sel%3AipOwner%3AIpAddressDetails%27"><span class="hs-identifier hs-var">ipOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpOwner
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipCountry:IpAddressDetails' :: Maybe IpCountry
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#%24sel%3AipCountry%3AIpAddressDetails%27"><span class="hs-identifier hs-var">ipCountry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpCountry
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The city that the IP address originated from.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#ipAddressDetails_ipCity"><span class="hs-identifier hs-type">ipAddressDetails_ipCity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-type">IpAddressDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpCity.html#IpCity"><span class="hs-identifier hs-type">IpCity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="ipAddressDetails_ipCity"><span class="annot"><span class="annottext">ipAddressDetails_ipCity :: (Maybe IpCity -&gt; f (Maybe IpCity))
+-&gt; IpAddressDetails -&gt; f IpAddressDetails
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#ipAddressDetails_ipCity"><span class="hs-identifier hs-var hs-var">ipAddressDetails_ipCity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IpAddressDetails -&gt; Maybe IpCity)
+-&gt; (IpAddressDetails -&gt; Maybe IpCity -&gt; IpAddressDetails)
+-&gt; Lens
+     IpAddressDetails IpAddressDetails (Maybe IpCity) (Maybe IpCity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails%27"><span class="hs-identifier hs-type">IpAddressDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388902"><span class="annot"><span class="annottext">Maybe IpCity
+ipCity :: Maybe IpCity
+$sel:ipCity:IpAddressDetails' :: IpAddressDetails -&gt; Maybe IpCity
+</span><a href="#local-6989586621679388902"><span class="hs-identifier hs-var hs-var">ipCity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IpCity
+</span><a href="#local-6989586621679388902"><span class="hs-identifier hs-var">ipCity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388901"><span class="annot"><span class="annottext">s :: IpAddressDetails
+</span><a href="#local-6989586621679388901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails%27"><span class="hs-identifier hs-type">IpAddressDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388900"><span class="annot"><span class="annottext">Maybe IpCity
+</span><a href="#local-6989586621679388900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpAddressDetails
+</span><a href="#local-6989586621679388901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipCity:IpAddressDetails' :: Maybe IpCity
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#%24sel%3AipCity%3AIpAddressDetails%27"><span class="hs-identifier hs-var">ipCity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpCity
+</span><a href="#local-6989586621679388900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-type">IpAddressDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The geographic coordinates of the location that the IP address</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- originated from.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#ipAddressDetails_ipGeoLocation"><span class="hs-identifier hs-type">ipAddressDetails_ipGeoLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-type">IpAddressDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpGeoLocation.html#IpGeoLocation"><span class="hs-identifier hs-type">IpGeoLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="ipAddressDetails_ipGeoLocation"><span class="annot"><span class="annottext">ipAddressDetails_ipGeoLocation :: (Maybe IpGeoLocation -&gt; f (Maybe IpGeoLocation))
+-&gt; IpAddressDetails -&gt; f IpAddressDetails
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#ipAddressDetails_ipGeoLocation"><span class="hs-identifier hs-var hs-var">ipAddressDetails_ipGeoLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IpAddressDetails -&gt; Maybe IpGeoLocation)
+-&gt; (IpAddressDetails -&gt; Maybe IpGeoLocation -&gt; IpAddressDetails)
+-&gt; Lens
+     IpAddressDetails
+     IpAddressDetails
+     (Maybe IpGeoLocation)
+     (Maybe IpGeoLocation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails%27"><span class="hs-identifier hs-type">IpAddressDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388898"><span class="annot"><span class="annottext">Maybe IpGeoLocation
+ipGeoLocation :: Maybe IpGeoLocation
+$sel:ipGeoLocation:IpAddressDetails' :: IpAddressDetails -&gt; Maybe IpGeoLocation
+</span><a href="#local-6989586621679388898"><span class="hs-identifier hs-var hs-var">ipGeoLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IpGeoLocation
+</span><a href="#local-6989586621679388898"><span class="hs-identifier hs-var">ipGeoLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388897"><span class="annot"><span class="annottext">s :: IpAddressDetails
+</span><a href="#local-6989586621679388897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails%27"><span class="hs-identifier hs-type">IpAddressDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388896"><span class="annot"><span class="annottext">Maybe IpGeoLocation
+</span><a href="#local-6989586621679388896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpAddressDetails
+</span><a href="#local-6989586621679388897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipGeoLocation:IpAddressDetails' :: Maybe IpGeoLocation
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#%24sel%3AipGeoLocation%3AIpAddressDetails%27"><span class="hs-identifier hs-var">ipGeoLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpGeoLocation
+</span><a href="#local-6989586621679388896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-type">IpAddressDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The Internet Protocol version 4 (IPv4) address of the device.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#ipAddressDetails_ipAddressV4"><span class="hs-identifier hs-type">ipAddressDetails_ipAddressV4</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-type">IpAddressDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="ipAddressDetails_ipAddressV4"><span class="annot"><span class="annottext">ipAddressDetails_ipAddressV4 :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IpAddressDetails -&gt; f IpAddressDetails
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#ipAddressDetails_ipAddressV4"><span class="hs-identifier hs-var hs-var">ipAddressDetails_ipAddressV4</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IpAddressDetails -&gt; Maybe Text)
+-&gt; (IpAddressDetails -&gt; Maybe Text -&gt; IpAddressDetails)
+-&gt; Lens IpAddressDetails IpAddressDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails%27"><span class="hs-identifier hs-type">IpAddressDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388894"><span class="annot"><span class="annottext">Maybe Text
+ipAddressV4 :: Maybe Text
+$sel:ipAddressV4:IpAddressDetails' :: IpAddressDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679388894"><span class="hs-identifier hs-var hs-var">ipAddressV4</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388894"><span class="hs-identifier hs-var">ipAddressV4</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388893"><span class="annot"><span class="annottext">s :: IpAddressDetails
+</span><a href="#local-6989586621679388893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails%27"><span class="hs-identifier hs-type">IpAddressDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388892"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpAddressDetails
+</span><a href="#local-6989586621679388893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddressV4:IpAddressDetails' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#%24sel%3AipAddressV4%3AIpAddressDetails%27"><span class="hs-identifier hs-var">ipAddressV4</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-type">IpAddressDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The registered owner of the IP address.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#ipAddressDetails_ipOwner"><span class="hs-identifier hs-type">ipAddressDetails_ipOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-type">IpAddressDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpOwner.html#IpOwner"><span class="hs-identifier hs-type">IpOwner</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="ipAddressDetails_ipOwner"><span class="annot"><span class="annottext">ipAddressDetails_ipOwner :: (Maybe IpOwner -&gt; f (Maybe IpOwner))
+-&gt; IpAddressDetails -&gt; f IpAddressDetails
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#ipAddressDetails_ipOwner"><span class="hs-identifier hs-var hs-var">ipAddressDetails_ipOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IpAddressDetails -&gt; Maybe IpOwner)
+-&gt; (IpAddressDetails -&gt; Maybe IpOwner -&gt; IpAddressDetails)
+-&gt; Lens
+     IpAddressDetails IpAddressDetails (Maybe IpOwner) (Maybe IpOwner)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails%27"><span class="hs-identifier hs-type">IpAddressDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388890"><span class="annot"><span class="annottext">Maybe IpOwner
+ipOwner :: Maybe IpOwner
+$sel:ipOwner:IpAddressDetails' :: IpAddressDetails -&gt; Maybe IpOwner
+</span><a href="#local-6989586621679388890"><span class="hs-identifier hs-var hs-var">ipOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IpOwner
+</span><a href="#local-6989586621679388890"><span class="hs-identifier hs-var">ipOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388889"><span class="annot"><span class="annottext">s :: IpAddressDetails
+</span><a href="#local-6989586621679388889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails%27"><span class="hs-identifier hs-type">IpAddressDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388888"><span class="annot"><span class="annottext">Maybe IpOwner
+</span><a href="#local-6989586621679388888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpAddressDetails
+</span><a href="#local-6989586621679388889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipOwner:IpAddressDetails' :: Maybe IpOwner
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#%24sel%3AipOwner%3AIpAddressDetails%27"><span class="hs-identifier hs-var">ipOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpOwner
+</span><a href="#local-6989586621679388888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-type">IpAddressDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The country that the IP address originated from.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#ipAddressDetails_ipCountry"><span class="hs-identifier hs-type">ipAddressDetails_ipCountry</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-type">IpAddressDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpCountry.html#IpCountry"><span class="hs-identifier hs-type">IpCountry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="ipAddressDetails_ipCountry"><span class="annot"><span class="annottext">ipAddressDetails_ipCountry :: (Maybe IpCountry -&gt; f (Maybe IpCountry))
+-&gt; IpAddressDetails -&gt; f IpAddressDetails
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#ipAddressDetails_ipCountry"><span class="hs-identifier hs-var hs-var">ipAddressDetails_ipCountry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IpAddressDetails -&gt; Maybe IpCountry)
+-&gt; (IpAddressDetails -&gt; Maybe IpCountry -&gt; IpAddressDetails)
+-&gt; Lens
+     IpAddressDetails
+     IpAddressDetails
+     (Maybe IpCountry)
+     (Maybe IpCountry)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails%27"><span class="hs-identifier hs-type">IpAddressDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388886"><span class="annot"><span class="annottext">Maybe IpCountry
+ipCountry :: Maybe IpCountry
+$sel:ipCountry:IpAddressDetails' :: IpAddressDetails -&gt; Maybe IpCountry
+</span><a href="#local-6989586621679388886"><span class="hs-identifier hs-var hs-var">ipCountry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IpCountry
+</span><a href="#local-6989586621679388886"><span class="hs-identifier hs-var">ipCountry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388885"><span class="annot"><span class="annottext">s :: IpAddressDetails
+</span><a href="#local-6989586621679388885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails%27"><span class="hs-identifier hs-type">IpAddressDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388884"><span class="annot"><span class="annottext">Maybe IpCountry
+</span><a href="#local-6989586621679388884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpAddressDetails
+</span><a href="#local-6989586621679388885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipCountry:IpAddressDetails' :: Maybe IpCountry
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#%24sel%3AipCountry%3AIpAddressDetails%27"><span class="hs-identifier hs-var">ipCountry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpCountry
+</span><a href="#local-6989586621679388884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-type">IpAddressDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388881"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-type">IpAddressDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679388879"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IpAddressDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser IpAddressDetails)
+-&gt; Value
+-&gt; Parser IpAddressDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;IpAddressDetails&quot;</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388876"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388876"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe IpCity
+-&gt; Maybe IpGeoLocation
+-&gt; Maybe Text
+-&gt; Maybe IpOwner
+-&gt; Maybe IpCountry
+-&gt; IpAddressDetails
+</span><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails%27"><span class="hs-identifier hs-var">IpAddressDetails'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe IpCity
+ -&gt; Maybe IpGeoLocation
+ -&gt; Maybe Text
+ -&gt; Maybe IpOwner
+ -&gt; Maybe IpCountry
+ -&gt; IpAddressDetails)
+-&gt; Parser (Maybe IpCity)
+-&gt; Parser
+     (Maybe IpGeoLocation
+      -&gt; Maybe Text
+      -&gt; Maybe IpOwner
+      -&gt; Maybe IpCountry
+      -&gt; IpAddressDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IpCity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipCity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe IpGeoLocation
+   -&gt; Maybe Text
+   -&gt; Maybe IpOwner
+   -&gt; Maybe IpCountry
+   -&gt; IpAddressDetails)
+-&gt; Parser (Maybe IpGeoLocation)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe IpOwner -&gt; Maybe IpCountry -&gt; IpAddressDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IpGeoLocation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipGeoLocation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe IpOwner -&gt; Maybe IpCountry -&gt; IpAddressDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe IpOwner -&gt; Maybe IpCountry -&gt; IpAddressDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipAddressV4&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe IpOwner -&gt; Maybe IpCountry -&gt; IpAddressDetails)
+-&gt; Parser (Maybe IpOwner)
+-&gt; Parser (Maybe IpCountry -&gt; IpAddressDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IpOwner)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipOwner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe IpCountry -&gt; IpAddressDetails)
+-&gt; Parser (Maybe IpCountry) -&gt; Parser IpAddressDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IpCountry)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipCountry&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388870"><span id="local-6989586621679388872"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-type">IpAddressDetails</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388867"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-type">IpAddressDetails</span></a></span></span><span>
+</span><span id="line-115"></span></pre></body></html>

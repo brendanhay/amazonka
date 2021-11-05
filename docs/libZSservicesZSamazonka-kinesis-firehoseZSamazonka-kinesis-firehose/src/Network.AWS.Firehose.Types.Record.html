@@ -26,13 +26,13 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The unit of data in a delivery stream.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRecord' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679275377"><span id="local-6989586621679275378"></span></span><span class="hs-keyword">data</span><span> </span><span id="Record"><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record"><span class="hs-identifier hs-var">Record</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Record%27"><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record%27"><span class="hs-identifier hs-var">Record'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679275386"><span id="local-6989586621679275387"></span></span><span class="hs-keyword">data</span><span> </span><span id="Record"><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record"><span class="hs-identifier hs-var">Record</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Record%27"><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record%27"><span class="hs-identifier hs-var">Record'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The data blob, which is base64-encoded when the blob is serialized. The</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- maximum size of the data blob, before base64-encoding, is 1,000 KiB.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Adata%27%3ARecord%27"><span class="annot"><span class="annottext">Record -&gt; Base64
 </span><a href="Network.AWS.Firehose.Types.Record.html#%24sel%3Adata%27%3ARecord%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275371"><span id="local-6989586621679275373"><span class="annot"><span class="annottext">Record -&gt; Record -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275380"><span id="local-6989586621679275382"><span class="annot"><span class="annottext">Record -&gt; Record -&gt; Bool
 (Record -&gt; Record -&gt; Bool)
 -&gt; (Record -&gt; Record -&gt; Bool) -&gt; Eq Record
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Record -&gt; Record -&gt; Bool
 == :: Record -&gt; Record -&gt; Bool
 $c== :: Record -&gt; Record -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275362"><span id="local-6989586621679275364"><span id="local-6989586621679275366"><span id="local-6989586621679275368"><span class="annot"><span class="annottext">ReadPrec [Record]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275371"><span id="local-6989586621679275373"><span id="local-6989586621679275375"><span id="local-6989586621679275377"><span class="annot"><span class="annottext">ReadPrec [Record]
 ReadPrec Record
 Int -&gt; ReadS Record
 ReadS [Record]
@@ -60,7 +60,7 @@ readList :: ReadS [Record]
 $creadList :: ReadS [Record]
 readsPrec :: Int -&gt; ReadS Record
 $creadsPrec :: Int -&gt; ReadS Record
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275355"><span id="local-6989586621679275357"><span id="local-6989586621679275359"><span class="annot"><span class="annottext">Int -&gt; Record -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275364"><span id="local-6989586621679275366"><span id="local-6989586621679275368"><span class="annot"><span class="annottext">Int -&gt; Record -&gt; ShowS
 [Record] -&gt; ShowS
 Record -&gt; String
 (Int -&gt; Record -&gt; ShowS)
@@ -102,8 +102,8 @@ $cfrom :: forall x. Record -&gt; Rep Record x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span>
 </span><span id="line-54"></span><span id="newRecord"><span class="annot"><span class="annottext">newRecord :: ByteString -&gt; Record
-</span><a href="Network.AWS.Firehose.Types.Record.html#newRecord"><span class="hs-identifier hs-var hs-var">newRecord</span></a></span></span><span> </span><span id="local-6989586621679275349"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679275349"><span class="hs-identifier hs-var">pData_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Firehose.Types.Record.html#newRecord"><span class="hs-identifier hs-var hs-var">newRecord</span></a></span></span><span> </span><span id="local-6989586621679275358"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679275358"><span class="hs-identifier hs-var">pData_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">Record' :: Base64 -&gt; Record
 </span><a href="Network.AWS.Firehose.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':Record' :: Base64
 </span><a href="Network.AWS.Firehose.Types.Record.html#%24sel%3Adata%27%3ARecord%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
@@ -114,7 +114,7 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679275349"><span class="hs-identifier hs-var">pData_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679275358"><span class="hs-identifier hs-var">pData_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | The data blob, which is base64-encoded when the blob is serialized. The</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- maximum size of the data blob, before base64-encoding, is 1,000 KiB.--</span><span>
@@ -127,16 +127,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 </span><a href="Network.AWS.Firehose.Types.Record.html#record_data"><span class="hs-identifier hs-var hs-var">record_data</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Record -&gt; Base64)
 -&gt; (Record -&gt; Base64 -&gt; Record) -&gt; Lens Record Record Base64 Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275343"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275352"><span class="annot"><span class="annottext">Base64
 data' :: Base64
 $sel:data':Record' :: Record -&gt; Base64
-</span><a href="#local-6989586621679275343"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679275343"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275342"><span class="annot"><span class="annottext">s :: Record
-</span><a href="#local-6989586621679275342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275341"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679275341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Record
-</span><a href="#local-6989586621679275342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':Record' :: Base64
+</span><a href="#local-6989586621679275352"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679275352"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275351"><span class="annot"><span class="annottext">s :: Record
+</span><a href="#local-6989586621679275351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275350"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679275350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Record
+</span><a href="#local-6989586621679275351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':Record' :: Base64
 </span><a href="Network.AWS.Firehose.Types.Record.html#%24sel%3Adata%27%3ARecord%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679275341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; Record -&gt; f Record)
+</span><a href="#local-6989586621679275350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; Record -&gt; f Record)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
 -&gt; (ByteString -&gt; f ByteString)
 -&gt; Record
@@ -146,16 +146,16 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 Iso' Base64 ByteString
 </span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275336"><span id="local-6989586621679275338"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275345"><span id="local-6989586621679275347"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275333"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275342"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275325"><span id="local-6989586621679275327"><span id="local-6989586621679275329"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679275323"><span class="annot"><span class="annottext">toJSON :: Record -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275321"><span class="annot"><span class="annottext">Base64
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275334"><span id="local-6989586621679275336"><span id="local-6989586621679275338"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679275332"><span class="annot"><span class="annottext">toJSON :: Record -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275330"><span class="annot"><span class="annottext">Base64
 data' :: Base64
 $sel:data':Record' :: Record -&gt; Base64
-</span><a href="#local-6989586621679275321"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679275330"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -167,6 +167,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Data&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679275321"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679275330"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span></pre></body></html>

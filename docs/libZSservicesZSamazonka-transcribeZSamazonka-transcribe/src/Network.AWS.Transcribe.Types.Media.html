@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes the input media file in a transcription request.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMedia' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679272319"><span id="local-6989586621679272320"></span></span><span class="hs-keyword">data</span><span> </span><span id="Media"><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media"><span class="hs-identifier hs-var">Media</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Media%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media%27"><span class="hs-identifier hs-var">Media'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679272328"><span id="local-6989586621679272329"></span></span><span class="hs-keyword">data</span><span> </span><span id="Media"><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media"><span class="hs-identifier hs-var">Media</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Media%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media%27"><span class="hs-identifier hs-var">Media'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The S3 object location of the input media file. The URI must be in the</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- same region as the API endpoint that you are calling. The general form</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- is:</span><span>
@@ -43,14 +43,14 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AredactedMediaFileUri%3AMedia%27"><span class="annot"><span class="annottext">Media -&gt; Maybe Text
 </span><a href="Network.AWS.Transcribe.Types.Media.html#%24sel%3AredactedMediaFileUri%3AMedia%27"><span class="hs-identifier hs-var hs-var">redactedMediaFileUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272312"><span id="local-6989586621679272314"><span class="annot"><span class="annottext">Media -&gt; Media -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272321"><span id="local-6989586621679272323"><span class="annot"><span class="annottext">Media -&gt; Media -&gt; Bool
 (Media -&gt; Media -&gt; Bool) -&gt; (Media -&gt; Media -&gt; Bool) -&gt; Eq Media
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Media -&gt; Media -&gt; Bool
 $c/= :: Media -&gt; Media -&gt; Bool
 == :: Media -&gt; Media -&gt; Bool
 $c== :: Media -&gt; Media -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272303"><span id="local-6989586621679272305"><span id="local-6989586621679272307"><span id="local-6989586621679272309"><span class="annot"><span class="annottext">ReadPrec [Media]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272312"><span id="local-6989586621679272314"><span id="local-6989586621679272316"><span id="local-6989586621679272318"><span class="annot"><span class="annottext">ReadPrec [Media]
 ReadPrec Media
 Int -&gt; ReadS Media
 ReadS [Media]
@@ -70,7 +70,7 @@ readList :: ReadS [Media]
 $creadList :: ReadS [Media]
 readsPrec :: Int -&gt; ReadS Media
 $creadsPrec :: Int -&gt; ReadS Media
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272296"><span id="local-6989586621679272298"><span id="local-6989586621679272300"><span class="annot"><span class="annottext">Int -&gt; Media -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272305"><span id="local-6989586621679272307"><span id="local-6989586621679272309"><span class="annot"><span class="annottext">Int -&gt; Media -&gt; ShowS
 [Media] -&gt; ShowS
 Media -&gt; String
 (Int -&gt; Media -&gt; ShowS)
@@ -144,16 +144,16 @@ forall a. Maybe a
 -&gt; (Media -&gt; Maybe Text -&gt; Media)
 -&gt; Lens Media Media (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media%27"><span class="hs-identifier hs-type">Media'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272287"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media%27"><span class="hs-identifier hs-type">Media'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272296"><span class="annot"><span class="annottext">Maybe Text
 mediaFileUri :: Maybe Text
 $sel:mediaFileUri:Media' :: Media -&gt; Maybe Text
-</span><a href="#local-6989586621679272287"><span class="hs-identifier hs-var hs-var">mediaFileUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272287"><span class="hs-identifier hs-var">mediaFileUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272286"><span class="annot"><span class="annottext">s :: Media
-</span><a href="#local-6989586621679272286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media%27"><span class="hs-identifier hs-type">Media'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272285"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Media
-</span><a href="#local-6989586621679272286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaFileUri:Media' :: Maybe Text
+</span><a href="#local-6989586621679272296"><span class="hs-identifier hs-var hs-var">mediaFileUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272296"><span class="hs-identifier hs-var">mediaFileUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272295"><span class="annot"><span class="annottext">s :: Media
+</span><a href="#local-6989586621679272295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media%27"><span class="hs-identifier hs-type">Media'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272294"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Media
+</span><a href="#local-6989586621679272295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaFileUri:Media' :: Maybe Text
 </span><a href="Network.AWS.Transcribe.Types.Media.html#%24sel%3AmediaFileUri%3AMedia%27"><span class="hs-identifier hs-var">mediaFileUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media"><span class="hs-identifier hs-type">Media</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media"><span class="hs-identifier hs-type">Media</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The S3 object location for your redacted output media file. This is only</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- supported for call analytics jobs.</span><span>
@@ -163,58 +163,58 @@ $sel:mediaFileUri:Media' :: Media -&gt; Maybe Text
 -&gt; (Media -&gt; Maybe Text -&gt; Media)
 -&gt; Lens Media Media (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media%27"><span class="hs-identifier hs-type">Media'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272283"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media%27"><span class="hs-identifier hs-type">Media'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272292"><span class="annot"><span class="annottext">Maybe Text
 redactedMediaFileUri :: Maybe Text
 $sel:redactedMediaFileUri:Media' :: Media -&gt; Maybe Text
-</span><a href="#local-6989586621679272283"><span class="hs-identifier hs-var hs-var">redactedMediaFileUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272283"><span class="hs-identifier hs-var">redactedMediaFileUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272282"><span class="annot"><span class="annottext">s :: Media
-</span><a href="#local-6989586621679272282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media%27"><span class="hs-identifier hs-type">Media'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272281"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Media
-</span><a href="#local-6989586621679272282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redactedMediaFileUri:Media' :: Maybe Text
+</span><a href="#local-6989586621679272292"><span class="hs-identifier hs-var hs-var">redactedMediaFileUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272292"><span class="hs-identifier hs-var">redactedMediaFileUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272291"><span class="annot"><span class="annottext">s :: Media
+</span><a href="#local-6989586621679272291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media%27"><span class="hs-identifier hs-type">Media'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272290"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Media
+</span><a href="#local-6989586621679272291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redactedMediaFileUri:Media' :: Maybe Text
 </span><a href="Network.AWS.Transcribe.Types.Media.html#%24sel%3AredactedMediaFileUri%3AMedia%27"><span class="hs-identifier hs-var">redactedMediaFileUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media"><span class="hs-identifier hs-type">Media</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media"><span class="hs-identifier hs-type">Media</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272278"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media"><span class="hs-identifier hs-type">Media</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679272276"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Media
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272287"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media"><span class="hs-identifier hs-type">Media</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679272285"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Media
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Media) -&gt; Value -&gt; Parser Media
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Media&quot;</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679272273"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679272273"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679272282"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272282"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Media
 </span><a href="Network.AWS.Transcribe.Types.Media.html#Media%27"><span class="hs-identifier hs-var">Media'</span></a></span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Media)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Media)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679272273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679272282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MediaFileUri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Media) -&gt; Parser (Maybe Text) -&gt; Parser Media
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679272273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679272282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RedactedMediaFileUri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272267"><span id="local-6989586621679272269"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media"><span class="hs-identifier hs-type">Media</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272276"><span id="local-6989586621679272278"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media"><span class="hs-identifier hs-type">Media</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272264"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media"><span class="hs-identifier hs-type">Media</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272273"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media"><span class="hs-identifier hs-type">Media</span></a></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272256"><span id="local-6989586621679272258"><span id="local-6989586621679272260"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media"><span class="hs-identifier hs-type">Media</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679272254"><span class="annot"><span class="annottext">toJSON :: Media -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media%27"><span class="hs-identifier hs-type">Media'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272251"><span id="local-6989586621679272252"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272265"><span id="local-6989586621679272267"><span id="local-6989586621679272269"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media"><span class="hs-identifier hs-type">Media</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679272263"><span class="annot"><span class="annottext">toJSON :: Media -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Media.html#Media%27"><span class="hs-identifier hs-type">Media'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272260"><span id="local-6989586621679272261"><span class="annot"><span class="annottext">Maybe Text
 redactedMediaFileUri :: Maybe Text
 mediaFileUri :: Maybe Text
 $sel:redactedMediaFileUri:Media' :: Media -&gt; Maybe Text
 $sel:mediaFileUri:Media' :: Media -&gt; Maybe Text
-</span><a href="#local-6989586621679272251"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679272260"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -226,7 +226,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272252"><span class="hs-identifier hs-var">mediaFileUri</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679272261"><span class="hs-identifier hs-var">mediaFileUri</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RedactedMediaFileUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -234,7 +234,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272251"><span class="hs-identifier hs-var">redactedMediaFileUri</span></a></span><span>
+</span><a href="#local-6989586621679272260"><span class="hs-identifier hs-var">redactedMediaFileUri</span></a></span><span>
 </span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span></pre></body></html>

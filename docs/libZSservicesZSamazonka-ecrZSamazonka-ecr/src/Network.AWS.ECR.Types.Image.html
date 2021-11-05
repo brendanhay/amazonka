@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An object representing an Amazon ECR image.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newImage' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679232388"><span id="local-6989586621679232389"></span></span><span class="hs-keyword">data</span><span> </span><span id="Image"><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-var">Image</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Image%27"><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-var">Image'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679232397"><span id="local-6989586621679232398"></span></span><span class="hs-keyword">data</span><span> </span><span id="Image"><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-var">Image</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Image%27"><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-var">Image'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- containing the image.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AregistryId%3AImage%27"><span class="annot"><span class="annottext">Image -&gt; Maybe Text
@@ -46,14 +46,14 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AimageManifest%3AImage%27"><span class="annot"><span class="annottext">Image -&gt; Maybe Text
 </span><a href="Network.AWS.ECR.Types.Image.html#%24sel%3AimageManifest%3AImage%27"><span class="hs-identifier hs-var hs-var">imageManifest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232378"><span id="local-6989586621679232380"><span class="annot"><span class="annottext">Image -&gt; Image -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232387"><span id="local-6989586621679232389"><span class="annot"><span class="annottext">Image -&gt; Image -&gt; Bool
 (Image -&gt; Image -&gt; Bool) -&gt; (Image -&gt; Image -&gt; Bool) -&gt; Eq Image
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Image -&gt; Image -&gt; Bool
 $c/= :: Image -&gt; Image -&gt; Bool
 == :: Image -&gt; Image -&gt; Bool
 $c== :: Image -&gt; Image -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232369"><span id="local-6989586621679232371"><span id="local-6989586621679232373"><span id="local-6989586621679232375"><span class="annot"><span class="annottext">ReadPrec [Image]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232378"><span id="local-6989586621679232380"><span id="local-6989586621679232382"><span id="local-6989586621679232384"><span class="annot"><span class="annottext">ReadPrec [Image]
 ReadPrec Image
 Int -&gt; ReadS Image
 ReadS [Image]
@@ -73,7 +73,7 @@ readList :: ReadS [Image]
 $creadList :: ReadS [Image]
 readsPrec :: Int -&gt; ReadS Image
 $creadsPrec :: Int -&gt; ReadS Image
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232362"><span id="local-6989586621679232364"><span id="local-6989586621679232366"><span class="annot"><span class="annottext">Int -&gt; Image -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232371"><span id="local-6989586621679232373"><span id="local-6989586621679232375"><span class="annot"><span class="annottext">Int -&gt; Image -&gt; ShowS
 [Image] -&gt; ShowS
 Image -&gt; String
 (Int -&gt; Image -&gt; ShowS)
@@ -156,16 +156,16 @@ forall a. Maybe a
 -&gt; (Image -&gt; Maybe Text -&gt; Image)
 -&gt; Lens Image Image (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232353"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232362"><span class="annot"><span class="annottext">Maybe Text
 registryId :: Maybe Text
 $sel:registryId:Image' :: Image -&gt; Maybe Text
-</span><a href="#local-6989586621679232353"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232353"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232352"><span class="annot"><span class="annottext">s :: Image
-</span><a href="#local-6989586621679232352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232351"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679232352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:Image' :: Maybe Text
+</span><a href="#local-6989586621679232362"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232362"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232361"><span class="annot"><span class="annottext">s :: Image
+</span><a href="#local-6989586621679232361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232360"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679232361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:Image' :: Maybe Text
 </span><a href="Network.AWS.ECR.Types.Image.html#%24sel%3AregistryId%3AImage%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The manifest media type of the image.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#image_imageManifestMediaType"><span class="hs-identifier hs-type">image_imageManifestMediaType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -174,16 +174,16 @@ $sel:registryId:Image' :: Image -&gt; Maybe Text
 -&gt; (Image -&gt; Maybe Text -&gt; Image)
 -&gt; Lens Image Image (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232349"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232358"><span class="annot"><span class="annottext">Maybe Text
 imageManifestMediaType :: Maybe Text
 $sel:imageManifestMediaType:Image' :: Image -&gt; Maybe Text
-</span><a href="#local-6989586621679232349"><span class="hs-identifier hs-var hs-var">imageManifestMediaType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232349"><span class="hs-identifier hs-var">imageManifestMediaType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232348"><span class="annot"><span class="annottext">s :: Image
-</span><a href="#local-6989586621679232348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232347"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679232348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageManifestMediaType:Image' :: Maybe Text
+</span><a href="#local-6989586621679232358"><span class="hs-identifier hs-var hs-var">imageManifestMediaType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232358"><span class="hs-identifier hs-var">imageManifestMediaType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232357"><span class="annot"><span class="annottext">s :: Image
+</span><a href="#local-6989586621679232357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232356"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679232357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageManifestMediaType:Image' :: Maybe Text
 </span><a href="Network.AWS.ECR.Types.Image.html#%24sel%3AimageManifestMediaType%3AImage%27"><span class="hs-identifier hs-var">imageManifestMediaType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | An object containing the image tag and image digest associated with an</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- image.</span><span>
@@ -194,16 +194,16 @@ $sel:imageManifestMediaType:Image' :: Image -&gt; Maybe Text
 -&gt; (Image -&gt; Maybe ImageIdentifier -&gt; Image)
 -&gt; Lens Image Image (Maybe ImageIdentifier) (Maybe ImageIdentifier)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232345"><span class="annot"><span class="annottext">Maybe ImageIdentifier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232354"><span class="annot"><span class="annottext">Maybe ImageIdentifier
 imageId :: Maybe ImageIdentifier
 $sel:imageId:Image' :: Image -&gt; Maybe ImageIdentifier
-</span><a href="#local-6989586621679232345"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageIdentifier
-</span><a href="#local-6989586621679232345"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232344"><span class="annot"><span class="annottext">s :: Image
-</span><a href="#local-6989586621679232344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232343"><span class="annot"><span class="annottext">Maybe ImageIdentifier
-</span><a href="#local-6989586621679232343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679232344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:Image' :: Maybe ImageIdentifier
+</span><a href="#local-6989586621679232354"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageIdentifier
+</span><a href="#local-6989586621679232354"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232353"><span class="annot"><span class="annottext">s :: Image
+</span><a href="#local-6989586621679232353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232352"><span class="annot"><span class="annottext">Maybe ImageIdentifier
+</span><a href="#local-6989586621679232352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679232353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:Image' :: Maybe ImageIdentifier
 </span><a href="Network.AWS.ECR.Types.Image.html#%24sel%3AimageId%3AImage%27"><span class="hs-identifier hs-var">imageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageIdentifier
-</span><a href="#local-6989586621679232343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The name of the repository associated with the image.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#image_repositoryName"><span class="hs-identifier hs-type">image_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -212,16 +212,16 @@ $sel:imageId:Image' :: Image -&gt; Maybe ImageIdentifier
 -&gt; (Image -&gt; Maybe Text -&gt; Image)
 -&gt; Lens Image Image (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232341"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232350"><span class="annot"><span class="annottext">Maybe Text
 repositoryName :: Maybe Text
 $sel:repositoryName:Image' :: Image -&gt; Maybe Text
-</span><a href="#local-6989586621679232341"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232341"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232340"><span class="annot"><span class="annottext">s :: Image
-</span><a href="#local-6989586621679232340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232339"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679232340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:Image' :: Maybe Text
+</span><a href="#local-6989586621679232350"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232350"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232349"><span class="annot"><span class="annottext">s :: Image
+</span><a href="#local-6989586621679232349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232348"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679232349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:Image' :: Maybe Text
 </span><a href="Network.AWS.ECR.Types.Image.html#%24sel%3ArepositoryName%3AImage%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The image manifest associated with the image.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#image_imageManifest"><span class="hs-identifier hs-type">image_imageManifest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -230,27 +230,27 @@ $sel:repositoryName:Image' :: Image -&gt; Maybe Text
 -&gt; (Image -&gt; Maybe Text -&gt; Image)
 -&gt; Lens Image Image (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232337"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232346"><span class="annot"><span class="annottext">Maybe Text
 imageManifest :: Maybe Text
 $sel:imageManifest:Image' :: Image -&gt; Maybe Text
-</span><a href="#local-6989586621679232337"><span class="hs-identifier hs-var hs-var">imageManifest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232337"><span class="hs-identifier hs-var">imageManifest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232336"><span class="annot"><span class="annottext">s :: Image
-</span><a href="#local-6989586621679232336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232335"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679232336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageManifest:Image' :: Maybe Text
+</span><a href="#local-6989586621679232346"><span class="hs-identifier hs-var hs-var">imageManifest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232346"><span class="hs-identifier hs-var">imageManifest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232345"><span class="annot"><span class="annottext">s :: Image
+</span><a href="#local-6989586621679232345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232344"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679232345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageManifest:Image' :: Maybe Text
 </span><a href="Network.AWS.ECR.Types.Image.html#%24sel%3AimageManifest%3AImage%27"><span class="hs-identifier hs-var">imageManifest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232332"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679232330"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Image
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232341"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679232339"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Image
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Image) -&gt; Value -&gt; Parser Image
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Image&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679232327"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232327"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679232336"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232336"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ImageIdentifier
@@ -270,7 +270,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe ImageIdentifier -&gt; Maybe Text -&gt; Maybe Text -&gt; Image)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679232336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;registryId&quot;</span></span><span class="hs-special">)</span><span>
@@ -282,7 +282,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe ImageIdentifier -&gt; Maybe Text -&gt; Maybe Text -&gt; Image)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679232336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageManifestMediaType&quot;</span></span><span class="hs-special">)</span><span>
@@ -291,7 +291,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Image)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageIdentifier)
+</span><a href="#local-6989586621679232336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageIdentifier)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageId&quot;</span></span><span class="hs-special">)</span><span>
@@ -299,20 +299,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Image)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679232336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Image) -&gt; Parser (Maybe Text) -&gt; Parser Image
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679232336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageManifest&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232321"><span id="local-6989586621679232323"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232330"><span id="local-6989586621679232332"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232327"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span><span>
 </span><span id="line-114"></span></pre></body></html>

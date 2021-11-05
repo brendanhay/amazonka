@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679307058"><span id="local-6989586621679307059"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WafOverrideActionType"><span class="annot"><a href="Network.AWS.WAF.Types.WafOverrideActionType.html#WafOverrideActionType"><span class="hs-identifier hs-var">WafOverrideActionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WafOverrideActionType%27"><span class="annot"><a href="Network.AWS.WAF.Types.WafOverrideActionType.html#WafOverrideActionType%27"><span class="hs-identifier hs-var">WafOverrideActionType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679307067"><span id="local-6989586621679307068"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WafOverrideActionType"><span class="annot"><a href="Network.AWS.WAF.Types.WafOverrideActionType.html#WafOverrideActionType"><span class="hs-identifier hs-var">WafOverrideActionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WafOverrideActionType%27"><span class="annot"><a href="Network.AWS.WAF.Types.WafOverrideActionType.html#WafOverrideActionType%27"><span class="hs-identifier hs-var">WafOverrideActionType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWafOverrideActionType"><span class="annot"><span class="annottext">WafOverrideActionType -&gt; Text
 </span><a href="Network.AWS.WAF.Types.WafOverrideActionType.html#fromWafOverrideActionType"><span class="hs-identifier hs-var hs-var">fromWafOverrideActionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307050"><span id="local-6989586621679307052"><span id="local-6989586621679307054"><span class="annot"><span class="annottext">Int -&gt; WafOverrideActionType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307059"><span id="local-6989586621679307061"><span id="local-6989586621679307063"><span class="annot"><span class="annottext">Int -&gt; WafOverrideActionType -&gt; ShowS
 [WafOverrideActionType] -&gt; ShowS
 WafOverrideActionType -&gt; String
 (Int -&gt; WafOverrideActionType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: WafOverrideActionType -&gt; String
 showsPrec :: Int -&gt; WafOverrideActionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; WafOverrideActionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679307041"><span id="local-6989586621679307043"><span id="local-6989586621679307045"><span id="local-6989586621679307047"><span class="annot"><span class="annottext">ReadPrec [WafOverrideActionType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679307050"><span id="local-6989586621679307052"><span id="local-6989586621679307054"><span id="local-6989586621679307056"><span class="annot"><span class="annottext">ReadPrec [WafOverrideActionType]
 ReadPrec WafOverrideActionType
 Int -&gt; ReadS WafOverrideActionType
 ReadS [WafOverrideActionType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [WafOverrideActionType]
 readsPrec :: Int -&gt; ReadS WafOverrideActionType
 $creadsPrec :: Int -&gt; ReadS WafOverrideActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679307036"><span id="local-6989586621679307038"><span class="annot"><span class="annottext">WafOverrideActionType -&gt; WafOverrideActionType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679307045"><span id="local-6989586621679307047"><span class="annot"><span class="annottext">WafOverrideActionType -&gt; WafOverrideActionType -&gt; Bool
 (WafOverrideActionType -&gt; WafOverrideActionType -&gt; Bool)
 -&gt; (WafOverrideActionType -&gt; WafOverrideActionType -&gt; Bool)
 -&gt; Eq WafOverrideActionType
@@ -82,7 +82,7 @@ $c/= :: WafOverrideActionType -&gt; WafOverrideActionType -&gt; Bool
 == :: WafOverrideActionType -&gt; WafOverrideActionType -&gt; Bool
 $c== :: WafOverrideActionType -&gt; WafOverrideActionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679307020"><span id="local-6989586621679307022"><span id="local-6989586621679307024"><span id="local-6989586621679307026"><span id="local-6989586621679307028"><span id="local-6989586621679307030"><span id="local-6989586621679307032"><span class="annot"><span class="annottext">Eq WafOverrideActionType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679307029"><span id="local-6989586621679307031"><span id="local-6989586621679307033"><span id="local-6989586621679307035"><span id="local-6989586621679307037"><span id="local-6989586621679307039"><span id="local-6989586621679307041"><span class="annot"><span class="annottext">Eq WafOverrideActionType
 Eq WafOverrideActionType
 -&gt; (WafOverrideActionType -&gt; WafOverrideActionType -&gt; Ordering)
 -&gt; (WafOverrideActionType -&gt; WafOverrideActionType -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. WafOverrideActionType -&gt; Rep WafOverrideActionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307012"><span id="local-6989586621679307014"><span class="annot"><span class="annottext">Int -&gt; WafOverrideActionType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307021"><span id="local-6989586621679307023"><span class="annot"><span class="annottext">Int -&gt; WafOverrideActionType -&gt; Int
 WafOverrideActionType -&gt; Int
 (Int -&gt; WafOverrideActionType -&gt; Int)
 -&gt; (WafOverrideActionType -&gt; Int) -&gt; Hashable WafOverrideActionType
@@ -150,54 +150,54 @@ $chash :: WafOverrideActionType -&gt; Int
 hashWithSalt :: Int -&gt; WafOverrideActionType -&gt; Int
 $chashWithSalt :: Int -&gt; WafOverrideActionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679307009"><span class="annot"><span class="annottext">WafOverrideActionType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679307018"><span class="annot"><span class="annottext">WafOverrideActionType -&gt; ()
 (WafOverrideActionType -&gt; ()) -&gt; NFData WafOverrideActionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WafOverrideActionType -&gt; ()
 $crnf :: WafOverrideActionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679307006"><span class="annot"><span class="annottext">Text -&gt; Either String WafOverrideActionType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679307015"><span class="annot"><span class="annottext">Text -&gt; Either String WafOverrideActionType
 (Text -&gt; Either String WafOverrideActionType)
 -&gt; FromText WafOverrideActionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WafOverrideActionType
 $cfromText :: Text -&gt; Either String WafOverrideActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679307003"><span class="annot"><span class="annottext">WafOverrideActionType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679307012"><span class="annot"><span class="annottext">WafOverrideActionType -&gt; Text
 (WafOverrideActionType -&gt; Text) -&gt; ToText WafOverrideActionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WafOverrideActionType -&gt; Text
 $ctoText :: WafOverrideActionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679307000"><span class="annot"><span class="annottext">WafOverrideActionType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679307009"><span class="annot"><span class="annottext">WafOverrideActionType -&gt; ByteString
 (WafOverrideActionType -&gt; ByteString)
 -&gt; ToByteString WafOverrideActionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WafOverrideActionType -&gt; ByteString
 $ctoBS :: WafOverrideActionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679306997"><span class="annot"><span class="annottext">WafOverrideActionType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679307006"><span class="annot"><span class="annottext">WafOverrideActionType -&gt; ByteStringBuilder
 (WafOverrideActionType -&gt; ByteStringBuilder)
 -&gt; ToLog WafOverrideActionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WafOverrideActionType -&gt; ByteStringBuilder
 $cbuild :: WafOverrideActionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679306994"><span class="annot"><span class="annottext">HeaderName -&gt; WafOverrideActionType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679307003"><span class="annot"><span class="annottext">HeaderName -&gt; WafOverrideActionType -&gt; [Header]
 (HeaderName -&gt; WafOverrideActionType -&gt; [Header])
 -&gt; ToHeader WafOverrideActionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WafOverrideActionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WafOverrideActionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679306991"><span class="annot"><span class="annottext">WafOverrideActionType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679307000"><span class="annot"><span class="annottext">WafOverrideActionType -&gt; QueryString
 (WafOverrideActionType -&gt; QueryString)
 -&gt; ToQuery WafOverrideActionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WafOverrideActionType -&gt; QueryString
 $ctoQuery :: WafOverrideActionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679306986"><span id="local-6989586621679306988"><span class="annot"><span class="annottext">Value -&gt; Parser [WafOverrideActionType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679306995"><span id="local-6989586621679306997"><span class="annot"><span class="annottext">Value -&gt; Parser [WafOverrideActionType]
 Value -&gt; Parser WafOverrideActionType
 (Value -&gt; Parser WafOverrideActionType)
 -&gt; (Value -&gt; Parser [WafOverrideActionType])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [WafOverrideActionType]
 parseJSON :: Value -&gt; Parser WafOverrideActionType
 $cparseJSON :: Value -&gt; Parser WafOverrideActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679306981"><span id="local-6989586621679306983"><span class="annot"><span class="annottext">FromJSONKeyFunction [WafOverrideActionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679306990"><span id="local-6989586621679306992"><span class="annot"><span class="annottext">FromJSONKeyFunction [WafOverrideActionType]
 FromJSONKeyFunction WafOverrideActionType
 FromJSONKeyFunction WafOverrideActionType
 -&gt; FromJSONKeyFunction [WafOverrideActionType]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WafOverrideActionType]
 fromJSONKey :: FromJSONKeyFunction WafOverrideActionType
 $cfromJSONKey :: FromJSONKeyFunction WafOverrideActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679306972"><span id="local-6989586621679306974"><span id="local-6989586621679306976"><span id="local-6989586621679306978"><span class="annot"><span class="annottext">[WafOverrideActionType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679306981"><span id="local-6989586621679306983"><span id="local-6989586621679306985"><span id="local-6989586621679306987"><span class="annot"><span class="annottext">[WafOverrideActionType] -&gt; Encoding
 [WafOverrideActionType] -&gt; Value
 WafOverrideActionType -&gt; Encoding
 WafOverrideActionType -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: WafOverrideActionType -&gt; Encoding
 toJSON :: WafOverrideActionType -&gt; Value
 $ctoJSON :: WafOverrideActionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679306967"><span id="local-6989586621679306969"><span class="annot"><span class="annottext">ToJSONKeyFunction [WafOverrideActionType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679306976"><span id="local-6989586621679306978"><span class="annot"><span class="annottext">ToJSONKeyFunction [WafOverrideActionType]
 ToJSONKeyFunction WafOverrideActionType
 ToJSONKeyFunction WafOverrideActionType
 -&gt; ToJSONKeyFunction [WafOverrideActionType]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WafOverrideActionType]
 toJSONKey :: ToJSONKeyFunction WafOverrideActionType
 $ctoJSONKey :: ToJSONKeyFunction WafOverrideActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679306964"><span class="annot"><span class="annottext">[Node] -&gt; Either String WafOverrideActionType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679306973"><span class="annot"><span class="annottext">[Node] -&gt; Either String WafOverrideActionType
 ([Node] -&gt; Either String WafOverrideActionType)
 -&gt; FromXML WafOverrideActionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WafOverrideActionType
 $cparseXML :: [Node] -&gt; Either String WafOverrideActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679306961"><span class="annot"><span class="annottext">WafOverrideActionType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679306970"><span class="annot"><span class="annottext">WafOverrideActionType -&gt; XML
 (WafOverrideActionType -&gt; XML) -&gt; ToXML WafOverrideActionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: WafOverrideActionType -&gt; XML

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Smpte2038 Data Preference</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679921975"><span id="local-6989586621679921976"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Smpte2038DataPreference"><span class="annot"><a href="Network.AWS.MediaLive.Types.Smpte2038DataPreference.html#Smpte2038DataPreference"><span class="hs-identifier hs-var">Smpte2038DataPreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Smpte2038DataPreference%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Smpte2038DataPreference.html#Smpte2038DataPreference%27"><span class="hs-identifier hs-var">Smpte2038DataPreference'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679921984"><span id="local-6989586621679921985"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Smpte2038DataPreference"><span class="annot"><a href="Network.AWS.MediaLive.Types.Smpte2038DataPreference.html#Smpte2038DataPreference"><span class="hs-identifier hs-var">Smpte2038DataPreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Smpte2038DataPreference%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Smpte2038DataPreference.html#Smpte2038DataPreference%27"><span class="hs-identifier hs-var">Smpte2038DataPreference'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSmpte2038DataPreference"><span class="annot"><span class="annottext">Smpte2038DataPreference -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.Smpte2038DataPreference.html#fromSmpte2038DataPreference"><span class="hs-identifier hs-var hs-var">fromSmpte2038DataPreference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679921967"><span id="local-6989586621679921969"><span id="local-6989586621679921971"><span class="annot"><span class="annottext">Int -&gt; Smpte2038DataPreference -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679921976"><span id="local-6989586621679921978"><span id="local-6989586621679921980"><span class="annot"><span class="annottext">Int -&gt; Smpte2038DataPreference -&gt; ShowS
 [Smpte2038DataPreference] -&gt; ShowS
 Smpte2038DataPreference -&gt; String
 (Int -&gt; Smpte2038DataPreference -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: Smpte2038DataPreference -&gt; String
 showsPrec :: Int -&gt; Smpte2038DataPreference -&gt; ShowS
 $cshowsPrec :: Int -&gt; Smpte2038DataPreference -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679921958"><span id="local-6989586621679921960"><span id="local-6989586621679921962"><span id="local-6989586621679921964"><span class="annot"><span class="annottext">ReadPrec [Smpte2038DataPreference]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679921967"><span id="local-6989586621679921969"><span id="local-6989586621679921971"><span id="local-6989586621679921973"><span class="annot"><span class="annottext">ReadPrec [Smpte2038DataPreference]
 ReadPrec Smpte2038DataPreference
 Int -&gt; ReadS Smpte2038DataPreference
 ReadS [Smpte2038DataPreference]
@@ -73,7 +73,7 @@ $creadList :: ReadS [Smpte2038DataPreference]
 readsPrec :: Int -&gt; ReadS Smpte2038DataPreference
 $creadsPrec :: Int -&gt; ReadS Smpte2038DataPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679921953"><span id="local-6989586621679921955"><span class="annot"><span class="annottext">Smpte2038DataPreference -&gt; Smpte2038DataPreference -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679921962"><span id="local-6989586621679921964"><span class="annot"><span class="annottext">Smpte2038DataPreference -&gt; Smpte2038DataPreference -&gt; Bool
 (Smpte2038DataPreference -&gt; Smpte2038DataPreference -&gt; Bool)
 -&gt; (Smpte2038DataPreference -&gt; Smpte2038DataPreference -&gt; Bool)
 -&gt; Eq Smpte2038DataPreference
@@ -83,7 +83,7 @@ $c/= :: Smpte2038DataPreference -&gt; Smpte2038DataPreference -&gt; Bool
 == :: Smpte2038DataPreference -&gt; Smpte2038DataPreference -&gt; Bool
 $c== :: Smpte2038DataPreference -&gt; Smpte2038DataPreference -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679921937"><span id="local-6989586621679921939"><span id="local-6989586621679921941"><span id="local-6989586621679921943"><span id="local-6989586621679921945"><span id="local-6989586621679921947"><span id="local-6989586621679921949"><span class="annot"><span class="annottext">Eq Smpte2038DataPreference
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679921946"><span id="local-6989586621679921948"><span id="local-6989586621679921950"><span id="local-6989586621679921952"><span id="local-6989586621679921954"><span id="local-6989586621679921956"><span id="local-6989586621679921958"><span class="annot"><span class="annottext">Eq Smpte2038DataPreference
 Eq Smpte2038DataPreference
 -&gt; (Smpte2038DataPreference -&gt; Smpte2038DataPreference -&gt; Ordering)
 -&gt; (Smpte2038DataPreference -&gt; Smpte2038DataPreference -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. Smpte2038DataPreference -&gt; Rep Smpte2038DataPreference x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679921929"><span id="local-6989586621679921931"><span class="annot"><span class="annottext">Int -&gt; Smpte2038DataPreference -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679921938"><span id="local-6989586621679921940"><span class="annot"><span class="annottext">Int -&gt; Smpte2038DataPreference -&gt; Int
 Smpte2038DataPreference -&gt; Int
 (Int -&gt; Smpte2038DataPreference -&gt; Int)
 -&gt; (Smpte2038DataPreference -&gt; Int)
@@ -154,54 +154,54 @@ $chash :: Smpte2038DataPreference -&gt; Int
 hashWithSalt :: Int -&gt; Smpte2038DataPreference -&gt; Int
 $chashWithSalt :: Int -&gt; Smpte2038DataPreference -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679921926"><span class="annot"><span class="annottext">Smpte2038DataPreference -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679921935"><span class="annot"><span class="annottext">Smpte2038DataPreference -&gt; ()
 (Smpte2038DataPreference -&gt; ()) -&gt; NFData Smpte2038DataPreference
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Smpte2038DataPreference -&gt; ()
 $crnf :: Smpte2038DataPreference -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679921923"><span class="annot"><span class="annottext">Text -&gt; Either String Smpte2038DataPreference
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679921932"><span class="annot"><span class="annottext">Text -&gt; Either String Smpte2038DataPreference
 (Text -&gt; Either String Smpte2038DataPreference)
 -&gt; FromText Smpte2038DataPreference
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Smpte2038DataPreference
 $cfromText :: Text -&gt; Either String Smpte2038DataPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679921920"><span class="annot"><span class="annottext">Smpte2038DataPreference -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679921929"><span class="annot"><span class="annottext">Smpte2038DataPreference -&gt; Text
 (Smpte2038DataPreference -&gt; Text) -&gt; ToText Smpte2038DataPreference
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Smpte2038DataPreference -&gt; Text
 $ctoText :: Smpte2038DataPreference -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679921917"><span class="annot"><span class="annottext">Smpte2038DataPreference -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679921926"><span class="annot"><span class="annottext">Smpte2038DataPreference -&gt; ByteString
 (Smpte2038DataPreference -&gt; ByteString)
 -&gt; ToByteString Smpte2038DataPreference
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Smpte2038DataPreference -&gt; ByteString
 $ctoBS :: Smpte2038DataPreference -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679921914"><span class="annot"><span class="annottext">Smpte2038DataPreference -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679921923"><span class="annot"><span class="annottext">Smpte2038DataPreference -&gt; ByteStringBuilder
 (Smpte2038DataPreference -&gt; ByteStringBuilder)
 -&gt; ToLog Smpte2038DataPreference
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Smpte2038DataPreference -&gt; ByteStringBuilder
 $cbuild :: Smpte2038DataPreference -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679921911"><span class="annot"><span class="annottext">HeaderName -&gt; Smpte2038DataPreference -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679921920"><span class="annot"><span class="annottext">HeaderName -&gt; Smpte2038DataPreference -&gt; [Header]
 (HeaderName -&gt; Smpte2038DataPreference -&gt; [Header])
 -&gt; ToHeader Smpte2038DataPreference
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Smpte2038DataPreference -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Smpte2038DataPreference -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679921908"><span class="annot"><span class="annottext">Smpte2038DataPreference -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679921917"><span class="annot"><span class="annottext">Smpte2038DataPreference -&gt; QueryString
 (Smpte2038DataPreference -&gt; QueryString)
 -&gt; ToQuery Smpte2038DataPreference
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Smpte2038DataPreference -&gt; QueryString
 $ctoQuery :: Smpte2038DataPreference -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679921903"><span id="local-6989586621679921905"><span class="annot"><span class="annottext">Value -&gt; Parser [Smpte2038DataPreference]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679921912"><span id="local-6989586621679921914"><span class="annot"><span class="annottext">Value -&gt; Parser [Smpte2038DataPreference]
 Value -&gt; Parser Smpte2038DataPreference
 (Value -&gt; Parser Smpte2038DataPreference)
 -&gt; (Value -&gt; Parser [Smpte2038DataPreference])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [Smpte2038DataPreference]
 parseJSON :: Value -&gt; Parser Smpte2038DataPreference
 $cparseJSON :: Value -&gt; Parser Smpte2038DataPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679921898"><span id="local-6989586621679921900"><span class="annot"><span class="annottext">FromJSONKeyFunction [Smpte2038DataPreference]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679921907"><span id="local-6989586621679921909"><span class="annot"><span class="annottext">FromJSONKeyFunction [Smpte2038DataPreference]
 FromJSONKeyFunction Smpte2038DataPreference
 FromJSONKeyFunction Smpte2038DataPreference
 -&gt; FromJSONKeyFunction [Smpte2038DataPreference]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Smpte2038DataPreference]
 fromJSONKey :: FromJSONKeyFunction Smpte2038DataPreference
 $cfromJSONKey :: FromJSONKeyFunction Smpte2038DataPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679921889"><span id="local-6989586621679921891"><span id="local-6989586621679921893"><span id="local-6989586621679921895"><span class="annot"><span class="annottext">[Smpte2038DataPreference] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679921898"><span id="local-6989586621679921900"><span id="local-6989586621679921902"><span id="local-6989586621679921904"><span class="annot"><span class="annottext">[Smpte2038DataPreference] -&gt; Encoding
 [Smpte2038DataPreference] -&gt; Value
 Smpte2038DataPreference -&gt; Encoding
 Smpte2038DataPreference -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: Smpte2038DataPreference -&gt; Encoding
 toJSON :: Smpte2038DataPreference -&gt; Value
 $ctoJSON :: Smpte2038DataPreference -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679921884"><span id="local-6989586621679921886"><span class="annot"><span class="annottext">ToJSONKeyFunction [Smpte2038DataPreference]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679921893"><span id="local-6989586621679921895"><span class="annot"><span class="annottext">ToJSONKeyFunction [Smpte2038DataPreference]
 ToJSONKeyFunction Smpte2038DataPreference
 ToJSONKeyFunction Smpte2038DataPreference
 -&gt; ToJSONKeyFunction [Smpte2038DataPreference]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Smpte2038DataPreference]
 toJSONKey :: ToJSONKeyFunction Smpte2038DataPreference
 $ctoJSONKey :: ToJSONKeyFunction Smpte2038DataPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679921881"><span class="annot"><span class="annottext">[Node] -&gt; Either String Smpte2038DataPreference
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679921890"><span class="annot"><span class="annottext">[Node] -&gt; Either String Smpte2038DataPreference
 ([Node] -&gt; Either String Smpte2038DataPreference)
 -&gt; FromXML Smpte2038DataPreference
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Smpte2038DataPreference
 $cparseXML :: [Node] -&gt; Either String Smpte2038DataPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679921878"><span class="annot"><span class="annottext">Smpte2038DataPreference -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679921887"><span class="annot"><span class="annottext">Smpte2038DataPreference -&gt; XML
 (Smpte2038DataPreference -&gt; XML) -&gt; ToXML Smpte2038DataPreference
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Smpte2038DataPreference -&gt; XML

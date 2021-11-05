@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679271807"><span id="local-6989586621679271808"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImageType"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImageType.html#ImageType"><span class="hs-identifier hs-var">ImageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageType%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImageType.html#ImageType%27"><span class="hs-identifier hs-var">ImageType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679271816"><span id="local-6989586621679271817"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImageType"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImageType.html#ImageType"><span class="hs-identifier hs-var">ImageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageType%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ImageType.html#ImageType%27"><span class="hs-identifier hs-var">ImageType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromImageType"><span class="annot"><span class="annottext">ImageType -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.Types.ImageType.html#fromImageType"><span class="hs-identifier hs-var hs-var">fromImageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271799"><span id="local-6989586621679271801"><span id="local-6989586621679271803"><span class="annot"><span class="annottext">Int -&gt; ImageType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271808"><span id="local-6989586621679271810"><span id="local-6989586621679271812"><span class="annot"><span class="annottext">Int -&gt; ImageType -&gt; ShowS
 [ImageType] -&gt; ShowS
 ImageType -&gt; String
 (Int -&gt; ImageType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ImageType -&gt; String
 showsPrec :: Int -&gt; ImageType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ImageType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679271790"><span id="local-6989586621679271792"><span id="local-6989586621679271794"><span id="local-6989586621679271796"><span class="annot"><span class="annottext">ReadPrec [ImageType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679271799"><span id="local-6989586621679271801"><span id="local-6989586621679271803"><span id="local-6989586621679271805"><span class="annot"><span class="annottext">ReadPrec [ImageType]
 ReadPrec ImageType
 Int -&gt; ReadS ImageType
 ReadS [ImageType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ImageType]
 readsPrec :: Int -&gt; ReadS ImageType
 $creadsPrec :: Int -&gt; ReadS ImageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679271785"><span id="local-6989586621679271787"><span class="annot"><span class="annottext">ImageType -&gt; ImageType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679271794"><span id="local-6989586621679271796"><span class="annot"><span class="annottext">ImageType -&gt; ImageType -&gt; Bool
 (ImageType -&gt; ImageType -&gt; Bool)
 -&gt; (ImageType -&gt; ImageType -&gt; Bool) -&gt; Eq ImageType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: ImageType -&gt; ImageType -&gt; Bool
 == :: ImageType -&gt; ImageType -&gt; Bool
 $c== :: ImageType -&gt; ImageType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679271769"><span id="local-6989586621679271771"><span id="local-6989586621679271773"><span id="local-6989586621679271775"><span id="local-6989586621679271777"><span id="local-6989586621679271779"><span id="local-6989586621679271781"><span class="annot"><span class="annottext">Eq ImageType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679271778"><span id="local-6989586621679271780"><span id="local-6989586621679271782"><span id="local-6989586621679271784"><span id="local-6989586621679271786"><span id="local-6989586621679271788"><span id="local-6989586621679271790"><span class="annot"><span class="annottext">Eq ImageType
 Eq ImageType
 -&gt; (ImageType -&gt; ImageType -&gt; Ordering)
 -&gt; (ImageType -&gt; ImageType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. ImageType -&gt; Rep ImageType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271761"><span id="local-6989586621679271763"><span class="annot"><span class="annottext">Int -&gt; ImageType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271770"><span id="local-6989586621679271772"><span class="annot"><span class="annottext">Int -&gt; ImageType -&gt; Int
 ImageType -&gt; Int
 (Int -&gt; ImageType -&gt; Int)
 -&gt; (ImageType -&gt; Int) -&gt; Hashable ImageType
@@ -141,49 +141,49 @@ $chash :: ImageType -&gt; Int
 hashWithSalt :: Int -&gt; ImageType -&gt; Int
 $chashWithSalt :: Int -&gt; ImageType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679271758"><span class="annot"><span class="annottext">ImageType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679271767"><span class="annot"><span class="annottext">ImageType -&gt; ()
 (ImageType -&gt; ()) -&gt; NFData ImageType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ImageType -&gt; ()
 $crnf :: ImageType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679271755"><span class="annot"><span class="annottext">Text -&gt; Either String ImageType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679271764"><span class="annot"><span class="annottext">Text -&gt; Either String ImageType
 (Text -&gt; Either String ImageType) -&gt; FromText ImageType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ImageType
 $cfromText :: Text -&gt; Either String ImageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679271752"><span class="annot"><span class="annottext">ImageType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679271761"><span class="annot"><span class="annottext">ImageType -&gt; Text
 (ImageType -&gt; Text) -&gt; ToText ImageType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ImageType -&gt; Text
 $ctoText :: ImageType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679271749"><span class="annot"><span class="annottext">ImageType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679271758"><span class="annot"><span class="annottext">ImageType -&gt; ByteString
 (ImageType -&gt; ByteString) -&gt; ToByteString ImageType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ImageType -&gt; ByteString
 $ctoBS :: ImageType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679271746"><span class="annot"><span class="annottext">ImageType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679271755"><span class="annot"><span class="annottext">ImageType -&gt; ByteStringBuilder
 (ImageType -&gt; ByteStringBuilder) -&gt; ToLog ImageType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ImageType -&gt; ByteStringBuilder
 $cbuild :: ImageType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679271743"><span class="annot"><span class="annottext">HeaderName -&gt; ImageType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679271752"><span class="annot"><span class="annottext">HeaderName -&gt; ImageType -&gt; [Header]
 (HeaderName -&gt; ImageType -&gt; [Header]) -&gt; ToHeader ImageType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ImageType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ImageType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679271740"><span class="annot"><span class="annottext">ImageType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679271749"><span class="annot"><span class="annottext">ImageType -&gt; QueryString
 (ImageType -&gt; QueryString) -&gt; ToQuery ImageType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ImageType -&gt; QueryString
 $ctoQuery :: ImageType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679271735"><span id="local-6989586621679271737"><span class="annot"><span class="annottext">Value -&gt; Parser [ImageType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679271744"><span id="local-6989586621679271746"><span class="annot"><span class="annottext">Value -&gt; Parser [ImageType]
 Value -&gt; Parser ImageType
 (Value -&gt; Parser ImageType)
 -&gt; (Value -&gt; Parser [ImageType]) -&gt; FromJSON ImageType
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [ImageType]
 parseJSON :: Value -&gt; Parser ImageType
 $cparseJSON :: Value -&gt; Parser ImageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679271730"><span id="local-6989586621679271732"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImageType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679271739"><span id="local-6989586621679271741"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImageType]
 FromJSONKeyFunction ImageType
 FromJSONKeyFunction ImageType
 -&gt; FromJSONKeyFunction [ImageType] -&gt; FromJSONKey ImageType
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ImageType]
 fromJSONKey :: FromJSONKeyFunction ImageType
 $cfromJSONKey :: FromJSONKeyFunction ImageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679271721"><span id="local-6989586621679271723"><span id="local-6989586621679271725"><span id="local-6989586621679271727"><span class="annot"><span class="annottext">[ImageType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679271730"><span id="local-6989586621679271732"><span id="local-6989586621679271734"><span id="local-6989586621679271736"><span class="annot"><span class="annottext">[ImageType] -&gt; Encoding
 [ImageType] -&gt; Value
 ImageType -&gt; Encoding
 ImageType -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: ImageType -&gt; Encoding
 toJSON :: ImageType -&gt; Value
 $ctoJSON :: ImageType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679271716"><span id="local-6989586621679271718"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImageType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679271725"><span id="local-6989586621679271727"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImageType]
 ToJSONKeyFunction ImageType
 ToJSONKeyFunction ImageType
 -&gt; ToJSONKeyFunction [ImageType] -&gt; ToJSONKey ImageType
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ImageType]
 toJSONKey :: ToJSONKeyFunction ImageType
 $ctoJSONKey :: ToJSONKeyFunction ImageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679271713"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImageType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679271722"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImageType
 ([Node] -&gt; Either String ImageType) -&gt; FromXML ImageType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ImageType
 $cparseXML :: [Node] -&gt; Either String ImageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679271710"><span class="annot"><span class="annottext">ImageType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679271719"><span class="annot"><span class="annottext">ImageType -&gt; XML
 (ImageType -&gt; XML) -&gt; ToXML ImageType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ImageType -&gt; XML

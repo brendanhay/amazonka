@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Status of the Cognito options for the specified Elasticsearch domain.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCognitoOptionsStatus' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679297976"><span id="local-6989586621679297977"></span></span><span class="hs-keyword">data</span><span> </span><span id="CognitoOptionsStatus"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-var">CognitoOptionsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CognitoOptionsStatus%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-var">CognitoOptionsStatus'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679297985"><span id="local-6989586621679297986"></span></span><span class="hs-keyword">data</span><span> </span><span id="CognitoOptionsStatus"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-var">CognitoOptionsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CognitoOptionsStatus%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-var">CognitoOptionsStatus'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the Cognito options for the specified Elasticsearch domain.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aoptions%3ACognitoOptionsStatus%27"><span class="annot"><span class="annottext">CognitoOptionsStatus -&gt; CognitoOptions
 </span><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#%24sel%3Aoptions%3ACognitoOptionsStatus%27"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptions.html#CognitoOptions"><span class="hs-identifier hs-type">CognitoOptions</span></a></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3ACognitoOptionsStatus%27"><span class="annot"><span class="annottext">CognitoOptionsStatus -&gt; OptionStatus
 </span><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#%24sel%3Astatus%3ACognitoOptionsStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297969"><span id="local-6989586621679297971"><span class="annot"><span class="annottext">CognitoOptionsStatus -&gt; CognitoOptionsStatus -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297978"><span id="local-6989586621679297980"><span class="annot"><span class="annottext">CognitoOptionsStatus -&gt; CognitoOptionsStatus -&gt; Bool
 (CognitoOptionsStatus -&gt; CognitoOptionsStatus -&gt; Bool)
 -&gt; (CognitoOptionsStatus -&gt; CognitoOptionsStatus -&gt; Bool)
 -&gt; Eq CognitoOptionsStatus
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CognitoOptionsStatus -&gt; CognitoOptionsStatus -&gt; Bool
 == :: CognitoOptionsStatus -&gt; CognitoOptionsStatus -&gt; Bool
 $c== :: CognitoOptionsStatus -&gt; CognitoOptionsStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297960"><span id="local-6989586621679297962"><span id="local-6989586621679297964"><span id="local-6989586621679297966"><span class="annot"><span class="annottext">ReadPrec [CognitoOptionsStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297969"><span id="local-6989586621679297971"><span id="local-6989586621679297973"><span id="local-6989586621679297975"><span class="annot"><span class="annottext">ReadPrec [CognitoOptionsStatus]
 ReadPrec CognitoOptionsStatus
 Int -&gt; ReadS CognitoOptionsStatus
 ReadS [CognitoOptionsStatus]
@@ -66,7 +66,7 @@ readList :: ReadS [CognitoOptionsStatus]
 $creadList :: ReadS [CognitoOptionsStatus]
 readsPrec :: Int -&gt; ReadS CognitoOptionsStatus
 $creadsPrec :: Int -&gt; ReadS CognitoOptionsStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297953"><span id="local-6989586621679297955"><span id="local-6989586621679297957"><span class="annot"><span class="annottext">Int -&gt; CognitoOptionsStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297962"><span id="local-6989586621679297964"><span id="local-6989586621679297966"><span class="annot"><span class="annottext">Int -&gt; CognitoOptionsStatus -&gt; ShowS
 [CognitoOptionsStatus] -&gt; ShowS
 CognitoOptionsStatus -&gt; String
 (Int -&gt; CognitoOptionsStatus -&gt; ShowS)
@@ -111,17 +111,17 @@ $cfrom :: forall x. CognitoOptionsStatus -&gt; Rep CognitoOptionsStatus x
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span><span>
 </span><span id="line-58"></span><span id="newCognitoOptionsStatus"><span class="annot"><span class="annottext">newCognitoOptionsStatus :: CognitoOptions -&gt; OptionStatus -&gt; CognitoOptionsStatus
-</span><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#newCognitoOptionsStatus"><span class="hs-identifier hs-var hs-var">newCognitoOptionsStatus</span></a></span></span><span> </span><span id="local-6989586621679297947"><span class="annot"><span class="annottext">CognitoOptions
-</span><a href="#local-6989586621679297947"><span class="hs-identifier hs-var">pOptions_</span></a></span></span><span> </span><span id="local-6989586621679297946"><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679297946"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#newCognitoOptionsStatus"><span class="hs-identifier hs-var hs-var">newCognitoOptionsStatus</span></a></span></span><span> </span><span id="local-6989586621679297956"><span class="annot"><span class="annottext">CognitoOptions
+</span><a href="#local-6989586621679297956"><span class="hs-identifier hs-var">pOptions_</span></a></span></span><span> </span><span id="local-6989586621679297955"><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297955"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">CognitoOptionsStatus' :: CognitoOptions -&gt; OptionStatus -&gt; CognitoOptionsStatus
 </span><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-type">CognitoOptionsStatus'</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:options:CognitoOptionsStatus' :: CognitoOptions
 </span><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#%24sel%3Aoptions%3ACognitoOptionsStatus%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CognitoOptions
-</span><a href="#local-6989586621679297947"><span class="hs-identifier hs-var">pOptions_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297956"><span class="hs-identifier hs-var">pOptions_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:CognitoOptionsStatus' :: OptionStatus
 </span><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#%24sel%3Astatus%3ACognitoOptionsStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679297946"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679297955"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | Specifies the Cognito options for the specified Elasticsearch domain.</span><span>
@@ -136,16 +136,16 @@ $cfrom :: forall x. CognitoOptionsStatus -&gt; Rep CognitoOptionsStatus x
      CognitoOptions
      CognitoOptions
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-type">CognitoOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297942"><span class="annot"><span class="annottext">CognitoOptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-type">CognitoOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297951"><span class="annot"><span class="annottext">CognitoOptions
 options :: CognitoOptions
 $sel:options:CognitoOptionsStatus' :: CognitoOptionsStatus -&gt; CognitoOptions
-</span><a href="#local-6989586621679297942"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoOptions
-</span><a href="#local-6989586621679297942"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297941"><span class="annot"><span class="annottext">s :: CognitoOptionsStatus
-</span><a href="#local-6989586621679297941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-type">CognitoOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297940"><span class="annot"><span class="annottext">CognitoOptions
-</span><a href="#local-6989586621679297940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoOptionsStatus
-</span><a href="#local-6989586621679297941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:CognitoOptionsStatus' :: CognitoOptions
+</span><a href="#local-6989586621679297951"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoOptions
+</span><a href="#local-6989586621679297951"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297950"><span class="annot"><span class="annottext">s :: CognitoOptionsStatus
+</span><a href="#local-6989586621679297950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-type">CognitoOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297949"><span class="annot"><span class="annottext">CognitoOptions
+</span><a href="#local-6989586621679297949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoOptionsStatus
+</span><a href="#local-6989586621679297950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:CognitoOptionsStatus' :: CognitoOptions
 </span><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#%24sel%3Aoptions%3ACognitoOptionsStatus%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CognitoOptions
-</span><a href="#local-6989586621679297940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | Specifies the status of the Cognito options for the specified</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- Elasticsearch domain.</span><span>
@@ -157,19 +157,19 @@ $sel:options:CognitoOptionsStatus' :: CognitoOptionsStatus -&gt; CognitoOptions
 -&gt; Lens
      CognitoOptionsStatus CognitoOptionsStatus OptionStatus OptionStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-type">CognitoOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297938"><span class="annot"><span class="annottext">OptionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-type">CognitoOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297947"><span class="annot"><span class="annottext">OptionStatus
 status :: OptionStatus
 $sel:status:CognitoOptionsStatus' :: CognitoOptionsStatus -&gt; OptionStatus
-</span><a href="#local-6989586621679297938"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679297938"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297937"><span class="annot"><span class="annottext">s :: CognitoOptionsStatus
-</span><a href="#local-6989586621679297937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-type">CognitoOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297936"><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679297936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoOptionsStatus
-</span><a href="#local-6989586621679297937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CognitoOptionsStatus' :: OptionStatus
+</span><a href="#local-6989586621679297947"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297947"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297946"><span class="annot"><span class="annottext">s :: CognitoOptionsStatus
+</span><a href="#local-6989586621679297946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-type">CognitoOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297945"><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoOptionsStatus
+</span><a href="#local-6989586621679297946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CognitoOptionsStatus' :: OptionStatus
 </span><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#%24sel%3Astatus%3ACognitoOptionsStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679297936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297933"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679297931"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CognitoOptionsStatus
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297942"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679297940"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CognitoOptionsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CognitoOptionsStatus)
@@ -179,8 +179,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CognitoOptionsStatus&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297928"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297928"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297937"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297937"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">CognitoOptions -&gt; OptionStatus -&gt; CognitoOptionsStatus
 </span><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-var">CognitoOptionsStatus'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(CognitoOptions -&gt; OptionStatus -&gt; CognitoOptionsStatus)
@@ -188,7 +188,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (OptionStatus -&gt; CognitoOptionsStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser CognitoOptions
+</span><a href="#local-6989586621679297937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser CognitoOptions
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Options&quot;</span></span><span class="hs-special">)</span><span>
@@ -196,13 +196,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser OptionStatus -&gt; Parser CognitoOptionsStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OptionStatus
+</span><a href="#local-6989586621679297937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OptionStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297922"><span id="local-6989586621679297924"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297931"><span id="local-6989586621679297933"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297928"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span></span><span>
 </span><span id="line-86"></span></pre></body></html>

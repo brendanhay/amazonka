@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MwAA.Types.Dimension</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MwAA.Types.Dimension</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Internal only API.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDimension' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679180281"><span id="local-6989586621679180282"></span></span><span class="hs-keyword">data</span><span> </span><span id="Dimension"><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension"><span class="hs-identifier hs-var">Dimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Dimension%27"><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-var">Dimension'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Internal only API.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3ADimension%27"><span class="annot"><span class="annottext">Dimension -&gt; Text
+</span><a href="Network.AWS.MwAA.Types.Dimension.html#%24sel%3Aname%3ADimension%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Internal only API.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Avalue%3ADimension%27"><span class="annot"><span class="annottext">Dimension -&gt; Text
+</span><a href="Network.AWS.MwAA.Types.Dimension.html#%24sel%3Avalue%3ADimension%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180274"><span id="local-6989586621679180276"><span class="annot"><span class="annottext">Dimension -&gt; Dimension -&gt; Bool
+(Dimension -&gt; Dimension -&gt; Bool)
+-&gt; (Dimension -&gt; Dimension -&gt; Bool) -&gt; Eq Dimension
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Dimension -&gt; Dimension -&gt; Bool
+$c/= :: Dimension -&gt; Dimension -&gt; Bool
+== :: Dimension -&gt; Dimension -&gt; Bool
+$c== :: Dimension -&gt; Dimension -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180265"><span id="local-6989586621679180267"><span id="local-6989586621679180269"><span id="local-6989586621679180271"><span class="annot"><span class="annottext">ReadPrec [Dimension]
+ReadPrec Dimension
+Int -&gt; ReadS Dimension
+ReadS [Dimension]
+(Int -&gt; ReadS Dimension)
+-&gt; ReadS [Dimension]
+-&gt; ReadPrec Dimension
+-&gt; ReadPrec [Dimension]
+-&gt; Read Dimension
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Dimension]
+$creadListPrec :: ReadPrec [Dimension]
+readPrec :: ReadPrec Dimension
+$creadPrec :: ReadPrec Dimension
+readList :: ReadS [Dimension]
+$creadList :: ReadS [Dimension]
+readsPrec :: Int -&gt; ReadS Dimension
+$creadsPrec :: Int -&gt; ReadS Dimension
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180258"><span id="local-6989586621679180260"><span id="local-6989586621679180262"><span class="annot"><span class="annottext">Int -&gt; Dimension -&gt; ShowS
+[Dimension] -&gt; ShowS
+Dimension -&gt; String
+(Int -&gt; Dimension -&gt; ShowS)
+-&gt; (Dimension -&gt; String)
+-&gt; ([Dimension] -&gt; ShowS)
+-&gt; Show Dimension
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Dimension] -&gt; ShowS
+$cshowList :: [Dimension] -&gt; ShowS
+show :: Dimension -&gt; String
+$cshow :: Dimension -&gt; String
+showsPrec :: Int -&gt; Dimension -&gt; ShowS
+$cshowsPrec :: Int -&gt; Dimension -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Dimension -&gt; Rep Dimension x)
+-&gt; (forall x. Rep Dimension x -&gt; Dimension) -&gt; Generic Dimension
+forall x. Rep Dimension x -&gt; Dimension
+forall x. Dimension -&gt; Rep Dimension x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Dimension x -&gt; Dimension
+$cfrom :: forall x. Dimension -&gt; Rep Dimension x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'Dimension' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'name', 'dimension_name' - Internal only API.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'value', 'dimension_value' - Internal only API.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#newDimension"><span class="hs-identifier hs-type">newDimension</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-comment">-- | 'value'</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span>
+</span><span id="line-54"></span><span id="newDimension"><span class="annot"><span class="annottext">newDimension :: Text -&gt; Text -&gt; Dimension
+</span><a href="Network.AWS.MwAA.Types.Dimension.html#newDimension"><span class="hs-identifier hs-var hs-var">newDimension</span></a></span></span><span> </span><span id="local-6989586621679180252"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180252"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679180251"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180251"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">Dimension' :: Text -&gt; Text -&gt; Dimension
+</span><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Dimension' :: Text
+</span><a href="Network.AWS.MwAA.Types.Dimension.html#%24sel%3Aname%3ADimension%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180252"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:Dimension' :: Text
+</span><a href="Network.AWS.MwAA.Types.Dimension.html#%24sel%3Avalue%3ADimension%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180251"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | Internal only API.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#dimension_name"><span class="hs-identifier hs-type">dimension_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span id="dimension_name"><span class="annot"><span class="annottext">dimension_name :: (Text -&gt; f Text) -&gt; Dimension -&gt; f Dimension
+</span><a href="Network.AWS.MwAA.Types.Dimension.html#dimension_name"><span class="hs-identifier hs-var hs-var">dimension_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dimension -&gt; Text)
+-&gt; (Dimension -&gt; Text -&gt; Dimension)
+-&gt; Lens Dimension Dimension Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180247"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:Dimension' :: Dimension -&gt; Text
+</span><a href="#local-6989586621679180247"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180247"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180246"><span class="annot"><span class="annottext">s :: Dimension
+</span><a href="#local-6989586621679180246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180245"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dimension
+</span><a href="#local-6989586621679180246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Dimension' :: Text
+</span><a href="Network.AWS.MwAA.Types.Dimension.html#%24sel%3Aname%3ADimension%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Internal only API.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#dimension_value"><span class="hs-identifier hs-type">dimension_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span id="dimension_value"><span class="annot"><span class="annottext">dimension_value :: (Text -&gt; f Text) -&gt; Dimension -&gt; f Dimension
+</span><a href="Network.AWS.MwAA.Types.Dimension.html#dimension_value"><span class="hs-identifier hs-var hs-var">dimension_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dimension -&gt; Text)
+-&gt; (Dimension -&gt; Text -&gt; Dimension)
+-&gt; Lens Dimension Dimension Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180243"><span class="annot"><span class="annottext">Text
+value :: Text
+$sel:value:Dimension' :: Dimension -&gt; Text
+</span><a href="#local-6989586621679180243"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180243"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180242"><span class="annot"><span class="annottext">s :: Dimension
+</span><a href="#local-6989586621679180242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180241"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dimension
+</span><a href="#local-6989586621679180242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Dimension' :: Text
+</span><a href="Network.AWS.MwAA.Types.Dimension.html#%24sel%3Avalue%3ADimension%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180237"><span id="local-6989586621679180239"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span></span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180234"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180226"><span id="local-6989586621679180228"><span id="local-6989586621679180230"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679180224"><span class="annot"><span class="annottext">toJSON :: Dimension -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension%27"><span class="hs-identifier hs-type">Dimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180221"><span id="local-6989586621679180222"><span class="annot"><span class="annottext">Text
+value :: Text
+name :: Text
+$sel:value:Dimension' :: Dimension -&gt; Text
+$sel:name:Dimension' :: Dimension -&gt; Text
+</span><a href="#local-6989586621679180221"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-73"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180222"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180221"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span></pre></body></html>

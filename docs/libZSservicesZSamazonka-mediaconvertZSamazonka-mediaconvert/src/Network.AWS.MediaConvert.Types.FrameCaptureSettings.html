@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- to the value FRAME_CAPTURE.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFrameCaptureSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679966715"><span id="local-6989586621679966716"></span></span><span class="hs-keyword">data</span><span> </span><span id="FrameCaptureSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-var">FrameCaptureSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FrameCaptureSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-var">FrameCaptureSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679966724"><span id="local-6989586621679966725"></span></span><span class="hs-keyword">data</span><span> </span><span id="FrameCaptureSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-var">FrameCaptureSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FrameCaptureSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-var">FrameCaptureSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | JPEG Quality - a higher value equals higher quality.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aquality%3AFrameCaptureSettings%27"><span class="annot"><span class="annottext">FrameCaptureSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3Aquality%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var hs-var">quality</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AframerateNumerator%3AFrameCaptureSettings%27"><span class="annot"><span class="annottext">FrameCaptureSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3AframerateNumerator%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679966706"><span id="local-6989586621679966708"><span class="annot"><span class="annottext">FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679966715"><span id="local-6989586621679966717"><span class="annot"><span class="annottext">FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool
 (FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool)
 -&gt; (FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool)
 -&gt; Eq FrameCaptureSettings
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool
 == :: FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool
 $c== :: FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679966697"><span id="local-6989586621679966699"><span id="local-6989586621679966701"><span id="local-6989586621679966703"><span class="annot"><span class="annottext">ReadPrec [FrameCaptureSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679966706"><span id="local-6989586621679966708"><span id="local-6989586621679966710"><span id="local-6989586621679966712"><span class="annot"><span class="annottext">ReadPrec [FrameCaptureSettings]
 ReadPrec FrameCaptureSettings
 Int -&gt; ReadS FrameCaptureSettings
 ReadS [FrameCaptureSettings]
@@ -80,7 +80,7 @@ readList :: ReadS [FrameCaptureSettings]
 $creadList :: ReadS [FrameCaptureSettings]
 readsPrec :: Int -&gt; ReadS FrameCaptureSettings
 $creadsPrec :: Int -&gt; ReadS FrameCaptureSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679966690"><span id="local-6989586621679966692"><span id="local-6989586621679966694"><span class="annot"><span class="annottext">Int -&gt; FrameCaptureSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679966699"><span id="local-6989586621679966701"><span id="local-6989586621679966703"><span class="annot"><span class="annottext">Int -&gt; FrameCaptureSettings -&gt; ShowS
 [FrameCaptureSettings] -&gt; ShowS
 FrameCaptureSettings -&gt; String
 (Int -&gt; FrameCaptureSettings -&gt; ShowS)
@@ -171,16 +171,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679966681"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679966690"><span class="annot"><span class="annottext">Maybe Natural
 quality :: Maybe Natural
 $sel:quality:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679966681"><span class="hs-identifier hs-var hs-var">quality</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679966681"><span class="hs-identifier hs-var">quality</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679966680"><span class="annot"><span class="annottext">s :: FrameCaptureSettings
-</span><a href="#local-6989586621679966680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679966679"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679966679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureSettings
-</span><a href="#local-6989586621679966680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quality:FrameCaptureSettings' :: Maybe Natural
+</span><a href="#local-6989586621679966690"><span class="hs-identifier hs-var hs-var">quality</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966690"><span class="hs-identifier hs-var">quality</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679966689"><span class="annot"><span class="annottext">s :: FrameCaptureSettings
+</span><a href="#local-6989586621679966689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679966688"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureSettings
+</span><a href="#local-6989586621679966689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quality:FrameCaptureSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3Aquality%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var">quality</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679966679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679966688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | Frame capture will encode the first frame of the output stream, then one</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- frame every framerateDenominator\/framerateNumerator seconds. For</span><span>
@@ -199,16 +199,16 @@ $sel:quality:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679966677"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679966686"><span class="annot"><span class="annottext">Maybe Natural
 framerateDenominator :: Maybe Natural
 $sel:framerateDenominator:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679966677"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679966677"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679966676"><span class="annot"><span class="annottext">s :: FrameCaptureSettings
-</span><a href="#local-6989586621679966676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679966675"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679966675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureSettings
-</span><a href="#local-6989586621679966676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateDenominator:FrameCaptureSettings' :: Maybe Natural
+</span><a href="#local-6989586621679966686"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966686"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679966685"><span class="annot"><span class="annottext">s :: FrameCaptureSettings
+</span><a href="#local-6989586621679966685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679966684"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureSettings
+</span><a href="#local-6989586621679966685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateDenominator:FrameCaptureSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3AframerateDenominator%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679966675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679966684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | Maximum number of captures (encoded jpg output files).</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#frameCaptureSettings_maxCaptures"><span class="hs-identifier hs-type">frameCaptureSettings_maxCaptures</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -222,16 +222,16 @@ $sel:framerateDenominator:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Ma
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679966673"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679966682"><span class="annot"><span class="annottext">Maybe Natural
 maxCaptures :: Maybe Natural
 $sel:maxCaptures:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679966673"><span class="hs-identifier hs-var hs-var">maxCaptures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679966673"><span class="hs-identifier hs-var">maxCaptures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679966672"><span class="annot"><span class="annottext">s :: FrameCaptureSettings
-</span><a href="#local-6989586621679966672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679966671"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679966671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureSettings
-</span><a href="#local-6989586621679966672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxCaptures:FrameCaptureSettings' :: Maybe Natural
+</span><a href="#local-6989586621679966682"><span class="hs-identifier hs-var hs-var">maxCaptures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966682"><span class="hs-identifier hs-var">maxCaptures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679966681"><span class="annot"><span class="annottext">s :: FrameCaptureSettings
+</span><a href="#local-6989586621679966681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679966680"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureSettings
+</span><a href="#local-6989586621679966681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxCaptures:FrameCaptureSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3AmaxCaptures%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var">maxCaptures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679966671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679966680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | Frame capture will encode the first frame of the output stream, then one</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- frame every framerateDenominator\/framerateNumerator seconds. For</span><span>
@@ -250,19 +250,19 @@ $sel:maxCaptures:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natur
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679966669"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679966678"><span class="annot"><span class="annottext">Maybe Natural
 framerateNumerator :: Maybe Natural
 $sel:framerateNumerator:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679966669"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679966669"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679966668"><span class="annot"><span class="annottext">s :: FrameCaptureSettings
-</span><a href="#local-6989586621679966668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679966667"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679966667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureSettings
-</span><a href="#local-6989586621679966668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateNumerator:FrameCaptureSettings' :: Maybe Natural
+</span><a href="#local-6989586621679966678"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966678"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679966677"><span class="annot"><span class="annottext">s :: FrameCaptureSettings
+</span><a href="#local-6989586621679966677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679966676"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureSettings
+</span><a href="#local-6989586621679966677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateNumerator:FrameCaptureSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3AframerateNumerator%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679966667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679966676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679966664"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679966662"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FrameCaptureSettings
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679966673"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679966671"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FrameCaptureSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FrameCaptureSettings)
@@ -272,8 +272,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FrameCaptureSettings&quot;</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679966659"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679966659"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679966668"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679966668"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe Natural
@@ -291,7 +291,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Natural -&gt; Maybe Natural -&gt; FrameCaptureSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679966659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679966668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;quality&quot;</span></span><span class="hs-special">)</span><span>
@@ -302,7 +302,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; FrameCaptureSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679966659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679966668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span class="hs-special">)</span><span>
@@ -311,7 +311,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; FrameCaptureSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679966659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679966668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxCaptures&quot;</span></span><span class="hs-special">)</span><span>
@@ -319,19 +319,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser FrameCaptureSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679966659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679966668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679966653"><span id="local-6989586621679966655"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679966662"><span id="local-6989586621679966664"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679966650"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679966659"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679966642"><span id="local-6989586621679966644"><span id="local-6989586621679966646"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679966640"><span class="annot"><span class="annottext">toJSON :: FrameCaptureSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679966635"><span id="local-6989586621679966636"><span id="local-6989586621679966637"><span id="local-6989586621679966638"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679966651"><span id="local-6989586621679966653"><span id="local-6989586621679966655"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679966649"><span class="annot"><span class="annottext">toJSON :: FrameCaptureSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679966644"><span id="local-6989586621679966645"><span id="local-6989586621679966646"><span id="local-6989586621679966647"><span class="annot"><span class="annottext">Maybe Natural
 framerateNumerator :: Maybe Natural
 maxCaptures :: Maybe Natural
 framerateDenominator :: Maybe Natural
@@ -340,7 +340,7 @@ $sel:framerateNumerator:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Mayb
 $sel:maxCaptures:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
 $sel:framerateDenominator:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
 $sel:quality:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679966635"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679966644"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -352,7 +352,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679966638"><span class="hs-identifier hs-var">quality</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679966647"><span class="hs-identifier hs-var">quality</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -360,14 +360,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679966637"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679966646"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxCaptures&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679966636"><span class="hs-identifier hs-var">maxCaptures</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679966645"><span class="hs-identifier hs-var">maxCaptures</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -375,7 +375,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679966635"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span>
+</span><a href="#local-6989586621679966644"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span>
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span></pre></body></html>

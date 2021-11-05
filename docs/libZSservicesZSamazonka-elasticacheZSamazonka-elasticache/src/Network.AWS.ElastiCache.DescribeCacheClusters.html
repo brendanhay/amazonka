@@ -78,7 +78,7 @@
 </span><span id="line-78"></span><span class="hs-comment">-- | Represents the input of a @DescribeCacheClusters@ operation.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- /See:/ 'newDescribeCacheClusters' smart constructor.</span><span>
-</span><span id="line-81"></span><span id="local-6989586621679419695"><span id="local-6989586621679419696"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCacheClusters"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-var">DescribeCacheClusters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCacheClusters%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-var">DescribeCacheClusters'</span></a></span></span><span>
+</span><span id="line-81"></span><span id="local-6989586621679419704"><span id="local-6989586621679419705"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCacheClusters"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-var">DescribeCacheClusters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCacheClusters%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-var">DescribeCacheClusters'</span></a></span></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional flag that can be included in the @DescribeCacheCluster@</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">-- request to show only nodes (API\/CLI: clusters) that are not members of</span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-comment">-- a replication group. In practice, this mean Memcached and single node</span><span>
@@ -110,7 +110,7 @@
 </span><span id="line-106"></span><span>    </span><span id="%24sel%3AshowCacheNodeInfo%3ADescribeCacheClusters%27"><span class="annot"><span class="annottext">DescribeCacheClusters -&gt; Maybe Bool
 </span><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#%24sel%3AshowCacheNodeInfo%3ADescribeCacheClusters%27"><span class="hs-identifier hs-var hs-var">showCacheNodeInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679419685"><span id="local-6989586621679419687"><span class="annot"><span class="annottext">DescribeCacheClusters -&gt; DescribeCacheClusters -&gt; Bool
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679419694"><span id="local-6989586621679419696"><span class="annot"><span class="annottext">DescribeCacheClusters -&gt; DescribeCacheClusters -&gt; Bool
 (DescribeCacheClusters -&gt; DescribeCacheClusters -&gt; Bool)
 -&gt; (DescribeCacheClusters -&gt; DescribeCacheClusters -&gt; Bool)
 -&gt; Eq DescribeCacheClusters
@@ -119,7 +119,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeCacheClusters -&gt; DescribeCacheClusters -&gt; Bool
 == :: DescribeCacheClusters -&gt; DescribeCacheClusters -&gt; Bool
 $c== :: DescribeCacheClusters -&gt; DescribeCacheClusters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419676"><span id="local-6989586621679419678"><span id="local-6989586621679419680"><span id="local-6989586621679419682"><span class="annot"><span class="annottext">ReadPrec [DescribeCacheClusters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419685"><span id="local-6989586621679419687"><span id="local-6989586621679419689"><span id="local-6989586621679419691"><span class="annot"><span class="annottext">ReadPrec [DescribeCacheClusters]
 ReadPrec DescribeCacheClusters
 Int -&gt; ReadS DescribeCacheClusters
 ReadS [DescribeCacheClusters]
@@ -139,7 +139,7 @@ readList :: ReadS [DescribeCacheClusters]
 $creadList :: ReadS [DescribeCacheClusters]
 readsPrec :: Int -&gt; ReadS DescribeCacheClusters
 $creadsPrec :: Int -&gt; ReadS DescribeCacheClusters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419669"><span id="local-6989586621679419671"><span id="local-6989586621679419673"><span class="annot"><span class="annottext">Int -&gt; DescribeCacheClusters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419678"><span id="local-6989586621679419680"><span id="local-6989586621679419682"><span class="annot"><span class="annottext">Int -&gt; DescribeCacheClusters -&gt; ShowS
 [DescribeCacheClusters] -&gt; ShowS
 DescribeCacheClusters -&gt; String
 (Int -&gt; DescribeCacheClusters -&gt; ShowS)
@@ -246,16 +246,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419663"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419672"><span class="annot"><span class="annottext">Maybe Bool
 showCacheClustersNotInReplicationGroups :: Maybe Bool
 $sel:showCacheClustersNotInReplicationGroups:DescribeCacheClusters' :: DescribeCacheClusters -&gt; Maybe Bool
-</span><a href="#local-6989586621679419663"><span class="hs-identifier hs-var hs-var">showCacheClustersNotInReplicationGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679419663"><span class="hs-identifier hs-var">showCacheClustersNotInReplicationGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419662"><span class="annot"><span class="annottext">s :: DescribeCacheClusters
-</span><a href="#local-6989586621679419662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419661"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679419661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCacheClusters
-</span><a href="#local-6989586621679419662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:showCacheClustersNotInReplicationGroups:DescribeCacheClusters' :: Maybe Bool
+</span><a href="#local-6989586621679419672"><span class="hs-identifier hs-var hs-var">showCacheClustersNotInReplicationGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679419672"><span class="hs-identifier hs-var">showCacheClustersNotInReplicationGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419671"><span class="annot"><span class="annottext">s :: DescribeCacheClusters
+</span><a href="#local-6989586621679419671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419670"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679419670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCacheClusters
+</span><a href="#local-6989586621679419671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:showCacheClustersNotInReplicationGroups:DescribeCacheClusters' :: Maybe Bool
 </span><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#%24sel%3AshowCacheClustersNotInReplicationGroups%3ADescribeCacheClusters%27"><span class="hs-identifier hs-var">showCacheClustersNotInReplicationGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679419661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679419670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The user-supplied cluster identifier. If this parameter is specified,</span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- only information about that specific cluster is returned. This parameter</span><span>
@@ -271,16 +271,16 @@ $sel:showCacheClustersNotInReplicationGroups:DescribeCacheClusters' :: DescribeC
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419660"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419669"><span class="annot"><span class="annottext">Maybe Text
 cacheClusterId :: Maybe Text
 $sel:cacheClusterId:DescribeCacheClusters' :: DescribeCacheClusters -&gt; Maybe Text
-</span><a href="#local-6989586621679419660"><span class="hs-identifier hs-var hs-var">cacheClusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419660"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419659"><span class="annot"><span class="annottext">s :: DescribeCacheClusters
-</span><a href="#local-6989586621679419659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419658"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCacheClusters
-</span><a href="#local-6989586621679419659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheClusterId:DescribeCacheClusters' :: Maybe Text
+</span><a href="#local-6989586621679419669"><span class="hs-identifier hs-var hs-var">cacheClusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419669"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419668"><span class="annot"><span class="annottext">s :: DescribeCacheClusters
+</span><a href="#local-6989586621679419668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419667"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCacheClusters
+</span><a href="#local-6989586621679419668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheClusterId:DescribeCacheClusters' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#%24sel%3AcacheClusterId%3ADescribeCacheClusters%27"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679419667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | An optional marker returned from a prior request. Use this marker for</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- pagination of results from this operation. If this parameter is</span><span>
@@ -297,16 +297,16 @@ $sel:cacheClusterId:DescribeCacheClusters' :: DescribeCacheClusters -&gt; Maybe 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419657"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419666"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeCacheClusters' :: DescribeCacheClusters -&gt; Maybe Text
-</span><a href="#local-6989586621679419657"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419657"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419656"><span class="annot"><span class="annottext">s :: DescribeCacheClusters
-</span><a href="#local-6989586621679419656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419655"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCacheClusters
-</span><a href="#local-6989586621679419656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeCacheClusters' :: Maybe Text
+</span><a href="#local-6989586621679419666"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419666"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419665"><span class="annot"><span class="annottext">s :: DescribeCacheClusters
+</span><a href="#local-6989586621679419665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419664"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCacheClusters
+</span><a href="#local-6989586621679419665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeCacheClusters' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#%24sel%3Amarker%3ADescribeCacheClusters%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679419664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a marker is</span><span>
@@ -323,16 +323,16 @@ $sel:marker:DescribeCacheClusters' :: DescribeCacheClusters -&gt; Maybe Text
 -&gt; Lens
      DescribeCacheClusters DescribeCacheClusters (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419654"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419663"><span class="annot"><span class="annottext">Maybe Int
 maxRecords :: Maybe Int
 $sel:maxRecords:DescribeCacheClusters' :: DescribeCacheClusters -&gt; Maybe Int
-</span><a href="#local-6989586621679419654"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679419654"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419653"><span class="annot"><span class="annottext">s :: DescribeCacheClusters
-</span><a href="#local-6989586621679419653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419652"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679419652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCacheClusters
-</span><a href="#local-6989586621679419653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeCacheClusters' :: Maybe Int
+</span><a href="#local-6989586621679419663"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679419663"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419662"><span class="annot"><span class="annottext">s :: DescribeCacheClusters
+</span><a href="#local-6989586621679419662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419661"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679419661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCacheClusters
+</span><a href="#local-6989586621679419662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeCacheClusters' :: Maybe Int
 </span><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#%24sel%3AmaxRecords%3ADescribeCacheClusters%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679419652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679419661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | An optional flag that can be included in the @DescribeCacheCluster@</span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- request to retrieve information about the individual cache nodes.</span><span>
@@ -347,29 +347,29 @@ $sel:maxRecords:DescribeCacheClusters' :: DescribeCacheClusters -&gt; Maybe Int
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419651"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419660"><span class="annot"><span class="annottext">Maybe Bool
 showCacheNodeInfo :: Maybe Bool
 $sel:showCacheNodeInfo:DescribeCacheClusters' :: DescribeCacheClusters -&gt; Maybe Bool
-</span><a href="#local-6989586621679419651"><span class="hs-identifier hs-var hs-var">showCacheNodeInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679419651"><span class="hs-identifier hs-var">showCacheNodeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419650"><span class="annot"><span class="annottext">s :: DescribeCacheClusters
-</span><a href="#local-6989586621679419650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419649"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679419649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCacheClusters
-</span><a href="#local-6989586621679419650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:showCacheNodeInfo:DescribeCacheClusters' :: Maybe Bool
+</span><a href="#local-6989586621679419660"><span class="hs-identifier hs-var hs-var">showCacheNodeInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679419660"><span class="hs-identifier hs-var">showCacheNodeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419659"><span class="annot"><span class="annottext">s :: DescribeCacheClusters
+</span><a href="#local-6989586621679419659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419658"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679419658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCacheClusters
+</span><a href="#local-6989586621679419659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:showCacheNodeInfo:DescribeCacheClusters' :: Maybe Bool
 </span><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#%24sel%3AshowCacheNodeInfo%3ADescribeCacheClusters%27"><span class="hs-identifier hs-var">showCacheNodeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679419649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679419658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679419645"><span class="annot"><span class="annottext">page :: DescribeCacheClusters
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679419654"><span class="annot"><span class="annottext">page :: DescribeCacheClusters
 -&gt; AWSResponse DescribeCacheClusters -&gt; Maybe DescribeCacheClusters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679419643"><span class="annot"><span class="annottext">DescribeCacheClusters
-</span><a href="#local-6989586621679419643"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679419642"><span class="annot"><span class="annottext">AWSResponse DescribeCacheClusters
-</span><a href="#local-6989586621679419642"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679419652"><span class="annot"><span class="annottext">DescribeCacheClusters
+</span><a href="#local-6989586621679419652"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679419651"><span class="annot"><span class="annottext">AWSResponse DescribeCacheClusters
+</span><a href="#local-6989586621679419651"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-192"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeCacheClusters
 DescribeCacheClustersResponse
-</span><a href="#local-6989586621679419642"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679419651"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">DescribeCacheClustersResponse
 -&gt; Getting (First Text) DescribeCacheClustersResponse Text
 -&gt; Maybe Text
@@ -399,7 +399,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-198"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeCacheClusters
 DescribeCacheClustersResponse
-</span><a href="#local-6989586621679419642"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679419651"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">DescribeCacheClustersResponse
 -&gt; Getting
      (First [CacheCluster]) DescribeCacheClustersResponse [CacheCluster]
@@ -439,7 +439,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">DescribeCacheClusters
-</span><a href="#local-6989586621679419643"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679419652"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-206"></span><span>          </span><span class="annot"><span class="annottext">DescribeCacheClusters
 -&gt; (DescribeCacheClusters -&gt; DescribeCacheClusters)
 -&gt; DescribeCacheClusters
@@ -458,7 +458,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeCacheClusters
 DescribeCacheClustersResponse
-</span><a href="#local-6989586621679419642"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679419651"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-208"></span><span>          </span><span class="annot"><span class="annottext">DescribeCacheClustersResponse
 -&gt; Getting (First Text) DescribeCacheClustersResponse Text
 -&gt; Maybe Text
@@ -484,12 +484,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-212"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-213"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>      </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse"><span class="hs-identifier hs-type">DescribeCacheClustersResponse</span></a></span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679419632"><span class="annot"><span class="annottext">request :: DescribeCacheClusters -&gt; Request DescribeCacheClusters
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679419641"><span class="annot"><span class="annottext">request :: DescribeCacheClusters -&gt; Request DescribeCacheClusters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeCacheClusters -&gt; Request DescribeCacheClusters
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679419628"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679419637"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeCacheClusters
 -&gt; ClientResponse ClientBody
@@ -520,10 +520,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeCacheClustersResult&quot;</span></span><span>
-</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679419625"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679419625"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679419624"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679419624"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679419623"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679419623"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679419634"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419634"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679419633"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679419633"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679419632"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679419632"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CacheCluster]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeCacheClustersResponse
 </span><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse%27"><span class="hs-identifier hs-var">DescribeCacheClustersResponse'</span></a></span><span>
@@ -534,7 +534,7 @@ Text
      String (Maybe Text -&gt; Int -&gt; DescribeCacheClustersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679419623"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679419632"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CacheClusters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -561,7 +561,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeCacheClustersResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679419623"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679419632"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -573,15 +573,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679419625"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679419634"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419612"><span id="local-6989586621679419614"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span></span></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419621"><span id="local-6989586621679419623"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span></span></span><span>
 </span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419609"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419618"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span></span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-233"></span><span>  </span><span id="local-6989586621679419605"><span class="annot"><span class="annottext">toHeaders :: DescribeCacheClusters -&gt; ResponseHeaders
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679419614"><span class="annot"><span class="annottext">toHeaders :: DescribeCacheClusters -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeCacheClusters -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -589,15 +589,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621679419600"><span class="annot"><span class="annottext">toPath :: DescribeCacheClusters -&gt; ByteString
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679419609"><span class="annot"><span class="annottext">toPath :: DescribeCacheClusters -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeCacheClusters -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters"><span class="hs-identifier hs-type">DescribeCacheClusters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-239"></span><span>  </span><span id="local-6989586621679419596"><span class="annot"><span class="annottext">toQuery :: DescribeCacheClusters -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419590"><span id="local-6989586621679419591"><span id="local-6989586621679419592"><span id="local-6989586621679419593"><span id="local-6989586621679419594"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679419605"><span class="annot"><span class="annottext">toQuery :: DescribeCacheClusters -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClusters%27"><span class="hs-identifier hs-type">DescribeCacheClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419599"><span id="local-6989586621679419600"><span id="local-6989586621679419601"><span id="local-6989586621679419602"><span id="local-6989586621679419603"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe Text
 showCacheNodeInfo :: Maybe Bool
@@ -610,7 +610,7 @@ $sel:maxRecords:DescribeCacheClusters' :: DescribeCacheClusters -&gt; Maybe Int
 $sel:marker:DescribeCacheClusters' :: DescribeCacheClusters -&gt; Maybe Text
 $sel:cacheClusterId:DescribeCacheClusters' :: DescribeCacheClusters -&gt; Maybe Text
 $sel:showCacheClustersNotInReplicationGroups:DescribeCacheClusters' :: DescribeCacheClusters -&gt; Maybe Bool
-</span><a href="#local-6989586621679419590"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679419599"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-240"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -631,33 +631,33 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-246"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679419594"><span class="hs-identifier hs-var">showCacheClustersNotInReplicationGroups</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679419603"><span class="hs-identifier hs-var">showCacheClustersNotInReplicationGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;CacheClusterId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419593"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679419602"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-248"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419592"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679419601"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679419591"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679419600"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ShowCacheNodeInfo&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679419590"><span class="hs-identifier hs-var">showCacheNodeInfo</span></a></span><span>
+</span><a href="#local-6989586621679419599"><span class="hs-identifier hs-var">showCacheNodeInfo</span></a></span><span>
 </span><span id="line-251"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | Represents the output of a @DescribeCacheClusters@ operation.</span><span>
 </span><span id="line-254"></span><span class="hs-comment">--</span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- /See:/ 'newDescribeCacheClustersResponse' smart constructor.</span><span>
-</span><span id="line-256"></span><span id="local-6989586621679419587"><span id="local-6989586621679419588"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCacheClustersResponse"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse"><span class="hs-identifier hs-var">DescribeCacheClustersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCacheClustersResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse%27"><span class="hs-identifier hs-var">DescribeCacheClustersResponse'</span></a></span></span><span>
+</span><span id="line-256"></span><span id="local-6989586621679419596"><span id="local-6989586621679419597"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCacheClustersResponse"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse"><span class="hs-identifier hs-var">DescribeCacheClustersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCacheClustersResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse%27"><span class="hs-identifier hs-var">DescribeCacheClustersResponse'</span></a></span></span><span>
 </span><span id="line-257"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of clusters. Each item in the list contains detailed information</span><span>
 </span><span id="line-258"></span><span>    </span><span class="hs-comment">-- about one cluster.</span><span>
 </span><span id="line-259"></span><span>    </span><span id="%24sel%3AcacheClusters%3ADescribeCacheClustersResponse%27"><span class="annot"><span class="annottext">DescribeCacheClustersResponse -&gt; Maybe [CacheCluster]
@@ -669,7 +669,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-263"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeCacheClustersResponse%27"><span class="annot"><span class="annottext">DescribeCacheClustersResponse -&gt; Int
 </span><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#%24sel%3AhttpStatus%3ADescribeCacheClustersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-264"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-265"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679419580"><span id="local-6989586621679419582"><span class="annot"><span class="annottext">DescribeCacheClustersResponse
+</span><span id="line-265"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679419589"><span id="local-6989586621679419591"><span class="annot"><span class="annottext">DescribeCacheClustersResponse
 -&gt; DescribeCacheClustersResponse -&gt; Bool
 (DescribeCacheClustersResponse
  -&gt; DescribeCacheClustersResponse -&gt; Bool)
@@ -685,7 +685,7 @@ $c/= :: DescribeCacheClustersResponse
 -&gt; DescribeCacheClustersResponse -&gt; Bool
 $c== :: DescribeCacheClustersResponse
 -&gt; DescribeCacheClustersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419572"><span id="local-6989586621679419574"><span id="local-6989586621679419576"><span id="local-6989586621679419578"><span class="annot"><span class="annottext">ReadPrec [DescribeCacheClustersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419581"><span id="local-6989586621679419583"><span id="local-6989586621679419585"><span id="local-6989586621679419587"><span class="annot"><span class="annottext">ReadPrec [DescribeCacheClustersResponse]
 ReadPrec DescribeCacheClustersResponse
 Int -&gt; ReadS DescribeCacheClustersResponse
 ReadS [DescribeCacheClustersResponse]
@@ -705,7 +705,7 @@ readList :: ReadS [DescribeCacheClustersResponse]
 $creadList :: ReadS [DescribeCacheClustersResponse]
 readsPrec :: Int -&gt; ReadS DescribeCacheClustersResponse
 $creadsPrec :: Int -&gt; ReadS DescribeCacheClustersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419566"><span id="local-6989586621679419568"><span id="local-6989586621679419570"><span class="annot"><span class="annottext">Int -&gt; DescribeCacheClustersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679419575"><span id="local-6989586621679419577"><span id="local-6989586621679419579"><span class="annot"><span class="annottext">Int -&gt; DescribeCacheClustersResponse -&gt; ShowS
 [DescribeCacheClustersResponse] -&gt; ShowS
 DescribeCacheClustersResponse -&gt; String
 (Int -&gt; DescribeCacheClustersResponse -&gt; ShowS)
@@ -762,8 +762,8 @@ DescribeCacheClustersResponse
 </span><span id="line-283"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-284"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse"><span class="hs-identifier hs-type">DescribeCacheClustersResponse</span></a></span><span>
 </span><span id="line-285"></span><span id="newDescribeCacheClustersResponse"><span class="annot"><span class="annottext">newDescribeCacheClustersResponse :: Int -&gt; DescribeCacheClustersResponse
-</span><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#newDescribeCacheClustersResponse"><span class="hs-identifier hs-var hs-var">newDescribeCacheClustersResponse</span></a></span></span><span> </span><span id="local-6989586621679419563"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679419563"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#newDescribeCacheClustersResponse"><span class="hs-identifier hs-var hs-var">newDescribeCacheClustersResponse</span></a></span></span><span> </span><span id="local-6989586621679419572"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419572"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-286"></span><span>  </span><span class="annot"><span class="annottext">DescribeCacheClustersResponse' :: Maybe [CacheCluster]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeCacheClustersResponse
 </span><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse%27"><span class="hs-identifier hs-type">DescribeCacheClustersResponse'</span></a></span><span>
@@ -778,7 +778,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-290"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCacheClustersResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#%24sel%3AhttpStatus%3ADescribeCacheClustersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679419563"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679419572"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-291"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-292"></span><span>
 </span><span id="line-293"></span><span class="hs-comment">-- | A list of clusters. Each item in the list contains detailed information</span><span>
@@ -791,16 +791,16 @@ forall a. Maybe a
     -&gt; Maybe [CacheCluster] -&gt; DescribeCacheClustersResponse)
 -&gt; Lens' DescribeCacheClustersResponse (Maybe [CacheCluster])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse%27"><span class="hs-identifier hs-type">DescribeCacheClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419562"><span class="annot"><span class="annottext">Maybe [CacheCluster]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse%27"><span class="hs-identifier hs-type">DescribeCacheClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419571"><span class="annot"><span class="annottext">Maybe [CacheCluster]
 cacheClusters :: Maybe [CacheCluster]
 $sel:cacheClusters:DescribeCacheClustersResponse' :: DescribeCacheClustersResponse -&gt; Maybe [CacheCluster]
-</span><a href="#local-6989586621679419562"><span class="hs-identifier hs-var hs-var">cacheClusters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CacheCluster]
-</span><a href="#local-6989586621679419562"><span class="hs-identifier hs-var">cacheClusters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419561"><span class="annot"><span class="annottext">s :: DescribeCacheClustersResponse
-</span><a href="#local-6989586621679419561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse%27"><span class="hs-identifier hs-type">DescribeCacheClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419560"><span class="annot"><span class="annottext">Maybe [CacheCluster]
-</span><a href="#local-6989586621679419560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCacheClustersResponse
-</span><a href="#local-6989586621679419561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheClusters:DescribeCacheClustersResponse' :: Maybe [CacheCluster]
+</span><a href="#local-6989586621679419571"><span class="hs-identifier hs-var hs-var">cacheClusters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CacheCluster]
+</span><a href="#local-6989586621679419571"><span class="hs-identifier hs-var">cacheClusters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419570"><span class="annot"><span class="annottext">s :: DescribeCacheClustersResponse
+</span><a href="#local-6989586621679419570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse%27"><span class="hs-identifier hs-type">DescribeCacheClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419569"><span class="annot"><span class="annottext">Maybe [CacheCluster]
+</span><a href="#local-6989586621679419569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCacheClustersResponse
+</span><a href="#local-6989586621679419570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheClusters:DescribeCacheClustersResponse' :: Maybe [CacheCluster]
 </span><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#%24sel%3AcacheClusters%3ADescribeCacheClustersResponse%27"><span class="hs-identifier hs-var">cacheClusters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CacheCluster]
-</span><a href="#local-6989586621679419560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse"><span class="hs-identifier hs-type">DescribeCacheClustersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CacheCluster] -&gt; f (Maybe [CacheCluster]))
+</span><a href="#local-6989586621679419569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse"><span class="hs-identifier hs-type">DescribeCacheClustersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CacheCluster] -&gt; f (Maybe [CacheCluster]))
  -&gt; DescribeCacheClustersResponse
  -&gt; f DescribeCacheClustersResponse)
 -&gt; ((Maybe [CacheCluster] -&gt; f (Maybe [CacheCluster]))
@@ -831,16 +831,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; DescribeCacheClustersResponse)
 -&gt; Lens' DescribeCacheClustersResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse%27"><span class="hs-identifier hs-type">DescribeCacheClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419557"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse%27"><span class="hs-identifier hs-type">DescribeCacheClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419566"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeCacheClustersResponse' :: DescribeCacheClustersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679419557"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419557"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419556"><span class="annot"><span class="annottext">s :: DescribeCacheClustersResponse
-</span><a href="#local-6989586621679419556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse%27"><span class="hs-identifier hs-type">DescribeCacheClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419555"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCacheClustersResponse
-</span><a href="#local-6989586621679419556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeCacheClustersResponse' :: Maybe Text
+</span><a href="#local-6989586621679419566"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419566"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419565"><span class="annot"><span class="annottext">s :: DescribeCacheClustersResponse
+</span><a href="#local-6989586621679419565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse%27"><span class="hs-identifier hs-type">DescribeCacheClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419564"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679419564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCacheClustersResponse
+</span><a href="#local-6989586621679419565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeCacheClustersResponse' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#%24sel%3Amarker%3ADescribeCacheClustersResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679419555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse"><span class="hs-identifier hs-type">DescribeCacheClustersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679419564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse"><span class="hs-identifier hs-type">DescribeCacheClustersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-301"></span><span>
 </span><span id="line-302"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-303"></span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#describeCacheClustersResponse_httpStatus"><span class="hs-identifier hs-type">describeCacheClustersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse"><span class="hs-identifier hs-type">DescribeCacheClustersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -852,16 +852,16 @@ $sel:marker:DescribeCacheClustersResponse' :: DescribeCacheClustersResponse -&gt
 -&gt; Lens
      DescribeCacheClustersResponse DescribeCacheClustersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse%27"><span class="hs-identifier hs-type">DescribeCacheClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419554"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse%27"><span class="hs-identifier hs-type">DescribeCacheClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679419563"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeCacheClustersResponse' :: DescribeCacheClustersResponse -&gt; Int
-</span><a href="#local-6989586621679419554"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679419554"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419553"><span class="annot"><span class="annottext">s :: DescribeCacheClustersResponse
-</span><a href="#local-6989586621679419553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse%27"><span class="hs-identifier hs-type">DescribeCacheClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419552"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679419552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCacheClustersResponse
-</span><a href="#local-6989586621679419553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCacheClustersResponse' :: Int
+</span><a href="#local-6989586621679419563"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419563"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679419562"><span class="annot"><span class="annottext">s :: DescribeCacheClustersResponse
+</span><a href="#local-6989586621679419562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse%27"><span class="hs-identifier hs-type">DescribeCacheClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679419561"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679419561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCacheClustersResponse
+</span><a href="#local-6989586621679419562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCacheClustersResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#%24sel%3AhttpStatus%3ADescribeCacheClustersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679419552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse"><span class="hs-identifier hs-type">DescribeCacheClustersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679419561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse"><span class="hs-identifier hs-type">DescribeCacheClustersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-305"></span><span>
-</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419550"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse"><span class="hs-identifier hs-type">DescribeCacheClustersResponse</span></a></span></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679419559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeCacheClusters.html#DescribeCacheClustersResponse"><span class="hs-identifier hs-type">DescribeCacheClustersResponse</span></a></span></span><span>
 </span><span id="line-307"></span></pre></body></html>

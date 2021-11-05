@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621680302155"><span id="local-6989586621680302156"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DomainStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-var">DomainStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-var">DomainStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621680302164"><span id="local-6989586621680302165"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DomainStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-var">DomainStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-var">DomainStatus'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDomainStatus"><span class="annot"><span class="annottext">DomainStatus -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.DomainStatus.html#fromDomainStatus"><span class="hs-identifier hs-var hs-var">fromDomainStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680302147"><span id="local-6989586621680302149"><span id="local-6989586621680302151"><span class="annot"><span class="annottext">Int -&gt; DomainStatus -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680302156"><span id="local-6989586621680302158"><span id="local-6989586621680302160"><span class="annot"><span class="annottext">Int -&gt; DomainStatus -&gt; ShowS
 [DomainStatus] -&gt; ShowS
 DomainStatus -&gt; String
 (Int -&gt; DomainStatus -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: DomainStatus -&gt; String
 showsPrec :: Int -&gt; DomainStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; DomainStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680302138"><span id="local-6989586621680302140"><span id="local-6989586621680302142"><span id="local-6989586621680302144"><span class="annot"><span class="annottext">ReadPrec [DomainStatus]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680302147"><span id="local-6989586621680302149"><span id="local-6989586621680302151"><span id="local-6989586621680302153"><span class="annot"><span class="annottext">ReadPrec [DomainStatus]
 ReadPrec DomainStatus
 Int -&gt; ReadS DomainStatus
 ReadS [DomainStatus]
@@ -77,7 +77,7 @@ $creadList :: ReadS [DomainStatus]
 readsPrec :: Int -&gt; ReadS DomainStatus
 $creadsPrec :: Int -&gt; ReadS DomainStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680302133"><span id="local-6989586621680302135"><span class="annot"><span class="annottext">DomainStatus -&gt; DomainStatus -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680302142"><span id="local-6989586621680302144"><span class="annot"><span class="annottext">DomainStatus -&gt; DomainStatus -&gt; Bool
 (DomainStatus -&gt; DomainStatus -&gt; Bool)
 -&gt; (DomainStatus -&gt; DomainStatus -&gt; Bool) -&gt; Eq DomainStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: DomainStatus -&gt; DomainStatus -&gt; Bool
 == :: DomainStatus -&gt; DomainStatus -&gt; Bool
 $c== :: DomainStatus -&gt; DomainStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680302117"><span id="local-6989586621680302119"><span id="local-6989586621680302121"><span id="local-6989586621680302123"><span id="local-6989586621680302125"><span id="local-6989586621680302127"><span id="local-6989586621680302129"><span class="annot"><span class="annottext">Eq DomainStatus
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680302126"><span id="local-6989586621680302128"><span id="local-6989586621680302130"><span id="local-6989586621680302132"><span id="local-6989586621680302134"><span id="local-6989586621680302136"><span id="local-6989586621680302138"><span class="annot"><span class="annottext">Eq DomainStatus
 Eq DomainStatus
 -&gt; (DomainStatus -&gt; DomainStatus -&gt; Ordering)
 -&gt; (DomainStatus -&gt; DomainStatus -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. DomainStatus -&gt; Rep DomainStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680302109"><span id="local-6989586621680302111"><span class="annot"><span class="annottext">Int -&gt; DomainStatus -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680302118"><span id="local-6989586621680302120"><span class="annot"><span class="annottext">Int -&gt; DomainStatus -&gt; Int
 DomainStatus -&gt; Int
 (Int -&gt; DomainStatus -&gt; Int)
 -&gt; (DomainStatus -&gt; Int) -&gt; Hashable DomainStatus
@@ -147,49 +147,49 @@ $chash :: DomainStatus -&gt; Int
 hashWithSalt :: Int -&gt; DomainStatus -&gt; Int
 $chashWithSalt :: Int -&gt; DomainStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680302106"><span class="annot"><span class="annottext">DomainStatus -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680302115"><span class="annot"><span class="annottext">DomainStatus -&gt; ()
 (DomainStatus -&gt; ()) -&gt; NFData DomainStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DomainStatus -&gt; ()
 $crnf :: DomainStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680302103"><span class="annot"><span class="annottext">Text -&gt; Either String DomainStatus
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680302112"><span class="annot"><span class="annottext">Text -&gt; Either String DomainStatus
 (Text -&gt; Either String DomainStatus) -&gt; FromText DomainStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DomainStatus
 $cfromText :: Text -&gt; Either String DomainStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680302100"><span class="annot"><span class="annottext">DomainStatus -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680302109"><span class="annot"><span class="annottext">DomainStatus -&gt; Text
 (DomainStatus -&gt; Text) -&gt; ToText DomainStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DomainStatus -&gt; Text
 $ctoText :: DomainStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680302097"><span class="annot"><span class="annottext">DomainStatus -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680302106"><span class="annot"><span class="annottext">DomainStatus -&gt; ByteString
 (DomainStatus -&gt; ByteString) -&gt; ToByteString DomainStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DomainStatus -&gt; ByteString
 $ctoBS :: DomainStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680302094"><span class="annot"><span class="annottext">DomainStatus -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680302103"><span class="annot"><span class="annottext">DomainStatus -&gt; ByteStringBuilder
 (DomainStatus -&gt; ByteStringBuilder) -&gt; ToLog DomainStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DomainStatus -&gt; ByteStringBuilder
 $cbuild :: DomainStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680302091"><span class="annot"><span class="annottext">HeaderName -&gt; DomainStatus -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680302100"><span class="annot"><span class="annottext">HeaderName -&gt; DomainStatus -&gt; [Header]
 (HeaderName -&gt; DomainStatus -&gt; [Header]) -&gt; ToHeader DomainStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DomainStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DomainStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680302088"><span class="annot"><span class="annottext">DomainStatus -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680302097"><span class="annot"><span class="annottext">DomainStatus -&gt; QueryString
 (DomainStatus -&gt; QueryString) -&gt; ToQuery DomainStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DomainStatus -&gt; QueryString
 $ctoQuery :: DomainStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680302083"><span id="local-6989586621680302085"><span class="annot"><span class="annottext">Value -&gt; Parser [DomainStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680302092"><span id="local-6989586621680302094"><span class="annot"><span class="annottext">Value -&gt; Parser [DomainStatus]
 Value -&gt; Parser DomainStatus
 (Value -&gt; Parser DomainStatus)
 -&gt; (Value -&gt; Parser [DomainStatus]) -&gt; FromJSON DomainStatus
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [DomainStatus]
 parseJSON :: Value -&gt; Parser DomainStatus
 $cparseJSON :: Value -&gt; Parser DomainStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680302078"><span id="local-6989586621680302080"><span class="annot"><span class="annottext">FromJSONKeyFunction [DomainStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680302087"><span id="local-6989586621680302089"><span class="annot"><span class="annottext">FromJSONKeyFunction [DomainStatus]
 FromJSONKeyFunction DomainStatus
 FromJSONKeyFunction DomainStatus
 -&gt; FromJSONKeyFunction [DomainStatus] -&gt; FromJSONKey DomainStatus
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DomainStatus]
 fromJSONKey :: FromJSONKeyFunction DomainStatus
 $cfromJSONKey :: FromJSONKeyFunction DomainStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680302069"><span id="local-6989586621680302071"><span id="local-6989586621680302073"><span id="local-6989586621680302075"><span class="annot"><span class="annottext">[DomainStatus] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680302078"><span id="local-6989586621680302080"><span id="local-6989586621680302082"><span id="local-6989586621680302084"><span class="annot"><span class="annottext">[DomainStatus] -&gt; Encoding
 [DomainStatus] -&gt; Value
 DomainStatus -&gt; Encoding
 DomainStatus -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: DomainStatus -&gt; Encoding
 toJSON :: DomainStatus -&gt; Value
 $ctoJSON :: DomainStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680302064"><span id="local-6989586621680302066"><span class="annot"><span class="annottext">ToJSONKeyFunction [DomainStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680302073"><span id="local-6989586621680302075"><span class="annot"><span class="annottext">ToJSONKeyFunction [DomainStatus]
 ToJSONKeyFunction DomainStatus
 ToJSONKeyFunction DomainStatus
 -&gt; ToJSONKeyFunction [DomainStatus] -&gt; ToJSONKey DomainStatus
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DomainStatus]
 toJSONKey :: ToJSONKeyFunction DomainStatus
 $ctoJSONKey :: ToJSONKeyFunction DomainStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680302061"><span class="annot"><span class="annottext">[Node] -&gt; Either String DomainStatus
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680302070"><span class="annot"><span class="annottext">[Node] -&gt; Either String DomainStatus
 ([Node] -&gt; Either String DomainStatus) -&gt; FromXML DomainStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DomainStatus
 $cparseXML :: [Node] -&gt; Either String DomainStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680302058"><span class="annot"><span class="annottext">DomainStatus -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680302067"><span class="annot"><span class="annottext">DomainStatus -&gt; XML
 (DomainStatus -&gt; XML) -&gt; ToXML DomainStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DomainStatus -&gt; XML

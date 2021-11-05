@@ -1,0 +1,744 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.ListDashboards</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists dashboards in an Amazon Web Services account.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.ListDashboards</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier">ListDashboards</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#newListDashboards"><span class="hs-identifier">newListDashboards</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboards_nextToken"><span class="hs-identifier">listDashboards_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboards_maxResults"><span class="hs-identifier">listDashboards_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboards_awsAccountId"><span class="hs-identifier">listDashboards_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse"><span class="hs-identifier">ListDashboardsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#newListDashboardsResponse"><span class="hs-identifier">newListDashboardsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboardsResponse_requestId"><span class="hs-identifier">listDashboardsResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboardsResponse_nextToken"><span class="hs-identifier">listDashboardsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboardsResponse_dashboardSummaryList"><span class="hs-identifier">listDashboardsResponse_dashboardSummaryList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboardsResponse_status"><span class="hs-identifier">listDashboardsResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.html"><span class="hs-identifier">Network.AWS.QuickSight.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListDashboards' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679581697"><span id="local-6989586621679581698"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDashboards"><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier hs-var">ListDashboards</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDashboards%27"><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards%27"><span class="hs-identifier hs-var">ListDashboards'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AListDashboards%27"><span class="annot"><span class="annottext">ListDashboards -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3AnextToken%3AListDashboards%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to be returned per request.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmaxResults%3AListDashboards%27"><span class="annot"><span class="annottext">ListDashboards -&gt; Maybe Natural
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3AmaxResults%3AListDashboards%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the dashboards</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- that you\'re listing.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AawsAccountId%3AListDashboards%27"><span class="annot"><span class="annottext">ListDashboards -&gt; Text
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3AawsAccountId%3AListDashboards%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679581689"><span id="local-6989586621679581691"><span class="annot"><span class="annottext">ListDashboards -&gt; ListDashboards -&gt; Bool
+(ListDashboards -&gt; ListDashboards -&gt; Bool)
+-&gt; (ListDashboards -&gt; ListDashboards -&gt; Bool) -&gt; Eq ListDashboards
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDashboards -&gt; ListDashboards -&gt; Bool
+$c/= :: ListDashboards -&gt; ListDashboards -&gt; Bool
+== :: ListDashboards -&gt; ListDashboards -&gt; Bool
+$c== :: ListDashboards -&gt; ListDashboards -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679581680"><span id="local-6989586621679581682"><span id="local-6989586621679581684"><span id="local-6989586621679581686"><span class="annot"><span class="annottext">ReadPrec [ListDashboards]
+ReadPrec ListDashboards
+Int -&gt; ReadS ListDashboards
+ReadS [ListDashboards]
+(Int -&gt; ReadS ListDashboards)
+-&gt; ReadS [ListDashboards]
+-&gt; ReadPrec ListDashboards
+-&gt; ReadPrec [ListDashboards]
+-&gt; Read ListDashboards
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDashboards]
+$creadListPrec :: ReadPrec [ListDashboards]
+readPrec :: ReadPrec ListDashboards
+$creadPrec :: ReadPrec ListDashboards
+readList :: ReadS [ListDashboards]
+$creadList :: ReadS [ListDashboards]
+readsPrec :: Int -&gt; ReadS ListDashboards
+$creadsPrec :: Int -&gt; ReadS ListDashboards
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679581673"><span id="local-6989586621679581675"><span id="local-6989586621679581677"><span class="annot"><span class="annottext">Int -&gt; ListDashboards -&gt; ShowS
+[ListDashboards] -&gt; ShowS
+ListDashboards -&gt; String
+(Int -&gt; ListDashboards -&gt; ShowS)
+-&gt; (ListDashboards -&gt; String)
+-&gt; ([ListDashboards] -&gt; ShowS)
+-&gt; Show ListDashboards
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDashboards] -&gt; ShowS
+$cshowList :: [ListDashboards] -&gt; ShowS
+show :: ListDashboards -&gt; String
+$cshow :: ListDashboards -&gt; String
+showsPrec :: Int -&gt; ListDashboards -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDashboards -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListDashboards -&gt; Rep ListDashboards x)
+-&gt; (forall x. Rep ListDashboards x -&gt; ListDashboards)
+-&gt; Generic ListDashboards
+forall x. Rep ListDashboards x -&gt; ListDashboards
+forall x. ListDashboards -&gt; Rep ListDashboards x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListDashboards x -&gt; ListDashboards
+$cfrom :: forall x. ListDashboards -&gt; Rep ListDashboards x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ListDashboards' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'nextToken', 'listDashboards_nextToken' - The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'maxResults', 'listDashboards_maxResults' - The maximum number of results to be returned per request.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'awsAccountId', 'listDashboards_awsAccountId' - The ID of the Amazon Web Services account that contains the dashboards</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- that you\'re listing.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#newListDashboards"><span class="hs-identifier hs-type">newListDashboards</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier hs-type">ListDashboards</span></a></span><span>
+</span><span id="line-87"></span><span id="newListDashboards"><span class="annot"><span class="annottext">newListDashboards :: Text -&gt; ListDashboards
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#newListDashboards"><span class="hs-identifier hs-var hs-var">newListDashboards</span></a></span></span><span> </span><span id="local-6989586621679581668"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581668"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">ListDashboards' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListDashboards
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards%27"><span class="hs-identifier hs-type">ListDashboards'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListDashboards' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3AnextToken%3AListDashboards%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListDashboards' :: Maybe Natural
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3AmaxResults%3AListDashboards%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:ListDashboards' :: Text
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3AawsAccountId%3AListDashboards%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581668"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboards_nextToken"><span class="hs-identifier hs-type">listDashboards_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier hs-type">ListDashboards</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="listDashboards_nextToken"><span class="annot"><span class="annottext">listDashboards_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDashboards -&gt; f ListDashboards
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboards_nextToken"><span class="hs-identifier hs-var hs-var">listDashboards_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDashboards -&gt; Maybe Text)
+-&gt; (ListDashboards -&gt; Maybe Text -&gt; ListDashboards)
+-&gt; Lens ListDashboards ListDashboards (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards%27"><span class="hs-identifier hs-type">ListDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581666"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDashboards' :: ListDashboards -&gt; Maybe Text
+</span><a href="#local-6989586621679581666"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581666"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581665"><span class="annot"><span class="annottext">s :: ListDashboards
+</span><a href="#local-6989586621679581665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards%27"><span class="hs-identifier hs-type">ListDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581664"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDashboards
+</span><a href="#local-6989586621679581665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDashboards' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3AnextToken%3AListDashboards%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier hs-type">ListDashboards</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The maximum number of results to be returned per request.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboards_maxResults"><span class="hs-identifier hs-type">listDashboards_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier hs-type">ListDashboards</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="listDashboards_maxResults"><span class="annot"><span class="annottext">listDashboards_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListDashboards -&gt; f ListDashboards
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboards_maxResults"><span class="hs-identifier hs-var hs-var">listDashboards_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDashboards -&gt; Maybe Natural)
+-&gt; (ListDashboards -&gt; Maybe Natural -&gt; ListDashboards)
+-&gt; Lens
+     ListDashboards ListDashboards (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards%27"><span class="hs-identifier hs-type">ListDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581663"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListDashboards' :: ListDashboards -&gt; Maybe Natural
+</span><a href="#local-6989586621679581663"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679581663"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581662"><span class="annot"><span class="annottext">s :: ListDashboards
+</span><a href="#local-6989586621679581662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards%27"><span class="hs-identifier hs-type">ListDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581661"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679581661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDashboards
+</span><a href="#local-6989586621679581662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDashboards' :: Maybe Natural
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3AmaxResults%3AListDashboards%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679581661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier hs-type">ListDashboards</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the dashboards</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- that you\'re listing.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboards_awsAccountId"><span class="hs-identifier hs-type">listDashboards_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier hs-type">ListDashboards</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-106"></span><span id="listDashboards_awsAccountId"><span class="annot"><span class="annottext">listDashboards_awsAccountId :: (Text -&gt; f Text) -&gt; ListDashboards -&gt; f ListDashboards
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboards_awsAccountId"><span class="hs-identifier hs-var hs-var">listDashboards_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDashboards -&gt; Text)
+-&gt; (ListDashboards -&gt; Text -&gt; ListDashboards)
+-&gt; Lens ListDashboards ListDashboards Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards%27"><span class="hs-identifier hs-type">ListDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581660"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:ListDashboards' :: ListDashboards -&gt; Text
+</span><a href="#local-6989586621679581660"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581660"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581659"><span class="annot"><span class="annottext">s :: ListDashboards
+</span><a href="#local-6989586621679581659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards%27"><span class="hs-identifier hs-type">ListDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581658"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDashboards
+</span><a href="#local-6989586621679581659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:ListDashboards' :: Text
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3AawsAccountId%3AListDashboards%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier hs-type">ListDashboards</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier hs-type">ListDashboards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679581654"><span class="annot"><span class="annottext">page :: ListDashboards
+-&gt; AWSResponse ListDashboards -&gt; Maybe ListDashboards
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679581652"><span class="annot"><span class="annottext">ListDashboards
+</span><a href="#local-6989586621679581652"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679581651"><span class="annot"><span class="annottext">AWSResponse ListDashboards
+</span><a href="#local-6989586621679581651"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-111"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDashboards
+ListDashboardsResponse
+</span><a href="#local-6989586621679581651"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">ListDashboardsResponse
+-&gt; Getting (First Text) ListDashboardsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListDashboardsResponse
+-&gt; Const (First Text) ListDashboardsResponse
+Lens' ListDashboardsResponse (Maybe Text)
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboardsResponse_nextToken"><span class="hs-identifier hs-var">listDashboardsResponse_nextToken</span></a></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListDashboardsResponse
+ -&gt; Const (First Text) ListDashboardsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListDashboardsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-114"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListDashboards
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-117"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDashboards
+ListDashboardsResponse
+</span><a href="#local-6989586621679581651"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">ListDashboardsResponse
+-&gt; Getting
+     (First [DashboardSummary])
+     ListDashboardsResponse
+     [DashboardSummary]
+-&gt; Maybe [DashboardSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [DashboardSummary]
+ -&gt; Const (First [DashboardSummary]) (Maybe [DashboardSummary]))
+-&gt; ListDashboardsResponse
+-&gt; Const (First [DashboardSummary]) ListDashboardsResponse
+Lens' ListDashboardsResponse (Maybe [DashboardSummary])
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboardsResponse_dashboardSummaryList"><span class="hs-identifier hs-var">listDashboardsResponse_dashboardSummaryList</span></a></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [DashboardSummary]
+  -&gt; Const (First [DashboardSummary]) (Maybe [DashboardSummary]))
+ -&gt; ListDashboardsResponse
+ -&gt; Const (First [DashboardSummary]) ListDashboardsResponse)
+-&gt; (([DashboardSummary]
+     -&gt; Const (First [DashboardSummary]) [DashboardSummary])
+    -&gt; Maybe [DashboardSummary]
+    -&gt; Const (First [DashboardSummary]) (Maybe [DashboardSummary]))
+-&gt; Getting
+     (First [DashboardSummary])
+     ListDashboardsResponse
+     [DashboardSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([DashboardSummary]
+ -&gt; Const (First [DashboardSummary]) [DashboardSummary])
+-&gt; Maybe [DashboardSummary]
+-&gt; Const (First [DashboardSummary]) (Maybe [DashboardSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-120"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListDashboards
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">ListDashboards -&gt; Maybe ListDashboards
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListDashboards -&gt; Maybe ListDashboards)
+-&gt; ListDashboards -&gt; Maybe ListDashboards
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">ListDashboards
+</span><a href="#local-6989586621679581652"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">ListDashboards
+-&gt; (ListDashboards -&gt; ListDashboards) -&gt; ListDashboards
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListDashboards -&gt; Identity ListDashboards
+Lens ListDashboards ListDashboards (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboards_nextToken"><span class="hs-identifier hs-var">listDashboards_nextToken</span></a></span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListDashboards -&gt; Identity ListDashboards)
+-&gt; Maybe Text -&gt; ListDashboards -&gt; ListDashboards
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDashboards
+ListDashboardsResponse
+</span><a href="#local-6989586621679581651"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ListDashboardsResponse
+-&gt; Getting (First Text) ListDashboardsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListDashboardsResponse
+-&gt; Const (First Text) ListDashboardsResponse
+Lens' ListDashboardsResponse (Maybe Text)
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboardsResponse_nextToken"><span class="hs-identifier hs-var">listDashboardsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListDashboardsResponse
+ -&gt; Const (First Text) ListDashboardsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListDashboardsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier hs-type">ListDashboards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier hs-type">ListDashboards</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse"><span class="hs-identifier hs-type">ListDashboardsResponse</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679581641"><span class="annot"><span class="annottext">request :: ListDashboards -&gt; Request ListDashboards
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDashboards -&gt; Request ListDashboards
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679581637"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListDashboards
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListDashboards)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListDashboards))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListDashboards
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListDashboards)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679581634"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581634"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679581633"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679581633"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679581632"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679581632"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [DashboardSummary]
+-&gt; Int
+-&gt; ListDashboardsResponse
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse%27"><span class="hs-identifier hs-var">ListDashboardsResponse'</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [DashboardSummary]
+ -&gt; Int
+ -&gt; ListDashboardsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [DashboardSummary] -&gt; Int -&gt; ListDashboardsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679581632"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [DashboardSummary] -&gt; Int -&gt; ListDashboardsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [DashboardSummary] -&gt; Int -&gt; ListDashboardsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679581632"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [DashboardSummary] -&gt; Int -&gt; ListDashboardsResponse)
+-&gt; Either String (Maybe [DashboardSummary])
+-&gt; Either String (Int -&gt; ListDashboardsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679581632"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DashboardSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DashboardSummaryList&quot;</span></span><span>
+</span><span id="line-141"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DashboardSummary]))
+-&gt; Maybe [DashboardSummary]
+-&gt; Either String (Maybe [DashboardSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-142"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListDashboardsResponse)
+-&gt; Either String Int -&gt; Either String ListDashboardsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581634"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679581623"><span id="local-6989586621679581625"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier hs-type">ListDashboards</span></a></span></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679581620"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier hs-type">ListDashboards</span></a></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier hs-type">ListDashboards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679581616"><span class="annot"><span class="annottext">toHeaders :: ListDashboards -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDashboards -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-157"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier hs-type">ListDashboards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679581610"><span class="annot"><span class="annottext">toPath :: ListDashboards -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards%27"><span class="hs-identifier hs-type">ListDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581606"><span id="local-6989586621679581607"><span id="local-6989586621679581608"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+awsAccountId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:awsAccountId:ListDashboards' :: ListDashboards -&gt; Text
+$sel:maxResults:ListDashboards' :: ListDashboards -&gt; Maybe Natural
+$sel:nextToken:ListDashboards' :: ListDashboards -&gt; Maybe Text
+</span><a href="#local-6989586621679581606"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581606"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/dashboards&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards"><span class="hs-identifier hs-type">ListDashboards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679581602"><span class="annot"><span class="annottext">toQuery :: ListDashboards -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboards%27"><span class="hs-identifier hs-type">ListDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581598"><span id="local-6989586621679581599"><span id="local-6989586621679581600"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+awsAccountId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:awsAccountId:ListDashboards' :: ListDashboards -&gt; Text
+$sel:maxResults:ListDashboards' :: ListDashboards -&gt; Maybe Natural
+$sel:nextToken:ListDashboards' :: ListDashboards -&gt; Maybe Text
+</span><a href="#local-6989586621679581598"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;next-token&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581600"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;max-results&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679581599"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | /See:/ 'newListDashboardsResponse' smart constructor.</span><span>
+</span><span id="line-174"></span><span id="local-6989586621679581595"><span id="local-6989586621679581596"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDashboardsResponse"><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse"><span class="hs-identifier hs-var">ListDashboardsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDashboardsResponse%27"><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse%27"><span class="hs-identifier hs-var">ListDashboardsResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3ArequestId%3AListDashboardsResponse%27"><span class="annot"><span class="annottext">ListDashboardsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3ArequestId%3AListDashboardsResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AnextToken%3AListDashboardsResponse%27"><span class="annot"><span class="annottext">ListDashboardsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3AnextToken%3AListDashboardsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | A structure that contains all of the dashboards in your Amazon Web</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- Services account. This structure provides basic information about the</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- dashboards.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3AdashboardSummaryList%3AListDashboardsResponse%27"><span class="annot"><span class="annottext">ListDashboardsResponse -&gt; Maybe [DashboardSummary]
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3AdashboardSummaryList%3AListDashboardsResponse%27"><span class="hs-identifier hs-var hs-var">dashboardSummaryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardSummary.html#DashboardSummary"><span class="hs-identifier hs-type">DashboardSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3Astatus%3AListDashboardsResponse%27"><span class="annot"><span class="annottext">ListDashboardsResponse -&gt; Int
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3Astatus%3AListDashboardsResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679581587"><span id="local-6989586621679581589"><span class="annot"><span class="annottext">ListDashboardsResponse -&gt; ListDashboardsResponse -&gt; Bool
+(ListDashboardsResponse -&gt; ListDashboardsResponse -&gt; Bool)
+-&gt; (ListDashboardsResponse -&gt; ListDashboardsResponse -&gt; Bool)
+-&gt; Eq ListDashboardsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDashboardsResponse -&gt; ListDashboardsResponse -&gt; Bool
+$c/= :: ListDashboardsResponse -&gt; ListDashboardsResponse -&gt; Bool
+== :: ListDashboardsResponse -&gt; ListDashboardsResponse -&gt; Bool
+$c== :: ListDashboardsResponse -&gt; ListDashboardsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679581579"><span id="local-6989586621679581581"><span id="local-6989586621679581583"><span id="local-6989586621679581585"><span class="annot"><span class="annottext">ReadPrec [ListDashboardsResponse]
+ReadPrec ListDashboardsResponse
+Int -&gt; ReadS ListDashboardsResponse
+ReadS [ListDashboardsResponse]
+(Int -&gt; ReadS ListDashboardsResponse)
+-&gt; ReadS [ListDashboardsResponse]
+-&gt; ReadPrec ListDashboardsResponse
+-&gt; ReadPrec [ListDashboardsResponse]
+-&gt; Read ListDashboardsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDashboardsResponse]
+$creadListPrec :: ReadPrec [ListDashboardsResponse]
+readPrec :: ReadPrec ListDashboardsResponse
+$creadPrec :: ReadPrec ListDashboardsResponse
+readList :: ReadS [ListDashboardsResponse]
+$creadList :: ReadS [ListDashboardsResponse]
+readsPrec :: Int -&gt; ReadS ListDashboardsResponse
+$creadsPrec :: Int -&gt; ReadS ListDashboardsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679581573"><span id="local-6989586621679581575"><span id="local-6989586621679581577"><span class="annot"><span class="annottext">Int -&gt; ListDashboardsResponse -&gt; ShowS
+[ListDashboardsResponse] -&gt; ShowS
+ListDashboardsResponse -&gt; String
+(Int -&gt; ListDashboardsResponse -&gt; ShowS)
+-&gt; (ListDashboardsResponse -&gt; String)
+-&gt; ([ListDashboardsResponse] -&gt; ShowS)
+-&gt; Show ListDashboardsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDashboardsResponse] -&gt; ShowS
+$cshowList :: [ListDashboardsResponse] -&gt; ShowS
+show :: ListDashboardsResponse -&gt; String
+$cshow :: ListDashboardsResponse -&gt; String
+showsPrec :: Int -&gt; ListDashboardsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDashboardsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListDashboardsResponse -&gt; Rep ListDashboardsResponse x)
+-&gt; (forall x.
+    Rep ListDashboardsResponse x -&gt; ListDashboardsResponse)
+-&gt; Generic ListDashboardsResponse
+forall x. Rep ListDashboardsResponse x -&gt; ListDashboardsResponse
+forall x. ListDashboardsResponse -&gt; Rep ListDashboardsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListDashboardsResponse x -&gt; ListDashboardsResponse
+$cfrom :: forall x. ListDashboardsResponse -&gt; Rep ListDashboardsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Create a value of 'ListDashboardsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'requestId', 'listDashboardsResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'nextToken', 'listDashboardsResponse_nextToken' - The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'dashboardSummaryList', 'listDashboardsResponse_dashboardSummaryList' - A structure that contains all of the dashboards in your Amazon Web</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Services account. This structure provides basic information about the</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- dashboards.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'status', 'listDashboardsResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#newListDashboardsResponse"><span class="hs-identifier hs-type">newListDashboardsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse"><span class="hs-identifier hs-type">ListDashboardsResponse</span></a></span><span>
+</span><span id="line-211"></span><span id="newListDashboardsResponse"><span class="annot"><span class="annottext">newListDashboardsResponse :: Int -&gt; ListDashboardsResponse
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#newListDashboardsResponse"><span class="hs-identifier hs-var hs-var">newListDashboardsResponse</span></a></span></span><span> </span><span id="local-6989586621679581570"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581570"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">ListDashboardsResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [DashboardSummary]
+-&gt; Int
+-&gt; ListDashboardsResponse
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse%27"><span class="hs-identifier hs-type">ListDashboardsResponse'</span></a></span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:ListDashboardsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3ArequestId%3AListDashboardsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListDashboardsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3AnextToken%3AListDashboardsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:dashboardSummaryList:ListDashboardsResponse' :: Maybe [DashboardSummary]
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3AdashboardSummaryList%3AListDashboardsResponse%27"><span class="hs-identifier hs-var">dashboardSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ListDashboardsResponse' :: Int
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3Astatus%3AListDashboardsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581570"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboardsResponse_requestId"><span class="hs-identifier hs-type">listDashboardsResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse"><span class="hs-identifier hs-type">ListDashboardsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="listDashboardsResponse_requestId"><span class="annot"><span class="annottext">listDashboardsResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDashboardsResponse -&gt; f ListDashboardsResponse
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboardsResponse_requestId"><span class="hs-identifier hs-var hs-var">listDashboardsResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDashboardsResponse -&gt; Maybe Text)
+-&gt; (ListDashboardsResponse -&gt; Maybe Text -&gt; ListDashboardsResponse)
+-&gt; Lens' ListDashboardsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse%27"><span class="hs-identifier hs-type">ListDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581569"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:ListDashboardsResponse' :: ListDashboardsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679581569"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581569"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581568"><span class="annot"><span class="annottext">s :: ListDashboardsResponse
+</span><a href="#local-6989586621679581568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse%27"><span class="hs-identifier hs-type">ListDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581567"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDashboardsResponse
+</span><a href="#local-6989586621679581568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:ListDashboardsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3ArequestId%3AListDashboardsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse"><span class="hs-identifier hs-type">ListDashboardsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboardsResponse_nextToken"><span class="hs-identifier hs-type">listDashboardsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse"><span class="hs-identifier hs-type">ListDashboardsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="listDashboardsResponse_nextToken"><span class="annot"><span class="annottext">listDashboardsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDashboardsResponse -&gt; f ListDashboardsResponse
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboardsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listDashboardsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDashboardsResponse -&gt; Maybe Text)
+-&gt; (ListDashboardsResponse -&gt; Maybe Text -&gt; ListDashboardsResponse)
+-&gt; Lens' ListDashboardsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse%27"><span class="hs-identifier hs-type">ListDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581566"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDashboardsResponse' :: ListDashboardsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679581566"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581566"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581565"><span class="annot"><span class="annottext">s :: ListDashboardsResponse
+</span><a href="#local-6989586621679581565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse%27"><span class="hs-identifier hs-type">ListDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581564"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDashboardsResponse
+</span><a href="#local-6989586621679581565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDashboardsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3AnextToken%3AListDashboardsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse"><span class="hs-identifier hs-type">ListDashboardsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | A structure that contains all of the dashboards in your Amazon Web</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- Services account. This structure provides basic information about the</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- dashboards.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboardsResponse_dashboardSummaryList"><span class="hs-identifier hs-type">listDashboardsResponse_dashboardSummaryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse"><span class="hs-identifier hs-type">ListDashboardsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardSummary.html#DashboardSummary"><span class="hs-identifier hs-type">DashboardSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="listDashboardsResponse_dashboardSummaryList"><span class="annot"><span class="annottext">listDashboardsResponse_dashboardSummaryList :: (Maybe [DashboardSummary] -&gt; f (Maybe [DashboardSummary]))
+-&gt; ListDashboardsResponse -&gt; f ListDashboardsResponse
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboardsResponse_dashboardSummaryList"><span class="hs-identifier hs-var hs-var">listDashboardsResponse_dashboardSummaryList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDashboardsResponse -&gt; Maybe [DashboardSummary])
+-&gt; (ListDashboardsResponse
+    -&gt; Maybe [DashboardSummary] -&gt; ListDashboardsResponse)
+-&gt; Lens' ListDashboardsResponse (Maybe [DashboardSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse%27"><span class="hs-identifier hs-type">ListDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581563"><span class="annot"><span class="annottext">Maybe [DashboardSummary]
+dashboardSummaryList :: Maybe [DashboardSummary]
+$sel:dashboardSummaryList:ListDashboardsResponse' :: ListDashboardsResponse -&gt; Maybe [DashboardSummary]
+</span><a href="#local-6989586621679581563"><span class="hs-identifier hs-var hs-var">dashboardSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardSummary]
+</span><a href="#local-6989586621679581563"><span class="hs-identifier hs-var">dashboardSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581562"><span class="annot"><span class="annottext">s :: ListDashboardsResponse
+</span><a href="#local-6989586621679581562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse%27"><span class="hs-identifier hs-type">ListDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581561"><span class="annot"><span class="annottext">Maybe [DashboardSummary]
+</span><a href="#local-6989586621679581561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDashboardsResponse
+</span><a href="#local-6989586621679581562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardSummaryList:ListDashboardsResponse' :: Maybe [DashboardSummary]
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3AdashboardSummaryList%3AListDashboardsResponse%27"><span class="hs-identifier hs-var">dashboardSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardSummary]
+</span><a href="#local-6989586621679581561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse"><span class="hs-identifier hs-type">ListDashboardsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DashboardSummary] -&gt; f (Maybe [DashboardSummary]))
+ -&gt; ListDashboardsResponse -&gt; f ListDashboardsResponse)
+-&gt; ((Maybe [DashboardSummary] -&gt; f (Maybe [DashboardSummary]))
+    -&gt; Maybe [DashboardSummary] -&gt; f (Maybe [DashboardSummary]))
+-&gt; (Maybe [DashboardSummary] -&gt; f (Maybe [DashboardSummary]))
+-&gt; ListDashboardsResponse
+-&gt; f ListDashboardsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DashboardSummary]
+  [DashboardSummary]
+  [DashboardSummary]
+  [DashboardSummary]
+-&gt; Iso
+     (Maybe [DashboardSummary])
+     (Maybe [DashboardSummary])
+     (Maybe [DashboardSummary])
+     (Maybe [DashboardSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DashboardSummary]
+  [DashboardSummary]
+  [DashboardSummary]
+  [DashboardSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboardsResponse_status"><span class="hs-identifier hs-type">listDashboardsResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse"><span class="hs-identifier hs-type">ListDashboardsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-237"></span><span id="listDashboardsResponse_status"><span class="annot"><span class="annottext">listDashboardsResponse_status :: (Int -&gt; f Int)
+-&gt; ListDashboardsResponse -&gt; f ListDashboardsResponse
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#listDashboardsResponse_status"><span class="hs-identifier hs-var hs-var">listDashboardsResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDashboardsResponse -&gt; Int)
+-&gt; (ListDashboardsResponse -&gt; Int -&gt; ListDashboardsResponse)
+-&gt; Lens ListDashboardsResponse ListDashboardsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse%27"><span class="hs-identifier hs-type">ListDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581558"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:ListDashboardsResponse' :: ListDashboardsResponse -&gt; Int
+</span><a href="#local-6989586621679581558"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581558"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581557"><span class="annot"><span class="annottext">s :: ListDashboardsResponse
+</span><a href="#local-6989586621679581557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse%27"><span class="hs-identifier hs-type">ListDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581556"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDashboardsResponse
+</span><a href="#local-6989586621679581557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListDashboardsResponse' :: Int
+</span><a href="Network.AWS.QuickSight.ListDashboards.html#%24sel%3Astatus%3AListDashboardsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse"><span class="hs-identifier hs-type">ListDashboardsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679581554"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboards.html#ListDashboardsResponse"><span class="hs-identifier hs-type">ListDashboardsResponse</span></a></span></span><span>
+</span><span id="line-240"></span></pre></body></html>

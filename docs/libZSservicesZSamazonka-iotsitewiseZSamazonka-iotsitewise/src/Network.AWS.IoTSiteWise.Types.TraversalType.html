@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTSiteWise.Types.TraversalType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.TraversalType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalType.html#TraversalType"><span class="hs-identifier">TraversalType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalType.html#TraversalType_PATH_TO_ROOT"><span class="hs-identifier">TraversalType_PATH_TO_ROOT</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679344723"><span id="local-6989586621679344724"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TraversalType"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalType.html#TraversalType"><span class="hs-identifier hs-var">TraversalType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TraversalType%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalType.html#TraversalType%27"><span class="hs-identifier hs-var">TraversalType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTraversalType"><span class="annot"><span class="annottext">TraversalType -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.Types.TraversalType.html#fromTraversalType"><span class="hs-identifier hs-var hs-var">fromTraversalType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344715"><span id="local-6989586621679344717"><span id="local-6989586621679344719"><span class="annot"><span class="annottext">Int -&gt; TraversalType -&gt; ShowS
+[TraversalType] -&gt; ShowS
+TraversalType -&gt; String
+(Int -&gt; TraversalType -&gt; ShowS)
+-&gt; (TraversalType -&gt; String)
+-&gt; ([TraversalType] -&gt; ShowS)
+-&gt; Show TraversalType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TraversalType] -&gt; ShowS
+$cshowList :: [TraversalType] -&gt; ShowS
+show :: TraversalType -&gt; String
+$cshow :: TraversalType -&gt; String
+showsPrec :: Int -&gt; TraversalType -&gt; ShowS
+$cshowsPrec :: Int -&gt; TraversalType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679344706"><span id="local-6989586621679344708"><span id="local-6989586621679344710"><span id="local-6989586621679344712"><span class="annot"><span class="annottext">ReadPrec [TraversalType]
+ReadPrec TraversalType
+Int -&gt; ReadS TraversalType
+ReadS [TraversalType]
+(Int -&gt; ReadS TraversalType)
+-&gt; ReadS [TraversalType]
+-&gt; ReadPrec TraversalType
+-&gt; ReadPrec [TraversalType]
+-&gt; Read TraversalType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TraversalType]
+$creadListPrec :: ReadPrec [TraversalType]
+readPrec :: ReadPrec TraversalType
+$creadPrec :: ReadPrec TraversalType
+readList :: ReadS [TraversalType]
+$creadList :: ReadS [TraversalType]
+readsPrec :: Int -&gt; ReadS TraversalType
+$creadsPrec :: Int -&gt; ReadS TraversalType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679344701"><span id="local-6989586621679344703"><span class="annot"><span class="annottext">TraversalType -&gt; TraversalType -&gt; Bool
+(TraversalType -&gt; TraversalType -&gt; Bool)
+-&gt; (TraversalType -&gt; TraversalType -&gt; Bool) -&gt; Eq TraversalType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TraversalType -&gt; TraversalType -&gt; Bool
+$c/= :: TraversalType -&gt; TraversalType -&gt; Bool
+== :: TraversalType -&gt; TraversalType -&gt; Bool
+$c== :: TraversalType -&gt; TraversalType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679344685"><span id="local-6989586621679344687"><span id="local-6989586621679344689"><span id="local-6989586621679344691"><span id="local-6989586621679344693"><span id="local-6989586621679344695"><span id="local-6989586621679344697"><span class="annot"><span class="annottext">Eq TraversalType
+Eq TraversalType
+-&gt; (TraversalType -&gt; TraversalType -&gt; Ordering)
+-&gt; (TraversalType -&gt; TraversalType -&gt; Bool)
+-&gt; (TraversalType -&gt; TraversalType -&gt; Bool)
+-&gt; (TraversalType -&gt; TraversalType -&gt; Bool)
+-&gt; (TraversalType -&gt; TraversalType -&gt; Bool)
+-&gt; (TraversalType -&gt; TraversalType -&gt; TraversalType)
+-&gt; (TraversalType -&gt; TraversalType -&gt; TraversalType)
+-&gt; Ord TraversalType
+TraversalType -&gt; TraversalType -&gt; Bool
+TraversalType -&gt; TraversalType -&gt; Ordering
+TraversalType -&gt; TraversalType -&gt; TraversalType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TraversalType -&gt; TraversalType -&gt; TraversalType
+$cmin :: TraversalType -&gt; TraversalType -&gt; TraversalType
+max :: TraversalType -&gt; TraversalType -&gt; TraversalType
+$cmax :: TraversalType -&gt; TraversalType -&gt; TraversalType
+&gt;= :: TraversalType -&gt; TraversalType -&gt; Bool
+$c&gt;= :: TraversalType -&gt; TraversalType -&gt; Bool
+&gt; :: TraversalType -&gt; TraversalType -&gt; Bool
+$c&gt; :: TraversalType -&gt; TraversalType -&gt; Bool
+&lt;= :: TraversalType -&gt; TraversalType -&gt; Bool
+$c&lt;= :: TraversalType -&gt; TraversalType -&gt; Bool
+&lt; :: TraversalType -&gt; TraversalType -&gt; Bool
+$c&lt; :: TraversalType -&gt; TraversalType -&gt; Bool
+compare :: TraversalType -&gt; TraversalType -&gt; Ordering
+$ccompare :: TraversalType -&gt; TraversalType -&gt; Ordering
+$cp1Ord :: Eq TraversalType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TraversalType -&gt; Rep TraversalType x)
+-&gt; (forall x. Rep TraversalType x -&gt; TraversalType)
+-&gt; Generic TraversalType
+forall x. Rep TraversalType x -&gt; TraversalType
+forall x. TraversalType -&gt; Rep TraversalType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TraversalType x -&gt; TraversalType
+$cfrom :: forall x. TraversalType -&gt; Rep TraversalType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344677"><span id="local-6989586621679344679"><span class="annot"><span class="annottext">Int -&gt; TraversalType -&gt; Int
+TraversalType -&gt; Int
+(Int -&gt; TraversalType -&gt; Int)
+-&gt; (TraversalType -&gt; Int) -&gt; Hashable TraversalType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TraversalType -&gt; Int
+$chash :: TraversalType -&gt; Int
+hashWithSalt :: Int -&gt; TraversalType -&gt; Int
+$chashWithSalt :: Int -&gt; TraversalType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679344674"><span class="annot"><span class="annottext">TraversalType -&gt; ()
+(TraversalType -&gt; ()) -&gt; NFData TraversalType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TraversalType -&gt; ()
+$crnf :: TraversalType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679344671"><span class="annot"><span class="annottext">Text -&gt; Either String TraversalType
+(Text -&gt; Either String TraversalType) -&gt; FromText TraversalType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TraversalType
+$cfromText :: Text -&gt; Either String TraversalType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679344668"><span class="annot"><span class="annottext">TraversalType -&gt; Text
+(TraversalType -&gt; Text) -&gt; ToText TraversalType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TraversalType -&gt; Text
+$ctoText :: TraversalType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679344665"><span class="annot"><span class="annottext">TraversalType -&gt; ByteString
+(TraversalType -&gt; ByteString) -&gt; ToByteString TraversalType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TraversalType -&gt; ByteString
+$ctoBS :: TraversalType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679344662"><span class="annot"><span class="annottext">TraversalType -&gt; ByteStringBuilder
+(TraversalType -&gt; ByteStringBuilder) -&gt; ToLog TraversalType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TraversalType -&gt; ByteStringBuilder
+$cbuild :: TraversalType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679344659"><span class="annot"><span class="annottext">HeaderName -&gt; TraversalType -&gt; [Header]
+(HeaderName -&gt; TraversalType -&gt; [Header]) -&gt; ToHeader TraversalType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TraversalType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TraversalType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679344656"><span class="annot"><span class="annottext">TraversalType -&gt; QueryString
+(TraversalType -&gt; QueryString) -&gt; ToQuery TraversalType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TraversalType -&gt; QueryString
+$ctoQuery :: TraversalType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679344651"><span id="local-6989586621679344653"><span class="annot"><span class="annottext">Value -&gt; Parser [TraversalType]
+Value -&gt; Parser TraversalType
+(Value -&gt; Parser TraversalType)
+-&gt; (Value -&gt; Parser [TraversalType]) -&gt; FromJSON TraversalType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TraversalType]
+$cparseJSONList :: Value -&gt; Parser [TraversalType]
+parseJSON :: Value -&gt; Parser TraversalType
+$cparseJSON :: Value -&gt; Parser TraversalType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679344646"><span id="local-6989586621679344648"><span class="annot"><span class="annottext">FromJSONKeyFunction [TraversalType]
+FromJSONKeyFunction TraversalType
+FromJSONKeyFunction TraversalType
+-&gt; FromJSONKeyFunction [TraversalType] -&gt; FromJSONKey TraversalType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TraversalType]
+$cfromJSONKeyList :: FromJSONKeyFunction [TraversalType]
+fromJSONKey :: FromJSONKeyFunction TraversalType
+$cfromJSONKey :: FromJSONKeyFunction TraversalType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679344637"><span id="local-6989586621679344639"><span id="local-6989586621679344641"><span id="local-6989586621679344643"><span class="annot"><span class="annottext">[TraversalType] -&gt; Encoding
+[TraversalType] -&gt; Value
+TraversalType -&gt; Encoding
+TraversalType -&gt; Value
+(TraversalType -&gt; Value)
+-&gt; (TraversalType -&gt; Encoding)
+-&gt; ([TraversalType] -&gt; Value)
+-&gt; ([TraversalType] -&gt; Encoding)
+-&gt; ToJSON TraversalType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TraversalType] -&gt; Encoding
+$ctoEncodingList :: [TraversalType] -&gt; Encoding
+toJSONList :: [TraversalType] -&gt; Value
+$ctoJSONList :: [TraversalType] -&gt; Value
+toEncoding :: TraversalType -&gt; Encoding
+$ctoEncoding :: TraversalType -&gt; Encoding
+toJSON :: TraversalType -&gt; Value
+$ctoJSON :: TraversalType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679344632"><span id="local-6989586621679344634"><span class="annot"><span class="annottext">ToJSONKeyFunction [TraversalType]
+ToJSONKeyFunction TraversalType
+ToJSONKeyFunction TraversalType
+-&gt; ToJSONKeyFunction [TraversalType] -&gt; ToJSONKey TraversalType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TraversalType]
+$ctoJSONKeyList :: ToJSONKeyFunction [TraversalType]
+toJSONKey :: ToJSONKeyFunction TraversalType
+$ctoJSONKey :: ToJSONKeyFunction TraversalType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679344629"><span class="annot"><span class="annottext">[Node] -&gt; Either String TraversalType
+([Node] -&gt; Either String TraversalType) -&gt; FromXML TraversalType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TraversalType
+$cparseXML :: [Node] -&gt; Either String TraversalType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679344626"><span class="annot"><span class="annottext">TraversalType -&gt; XML
+(TraversalType -&gt; XML) -&gt; ToXML TraversalType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TraversalType -&gt; XML
+$ctoXML :: TraversalType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalType.html#TraversalType_PATH_TO_ROOT"><span class="hs-identifier hs-type">TraversalType_PATH_TO_ROOT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalType.html#TraversalType"><span class="hs-identifier hs-type">TraversalType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTraversalType_PATH_TO_ROOT"><span id="%24mTraversalType_PATH_TO_ROOT"><span id="TraversalType_PATH_TO_ROOT"><span class="annot"><span class="annottext">$bTraversalType_PATH_TO_ROOT :: TraversalType
+$mTraversalType_PATH_TO_ROOT :: forall r. TraversalType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTSiteWise.Types.TraversalType.html#%24bTraversalType_PATH_TO_ROOT"><span class="hs-identifier hs-var hs-var hs-var">TraversalType_PATH_TO_ROOT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalType.html#TraversalType%27"><span class="hs-identifier hs-type">TraversalType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PATH_TO_ROOT&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalType.html#TraversalType_PATH_TO_ROOT"><span class="hs-pragma hs-type">TraversalType_PATH_TO_ROOT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.TraversalType.html#TraversalType%27"><span class="hs-pragma hs-type">TraversalType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

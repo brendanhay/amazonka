@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679540211"><span id="local-6989586621679540212"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeleteMarkerReplicationStatus"><span class="annot"><a href="Network.AWS.S3.Types.DeleteMarkerReplicationStatus.html#DeleteMarkerReplicationStatus"><span class="hs-identifier hs-var">DeleteMarkerReplicationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMarkerReplicationStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.DeleteMarkerReplicationStatus.html#DeleteMarkerReplicationStatus%27"><span class="hs-identifier hs-var">DeleteMarkerReplicationStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679540220"><span id="local-6989586621679540221"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeleteMarkerReplicationStatus"><span class="annot"><a href="Network.AWS.S3.Types.DeleteMarkerReplicationStatus.html#DeleteMarkerReplicationStatus"><span class="hs-identifier hs-var">DeleteMarkerReplicationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMarkerReplicationStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.DeleteMarkerReplicationStatus.html#DeleteMarkerReplicationStatus%27"><span class="hs-identifier hs-var">DeleteMarkerReplicationStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeleteMarkerReplicationStatus"><span class="annot"><span class="annottext">DeleteMarkerReplicationStatus -&gt; Text
 </span><a href="Network.AWS.S3.Types.DeleteMarkerReplicationStatus.html#fromDeleteMarkerReplicationStatus"><span class="hs-identifier hs-var hs-var">fromDeleteMarkerReplicationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679540203"><span id="local-6989586621679540205"><span id="local-6989586621679540207"><span class="annot"><span class="annottext">Int -&gt; DeleteMarkerReplicationStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679540212"><span id="local-6989586621679540214"><span id="local-6989586621679540216"><span class="annot"><span class="annottext">Int -&gt; DeleteMarkerReplicationStatus -&gt; ShowS
 [DeleteMarkerReplicationStatus] -&gt; ShowS
 DeleteMarkerReplicationStatus -&gt; String
 (Int -&gt; DeleteMarkerReplicationStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: DeleteMarkerReplicationStatus -&gt; String
 showsPrec :: Int -&gt; DeleteMarkerReplicationStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeleteMarkerReplicationStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679540194"><span id="local-6989586621679540196"><span id="local-6989586621679540198"><span id="local-6989586621679540200"><span class="annot"><span class="annottext">ReadPrec [DeleteMarkerReplicationStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679540203"><span id="local-6989586621679540205"><span id="local-6989586621679540207"><span id="local-6989586621679540209"><span class="annot"><span class="annottext">ReadPrec [DeleteMarkerReplicationStatus]
 ReadPrec DeleteMarkerReplicationStatus
 Int -&gt; ReadS DeleteMarkerReplicationStatus
 ReadS [DeleteMarkerReplicationStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [DeleteMarkerReplicationStatus]
 readsPrec :: Int -&gt; ReadS DeleteMarkerReplicationStatus
 $creadsPrec :: Int -&gt; ReadS DeleteMarkerReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679540189"><span id="local-6989586621679540191"><span class="annot"><span class="annottext">DeleteMarkerReplicationStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679540198"><span id="local-6989586621679540200"><span class="annot"><span class="annottext">DeleteMarkerReplicationStatus
 -&gt; DeleteMarkerReplicationStatus -&gt; Bool
 (DeleteMarkerReplicationStatus
  -&gt; DeleteMarkerReplicationStatus -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: DeleteMarkerReplicationStatus
 $c== :: DeleteMarkerReplicationStatus
 -&gt; DeleteMarkerReplicationStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679540173"><span id="local-6989586621679540175"><span id="local-6989586621679540177"><span id="local-6989586621679540179"><span id="local-6989586621679540181"><span id="local-6989586621679540183"><span id="local-6989586621679540185"><span class="annot"><span class="annottext">Eq DeleteMarkerReplicationStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679540182"><span id="local-6989586621679540184"><span id="local-6989586621679540186"><span id="local-6989586621679540188"><span id="local-6989586621679540190"><span id="local-6989586621679540192"><span id="local-6989586621679540194"><span class="annot"><span class="annottext">Eq DeleteMarkerReplicationStatus
 Eq DeleteMarkerReplicationStatus
 -&gt; (DeleteMarkerReplicationStatus
     -&gt; DeleteMarkerReplicationStatus -&gt; Ordering)
@@ -177,7 +177,7 @@ DeleteMarkerReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679540165"><span id="local-6989586621679540167"><span class="annot"><span class="annottext">Int -&gt; DeleteMarkerReplicationStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679540174"><span id="local-6989586621679540176"><span class="annot"><span class="annottext">Int -&gt; DeleteMarkerReplicationStatus -&gt; Int
 DeleteMarkerReplicationStatus -&gt; Int
 (Int -&gt; DeleteMarkerReplicationStatus -&gt; Int)
 -&gt; (DeleteMarkerReplicationStatus -&gt; Int)
@@ -188,56 +188,56 @@ $chash :: DeleteMarkerReplicationStatus -&gt; Int
 hashWithSalt :: Int -&gt; DeleteMarkerReplicationStatus -&gt; Int
 $chashWithSalt :: Int -&gt; DeleteMarkerReplicationStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679540162"><span class="annot"><span class="annottext">DeleteMarkerReplicationStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679540171"><span class="annot"><span class="annottext">DeleteMarkerReplicationStatus -&gt; ()
 (DeleteMarkerReplicationStatus -&gt; ())
 -&gt; NFData DeleteMarkerReplicationStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeleteMarkerReplicationStatus -&gt; ()
 $crnf :: DeleteMarkerReplicationStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679540159"><span class="annot"><span class="annottext">Text -&gt; Either String DeleteMarkerReplicationStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679540168"><span class="annot"><span class="annottext">Text -&gt; Either String DeleteMarkerReplicationStatus
 (Text -&gt; Either String DeleteMarkerReplicationStatus)
 -&gt; FromText DeleteMarkerReplicationStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeleteMarkerReplicationStatus
 $cfromText :: Text -&gt; Either String DeleteMarkerReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679540156"><span class="annot"><span class="annottext">DeleteMarkerReplicationStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679540165"><span class="annot"><span class="annottext">DeleteMarkerReplicationStatus -&gt; Text
 (DeleteMarkerReplicationStatus -&gt; Text)
 -&gt; ToText DeleteMarkerReplicationStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeleteMarkerReplicationStatus -&gt; Text
 $ctoText :: DeleteMarkerReplicationStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679540153"><span class="annot"><span class="annottext">DeleteMarkerReplicationStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679540162"><span class="annot"><span class="annottext">DeleteMarkerReplicationStatus -&gt; ByteString
 (DeleteMarkerReplicationStatus -&gt; ByteString)
 -&gt; ToByteString DeleteMarkerReplicationStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeleteMarkerReplicationStatus -&gt; ByteString
 $ctoBS :: DeleteMarkerReplicationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679540150"><span class="annot"><span class="annottext">DeleteMarkerReplicationStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679540159"><span class="annot"><span class="annottext">DeleteMarkerReplicationStatus -&gt; ByteStringBuilder
 (DeleteMarkerReplicationStatus -&gt; ByteStringBuilder)
 -&gt; ToLog DeleteMarkerReplicationStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeleteMarkerReplicationStatus -&gt; ByteStringBuilder
 $cbuild :: DeleteMarkerReplicationStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679540147"><span class="annot"><span class="annottext">HeaderName -&gt; DeleteMarkerReplicationStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679540156"><span class="annot"><span class="annottext">HeaderName -&gt; DeleteMarkerReplicationStatus -&gt; [Header]
 (HeaderName -&gt; DeleteMarkerReplicationStatus -&gt; [Header])
 -&gt; ToHeader DeleteMarkerReplicationStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeleteMarkerReplicationStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeleteMarkerReplicationStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679540144"><span class="annot"><span class="annottext">DeleteMarkerReplicationStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679540153"><span class="annot"><span class="annottext">DeleteMarkerReplicationStatus -&gt; QueryString
 (DeleteMarkerReplicationStatus -&gt; QueryString)
 -&gt; ToQuery DeleteMarkerReplicationStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeleteMarkerReplicationStatus -&gt; QueryString
 $ctoQuery :: DeleteMarkerReplicationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679540139"><span id="local-6989586621679540141"><span class="annot"><span class="annottext">Value -&gt; Parser [DeleteMarkerReplicationStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679540148"><span id="local-6989586621679540150"><span class="annot"><span class="annottext">Value -&gt; Parser [DeleteMarkerReplicationStatus]
 Value -&gt; Parser DeleteMarkerReplicationStatus
 (Value -&gt; Parser DeleteMarkerReplicationStatus)
 -&gt; (Value -&gt; Parser [DeleteMarkerReplicationStatus])
@@ -249,7 +249,7 @@ $cparseJSONList :: Value -&gt; Parser [DeleteMarkerReplicationStatus]
 parseJSON :: Value -&gt; Parser DeleteMarkerReplicationStatus
 $cparseJSON :: Value -&gt; Parser DeleteMarkerReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679540134"><span id="local-6989586621679540136"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeleteMarkerReplicationStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679540143"><span id="local-6989586621679540145"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeleteMarkerReplicationStatus]
 FromJSONKeyFunction DeleteMarkerReplicationStatus
 FromJSONKeyFunction DeleteMarkerReplicationStatus
 -&gt; FromJSONKeyFunction [DeleteMarkerReplicationStatus]
@@ -261,7 +261,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeleteMarkerReplicationStatus]
 fromJSONKey :: FromJSONKeyFunction DeleteMarkerReplicationStatus
 $cfromJSONKey :: FromJSONKeyFunction DeleteMarkerReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679540125"><span id="local-6989586621679540127"><span id="local-6989586621679540129"><span id="local-6989586621679540131"><span class="annot"><span class="annottext">[DeleteMarkerReplicationStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679540134"><span id="local-6989586621679540136"><span id="local-6989586621679540138"><span id="local-6989586621679540140"><span class="annot"><span class="annottext">[DeleteMarkerReplicationStatus] -&gt; Encoding
 [DeleteMarkerReplicationStatus] -&gt; Value
 DeleteMarkerReplicationStatus -&gt; Encoding
 DeleteMarkerReplicationStatus -&gt; Value
@@ -285,7 +285,7 @@ $ctoEncoding :: DeleteMarkerReplicationStatus -&gt; Encoding
 toJSON :: DeleteMarkerReplicationStatus -&gt; Value
 $ctoJSON :: DeleteMarkerReplicationStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679540120"><span id="local-6989586621679540122"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeleteMarkerReplicationStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679540129"><span id="local-6989586621679540131"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeleteMarkerReplicationStatus]
 ToJSONKeyFunction DeleteMarkerReplicationStatus
 ToJSONKeyFunction DeleteMarkerReplicationStatus
 -&gt; ToJSONKeyFunction [DeleteMarkerReplicationStatus]
@@ -297,14 +297,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeleteMarkerReplicationStatus]
 toJSONKey :: ToJSONKeyFunction DeleteMarkerReplicationStatus
 $ctoJSONKey :: ToJSONKeyFunction DeleteMarkerReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679540117"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeleteMarkerReplicationStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679540126"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeleteMarkerReplicationStatus
 ([Node] -&gt; Either String DeleteMarkerReplicationStatus)
 -&gt; FromXML DeleteMarkerReplicationStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeleteMarkerReplicationStatus
 $cparseXML :: [Node] -&gt; Either String DeleteMarkerReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679540114"><span class="annot"><span class="annottext">DeleteMarkerReplicationStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679540123"><span class="annot"><span class="annottext">DeleteMarkerReplicationStatus -&gt; XML
 (DeleteMarkerReplicationStatus -&gt; XML)
 -&gt; ToXML DeleteMarkerReplicationStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

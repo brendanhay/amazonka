@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDescribeFleets' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621681265763"><span id="local-6989586621681265764"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFleets"><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-var">DescribeFleets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFleets%27"><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-var">DescribeFleets'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621681265772"><span id="local-6989586621681265773"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFleets"><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-var">DescribeFleets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFleets%27"><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-var">DescribeFleets'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The filters.</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @activity-status@ - The progress of the EC2 Fleet ( @error@ |</span><span>
@@ -97,7 +97,7 @@
 </span><span id="line-93"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeFleets%27"><span class="annot"><span class="annottext">DescribeFleets -&gt; Maybe Int
 </span><a href="Network.AWS.EC2.DescribeFleets.html#%24sel%3AmaxResults%3ADescribeFleets%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681265753"><span id="local-6989586621681265755"><span class="annot"><span class="annottext">DescribeFleets -&gt; DescribeFleets -&gt; Bool
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681265762"><span id="local-6989586621681265764"><span class="annot"><span class="annottext">DescribeFleets -&gt; DescribeFleets -&gt; Bool
 (DescribeFleets -&gt; DescribeFleets -&gt; Bool)
 -&gt; (DescribeFleets -&gt; DescribeFleets -&gt; Bool) -&gt; Eq DescribeFleets
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -105,7 +105,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeFleets -&gt; DescribeFleets -&gt; Bool
 == :: DescribeFleets -&gt; DescribeFleets -&gt; Bool
 $c== :: DescribeFleets -&gt; DescribeFleets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265744"><span id="local-6989586621681265746"><span id="local-6989586621681265748"><span id="local-6989586621681265750"><span class="annot"><span class="annottext">ReadPrec [DescribeFleets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265753"><span id="local-6989586621681265755"><span id="local-6989586621681265757"><span id="local-6989586621681265759"><span class="annot"><span class="annottext">ReadPrec [DescribeFleets]
 ReadPrec DescribeFleets
 Int -&gt; ReadS DescribeFleets
 ReadS [DescribeFleets]
@@ -125,7 +125,7 @@ readList :: ReadS [DescribeFleets]
 $creadList :: ReadS [DescribeFleets]
 readsPrec :: Int -&gt; ReadS DescribeFleets
 $creadsPrec :: Int -&gt; ReadS DescribeFleets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265737"><span id="local-6989586621681265739"><span id="local-6989586621681265741"><span class="annot"><span class="annottext">Int -&gt; DescribeFleets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265746"><span id="local-6989586621681265748"><span id="local-6989586621681265750"><span class="annot"><span class="annottext">Int -&gt; DescribeFleets -&gt; ShowS
 [DescribeFleets] -&gt; ShowS
 DescribeFleets -&gt; String
 (Int -&gt; DescribeFleets -&gt; ShowS)
@@ -248,16 +248,16 @@ forall a. Maybe a
 -&gt; Lens
      DescribeFleets DescribeFleets (Maybe [Filter]) (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265731"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265740"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeFleets' :: DescribeFleets -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681265731"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681265731"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265730"><span class="annot"><span class="annottext">s :: DescribeFleets
-</span><a href="#local-6989586621681265730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265729"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681265729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleets
-</span><a href="#local-6989586621681265730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeFleets' :: Maybe [Filter]
+</span><a href="#local-6989586621681265740"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681265740"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265739"><span class="annot"><span class="annottext">s :: DescribeFleets
+</span><a href="#local-6989586621681265739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265738"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681265738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleets
+</span><a href="#local-6989586621681265739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeFleets' :: Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeFleets.html#%24sel%3Afilters%3ADescribeFleets%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681265729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621681265738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeFleets -&gt; f DescribeFleets)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -283,16 +283,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeFleets -&gt; Maybe Text -&gt; DescribeFleets)
 -&gt; Lens DescribeFleets DescribeFleets (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265725"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265734"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeFleets' :: DescribeFleets -&gt; Maybe Text
-</span><a href="#local-6989586621681265725"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681265725"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265724"><span class="annot"><span class="annottext">s :: DescribeFleets
-</span><a href="#local-6989586621681265724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265723"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681265723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleets
-</span><a href="#local-6989586621681265724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeFleets' :: Maybe Text
+</span><a href="#local-6989586621681265734"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681265734"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265733"><span class="annot"><span class="annottext">s :: DescribeFleets
+</span><a href="#local-6989586621681265733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265732"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681265732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleets
+</span><a href="#local-6989586621681265733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeFleets' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeFleets.html#%24sel%3AnextToken%3ADescribeFleets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681265723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681265732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The ID of the EC2 Fleets.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#describeFleets_fleetIds"><span class="hs-identifier hs-type">describeFleets_fleetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -302,16 +302,16 @@ $sel:nextToken:DescribeFleets' :: DescribeFleets -&gt; Maybe Text
 -&gt; (DescribeFleets -&gt; Maybe [Text] -&gt; DescribeFleets)
 -&gt; Lens DescribeFleets DescribeFleets (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265722"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265731"><span class="annot"><span class="annottext">Maybe [Text]
 fleetIds :: Maybe [Text]
 $sel:fleetIds:DescribeFleets' :: DescribeFleets -&gt; Maybe [Text]
-</span><a href="#local-6989586621681265722"><span class="hs-identifier hs-var hs-var">fleetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681265722"><span class="hs-identifier hs-var">fleetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265721"><span class="annot"><span class="annottext">s :: DescribeFleets
-</span><a href="#local-6989586621681265721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265720"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681265720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleets
-</span><a href="#local-6989586621681265721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetIds:DescribeFleets' :: Maybe [Text]
+</span><a href="#local-6989586621681265731"><span class="hs-identifier hs-var hs-var">fleetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681265731"><span class="hs-identifier hs-var">fleetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265730"><span class="annot"><span class="annottext">s :: DescribeFleets
+</span><a href="#local-6989586621681265730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265729"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681265729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleets
+</span><a href="#local-6989586621681265730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetIds:DescribeFleets' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeFleets.html#%24sel%3AfleetIds%3ADescribeFleets%27"><span class="hs-identifier hs-var">fleetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681265720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681265729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeFleets -&gt; f DescribeFleets)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -339,16 +339,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeFleets -&gt; Maybe Bool -&gt; DescribeFleets)
 -&gt; Lens DescribeFleets DescribeFleets (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265719"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265728"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:DescribeFleets' :: DescribeFleets -&gt; Maybe Bool
-</span><a href="#local-6989586621681265719"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681265719"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265718"><span class="annot"><span class="annottext">s :: DescribeFleets
-</span><a href="#local-6989586621681265718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265717"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681265717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleets
-</span><a href="#local-6989586621681265718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeFleets' :: Maybe Bool
+</span><a href="#local-6989586621681265728"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681265728"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265727"><span class="annot"><span class="annottext">s :: DescribeFleets
+</span><a href="#local-6989586621681265727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265726"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681265726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleets
+</span><a href="#local-6989586621681265727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeFleets' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeFleets.html#%24sel%3AdryRun%3ADescribeFleets%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681265717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681265726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | The maximum number of results to return in a single call. Specify a</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- value between 1 and 1000. The default value is 1000. To retrieve the</span><span>
@@ -360,29 +360,29 @@ $sel:dryRun:DescribeFleets' :: DescribeFleets -&gt; Maybe Bool
 -&gt; (DescribeFleets -&gt; Maybe Int -&gt; DescribeFleets)
 -&gt; Lens DescribeFleets DescribeFleets (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265716"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265725"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:DescribeFleets' :: DescribeFleets -&gt; Maybe Int
-</span><a href="#local-6989586621681265716"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681265716"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265715"><span class="annot"><span class="annottext">s :: DescribeFleets
-</span><a href="#local-6989586621681265715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265714"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681265714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleets
-</span><a href="#local-6989586621681265715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeFleets' :: Maybe Int
+</span><a href="#local-6989586621681265725"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681265725"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265724"><span class="annot"><span class="annottext">s :: DescribeFleets
+</span><a href="#local-6989586621681265724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265723"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681265723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleets
+</span><a href="#local-6989586621681265724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeFleets' :: Maybe Int
 </span><a href="Network.AWS.EC2.DescribeFleets.html#%24sel%3AmaxResults%3ADescribeFleets%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681265714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681265723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621681265710"><span class="annot"><span class="annottext">page :: DescribeFleets
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621681265719"><span class="annot"><span class="annottext">page :: DescribeFleets
 -&gt; AWSResponse DescribeFleets -&gt; Maybe DescribeFleets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681265708"><span class="annot"><span class="annottext">DescribeFleets
-</span><a href="#local-6989586621681265708"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681265707"><span class="annot"><span class="annottext">AWSResponse DescribeFleets
-</span><a href="#local-6989586621681265707"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681265717"><span class="annot"><span class="annottext">DescribeFleets
+</span><a href="#local-6989586621681265717"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681265716"><span class="annot"><span class="annottext">AWSResponse DescribeFleets
+</span><a href="#local-6989586621681265716"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-192"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeFleets
 DescribeFleetsResponse
-</span><a href="#local-6989586621681265707"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681265716"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">DescribeFleetsResponse
 -&gt; Getting (First Text) DescribeFleetsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -411,7 +411,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-198"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeFleets
 DescribeFleetsResponse
-</span><a href="#local-6989586621681265707"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681265716"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">DescribeFleetsResponse
 -&gt; Getting (First [FleetData]) DescribeFleetsResponse [FleetData]
 -&gt; Maybe [FleetData]
@@ -448,7 +448,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">DescribeFleets
-</span><a href="#local-6989586621681265708"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621681265717"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-205"></span><span>          </span><span class="annot"><span class="annottext">DescribeFleets
 -&gt; (DescribeFleets -&gt; DescribeFleets) -&gt; DescribeFleets
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -462,7 +462,7 @@ Lens DescribeFleets DescribeFleets (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeFleets
 DescribeFleetsResponse
-</span><a href="#local-6989586621681265707"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681265716"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-207"></span><span>          </span><span class="annot"><span class="annottext">DescribeFleetsResponse
 -&gt; Getting (First Text) DescribeFleetsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -486,12 +486,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-210"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-211"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse"><span class="hs-identifier hs-type">DescribeFleetsResponse</span></a></span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621681265698"><span class="annot"><span class="annottext">request :: DescribeFleets -&gt; Request DescribeFleets
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621681265707"><span class="annot"><span class="annottext">request :: DescribeFleets -&gt; Request DescribeFleets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeFleets -&gt; Request DescribeFleets
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621681265694"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621681265703"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeFleets
 -&gt; ClientResponse ClientBody
@@ -515,10 +515,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-216"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681265691"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681265691"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681265690"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681265690"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681265689"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681265689"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681265700"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681265700"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681265699"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681265699"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681265698"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681265698"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [FleetData] -&gt; Int -&gt; DescribeFleetsResponse
 </span><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse%27"><span class="hs-identifier hs-var">DescribeFleetsResponse'</span></a></span><span>
 </span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [FleetData] -&gt; Int -&gt; DescribeFleetsResponse)
@@ -527,7 +527,7 @@ MonadResource m =&gt;
      String (Maybe [FleetData] -&gt; Int -&gt; DescribeFleetsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681265689"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681265698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -536,7 +536,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeFleetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681265689"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681265698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fleetSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -566,15 +566,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681265691"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681265700"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681265678"><span id="local-6989586621681265680"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span></span></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681265687"><span id="local-6989586621681265689"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span></span></span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681265675"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681265684"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span></span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621681265671"><span class="annot"><span class="annottext">toHeaders :: DescribeFleets -&gt; ResponseHeaders
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621681265680"><span class="annot"><span class="annottext">toHeaders :: DescribeFleets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeFleets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -582,15 +582,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-233"></span><span>  </span><span id="local-6989586621681265666"><span class="annot"><span class="annottext">toPath :: DescribeFleets -&gt; ByteString
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621681265675"><span class="annot"><span class="annottext">toPath :: DescribeFleets -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeFleets -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets"><span class="hs-identifier hs-type">DescribeFleets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621681265662"><span class="annot"><span class="annottext">toQuery :: DescribeFleets -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265656"><span id="local-6989586621681265657"><span id="local-6989586621681265658"><span id="local-6989586621681265659"><span id="local-6989586621681265660"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621681265671"><span class="annot"><span class="annottext">toQuery :: DescribeFleets -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleets%27"><span class="hs-identifier hs-type">DescribeFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265665"><span id="local-6989586621681265666"><span id="local-6989586621681265667"><span id="local-6989586621681265668"><span id="local-6989586621681265669"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe [Text]
 Maybe [Filter]
@@ -605,7 +605,7 @@ $sel:dryRun:DescribeFleets' :: DescribeFleets -&gt; Maybe Bool
 $sel:fleetIds:DescribeFleets' :: DescribeFleets -&gt; Maybe [Text]
 $sel:nextToken:DescribeFleets' :: DescribeFleets -&gt; Maybe Text
 $sel:filters:DescribeFleets' :: DescribeFleets -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681265656"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681265665"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-237"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -632,12 +632,12 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681265660"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681265669"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681265659"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681265668"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -649,21 +649,21 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;FleetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681265658"><span class="hs-identifier hs-var">fleetIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681265667"><span class="hs-identifier hs-var">fleetIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681265657"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681265666"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-248"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681265656"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621681265665"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-249"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-comment">-- | /See:/ 'newDescribeFleetsResponse' smart constructor.</span><span>
-</span><span id="line-252"></span><span id="local-6989586621681265652"><span id="local-6989586621681265653"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFleetsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse"><span class="hs-identifier hs-var">DescribeFleetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFleetsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse%27"><span class="hs-identifier hs-var">DescribeFleetsResponse'</span></a></span></span><span>
+</span><span id="line-252"></span><span id="local-6989586621681265661"><span id="local-6989586621681265662"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFleetsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse"><span class="hs-identifier hs-var">DescribeFleetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFleetsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse%27"><span class="hs-identifier hs-var">DescribeFleetsResponse'</span></a></span></span><span>
 </span><span id="line-253"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results.</span><span>
 </span><span id="line-254"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeFleetsResponse%27"><span class="annot"><span class="annottext">DescribeFleetsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.DescribeFleets.html#%24sel%3AnextToken%3ADescribeFleetsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -674,7 +674,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-258"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeFleetsResponse%27"><span class="annot"><span class="annottext">DescribeFleetsResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribeFleets.html#%24sel%3AhttpStatus%3ADescribeFleetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-259"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-260"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681265645"><span id="local-6989586621681265647"><span class="annot"><span class="annottext">DescribeFleetsResponse -&gt; DescribeFleetsResponse -&gt; Bool
+</span><span id="line-260"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681265654"><span id="local-6989586621681265656"><span class="annot"><span class="annottext">DescribeFleetsResponse -&gt; DescribeFleetsResponse -&gt; Bool
 (DescribeFleetsResponse -&gt; DescribeFleetsResponse -&gt; Bool)
 -&gt; (DescribeFleetsResponse -&gt; DescribeFleetsResponse -&gt; Bool)
 -&gt; Eq DescribeFleetsResponse
@@ -683,7 +683,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeFleetsResponse -&gt; DescribeFleetsResponse -&gt; Bool
 == :: DescribeFleetsResponse -&gt; DescribeFleetsResponse -&gt; Bool
 $c== :: DescribeFleetsResponse -&gt; DescribeFleetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265637"><span id="local-6989586621681265639"><span id="local-6989586621681265641"><span id="local-6989586621681265643"><span class="annot"><span class="annottext">ReadPrec [DescribeFleetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265646"><span id="local-6989586621681265648"><span id="local-6989586621681265650"><span id="local-6989586621681265652"><span class="annot"><span class="annottext">ReadPrec [DescribeFleetsResponse]
 ReadPrec DescribeFleetsResponse
 Int -&gt; ReadS DescribeFleetsResponse
 ReadS [DescribeFleetsResponse]
@@ -703,7 +703,7 @@ readList :: ReadS [DescribeFleetsResponse]
 $creadList :: ReadS [DescribeFleetsResponse]
 readsPrec :: Int -&gt; ReadS DescribeFleetsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeFleetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265631"><span id="local-6989586621681265633"><span id="local-6989586621681265635"><span class="annot"><span class="annottext">Int -&gt; DescribeFleetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681265640"><span id="local-6989586621681265642"><span id="local-6989586621681265644"><span class="annot"><span class="annottext">Int -&gt; DescribeFleetsResponse -&gt; ShowS
 [DescribeFleetsResponse] -&gt; ShowS
 DescribeFleetsResponse -&gt; String
 (Int -&gt; DescribeFleetsResponse -&gt; ShowS)
@@ -748,8 +748,8 @@ $cfrom :: forall x. DescribeFleetsResponse -&gt; Rep DescribeFleetsResponse x
 </span><span id="line-277"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-278"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse"><span class="hs-identifier hs-type">DescribeFleetsResponse</span></a></span><span>
 </span><span id="line-279"></span><span id="newDescribeFleetsResponse"><span class="annot"><span class="annottext">newDescribeFleetsResponse :: Int -&gt; DescribeFleetsResponse
-</span><a href="Network.AWS.EC2.DescribeFleets.html#newDescribeFleetsResponse"><span class="hs-identifier hs-var hs-var">newDescribeFleetsResponse</span></a></span></span><span> </span><span id="local-6989586621681265628"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681265628"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DescribeFleets.html#newDescribeFleetsResponse"><span class="hs-identifier hs-var hs-var">newDescribeFleetsResponse</span></a></span></span><span> </span><span id="local-6989586621681265637"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681265637"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-280"></span><span>  </span><span class="annot"><span class="annottext">DescribeFleetsResponse' :: Maybe Text -&gt; Maybe [FleetData] -&gt; Int -&gt; DescribeFleetsResponse
 </span><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse%27"><span class="hs-identifier hs-type">DescribeFleetsResponse'</span></a></span><span>
 </span><span id="line-281"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeFleetsResponse' :: Maybe Text
@@ -763,7 +763,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-284"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFleetsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeFleets.html#%24sel%3AhttpStatus%3ADescribeFleetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681265628"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681265637"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-285"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-286"></span><span>
 </span><span id="line-287"></span><span class="hs-comment">-- | The token for the next set of results.</span><span>
@@ -774,16 +774,16 @@ forall a. Maybe a
 -&gt; (DescribeFleetsResponse -&gt; Maybe Text -&gt; DescribeFleetsResponse)
 -&gt; Lens' DescribeFleetsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse%27"><span class="hs-identifier hs-type">DescribeFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265627"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse%27"><span class="hs-identifier hs-type">DescribeFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265636"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeFleetsResponse' :: DescribeFleetsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681265627"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681265627"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265626"><span class="annot"><span class="annottext">s :: DescribeFleetsResponse
-</span><a href="#local-6989586621681265626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse%27"><span class="hs-identifier hs-type">DescribeFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265625"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681265625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetsResponse
-</span><a href="#local-6989586621681265626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeFleetsResponse' :: Maybe Text
+</span><a href="#local-6989586621681265636"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681265636"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265635"><span class="annot"><span class="annottext">s :: DescribeFleetsResponse
+</span><a href="#local-6989586621681265635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse%27"><span class="hs-identifier hs-type">DescribeFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265634"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681265634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetsResponse
+</span><a href="#local-6989586621681265635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeFleetsResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeFleets.html#%24sel%3AnextToken%3ADescribeFleetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681265625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse"><span class="hs-identifier hs-type">DescribeFleetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681265634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse"><span class="hs-identifier hs-type">DescribeFleetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- | Information about the EC2 Fleets.</span><span>
 </span><span id="line-292"></span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#describeFleetsResponse_fleets"><span class="hs-identifier hs-type">describeFleetsResponse_fleets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse"><span class="hs-identifier hs-type">DescribeFleetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetData.html#FleetData"><span class="hs-identifier hs-type">FleetData</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -794,16 +794,16 @@ $sel:nextToken:DescribeFleetsResponse' :: DescribeFleetsResponse -&gt; Maybe Tex
     -&gt; Maybe [FleetData] -&gt; DescribeFleetsResponse)
 -&gt; Lens' DescribeFleetsResponse (Maybe [FleetData])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse%27"><span class="hs-identifier hs-type">DescribeFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265624"><span class="annot"><span class="annottext">Maybe [FleetData]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse%27"><span class="hs-identifier hs-type">DescribeFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265633"><span class="annot"><span class="annottext">Maybe [FleetData]
 fleets :: Maybe [FleetData]
 $sel:fleets:DescribeFleetsResponse' :: DescribeFleetsResponse -&gt; Maybe [FleetData]
-</span><a href="#local-6989586621681265624"><span class="hs-identifier hs-var hs-var">fleets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FleetData]
-</span><a href="#local-6989586621681265624"><span class="hs-identifier hs-var">fleets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265623"><span class="annot"><span class="annottext">s :: DescribeFleetsResponse
-</span><a href="#local-6989586621681265623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse%27"><span class="hs-identifier hs-type">DescribeFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265622"><span class="annot"><span class="annottext">Maybe [FleetData]
-</span><a href="#local-6989586621681265622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetsResponse
-</span><a href="#local-6989586621681265623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleets:DescribeFleetsResponse' :: Maybe [FleetData]
+</span><a href="#local-6989586621681265633"><span class="hs-identifier hs-var hs-var">fleets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FleetData]
+</span><a href="#local-6989586621681265633"><span class="hs-identifier hs-var">fleets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265632"><span class="annot"><span class="annottext">s :: DescribeFleetsResponse
+</span><a href="#local-6989586621681265632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse%27"><span class="hs-identifier hs-type">DescribeFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265631"><span class="annot"><span class="annottext">Maybe [FleetData]
+</span><a href="#local-6989586621681265631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetsResponse
+</span><a href="#local-6989586621681265632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleets:DescribeFleetsResponse' :: Maybe [FleetData]
 </span><a href="Network.AWS.EC2.DescribeFleets.html#%24sel%3Afleets%3ADescribeFleetsResponse%27"><span class="hs-identifier hs-var">fleets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FleetData]
-</span><a href="#local-6989586621681265622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse"><span class="hs-identifier hs-type">DescribeFleetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FleetData] -&gt; f (Maybe [FleetData]))
+</span><a href="#local-6989586621681265631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse"><span class="hs-identifier hs-type">DescribeFleetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FleetData] -&gt; f (Maybe [FleetData]))
  -&gt; DescribeFleetsResponse -&gt; f DescribeFleetsResponse)
 -&gt; ((Maybe [FleetData] -&gt; f (Maybe [FleetData]))
     -&gt; Maybe [FleetData] -&gt; f (Maybe [FleetData]))
@@ -832,16 +832,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeFleetsResponse -&gt; Int -&gt; DescribeFleetsResponse)
 -&gt; Lens DescribeFleetsResponse DescribeFleetsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse%27"><span class="hs-identifier hs-type">DescribeFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265621"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse%27"><span class="hs-identifier hs-type">DescribeFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681265630"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeFleetsResponse' :: DescribeFleetsResponse -&gt; Int
-</span><a href="#local-6989586621681265621"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681265621"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265620"><span class="annot"><span class="annottext">s :: DescribeFleetsResponse
-</span><a href="#local-6989586621681265620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse%27"><span class="hs-identifier hs-type">DescribeFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265619"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681265619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetsResponse
-</span><a href="#local-6989586621681265620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFleetsResponse' :: Int
+</span><a href="#local-6989586621681265630"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681265630"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681265629"><span class="annot"><span class="annottext">s :: DescribeFleetsResponse
+</span><a href="#local-6989586621681265629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse%27"><span class="hs-identifier hs-type">DescribeFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681265628"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681265628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetsResponse
+</span><a href="#local-6989586621681265629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFleetsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeFleets.html#%24sel%3AhttpStatus%3ADescribeFleetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681265619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse"><span class="hs-identifier hs-type">DescribeFleetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681265628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse"><span class="hs-identifier hs-type">DescribeFleetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-298"></span><span>
-</span><span id="line-299"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681265617"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse"><span class="hs-identifier hs-type">DescribeFleetsResponse</span></a></span></span><span>
+</span><span id="line-299"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681265626"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeFleets.html#DescribeFleetsResponse"><span class="hs-identifier hs-type">DescribeFleetsResponse</span></a></span></span><span>
 </span><span id="line-300"></span></pre></body></html>

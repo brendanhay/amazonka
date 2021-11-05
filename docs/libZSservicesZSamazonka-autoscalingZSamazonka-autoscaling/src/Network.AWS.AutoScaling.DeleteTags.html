@@ -43,12 +43,12 @@
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- | /See:/ 'newDeleteTags' smart constructor.</span><span>
-</span><span id="line-46"></span><span id="local-6989586621679345108"><span id="local-6989586621679345109"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTags"><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-var">DeleteTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTags%27"><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-var">DeleteTags'</span></a></span></span><span>
+</span><span id="line-46"></span><span id="local-6989586621679345117"><span id="local-6989586621679345118"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTags"><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-var">DeleteTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTags%27"><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-var">DeleteTags'</span></a></span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more tags.</span><span>
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3Atags%3ADeleteTags%27"><span class="annot"><span class="annottext">DeleteTags -&gt; [Tag]
 </span><a href="Network.AWS.AutoScaling.DeleteTags.html#%24sel%3Atags%3ADeleteTags%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345102"><span id="local-6989586621679345104"><span class="annot"><span class="annottext">DeleteTags -&gt; DeleteTags -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345111"><span id="local-6989586621679345113"><span class="annot"><span class="annottext">DeleteTags -&gt; DeleteTags -&gt; Bool
 (DeleteTags -&gt; DeleteTags -&gt; Bool)
 -&gt; (DeleteTags -&gt; DeleteTags -&gt; Bool) -&gt; Eq DeleteTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTags -&gt; DeleteTags -&gt; Bool
 == :: DeleteTags -&gt; DeleteTags -&gt; Bool
 $c== :: DeleteTags -&gt; DeleteTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345093"><span id="local-6989586621679345095"><span id="local-6989586621679345097"><span id="local-6989586621679345099"><span class="annot"><span class="annottext">ReadPrec [DeleteTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345102"><span id="local-6989586621679345104"><span id="local-6989586621679345106"><span id="local-6989586621679345108"><span class="annot"><span class="annottext">ReadPrec [DeleteTags]
 ReadPrec DeleteTags
 Int -&gt; ReadS DeleteTags
 ReadS [DeleteTags]
@@ -76,7 +76,7 @@ readList :: ReadS [DeleteTags]
 $creadList :: ReadS [DeleteTags]
 readsPrec :: Int -&gt; ReadS DeleteTags
 $creadsPrec :: Int -&gt; ReadS DeleteTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345086"><span id="local-6989586621679345088"><span id="local-6989586621679345090"><span class="annot"><span class="annottext">Int -&gt; DeleteTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345095"><span id="local-6989586621679345097"><span id="local-6989586621679345099"><span class="annot"><span class="annottext">Int -&gt; DeleteTags -&gt; ShowS
 [DeleteTags] -&gt; ShowS
 DeleteTags -&gt; String
 (Int -&gt; DeleteTags -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Monoid a =&gt; a
 -&gt; (DeleteTags -&gt; [Tag] -&gt; DeleteTags)
 -&gt; Lens DeleteTags DeleteTags [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345079"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345088"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:DeleteTags' :: DeleteTags -&gt; [Tag]
-</span><a href="#local-6989586621679345079"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679345079"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345078"><span class="annot"><span class="annottext">s :: DeleteTags
-</span><a href="#local-6989586621679345078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345077"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679345077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTags
-</span><a href="#local-6989586621679345078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:DeleteTags' :: [Tag]
+</span><a href="#local-6989586621679345088"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679345088"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345087"><span class="annot"><span class="annottext">s :: DeleteTags
+</span><a href="#local-6989586621679345087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345086"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679345086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTags
+</span><a href="#local-6989586621679345087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:DeleteTags' :: [Tag]
 </span><a href="Network.AWS.AutoScaling.DeleteTags.html#%24sel%3Atags%3ADeleteTags%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679345077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; DeleteTags -&gt; f DeleteTags)
+</span><a href="#local-6989586621679345086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; DeleteTags -&gt; f DeleteTags)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
 -&gt; DeleteTags
@@ -147,12 +147,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679345071"><span class="annot"><span class="annottext">request :: DeleteTags -&gt; Request DeleteTags
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679345080"><span class="annot"><span class="annottext">request :: DeleteTags -&gt; Request DeleteTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteTags -&gt; Request DeleteTags
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679345067"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679345076"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteTags
 -&gt; ClientResponse ClientBody
@@ -175,12 +175,12 @@ AWSResponse a
 DeleteTagsResponse
 </span><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-var">DeleteTagsResponse'</span></a></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345060"><span id="local-6989586621679345062"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345069"><span id="local-6989586621679345071"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345057"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345066"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679345053"><span class="annot"><span class="annottext">toHeaders :: DeleteTags -&gt; [Header]
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679345062"><span class="annot"><span class="annottext">toHeaders :: DeleteTags -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteTags -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -188,18 +188,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679345048"><span class="annot"><span class="annottext">toPath :: DeleteTags -&gt; ByteString
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679345057"><span class="annot"><span class="annottext">toPath :: DeleteTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679345044"><span class="annot"><span class="annottext">toQuery :: DeleteTags -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345042"><span class="annot"><span class="annottext">[Tag]
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679345053"><span class="annot"><span class="annottext">toQuery :: DeleteTags -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345051"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:DeleteTags' :: DeleteTags -&gt; [Tag]
-</span><a href="#local-6989586621679345042"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679345051"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -224,14 +224,14 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679345042"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><a href="#local-6989586621679345051"><span class="hs-identifier hs-var">tags</span></a></span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | /See:/ 'newDeleteTagsResponse' smart constructor.</span><span>
-</span><span id="line-95"></span><span id="local-6989586621679345038"><span id="local-6989586621679345039"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTagsResponse"><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-var">DeleteTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTagsResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-var">DeleteTagsResponse'</span></a></span></span><span>
+</span><span id="line-95"></span><span id="local-6989586621679345047"><span id="local-6989586621679345048"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTagsResponse"><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-var">DeleteTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTagsResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-var">DeleteTagsResponse'</span></a></span></span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345034"><span id="local-6989586621679345036"><span class="annot"><span class="annottext">DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345043"><span id="local-6989586621679345045"><span class="annot"><span class="annottext">DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
 (DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool)
 -&gt; (DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool)
 -&gt; Eq DeleteTagsResponse
@@ -240,7 +240,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
 == :: DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
 $c== :: DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345026"><span id="local-6989586621679345028"><span id="local-6989586621679345030"><span id="local-6989586621679345032"><span class="annot"><span class="annottext">ReadPrec [DeleteTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345035"><span id="local-6989586621679345037"><span id="local-6989586621679345039"><span id="local-6989586621679345041"><span class="annot"><span class="annottext">ReadPrec [DeleteTagsResponse]
 ReadPrec DeleteTagsResponse
 Int -&gt; ReadS DeleteTagsResponse
 ReadS [DeleteTagsResponse]
@@ -260,7 +260,7 @@ readList :: ReadS [DeleteTagsResponse]
 $creadList :: ReadS [DeleteTagsResponse]
 readsPrec :: Int -&gt; ReadS DeleteTagsResponse
 $creadsPrec :: Int -&gt; ReadS DeleteTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345020"><span id="local-6989586621679345022"><span id="local-6989586621679345024"><span class="annot"><span class="annottext">Int -&gt; DeleteTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345029"><span id="local-6989586621679345031"><span id="local-6989586621679345033"><span class="annot"><span class="annottext">Int -&gt; DeleteTagsResponse -&gt; ShowS
 [DeleteTagsResponse] -&gt; ShowS
 DeleteTagsResponse -&gt; String
 (Int -&gt; DeleteTagsResponse -&gt; ShowS)
@@ -296,5 +296,5 @@ $cfrom :: forall x. DeleteTagsResponse -&gt; Rep DeleteTagsResponse x
 </span><a href="Network.AWS.AutoScaling.DeleteTags.html#newDeleteTagsResponse"><span class="hs-identifier hs-var hs-var">newDeleteTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteTagsResponse
 </span><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-var">DeleteTagsResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345016"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345025"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span></span><span>
 </span><span id="line-109"></span></pre></body></html>

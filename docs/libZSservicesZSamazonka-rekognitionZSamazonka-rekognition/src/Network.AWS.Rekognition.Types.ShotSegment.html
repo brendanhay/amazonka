@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- information, see SegmentDetection.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newShotSegment' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679330372"><span id="local-6989586621679330373"></span></span><span class="hs-keyword">data</span><span> </span><span id="ShotSegment"><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment"><span class="hs-identifier hs-var">ShotSegment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShotSegment%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment%27"><span class="hs-identifier hs-var">ShotSegment'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679330381"><span id="local-6989586621679330382"></span></span><span class="hs-keyword">data</span><span> </span><span id="ShotSegment"><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment"><span class="hs-identifier hs-var">ShotSegment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShotSegment%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment%27"><span class="hs-identifier hs-var">ShotSegment'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The confidence that Amazon Rekognition Video has in the accuracy of the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- detected segment.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aconfidence%3AShotSegment%27"><span class="annot"><span class="annottext">ShotSegment -&gt; Maybe Double
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aindex%3AShotSegment%27"><span class="annot"><span class="annottext">ShotSegment -&gt; Maybe Natural
 </span><a href="Network.AWS.Rekognition.Types.ShotSegment.html#%24sel%3Aindex%3AShotSegment%27"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330365"><span id="local-6989586621679330367"><span class="annot"><span class="annottext">ShotSegment -&gt; ShotSegment -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330374"><span id="local-6989586621679330376"><span class="annot"><span class="annottext">ShotSegment -&gt; ShotSegment -&gt; Bool
 (ShotSegment -&gt; ShotSegment -&gt; Bool)
 -&gt; (ShotSegment -&gt; ShotSegment -&gt; Bool) -&gt; Eq ShotSegment
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ShotSegment -&gt; ShotSegment -&gt; Bool
 == :: ShotSegment -&gt; ShotSegment -&gt; Bool
 $c== :: ShotSegment -&gt; ShotSegment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330356"><span id="local-6989586621679330358"><span id="local-6989586621679330360"><span id="local-6989586621679330362"><span class="annot"><span class="annottext">ReadPrec [ShotSegment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330365"><span id="local-6989586621679330367"><span id="local-6989586621679330369"><span id="local-6989586621679330371"><span class="annot"><span class="annottext">ReadPrec [ShotSegment]
 ReadPrec ShotSegment
 Int -&gt; ReadS ShotSegment
 ReadS [ShotSegment]
@@ -64,7 +64,7 @@ readList :: ReadS [ShotSegment]
 $creadList :: ReadS [ShotSegment]
 readsPrec :: Int -&gt; ReadS ShotSegment
 $creadsPrec :: Int -&gt; ReadS ShotSegment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330349"><span id="local-6989586621679330351"><span id="local-6989586621679330353"><span class="annot"><span class="annottext">Int -&gt; ShotSegment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330358"><span id="local-6989586621679330360"><span id="local-6989586621679330362"><span class="annot"><span class="annottext">Int -&gt; ShotSegment -&gt; ShowS
 [ShotSegment] -&gt; ShowS
 ShotSegment -&gt; String
 (Int -&gt; ShotSegment -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (ShotSegment -&gt; Maybe Double -&gt; ShotSegment)
 -&gt; Lens ShotSegment ShotSegment (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment%27"><span class="hs-identifier hs-type">ShotSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330340"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment%27"><span class="hs-identifier hs-type">ShotSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330349"><span class="annot"><span class="annottext">Maybe Double
 confidence :: Maybe Double
 $sel:confidence:ShotSegment' :: ShotSegment -&gt; Maybe Double
-</span><a href="#local-6989586621679330340"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679330340"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330339"><span class="annot"><span class="annottext">s :: ShotSegment
-</span><a href="#local-6989586621679330339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment%27"><span class="hs-identifier hs-type">ShotSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330338"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679330338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShotSegment
-</span><a href="#local-6989586621679330339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:ShotSegment' :: Maybe Double
+</span><a href="#local-6989586621679330349"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330349"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330348"><span class="annot"><span class="annottext">s :: ShotSegment
+</span><a href="#local-6989586621679330348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment%27"><span class="hs-identifier hs-type">ShotSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330347"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShotSegment
+</span><a href="#local-6989586621679330348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:ShotSegment' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.ShotSegment.html#%24sel%3Aconfidence%3AShotSegment%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679330338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment"><span class="hs-identifier hs-type">ShotSegment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679330347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment"><span class="hs-identifier hs-type">ShotSegment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | An Identifier for a shot detection segment detected in a video.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#shotSegment_index"><span class="hs-identifier hs-type">shotSegment_index</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment"><span class="hs-identifier hs-type">ShotSegment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -145,19 +145,19 @@ $sel:confidence:ShotSegment' :: ShotSegment -&gt; Maybe Double
 -&gt; (ShotSegment -&gt; Maybe Natural -&gt; ShotSegment)
 -&gt; Lens ShotSegment ShotSegment (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment%27"><span class="hs-identifier hs-type">ShotSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330336"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment%27"><span class="hs-identifier hs-type">ShotSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330345"><span class="annot"><span class="annottext">Maybe Natural
 index :: Maybe Natural
 $sel:index:ShotSegment' :: ShotSegment -&gt; Maybe Natural
-</span><a href="#local-6989586621679330336"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679330336"><span class="hs-identifier hs-var">index</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330335"><span class="annot"><span class="annottext">s :: ShotSegment
-</span><a href="#local-6989586621679330335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment%27"><span class="hs-identifier hs-type">ShotSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330334"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679330334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShotSegment
-</span><a href="#local-6989586621679330335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:index:ShotSegment' :: Maybe Natural
+</span><a href="#local-6989586621679330345"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679330345"><span class="hs-identifier hs-var">index</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330344"><span class="annot"><span class="annottext">s :: ShotSegment
+</span><a href="#local-6989586621679330344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment%27"><span class="hs-identifier hs-type">ShotSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330343"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679330343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShotSegment
+</span><a href="#local-6989586621679330344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:index:ShotSegment' :: Maybe Natural
 </span><a href="Network.AWS.Rekognition.Types.ShotSegment.html#%24sel%3Aindex%3AShotSegment%27"><span class="hs-identifier hs-var">index</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679330334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment"><span class="hs-identifier hs-type">ShotSegment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679330343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment"><span class="hs-identifier hs-type">ShotSegment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330331"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment"><span class="hs-identifier hs-type">ShotSegment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679330329"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ShotSegment
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330340"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment"><span class="hs-identifier hs-type">ShotSegment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679330338"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ShotSegment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ShotSegment) -&gt; Value -&gt; Parser ShotSegment
@@ -165,15 +165,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ShotSegment&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330326"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679330326"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330335"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330335"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Natural -&gt; ShotSegment
 </span><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment%27"><span class="hs-identifier hs-var">ShotSegment'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Natural -&gt; ShotSegment)
 -&gt; Parser (Maybe Double) -&gt; Parser (Maybe Natural -&gt; ShotSegment)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679330326"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679330335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Confidence&quot;</span></span><span class="hs-special">)</span><span>
@@ -181,13 +181,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser ShotSegment
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679330326"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679330335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Index&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330320"><span id="local-6989586621679330322"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment"><span class="hs-identifier hs-type">ShotSegment</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330329"><span id="local-6989586621679330331"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment"><span class="hs-identifier hs-type">ShotSegment</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment"><span class="hs-identifier hs-type">ShotSegment</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330326"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ShotSegment.html#ShotSegment"><span class="hs-identifier hs-type">ShotSegment</span></a></span></span><span>
 </span><span id="line-81"></span></pre></body></html>

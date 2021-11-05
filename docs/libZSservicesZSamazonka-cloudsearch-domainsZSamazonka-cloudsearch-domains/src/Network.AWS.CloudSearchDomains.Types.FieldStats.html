@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The statistics for a field calculated in the request.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newFieldStats' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679152640"><span id="local-6989586621679152641"></span></span><span class="hs-keyword">data</span><span> </span><span id="FieldStats"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-var">FieldStats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FieldStats%27"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-var">FieldStats'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679152649"><span id="local-6989586621679152650"></span></span><span class="hs-keyword">data</span><span> </span><span id="FieldStats"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-var">FieldStats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FieldStats%27"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-var">FieldStats'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum value found in the specified field in the result set.</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- If the field is numeric (@int@, @int-array@, @double@, or</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3Asum%3AFieldStats%27"><span class="annot"><span class="annottext">FieldStats -&gt; Maybe Double
 </span><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#%24sel%3Asum%3AFieldStats%27"><span class="hs-identifier hs-var hs-var">sum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152627"><span id="local-6989586621679152629"><span class="annot"><span class="annottext">FieldStats -&gt; FieldStats -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152636"><span id="local-6989586621679152638"><span class="annot"><span class="annottext">FieldStats -&gt; FieldStats -&gt; Bool
 (FieldStats -&gt; FieldStats -&gt; Bool)
 -&gt; (FieldStats -&gt; FieldStats -&gt; Bool) -&gt; Eq FieldStats
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FieldStats -&gt; FieldStats -&gt; Bool
 == :: FieldStats -&gt; FieldStats -&gt; Bool
 $c== :: FieldStats -&gt; FieldStats -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152618"><span id="local-6989586621679152620"><span id="local-6989586621679152622"><span id="local-6989586621679152624"><span class="annot"><span class="annottext">ReadPrec [FieldStats]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152627"><span id="local-6989586621679152629"><span id="local-6989586621679152631"><span id="local-6989586621679152633"><span class="annot"><span class="annottext">ReadPrec [FieldStats]
 ReadPrec FieldStats
 Int -&gt; ReadS FieldStats
 ReadS [FieldStats]
@@ -106,7 +106,7 @@ readList :: ReadS [FieldStats]
 $creadList :: ReadS [FieldStats]
 readsPrec :: Int -&gt; ReadS FieldStats
 $creadsPrec :: Int -&gt; ReadS FieldStats
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152611"><span id="local-6989586621679152613"><span id="local-6989586621679152615"><span class="annot"><span class="annottext">Int -&gt; FieldStats -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152620"><span id="local-6989586621679152622"><span id="local-6989586621679152624"><span class="annot"><span class="annottext">Int -&gt; FieldStats -&gt; ShowS
 [FieldStats] -&gt; ShowS
 FieldStats -&gt; String
 (Int -&gt; FieldStats -&gt; ShowS)
@@ -242,16 +242,16 @@ forall a. Maybe a
 -&gt; (FieldStats -&gt; Maybe Text -&gt; FieldStats)
 -&gt; Lens FieldStats FieldStats (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152602"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152611"><span class="annot"><span class="annottext">Maybe Text
 max :: Maybe Text
 $sel:max:FieldStats' :: FieldStats -&gt; Maybe Text
-</span><a href="#local-6989586621679152602"><span class="hs-identifier hs-var hs-var">max</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152602"><span class="hs-identifier hs-var">max</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152601"><span class="annot"><span class="annottext">s :: FieldStats
-</span><a href="#local-6989586621679152601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152600"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
-</span><a href="#local-6989586621679152601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:max:FieldStats' :: Maybe Text
+</span><a href="#local-6989586621679152611"><span class="hs-identifier hs-var hs-var">max</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152611"><span class="hs-identifier hs-var">max</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152610"><span class="annot"><span class="annottext">s :: FieldStats
+</span><a href="#local-6989586621679152610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152609"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
+</span><a href="#local-6989586621679152610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:max:FieldStats' :: Maybe Text
 </span><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#%24sel%3Amax%3AFieldStats%27"><span class="hs-identifier hs-var">max</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679152609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The average of the values found in the specified field in the result</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- set.</span><span>
@@ -268,16 +268,16 @@ $sel:max:FieldStats' :: FieldStats -&gt; Maybe Text
 -&gt; (FieldStats -&gt; Maybe Text -&gt; FieldStats)
 -&gt; Lens FieldStats FieldStats (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152598"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152607"><span class="annot"><span class="annottext">Maybe Text
 mean :: Maybe Text
 $sel:mean:FieldStats' :: FieldStats -&gt; Maybe Text
-</span><a href="#local-6989586621679152598"><span class="hs-identifier hs-var hs-var">mean</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152598"><span class="hs-identifier hs-var">mean</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152597"><span class="annot"><span class="annottext">s :: FieldStats
-</span><a href="#local-6989586621679152597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152596"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
-</span><a href="#local-6989586621679152597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mean:FieldStats' :: Maybe Text
+</span><a href="#local-6989586621679152607"><span class="hs-identifier hs-var hs-var">mean</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152607"><span class="hs-identifier hs-var">mean</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152606"><span class="annot"><span class="annottext">s :: FieldStats
+</span><a href="#local-6989586621679152606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152605"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
+</span><a href="#local-6989586621679152606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mean:FieldStats' :: Maybe Text
 </span><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#%24sel%3Amean%3AFieldStats%27"><span class="hs-identifier hs-var">mean</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679152605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The number of documents that contain a value in the specified field in</span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- the result set.</span><span>
@@ -287,16 +287,16 @@ $sel:mean:FieldStats' :: FieldStats -&gt; Maybe Text
 -&gt; (FieldStats -&gt; Maybe Integer -&gt; FieldStats)
 -&gt; Lens FieldStats FieldStats (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152594"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152603"><span class="annot"><span class="annottext">Maybe Integer
 count :: Maybe Integer
 $sel:count:FieldStats' :: FieldStats -&gt; Maybe Integer
-</span><a href="#local-6989586621679152594"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679152594"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152593"><span class="annot"><span class="annottext">s :: FieldStats
-</span><a href="#local-6989586621679152593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152592"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679152592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
-</span><a href="#local-6989586621679152593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:FieldStats' :: Maybe Integer
+</span><a href="#local-6989586621679152603"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679152603"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152602"><span class="annot"><span class="annottext">s :: FieldStats
+</span><a href="#local-6989586621679152602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152601"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679152601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
+</span><a href="#local-6989586621679152602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:FieldStats' :: Maybe Integer
 </span><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#%24sel%3Acount%3AFieldStats%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679152592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679152601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The number of documents that do not contain a value in the specified</span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- field in the result set.</span><span>
@@ -306,16 +306,16 @@ $sel:count:FieldStats' :: FieldStats -&gt; Maybe Integer
 -&gt; (FieldStats -&gt; Maybe Integer -&gt; FieldStats)
 -&gt; Lens FieldStats FieldStats (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152590"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152599"><span class="annot"><span class="annottext">Maybe Integer
 missing :: Maybe Integer
 $sel:missing:FieldStats' :: FieldStats -&gt; Maybe Integer
-</span><a href="#local-6989586621679152590"><span class="hs-identifier hs-var hs-var">missing</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679152590"><span class="hs-identifier hs-var">missing</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152589"><span class="annot"><span class="annottext">s :: FieldStats
-</span><a href="#local-6989586621679152589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152588"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679152588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
-</span><a href="#local-6989586621679152589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:missing:FieldStats' :: Maybe Integer
+</span><a href="#local-6989586621679152599"><span class="hs-identifier hs-var hs-var">missing</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679152599"><span class="hs-identifier hs-var">missing</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152598"><span class="annot"><span class="annottext">s :: FieldStats
+</span><a href="#local-6989586621679152598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152597"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679152597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
+</span><a href="#local-6989586621679152598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:missing:FieldStats' :: Maybe Integer
 </span><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#%24sel%3Amissing%3AFieldStats%27"><span class="hs-identifier hs-var">missing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679152588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679152597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The standard deviation of the values in the specified field in the</span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- result set.</span><span>
@@ -325,16 +325,16 @@ $sel:missing:FieldStats' :: FieldStats -&gt; Maybe Integer
 -&gt; (FieldStats -&gt; Maybe Double -&gt; FieldStats)
 -&gt; Lens FieldStats FieldStats (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152586"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152595"><span class="annot"><span class="annottext">Maybe Double
 stddev :: Maybe Double
 $sel:stddev:FieldStats' :: FieldStats -&gt; Maybe Double
-</span><a href="#local-6989586621679152586"><span class="hs-identifier hs-var hs-var">stddev</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679152586"><span class="hs-identifier hs-var">stddev</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152585"><span class="annot"><span class="annottext">s :: FieldStats
-</span><a href="#local-6989586621679152585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152584"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679152584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
-</span><a href="#local-6989586621679152585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stddev:FieldStats' :: Maybe Double
+</span><a href="#local-6989586621679152595"><span class="hs-identifier hs-var hs-var">stddev</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679152595"><span class="hs-identifier hs-var">stddev</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152594"><span class="annot"><span class="annottext">s :: FieldStats
+</span><a href="#local-6989586621679152594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152593"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679152593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
+</span><a href="#local-6989586621679152594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stddev:FieldStats' :: Maybe Double
 </span><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#%24sel%3Astddev%3AFieldStats%27"><span class="hs-identifier hs-var">stddev</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679152584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679152593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The minimum value found in the specified field in the result set.</span><span>
 </span><span id="line-177"></span><span class="hs-comment">--</span><span>
@@ -350,16 +350,16 @@ $sel:stddev:FieldStats' :: FieldStats -&gt; Maybe Double
 -&gt; (FieldStats -&gt; Maybe Text -&gt; FieldStats)
 -&gt; Lens FieldStats FieldStats (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152582"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152591"><span class="annot"><span class="annottext">Maybe Text
 min :: Maybe Text
 $sel:min:FieldStats' :: FieldStats -&gt; Maybe Text
-</span><a href="#local-6989586621679152582"><span class="hs-identifier hs-var hs-var">min</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152582"><span class="hs-identifier hs-var">min</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152581"><span class="annot"><span class="annottext">s :: FieldStats
-</span><a href="#local-6989586621679152581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152580"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
-</span><a href="#local-6989586621679152581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:min:FieldStats' :: Maybe Text
+</span><a href="#local-6989586621679152591"><span class="hs-identifier hs-var hs-var">min</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152591"><span class="hs-identifier hs-var">min</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152590"><span class="annot"><span class="annottext">s :: FieldStats
+</span><a href="#local-6989586621679152590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152589"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
+</span><a href="#local-6989586621679152590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:min:FieldStats' :: Maybe Text
 </span><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#%24sel%3Amin%3AFieldStats%27"><span class="hs-identifier hs-var">min</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679152589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The sum of all field values in the result set squared.</span><span>
 </span><span id="line-188"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#fieldStats_sumOfSquares"><span class="hs-identifier hs-type">fieldStats_sumOfSquares</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
@@ -368,16 +368,16 @@ $sel:min:FieldStats' :: FieldStats -&gt; Maybe Text
 -&gt; (FieldStats -&gt; Maybe Double -&gt; FieldStats)
 -&gt; Lens FieldStats FieldStats (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152578"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152587"><span class="annot"><span class="annottext">Maybe Double
 sumOfSquares :: Maybe Double
 $sel:sumOfSquares:FieldStats' :: FieldStats -&gt; Maybe Double
-</span><a href="#local-6989586621679152578"><span class="hs-identifier hs-var hs-var">sumOfSquares</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679152578"><span class="hs-identifier hs-var">sumOfSquares</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152577"><span class="annot"><span class="annottext">s :: FieldStats
-</span><a href="#local-6989586621679152577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152576"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679152576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
-</span><a href="#local-6989586621679152577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sumOfSquares:FieldStats' :: Maybe Double
+</span><a href="#local-6989586621679152587"><span class="hs-identifier hs-var hs-var">sumOfSquares</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679152587"><span class="hs-identifier hs-var">sumOfSquares</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152586"><span class="annot"><span class="annottext">s :: FieldStats
+</span><a href="#local-6989586621679152586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152585"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679152585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
+</span><a href="#local-6989586621679152586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sumOfSquares:FieldStats' :: Maybe Double
 </span><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#%24sel%3AsumOfSquares%3AFieldStats%27"><span class="hs-identifier hs-var">sumOfSquares</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679152576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679152585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The sum of the field values across the documents in the result set.</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- @null@ for date fields.</span><span>
@@ -387,19 +387,19 @@ $sel:sumOfSquares:FieldStats' :: FieldStats -&gt; Maybe Double
 -&gt; (FieldStats -&gt; Maybe Double -&gt; FieldStats)
 -&gt; Lens FieldStats FieldStats (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152574"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152583"><span class="annot"><span class="annottext">Maybe Double
 sum :: Maybe Double
 $sel:sum:FieldStats' :: FieldStats -&gt; Maybe Double
-</span><a href="#local-6989586621679152574"><span class="hs-identifier hs-var hs-var">sum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679152574"><span class="hs-identifier hs-var">sum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152573"><span class="annot"><span class="annottext">s :: FieldStats
-</span><a href="#local-6989586621679152573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152572"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679152572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
-</span><a href="#local-6989586621679152573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sum:FieldStats' :: Maybe Double
+</span><a href="#local-6989586621679152583"><span class="hs-identifier hs-var hs-var">sum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679152583"><span class="hs-identifier hs-var">sum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152582"><span class="annot"><span class="annottext">s :: FieldStats
+</span><a href="#local-6989586621679152582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152581"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679152581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
+</span><a href="#local-6989586621679152582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sum:FieldStats' :: Maybe Double
 </span><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#%24sel%3Asum%3AFieldStats%27"><span class="hs-identifier hs-var">sum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679152572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679152581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152569"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679152567"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FieldStats
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152578"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679152576"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FieldStats
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FieldStats) -&gt; Value -&gt; Parser FieldStats
@@ -407,8 +407,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FieldStats&quot;</span></span><span>
-</span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679152564"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152564"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679152573"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152573"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Integer
@@ -440,7 +440,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; FieldStats)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679152573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;max&quot;</span></span><span class="hs-special">)</span><span>
@@ -464,7 +464,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; FieldStats)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679152573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mean&quot;</span></span><span class="hs-special">)</span><span>
@@ -486,7 +486,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; FieldStats)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679152573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;count&quot;</span></span><span class="hs-special">)</span><span>
@@ -503,7 +503,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Double -&gt; Maybe Double -&gt; FieldStats)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679152573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;missing&quot;</span></span><span class="hs-special">)</span><span>
@@ -515,7 +515,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Double -&gt; Maybe Double -&gt; FieldStats)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679152573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stddev&quot;</span></span><span class="hs-special">)</span><span>
@@ -524,7 +524,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double -&gt; Maybe Double -&gt; FieldStats)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679152573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;min&quot;</span></span><span class="hs-special">)</span><span>
@@ -532,7 +532,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double) -&gt; Parser (Maybe Double -&gt; FieldStats)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679152573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sumOfSquares&quot;</span></span><span class="hs-special">)</span><span>
@@ -540,13 +540,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double) -&gt; Parser FieldStats
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679152573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sum&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152558"><span id="local-6989586621679152560"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span></span></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152567"><span id="local-6989586621679152569"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span></span></span><span>
 </span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152555"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152564"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span></span><span>
 </span><span id="line-215"></span></pre></body></html>

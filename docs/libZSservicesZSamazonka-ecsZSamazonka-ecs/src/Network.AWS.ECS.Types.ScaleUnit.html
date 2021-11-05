@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679459654"><span id="local-6989586621679459655"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScaleUnit"><span class="annot"><a href="Network.AWS.ECS.Types.ScaleUnit.html#ScaleUnit"><span class="hs-identifier hs-var">ScaleUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScaleUnit%27"><span class="annot"><a href="Network.AWS.ECS.Types.ScaleUnit.html#ScaleUnit%27"><span class="hs-identifier hs-var">ScaleUnit'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679459663"><span id="local-6989586621679459664"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScaleUnit"><span class="annot"><a href="Network.AWS.ECS.Types.ScaleUnit.html#ScaleUnit"><span class="hs-identifier hs-var">ScaleUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScaleUnit%27"><span class="annot"><a href="Network.AWS.ECS.Types.ScaleUnit.html#ScaleUnit%27"><span class="hs-identifier hs-var">ScaleUnit'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScaleUnit"><span class="annot"><span class="annottext">ScaleUnit -&gt; Text
 </span><a href="Network.AWS.ECS.Types.ScaleUnit.html#fromScaleUnit"><span class="hs-identifier hs-var hs-var">fromScaleUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679459646"><span id="local-6989586621679459648"><span id="local-6989586621679459650"><span class="annot"><span class="annottext">Int -&gt; ScaleUnit -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679459655"><span id="local-6989586621679459657"><span id="local-6989586621679459659"><span class="annot"><span class="annottext">Int -&gt; ScaleUnit -&gt; ShowS
 [ScaleUnit] -&gt; ShowS
 ScaleUnit -&gt; String
 (Int -&gt; ScaleUnit -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: ScaleUnit -&gt; String
 showsPrec :: Int -&gt; ScaleUnit -&gt; ShowS
 $cshowsPrec :: Int -&gt; ScaleUnit -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679459637"><span id="local-6989586621679459639"><span id="local-6989586621679459641"><span id="local-6989586621679459643"><span class="annot"><span class="annottext">ReadPrec [ScaleUnit]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679459646"><span id="local-6989586621679459648"><span id="local-6989586621679459650"><span id="local-6989586621679459652"><span class="annot"><span class="annottext">ReadPrec [ScaleUnit]
 ReadPrec ScaleUnit
 Int -&gt; ReadS ScaleUnit
 ReadS [ScaleUnit]
@@ -71,7 +71,7 @@ $creadList :: ReadS [ScaleUnit]
 readsPrec :: Int -&gt; ReadS ScaleUnit
 $creadsPrec :: Int -&gt; ReadS ScaleUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679459632"><span id="local-6989586621679459634"><span class="annot"><span class="annottext">ScaleUnit -&gt; ScaleUnit -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679459641"><span id="local-6989586621679459643"><span class="annot"><span class="annottext">ScaleUnit -&gt; ScaleUnit -&gt; Bool
 (ScaleUnit -&gt; ScaleUnit -&gt; Bool)
 -&gt; (ScaleUnit -&gt; ScaleUnit -&gt; Bool) -&gt; Eq ScaleUnit
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: ScaleUnit -&gt; ScaleUnit -&gt; Bool
 == :: ScaleUnit -&gt; ScaleUnit -&gt; Bool
 $c== :: ScaleUnit -&gt; ScaleUnit -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679459616"><span id="local-6989586621679459618"><span id="local-6989586621679459620"><span id="local-6989586621679459622"><span id="local-6989586621679459624"><span id="local-6989586621679459626"><span id="local-6989586621679459628"><span class="annot"><span class="annottext">Eq ScaleUnit
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679459625"><span id="local-6989586621679459627"><span id="local-6989586621679459629"><span id="local-6989586621679459631"><span id="local-6989586621679459633"><span id="local-6989586621679459635"><span id="local-6989586621679459637"><span class="annot"><span class="annottext">Eq ScaleUnit
 Eq ScaleUnit
 -&gt; (ScaleUnit -&gt; ScaleUnit -&gt; Ordering)
 -&gt; (ScaleUnit -&gt; ScaleUnit -&gt; Bool)
@@ -130,7 +130,7 @@ $cfrom :: forall x. ScaleUnit -&gt; Rep ScaleUnit x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679459608"><span id="local-6989586621679459610"><span class="annot"><span class="annottext">Int -&gt; ScaleUnit -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679459617"><span id="local-6989586621679459619"><span class="annot"><span class="annottext">Int -&gt; ScaleUnit -&gt; Int
 ScaleUnit -&gt; Int
 (Int -&gt; ScaleUnit -&gt; Int)
 -&gt; (ScaleUnit -&gt; Int) -&gt; Hashable ScaleUnit
@@ -140,49 +140,49 @@ $chash :: ScaleUnit -&gt; Int
 hashWithSalt :: Int -&gt; ScaleUnit -&gt; Int
 $chashWithSalt :: Int -&gt; ScaleUnit -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679459605"><span class="annot"><span class="annottext">ScaleUnit -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679459614"><span class="annot"><span class="annottext">ScaleUnit -&gt; ()
 (ScaleUnit -&gt; ()) -&gt; NFData ScaleUnit
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ScaleUnit -&gt; ()
 $crnf :: ScaleUnit -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679459602"><span class="annot"><span class="annottext">Text -&gt; Either String ScaleUnit
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679459611"><span class="annot"><span class="annottext">Text -&gt; Either String ScaleUnit
 (Text -&gt; Either String ScaleUnit) -&gt; FromText ScaleUnit
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ScaleUnit
 $cfromText :: Text -&gt; Either String ScaleUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679459599"><span class="annot"><span class="annottext">ScaleUnit -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679459608"><span class="annot"><span class="annottext">ScaleUnit -&gt; Text
 (ScaleUnit -&gt; Text) -&gt; ToText ScaleUnit
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ScaleUnit -&gt; Text
 $ctoText :: ScaleUnit -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679459596"><span class="annot"><span class="annottext">ScaleUnit -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679459605"><span class="annot"><span class="annottext">ScaleUnit -&gt; ByteString
 (ScaleUnit -&gt; ByteString) -&gt; ToByteString ScaleUnit
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ScaleUnit -&gt; ByteString
 $ctoBS :: ScaleUnit -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679459593"><span class="annot"><span class="annottext">ScaleUnit -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679459602"><span class="annot"><span class="annottext">ScaleUnit -&gt; ByteStringBuilder
 (ScaleUnit -&gt; ByteStringBuilder) -&gt; ToLog ScaleUnit
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ScaleUnit -&gt; ByteStringBuilder
 $cbuild :: ScaleUnit -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679459590"><span class="annot"><span class="annottext">HeaderName -&gt; ScaleUnit -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679459599"><span class="annot"><span class="annottext">HeaderName -&gt; ScaleUnit -&gt; [Header]
 (HeaderName -&gt; ScaleUnit -&gt; [Header]) -&gt; ToHeader ScaleUnit
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ScaleUnit -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ScaleUnit -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679459587"><span class="annot"><span class="annottext">ScaleUnit -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679459596"><span class="annot"><span class="annottext">ScaleUnit -&gt; QueryString
 (ScaleUnit -&gt; QueryString) -&gt; ToQuery ScaleUnit
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ScaleUnit -&gt; QueryString
 $ctoQuery :: ScaleUnit -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679459582"><span id="local-6989586621679459584"><span class="annot"><span class="annottext">Value -&gt; Parser [ScaleUnit]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679459591"><span id="local-6989586621679459593"><span class="annot"><span class="annottext">Value -&gt; Parser [ScaleUnit]
 Value -&gt; Parser ScaleUnit
 (Value -&gt; Parser ScaleUnit)
 -&gt; (Value -&gt; Parser [ScaleUnit]) -&gt; FromJSON ScaleUnit
@@ -193,7 +193,7 @@ $cparseJSONList :: Value -&gt; Parser [ScaleUnit]
 parseJSON :: Value -&gt; Parser ScaleUnit
 $cparseJSON :: Value -&gt; Parser ScaleUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679459577"><span id="local-6989586621679459579"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScaleUnit]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679459586"><span id="local-6989586621679459588"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScaleUnit]
 FromJSONKeyFunction ScaleUnit
 FromJSONKeyFunction ScaleUnit
 -&gt; FromJSONKeyFunction [ScaleUnit] -&gt; FromJSONKey ScaleUnit
@@ -204,7 +204,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ScaleUnit]
 fromJSONKey :: FromJSONKeyFunction ScaleUnit
 $cfromJSONKey :: FromJSONKeyFunction ScaleUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679459568"><span id="local-6989586621679459570"><span id="local-6989586621679459572"><span id="local-6989586621679459574"><span class="annot"><span class="annottext">[ScaleUnit] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679459577"><span id="local-6989586621679459579"><span id="local-6989586621679459581"><span id="local-6989586621679459583"><span class="annot"><span class="annottext">[ScaleUnit] -&gt; Encoding
 [ScaleUnit] -&gt; Value
 ScaleUnit -&gt; Encoding
 ScaleUnit -&gt; Value
@@ -228,7 +228,7 @@ $ctoEncoding :: ScaleUnit -&gt; Encoding
 toJSON :: ScaleUnit -&gt; Value
 $ctoJSON :: ScaleUnit -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679459563"><span id="local-6989586621679459565"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScaleUnit]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679459572"><span id="local-6989586621679459574"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScaleUnit]
 ToJSONKeyFunction ScaleUnit
 ToJSONKeyFunction ScaleUnit
 -&gt; ToJSONKeyFunction [ScaleUnit] -&gt; ToJSONKey ScaleUnit
@@ -239,13 +239,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ScaleUnit]
 toJSONKey :: ToJSONKeyFunction ScaleUnit
 $ctoJSONKey :: ToJSONKeyFunction ScaleUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679459560"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScaleUnit
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679459569"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScaleUnit
 ([Node] -&gt; Either String ScaleUnit) -&gt; FromXML ScaleUnit
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ScaleUnit
 $cparseXML :: [Node] -&gt; Either String ScaleUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679459557"><span class="annot"><span class="annottext">ScaleUnit -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679459566"><span class="annot"><span class="annottext">ScaleUnit -&gt; XML
 (ScaleUnit -&gt; XML) -&gt; ToXML ScaleUnit
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ScaleUnit -&gt; XML

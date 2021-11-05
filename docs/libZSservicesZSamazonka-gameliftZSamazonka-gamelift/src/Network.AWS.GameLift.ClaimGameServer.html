@@ -95,7 +95,7 @@
 </span><span id="line-95"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | /See:/ 'newClaimGameServer' smart constructor.</span><span>
-</span><span id="line-98"></span><span id="local-6989586621679463275"><span id="local-6989586621679463276"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClaimGameServer"><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-var">ClaimGameServer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClaimGameServer%27"><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-var">ClaimGameServer'</span></a></span></span><span>
+</span><span id="line-98"></span><span id="local-6989586621679463284"><span id="local-6989586621679463285"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClaimGameServer"><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-var">ClaimGameServer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClaimGameServer%27"><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-var">ClaimGameServer'</span></a></span></span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A set of custom game server properties, formatted as a single string</span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-comment">-- value. This data is passed to a game client or service when it requests</span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-comment">-- information on game servers using ListGameServers or ClaimGameServer.</span><span>
@@ -113,7 +113,7 @@
 </span><span id="line-111"></span><span>    </span><span id="%24sel%3AgameServerGroupName%3AClaimGameServer%27"><span class="annot"><span class="annottext">ClaimGameServer -&gt; Text
 </span><a href="Network.AWS.GameLift.ClaimGameServer.html#%24sel%3AgameServerGroupName%3AClaimGameServer%27"><span class="hs-identifier hs-var hs-var">gameServerGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463267"><span id="local-6989586621679463269"><span class="annot"><span class="annottext">ClaimGameServer -&gt; ClaimGameServer -&gt; Bool
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463276"><span id="local-6989586621679463278"><span class="annot"><span class="annottext">ClaimGameServer -&gt; ClaimGameServer -&gt; Bool
 (ClaimGameServer -&gt; ClaimGameServer -&gt; Bool)
 -&gt; (ClaimGameServer -&gt; ClaimGameServer -&gt; Bool)
 -&gt; Eq ClaimGameServer
@@ -122,7 +122,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ClaimGameServer -&gt; ClaimGameServer -&gt; Bool
 == :: ClaimGameServer -&gt; ClaimGameServer -&gt; Bool
 $c== :: ClaimGameServer -&gt; ClaimGameServer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463258"><span id="local-6989586621679463260"><span id="local-6989586621679463262"><span id="local-6989586621679463264"><span class="annot"><span class="annottext">ReadPrec [ClaimGameServer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463267"><span id="local-6989586621679463269"><span id="local-6989586621679463271"><span id="local-6989586621679463273"><span class="annot"><span class="annottext">ReadPrec [ClaimGameServer]
 ReadPrec ClaimGameServer
 Int -&gt; ReadS ClaimGameServer
 ReadS [ClaimGameServer]
@@ -142,7 +142,7 @@ readList :: ReadS [ClaimGameServer]
 $creadList :: ReadS [ClaimGameServer]
 readsPrec :: Int -&gt; ReadS ClaimGameServer
 $creadsPrec :: Int -&gt; ReadS ClaimGameServer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463251"><span id="local-6989586621679463253"><span id="local-6989586621679463255"><span class="annot"><span class="annottext">Int -&gt; ClaimGameServer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463260"><span id="local-6989586621679463262"><span id="local-6989586621679463264"><span class="annot"><span class="annottext">Int -&gt; ClaimGameServer -&gt; ShowS
 [ClaimGameServer] -&gt; ShowS
 ClaimGameServer -&gt; String
 (Int -&gt; ClaimGameServer -&gt; ShowS)
@@ -193,8 +193,8 @@ $cfrom :: forall x. ClaimGameServer -&gt; Rep ClaimGameServer x
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span><span>
 </span><span id="line-139"></span><span id="newClaimGameServer"><span class="annot"><span class="annottext">newClaimGameServer :: Text -&gt; ClaimGameServer
-</span><a href="Network.AWS.GameLift.ClaimGameServer.html#newClaimGameServer"><span class="hs-identifier hs-var hs-var">newClaimGameServer</span></a></span></span><span> </span><span id="local-6989586621679463246"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463246"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.ClaimGameServer.html#newClaimGameServer"><span class="hs-identifier hs-var hs-var">newClaimGameServer</span></a></span></span><span> </span><span id="local-6989586621679463255"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463255"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">ClaimGameServer' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ClaimGameServer
 </span><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-type">ClaimGameServer'</span></a></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gameServerData:ClaimGameServer' :: Maybe Text
@@ -207,7 +207,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:gameServerGroupName:ClaimGameServer' :: Text
 </span><a href="Network.AWS.GameLift.ClaimGameServer.html#%24sel%3AgameServerGroupName%3AClaimGameServer%27"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463246"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679463255"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | A set of custom game server properties, formatted as a single string</span><span>
@@ -220,16 +220,16 @@ forall a. Maybe a
 -&gt; (ClaimGameServer -&gt; Maybe Text -&gt; ClaimGameServer)
 -&gt; Lens ClaimGameServer ClaimGameServer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-type">ClaimGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463243"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-type">ClaimGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463252"><span class="annot"><span class="annottext">Maybe Text
 gameServerData :: Maybe Text
 $sel:gameServerData:ClaimGameServer' :: ClaimGameServer -&gt; Maybe Text
-</span><a href="#local-6989586621679463243"><span class="hs-identifier hs-var hs-var">gameServerData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679463243"><span class="hs-identifier hs-var">gameServerData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463242"><span class="annot"><span class="annottext">s :: ClaimGameServer
-</span><a href="#local-6989586621679463242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-type">ClaimGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463241"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679463241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClaimGameServer
-</span><a href="#local-6989586621679463242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerData:ClaimGameServer' :: Maybe Text
+</span><a href="#local-6989586621679463252"><span class="hs-identifier hs-var hs-var">gameServerData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463252"><span class="hs-identifier hs-var">gameServerData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463251"><span class="annot"><span class="annottext">s :: ClaimGameServer
+</span><a href="#local-6989586621679463251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-type">ClaimGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463250"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClaimGameServer
+</span><a href="#local-6989586621679463251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerData:ClaimGameServer' :: Maybe Text
 </span><a href="Network.AWS.GameLift.ClaimGameServer.html#%24sel%3AgameServerData%3AClaimGameServer%27"><span class="hs-identifier hs-var">gameServerData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679463241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | A custom string that uniquely identifies the game server to claim. If</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- this parameter is left empty, GameLift FleetIQ searches for an available</span><span>
@@ -241,16 +241,16 @@ $sel:gameServerData:ClaimGameServer' :: ClaimGameServer -&gt; Maybe Text
 -&gt; (ClaimGameServer -&gt; Maybe Text -&gt; ClaimGameServer)
 -&gt; Lens ClaimGameServer ClaimGameServer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-type">ClaimGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463240"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-type">ClaimGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463249"><span class="annot"><span class="annottext">Maybe Text
 gameServerId :: Maybe Text
 $sel:gameServerId:ClaimGameServer' :: ClaimGameServer -&gt; Maybe Text
-</span><a href="#local-6989586621679463240"><span class="hs-identifier hs-var hs-var">gameServerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679463240"><span class="hs-identifier hs-var">gameServerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463239"><span class="annot"><span class="annottext">s :: ClaimGameServer
-</span><a href="#local-6989586621679463239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-type">ClaimGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463238"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679463238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClaimGameServer
-</span><a href="#local-6989586621679463239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerId:ClaimGameServer' :: Maybe Text
+</span><a href="#local-6989586621679463249"><span class="hs-identifier hs-var hs-var">gameServerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463249"><span class="hs-identifier hs-var">gameServerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463248"><span class="annot"><span class="annottext">s :: ClaimGameServer
+</span><a href="#local-6989586621679463248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-type">ClaimGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463247"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClaimGameServer
+</span><a href="#local-6989586621679463248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerId:ClaimGameServer' :: Maybe Text
 </span><a href="Network.AWS.GameLift.ClaimGameServer.html#%24sel%3AgameServerId%3AClaimGameServer%27"><span class="hs-identifier hs-var">gameServerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679463238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | A unique identifier for the game server group where the game server is</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- running. Use either the GameServerGroup name or ARN value. If you are</span><span>
@@ -262,27 +262,27 @@ $sel:gameServerId:ClaimGameServer' :: ClaimGameServer -&gt; Maybe Text
 -&gt; (ClaimGameServer -&gt; Text -&gt; ClaimGameServer)
 -&gt; Lens ClaimGameServer ClaimGameServer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-type">ClaimGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463237"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-type">ClaimGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463246"><span class="annot"><span class="annottext">Text
 gameServerGroupName :: Text
 $sel:gameServerGroupName:ClaimGameServer' :: ClaimGameServer -&gt; Text
-</span><a href="#local-6989586621679463237"><span class="hs-identifier hs-var hs-var">gameServerGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463237"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463236"><span class="annot"><span class="annottext">s :: ClaimGameServer
-</span><a href="#local-6989586621679463236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-type">ClaimGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463235"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClaimGameServer
-</span><a href="#local-6989586621679463236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroupName:ClaimGameServer' :: Text
+</span><a href="#local-6989586621679463246"><span class="hs-identifier hs-var hs-var">gameServerGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463246"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463245"><span class="annot"><span class="annottext">s :: ClaimGameServer
+</span><a href="#local-6989586621679463245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-type">ClaimGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463244"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClaimGameServer
+</span><a href="#local-6989586621679463245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroupName:ClaimGameServer' :: Text
 </span><a href="Network.AWS.GameLift.ClaimGameServer.html#%24sel%3AgameServerGroupName%3AClaimGameServer%27"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-167"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse"><span class="hs-identifier hs-type">ClaimGameServerResponse</span></a></span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679463231"><span class="annot"><span class="annottext">request :: ClaimGameServer -&gt; Request ClaimGameServer
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679463240"><span class="annot"><span class="annottext">request :: ClaimGameServer -&gt; Request ClaimGameServer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ClaimGameServer -&gt; Request ClaimGameServer
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679463227"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679463236"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ClaimGameServer
 -&gt; ClientResponse ClientBody
@@ -306,10 +306,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679463224"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679463224"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679463223"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679463223"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679463222"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679463222"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679463233"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679463233"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679463232"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679463232"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679463231"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679463231"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe GameServer -&gt; Int -&gt; ClaimGameServerResponse
 </span><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse%27"><span class="hs-identifier hs-var">ClaimGameServerResponse'</span></a></span><span>
 </span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GameServer -&gt; Int -&gt; ClaimGameServerResponse)
@@ -317,7 +317,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ClaimGameServerResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679463222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameServer)
+</span><a href="#local-6989586621679463231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameServer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GameServer&quot;</span></span><span class="hs-special">)</span><span>
@@ -329,15 +329,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679463224"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463233"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463214"><span id="local-6989586621679463216"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463223"><span id="local-6989586621679463225"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span></span></span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463211"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463220"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679463207"><span class="annot"><span class="annottext">toHeaders :: ClaimGameServer -&gt; ResponseHeaders
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679463216"><span class="annot"><span class="annottext">toHeaders :: ClaimGameServer -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ClaimGameServer -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -362,9 +362,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463197"><span id="local-6989586621679463199"><span id="local-6989586621679463201"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679463195"><span class="annot"><span class="annottext">toJSON :: ClaimGameServer -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-type">ClaimGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463191"><span id="local-6989586621679463192"><span id="local-6989586621679463193"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463206"><span id="local-6989586621679463208"><span id="local-6989586621679463210"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679463204"><span class="annot"><span class="annottext">toJSON :: ClaimGameServer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer%27"><span class="hs-identifier hs-type">ClaimGameServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463200"><span id="local-6989586621679463201"><span id="local-6989586621679463202"><span class="annot"><span class="annottext">Maybe Text
 Text
 gameServerGroupName :: Text
 gameServerId :: Maybe Text
@@ -372,7 +372,7 @@ gameServerData :: Maybe Text
 $sel:gameServerGroupName:ClaimGameServer' :: ClaimGameServer -&gt; Text
 $sel:gameServerId:ClaimGameServer' :: ClaimGameServer -&gt; Maybe Text
 $sel:gameServerData:ClaimGameServer' :: ClaimGameServer -&gt; Maybe Text
-</span><a href="#local-6989586621679463191"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679463200"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -385,14 +385,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679463193"><span class="hs-identifier hs-var">gameServerData</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679463202"><span class="hs-identifier hs-var">gameServerData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GameServerId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679463192"><span class="hs-identifier hs-var">gameServerId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679463201"><span class="hs-identifier hs-var">gameServerId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -400,19 +400,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;GameServerGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679463191"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463200"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679463185"><span class="annot"><span class="annottext">toPath :: ClaimGameServer -&gt; ByteString
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679463194"><span class="annot"><span class="annottext">toPath :: ClaimGameServer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ClaimGameServer -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServer"><span class="hs-identifier hs-type">ClaimGameServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679463181"><span class="annot"><span class="annottext">toQuery :: ClaimGameServer -&gt; QueryString
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679463190"><span class="annot"><span class="annottext">toQuery :: ClaimGameServer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ClaimGameServer -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -420,7 +420,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | /See:/ 'newClaimGameServerResponse' smart constructor.</span><span>
-</span><span id="line-214"></span><span id="local-6989586621679463178"><span id="local-6989586621679463179"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClaimGameServerResponse"><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse"><span class="hs-identifier hs-var">ClaimGameServerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClaimGameServerResponse%27"><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse%27"><span class="hs-identifier hs-var">ClaimGameServerResponse'</span></a></span></span><span>
+</span><span id="line-214"></span><span id="local-6989586621679463187"><span id="local-6989586621679463188"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClaimGameServerResponse"><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse"><span class="hs-identifier hs-var">ClaimGameServerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClaimGameServerResponse%27"><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse%27"><span class="hs-identifier hs-var">ClaimGameServerResponse'</span></a></span></span><span>
 </span><span id="line-215"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Object that describes the newly claimed game server.</span><span>
 </span><span id="line-216"></span><span>    </span><span id="%24sel%3AgameServer%3AClaimGameServerResponse%27"><span class="annot"><span class="annottext">ClaimGameServerResponse -&gt; Maybe GameServer
 </span><a href="Network.AWS.GameLift.ClaimGameServer.html#%24sel%3AgameServer%3AClaimGameServerResponse%27"><span class="hs-identifier hs-var hs-var">gameServer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameServer.html#GameServer"><span class="hs-identifier hs-type">GameServer</span></a></span><span class="hs-special">,</span><span>
@@ -428,7 +428,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-218"></span><span>    </span><span id="%24sel%3AhttpStatus%3AClaimGameServerResponse%27"><span class="annot"><span class="annottext">ClaimGameServerResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.ClaimGameServer.html#%24sel%3AhttpStatus%3AClaimGameServerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-219"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-220"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463172"><span id="local-6989586621679463174"><span class="annot"><span class="annottext">ClaimGameServerResponse -&gt; ClaimGameServerResponse -&gt; Bool
+</span><span id="line-220"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463181"><span id="local-6989586621679463183"><span class="annot"><span class="annottext">ClaimGameServerResponse -&gt; ClaimGameServerResponse -&gt; Bool
 (ClaimGameServerResponse -&gt; ClaimGameServerResponse -&gt; Bool)
 -&gt; (ClaimGameServerResponse -&gt; ClaimGameServerResponse -&gt; Bool)
 -&gt; Eq ClaimGameServerResponse
@@ -437,7 +437,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ClaimGameServerResponse -&gt; ClaimGameServerResponse -&gt; Bool
 == :: ClaimGameServerResponse -&gt; ClaimGameServerResponse -&gt; Bool
 $c== :: ClaimGameServerResponse -&gt; ClaimGameServerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463164"><span id="local-6989586621679463166"><span id="local-6989586621679463168"><span id="local-6989586621679463170"><span class="annot"><span class="annottext">ReadPrec [ClaimGameServerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463173"><span id="local-6989586621679463175"><span id="local-6989586621679463177"><span id="local-6989586621679463179"><span class="annot"><span class="annottext">ReadPrec [ClaimGameServerResponse]
 ReadPrec ClaimGameServerResponse
 Int -&gt; ReadS ClaimGameServerResponse
 ReadS [ClaimGameServerResponse]
@@ -457,7 +457,7 @@ readList :: ReadS [ClaimGameServerResponse]
 $creadList :: ReadS [ClaimGameServerResponse]
 readsPrec :: Int -&gt; ReadS ClaimGameServerResponse
 $creadsPrec :: Int -&gt; ReadS ClaimGameServerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463158"><span id="local-6989586621679463160"><span id="local-6989586621679463162"><span class="annot"><span class="annottext">Int -&gt; ClaimGameServerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463167"><span id="local-6989586621679463169"><span id="local-6989586621679463171"><span class="annot"><span class="annottext">Int -&gt; ClaimGameServerResponse -&gt; ShowS
 [ClaimGameServerResponse] -&gt; ShowS
 ClaimGameServerResponse -&gt; String
 (Int -&gt; ClaimGameServerResponse -&gt; ShowS)
@@ -501,8 +501,8 @@ $cfrom :: forall x. ClaimGameServerResponse -&gt; Rep ClaimGameServerResponse x
 </span><span id="line-235"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-236"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse"><span class="hs-identifier hs-type">ClaimGameServerResponse</span></a></span><span>
 </span><span id="line-237"></span><span id="newClaimGameServerResponse"><span class="annot"><span class="annottext">newClaimGameServerResponse :: Int -&gt; ClaimGameServerResponse
-</span><a href="Network.AWS.GameLift.ClaimGameServer.html#newClaimGameServerResponse"><span class="hs-identifier hs-var hs-var">newClaimGameServerResponse</span></a></span></span><span> </span><span id="local-6989586621679463155"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679463155"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.ClaimGameServer.html#newClaimGameServerResponse"><span class="hs-identifier hs-var hs-var">newClaimGameServerResponse</span></a></span></span><span> </span><span id="local-6989586621679463164"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679463164"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-238"></span><span>  </span><span class="annot"><span class="annottext">ClaimGameServerResponse' :: Maybe GameServer -&gt; Int -&gt; ClaimGameServerResponse
 </span><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse%27"><span class="hs-identifier hs-type">ClaimGameServerResponse'</span></a></span><span>
 </span><span id="line-239"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gameServer:ClaimGameServerResponse' :: Maybe GameServer
@@ -512,7 +512,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ClaimGameServerResponse' :: Int
 </span><a href="Network.AWS.GameLift.ClaimGameServer.html#%24sel%3AhttpStatus%3AClaimGameServerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679463155"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679463164"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-242"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- | Object that describes the newly claimed game server.</span><span>
@@ -528,16 +528,16 @@ forall a. Maybe a
      (Maybe GameServer)
      (Maybe GameServer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse%27"><span class="hs-identifier hs-type">ClaimGameServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463154"><span class="annot"><span class="annottext">Maybe GameServer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse%27"><span class="hs-identifier hs-type">ClaimGameServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463163"><span class="annot"><span class="annottext">Maybe GameServer
 gameServer :: Maybe GameServer
 $sel:gameServer:ClaimGameServerResponse' :: ClaimGameServerResponse -&gt; Maybe GameServer
-</span><a href="#local-6989586621679463154"><span class="hs-identifier hs-var hs-var">gameServer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameServer
-</span><a href="#local-6989586621679463154"><span class="hs-identifier hs-var">gameServer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463153"><span class="annot"><span class="annottext">s :: ClaimGameServerResponse
-</span><a href="#local-6989586621679463153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse%27"><span class="hs-identifier hs-type">ClaimGameServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463152"><span class="annot"><span class="annottext">Maybe GameServer
-</span><a href="#local-6989586621679463152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClaimGameServerResponse
-</span><a href="#local-6989586621679463153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServer:ClaimGameServerResponse' :: Maybe GameServer
+</span><a href="#local-6989586621679463163"><span class="hs-identifier hs-var hs-var">gameServer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameServer
+</span><a href="#local-6989586621679463163"><span class="hs-identifier hs-var">gameServer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463162"><span class="annot"><span class="annottext">s :: ClaimGameServerResponse
+</span><a href="#local-6989586621679463162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse%27"><span class="hs-identifier hs-type">ClaimGameServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463161"><span class="annot"><span class="annottext">Maybe GameServer
+</span><a href="#local-6989586621679463161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClaimGameServerResponse
+</span><a href="#local-6989586621679463162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServer:ClaimGameServerResponse' :: Maybe GameServer
 </span><a href="Network.AWS.GameLift.ClaimGameServer.html#%24sel%3AgameServer%3AClaimGameServerResponse%27"><span class="hs-identifier hs-var">gameServer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GameServer
-</span><a href="#local-6989586621679463152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse"><span class="hs-identifier hs-type">ClaimGameServerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse"><span class="hs-identifier hs-type">ClaimGameServerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-249"></span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#claimGameServerResponse_httpStatus"><span class="hs-identifier hs-type">claimGameServerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse"><span class="hs-identifier hs-type">ClaimGameServerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -547,16 +547,16 @@ $sel:gameServer:ClaimGameServerResponse' :: ClaimGameServerResponse -&gt; Maybe 
 -&gt; (ClaimGameServerResponse -&gt; Int -&gt; ClaimGameServerResponse)
 -&gt; Lens ClaimGameServerResponse ClaimGameServerResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse%27"><span class="hs-identifier hs-type">ClaimGameServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463151"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse%27"><span class="hs-identifier hs-type">ClaimGameServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463160"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ClaimGameServerResponse' :: ClaimGameServerResponse -&gt; Int
-</span><a href="#local-6989586621679463151"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679463151"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463150"><span class="annot"><span class="annottext">s :: ClaimGameServerResponse
-</span><a href="#local-6989586621679463150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse%27"><span class="hs-identifier hs-type">ClaimGameServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463149"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679463149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClaimGameServerResponse
-</span><a href="#local-6989586621679463150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ClaimGameServerResponse' :: Int
+</span><a href="#local-6989586621679463160"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679463160"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463159"><span class="annot"><span class="annottext">s :: ClaimGameServerResponse
+</span><a href="#local-6989586621679463159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse%27"><span class="hs-identifier hs-type">ClaimGameServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463158"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679463158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClaimGameServerResponse
+</span><a href="#local-6989586621679463159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ClaimGameServerResponse' :: Int
 </span><a href="Network.AWS.GameLift.ClaimGameServer.html#%24sel%3AhttpStatus%3AClaimGameServerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679463149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse"><span class="hs-identifier hs-type">ClaimGameServerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse"><span class="hs-identifier hs-type">ClaimGameServerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463147"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse"><span class="hs-identifier hs-type">ClaimGameServerResponse</span></a></span></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679463156"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.ClaimGameServer.html#ClaimGameServerResponse"><span class="hs-identifier hs-type">ClaimGameServerResponse</span></a></span></span><span>
 </span><span id="line-253"></span></pre></body></html>

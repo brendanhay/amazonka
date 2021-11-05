@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the storage for a user.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStorageRuleType' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679264138"><span id="local-6989586621679264139"></span></span><span class="hs-keyword">data</span><span> </span><span id="StorageRuleType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-var">StorageRuleType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageRuleType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType%27"><span class="hs-identifier hs-var">StorageRuleType'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679264147"><span id="local-6989586621679264148"></span></span><span class="hs-keyword">data</span><span> </span><span id="StorageRuleType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-var">StorageRuleType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageRuleType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType%27"><span class="hs-identifier hs-var">StorageRuleType'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of storage allocated, in bytes.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AstorageAllocatedInBytes%3AStorageRuleType%27"><span class="annot"><span class="annottext">StorageRuleType -&gt; Maybe Natural
 </span><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#%24sel%3AstorageAllocatedInBytes%3AStorageRuleType%27"><span class="hs-identifier hs-var hs-var">storageAllocatedInBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AstorageType%3AStorageRuleType%27"><span class="annot"><span class="annottext">StorageRuleType -&gt; Maybe StorageType
 </span><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#%24sel%3AstorageType%3AStorageRuleType%27"><span class="hs-identifier hs-var hs-var">storageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageType.html#StorageType"><span class="hs-identifier hs-type">StorageType</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264131"><span id="local-6989586621679264133"><span class="annot"><span class="annottext">StorageRuleType -&gt; StorageRuleType -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264140"><span id="local-6989586621679264142"><span class="annot"><span class="annottext">StorageRuleType -&gt; StorageRuleType -&gt; Bool
 (StorageRuleType -&gt; StorageRuleType -&gt; Bool)
 -&gt; (StorageRuleType -&gt; StorageRuleType -&gt; Bool)
 -&gt; Eq StorageRuleType
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StorageRuleType -&gt; StorageRuleType -&gt; Bool
 == :: StorageRuleType -&gt; StorageRuleType -&gt; Bool
 $c== :: StorageRuleType -&gt; StorageRuleType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264122"><span id="local-6989586621679264124"><span id="local-6989586621679264126"><span id="local-6989586621679264128"><span class="annot"><span class="annottext">ReadPrec [StorageRuleType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264131"><span id="local-6989586621679264133"><span id="local-6989586621679264135"><span id="local-6989586621679264137"><span class="annot"><span class="annottext">ReadPrec [StorageRuleType]
 ReadPrec StorageRuleType
 Int -&gt; ReadS StorageRuleType
 ReadS [StorageRuleType]
@@ -64,7 +64,7 @@ readList :: ReadS [StorageRuleType]
 $creadList :: ReadS [StorageRuleType]
 readsPrec :: Int -&gt; ReadS StorageRuleType
 $creadsPrec :: Int -&gt; ReadS StorageRuleType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264115"><span id="local-6989586621679264117"><span id="local-6989586621679264119"><span class="annot"><span class="annottext">Int -&gt; StorageRuleType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264124"><span id="local-6989586621679264126"><span id="local-6989586621679264128"><span class="annot"><span class="annottext">Int -&gt; StorageRuleType -&gt; ShowS
 [StorageRuleType] -&gt; ShowS
 StorageRuleType -&gt; String
 (Int -&gt; StorageRuleType -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; Lens
      StorageRuleType StorageRuleType (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType%27"><span class="hs-identifier hs-type">StorageRuleType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264106"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType%27"><span class="hs-identifier hs-type">StorageRuleType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264115"><span class="annot"><span class="annottext">Maybe Natural
 storageAllocatedInBytes :: Maybe Natural
 $sel:storageAllocatedInBytes:StorageRuleType' :: StorageRuleType -&gt; Maybe Natural
-</span><a href="#local-6989586621679264106"><span class="hs-identifier hs-var hs-var">storageAllocatedInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679264106"><span class="hs-identifier hs-var">storageAllocatedInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264105"><span class="annot"><span class="annottext">s :: StorageRuleType
-</span><a href="#local-6989586621679264105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType%27"><span class="hs-identifier hs-type">StorageRuleType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264104"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679264104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageRuleType
-</span><a href="#local-6989586621679264105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageAllocatedInBytes:StorageRuleType' :: Maybe Natural
+</span><a href="#local-6989586621679264115"><span class="hs-identifier hs-var hs-var">storageAllocatedInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679264115"><span class="hs-identifier hs-var">storageAllocatedInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264114"><span class="annot"><span class="annottext">s :: StorageRuleType
+</span><a href="#local-6989586621679264114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType%27"><span class="hs-identifier hs-type">StorageRuleType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264113"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679264113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageRuleType
+</span><a href="#local-6989586621679264114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageAllocatedInBytes:StorageRuleType' :: Maybe Natural
 </span><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#%24sel%3AstorageAllocatedInBytes%3AStorageRuleType%27"><span class="hs-identifier hs-var">storageAllocatedInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679264104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679264113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The type of storage.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#storageRuleType_storageType"><span class="hs-identifier hs-type">storageRuleType_storageType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageType.html#StorageType"><span class="hs-identifier hs-type">StorageType</span></a></span><span class="hs-special">)</span><span>
@@ -150,19 +150,19 @@ $sel:storageAllocatedInBytes:StorageRuleType' :: StorageRuleType -&gt; Maybe Nat
      (Maybe StorageType)
      (Maybe StorageType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType%27"><span class="hs-identifier hs-type">StorageRuleType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264102"><span class="annot"><span class="annottext">Maybe StorageType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType%27"><span class="hs-identifier hs-type">StorageRuleType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264111"><span class="annot"><span class="annottext">Maybe StorageType
 storageType :: Maybe StorageType
 $sel:storageType:StorageRuleType' :: StorageRuleType -&gt; Maybe StorageType
-</span><a href="#local-6989586621679264102"><span class="hs-identifier hs-var hs-var">storageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StorageType
-</span><a href="#local-6989586621679264102"><span class="hs-identifier hs-var">storageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264101"><span class="annot"><span class="annottext">s :: StorageRuleType
-</span><a href="#local-6989586621679264101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType%27"><span class="hs-identifier hs-type">StorageRuleType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264100"><span class="annot"><span class="annottext">Maybe StorageType
-</span><a href="#local-6989586621679264100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageRuleType
-</span><a href="#local-6989586621679264101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageType:StorageRuleType' :: Maybe StorageType
+</span><a href="#local-6989586621679264111"><span class="hs-identifier hs-var hs-var">storageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StorageType
+</span><a href="#local-6989586621679264111"><span class="hs-identifier hs-var">storageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264110"><span class="annot"><span class="annottext">s :: StorageRuleType
+</span><a href="#local-6989586621679264110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType%27"><span class="hs-identifier hs-type">StorageRuleType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264109"><span class="annot"><span class="annottext">Maybe StorageType
+</span><a href="#local-6989586621679264109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageRuleType
+</span><a href="#local-6989586621679264110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageType:StorageRuleType' :: Maybe StorageType
 </span><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#%24sel%3AstorageType%3AStorageRuleType%27"><span class="hs-identifier hs-var">storageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StorageType
-</span><a href="#local-6989586621679264100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679264109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264097"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679264095"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StorageRuleType
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264106"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679264104"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StorageRuleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StorageRuleType)
@@ -172,8 +172,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StorageRuleType&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679264092"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679264092"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679264101"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264101"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe StorageType -&gt; StorageRuleType
 </span><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType%27"><span class="hs-identifier hs-var">StorageRuleType'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe StorageType -&gt; StorageRuleType)
@@ -181,7 +181,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe StorageType -&gt; StorageRuleType)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679264092"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679264101"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StorageAllocatedInBytes&quot;</span></span><span class="hs-special">)</span><span>
@@ -189,25 +189,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe StorageType) -&gt; Parser StorageRuleType
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679264092"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StorageType)
+</span><a href="#local-6989586621679264101"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StorageType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StorageType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264086"><span id="local-6989586621679264088"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264095"><span id="local-6989586621679264097"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264083"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264075"><span id="local-6989586621679264077"><span id="local-6989586621679264079"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679264073"><span class="annot"><span class="annottext">toJSON :: StorageRuleType -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType%27"><span class="hs-identifier hs-type">StorageRuleType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264070"><span id="local-6989586621679264071"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264084"><span id="local-6989586621679264086"><span id="local-6989586621679264088"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679264082"><span class="annot"><span class="annottext">toJSON :: StorageRuleType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType%27"><span class="hs-identifier hs-type">StorageRuleType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264079"><span id="local-6989586621679264080"><span class="annot"><span class="annottext">Maybe Natural
 Maybe StorageType
 storageType :: Maybe StorageType
 storageAllocatedInBytes :: Maybe Natural
 $sel:storageType:StorageRuleType' :: StorageRuleType -&gt; Maybe StorageType
 $sel:storageAllocatedInBytes:StorageRuleType' :: StorageRuleType -&gt; Maybe Natural
-</span><a href="#local-6989586621679264070"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679264079"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -220,14 +220,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-85"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679264071"><span class="hs-identifier hs-var">storageAllocatedInBytes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679264080"><span class="hs-identifier hs-var">storageAllocatedInBytes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StorageType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StorageType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(StorageType -&gt; Pair) -&gt; Maybe StorageType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StorageType
-</span><a href="#local-6989586621679264070"><span class="hs-identifier hs-var">storageType</span></a></span><span>
+</span><a href="#local-6989586621679264079"><span class="hs-identifier hs-var">storageType</span></a></span><span>
 </span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span></pre></body></html>

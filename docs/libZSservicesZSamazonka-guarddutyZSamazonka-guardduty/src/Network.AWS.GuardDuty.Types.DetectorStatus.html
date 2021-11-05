@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679295501"><span id="local-6989586621679295502"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DetectorStatus"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DetectorStatus.html#DetectorStatus"><span class="hs-identifier hs-var">DetectorStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectorStatus%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DetectorStatus.html#DetectorStatus%27"><span class="hs-identifier hs-var">DetectorStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679295510"><span id="local-6989586621679295511"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DetectorStatus"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DetectorStatus.html#DetectorStatus"><span class="hs-identifier hs-var">DetectorStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectorStatus%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DetectorStatus.html#DetectorStatus%27"><span class="hs-identifier hs-var">DetectorStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDetectorStatus"><span class="annot"><span class="annottext">DetectorStatus -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.DetectorStatus.html#fromDetectorStatus"><span class="hs-identifier hs-var hs-var">fromDetectorStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295493"><span id="local-6989586621679295495"><span id="local-6989586621679295497"><span class="annot"><span class="annottext">Int -&gt; DetectorStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295502"><span id="local-6989586621679295504"><span id="local-6989586621679295506"><span class="annot"><span class="annottext">Int -&gt; DetectorStatus -&gt; ShowS
 [DetectorStatus] -&gt; ShowS
 DetectorStatus -&gt; String
 (Int -&gt; DetectorStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DetectorStatus -&gt; String
 showsPrec :: Int -&gt; DetectorStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; DetectorStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679295484"><span id="local-6989586621679295486"><span id="local-6989586621679295488"><span id="local-6989586621679295490"><span class="annot"><span class="annottext">ReadPrec [DetectorStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679295493"><span id="local-6989586621679295495"><span id="local-6989586621679295497"><span id="local-6989586621679295499"><span class="annot"><span class="annottext">ReadPrec [DetectorStatus]
 ReadPrec DetectorStatus
 Int -&gt; ReadS DetectorStatus
 ReadS [DetectorStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DetectorStatus]
 readsPrec :: Int -&gt; ReadS DetectorStatus
 $creadsPrec :: Int -&gt; ReadS DetectorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679295479"><span id="local-6989586621679295481"><span class="annot"><span class="annottext">DetectorStatus -&gt; DetectorStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679295488"><span id="local-6989586621679295490"><span class="annot"><span class="annottext">DetectorStatus -&gt; DetectorStatus -&gt; Bool
 (DetectorStatus -&gt; DetectorStatus -&gt; Bool)
 -&gt; (DetectorStatus -&gt; DetectorStatus -&gt; Bool) -&gt; Eq DetectorStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: DetectorStatus -&gt; DetectorStatus -&gt; Bool
 == :: DetectorStatus -&gt; DetectorStatus -&gt; Bool
 $c== :: DetectorStatus -&gt; DetectorStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679295463"><span id="local-6989586621679295465"><span id="local-6989586621679295467"><span id="local-6989586621679295469"><span id="local-6989586621679295471"><span id="local-6989586621679295473"><span id="local-6989586621679295475"><span class="annot"><span class="annottext">Eq DetectorStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679295472"><span id="local-6989586621679295474"><span id="local-6989586621679295476"><span id="local-6989586621679295478"><span id="local-6989586621679295480"><span id="local-6989586621679295482"><span id="local-6989586621679295484"><span class="annot"><span class="annottext">Eq DetectorStatus
 Eq DetectorStatus
 -&gt; (DetectorStatus -&gt; DetectorStatus -&gt; Ordering)
 -&gt; (DetectorStatus -&gt; DetectorStatus -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. DetectorStatus -&gt; Rep DetectorStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295455"><span id="local-6989586621679295457"><span class="annot"><span class="annottext">Int -&gt; DetectorStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295464"><span id="local-6989586621679295466"><span class="annot"><span class="annottext">Int -&gt; DetectorStatus -&gt; Int
 DetectorStatus -&gt; Int
 (Int -&gt; DetectorStatus -&gt; Int)
 -&gt; (DetectorStatus -&gt; Int) -&gt; Hashable DetectorStatus
@@ -142,50 +142,50 @@ $chash :: DetectorStatus -&gt; Int
 hashWithSalt :: Int -&gt; DetectorStatus -&gt; Int
 $chashWithSalt :: Int -&gt; DetectorStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679295452"><span class="annot"><span class="annottext">DetectorStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679295461"><span class="annot"><span class="annottext">DetectorStatus -&gt; ()
 (DetectorStatus -&gt; ()) -&gt; NFData DetectorStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DetectorStatus -&gt; ()
 $crnf :: DetectorStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679295449"><span class="annot"><span class="annottext">Text -&gt; Either String DetectorStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679295458"><span class="annot"><span class="annottext">Text -&gt; Either String DetectorStatus
 (Text -&gt; Either String DetectorStatus) -&gt; FromText DetectorStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DetectorStatus
 $cfromText :: Text -&gt; Either String DetectorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295446"><span class="annot"><span class="annottext">DetectorStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295455"><span class="annot"><span class="annottext">DetectorStatus -&gt; Text
 (DetectorStatus -&gt; Text) -&gt; ToText DetectorStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DetectorStatus -&gt; Text
 $ctoText :: DetectorStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295443"><span class="annot"><span class="annottext">DetectorStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295452"><span class="annot"><span class="annottext">DetectorStatus -&gt; ByteString
 (DetectorStatus -&gt; ByteString) -&gt; ToByteString DetectorStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DetectorStatus -&gt; ByteString
 $ctoBS :: DetectorStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295440"><span class="annot"><span class="annottext">DetectorStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295449"><span class="annot"><span class="annottext">DetectorStatus -&gt; ByteStringBuilder
 (DetectorStatus -&gt; ByteStringBuilder) -&gt; ToLog DetectorStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DetectorStatus -&gt; ByteStringBuilder
 $cbuild :: DetectorStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295437"><span class="annot"><span class="annottext">HeaderName -&gt; DetectorStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295446"><span class="annot"><span class="annottext">HeaderName -&gt; DetectorStatus -&gt; [Header]
 (HeaderName -&gt; DetectorStatus -&gt; [Header])
 -&gt; ToHeader DetectorStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DetectorStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DetectorStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295434"><span class="annot"><span class="annottext">DetectorStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295443"><span class="annot"><span class="annottext">DetectorStatus -&gt; QueryString
 (DetectorStatus -&gt; QueryString) -&gt; ToQuery DetectorStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DetectorStatus -&gt; QueryString
 $ctoQuery :: DetectorStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295429"><span id="local-6989586621679295431"><span class="annot"><span class="annottext">Value -&gt; Parser [DetectorStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295438"><span id="local-6989586621679295440"><span class="annot"><span class="annottext">Value -&gt; Parser [DetectorStatus]
 Value -&gt; Parser DetectorStatus
 (Value -&gt; Parser DetectorStatus)
 -&gt; (Value -&gt; Parser [DetectorStatus]) -&gt; FromJSON DetectorStatus
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [DetectorStatus]
 parseJSON :: Value -&gt; Parser DetectorStatus
 $cparseJSON :: Value -&gt; Parser DetectorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295424"><span id="local-6989586621679295426"><span class="annot"><span class="annottext">FromJSONKeyFunction [DetectorStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295433"><span id="local-6989586621679295435"><span class="annot"><span class="annottext">FromJSONKeyFunction [DetectorStatus]
 FromJSONKeyFunction DetectorStatus
 FromJSONKeyFunction DetectorStatus
 -&gt; FromJSONKeyFunction [DetectorStatus]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DetectorStatus]
 fromJSONKey :: FromJSONKeyFunction DetectorStatus
 $cfromJSONKey :: FromJSONKeyFunction DetectorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295415"><span id="local-6989586621679295417"><span id="local-6989586621679295419"><span id="local-6989586621679295421"><span class="annot"><span class="annottext">[DetectorStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295424"><span id="local-6989586621679295426"><span id="local-6989586621679295428"><span id="local-6989586621679295430"><span class="annot"><span class="annottext">[DetectorStatus] -&gt; Encoding
 [DetectorStatus] -&gt; Value
 DetectorStatus -&gt; Encoding
 DetectorStatus -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: DetectorStatus -&gt; Encoding
 toJSON :: DetectorStatus -&gt; Value
 $ctoJSON :: DetectorStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295410"><span id="local-6989586621679295412"><span class="annot"><span class="annottext">ToJSONKeyFunction [DetectorStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295419"><span id="local-6989586621679295421"><span class="annot"><span class="annottext">ToJSONKeyFunction [DetectorStatus]
 ToJSONKeyFunction DetectorStatus
 ToJSONKeyFunction DetectorStatus
 -&gt; ToJSONKeyFunction [DetectorStatus] -&gt; ToJSONKey DetectorStatus
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DetectorStatus]
 toJSONKey :: ToJSONKeyFunction DetectorStatus
 $ctoJSONKey :: ToJSONKeyFunction DetectorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295407"><span class="annot"><span class="annottext">[Node] -&gt; Either String DetectorStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295416"><span class="annot"><span class="annottext">[Node] -&gt; Either String DetectorStatus
 ([Node] -&gt; Either String DetectorStatus) -&gt; FromXML DetectorStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DetectorStatus
 $cparseXML :: [Node] -&gt; Either String DetectorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295404"><span class="annot"><span class="annottext">DetectorStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295413"><span class="annot"><span class="annottext">DetectorStatus -&gt; XML
 (DetectorStatus -&gt; XML) -&gt; ToXML DetectorStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DetectorStatus -&gt; XML

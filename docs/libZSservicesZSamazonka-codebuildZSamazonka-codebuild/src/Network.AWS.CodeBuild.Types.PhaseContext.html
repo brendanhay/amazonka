@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- use this information for troubleshooting.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPhaseContext' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679372865"><span id="local-6989586621679372866"></span></span><span class="hs-keyword">data</span><span> </span><span id="PhaseContext"><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext"><span class="hs-identifier hs-var">PhaseContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PhaseContext%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext%27"><span class="hs-identifier hs-var">PhaseContext'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679372874"><span id="local-6989586621679372875"></span></span><span class="hs-keyword">data</span><span> </span><span id="PhaseContext"><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext"><span class="hs-identifier hs-var">PhaseContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PhaseContext%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext%27"><span class="hs-identifier hs-var">PhaseContext'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An explanation of the build phase\'s context. This might include a</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- command ID and an exit code.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Amessage%3APhaseContext%27"><span class="annot"><span class="annottext">PhaseContext -&gt; Maybe Text
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AstatusCode%3APhaseContext%27"><span class="annot"><span class="annottext">PhaseContext -&gt; Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#%24sel%3AstatusCode%3APhaseContext%27"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372858"><span id="local-6989586621679372860"><span class="annot"><span class="annottext">PhaseContext -&gt; PhaseContext -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372867"><span id="local-6989586621679372869"><span class="annot"><span class="annottext">PhaseContext -&gt; PhaseContext -&gt; Bool
 (PhaseContext -&gt; PhaseContext -&gt; Bool)
 -&gt; (PhaseContext -&gt; PhaseContext -&gt; Bool) -&gt; Eq PhaseContext
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PhaseContext -&gt; PhaseContext -&gt; Bool
 == :: PhaseContext -&gt; PhaseContext -&gt; Bool
 $c== :: PhaseContext -&gt; PhaseContext -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372849"><span id="local-6989586621679372851"><span id="local-6989586621679372853"><span id="local-6989586621679372855"><span class="annot"><span class="annottext">ReadPrec [PhaseContext]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372858"><span id="local-6989586621679372860"><span id="local-6989586621679372862"><span id="local-6989586621679372864"><span class="annot"><span class="annottext">ReadPrec [PhaseContext]
 ReadPrec PhaseContext
 Int -&gt; ReadS PhaseContext
 ReadS [PhaseContext]
@@ -64,7 +64,7 @@ readList :: ReadS [PhaseContext]
 $creadList :: ReadS [PhaseContext]
 readsPrec :: Int -&gt; ReadS PhaseContext
 $creadsPrec :: Int -&gt; ReadS PhaseContext
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372842"><span id="local-6989586621679372844"><span id="local-6989586621679372846"><span class="annot"><span class="annottext">Int -&gt; PhaseContext -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372851"><span id="local-6989586621679372853"><span id="local-6989586621679372855"><span class="annot"><span class="annottext">Int -&gt; PhaseContext -&gt; ShowS
 [PhaseContext] -&gt; ShowS
 PhaseContext -&gt; String
 (Int -&gt; PhaseContext -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (PhaseContext -&gt; Maybe Text -&gt; PhaseContext)
 -&gt; Lens PhaseContext PhaseContext (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext%27"><span class="hs-identifier hs-type">PhaseContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372833"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext%27"><span class="hs-identifier hs-type">PhaseContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372842"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:PhaseContext' :: PhaseContext -&gt; Maybe Text
-</span><a href="#local-6989586621679372833"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372833"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372832"><span class="annot"><span class="annottext">s :: PhaseContext
-</span><a href="#local-6989586621679372832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext%27"><span class="hs-identifier hs-type">PhaseContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372831"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhaseContext
-</span><a href="#local-6989586621679372832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:PhaseContext' :: Maybe Text
+</span><a href="#local-6989586621679372842"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372842"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372841"><span class="annot"><span class="annottext">s :: PhaseContext
+</span><a href="#local-6989586621679372841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext%27"><span class="hs-identifier hs-type">PhaseContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372840"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhaseContext
+</span><a href="#local-6989586621679372841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:PhaseContext' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#%24sel%3Amessage%3APhaseContext%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext"><span class="hs-identifier hs-type">PhaseContext</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext"><span class="hs-identifier hs-type">PhaseContext</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The status code for the context of the build phase.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#phaseContext_statusCode"><span class="hs-identifier hs-type">phaseContext_statusCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext"><span class="hs-identifier hs-type">PhaseContext</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -144,19 +144,19 @@ $sel:message:PhaseContext' :: PhaseContext -&gt; Maybe Text
 -&gt; (PhaseContext -&gt; Maybe Text -&gt; PhaseContext)
 -&gt; Lens PhaseContext PhaseContext (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext%27"><span class="hs-identifier hs-type">PhaseContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372829"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext%27"><span class="hs-identifier hs-type">PhaseContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372838"><span class="annot"><span class="annottext">Maybe Text
 statusCode :: Maybe Text
 $sel:statusCode:PhaseContext' :: PhaseContext -&gt; Maybe Text
-</span><a href="#local-6989586621679372829"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372829"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372828"><span class="annot"><span class="annottext">s :: PhaseContext
-</span><a href="#local-6989586621679372828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext%27"><span class="hs-identifier hs-type">PhaseContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372827"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhaseContext
-</span><a href="#local-6989586621679372828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:PhaseContext' :: Maybe Text
+</span><a href="#local-6989586621679372838"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372838"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372837"><span class="annot"><span class="annottext">s :: PhaseContext
+</span><a href="#local-6989586621679372837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext%27"><span class="hs-identifier hs-type">PhaseContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372836"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhaseContext
+</span><a href="#local-6989586621679372837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:PhaseContext' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#%24sel%3AstatusCode%3APhaseContext%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext"><span class="hs-identifier hs-type">PhaseContext</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext"><span class="hs-identifier hs-type">PhaseContext</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372824"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext"><span class="hs-identifier hs-type">PhaseContext</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679372822"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PhaseContext
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372833"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext"><span class="hs-identifier hs-type">PhaseContext</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679372831"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PhaseContext
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PhaseContext) -&gt; Value -&gt; Parser PhaseContext
@@ -164,15 +164,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PhaseContext&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679372819"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372819"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679372828"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679372828"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; PhaseContext
 </span><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext%27"><span class="hs-identifier hs-var">PhaseContext'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; PhaseContext)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; PhaseContext)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372819"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679372828"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
@@ -180,13 +180,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser PhaseContext
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372819"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679372828"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statusCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372813"><span id="local-6989586621679372815"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext"><span class="hs-identifier hs-type">PhaseContext</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372822"><span id="local-6989586621679372824"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext"><span class="hs-identifier hs-type">PhaseContext</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372810"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext"><span class="hs-identifier hs-type">PhaseContext</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372819"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.PhaseContext.html#PhaseContext"><span class="hs-identifier hs-type">PhaseContext</span></a></span></span><span>
 </span><span id="line-81"></span></pre></body></html>

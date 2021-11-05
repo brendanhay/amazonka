@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteDBProxy' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679798523"><span id="local-6989586621679798524"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBProxy"><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy"><span class="hs-identifier hs-var">DeleteDBProxy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBProxy%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy%27"><span class="hs-identifier hs-var">DeleteDBProxy'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679798532"><span id="local-6989586621679798533"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBProxy"><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy"><span class="hs-identifier hs-var">DeleteDBProxy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBProxy%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy%27"><span class="hs-identifier hs-var">DeleteDBProxy'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the DB proxy to delete.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AdbProxyName%3ADeleteDBProxy%27"><span class="annot"><span class="annottext">DeleteDBProxy -&gt; Text
 </span><a href="Network.AWS.RDS.DeleteDBProxy.html#%24sel%3AdbProxyName%3ADeleteDBProxy%27"><span class="hs-identifier hs-var hs-var">dbProxyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679798517"><span id="local-6989586621679798519"><span class="annot"><span class="annottext">DeleteDBProxy -&gt; DeleteDBProxy -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679798526"><span id="local-6989586621679798528"><span class="annot"><span class="annottext">DeleteDBProxy -&gt; DeleteDBProxy -&gt; Bool
 (DeleteDBProxy -&gt; DeleteDBProxy -&gt; Bool)
 -&gt; (DeleteDBProxy -&gt; DeleteDBProxy -&gt; Bool) -&gt; Eq DeleteDBProxy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDBProxy -&gt; DeleteDBProxy -&gt; Bool
 == :: DeleteDBProxy -&gt; DeleteDBProxy -&gt; Bool
 $c== :: DeleteDBProxy -&gt; DeleteDBProxy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798508"><span id="local-6989586621679798510"><span id="local-6989586621679798512"><span id="local-6989586621679798514"><span class="annot"><span class="annottext">ReadPrec [DeleteDBProxy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798517"><span id="local-6989586621679798519"><span id="local-6989586621679798521"><span id="local-6989586621679798523"><span class="annot"><span class="annottext">ReadPrec [DeleteDBProxy]
 ReadPrec DeleteDBProxy
 Int -&gt; ReadS DeleteDBProxy
 ReadS [DeleteDBProxy]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteDBProxy]
 $creadList :: ReadS [DeleteDBProxy]
 readsPrec :: Int -&gt; ReadS DeleteDBProxy
 $creadsPrec :: Int -&gt; ReadS DeleteDBProxy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798501"><span id="local-6989586621679798503"><span id="local-6989586621679798505"><span class="annot"><span class="annottext">Int -&gt; DeleteDBProxy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798510"><span id="local-6989586621679798512"><span id="local-6989586621679798514"><span class="annot"><span class="annottext">Int -&gt; DeleteDBProxy -&gt; ShowS
 [DeleteDBProxy] -&gt; ShowS
 DeleteDBProxy -&gt; String
 (Int -&gt; DeleteDBProxy -&gt; ShowS)
@@ -120,12 +120,12 @@ $cfrom :: forall x. DeleteDBProxy -&gt; Rep DeleteDBProxy x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy"><span class="hs-identifier hs-type">DeleteDBProxy</span></a></span><span>
 </span><span id="line-69"></span><span id="newDeleteDBProxy"><span class="annot"><span class="annottext">newDeleteDBProxy :: Text -&gt; DeleteDBProxy
-</span><a href="Network.AWS.RDS.DeleteDBProxy.html#newDeleteDBProxy"><span class="hs-identifier hs-var hs-var">newDeleteDBProxy</span></a></span></span><span> </span><span id="local-6989586621679798496"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798496"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.DeleteDBProxy.html#newDeleteDBProxy"><span class="hs-identifier hs-var hs-var">newDeleteDBProxy</span></a></span></span><span> </span><span id="local-6989586621679798505"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798505"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteDBProxy' :: Text -&gt; DeleteDBProxy
 </span><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy%27"><span class="hs-identifier hs-type">DeleteDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxyName:DeleteDBProxy' :: Text
 </span><a href="Network.AWS.RDS.DeleteDBProxy.html#%24sel%3AdbProxyName%3ADeleteDBProxy%27"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798496"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679798505"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the DB proxy to delete.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#deleteDBProxy_dbProxyName"><span class="hs-identifier hs-type">deleteDBProxy_dbProxyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy"><span class="hs-identifier hs-type">DeleteDBProxy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -134,27 +134,27 @@ $cfrom :: forall x. DeleteDBProxy -&gt; Rep DeleteDBProxy x
 -&gt; (DeleteDBProxy -&gt; Text -&gt; DeleteDBProxy)
 -&gt; Lens DeleteDBProxy DeleteDBProxy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy%27"><span class="hs-identifier hs-type">DeleteDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798493"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy%27"><span class="hs-identifier hs-type">DeleteDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798502"><span class="annot"><span class="annottext">Text
 dbProxyName :: Text
 $sel:dbProxyName:DeleteDBProxy' :: DeleteDBProxy -&gt; Text
-</span><a href="#local-6989586621679798493"><span class="hs-identifier hs-var hs-var">dbProxyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798493"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798492"><span class="annot"><span class="annottext">s :: DeleteDBProxy
-</span><a href="#local-6989586621679798492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy%27"><span class="hs-identifier hs-type">DeleteDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798491"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBProxy
-</span><a href="#local-6989586621679798492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxyName:DeleteDBProxy' :: Text
+</span><a href="#local-6989586621679798502"><span class="hs-identifier hs-var hs-var">dbProxyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798502"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798501"><span class="annot"><span class="annottext">s :: DeleteDBProxy
+</span><a href="#local-6989586621679798501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy%27"><span class="hs-identifier hs-type">DeleteDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798500"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBProxy
+</span><a href="#local-6989586621679798501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxyName:DeleteDBProxy' :: Text
 </span><a href="Network.AWS.RDS.DeleteDBProxy.html#%24sel%3AdbProxyName%3ADeleteDBProxy%27"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy"><span class="hs-identifier hs-type">DeleteDBProxy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679798500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy"><span class="hs-identifier hs-type">DeleteDBProxy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy"><span class="hs-identifier hs-type">DeleteDBProxy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy"><span class="hs-identifier hs-type">DeleteDBProxy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse"><span class="hs-identifier hs-type">DeleteDBProxyResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679798487"><span class="annot"><span class="annottext">request :: DeleteDBProxy -&gt; Request DeleteDBProxy
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679798496"><span class="annot"><span class="annottext">request :: DeleteDBProxy -&gt; Request DeleteDBProxy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDBProxy -&gt; Request DeleteDBProxy
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679798483"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679798492"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDBProxy
 -&gt; ClientResponse ClientBody
@@ -183,10 +183,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteDBProxyResult&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679798480"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679798480"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679798479"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679798479"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679798478"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679798478"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679798489"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679798489"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679798488"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679798488"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679798487"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679798487"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBProxy -&gt; Int -&gt; DeleteDBProxyResponse
 </span><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse%27"><span class="hs-identifier hs-var">DeleteDBProxyResponse'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBProxy -&gt; Int -&gt; DeleteDBProxyResponse)
@@ -194,7 +194,7 @@ Text
 -&gt; Either String (Int -&gt; DeleteDBProxyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679798478"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBProxy)
+</span><a href="#local-6989586621679798487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBProxy)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBProxy&quot;</span></span><span class="hs-special">)</span><span>
@@ -206,15 +206,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679798480"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679798489"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798470"><span id="local-6989586621679798472"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy"><span class="hs-identifier hs-type">DeleteDBProxy</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798479"><span id="local-6989586621679798481"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy"><span class="hs-identifier hs-type">DeleteDBProxy</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798467"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy"><span class="hs-identifier hs-type">DeleteDBProxy</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798476"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy"><span class="hs-identifier hs-type">DeleteDBProxy</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy"><span class="hs-identifier hs-type">DeleteDBProxy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679798463"><span class="annot"><span class="annottext">toHeaders :: DeleteDBProxy -&gt; ResponseHeaders
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679798472"><span class="annot"><span class="annottext">toHeaders :: DeleteDBProxy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDBProxy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -222,18 +222,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy"><span class="hs-identifier hs-type">DeleteDBProxy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679798458"><span class="annot"><span class="annottext">toPath :: DeleteDBProxy -&gt; ByteString
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679798467"><span class="annot"><span class="annottext">toPath :: DeleteDBProxy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDBProxy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy"><span class="hs-identifier hs-type">DeleteDBProxy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679798454"><span class="annot"><span class="annottext">toQuery :: DeleteDBProxy -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy%27"><span class="hs-identifier hs-type">DeleteDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798452"><span class="annot"><span class="annottext">Text
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679798463"><span class="annot"><span class="annottext">toQuery :: DeleteDBProxy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxy%27"><span class="hs-identifier hs-type">DeleteDBProxy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798461"><span class="annot"><span class="annottext">Text
 dbProxyName :: Text
 $sel:dbProxyName:DeleteDBProxy' :: DeleteDBProxy -&gt; Text
-</span><a href="#local-6989586621679798452"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679798461"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -253,11 +253,11 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DBProxyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679798452"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span>
+</span><a href="#local-6989586621679798461"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | /See:/ 'newDeleteDBProxyResponse' smart constructor.</span><span>
-</span><span id="line-111"></span><span id="local-6989586621679798449"><span id="local-6989586621679798450"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBProxyResponse"><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse"><span class="hs-identifier hs-var">DeleteDBProxyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBProxyResponse%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse%27"><span class="hs-identifier hs-var">DeleteDBProxyResponse'</span></a></span></span><span>
+</span><span id="line-111"></span><span id="local-6989586621679798458"><span id="local-6989586621679798459"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBProxyResponse"><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse"><span class="hs-identifier hs-var">DeleteDBProxyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBProxyResponse%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse%27"><span class="hs-identifier hs-var">DeleteDBProxyResponse'</span></a></span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The data structure representing the details of the DB proxy that you</span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-comment">-- delete.</span><span>
 </span><span id="line-114"></span><span>    </span><span id="%24sel%3AdbProxy%3ADeleteDBProxyResponse%27"><span class="annot"><span class="annottext">DeleteDBProxyResponse -&gt; Maybe DBProxy
@@ -266,7 +266,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-116"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteDBProxyResponse%27"><span class="annot"><span class="annottext">DeleteDBProxyResponse -&gt; Int
 </span><a href="Network.AWS.RDS.DeleteDBProxy.html#%24sel%3AhttpStatus%3ADeleteDBProxyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679798443"><span id="local-6989586621679798445"><span class="annot"><span class="annottext">DeleteDBProxyResponse -&gt; DeleteDBProxyResponse -&gt; Bool
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679798452"><span id="local-6989586621679798454"><span class="annot"><span class="annottext">DeleteDBProxyResponse -&gt; DeleteDBProxyResponse -&gt; Bool
 (DeleteDBProxyResponse -&gt; DeleteDBProxyResponse -&gt; Bool)
 -&gt; (DeleteDBProxyResponse -&gt; DeleteDBProxyResponse -&gt; Bool)
 -&gt; Eq DeleteDBProxyResponse
@@ -275,7 +275,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDBProxyResponse -&gt; DeleteDBProxyResponse -&gt; Bool
 == :: DeleteDBProxyResponse -&gt; DeleteDBProxyResponse -&gt; Bool
 $c== :: DeleteDBProxyResponse -&gt; DeleteDBProxyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798435"><span id="local-6989586621679798437"><span id="local-6989586621679798439"><span id="local-6989586621679798441"><span class="annot"><span class="annottext">ReadPrec [DeleteDBProxyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798444"><span id="local-6989586621679798446"><span id="local-6989586621679798448"><span id="local-6989586621679798450"><span class="annot"><span class="annottext">ReadPrec [DeleteDBProxyResponse]
 ReadPrec DeleteDBProxyResponse
 Int -&gt; ReadS DeleteDBProxyResponse
 ReadS [DeleteDBProxyResponse]
@@ -295,7 +295,7 @@ readList :: ReadS [DeleteDBProxyResponse]
 $creadList :: ReadS [DeleteDBProxyResponse]
 readsPrec :: Int -&gt; ReadS DeleteDBProxyResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDBProxyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798429"><span id="local-6989586621679798431"><span id="local-6989586621679798433"><span class="annot"><span class="annottext">Int -&gt; DeleteDBProxyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798438"><span id="local-6989586621679798440"><span id="local-6989586621679798442"><span class="annot"><span class="annottext">Int -&gt; DeleteDBProxyResponse -&gt; ShowS
 [DeleteDBProxyResponse] -&gt; ShowS
 DeleteDBProxyResponse -&gt; String
 (Int -&gt; DeleteDBProxyResponse -&gt; ShowS)
@@ -338,8 +338,8 @@ $cfrom :: forall x. DeleteDBProxyResponse -&gt; Rep DeleteDBProxyResponse x
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse"><span class="hs-identifier hs-type">DeleteDBProxyResponse</span></a></span><span>
 </span><span id="line-136"></span><span id="newDeleteDBProxyResponse"><span class="annot"><span class="annottext">newDeleteDBProxyResponse :: Int -&gt; DeleteDBProxyResponse
-</span><a href="Network.AWS.RDS.DeleteDBProxy.html#newDeleteDBProxyResponse"><span class="hs-identifier hs-var hs-var">newDeleteDBProxyResponse</span></a></span></span><span> </span><span id="local-6989586621679798426"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679798426"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.DeleteDBProxy.html#newDeleteDBProxyResponse"><span class="hs-identifier hs-var hs-var">newDeleteDBProxyResponse</span></a></span></span><span> </span><span id="local-6989586621679798435"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679798435"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">DeleteDBProxyResponse' :: Maybe DBProxy -&gt; Int -&gt; DeleteDBProxyResponse
 </span><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse%27"><span class="hs-identifier hs-type">DeleteDBProxyResponse'</span></a></span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbProxy:DeleteDBProxyResponse' :: Maybe DBProxy
@@ -348,7 +348,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDBProxyResponse' :: Int
 </span><a href="Network.AWS.RDS.DeleteDBProxy.html#%24sel%3AhttpStatus%3ADeleteDBProxyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679798426"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679798435"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The data structure representing the details of the DB proxy that you</span><span>
@@ -365,16 +365,16 @@ forall a. Maybe a
      (Maybe DBProxy)
      (Maybe DBProxy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse%27"><span class="hs-identifier hs-type">DeleteDBProxyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798425"><span class="annot"><span class="annottext">Maybe DBProxy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse%27"><span class="hs-identifier hs-type">DeleteDBProxyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798434"><span class="annot"><span class="annottext">Maybe DBProxy
 dbProxy :: Maybe DBProxy
 $sel:dbProxy:DeleteDBProxyResponse' :: DeleteDBProxyResponse -&gt; Maybe DBProxy
-</span><a href="#local-6989586621679798425"><span class="hs-identifier hs-var hs-var">dbProxy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBProxy
-</span><a href="#local-6989586621679798425"><span class="hs-identifier hs-var">dbProxy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798424"><span class="annot"><span class="annottext">s :: DeleteDBProxyResponse
-</span><a href="#local-6989586621679798424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse%27"><span class="hs-identifier hs-type">DeleteDBProxyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798423"><span class="annot"><span class="annottext">Maybe DBProxy
-</span><a href="#local-6989586621679798423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBProxyResponse
-</span><a href="#local-6989586621679798424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxy:DeleteDBProxyResponse' :: Maybe DBProxy
+</span><a href="#local-6989586621679798434"><span class="hs-identifier hs-var hs-var">dbProxy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBProxy
+</span><a href="#local-6989586621679798434"><span class="hs-identifier hs-var">dbProxy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798433"><span class="annot"><span class="annottext">s :: DeleteDBProxyResponse
+</span><a href="#local-6989586621679798433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse%27"><span class="hs-identifier hs-type">DeleteDBProxyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798432"><span class="annot"><span class="annottext">Maybe DBProxy
+</span><a href="#local-6989586621679798432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBProxyResponse
+</span><a href="#local-6989586621679798433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxy:DeleteDBProxyResponse' :: Maybe DBProxy
 </span><a href="Network.AWS.RDS.DeleteDBProxy.html#%24sel%3AdbProxy%3ADeleteDBProxyResponse%27"><span class="hs-identifier hs-var">dbProxy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBProxy
-</span><a href="#local-6989586621679798423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse"><span class="hs-identifier hs-type">DeleteDBProxyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679798432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse"><span class="hs-identifier hs-type">DeleteDBProxyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#deleteDBProxyResponse_httpStatus"><span class="hs-identifier hs-type">deleteDBProxyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse"><span class="hs-identifier hs-type">DeleteDBProxyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -383,16 +383,16 @@ $sel:dbProxy:DeleteDBProxyResponse' :: DeleteDBProxyResponse -&gt; Maybe DBProxy
 -&gt; (DeleteDBProxyResponse -&gt; Int -&gt; DeleteDBProxyResponse)
 -&gt; Lens DeleteDBProxyResponse DeleteDBProxyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse%27"><span class="hs-identifier hs-type">DeleteDBProxyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798422"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse%27"><span class="hs-identifier hs-type">DeleteDBProxyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798431"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteDBProxyResponse' :: DeleteDBProxyResponse -&gt; Int
-</span><a href="#local-6989586621679798422"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679798422"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798421"><span class="annot"><span class="annottext">s :: DeleteDBProxyResponse
-</span><a href="#local-6989586621679798421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse%27"><span class="hs-identifier hs-type">DeleteDBProxyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798420"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679798420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBProxyResponse
-</span><a href="#local-6989586621679798421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDBProxyResponse' :: Int
+</span><a href="#local-6989586621679798431"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679798431"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798430"><span class="annot"><span class="annottext">s :: DeleteDBProxyResponse
+</span><a href="#local-6989586621679798430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse%27"><span class="hs-identifier hs-type">DeleteDBProxyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798429"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679798429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBProxyResponse
+</span><a href="#local-6989586621679798430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDBProxyResponse' :: Int
 </span><a href="Network.AWS.RDS.DeleteDBProxy.html#%24sel%3AhttpStatus%3ADeleteDBProxyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679798420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse"><span class="hs-identifier hs-type">DeleteDBProxyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679798429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse"><span class="hs-identifier hs-type">DeleteDBProxyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798418"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse"><span class="hs-identifier hs-type">DeleteDBProxyResponse</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798427"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBProxy.html#DeleteDBProxyResponse"><span class="hs-identifier hs-type">DeleteDBProxyResponse</span></a></span></span><span>
 </span><span id="line-152"></span></pre></body></html>

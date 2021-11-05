@@ -43,12 +43,12 @@
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.html"><span class="hs-identifier">Network.AWS.Transcribe.Types</span></a></span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- | /See:/ 'newDeleteVocabulary' smart constructor.</span><span>
-</span><span id="line-46"></span><span id="local-6989586621679284894"><span id="local-6989586621679284895"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVocabulary"><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary"><span class="hs-identifier hs-var">DeleteVocabulary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVocabulary%27"><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary%27"><span class="hs-identifier hs-var">DeleteVocabulary'</span></a></span></span><span>
+</span><span id="line-46"></span><span id="local-6989586621679284903"><span id="local-6989586621679284904"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVocabulary"><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary"><span class="hs-identifier hs-var">DeleteVocabulary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVocabulary%27"><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary%27"><span class="hs-identifier hs-var">DeleteVocabulary'</span></a></span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the vocabulary to delete.</span><span>
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AvocabularyName%3ADeleteVocabulary%27"><span class="annot"><span class="annottext">DeleteVocabulary -&gt; Text
 </span><a href="Network.AWS.Transcribe.DeleteVocabulary.html#%24sel%3AvocabularyName%3ADeleteVocabulary%27"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284888"><span id="local-6989586621679284890"><span class="annot"><span class="annottext">DeleteVocabulary -&gt; DeleteVocabulary -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284897"><span id="local-6989586621679284899"><span class="annot"><span class="annottext">DeleteVocabulary -&gt; DeleteVocabulary -&gt; Bool
 (DeleteVocabulary -&gt; DeleteVocabulary -&gt; Bool)
 -&gt; (DeleteVocabulary -&gt; DeleteVocabulary -&gt; Bool)
 -&gt; Eq DeleteVocabulary
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteVocabulary -&gt; DeleteVocabulary -&gt; Bool
 == :: DeleteVocabulary -&gt; DeleteVocabulary -&gt; Bool
 $c== :: DeleteVocabulary -&gt; DeleteVocabulary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284879"><span id="local-6989586621679284881"><span id="local-6989586621679284883"><span id="local-6989586621679284885"><span class="annot"><span class="annottext">ReadPrec [DeleteVocabulary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284888"><span id="local-6989586621679284890"><span id="local-6989586621679284892"><span id="local-6989586621679284894"><span class="annot"><span class="annottext">ReadPrec [DeleteVocabulary]
 ReadPrec DeleteVocabulary
 Int -&gt; ReadS DeleteVocabulary
 ReadS [DeleteVocabulary]
@@ -77,7 +77,7 @@ readList :: ReadS [DeleteVocabulary]
 $creadList :: ReadS [DeleteVocabulary]
 readsPrec :: Int -&gt; ReadS DeleteVocabulary
 $creadsPrec :: Int -&gt; ReadS DeleteVocabulary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284872"><span id="local-6989586621679284874"><span id="local-6989586621679284876"><span class="annot"><span class="annottext">Int -&gt; DeleteVocabulary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284881"><span id="local-6989586621679284883"><span id="local-6989586621679284885"><span class="annot"><span class="annottext">Int -&gt; DeleteVocabulary -&gt; ShowS
 [DeleteVocabulary] -&gt; ShowS
 DeleteVocabulary -&gt; String
 (Int -&gt; DeleteVocabulary -&gt; ShowS)
@@ -117,14 +117,14 @@ $cfrom :: forall x. DeleteVocabulary -&gt; Rep DeleteVocabulary x
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary"><span class="hs-identifier hs-type">DeleteVocabulary</span></a></span><span>
 </span><span id="line-65"></span><span id="newDeleteVocabulary"><span class="annot"><span class="annottext">newDeleteVocabulary :: Text -&gt; DeleteVocabulary
-</span><a href="Network.AWS.Transcribe.DeleteVocabulary.html#newDeleteVocabulary"><span class="hs-identifier hs-var hs-var">newDeleteVocabulary</span></a></span></span><span> </span><span id="local-6989586621679284867"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284867"><span class="hs-identifier hs-var">pVocabularyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Transcribe.DeleteVocabulary.html#newDeleteVocabulary"><span class="hs-identifier hs-var hs-var">newDeleteVocabulary</span></a></span></span><span> </span><span id="local-6989586621679284876"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284876"><span class="hs-identifier hs-var">pVocabularyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">DeleteVocabulary' :: Text -&gt; DeleteVocabulary
 </span><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary%27"><span class="hs-identifier hs-type">DeleteVocabulary'</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vocabularyName:DeleteVocabulary' :: Text
 </span><a href="Network.AWS.Transcribe.DeleteVocabulary.html#%24sel%3AvocabularyName%3ADeleteVocabulary%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284867"><span class="hs-identifier hs-var">pVocabularyName_</span></a></span><span>
+</span><a href="#local-6989586621679284876"><span class="hs-identifier hs-var">pVocabularyName_</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The name of the vocabulary to delete.</span><span>
@@ -134,27 +134,27 @@ $cfrom :: forall x. DeleteVocabulary -&gt; Rep DeleteVocabulary x
 -&gt; (DeleteVocabulary -&gt; Text -&gt; DeleteVocabulary)
 -&gt; Lens DeleteVocabulary DeleteVocabulary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary%27"><span class="hs-identifier hs-type">DeleteVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284864"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary%27"><span class="hs-identifier hs-type">DeleteVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284873"><span class="annot"><span class="annottext">Text
 vocabularyName :: Text
 $sel:vocabularyName:DeleteVocabulary' :: DeleteVocabulary -&gt; Text
-</span><a href="#local-6989586621679284864"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284864"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284863"><span class="annot"><span class="annottext">s :: DeleteVocabulary
-</span><a href="#local-6989586621679284863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary%27"><span class="hs-identifier hs-type">DeleteVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284862"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVocabulary
-</span><a href="#local-6989586621679284863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:DeleteVocabulary' :: Text
+</span><a href="#local-6989586621679284873"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284873"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284872"><span class="annot"><span class="annottext">s :: DeleteVocabulary
+</span><a href="#local-6989586621679284872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary%27"><span class="hs-identifier hs-type">DeleteVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284871"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVocabulary
+</span><a href="#local-6989586621679284872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:DeleteVocabulary' :: Text
 </span><a href="Network.AWS.Transcribe.DeleteVocabulary.html#%24sel%3AvocabularyName%3ADeleteVocabulary%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary"><span class="hs-identifier hs-type">DeleteVocabulary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary"><span class="hs-identifier hs-type">DeleteVocabulary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary"><span class="hs-identifier hs-type">DeleteVocabulary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary"><span class="hs-identifier hs-type">DeleteVocabulary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabularyResponse"><span class="hs-identifier hs-type">DeleteVocabularyResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679284858"><span class="annot"><span class="annottext">request :: DeleteVocabulary -&gt; Request DeleteVocabulary
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679284867"><span class="annot"><span class="annottext">request :: DeleteVocabulary -&gt; Request DeleteVocabulary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteVocabulary -&gt; Request DeleteVocabulary
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Transcribe.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679284854"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679284863"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteVocabulary
 -&gt; ClientResponse ClientBody
@@ -178,12 +178,12 @@ AWSResponse a
 DeleteVocabularyResponse
 </span><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabularyResponse%27"><span class="hs-identifier hs-var">DeleteVocabularyResponse'</span></a></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284847"><span id="local-6989586621679284849"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary"><span class="hs-identifier hs-type">DeleteVocabulary</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284856"><span id="local-6989586621679284858"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary"><span class="hs-identifier hs-type">DeleteVocabulary</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284844"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary"><span class="hs-identifier hs-type">DeleteVocabulary</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284853"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary"><span class="hs-identifier hs-type">DeleteVocabulary</span></a></span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary"><span class="hs-identifier hs-type">DeleteVocabulary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679284840"><span class="annot"><span class="annottext">toHeaders :: DeleteVocabulary -&gt; [Header]
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679284849"><span class="annot"><span class="annottext">toHeaders :: DeleteVocabulary -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteVocabulary -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -210,12 +210,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284830"><span id="local-6989586621679284832"><span id="local-6989586621679284834"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary"><span class="hs-identifier hs-type">DeleteVocabulary</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679284828"><span class="annot"><span class="annottext">toJSON :: DeleteVocabulary -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary%27"><span class="hs-identifier hs-type">DeleteVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284826"><span class="annot"><span class="annottext">Text
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284839"><span id="local-6989586621679284841"><span id="local-6989586621679284843"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary"><span class="hs-identifier hs-type">DeleteVocabulary</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679284837"><span class="annot"><span class="annottext">toJSON :: DeleteVocabulary -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary%27"><span class="hs-identifier hs-type">DeleteVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284835"><span class="annot"><span class="annottext">Text
 vocabularyName :: Text
 $sel:vocabularyName:DeleteVocabulary' :: DeleteVocabulary -&gt; Text
-</span><a href="#local-6989586621679284826"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679284835"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -228,19 +228,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;VocabularyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284826"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284835"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary"><span class="hs-identifier hs-type">DeleteVocabulary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679284820"><span class="annot"><span class="annottext">toPath :: DeleteVocabulary -&gt; ByteString
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679284829"><span class="annot"><span class="annottext">toPath :: DeleteVocabulary -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteVocabulary -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabulary"><span class="hs-identifier hs-type">DeleteVocabulary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679284816"><span class="annot"><span class="annottext">toQuery :: DeleteVocabulary -&gt; QueryString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679284825"><span class="annot"><span class="annottext">toQuery :: DeleteVocabulary -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteVocabulary -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -248,10 +248,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | /See:/ 'newDeleteVocabularyResponse' smart constructor.</span><span>
-</span><span id="line-118"></span><span id="local-6989586621679284813"><span id="local-6989586621679284814"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVocabularyResponse"><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabularyResponse"><span class="hs-identifier hs-var">DeleteVocabularyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVocabularyResponse%27"><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabularyResponse%27"><span class="hs-identifier hs-var">DeleteVocabularyResponse'</span></a></span></span><span>
+</span><span id="line-118"></span><span id="local-6989586621679284822"><span id="local-6989586621679284823"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVocabularyResponse"><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabularyResponse"><span class="hs-identifier hs-var">DeleteVocabularyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVocabularyResponse%27"><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabularyResponse%27"><span class="hs-identifier hs-var">DeleteVocabularyResponse'</span></a></span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284809"><span id="local-6989586621679284811"><span class="annot"><span class="annottext">DeleteVocabularyResponse -&gt; DeleteVocabularyResponse -&gt; Bool
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284818"><span id="local-6989586621679284820"><span class="annot"><span class="annottext">DeleteVocabularyResponse -&gt; DeleteVocabularyResponse -&gt; Bool
 (DeleteVocabularyResponse -&gt; DeleteVocabularyResponse -&gt; Bool)
 -&gt; (DeleteVocabularyResponse -&gt; DeleteVocabularyResponse -&gt; Bool)
 -&gt; Eq DeleteVocabularyResponse
@@ -260,7 +260,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteVocabularyResponse -&gt; DeleteVocabularyResponse -&gt; Bool
 == :: DeleteVocabularyResponse -&gt; DeleteVocabularyResponse -&gt; Bool
 $c== :: DeleteVocabularyResponse -&gt; DeleteVocabularyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284801"><span id="local-6989586621679284803"><span id="local-6989586621679284805"><span id="local-6989586621679284807"><span class="annot"><span class="annottext">ReadPrec [DeleteVocabularyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284810"><span id="local-6989586621679284812"><span id="local-6989586621679284814"><span id="local-6989586621679284816"><span class="annot"><span class="annottext">ReadPrec [DeleteVocabularyResponse]
 ReadPrec DeleteVocabularyResponse
 Int -&gt; ReadS DeleteVocabularyResponse
 ReadS [DeleteVocabularyResponse]
@@ -280,7 +280,7 @@ readList :: ReadS [DeleteVocabularyResponse]
 $creadList :: ReadS [DeleteVocabularyResponse]
 readsPrec :: Int -&gt; ReadS DeleteVocabularyResponse
 $creadsPrec :: Int -&gt; ReadS DeleteVocabularyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284795"><span id="local-6989586621679284797"><span id="local-6989586621679284799"><span class="annot"><span class="annottext">Int -&gt; DeleteVocabularyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284804"><span id="local-6989586621679284806"><span id="local-6989586621679284808"><span class="annot"><span class="annottext">Int -&gt; DeleteVocabularyResponse -&gt; ShowS
 [DeleteVocabularyResponse] -&gt; ShowS
 DeleteVocabularyResponse -&gt; String
 (Int -&gt; DeleteVocabularyResponse -&gt; ShowS)
@@ -323,5 +323,5 @@ DeleteVocabularyResponse -&gt; Rep DeleteVocabularyResponse x
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">DeleteVocabularyResponse
 </span><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabularyResponse%27"><span class="hs-identifier hs-var">DeleteVocabularyResponse'</span></a></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284791"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabularyResponse"><span class="hs-identifier hs-type">DeleteVocabularyResponse</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284800"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.DeleteVocabulary.html#DeleteVocabularyResponse"><span class="hs-identifier hs-type">DeleteVocabularyResponse</span></a></span></span><span>
 </span><span id="line-133"></span></pre></body></html>

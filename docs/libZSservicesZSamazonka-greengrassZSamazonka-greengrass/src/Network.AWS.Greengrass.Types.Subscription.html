@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about a subscription.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSubscription' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679347249"><span id="local-6989586621679347250"></span></span><span class="hs-keyword">data</span><span> </span><span id="Subscription"><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-var">Subscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Subscription%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-var">Subscription'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679347258"><span id="local-6989586621679347259"></span></span><span class="hs-keyword">data</span><span> </span><span id="Subscription"><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-var">Subscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Subscription%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-var">Subscription'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Where the message is sent to. Can be a thing ARN, a Lambda function ARN,</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- a connector ARN, \'cloud\' (which represents the AWS IoT cloud), or</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- \'GGShadowService\'.</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Asource%3ASubscription%27"><span class="annot"><span class="annottext">Subscription -&gt; Text
 </span><a href="Network.AWS.Greengrass.Types.Subscription.html#%24sel%3Asource%3ASubscription%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347240"><span id="local-6989586621679347242"><span class="annot"><span class="annottext">Subscription -&gt; Subscription -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347249"><span id="local-6989586621679347251"><span class="annot"><span class="annottext">Subscription -&gt; Subscription -&gt; Bool
 (Subscription -&gt; Subscription -&gt; Bool)
 -&gt; (Subscription -&gt; Subscription -&gt; Bool) -&gt; Eq Subscription
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Subscription -&gt; Subscription -&gt; Bool
 == :: Subscription -&gt; Subscription -&gt; Bool
 $c== :: Subscription -&gt; Subscription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347231"><span id="local-6989586621679347233"><span id="local-6989586621679347235"><span id="local-6989586621679347237"><span class="annot"><span class="annottext">ReadPrec [Subscription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347240"><span id="local-6989586621679347242"><span id="local-6989586621679347244"><span id="local-6989586621679347246"><span class="annot"><span class="annottext">ReadPrec [Subscription]
 ReadPrec Subscription
 Int -&gt; ReadS Subscription
 ReadS [Subscription]
@@ -74,7 +74,7 @@ readList :: ReadS [Subscription]
 $creadList :: ReadS [Subscription]
 readsPrec :: Int -&gt; ReadS Subscription
 $creadsPrec :: Int -&gt; ReadS Subscription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347224"><span id="local-6989586621679347226"><span id="local-6989586621679347228"><span class="annot"><span class="annottext">Int -&gt; Subscription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347233"><span id="local-6989586621679347235"><span id="local-6989586621679347237"><span class="annot"><span class="annottext">Int -&gt; Subscription -&gt; ShowS
 [Subscription] -&gt; ShowS
 Subscription -&gt; String
 (Int -&gt; Subscription -&gt; ShowS)
@@ -132,25 +132,25 @@ $cfrom :: forall x. Subscription -&gt; Rep Subscription x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span>
 </span><span id="line-78"></span><span id="newSubscription"><span class="annot"><span class="annottext">newSubscription :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; Subscription
-</span><a href="Network.AWS.Greengrass.Types.Subscription.html#newSubscription"><span class="hs-identifier hs-var hs-var">newSubscription</span></a></span></span><span> </span><span id="local-6989586621679347218"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347218"><span class="hs-identifier hs-var">pTarget_</span></a></span></span><span> </span><span id="local-6989586621679347217"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347217"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679347216"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347216"><span class="hs-identifier hs-var">pSubject_</span></a></span></span><span> </span><span id="local-6989586621679347215"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347215"><span class="hs-identifier hs-var">pSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.Types.Subscription.html#newSubscription"><span class="hs-identifier hs-var hs-var">newSubscription</span></a></span></span><span> </span><span id="local-6989586621679347227"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347227"><span class="hs-identifier hs-var">pTarget_</span></a></span></span><span> </span><span id="local-6989586621679347226"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347226"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679347225"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347225"><span class="hs-identifier hs-var">pSubject_</span></a></span></span><span> </span><span id="local-6989586621679347224"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347224"><span class="hs-identifier hs-var">pSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">Subscription' :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; Subscription
 </span><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:target:Subscription' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Subscription.html#%24sel%3Atarget%3ASubscription%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347218"><span class="hs-identifier hs-var">pTarget_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347227"><span class="hs-identifier hs-var">pTarget_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Subscription' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Subscription.html#%24sel%3Aid%3ASubscription%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347217"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347226"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:subject:Subscription' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Subscription.html#%24sel%3Asubject%3ASubscription%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347216"><span class="hs-identifier hs-var">pSubject_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347225"><span class="hs-identifier hs-var">pSubject_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:Subscription' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Subscription.html#%24sel%3Asource%3ASubscription%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347215"><span class="hs-identifier hs-var">pSource_</span></a></span><span>
+</span><a href="#local-6989586621679347224"><span class="hs-identifier hs-var">pSource_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | Where the message is sent to. Can be a thing ARN, a Lambda function ARN,</span><span>
@@ -162,16 +162,16 @@ $cfrom :: forall x. Subscription -&gt; Rep Subscription x
 -&gt; (Subscription -&gt; Text -&gt; Subscription)
 -&gt; Lens Subscription Subscription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347211"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347220"><span class="annot"><span class="annottext">Text
 target :: Text
 $sel:target:Subscription' :: Subscription -&gt; Text
-</span><a href="#local-6989586621679347211"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347211"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347210"><span class="annot"><span class="annottext">s :: Subscription
-</span><a href="#local-6989586621679347210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347209"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscription
-</span><a href="#local-6989586621679347210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:Subscription' :: Text
+</span><a href="#local-6989586621679347220"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347220"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347219"><span class="annot"><span class="annottext">s :: Subscription
+</span><a href="#local-6989586621679347219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347218"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscription
+</span><a href="#local-6989586621679347219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:Subscription' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Subscription.html#%24sel%3Atarget%3ASubscription%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | A descriptive or arbitrary ID for the subscription. This value must be</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- unique within the subscription definition version. Max length is 128</span><span>
@@ -182,16 +182,16 @@ $sel:target:Subscription' :: Subscription -&gt; Text
 -&gt; (Subscription -&gt; Text -&gt; Subscription)
 -&gt; Lens Subscription Subscription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347207"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347216"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:Subscription' :: Subscription -&gt; Text
-</span><a href="#local-6989586621679347207"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347207"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347206"><span class="annot"><span class="annottext">s :: Subscription
-</span><a href="#local-6989586621679347206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347205"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscription
-</span><a href="#local-6989586621679347206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Subscription' :: Text
+</span><a href="#local-6989586621679347216"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347216"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347215"><span class="annot"><span class="annottext">s :: Subscription
+</span><a href="#local-6989586621679347215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347214"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscription
+</span><a href="#local-6989586621679347215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Subscription' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Subscription.html#%24sel%3Aid%3ASubscription%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The MQTT topic used to route the message.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#subscription_subject"><span class="hs-identifier hs-type">subscription_subject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -200,16 +200,16 @@ $sel:id:Subscription' :: Subscription -&gt; Text
 -&gt; (Subscription -&gt; Text -&gt; Subscription)
 -&gt; Lens Subscription Subscription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347203"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347212"><span class="annot"><span class="annottext">Text
 subject :: Text
 $sel:subject:Subscription' :: Subscription -&gt; Text
-</span><a href="#local-6989586621679347203"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347203"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347202"><span class="annot"><span class="annottext">s :: Subscription
-</span><a href="#local-6989586621679347202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347201"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscription
-</span><a href="#local-6989586621679347202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:Subscription' :: Text
+</span><a href="#local-6989586621679347212"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347212"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347211"><span class="annot"><span class="annottext">s :: Subscription
+</span><a href="#local-6989586621679347211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347210"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscription
+</span><a href="#local-6989586621679347211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:Subscription' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Subscription.html#%24sel%3Asubject%3ASubscription%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The source of the subscription. Can be a thing ARN, a Lambda function</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- ARN, a connector ARN, \'cloud\' (which represents the AWS IoT cloud), or</span><span>
@@ -220,19 +220,19 @@ $sel:subject:Subscription' :: Subscription -&gt; Text
 -&gt; (Subscription -&gt; Text -&gt; Subscription)
 -&gt; Lens Subscription Subscription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347199"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347208"><span class="annot"><span class="annottext">Text
 source :: Text
 $sel:source:Subscription' :: Subscription -&gt; Text
-</span><a href="#local-6989586621679347199"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347199"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347198"><span class="annot"><span class="annottext">s :: Subscription
-</span><a href="#local-6989586621679347198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347197"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscription
-</span><a href="#local-6989586621679347198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:Subscription' :: Text
+</span><a href="#local-6989586621679347208"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347208"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347207"><span class="annot"><span class="annottext">s :: Subscription
+</span><a href="#local-6989586621679347207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347206"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscription
+</span><a href="#local-6989586621679347207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:Subscription' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Subscription.html#%24sel%3Asource%3ASubscription%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347194"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679347192"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Subscription
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347203"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679347201"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Subscription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Subscription) -&gt; Value -&gt; Parser Subscription
@@ -240,15 +240,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Subscription&quot;</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347189"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347189"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347198"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679347198"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text -&gt; Text -&gt; Subscription
 </span><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-var">Subscription'</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Text -&gt; Text -&gt; Subscription)
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; Subscription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679347198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Target&quot;</span></span><span class="hs-special">)</span><span>
@@ -256,7 +256,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; Subscription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679347198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -264,26 +264,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; Subscription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679347198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Subject&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Subscription) -&gt; Parser Text -&gt; Parser Subscription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679347198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Source&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347183"><span id="local-6989586621679347185"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347192"><span id="local-6989586621679347194"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347180"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347189"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347172"><span id="local-6989586621679347174"><span id="local-6989586621679347176"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679347170"><span class="annot"><span class="annottext">toJSON :: Subscription -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347165"><span id="local-6989586621679347166"><span id="local-6989586621679347167"><span id="local-6989586621679347168"><span class="annot"><span class="annottext">Text
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347181"><span id="local-6989586621679347183"><span id="local-6989586621679347185"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679347179"><span class="annot"><span class="annottext">toJSON :: Subscription -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Subscription.html#Subscription%27"><span class="hs-identifier hs-type">Subscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347174"><span id="local-6989586621679347175"><span id="local-6989586621679347176"><span id="local-6989586621679347177"><span class="annot"><span class="annottext">Text
 source :: Text
 subject :: Text
 id :: Text
@@ -292,7 +292,7 @@ $sel:source:Subscription' :: Subscription -&gt; Text
 $sel:subject:Subscription' :: Subscription -&gt; Text
 $sel:id:Subscription' :: Subscription -&gt; Text
 $sel:target:Subscription' :: Subscription -&gt; Text
-</span><a href="#local-6989586621679347165"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679347174"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -304,28 +304,28 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Target&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347168"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347177"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347167"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347176"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Subject&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347166"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347175"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Source&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347165"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347174"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span></pre></body></html>

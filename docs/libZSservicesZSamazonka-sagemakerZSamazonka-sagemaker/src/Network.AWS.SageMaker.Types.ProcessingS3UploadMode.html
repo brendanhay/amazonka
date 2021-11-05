@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680332570"><span id="local-6989586621680332571"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProcessingS3UploadMode"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3UploadMode.html#ProcessingS3UploadMode"><span class="hs-identifier hs-var">ProcessingS3UploadMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingS3UploadMode%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3UploadMode.html#ProcessingS3UploadMode%27"><span class="hs-identifier hs-var">ProcessingS3UploadMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680332579"><span id="local-6989586621680332580"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProcessingS3UploadMode"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3UploadMode.html#ProcessingS3UploadMode"><span class="hs-identifier hs-var">ProcessingS3UploadMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingS3UploadMode%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3UploadMode.html#ProcessingS3UploadMode%27"><span class="hs-identifier hs-var">ProcessingS3UploadMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProcessingS3UploadMode"><span class="annot"><span class="annottext">ProcessingS3UploadMode -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ProcessingS3UploadMode.html#fromProcessingS3UploadMode"><span class="hs-identifier hs-var hs-var">fromProcessingS3UploadMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680332562"><span id="local-6989586621680332564"><span id="local-6989586621680332566"><span class="annot"><span class="annottext">Int -&gt; ProcessingS3UploadMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680332571"><span id="local-6989586621680332573"><span id="local-6989586621680332575"><span class="annot"><span class="annottext">Int -&gt; ProcessingS3UploadMode -&gt; ShowS
 [ProcessingS3UploadMode] -&gt; ShowS
 ProcessingS3UploadMode -&gt; String
 (Int -&gt; ProcessingS3UploadMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ProcessingS3UploadMode -&gt; String
 showsPrec :: Int -&gt; ProcessingS3UploadMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProcessingS3UploadMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680332553"><span id="local-6989586621680332555"><span id="local-6989586621680332557"><span id="local-6989586621680332559"><span class="annot"><span class="annottext">ReadPrec [ProcessingS3UploadMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680332562"><span id="local-6989586621680332564"><span id="local-6989586621680332566"><span id="local-6989586621680332568"><span class="annot"><span class="annottext">ReadPrec [ProcessingS3UploadMode]
 ReadPrec ProcessingS3UploadMode
 Int -&gt; ReadS ProcessingS3UploadMode
 ReadS [ProcessingS3UploadMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ProcessingS3UploadMode]
 readsPrec :: Int -&gt; ReadS ProcessingS3UploadMode
 $creadsPrec :: Int -&gt; ReadS ProcessingS3UploadMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680332548"><span id="local-6989586621680332550"><span class="annot"><span class="annottext">ProcessingS3UploadMode -&gt; ProcessingS3UploadMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680332557"><span id="local-6989586621680332559"><span class="annot"><span class="annottext">ProcessingS3UploadMode -&gt; ProcessingS3UploadMode -&gt; Bool
 (ProcessingS3UploadMode -&gt; ProcessingS3UploadMode -&gt; Bool)
 -&gt; (ProcessingS3UploadMode -&gt; ProcessingS3UploadMode -&gt; Bool)
 -&gt; Eq ProcessingS3UploadMode
@@ -82,7 +82,7 @@ $c/= :: ProcessingS3UploadMode -&gt; ProcessingS3UploadMode -&gt; Bool
 == :: ProcessingS3UploadMode -&gt; ProcessingS3UploadMode -&gt; Bool
 $c== :: ProcessingS3UploadMode -&gt; ProcessingS3UploadMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680332532"><span id="local-6989586621680332534"><span id="local-6989586621680332536"><span id="local-6989586621680332538"><span id="local-6989586621680332540"><span id="local-6989586621680332542"><span id="local-6989586621680332544"><span class="annot"><span class="annottext">Eq ProcessingS3UploadMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680332541"><span id="local-6989586621680332543"><span id="local-6989586621680332545"><span id="local-6989586621680332547"><span id="local-6989586621680332549"><span id="local-6989586621680332551"><span id="local-6989586621680332553"><span class="annot"><span class="annottext">Eq ProcessingS3UploadMode
 Eq ProcessingS3UploadMode
 -&gt; (ProcessingS3UploadMode -&gt; ProcessingS3UploadMode -&gt; Ordering)
 -&gt; (ProcessingS3UploadMode -&gt; ProcessingS3UploadMode -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. ProcessingS3UploadMode -&gt; Rep ProcessingS3UploadMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680332524"><span id="local-6989586621680332526"><span class="annot"><span class="annottext">Int -&gt; ProcessingS3UploadMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680332533"><span id="local-6989586621680332535"><span class="annot"><span class="annottext">Int -&gt; ProcessingS3UploadMode -&gt; Int
 ProcessingS3UploadMode -&gt; Int
 (Int -&gt; ProcessingS3UploadMode -&gt; Int)
 -&gt; (ProcessingS3UploadMode -&gt; Int)
@@ -152,54 +152,54 @@ $chash :: ProcessingS3UploadMode -&gt; Int
 hashWithSalt :: Int -&gt; ProcessingS3UploadMode -&gt; Int
 $chashWithSalt :: Int -&gt; ProcessingS3UploadMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680332521"><span class="annot"><span class="annottext">ProcessingS3UploadMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680332530"><span class="annot"><span class="annottext">ProcessingS3UploadMode -&gt; ()
 (ProcessingS3UploadMode -&gt; ()) -&gt; NFData ProcessingS3UploadMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProcessingS3UploadMode -&gt; ()
 $crnf :: ProcessingS3UploadMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680332518"><span class="annot"><span class="annottext">Text -&gt; Either String ProcessingS3UploadMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680332527"><span class="annot"><span class="annottext">Text -&gt; Either String ProcessingS3UploadMode
 (Text -&gt; Either String ProcessingS3UploadMode)
 -&gt; FromText ProcessingS3UploadMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProcessingS3UploadMode
 $cfromText :: Text -&gt; Either String ProcessingS3UploadMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680332515"><span class="annot"><span class="annottext">ProcessingS3UploadMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680332524"><span class="annot"><span class="annottext">ProcessingS3UploadMode -&gt; Text
 (ProcessingS3UploadMode -&gt; Text) -&gt; ToText ProcessingS3UploadMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProcessingS3UploadMode -&gt; Text
 $ctoText :: ProcessingS3UploadMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680332512"><span class="annot"><span class="annottext">ProcessingS3UploadMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680332521"><span class="annot"><span class="annottext">ProcessingS3UploadMode -&gt; ByteString
 (ProcessingS3UploadMode -&gt; ByteString)
 -&gt; ToByteString ProcessingS3UploadMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProcessingS3UploadMode -&gt; ByteString
 $ctoBS :: ProcessingS3UploadMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680332509"><span class="annot"><span class="annottext">ProcessingS3UploadMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680332518"><span class="annot"><span class="annottext">ProcessingS3UploadMode -&gt; ByteStringBuilder
 (ProcessingS3UploadMode -&gt; ByteStringBuilder)
 -&gt; ToLog ProcessingS3UploadMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProcessingS3UploadMode -&gt; ByteStringBuilder
 $cbuild :: ProcessingS3UploadMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680332506"><span class="annot"><span class="annottext">HeaderName -&gt; ProcessingS3UploadMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680332515"><span class="annot"><span class="annottext">HeaderName -&gt; ProcessingS3UploadMode -&gt; [Header]
 (HeaderName -&gt; ProcessingS3UploadMode -&gt; [Header])
 -&gt; ToHeader ProcessingS3UploadMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProcessingS3UploadMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProcessingS3UploadMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680332503"><span class="annot"><span class="annottext">ProcessingS3UploadMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680332512"><span class="annot"><span class="annottext">ProcessingS3UploadMode -&gt; QueryString
 (ProcessingS3UploadMode -&gt; QueryString)
 -&gt; ToQuery ProcessingS3UploadMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProcessingS3UploadMode -&gt; QueryString
 $ctoQuery :: ProcessingS3UploadMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680332498"><span id="local-6989586621680332500"><span class="annot"><span class="annottext">Value -&gt; Parser [ProcessingS3UploadMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680332507"><span id="local-6989586621680332509"><span class="annot"><span class="annottext">Value -&gt; Parser [ProcessingS3UploadMode]
 Value -&gt; Parser ProcessingS3UploadMode
 (Value -&gt; Parser ProcessingS3UploadMode)
 -&gt; (Value -&gt; Parser [ProcessingS3UploadMode])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [ProcessingS3UploadMode]
 parseJSON :: Value -&gt; Parser ProcessingS3UploadMode
 $cparseJSON :: Value -&gt; Parser ProcessingS3UploadMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680332493"><span id="local-6989586621680332495"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProcessingS3UploadMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680332502"><span id="local-6989586621680332504"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProcessingS3UploadMode]
 FromJSONKeyFunction ProcessingS3UploadMode
 FromJSONKeyFunction ProcessingS3UploadMode
 -&gt; FromJSONKeyFunction [ProcessingS3UploadMode]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProcessingS3UploadMode]
 fromJSONKey :: FromJSONKeyFunction ProcessingS3UploadMode
 $cfromJSONKey :: FromJSONKeyFunction ProcessingS3UploadMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680332484"><span id="local-6989586621680332486"><span id="local-6989586621680332488"><span id="local-6989586621680332490"><span class="annot"><span class="annottext">[ProcessingS3UploadMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680332493"><span id="local-6989586621680332495"><span id="local-6989586621680332497"><span id="local-6989586621680332499"><span class="annot"><span class="annottext">[ProcessingS3UploadMode] -&gt; Encoding
 [ProcessingS3UploadMode] -&gt; Value
 ProcessingS3UploadMode -&gt; Encoding
 ProcessingS3UploadMode -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: ProcessingS3UploadMode -&gt; Encoding
 toJSON :: ProcessingS3UploadMode -&gt; Value
 $ctoJSON :: ProcessingS3UploadMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680332479"><span id="local-6989586621680332481"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProcessingS3UploadMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680332488"><span id="local-6989586621680332490"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProcessingS3UploadMode]
 ToJSONKeyFunction ProcessingS3UploadMode
 ToJSONKeyFunction ProcessingS3UploadMode
 -&gt; ToJSONKeyFunction [ProcessingS3UploadMode]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProcessingS3UploadMode]
 toJSONKey :: ToJSONKeyFunction ProcessingS3UploadMode
 $ctoJSONKey :: ToJSONKeyFunction ProcessingS3UploadMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680332476"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProcessingS3UploadMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680332485"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProcessingS3UploadMode
 ([Node] -&gt; Either String ProcessingS3UploadMode)
 -&gt; FromXML ProcessingS3UploadMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProcessingS3UploadMode
 $cparseXML :: [Node] -&gt; Either String ProcessingS3UploadMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680332473"><span class="annot"><span class="annottext">ProcessingS3UploadMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680332482"><span class="annot"><span class="annottext">ProcessingS3UploadMode -&gt; XML
 (ProcessingS3UploadMode -&gt; XML) -&gt; ToXML ProcessingS3UploadMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ProcessingS3UploadMode -&gt; XML

@@ -45,13 +45,13 @@
 </span><span id="line-45"></span><span class="hs-comment">-- the same polarity as the source. If the source is progressive, the</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- output will be interlaced with top field bottom field first, depending</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- on which of the Follow options you choose.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621680022110"><span id="local-6989586621680022111"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="XavcInterlaceMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcInterlaceMode.html#XavcInterlaceMode"><span class="hs-identifier hs-var">XavcInterlaceMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="XavcInterlaceMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcInterlaceMode.html#XavcInterlaceMode%27"><span class="hs-identifier hs-var">XavcInterlaceMode'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621680022119"><span id="local-6989586621680022120"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="XavcInterlaceMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcInterlaceMode.html#XavcInterlaceMode"><span class="hs-identifier hs-var">XavcInterlaceMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="XavcInterlaceMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcInterlaceMode.html#XavcInterlaceMode%27"><span class="hs-identifier hs-var">XavcInterlaceMode'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromXavcInterlaceMode"><span class="annot"><span class="annottext">XavcInterlaceMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.XavcInterlaceMode.html#fromXavcInterlaceMode"><span class="hs-identifier hs-var hs-var">fromXavcInterlaceMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680022102"><span id="local-6989586621680022104"><span id="local-6989586621680022106"><span class="annot"><span class="annottext">Int -&gt; XavcInterlaceMode -&gt; ShowS
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680022111"><span id="local-6989586621680022113"><span id="local-6989586621680022115"><span class="annot"><span class="annottext">Int -&gt; XavcInterlaceMode -&gt; ShowS
 [XavcInterlaceMode] -&gt; ShowS
 XavcInterlaceMode -&gt; String
 (Int -&gt; XavcInterlaceMode -&gt; ShowS)
@@ -67,7 +67,7 @@ $cshow :: XavcInterlaceMode -&gt; String
 showsPrec :: Int -&gt; XavcInterlaceMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; XavcInterlaceMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680022093"><span id="local-6989586621680022095"><span id="local-6989586621680022097"><span id="local-6989586621680022099"><span class="annot"><span class="annottext">ReadPrec [XavcInterlaceMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680022102"><span id="local-6989586621680022104"><span id="local-6989586621680022106"><span id="local-6989586621680022108"><span class="annot"><span class="annottext">ReadPrec [XavcInterlaceMode]
 ReadPrec XavcInterlaceMode
 Int -&gt; ReadS XavcInterlaceMode
 ReadS [XavcInterlaceMode]
@@ -88,7 +88,7 @@ $creadList :: ReadS [XavcInterlaceMode]
 readsPrec :: Int -&gt; ReadS XavcInterlaceMode
 $creadsPrec :: Int -&gt; ReadS XavcInterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680022088"><span id="local-6989586621680022090"><span class="annot"><span class="annottext">XavcInterlaceMode -&gt; XavcInterlaceMode -&gt; Bool
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680022097"><span id="local-6989586621680022099"><span class="annot"><span class="annottext">XavcInterlaceMode -&gt; XavcInterlaceMode -&gt; Bool
 (XavcInterlaceMode -&gt; XavcInterlaceMode -&gt; Bool)
 -&gt; (XavcInterlaceMode -&gt; XavcInterlaceMode -&gt; Bool)
 -&gt; Eq XavcInterlaceMode
@@ -98,7 +98,7 @@ $c/= :: XavcInterlaceMode -&gt; XavcInterlaceMode -&gt; Bool
 == :: XavcInterlaceMode -&gt; XavcInterlaceMode -&gt; Bool
 $c== :: XavcInterlaceMode -&gt; XavcInterlaceMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680022072"><span id="local-6989586621680022074"><span id="local-6989586621680022076"><span id="local-6989586621680022078"><span id="local-6989586621680022080"><span id="local-6989586621680022082"><span id="local-6989586621680022084"><span class="annot"><span class="annottext">Eq XavcInterlaceMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680022081"><span id="local-6989586621680022083"><span id="local-6989586621680022085"><span id="local-6989586621680022087"><span id="local-6989586621680022089"><span id="local-6989586621680022091"><span id="local-6989586621680022093"><span class="annot"><span class="annottext">Eq XavcInterlaceMode
 Eq XavcInterlaceMode
 -&gt; (XavcInterlaceMode -&gt; XavcInterlaceMode -&gt; Ordering)
 -&gt; (XavcInterlaceMode -&gt; XavcInterlaceMode -&gt; Bool)
@@ -149,7 +149,7 @@ $cfrom :: forall x. XavcInterlaceMode -&gt; Rep XavcInterlaceMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680022064"><span id="local-6989586621680022066"><span class="annot"><span class="annottext">Int -&gt; XavcInterlaceMode -&gt; Int
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680022073"><span id="local-6989586621680022075"><span class="annot"><span class="annottext">Int -&gt; XavcInterlaceMode -&gt; Int
 XavcInterlaceMode -&gt; Int
 (Int -&gt; XavcInterlaceMode -&gt; Int)
 -&gt; (XavcInterlaceMode -&gt; Int) -&gt; Hashable XavcInterlaceMode
@@ -159,51 +159,51 @@ $chash :: XavcInterlaceMode -&gt; Int
 hashWithSalt :: Int -&gt; XavcInterlaceMode -&gt; Int
 $chashWithSalt :: Int -&gt; XavcInterlaceMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680022061"><span class="annot"><span class="annottext">XavcInterlaceMode -&gt; ()
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680022070"><span class="annot"><span class="annottext">XavcInterlaceMode -&gt; ()
 (XavcInterlaceMode -&gt; ()) -&gt; NFData XavcInterlaceMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: XavcInterlaceMode -&gt; ()
 $crnf :: XavcInterlaceMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680022058"><span class="annot"><span class="annottext">Text -&gt; Either String XavcInterlaceMode
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680022067"><span class="annot"><span class="annottext">Text -&gt; Either String XavcInterlaceMode
 (Text -&gt; Either String XavcInterlaceMode)
 -&gt; FromText XavcInterlaceMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String XavcInterlaceMode
 $cfromText :: Text -&gt; Either String XavcInterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680022055"><span class="annot"><span class="annottext">XavcInterlaceMode -&gt; Text
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680022064"><span class="annot"><span class="annottext">XavcInterlaceMode -&gt; Text
 (XavcInterlaceMode -&gt; Text) -&gt; ToText XavcInterlaceMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: XavcInterlaceMode -&gt; Text
 $ctoText :: XavcInterlaceMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680022052"><span class="annot"><span class="annottext">XavcInterlaceMode -&gt; ByteString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680022061"><span class="annot"><span class="annottext">XavcInterlaceMode -&gt; ByteString
 (XavcInterlaceMode -&gt; ByteString) -&gt; ToByteString XavcInterlaceMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: XavcInterlaceMode -&gt; ByteString
 $ctoBS :: XavcInterlaceMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680022049"><span class="annot"><span class="annottext">XavcInterlaceMode -&gt; ByteStringBuilder
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680022058"><span class="annot"><span class="annottext">XavcInterlaceMode -&gt; ByteStringBuilder
 (XavcInterlaceMode -&gt; ByteStringBuilder) -&gt; ToLog XavcInterlaceMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: XavcInterlaceMode -&gt; ByteStringBuilder
 $cbuild :: XavcInterlaceMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621680022046"><span class="annot"><span class="annottext">HeaderName -&gt; XavcInterlaceMode -&gt; [Header]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680022055"><span class="annot"><span class="annottext">HeaderName -&gt; XavcInterlaceMode -&gt; [Header]
 (HeaderName -&gt; XavcInterlaceMode -&gt; [Header])
 -&gt; ToHeader XavcInterlaceMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; XavcInterlaceMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; XavcInterlaceMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621680022043"><span class="annot"><span class="annottext">XavcInterlaceMode -&gt; QueryString
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680022052"><span class="annot"><span class="annottext">XavcInterlaceMode -&gt; QueryString
 (XavcInterlaceMode -&gt; QueryString) -&gt; ToQuery XavcInterlaceMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: XavcInterlaceMode -&gt; QueryString
 $ctoQuery :: XavcInterlaceMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621680022038"><span id="local-6989586621680022040"><span class="annot"><span class="annottext">Value -&gt; Parser [XavcInterlaceMode]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680022047"><span id="local-6989586621680022049"><span class="annot"><span class="annottext">Value -&gt; Parser [XavcInterlaceMode]
 Value -&gt; Parser XavcInterlaceMode
 (Value -&gt; Parser XavcInterlaceMode)
 -&gt; (Value -&gt; Parser [XavcInterlaceMode])
@@ -215,7 +215,7 @@ $cparseJSONList :: Value -&gt; Parser [XavcInterlaceMode]
 parseJSON :: Value -&gt; Parser XavcInterlaceMode
 $cparseJSON :: Value -&gt; Parser XavcInterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621680022033"><span id="local-6989586621680022035"><span class="annot"><span class="annottext">FromJSONKeyFunction [XavcInterlaceMode]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680022042"><span id="local-6989586621680022044"><span class="annot"><span class="annottext">FromJSONKeyFunction [XavcInterlaceMode]
 FromJSONKeyFunction XavcInterlaceMode
 FromJSONKeyFunction XavcInterlaceMode
 -&gt; FromJSONKeyFunction [XavcInterlaceMode]
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [XavcInterlaceMode]
 fromJSONKey :: FromJSONKeyFunction XavcInterlaceMode
 $cfromJSONKey :: FromJSONKeyFunction XavcInterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621680022024"><span id="local-6989586621680022026"><span id="local-6989586621680022028"><span id="local-6989586621680022030"><span class="annot"><span class="annottext">[XavcInterlaceMode] -&gt; Encoding
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621680022033"><span id="local-6989586621680022035"><span id="local-6989586621680022037"><span id="local-6989586621680022039"><span class="annot"><span class="annottext">[XavcInterlaceMode] -&gt; Encoding
 [XavcInterlaceMode] -&gt; Value
 XavcInterlaceMode -&gt; Encoding
 XavcInterlaceMode -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: XavcInterlaceMode -&gt; Encoding
 toJSON :: XavcInterlaceMode -&gt; Value
 $ctoJSON :: XavcInterlaceMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621680022019"><span id="local-6989586621680022021"><span class="annot"><span class="annottext">ToJSONKeyFunction [XavcInterlaceMode]
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621680022028"><span id="local-6989586621680022030"><span class="annot"><span class="annottext">ToJSONKeyFunction [XavcInterlaceMode]
 ToJSONKeyFunction XavcInterlaceMode
 ToJSONKeyFunction XavcInterlaceMode
 -&gt; ToJSONKeyFunction [XavcInterlaceMode]
@@ -263,14 +263,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [XavcInterlaceMode]
 toJSONKey :: ToJSONKeyFunction XavcInterlaceMode
 $ctoJSONKey :: ToJSONKeyFunction XavcInterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621680022016"><span class="annot"><span class="annottext">[Node] -&gt; Either String XavcInterlaceMode
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621680022025"><span class="annot"><span class="annottext">[Node] -&gt; Either String XavcInterlaceMode
 ([Node] -&gt; Either String XavcInterlaceMode)
 -&gt; FromXML XavcInterlaceMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String XavcInterlaceMode
 $cparseXML :: [Node] -&gt; Either String XavcInterlaceMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621680022013"><span class="annot"><span class="annottext">XavcInterlaceMode -&gt; XML
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621680022022"><span class="annot"><span class="annottext">XavcInterlaceMode -&gt; XML
 (XavcInterlaceMode -&gt; XML) -&gt; ToXML XavcInterlaceMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: XavcInterlaceMode -&gt; XML

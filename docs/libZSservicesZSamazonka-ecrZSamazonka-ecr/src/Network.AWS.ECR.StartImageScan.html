@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newStartImageScan' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679237324"><span id="local-6989586621679237325"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartImageScan"><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-var">StartImageScan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartImageScan%27"><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-var">StartImageScan'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679237333"><span id="local-6989586621679237334"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartImageScan"><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-var">StartImageScan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartImageScan%27"><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-var">StartImageScan'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- contains the repository in which to start an image scan request. If you</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- do not specify a registry, the default registry is assumed.</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AimageId%3AStartImageScan%27"><span class="annot"><span class="annottext">StartImageScan -&gt; ImageIdentifier
 </span><a href="Network.AWS.ECR.StartImageScan.html#%24sel%3AimageId%3AStartImageScan%27"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237316"><span id="local-6989586621679237318"><span class="annot"><span class="annottext">StartImageScan -&gt; StartImageScan -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237325"><span id="local-6989586621679237327"><span class="annot"><span class="annottext">StartImageScan -&gt; StartImageScan -&gt; Bool
 (StartImageScan -&gt; StartImageScan -&gt; Bool)
 -&gt; (StartImageScan -&gt; StartImageScan -&gt; Bool) -&gt; Eq StartImageScan
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartImageScan -&gt; StartImageScan -&gt; Bool
 == :: StartImageScan -&gt; StartImageScan -&gt; Bool
 $c== :: StartImageScan -&gt; StartImageScan -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237307"><span id="local-6989586621679237309"><span id="local-6989586621679237311"><span id="local-6989586621679237313"><span class="annot"><span class="annottext">ReadPrec [StartImageScan]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237316"><span id="local-6989586621679237318"><span id="local-6989586621679237320"><span id="local-6989586621679237322"><span class="annot"><span class="annottext">ReadPrec [StartImageScan]
 ReadPrec StartImageScan
 Int -&gt; ReadS StartImageScan
 ReadS [StartImageScan]
@@ -96,7 +96,7 @@ readList :: ReadS [StartImageScan]
 $creadList :: ReadS [StartImageScan]
 readsPrec :: Int -&gt; ReadS StartImageScan
 $creadsPrec :: Int -&gt; ReadS StartImageScan
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237300"><span id="local-6989586621679237302"><span id="local-6989586621679237304"><span class="annot"><span class="annottext">Int -&gt; StartImageScan -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237309"><span id="local-6989586621679237311"><span id="local-6989586621679237313"><span class="annot"><span class="annottext">Int -&gt; StartImageScan -&gt; ShowS
 [StartImageScan] -&gt; ShowS
 StartImageScan -&gt; String
 (Int -&gt; StartImageScan -&gt; ShowS)
@@ -144,9 +144,9 @@ $cfrom :: forall x. StartImageScan -&gt; Rep StartImageScan x
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span><span>
 </span><span id="line-91"></span><span id="newStartImageScan"><span class="annot"><span class="annottext">newStartImageScan :: Text -&gt; ImageIdentifier -&gt; StartImageScan
-</span><a href="Network.AWS.ECR.StartImageScan.html#newStartImageScan"><span class="hs-identifier hs-var hs-var">newStartImageScan</span></a></span></span><span> </span><span id="local-6989586621679237295"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237295"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span id="local-6989586621679237294"><span class="annot"><span class="annottext">ImageIdentifier
-</span><a href="#local-6989586621679237294"><span class="hs-identifier hs-var">pImageId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.StartImageScan.html#newStartImageScan"><span class="hs-identifier hs-var hs-var">newStartImageScan</span></a></span></span><span> </span><span id="local-6989586621679237304"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237304"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span id="local-6989586621679237303"><span class="annot"><span class="annottext">ImageIdentifier
+</span><a href="#local-6989586621679237303"><span class="hs-identifier hs-var">pImageId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">StartImageScan' :: Maybe Text -&gt; Text -&gt; ImageIdentifier -&gt; StartImageScan
 </span><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-type">StartImageScan'</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:registryId:StartImageScan' :: Maybe Text
@@ -155,10 +155,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:StartImageScan' :: Text
 </span><a href="Network.AWS.ECR.StartImageScan.html#%24sel%3ArepositoryName%3AStartImageScan%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237295"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679237304"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageId:StartImageScan' :: ImageIdentifier
 </span><a href="Network.AWS.ECR.StartImageScan.html#%24sel%3AimageId%3AStartImageScan%27"><span class="hs-identifier hs-var">imageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImageIdentifier
-</span><a href="#local-6989586621679237294"><span class="hs-identifier hs-var">pImageId_</span></a></span><span>
+</span><a href="#local-6989586621679237303"><span class="hs-identifier hs-var">pImageId_</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
@@ -171,16 +171,16 @@ forall a. Maybe a
 -&gt; (StartImageScan -&gt; Maybe Text -&gt; StartImageScan)
 -&gt; Lens StartImageScan StartImageScan (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-type">StartImageScan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237291"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-type">StartImageScan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237300"><span class="annot"><span class="annottext">Maybe Text
 registryId :: Maybe Text
 $sel:registryId:StartImageScan' :: StartImageScan -&gt; Maybe Text
-</span><a href="#local-6989586621679237291"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679237291"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237290"><span class="annot"><span class="annottext">s :: StartImageScan
-</span><a href="#local-6989586621679237290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-type">StartImageScan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237289"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679237289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImageScan
-</span><a href="#local-6989586621679237290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:StartImageScan' :: Maybe Text
+</span><a href="#local-6989586621679237300"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237300"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237299"><span class="annot"><span class="annottext">s :: StartImageScan
+</span><a href="#local-6989586621679237299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-type">StartImageScan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237298"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImageScan
+</span><a href="#local-6989586621679237299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:StartImageScan' :: Maybe Text
 </span><a href="Network.AWS.ECR.StartImageScan.html#%24sel%3AregistryId%3AStartImageScan%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679237289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The name of the repository that contains the images to scan.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#startImageScan_repositoryName"><span class="hs-identifier hs-type">startImageScan_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -189,16 +189,16 @@ $sel:registryId:StartImageScan' :: StartImageScan -&gt; Maybe Text
 -&gt; (StartImageScan -&gt; Text -&gt; StartImageScan)
 -&gt; Lens StartImageScan StartImageScan Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-type">StartImageScan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237288"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-type">StartImageScan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237297"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:StartImageScan' :: StartImageScan -&gt; Text
-</span><a href="#local-6989586621679237288"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237288"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237287"><span class="annot"><span class="annottext">s :: StartImageScan
-</span><a href="#local-6989586621679237287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-type">StartImageScan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237286"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImageScan
-</span><a href="#local-6989586621679237287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:StartImageScan' :: Text
+</span><a href="#local-6989586621679237297"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237297"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237296"><span class="annot"><span class="annottext">s :: StartImageScan
+</span><a href="#local-6989586621679237296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-type">StartImageScan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237295"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImageScan
+</span><a href="#local-6989586621679237296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:StartImageScan' :: Text
 </span><a href="Network.AWS.ECR.StartImageScan.html#%24sel%3ArepositoryName%3AStartImageScan%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#startImageScan_imageId"><span class="hs-identifier hs-type">startImageScan_imageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span>
@@ -209,27 +209,27 @@ $sel:repositoryName:StartImageScan' :: StartImageScan -&gt; Text
 -&gt; Lens
      StartImageScan StartImageScan ImageIdentifier ImageIdentifier
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-type">StartImageScan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237285"><span class="annot"><span class="annottext">ImageIdentifier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-type">StartImageScan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237294"><span class="annot"><span class="annottext">ImageIdentifier
 imageId :: ImageIdentifier
 $sel:imageId:StartImageScan' :: StartImageScan -&gt; ImageIdentifier
-</span><a href="#local-6989586621679237285"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageIdentifier
-</span><a href="#local-6989586621679237285"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237284"><span class="annot"><span class="annottext">s :: StartImageScan
-</span><a href="#local-6989586621679237284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-type">StartImageScan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237283"><span class="annot"><span class="annottext">ImageIdentifier
-</span><a href="#local-6989586621679237283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImageScan
-</span><a href="#local-6989586621679237284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:StartImageScan' :: ImageIdentifier
+</span><a href="#local-6989586621679237294"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageIdentifier
+</span><a href="#local-6989586621679237294"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237293"><span class="annot"><span class="annottext">s :: StartImageScan
+</span><a href="#local-6989586621679237293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-type">StartImageScan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237292"><span class="annot"><span class="annottext">ImageIdentifier
+</span><a href="#local-6989586621679237292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImageScan
+</span><a href="#local-6989586621679237293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:StartImageScan' :: ImageIdentifier
 </span><a href="Network.AWS.ECR.StartImageScan.html#%24sel%3AimageId%3AStartImageScan%27"><span class="hs-identifier hs-var">imageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImageIdentifier
-</span><a href="#local-6989586621679237283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-114"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679237279"><span class="annot"><span class="annottext">request :: StartImageScan -&gt; Request StartImageScan
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679237288"><span class="annot"><span class="annottext">request :: StartImageScan -&gt; Request StartImageScan
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartImageScan -&gt; Request StartImageScan
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679237275"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679237284"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartImageScan
 -&gt; ClientResponse ClientBody
@@ -253,10 +253,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237272"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679237272"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679237271"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679237271"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679237270"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237270"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237281"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237281"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679237280"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679237280"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679237279"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237279"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe ImageScanStatus
 -&gt; Maybe ImageIdentifier
@@ -280,7 +280,7 @@ MonadResource m =&gt;
       -&gt; StartImageScanResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679237279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;registryId&quot;</span></span><span class="hs-special">)</span><span>
@@ -298,7 +298,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Text -&gt; Int -&gt; StartImageScanResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ImageScanStatus)
+</span><a href="#local-6989586621679237279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ImageScanStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageScanStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -310,7 +310,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; StartImageScanResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ImageIdentifier)
+</span><a href="#local-6989586621679237279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ImageIdentifier)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageId&quot;</span></span><span class="hs-special">)</span><span>
@@ -319,7 +319,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; StartImageScanResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679237279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span class="hs-special">)</span><span>
@@ -331,15 +331,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679237272"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237281"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237262"><span id="local-6989586621679237264"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237271"><span id="local-6989586621679237273"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237268"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679237255"><span class="annot"><span class="annottext">toHeaders :: StartImageScan -&gt; ResponseHeaders
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679237264"><span class="annot"><span class="annottext">toHeaders :: StartImageScan -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartImageScan -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -366,9 +366,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237245"><span id="local-6989586621679237247"><span id="local-6989586621679237249"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679237243"><span class="annot"><span class="annottext">toJSON :: StartImageScan -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-type">StartImageScan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237239"><span id="local-6989586621679237240"><span id="local-6989586621679237241"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237254"><span id="local-6989586621679237256"><span id="local-6989586621679237258"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679237252"><span class="annot"><span class="annottext">toJSON :: StartImageScan -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan%27"><span class="hs-identifier hs-type">StartImageScan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237248"><span id="local-6989586621679237249"><span id="local-6989586621679237250"><span class="annot"><span class="annottext">Maybe Text
 Text
 ImageIdentifier
 imageId :: ImageIdentifier
@@ -377,7 +377,7 @@ registryId :: Maybe Text
 $sel:imageId:StartImageScan' :: StartImageScan -&gt; ImageIdentifier
 $sel:repositoryName:StartImageScan' :: StartImageScan -&gt; Text
 $sel:registryId:StartImageScan' :: StartImageScan -&gt; Maybe Text
-</span><a href="#local-6989586621679237239"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679237248"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -389,7 +389,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679237241"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679237250"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -397,26 +397,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237240"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679237249"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ImageIdentifier -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ImageIdentifier
-</span><a href="#local-6989586621679237239"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237248"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679237233"><span class="annot"><span class="annottext">toPath :: StartImageScan -&gt; ByteString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679237242"><span class="annot"><span class="annottext">toPath :: StartImageScan -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartImageScan -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScan"><span class="hs-identifier hs-type">StartImageScan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679237229"><span class="annot"><span class="annottext">toQuery :: StartImageScan -&gt; QueryString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679237238"><span class="annot"><span class="annottext">toQuery :: StartImageScan -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartImageScan -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -424,7 +424,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newStartImageScanResponse' smart constructor.</span><span>
-</span><span id="line-165"></span><span id="local-6989586621679237226"><span id="local-6989586621679237227"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartImageScanResponse"><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-var">StartImageScanResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartImageScanResponse%27"><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-var">StartImageScanResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span id="local-6989586621679237235"><span id="local-6989586621679237236"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartImageScanResponse"><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-var">StartImageScanResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartImageScanResponse%27"><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-var">StartImageScanResponse'</span></a></span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The registry ID associated with the request.</span><span>
 </span><span id="line-167"></span><span>    </span><span id="%24sel%3AregistryId%3AStartImageScanResponse%27"><span class="annot"><span class="annottext">StartImageScanResponse -&gt; Maybe Text
 </span><a href="Network.AWS.ECR.StartImageScan.html#%24sel%3AregistryId%3AStartImageScanResponse%27"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -440,7 +440,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartImageScanResponse%27"><span class="annot"><span class="annottext">StartImageScanResponse -&gt; Int
 </span><a href="Network.AWS.ECR.StartImageScan.html#%24sel%3AhttpStatus%3AStartImageScanResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237217"><span id="local-6989586621679237219"><span class="annot"><span class="annottext">StartImageScanResponse -&gt; StartImageScanResponse -&gt; Bool
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237226"><span id="local-6989586621679237228"><span class="annot"><span class="annottext">StartImageScanResponse -&gt; StartImageScanResponse -&gt; Bool
 (StartImageScanResponse -&gt; StartImageScanResponse -&gt; Bool)
 -&gt; (StartImageScanResponse -&gt; StartImageScanResponse -&gt; Bool)
 -&gt; Eq StartImageScanResponse
@@ -449,7 +449,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartImageScanResponse -&gt; StartImageScanResponse -&gt; Bool
 == :: StartImageScanResponse -&gt; StartImageScanResponse -&gt; Bool
 $c== :: StartImageScanResponse -&gt; StartImageScanResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237209"><span id="local-6989586621679237211"><span id="local-6989586621679237213"><span id="local-6989586621679237215"><span class="annot"><span class="annottext">ReadPrec [StartImageScanResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237218"><span id="local-6989586621679237220"><span id="local-6989586621679237222"><span id="local-6989586621679237224"><span class="annot"><span class="annottext">ReadPrec [StartImageScanResponse]
 ReadPrec StartImageScanResponse
 Int -&gt; ReadS StartImageScanResponse
 ReadS [StartImageScanResponse]
@@ -469,7 +469,7 @@ readList :: ReadS [StartImageScanResponse]
 $creadList :: ReadS [StartImageScanResponse]
 readsPrec :: Int -&gt; ReadS StartImageScanResponse
 $creadsPrec :: Int -&gt; ReadS StartImageScanResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237203"><span id="local-6989586621679237205"><span id="local-6989586621679237207"><span class="annot"><span class="annottext">Int -&gt; StartImageScanResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237212"><span id="local-6989586621679237214"><span id="local-6989586621679237216"><span class="annot"><span class="annottext">Int -&gt; StartImageScanResponse -&gt; ShowS
 [StartImageScanResponse] -&gt; ShowS
 StartImageScanResponse -&gt; String
 (Int -&gt; StartImageScanResponse -&gt; ShowS)
@@ -518,8 +518,8 @@ $cfrom :: forall x. StartImageScanResponse -&gt; Rep StartImageScanResponse x
 </span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span><span>
 </span><span id="line-199"></span><span id="newStartImageScanResponse"><span class="annot"><span class="annottext">newStartImageScanResponse :: Int -&gt; StartImageScanResponse
-</span><a href="Network.AWS.ECR.StartImageScan.html#newStartImageScanResponse"><span class="hs-identifier hs-var hs-var">newStartImageScanResponse</span></a></span></span><span> </span><span id="local-6989586621679237200"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679237200"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.StartImageScan.html#newStartImageScanResponse"><span class="hs-identifier hs-var hs-var">newStartImageScanResponse</span></a></span></span><span> </span><span id="local-6989586621679237209"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237209"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">StartImageScanResponse' :: Maybe Text
 -&gt; Maybe ImageScanStatus
 -&gt; Maybe ImageIdentifier
@@ -546,7 +546,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartImageScanResponse' :: Int
 </span><a href="Network.AWS.ECR.StartImageScan.html#%24sel%3AhttpStatus%3AStartImageScanResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679237200"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679237209"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-207"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | The registry ID associated with the request.</span><span>
@@ -561,16 +561,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237199"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237208"><span class="annot"><span class="annottext">Maybe Text
 registryId :: Maybe Text
 $sel:registryId:StartImageScanResponse' :: StartImageScanResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679237199"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679237199"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237198"><span class="annot"><span class="annottext">s :: StartImageScanResponse
-</span><a href="#local-6989586621679237198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237197"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679237197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImageScanResponse
-</span><a href="#local-6989586621679237198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:StartImageScanResponse' :: Maybe Text
+</span><a href="#local-6989586621679237208"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237208"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237207"><span class="annot"><span class="annottext">s :: StartImageScanResponse
+</span><a href="#local-6989586621679237207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237206"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImageScanResponse
+</span><a href="#local-6989586621679237207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:StartImageScanResponse' :: Maybe Text
 </span><a href="Network.AWS.ECR.StartImageScan.html#%24sel%3AregistryId%3AStartImageScanResponse%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679237197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | The current state of the scan.</span><span>
 </span><span id="line-214"></span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#startImageScanResponse_imageScanStatus"><span class="hs-identifier hs-type">startImageScanResponse_imageScanStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanStatus.html#ImageScanStatus"><span class="hs-identifier hs-type">ImageScanStatus</span></a></span><span class="hs-special">)</span><span>
@@ -585,16 +585,16 @@ $sel:registryId:StartImageScanResponse' :: StartImageScanResponse -&gt; Maybe Te
      (Maybe ImageScanStatus)
      (Maybe ImageScanStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237196"><span class="annot"><span class="annottext">Maybe ImageScanStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237205"><span class="annot"><span class="annottext">Maybe ImageScanStatus
 imageScanStatus :: Maybe ImageScanStatus
 $sel:imageScanStatus:StartImageScanResponse' :: StartImageScanResponse -&gt; Maybe ImageScanStatus
-</span><a href="#local-6989586621679237196"><span class="hs-identifier hs-var hs-var">imageScanStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageScanStatus
-</span><a href="#local-6989586621679237196"><span class="hs-identifier hs-var">imageScanStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237195"><span class="annot"><span class="annottext">s :: StartImageScanResponse
-</span><a href="#local-6989586621679237195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237194"><span class="annot"><span class="annottext">Maybe ImageScanStatus
-</span><a href="#local-6989586621679237194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImageScanResponse
-</span><a href="#local-6989586621679237195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageScanStatus:StartImageScanResponse' :: Maybe ImageScanStatus
+</span><a href="#local-6989586621679237205"><span class="hs-identifier hs-var hs-var">imageScanStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageScanStatus
+</span><a href="#local-6989586621679237205"><span class="hs-identifier hs-var">imageScanStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237204"><span class="annot"><span class="annottext">s :: StartImageScanResponse
+</span><a href="#local-6989586621679237204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237203"><span class="annot"><span class="annottext">Maybe ImageScanStatus
+</span><a href="#local-6989586621679237203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImageScanResponse
+</span><a href="#local-6989586621679237204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageScanStatus:StartImageScanResponse' :: Maybe ImageScanStatus
 </span><a href="Network.AWS.ECR.StartImageScan.html#%24sel%3AimageScanStatus%3AStartImageScanResponse%27"><span class="hs-identifier hs-var">imageScanStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageScanStatus
-</span><a href="#local-6989586621679237194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-218"></span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#startImageScanResponse_imageId"><span class="hs-identifier hs-type">startImageScanResponse_imageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span class="hs-special">)</span><span>
@@ -609,16 +609,16 @@ $sel:imageScanStatus:StartImageScanResponse' :: StartImageScanResponse -&gt; May
      (Maybe ImageIdentifier)
      (Maybe ImageIdentifier)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237193"><span class="annot"><span class="annottext">Maybe ImageIdentifier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237202"><span class="annot"><span class="annottext">Maybe ImageIdentifier
 imageId :: Maybe ImageIdentifier
 $sel:imageId:StartImageScanResponse' :: StartImageScanResponse -&gt; Maybe ImageIdentifier
-</span><a href="#local-6989586621679237193"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageIdentifier
-</span><a href="#local-6989586621679237193"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237192"><span class="annot"><span class="annottext">s :: StartImageScanResponse
-</span><a href="#local-6989586621679237192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237191"><span class="annot"><span class="annottext">Maybe ImageIdentifier
-</span><a href="#local-6989586621679237191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImageScanResponse
-</span><a href="#local-6989586621679237192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:StartImageScanResponse' :: Maybe ImageIdentifier
+</span><a href="#local-6989586621679237202"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageIdentifier
+</span><a href="#local-6989586621679237202"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237201"><span class="annot"><span class="annottext">s :: StartImageScanResponse
+</span><a href="#local-6989586621679237201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237200"><span class="annot"><span class="annottext">Maybe ImageIdentifier
+</span><a href="#local-6989586621679237200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImageScanResponse
+</span><a href="#local-6989586621679237201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:StartImageScanResponse' :: Maybe ImageIdentifier
 </span><a href="Network.AWS.ECR.StartImageScan.html#%24sel%3AimageId%3AStartImageScanResponse%27"><span class="hs-identifier hs-var">imageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageIdentifier
-</span><a href="#local-6989586621679237191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | The repository name associated with the request.</span><span>
 </span><span id="line-222"></span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#startImageScanResponse_repositoryName"><span class="hs-identifier hs-type">startImageScanResponse_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -632,16 +632,16 @@ $sel:imageId:StartImageScanResponse' :: StartImageScanResponse -&gt; Maybe Image
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237190"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237199"><span class="annot"><span class="annottext">Maybe Text
 repositoryName :: Maybe Text
 $sel:repositoryName:StartImageScanResponse' :: StartImageScanResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679237190"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679237190"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237189"><span class="annot"><span class="annottext">s :: StartImageScanResponse
-</span><a href="#local-6989586621679237189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237188"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679237188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImageScanResponse
-</span><a href="#local-6989586621679237189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:StartImageScanResponse' :: Maybe Text
+</span><a href="#local-6989586621679237199"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237199"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237198"><span class="annot"><span class="annottext">s :: StartImageScanResponse
+</span><a href="#local-6989586621679237198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237197"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImageScanResponse
+</span><a href="#local-6989586621679237198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:StartImageScanResponse' :: Maybe Text
 </span><a href="Network.AWS.ECR.StartImageScan.html#%24sel%3ArepositoryName%3AStartImageScanResponse%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679237188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-226"></span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#startImageScanResponse_httpStatus"><span class="hs-identifier hs-type">startImageScanResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -651,16 +651,16 @@ $sel:repositoryName:StartImageScanResponse' :: StartImageScanResponse -&gt; Mayb
 -&gt; (StartImageScanResponse -&gt; Int -&gt; StartImageScanResponse)
 -&gt; Lens StartImageScanResponse StartImageScanResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237187"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237196"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StartImageScanResponse' :: StartImageScanResponse -&gt; Int
-</span><a href="#local-6989586621679237187"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679237187"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237186"><span class="annot"><span class="annottext">s :: StartImageScanResponse
-</span><a href="#local-6989586621679237186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237185"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679237185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImageScanResponse
-</span><a href="#local-6989586621679237186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartImageScanResponse' :: Int
+</span><a href="#local-6989586621679237196"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237196"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237195"><span class="annot"><span class="annottext">s :: StartImageScanResponse
+</span><a href="#local-6989586621679237195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse%27"><span class="hs-identifier hs-type">StartImageScanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237194"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartImageScanResponse
+</span><a href="#local-6989586621679237195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartImageScanResponse' :: Int
 </span><a href="Network.AWS.ECR.StartImageScan.html#%24sel%3AhttpStatus%3AStartImageScanResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679237185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237183"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237192"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.StartImageScan.html#StartImageScanResponse"><span class="hs-identifier hs-type">StartImageScanResponse</span></a></span></span><span>
 </span><span id="line-230"></span></pre></body></html>

@@ -70,7 +70,7 @@
 </span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | /See:/ 'newTransactGetItems' smart constructor.</span><span>
-</span><span id="line-73"></span><span id="local-6989586621679386255"><span id="local-6989586621679386256"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransactGetItems"><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-var">TransactGetItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransactGetItems%27"><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems%27"><span class="hs-identifier hs-var">TransactGetItems'</span></a></span></span><span>
+</span><span id="line-73"></span><span id="local-6989586621679386264"><span id="local-6989586621679386265"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransactGetItems"><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-var">TransactGetItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransactGetItems%27"><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems%27"><span class="hs-identifier hs-var">TransactGetItems'</span></a></span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value of @TOTAL@ causes consumed capacity information to be returned,</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- and a value of @NONE@ prevents that information from being returned. No</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- other value is valid.</span><span>
@@ -81,7 +81,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AtransactItems%3ATransactGetItems%27"><span class="annot"><span class="annottext">TransactGetItems -&gt; NonEmpty TransactGetItem
 </span><a href="Network.AWS.DynamoDB.TransactGetItems.html#%24sel%3AtransactItems%3ATransactGetItems%27"><span class="hs-identifier hs-var hs-var">transactItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem"><span class="hs-identifier hs-type">TransactGetItem</span></a></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386248"><span id="local-6989586621679386250"><span class="annot"><span class="annottext">TransactGetItems -&gt; TransactGetItems -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386257"><span id="local-6989586621679386259"><span class="annot"><span class="annottext">TransactGetItems -&gt; TransactGetItems -&gt; Bool
 (TransactGetItems -&gt; TransactGetItems -&gt; Bool)
 -&gt; (TransactGetItems -&gt; TransactGetItems -&gt; Bool)
 -&gt; Eq TransactGetItems
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TransactGetItems -&gt; TransactGetItems -&gt; Bool
 == :: TransactGetItems -&gt; TransactGetItems -&gt; Bool
 $c== :: TransactGetItems -&gt; TransactGetItems -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386239"><span id="local-6989586621679386241"><span id="local-6989586621679386243"><span id="local-6989586621679386245"><span class="annot"><span class="annottext">ReadPrec [TransactGetItems]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386248"><span id="local-6989586621679386250"><span id="local-6989586621679386252"><span id="local-6989586621679386254"><span class="annot"><span class="annottext">ReadPrec [TransactGetItems]
 ReadPrec TransactGetItems
 Int -&gt; ReadS TransactGetItems
 ReadS [TransactGetItems]
@@ -110,7 +110,7 @@ readList :: ReadS [TransactGetItems]
 $creadList :: ReadS [TransactGetItems]
 readsPrec :: Int -&gt; ReadS TransactGetItems
 $creadsPrec :: Int -&gt; ReadS TransactGetItems
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386232"><span id="local-6989586621679386234"><span id="local-6989586621679386236"><span class="annot"><span class="annottext">Int -&gt; TransactGetItems -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386241"><span id="local-6989586621679386243"><span id="local-6989586621679386245"><span class="annot"><span class="annottext">Int -&gt; TransactGetItems -&gt; ShowS
 [TransactGetItems] -&gt; ShowS
 TransactGetItems -&gt; String
 (Int -&gt; TransactGetItems -&gt; ShowS)
@@ -155,8 +155,8 @@ $cfrom :: forall x. TransactGetItems -&gt; Rep TransactGetItems x
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem"><span class="hs-identifier hs-type">TransactGetItem</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-type">TransactGetItems</span></a></span><span>
 </span><span id="line-102"></span><span id="newTransactGetItems"><span class="annot"><span class="annottext">newTransactGetItems :: NonEmpty TransactGetItem -&gt; TransactGetItems
-</span><a href="Network.AWS.DynamoDB.TransactGetItems.html#newTransactGetItems"><span class="hs-identifier hs-var hs-var">newTransactGetItems</span></a></span></span><span> </span><span id="local-6989586621679386227"><span class="annot"><span class="annottext">NonEmpty TransactGetItem
-</span><a href="#local-6989586621679386227"><span class="hs-identifier hs-var">pTransactItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.TransactGetItems.html#newTransactGetItems"><span class="hs-identifier hs-var hs-var">newTransactGetItems</span></a></span></span><span> </span><span id="local-6989586621679386236"><span class="annot"><span class="annottext">NonEmpty TransactGetItem
+</span><a href="#local-6989586621679386236"><span class="hs-identifier hs-var">pTransactItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">TransactGetItems' :: Maybe ReturnConsumedCapacity
 -&gt; NonEmpty TransactGetItem -&gt; TransactGetItems
 </span><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems%27"><span class="hs-identifier hs-type">TransactGetItems'</span></a></span><span>
@@ -178,7 +178,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty TransactGetItem -&gt; NonEmpty TransactGetItem
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty TransactGetItem
-</span><a href="#local-6989586621679386227"><span class="hs-identifier hs-var">pTransactItems_</span></a></span><span>
+</span><a href="#local-6989586621679386236"><span class="hs-identifier hs-var">pTransactItems_</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | A value of @TOTAL@ causes consumed capacity information to be returned,</span><span>
@@ -196,16 +196,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe ReturnConsumedCapacity)
      (Maybe ReturnConsumedCapacity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems%27"><span class="hs-identifier hs-type">TransactGetItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386222"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems%27"><span class="hs-identifier hs-type">TransactGetItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386231"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
 returnConsumedCapacity :: Maybe ReturnConsumedCapacity
 $sel:returnConsumedCapacity:TransactGetItems' :: TransactGetItems -&gt; Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679386222"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679386222"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386221"><span class="annot"><span class="annottext">s :: TransactGetItems
-</span><a href="#local-6989586621679386221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems%27"><span class="hs-identifier hs-type">TransactGetItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386220"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679386220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransactGetItems
-</span><a href="#local-6989586621679386221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnConsumedCapacity:TransactGetItems' :: Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679386231"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679386231"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386230"><span class="annot"><span class="annottext">s :: TransactGetItems
+</span><a href="#local-6989586621679386230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems%27"><span class="hs-identifier hs-type">TransactGetItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386229"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679386229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransactGetItems
+</span><a href="#local-6989586621679386230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnConsumedCapacity:TransactGetItems' :: Maybe ReturnConsumedCapacity
 </span><a href="Network.AWS.DynamoDB.TransactGetItems.html#%24sel%3AreturnConsumedCapacity%3ATransactGetItems%27"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679386220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-type">TransactGetItems</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-type">TransactGetItems</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | An ordered array of up to 25 @TransactGetItem@ objects, each of which</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- contains a @Get@ structure.</span><span>
@@ -221,16 +221,16 @@ $sel:returnConsumedCapacity:TransactGetItems' :: TransactGetItems -&gt; Maybe Re
      (NonEmpty TransactGetItem)
      (NonEmpty TransactGetItem)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems%27"><span class="hs-identifier hs-type">TransactGetItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386219"><span class="annot"><span class="annottext">NonEmpty TransactGetItem
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems%27"><span class="hs-identifier hs-type">TransactGetItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386228"><span class="annot"><span class="annottext">NonEmpty TransactGetItem
 transactItems :: NonEmpty TransactGetItem
 $sel:transactItems:TransactGetItems' :: TransactGetItems -&gt; NonEmpty TransactGetItem
-</span><a href="#local-6989586621679386219"><span class="hs-identifier hs-var hs-var">transactItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty TransactGetItem
-</span><a href="#local-6989586621679386219"><span class="hs-identifier hs-var">transactItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386218"><span class="annot"><span class="annottext">s :: TransactGetItems
-</span><a href="#local-6989586621679386218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems%27"><span class="hs-identifier hs-type">TransactGetItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386217"><span class="annot"><span class="annottext">NonEmpty TransactGetItem
-</span><a href="#local-6989586621679386217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransactGetItems
-</span><a href="#local-6989586621679386218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transactItems:TransactGetItems' :: NonEmpty TransactGetItem
+</span><a href="#local-6989586621679386228"><span class="hs-identifier hs-var hs-var">transactItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty TransactGetItem
+</span><a href="#local-6989586621679386228"><span class="hs-identifier hs-var">transactItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386227"><span class="annot"><span class="annottext">s :: TransactGetItems
+</span><a href="#local-6989586621679386227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems%27"><span class="hs-identifier hs-type">TransactGetItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386226"><span class="annot"><span class="annottext">NonEmpty TransactGetItem
+</span><a href="#local-6989586621679386226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransactGetItems
+</span><a href="#local-6989586621679386227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transactItems:TransactGetItems' :: NonEmpty TransactGetItem
 </span><a href="Network.AWS.DynamoDB.TransactGetItems.html#%24sel%3AtransactItems%3ATransactGetItems%27"><span class="hs-identifier hs-var">transactItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty TransactGetItem
-</span><a href="#local-6989586621679386217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-type">TransactGetItems</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty TransactGetItem -&gt; f (NonEmpty TransactGetItem))
+</span><a href="#local-6989586621679386226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-type">TransactGetItems</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty TransactGetItem -&gt; f (NonEmpty TransactGetItem))
  -&gt; TransactGetItems -&gt; f TransactGetItems)
 -&gt; ((NonEmpty TransactGetItem -&gt; f (NonEmpty TransactGetItem))
     -&gt; NonEmpty TransactGetItem -&gt; f (NonEmpty TransactGetItem))
@@ -247,12 +247,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-type">TransactGetItems</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse"><span class="hs-identifier hs-type">TransactGetItemsResponse</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679386212"><span class="annot"><span class="annottext">request :: TransactGetItems -&gt; Request TransactGetItems
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679386221"><span class="annot"><span class="annottext">request :: TransactGetItems -&gt; Request TransactGetItems
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TransactGetItems -&gt; Request TransactGetItems
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679386208"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679386217"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TransactGetItems
 -&gt; ClientResponse ClientBody
@@ -276,10 +276,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386205"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386205"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386204"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679386204"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386203"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386203"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386214"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386214"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386213"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679386213"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386212"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679386212"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty ItemResponse)
 -&gt; Maybe [ConsumedCapacity] -&gt; Int -&gt; TransactGetItemsResponse
 </span><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse%27"><span class="hs-identifier hs-var">TransactGetItemsResponse'</span></a></span><span>
@@ -291,7 +291,7 @@ MonadResource m =&gt;
      (Maybe [ConsumedCapacity] -&gt; Int -&gt; TransactGetItemsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386203"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty ItemResponse))
+</span><a href="#local-6989586621679386212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty ItemResponse))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Responses&quot;</span></span><span class="hs-special">)</span><span>
@@ -302,7 +302,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; TransactGetItemsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386203"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ConsumedCapacity]))
+</span><a href="#local-6989586621679386212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ConsumedCapacity]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsumedCapacity&quot;</span></span><span>
@@ -322,15 +322,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386205"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386214"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386194"><span id="local-6989586621679386196"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-type">TransactGetItems</span></a></span></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386203"><span id="local-6989586621679386205"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-type">TransactGetItems</span></a></span></span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386191"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-type">TransactGetItems</span></a></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386200"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-type">TransactGetItems</span></a></span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-type">TransactGetItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679386187"><span class="annot"><span class="annottext">toHeaders :: TransactGetItems -&gt; ResponseHeaders
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679386196"><span class="annot"><span class="annottext">toHeaders :: TransactGetItems -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TransactGetItems -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -357,15 +357,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386177"><span id="local-6989586621679386179"><span id="local-6989586621679386181"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-type">TransactGetItems</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679386175"><span class="annot"><span class="annottext">toJSON :: TransactGetItems -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems%27"><span class="hs-identifier hs-type">TransactGetItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386172"><span id="local-6989586621679386173"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386186"><span id="local-6989586621679386188"><span id="local-6989586621679386190"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-type">TransactGetItems</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679386184"><span class="annot"><span class="annottext">toJSON :: TransactGetItems -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems%27"><span class="hs-identifier hs-type">TransactGetItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386181"><span id="local-6989586621679386182"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
 NonEmpty TransactGetItem
 transactItems :: NonEmpty TransactGetItem
 returnConsumedCapacity :: Maybe ReturnConsumedCapacity
 $sel:transactItems:TransactGetItems' :: TransactGetItems -&gt; NonEmpty TransactGetItem
 $sel:returnConsumedCapacity:TransactGetItems' :: TransactGetItems -&gt; Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679386172"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679386181"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -379,7 +379,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ReturnConsumedCapacity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679386173"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386182"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -387,19 +387,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TransactItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty TransactGetItem -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty TransactGetItem
-</span><a href="#local-6989586621679386172"><span class="hs-identifier hs-var">transactItems</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386181"><span class="hs-identifier hs-var">transactItems</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-type">TransactGetItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679386166"><span class="annot"><span class="annottext">toPath :: TransactGetItems -&gt; ByteString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679386175"><span class="annot"><span class="annottext">toPath :: TransactGetItems -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TransactGetItems -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItems"><span class="hs-identifier hs-type">TransactGetItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679386162"><span class="annot"><span class="annottext">toQuery :: TransactGetItems -&gt; QueryString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679386171"><span class="annot"><span class="annottext">toQuery :: TransactGetItems -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; TransactGetItems -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -407,7 +407,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newTransactGetItemsResponse' smart constructor.</span><span>
-</span><span id="line-173"></span><span id="local-6989586621679386159"><span id="local-6989586621679386160"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransactGetItemsResponse"><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse"><span class="hs-identifier hs-var">TransactGetItemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransactGetItemsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse%27"><span class="hs-identifier hs-var">TransactGetItemsResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span id="local-6989586621679386168"><span id="local-6989586621679386169"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransactGetItemsResponse"><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse"><span class="hs-identifier hs-var">TransactGetItemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransactGetItemsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse%27"><span class="hs-identifier hs-var">TransactGetItemsResponse'</span></a></span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An ordered array of up to 25 @ItemResponse@ objects, each of which</span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-comment">-- corresponds to the @TransactGetItem@ object in the same position in the</span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-comment">-- /TransactItems/ array. Each @ItemResponse@ object contains a Map of the</span><span>
@@ -430,7 +430,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATransactGetItemsResponse%27"><span class="annot"><span class="annottext">TransactGetItemsResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.TransactGetItems.html#%24sel%3AhttpStatus%3ATransactGetItemsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386152"><span id="local-6989586621679386154"><span class="annot"><span class="annottext">TransactGetItemsResponse -&gt; TransactGetItemsResponse -&gt; Bool
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386161"><span id="local-6989586621679386163"><span class="annot"><span class="annottext">TransactGetItemsResponse -&gt; TransactGetItemsResponse -&gt; Bool
 (TransactGetItemsResponse -&gt; TransactGetItemsResponse -&gt; Bool)
 -&gt; (TransactGetItemsResponse -&gt; TransactGetItemsResponse -&gt; Bool)
 -&gt; Eq TransactGetItemsResponse
@@ -439,7 +439,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TransactGetItemsResponse -&gt; TransactGetItemsResponse -&gt; Bool
 == :: TransactGetItemsResponse -&gt; TransactGetItemsResponse -&gt; Bool
 $c== :: TransactGetItemsResponse -&gt; TransactGetItemsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386144"><span id="local-6989586621679386146"><span id="local-6989586621679386148"><span id="local-6989586621679386150"><span class="annot"><span class="annottext">ReadPrec [TransactGetItemsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386153"><span id="local-6989586621679386155"><span id="local-6989586621679386157"><span id="local-6989586621679386159"><span class="annot"><span class="annottext">ReadPrec [TransactGetItemsResponse]
 ReadPrec TransactGetItemsResponse
 Int -&gt; ReadS TransactGetItemsResponse
 ReadS [TransactGetItemsResponse]
@@ -459,7 +459,7 @@ readList :: ReadS [TransactGetItemsResponse]
 $creadList :: ReadS [TransactGetItemsResponse]
 readsPrec :: Int -&gt; ReadS TransactGetItemsResponse
 $creadsPrec :: Int -&gt; ReadS TransactGetItemsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386138"><span id="local-6989586621679386140"><span id="local-6989586621679386142"><span class="annot"><span class="annottext">Int -&gt; TransactGetItemsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386147"><span id="local-6989586621679386149"><span id="local-6989586621679386151"><span class="annot"><span class="annottext">Int -&gt; TransactGetItemsResponse -&gt; ShowS
 [TransactGetItemsResponse] -&gt; ShowS
 TransactGetItemsResponse -&gt; String
 (Int -&gt; TransactGetItemsResponse -&gt; ShowS)
@@ -521,8 +521,8 @@ TransactGetItemsResponse -&gt; Rep TransactGetItemsResponse x
 </span><span id="line-222"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-223"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse"><span class="hs-identifier hs-type">TransactGetItemsResponse</span></a></span><span>
 </span><span id="line-224"></span><span id="newTransactGetItemsResponse"><span class="annot"><span class="annottext">newTransactGetItemsResponse :: Int -&gt; TransactGetItemsResponse
-</span><a href="Network.AWS.DynamoDB.TransactGetItems.html#newTransactGetItemsResponse"><span class="hs-identifier hs-var hs-var">newTransactGetItemsResponse</span></a></span></span><span> </span><span id="local-6989586621679386135"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386135"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.TransactGetItems.html#newTransactGetItemsResponse"><span class="hs-identifier hs-var hs-var">newTransactGetItemsResponse</span></a></span></span><span> </span><span id="local-6989586621679386144"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386144"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-225"></span><span>  </span><span class="annot"><span class="annottext">TransactGetItemsResponse' :: Maybe (NonEmpty ItemResponse)
 -&gt; Maybe [ConsumedCapacity] -&gt; Int -&gt; TransactGetItemsResponse
 </span><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse%27"><span class="hs-identifier hs-type">TransactGetItemsResponse'</span></a></span><span>
@@ -537,7 +537,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:TransactGetItemsResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.TransactGetItems.html#%24sel%3AhttpStatus%3ATransactGetItemsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386135"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679386144"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-230"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- | An ordered array of up to 25 @ItemResponse@ objects, each of which</span><span>
@@ -562,16 +562,16 @@ forall a. Maybe a
      (Maybe (NonEmpty ItemResponse))
      (Maybe (NonEmpty ItemResponse))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse%27"><span class="hs-identifier hs-type">TransactGetItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386134"><span class="annot"><span class="annottext">Maybe (NonEmpty ItemResponse)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse%27"><span class="hs-identifier hs-type">TransactGetItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386143"><span class="annot"><span class="annottext">Maybe (NonEmpty ItemResponse)
 responses :: Maybe (NonEmpty ItemResponse)
 $sel:responses:TransactGetItemsResponse' :: TransactGetItemsResponse -&gt; Maybe (NonEmpty ItemResponse)
-</span><a href="#local-6989586621679386134"><span class="hs-identifier hs-var hs-var">responses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ItemResponse)
-</span><a href="#local-6989586621679386134"><span class="hs-identifier hs-var">responses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386133"><span class="annot"><span class="annottext">s :: TransactGetItemsResponse
-</span><a href="#local-6989586621679386133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse%27"><span class="hs-identifier hs-type">TransactGetItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386132"><span class="annot"><span class="annottext">Maybe (NonEmpty ItemResponse)
-</span><a href="#local-6989586621679386132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransactGetItemsResponse
-</span><a href="#local-6989586621679386133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responses:TransactGetItemsResponse' :: Maybe (NonEmpty ItemResponse)
+</span><a href="#local-6989586621679386143"><span class="hs-identifier hs-var hs-var">responses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ItemResponse)
+</span><a href="#local-6989586621679386143"><span class="hs-identifier hs-var">responses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386142"><span class="annot"><span class="annottext">s :: TransactGetItemsResponse
+</span><a href="#local-6989586621679386142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse%27"><span class="hs-identifier hs-type">TransactGetItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386141"><span class="annot"><span class="annottext">Maybe (NonEmpty ItemResponse)
+</span><a href="#local-6989586621679386141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransactGetItemsResponse
+</span><a href="#local-6989586621679386142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responses:TransactGetItemsResponse' :: Maybe (NonEmpty ItemResponse)
 </span><a href="Network.AWS.DynamoDB.TransactGetItems.html#%24sel%3Aresponses%3ATransactGetItemsResponse%27"><span class="hs-identifier hs-var">responses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ItemResponse)
-</span><a href="#local-6989586621679386132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse"><span class="hs-identifier hs-type">TransactGetItemsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ItemResponse)
+</span><a href="#local-6989586621679386141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse"><span class="hs-identifier hs-type">TransactGetItemsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ItemResponse)
   -&gt; f (Maybe (NonEmpty ItemResponse)))
  -&gt; TransactGetItemsResponse -&gt; f TransactGetItemsResponse)
 -&gt; ((Maybe (NonEmpty ItemResponse)
@@ -621,16 +621,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [ConsumedCapacity])
      (Maybe [ConsumedCapacity])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse%27"><span class="hs-identifier hs-type">TransactGetItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386130"><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse%27"><span class="hs-identifier hs-type">TransactGetItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386139"><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
 consumedCapacity :: Maybe [ConsumedCapacity]
 $sel:consumedCapacity:TransactGetItemsResponse' :: TransactGetItemsResponse -&gt; Maybe [ConsumedCapacity]
-</span><a href="#local-6989586621679386130"><span class="hs-identifier hs-var hs-var">consumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
-</span><a href="#local-6989586621679386130"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386129"><span class="annot"><span class="annottext">s :: TransactGetItemsResponse
-</span><a href="#local-6989586621679386129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse%27"><span class="hs-identifier hs-type">TransactGetItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386128"><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
-</span><a href="#local-6989586621679386128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransactGetItemsResponse
-</span><a href="#local-6989586621679386129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedCapacity:TransactGetItemsResponse' :: Maybe [ConsumedCapacity]
+</span><a href="#local-6989586621679386139"><span class="hs-identifier hs-var hs-var">consumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
+</span><a href="#local-6989586621679386139"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386138"><span class="annot"><span class="annottext">s :: TransactGetItemsResponse
+</span><a href="#local-6989586621679386138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse%27"><span class="hs-identifier hs-type">TransactGetItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386137"><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
+</span><a href="#local-6989586621679386137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransactGetItemsResponse
+</span><a href="#local-6989586621679386138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedCapacity:TransactGetItemsResponse' :: Maybe [ConsumedCapacity]
 </span><a href="Network.AWS.DynamoDB.TransactGetItems.html#%24sel%3AconsumedCapacity%3ATransactGetItemsResponse%27"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConsumedCapacity]
-</span><a href="#local-6989586621679386128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse"><span class="hs-identifier hs-type">TransactGetItemsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConsumedCapacity] -&gt; f (Maybe [ConsumedCapacity]))
+</span><a href="#local-6989586621679386137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse"><span class="hs-identifier hs-type">TransactGetItemsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConsumedCapacity] -&gt; f (Maybe [ConsumedCapacity]))
  -&gt; TransactGetItemsResponse -&gt; f TransactGetItemsResponse)
 -&gt; ((Maybe [ConsumedCapacity] -&gt; f (Maybe [ConsumedCapacity]))
     -&gt; Maybe [ConsumedCapacity] -&gt; f (Maybe [ConsumedCapacity]))
@@ -667,16 +667,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (TransactGetItemsResponse -&gt; Int -&gt; TransactGetItemsResponse)
 -&gt; Lens TransactGetItemsResponse TransactGetItemsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse%27"><span class="hs-identifier hs-type">TransactGetItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386127"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse%27"><span class="hs-identifier hs-type">TransactGetItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386136"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:TransactGetItemsResponse' :: TransactGetItemsResponse -&gt; Int
-</span><a href="#local-6989586621679386127"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386127"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386126"><span class="annot"><span class="annottext">s :: TransactGetItemsResponse
-</span><a href="#local-6989586621679386126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse%27"><span class="hs-identifier hs-type">TransactGetItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386125"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransactGetItemsResponse
-</span><a href="#local-6989586621679386126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TransactGetItemsResponse' :: Int
+</span><a href="#local-6989586621679386136"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386136"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386135"><span class="annot"><span class="annottext">s :: TransactGetItemsResponse
+</span><a href="#local-6989586621679386135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse%27"><span class="hs-identifier hs-type">TransactGetItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386134"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransactGetItemsResponse
+</span><a href="#local-6989586621679386135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TransactGetItemsResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.TransactGetItems.html#%24sel%3AhttpStatus%3ATransactGetItemsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse"><span class="hs-identifier hs-type">TransactGetItemsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse"><span class="hs-identifier hs-type">TransactGetItemsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>
-</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386123"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse"><span class="hs-identifier hs-type">TransactGetItemsResponse</span></a></span></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386132"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.TransactGetItems.html#TransactGetItemsResponse"><span class="hs-identifier hs-type">TransactGetItemsResponse</span></a></span></span><span>
 </span><span id="line-257"></span></pre></body></html>

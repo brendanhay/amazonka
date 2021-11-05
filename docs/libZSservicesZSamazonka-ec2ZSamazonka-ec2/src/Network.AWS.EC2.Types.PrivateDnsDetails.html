@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about the Private DNS name for interface endpoints.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPrivateDnsDetails' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681139252"><span id="local-6989586621681139253"></span></span><span class="hs-keyword">data</span><span> </span><span id="PrivateDnsDetails"><span class="annot"><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#PrivateDnsDetails"><span class="hs-identifier hs-var">PrivateDnsDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PrivateDnsDetails%27"><span class="annot"><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#PrivateDnsDetails%27"><span class="hs-identifier hs-var">PrivateDnsDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681139261"><span id="local-6989586621681139262"></span></span><span class="hs-keyword">data</span><span> </span><span id="PrivateDnsDetails"><span class="annot"><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#PrivateDnsDetails"><span class="hs-identifier hs-var">PrivateDnsDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PrivateDnsDetails%27"><span class="annot"><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#PrivateDnsDetails%27"><span class="hs-identifier hs-var">PrivateDnsDetails'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The private DNS name assigned to the VPC endpoint service.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AprivateDnsName%3APrivateDnsDetails%27"><span class="annot"><span class="annottext">PrivateDnsDetails -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#%24sel%3AprivateDnsName%3APrivateDnsDetails%27"><span class="hs-identifier hs-var hs-var">privateDnsName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681139246"><span id="local-6989586621681139248"><span class="annot"><span class="annottext">PrivateDnsDetails -&gt; PrivateDnsDetails -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681139255"><span id="local-6989586621681139257"><span class="annot"><span class="annottext">PrivateDnsDetails -&gt; PrivateDnsDetails -&gt; Bool
 (PrivateDnsDetails -&gt; PrivateDnsDetails -&gt; Bool)
 -&gt; (PrivateDnsDetails -&gt; PrivateDnsDetails -&gt; Bool)
 -&gt; Eq PrivateDnsDetails
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PrivateDnsDetails -&gt; PrivateDnsDetails -&gt; Bool
 == :: PrivateDnsDetails -&gt; PrivateDnsDetails -&gt; Bool
 $c== :: PrivateDnsDetails -&gt; PrivateDnsDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681139237"><span id="local-6989586621681139239"><span id="local-6989586621681139241"><span id="local-6989586621681139243"><span class="annot"><span class="annottext">ReadPrec [PrivateDnsDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681139246"><span id="local-6989586621681139248"><span id="local-6989586621681139250"><span id="local-6989586621681139252"><span class="annot"><span class="annottext">ReadPrec [PrivateDnsDetails]
 ReadPrec PrivateDnsDetails
 Int -&gt; ReadS PrivateDnsDetails
 ReadS [PrivateDnsDetails]
@@ -61,7 +61,7 @@ readList :: ReadS [PrivateDnsDetails]
 $creadList :: ReadS [PrivateDnsDetails]
 readsPrec :: Int -&gt; ReadS PrivateDnsDetails
 $creadsPrec :: Int -&gt; ReadS PrivateDnsDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681139230"><span id="local-6989586621681139232"><span id="local-6989586621681139234"><span class="annot"><span class="annottext">Int -&gt; PrivateDnsDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681139239"><span id="local-6989586621681139241"><span id="local-6989586621681139243"><span class="annot"><span class="annottext">Int -&gt; PrivateDnsDetails -&gt; ShowS
 [PrivateDnsDetails] -&gt; ShowS
 PrivateDnsDetails -&gt; String
 (Int -&gt; PrivateDnsDetails -&gt; ShowS)
@@ -118,33 +118,33 @@ forall a. Maybe a
 -&gt; Lens
      PrivateDnsDetails PrivateDnsDetails (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#PrivateDnsDetails%27"><span class="hs-identifier hs-type">PrivateDnsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681139221"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#PrivateDnsDetails%27"><span class="hs-identifier hs-type">PrivateDnsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681139230"><span class="annot"><span class="annottext">Maybe Text
 privateDnsName :: Maybe Text
 $sel:privateDnsName:PrivateDnsDetails' :: PrivateDnsDetails -&gt; Maybe Text
-</span><a href="#local-6989586621681139221"><span class="hs-identifier hs-var hs-var">privateDnsName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681139221"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681139220"><span class="annot"><span class="annottext">s :: PrivateDnsDetails
-</span><a href="#local-6989586621681139220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#PrivateDnsDetails%27"><span class="hs-identifier hs-type">PrivateDnsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681139219"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681139219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrivateDnsDetails
-</span><a href="#local-6989586621681139220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateDnsName:PrivateDnsDetails' :: Maybe Text
+</span><a href="#local-6989586621681139230"><span class="hs-identifier hs-var hs-var">privateDnsName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681139230"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681139229"><span class="annot"><span class="annottext">s :: PrivateDnsDetails
+</span><a href="#local-6989586621681139229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#PrivateDnsDetails%27"><span class="hs-identifier hs-type">PrivateDnsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681139228"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681139228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrivateDnsDetails
+</span><a href="#local-6989586621681139229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateDnsName:PrivateDnsDetails' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#%24sel%3AprivateDnsName%3APrivateDnsDetails%27"><span class="hs-identifier hs-var">privateDnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681139219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#PrivateDnsDetails"><span class="hs-identifier hs-type">PrivateDnsDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681139228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#PrivateDnsDetails"><span class="hs-identifier hs-type">PrivateDnsDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#PrivateDnsDetails"><span class="hs-identifier hs-type">PrivateDnsDetails</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621681139216"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PrivateDnsDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681139214"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681139214"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621681139225"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PrivateDnsDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681139223"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681139223"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; PrivateDnsDetails
 </span><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#PrivateDnsDetails%27"><span class="hs-identifier hs-var">PrivateDnsDetails'</span></a></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; PrivateDnsDetails)
 -&gt; Either String (Maybe Text) -&gt; Either String PrivateDnsDetails
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681139214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681139223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;privateDnsName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681139208"><span id="local-6989586621681139210"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#PrivateDnsDetails"><span class="hs-identifier hs-type">PrivateDnsDetails</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681139217"><span id="local-6989586621681139219"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#PrivateDnsDetails"><span class="hs-identifier hs-type">PrivateDnsDetails</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681139205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#PrivateDnsDetails"><span class="hs-identifier hs-type">PrivateDnsDetails</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681139214"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PrivateDnsDetails.html#PrivateDnsDetails"><span class="hs-identifier hs-type">PrivateDnsDetails</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

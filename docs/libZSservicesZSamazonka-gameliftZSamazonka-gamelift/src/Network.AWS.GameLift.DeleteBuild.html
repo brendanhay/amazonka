@@ -59,13 +59,13 @@
 </span><span id="line-59"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newDeleteBuild' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679459119"><span id="local-6989586621679459120"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBuild"><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild"><span class="hs-identifier hs-var">DeleteBuild</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBuild%27"><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild%27"><span class="hs-identifier hs-var">DeleteBuild'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679459128"><span id="local-6989586621679459129"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBuild"><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild"><span class="hs-identifier hs-var">DeleteBuild</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBuild%27"><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild%27"><span class="hs-identifier hs-var">DeleteBuild'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the build to delete. You can use either the</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- build ID or ARN value.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AbuildId%3ADeleteBuild%27"><span class="annot"><span class="annottext">DeleteBuild -&gt; Text
 </span><a href="Network.AWS.GameLift.DeleteBuild.html#%24sel%3AbuildId%3ADeleteBuild%27"><span class="hs-identifier hs-var hs-var">buildId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459113"><span id="local-6989586621679459115"><span class="annot"><span class="annottext">DeleteBuild -&gt; DeleteBuild -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459122"><span id="local-6989586621679459124"><span class="annot"><span class="annottext">DeleteBuild -&gt; DeleteBuild -&gt; Bool
 (DeleteBuild -&gt; DeleteBuild -&gt; Bool)
 -&gt; (DeleteBuild -&gt; DeleteBuild -&gt; Bool) -&gt; Eq DeleteBuild
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBuild -&gt; DeleteBuild -&gt; Bool
 == :: DeleteBuild -&gt; DeleteBuild -&gt; Bool
 $c== :: DeleteBuild -&gt; DeleteBuild -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459104"><span id="local-6989586621679459106"><span id="local-6989586621679459108"><span id="local-6989586621679459110"><span class="annot"><span class="annottext">ReadPrec [DeleteBuild]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459113"><span id="local-6989586621679459115"><span id="local-6989586621679459117"><span id="local-6989586621679459119"><span class="annot"><span class="annottext">ReadPrec [DeleteBuild]
 ReadPrec DeleteBuild
 Int -&gt; ReadS DeleteBuild
 ReadS [DeleteBuild]
@@ -93,7 +93,7 @@ readList :: ReadS [DeleteBuild]
 $creadList :: ReadS [DeleteBuild]
 readsPrec :: Int -&gt; ReadS DeleteBuild
 $creadsPrec :: Int -&gt; ReadS DeleteBuild
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459097"><span id="local-6989586621679459099"><span id="local-6989586621679459101"><span class="annot"><span class="annottext">Int -&gt; DeleteBuild -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459106"><span id="local-6989586621679459108"><span id="local-6989586621679459110"><span class="annot"><span class="annottext">Int -&gt; DeleteBuild -&gt; ShowS
 [DeleteBuild] -&gt; ShowS
 DeleteBuild -&gt; String
 (Int -&gt; DeleteBuild -&gt; ShowS)
@@ -134,12 +134,12 @@ $cfrom :: forall x. DeleteBuild -&gt; Rep DeleteBuild x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild"><span class="hs-identifier hs-type">DeleteBuild</span></a></span><span>
 </span><span id="line-83"></span><span id="newDeleteBuild"><span class="annot"><span class="annottext">newDeleteBuild :: Text -&gt; DeleteBuild
-</span><a href="Network.AWS.GameLift.DeleteBuild.html#newDeleteBuild"><span class="hs-identifier hs-var hs-var">newDeleteBuild</span></a></span></span><span> </span><span id="local-6989586621679459092"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459092"><span class="hs-identifier hs-var">pBuildId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.DeleteBuild.html#newDeleteBuild"><span class="hs-identifier hs-var hs-var">newDeleteBuild</span></a></span></span><span> </span><span id="local-6989586621679459101"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459101"><span class="hs-identifier hs-var">pBuildId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">DeleteBuild' :: Text -&gt; DeleteBuild
 </span><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild%27"><span class="hs-identifier hs-type">DeleteBuild'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildId:DeleteBuild' :: Text
 </span><a href="Network.AWS.GameLift.DeleteBuild.html#%24sel%3AbuildId%3ADeleteBuild%27"><span class="hs-identifier hs-var">buildId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459092"><span class="hs-identifier hs-var">pBuildId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679459101"><span class="hs-identifier hs-var">pBuildId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | A unique identifier for the build to delete. You can use either the</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- build ID or ARN value.</span><span>
@@ -149,25 +149,25 @@ $cfrom :: forall x. DeleteBuild -&gt; Rep DeleteBuild x
 -&gt; (DeleteBuild -&gt; Text -&gt; DeleteBuild)
 -&gt; Lens DeleteBuild DeleteBuild Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild%27"><span class="hs-identifier hs-type">DeleteBuild'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459089"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild%27"><span class="hs-identifier hs-type">DeleteBuild'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459098"><span class="annot"><span class="annottext">Text
 buildId :: Text
 $sel:buildId:DeleteBuild' :: DeleteBuild -&gt; Text
-</span><a href="#local-6989586621679459089"><span class="hs-identifier hs-var hs-var">buildId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459089"><span class="hs-identifier hs-var">buildId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459088"><span class="annot"><span class="annottext">s :: DeleteBuild
-</span><a href="#local-6989586621679459088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild%27"><span class="hs-identifier hs-type">DeleteBuild'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459087"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBuild
-</span><a href="#local-6989586621679459088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildId:DeleteBuild' :: Text
+</span><a href="#local-6989586621679459098"><span class="hs-identifier hs-var hs-var">buildId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459098"><span class="hs-identifier hs-var">buildId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459097"><span class="annot"><span class="annottext">s :: DeleteBuild
+</span><a href="#local-6989586621679459097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild%27"><span class="hs-identifier hs-type">DeleteBuild'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459096"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBuild
+</span><a href="#local-6989586621679459097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildId:DeleteBuild' :: Text
 </span><a href="Network.AWS.GameLift.DeleteBuild.html#%24sel%3AbuildId%3ADeleteBuild%27"><span class="hs-identifier hs-var">buildId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild"><span class="hs-identifier hs-type">DeleteBuild</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild"><span class="hs-identifier hs-type">DeleteBuild</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild"><span class="hs-identifier hs-type">DeleteBuild</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild"><span class="hs-identifier hs-type">DeleteBuild</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuildResponse"><span class="hs-identifier hs-type">DeleteBuildResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679459083"><span class="annot"><span class="annottext">request :: DeleteBuild -&gt; Request DeleteBuild
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679459092"><span class="annot"><span class="annottext">request :: DeleteBuild -&gt; Request DeleteBuild
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteBuild -&gt; Request DeleteBuild
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679459079"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679459088"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteBuild
 -&gt; ClientResponse ClientBody
@@ -190,12 +190,12 @@ AWSResponse a
 DeleteBuildResponse
 </span><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuildResponse%27"><span class="hs-identifier hs-var">DeleteBuildResponse'</span></a></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459072"><span id="local-6989586621679459074"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild"><span class="hs-identifier hs-type">DeleteBuild</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459081"><span id="local-6989586621679459083"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild"><span class="hs-identifier hs-type">DeleteBuild</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459069"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild"><span class="hs-identifier hs-type">DeleteBuild</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459078"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild"><span class="hs-identifier hs-type">DeleteBuild</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild"><span class="hs-identifier hs-type">DeleteBuild</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679459065"><span class="annot"><span class="annottext">toHeaders :: DeleteBuild -&gt; [Header]
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679459074"><span class="annot"><span class="annottext">toHeaders :: DeleteBuild -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteBuild -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -220,12 +220,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459055"><span id="local-6989586621679459057"><span id="local-6989586621679459059"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild"><span class="hs-identifier hs-type">DeleteBuild</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679459053"><span class="annot"><span class="annottext">toJSON :: DeleteBuild -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild%27"><span class="hs-identifier hs-type">DeleteBuild'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459051"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459064"><span id="local-6989586621679459066"><span id="local-6989586621679459068"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild"><span class="hs-identifier hs-type">DeleteBuild</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679459062"><span class="annot"><span class="annottext">toJSON :: DeleteBuild -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild%27"><span class="hs-identifier hs-type">DeleteBuild'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459060"><span class="annot"><span class="annottext">Text
 buildId :: Text
 $sel:buildId:DeleteBuild' :: DeleteBuild -&gt; Text
-</span><a href="#local-6989586621679459051"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679459060"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -237,18 +237,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;BuildId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459051"><span class="hs-identifier hs-var">buildId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679459060"><span class="hs-identifier hs-var">buildId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild"><span class="hs-identifier hs-type">DeleteBuild</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679459045"><span class="annot"><span class="annottext">toPath :: DeleteBuild -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679459054"><span class="annot"><span class="annottext">toPath :: DeleteBuild -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteBuild -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuild"><span class="hs-identifier hs-type">DeleteBuild</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679459041"><span class="annot"><span class="annottext">toQuery :: DeleteBuild -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679459050"><span class="annot"><span class="annottext">toQuery :: DeleteBuild -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteBuild -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -256,10 +256,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newDeleteBuildResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679459038"><span id="local-6989586621679459039"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBuildResponse"><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuildResponse"><span class="hs-identifier hs-var">DeleteBuildResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBuildResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuildResponse%27"><span class="hs-identifier hs-var">DeleteBuildResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679459047"><span id="local-6989586621679459048"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBuildResponse"><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuildResponse"><span class="hs-identifier hs-var">DeleteBuildResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBuildResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuildResponse%27"><span class="hs-identifier hs-var">DeleteBuildResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459034"><span id="local-6989586621679459036"><span class="annot"><span class="annottext">DeleteBuildResponse -&gt; DeleteBuildResponse -&gt; Bool
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459043"><span id="local-6989586621679459045"><span class="annot"><span class="annottext">DeleteBuildResponse -&gt; DeleteBuildResponse -&gt; Bool
 (DeleteBuildResponse -&gt; DeleteBuildResponse -&gt; Bool)
 -&gt; (DeleteBuildResponse -&gt; DeleteBuildResponse -&gt; Bool)
 -&gt; Eq DeleteBuildResponse
@@ -268,7 +268,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBuildResponse -&gt; DeleteBuildResponse -&gt; Bool
 == :: DeleteBuildResponse -&gt; DeleteBuildResponse -&gt; Bool
 $c== :: DeleteBuildResponse -&gt; DeleteBuildResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459026"><span id="local-6989586621679459028"><span id="local-6989586621679459030"><span id="local-6989586621679459032"><span class="annot"><span class="annottext">ReadPrec [DeleteBuildResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459035"><span id="local-6989586621679459037"><span id="local-6989586621679459039"><span id="local-6989586621679459041"><span class="annot"><span class="annottext">ReadPrec [DeleteBuildResponse]
 ReadPrec DeleteBuildResponse
 Int -&gt; ReadS DeleteBuildResponse
 ReadS [DeleteBuildResponse]
@@ -288,7 +288,7 @@ readList :: ReadS [DeleteBuildResponse]
 $creadList :: ReadS [DeleteBuildResponse]
 readsPrec :: Int -&gt; ReadS DeleteBuildResponse
 $creadsPrec :: Int -&gt; ReadS DeleteBuildResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459020"><span id="local-6989586621679459022"><span id="local-6989586621679459024"><span class="annot"><span class="annottext">Int -&gt; DeleteBuildResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459029"><span id="local-6989586621679459031"><span id="local-6989586621679459033"><span class="annot"><span class="annottext">Int -&gt; DeleteBuildResponse -&gt; ShowS
 [DeleteBuildResponse] -&gt; ShowS
 DeleteBuildResponse -&gt; String
 (Int -&gt; DeleteBuildResponse -&gt; ShowS)
@@ -324,5 +324,5 @@ $cfrom :: forall x. DeleteBuildResponse -&gt; Rep DeleteBuildResponse x
 </span><a href="Network.AWS.GameLift.DeleteBuild.html#newDeleteBuildResponse"><span class="hs-identifier hs-var hs-var">newDeleteBuildResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteBuildResponse
 </span><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuildResponse%27"><span class="hs-identifier hs-var">DeleteBuildResponse'</span></a></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459016"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuildResponse"><span class="hs-identifier hs-type">DeleteBuildResponse</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459025"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteBuild.html#DeleteBuildResponse"><span class="hs-identifier hs-type">DeleteBuildResponse</span></a></span></span><span>
 </span><span id="line-141"></span></pre></body></html>

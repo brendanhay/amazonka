@@ -1,0 +1,1109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MGN.UpdateReplicationConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Allows you to update multiple ReplicationConfigurations by Source Server</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- ID.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MGN.UpdateReplicationConfiguration</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#newUpdateReplicationConfiguration"><span class="hs-identifier">newUpdateReplicationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_createPublicIP"><span class="hs-identifier">updateReplicationConfiguration_createPublicIP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_stagingAreaTags"><span class="hs-identifier">updateReplicationConfiguration_stagingAreaTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_stagingAreaSubnetId"><span class="hs-identifier">updateReplicationConfiguration_stagingAreaSubnetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_replicationServerInstanceType"><span class="hs-identifier">updateReplicationConfiguration_replicationServerInstanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_ebsEncryption"><span class="hs-identifier">updateReplicationConfiguration_ebsEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_associateDefaultSecurityGroup"><span class="hs-identifier">updateReplicationConfiguration_associateDefaultSecurityGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_replicationServersSecurityGroupsIDs"><span class="hs-identifier">updateReplicationConfiguration_replicationServersSecurityGroupsIDs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_ebsEncryptionKeyArn"><span class="hs-identifier">updateReplicationConfiguration_ebsEncryptionKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_name"><span class="hs-identifier">updateReplicationConfiguration_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_defaultLargeStagingDiskType"><span class="hs-identifier">updateReplicationConfiguration_defaultLargeStagingDiskType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_bandwidthThrottling"><span class="hs-identifier">updateReplicationConfiguration_bandwidthThrottling</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_dataPlaneRouting"><span class="hs-identifier">updateReplicationConfiguration_dataPlaneRouting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_replicatedDisks"><span class="hs-identifier">updateReplicationConfiguration_replicatedDisks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_useDedicatedReplicationServer"><span class="hs-identifier">updateReplicationConfiguration_useDedicatedReplicationServer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_sourceServerID"><span class="hs-identifier">updateReplicationConfiguration_sourceServerID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier">ReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#newReplicationConfiguration"><span class="hs-identifier">newReplicationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#replicationConfiguration_createPublicIP"><span class="hs-identifier">replicationConfiguration_createPublicIP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#replicationConfiguration_stagingAreaTags"><span class="hs-identifier">replicationConfiguration_stagingAreaTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#replicationConfiguration_stagingAreaSubnetId"><span class="hs-identifier">replicationConfiguration_stagingAreaSubnetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#replicationConfiguration_replicationServerInstanceType"><span class="hs-identifier">replicationConfiguration_replicationServerInstanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#replicationConfiguration_ebsEncryption"><span class="hs-identifier">replicationConfiguration_ebsEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#replicationConfiguration_associateDefaultSecurityGroup"><span class="hs-identifier">replicationConfiguration_associateDefaultSecurityGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#replicationConfiguration_replicationServersSecurityGroupsIDs"><span class="hs-identifier">replicationConfiguration_replicationServersSecurityGroupsIDs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#replicationConfiguration_ebsEncryptionKeyArn"><span class="hs-identifier">replicationConfiguration_ebsEncryptionKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#replicationConfiguration_name"><span class="hs-identifier">replicationConfiguration_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#replicationConfiguration_defaultLargeStagingDiskType"><span class="hs-identifier">replicationConfiguration_defaultLargeStagingDiskType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#replicationConfiguration_bandwidthThrottling"><span class="hs-identifier">replicationConfiguration_bandwidthThrottling</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#replicationConfiguration_dataPlaneRouting"><span class="hs-identifier">replicationConfiguration_dataPlaneRouting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#replicationConfiguration_sourceServerID"><span class="hs-identifier">replicationConfiguration_sourceServerID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#replicationConfiguration_replicatedDisks"><span class="hs-identifier">replicationConfiguration_replicatedDisks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#replicationConfiguration_useDedicatedReplicationServer"><span class="hs-identifier">replicationConfiguration_useDedicatedReplicationServer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.html"><span class="hs-identifier">Network.AWS.MGN.Types</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | /See:/ 'newUpdateReplicationConfiguration' smart constructor.</span><span>
+</span><span id="line-78"></span><span id="local-6989586621679236397"><span id="local-6989586621679236398"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateReplicationConfiguration"><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-var">UpdateReplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateReplicationConfiguration%27"><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">UpdateReplicationConfiguration'</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Update replication configuration create Public IP request.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AcreatePublicIP%3AUpdateReplicationConfiguration%27"><span class="annot"><span class="annottext">UpdateReplicationConfiguration -&gt; Maybe Bool
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AcreatePublicIP%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">createPublicIP</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Update replication configuration Staging Area Tags request.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AstagingAreaTags%3AUpdateReplicationConfiguration%27"><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+-&gt; Maybe (Sensitive (HashMap Text Text))
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AstagingAreaTags%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">stagingAreaTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | Update replication configuration Staging Area subnet request.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AstagingAreaSubnetId%3AUpdateReplicationConfiguration%27"><span class="annot"><span class="annottext">UpdateReplicationConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AstagingAreaSubnetId%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">stagingAreaSubnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | Update replication configuration Replication Server instance type</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AreplicationServerInstanceType%3AUpdateReplicationConfiguration%27"><span class="annot"><span class="annottext">UpdateReplicationConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AreplicationServerInstanceType%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">replicationServerInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | Update replication configuration EBS encryption request.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AebsEncryption%3AUpdateReplicationConfiguration%27"><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+-&gt; Maybe ReplicationConfigurationEbsEncryption
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AebsEncryption%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">ebsEncryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationEbsEncryption.html#ReplicationConfigurationEbsEncryption"><span class="hs-identifier hs-type">ReplicationConfigurationEbsEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | Update replication configuration associate default Application Migration</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- Service Security group request.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AassociateDefaultSecurityGroup%3AUpdateReplicationConfiguration%27"><span class="annot"><span class="annottext">UpdateReplicationConfiguration -&gt; Maybe Bool
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AassociateDefaultSecurityGroup%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">associateDefaultSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | Update replication configuration Replication Server Security Groups IDs</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AreplicationServersSecurityGroupsIDs%3AUpdateReplicationConfiguration%27"><span class="annot"><span class="annottext">UpdateReplicationConfiguration -&gt; Maybe [Text]
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AreplicationServersSecurityGroupsIDs%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">replicationServersSecurityGroupsIDs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | Update replication configuration EBS encryption key ARN request.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AebsEncryptionKeyArn%3AUpdateReplicationConfiguration%27"><span class="annot"><span class="annottext">UpdateReplicationConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AebsEncryptionKeyArn%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">ebsEncryptionKeyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | Update replication configuration name request.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3Aname%3AUpdateReplicationConfiguration%27"><span class="annot"><span class="annottext">UpdateReplicationConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3Aname%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | Update replication configuration use default large Staging Disk type</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AdefaultLargeStagingDiskType%3AUpdateReplicationConfiguration%27"><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+-&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AdefaultLargeStagingDiskType%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">defaultLargeStagingDiskType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType"><span class="hs-identifier hs-type">ReplicationConfigurationDefaultLargeStagingDiskType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | Update replication configuration bandwidth throttling request.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AbandwidthThrottling%3AUpdateReplicationConfiguration%27"><span class="annot"><span class="annottext">UpdateReplicationConfiguration -&gt; Maybe Natural
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AbandwidthThrottling%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">bandwidthThrottling</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | Update replication configuration data plane routing request.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AdataPlaneRouting%3AUpdateReplicationConfiguration%27"><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+-&gt; Maybe ReplicationConfigurationDataPlaneRouting
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AdataPlaneRouting%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">dataPlaneRouting</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDataPlaneRouting.html#ReplicationConfigurationDataPlaneRouting"><span class="hs-identifier hs-type">ReplicationConfigurationDataPlaneRouting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | Update replication configuration replicated disks request.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AreplicatedDisks%3AUpdateReplicationConfiguration%27"><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+-&gt; Maybe [ReplicationConfigurationReplicatedDisk]
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AreplicatedDisks%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">replicatedDisks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationReplicatedDisk.html#ReplicationConfigurationReplicatedDisk"><span class="hs-identifier hs-type">ReplicationConfigurationReplicatedDisk</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | Update replication configuration use dedicated Replication Server</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AuseDedicatedReplicationServer%3AUpdateReplicationConfiguration%27"><span class="annot"><span class="annottext">UpdateReplicationConfiguration -&gt; Maybe Bool
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AuseDedicatedReplicationServer%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">useDedicatedReplicationServer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | Update replication configuration Source Server ID request.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3AsourceServerID%3AUpdateReplicationConfiguration%27"><span class="annot"><span class="annottext">UpdateReplicationConfiguration -&gt; Text
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AsourceServerID%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">sourceServerID</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236377"><span id="local-6989586621679236379"><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+-&gt; UpdateReplicationConfiguration -&gt; Bool
+(UpdateReplicationConfiguration
+ -&gt; UpdateReplicationConfiguration -&gt; Bool)
+-&gt; (UpdateReplicationConfiguration
+    -&gt; UpdateReplicationConfiguration -&gt; Bool)
+-&gt; Eq UpdateReplicationConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateReplicationConfiguration
+-&gt; UpdateReplicationConfiguration -&gt; Bool
+$c/= :: UpdateReplicationConfiguration
+-&gt; UpdateReplicationConfiguration -&gt; Bool
+== :: UpdateReplicationConfiguration
+-&gt; UpdateReplicationConfiguration -&gt; Bool
+$c== :: UpdateReplicationConfiguration
+-&gt; UpdateReplicationConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236370"><span id="local-6989586621679236372"><span id="local-6989586621679236374"><span class="annot"><span class="annottext">Int -&gt; UpdateReplicationConfiguration -&gt; ShowS
+[UpdateReplicationConfiguration] -&gt; ShowS
+UpdateReplicationConfiguration -&gt; String
+(Int -&gt; UpdateReplicationConfiguration -&gt; ShowS)
+-&gt; (UpdateReplicationConfiguration -&gt; String)
+-&gt; ([UpdateReplicationConfiguration] -&gt; ShowS)
+-&gt; Show UpdateReplicationConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateReplicationConfiguration] -&gt; ShowS
+$cshowList :: [UpdateReplicationConfiguration] -&gt; ShowS
+show :: UpdateReplicationConfiguration -&gt; String
+$cshow :: UpdateReplicationConfiguration -&gt; String
+showsPrec :: Int -&gt; UpdateReplicationConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateReplicationConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateReplicationConfiguration
+ -&gt; Rep UpdateReplicationConfiguration x)
+-&gt; (forall x.
+    Rep UpdateReplicationConfiguration x
+    -&gt; UpdateReplicationConfiguration)
+-&gt; Generic UpdateReplicationConfiguration
+forall x.
+Rep UpdateReplicationConfiguration x
+-&gt; UpdateReplicationConfiguration
+forall x.
+UpdateReplicationConfiguration
+-&gt; Rep UpdateReplicationConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateReplicationConfiguration x
+-&gt; UpdateReplicationConfiguration
+$cfrom :: forall x.
+UpdateReplicationConfiguration
+-&gt; Rep UpdateReplicationConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Create a value of 'UpdateReplicationConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'createPublicIP', 'updateReplicationConfiguration_createPublicIP' - Update replication configuration create Public IP request.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'stagingAreaTags', 'updateReplicationConfiguration_stagingAreaTags' - Update replication configuration Staging Area Tags request.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'stagingAreaSubnetId', 'updateReplicationConfiguration_stagingAreaSubnetId' - Update replication configuration Staging Area subnet request.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'replicationServerInstanceType', 'updateReplicationConfiguration_replicationServerInstanceType' - Update replication configuration Replication Server instance type</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'ebsEncryption', 'updateReplicationConfiguration_ebsEncryption' - Update replication configuration EBS encryption request.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'associateDefaultSecurityGroup', 'updateReplicationConfiguration_associateDefaultSecurityGroup' - Update replication configuration associate default Application Migration</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Service Security group request.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'replicationServersSecurityGroupsIDs', 'updateReplicationConfiguration_replicationServersSecurityGroupsIDs' - Update replication configuration Replication Server Security Groups IDs</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'ebsEncryptionKeyArn', 'updateReplicationConfiguration_ebsEncryptionKeyArn' - Update replication configuration EBS encryption key ARN request.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'name', 'updateReplicationConfiguration_name' - Update replication configuration name request.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'defaultLargeStagingDiskType', 'updateReplicationConfiguration_defaultLargeStagingDiskType' - Update replication configuration use default large Staging Disk type</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'bandwidthThrottling', 'updateReplicationConfiguration_bandwidthThrottling' - Update replication configuration bandwidth throttling request.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'dataPlaneRouting', 'updateReplicationConfiguration_dataPlaneRouting' - Update replication configuration data plane routing request.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'replicatedDisks', 'updateReplicationConfiguration_replicatedDisks' - Update replication configuration replicated disks request.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'useDedicatedReplicationServer', 'updateReplicationConfiguration_useDedicatedReplicationServer' - Update replication configuration use dedicated Replication Server</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'sourceServerID', 'updateReplicationConfiguration_sourceServerID' - Update replication configuration Source Server ID request.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#newUpdateReplicationConfiguration"><span class="hs-identifier hs-type">newUpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'sourceServerID'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span>
+</span><span id="line-163"></span><span id="newUpdateReplicationConfiguration"><span class="annot"><span class="annottext">newUpdateReplicationConfiguration :: Text -&gt; UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#newUpdateReplicationConfiguration"><span class="hs-identifier hs-var hs-var">newUpdateReplicationConfiguration</span></a></span></span><span> </span><span id="local-6989586621679236365"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236365"><span class="hs-identifier hs-var">pSourceServerID_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">UpdateReplicationConfiguration' :: Maybe Bool
+-&gt; Maybe (Sensitive (HashMap Text Text))
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ReplicationConfigurationEbsEncryption
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; Maybe Natural
+-&gt; Maybe ReplicationConfigurationDataPlaneRouting
+-&gt; Maybe [ReplicationConfigurationReplicatedDisk]
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createPublicIP:UpdateReplicationConfiguration' :: Maybe Bool
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AcreatePublicIP%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">createPublicIP</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:stagingAreaTags:UpdateReplicationConfiguration' :: Maybe (Sensitive (HashMap Text Text))
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AstagingAreaTags%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">stagingAreaTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:stagingAreaSubnetId:UpdateReplicationConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AstagingAreaSubnetId%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">stagingAreaSubnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationServerInstanceType:UpdateReplicationConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AreplicationServerInstanceType%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">replicationServerInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:ebsEncryption:UpdateReplicationConfiguration' :: Maybe ReplicationConfigurationEbsEncryption
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AebsEncryption%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">ebsEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationEbsEncryption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:associateDefaultSecurityGroup:UpdateReplicationConfiguration' :: Maybe Bool
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AassociateDefaultSecurityGroup%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">associateDefaultSecurityGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationServersSecurityGroupsIDs:UpdateReplicationConfiguration' :: Maybe [Text]
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AreplicationServersSecurityGroupsIDs%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">replicationServersSecurityGroupsIDs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:ebsEncryptionKeyArn:UpdateReplicationConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AebsEncryptionKeyArn%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">ebsEncryptionKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateReplicationConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3Aname%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultLargeStagingDiskType:UpdateReplicationConfiguration' :: Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AdefaultLargeStagingDiskType%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">defaultLargeStagingDiskType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:bandwidthThrottling:UpdateReplicationConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AbandwidthThrottling%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">bandwidthThrottling</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataPlaneRouting:UpdateReplicationConfiguration' :: Maybe ReplicationConfigurationDataPlaneRouting
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AdataPlaneRouting%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">dataPlaneRouting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDataPlaneRouting
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicatedDisks:UpdateReplicationConfiguration' :: Maybe [ReplicationConfigurationReplicatedDisk]
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AreplicatedDisks%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">replicatedDisks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicationConfigurationReplicatedDisk]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:useDedicatedReplicationServer:UpdateReplicationConfiguration' :: Maybe Bool
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AuseDedicatedReplicationServer%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">useDedicatedReplicationServer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceServerID:UpdateReplicationConfiguration' :: Text
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AsourceServerID%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">sourceServerID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236365"><span class="hs-identifier hs-var">pSourceServerID_</span></a></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | Update replication configuration create Public IP request.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_createPublicIP"><span class="hs-identifier hs-type">updateReplicationConfiguration_createPublicIP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="updateReplicationConfiguration_createPublicIP"><span class="annot"><span class="annottext">updateReplicationConfiguration_createPublicIP :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_createPublicIP"><span class="hs-identifier hs-var hs-var">updateReplicationConfiguration_createPublicIP</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationConfiguration -&gt; Maybe Bool)
+-&gt; (UpdateReplicationConfiguration
+    -&gt; Maybe Bool -&gt; UpdateReplicationConfiguration)
+-&gt; Lens
+     UpdateReplicationConfiguration
+     UpdateReplicationConfiguration
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236362"><span class="annot"><span class="annottext">Maybe Bool
+createPublicIP :: Maybe Bool
+$sel:createPublicIP:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679236362"><span class="hs-identifier hs-var hs-var">createPublicIP</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679236362"><span class="hs-identifier hs-var">createPublicIP</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236361"><span class="annot"><span class="annottext">s :: UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236360"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679236360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createPublicIP:UpdateReplicationConfiguration' :: Maybe Bool
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AcreatePublicIP%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">createPublicIP</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679236360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Update replication configuration Staging Area Tags request.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_stagingAreaTags"><span class="hs-identifier hs-type">updateReplicationConfiguration_stagingAreaTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="updateReplicationConfiguration_stagingAreaTags"><span class="annot"><span class="annottext">updateReplicationConfiguration_stagingAreaTags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_stagingAreaTags"><span class="hs-identifier hs-var hs-var">updateReplicationConfiguration_stagingAreaTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationConfiguration
+ -&gt; Maybe (Sensitive (HashMap Text Text)))
+-&gt; (UpdateReplicationConfiguration
+    -&gt; Maybe (Sensitive (HashMap Text Text))
+    -&gt; UpdateReplicationConfiguration)
+-&gt; Lens
+     UpdateReplicationConfiguration
+     UpdateReplicationConfiguration
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (Sensitive (HashMap Text Text)))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236359"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+stagingAreaTags :: Maybe (Sensitive (HashMap Text Text))
+$sel:stagingAreaTags:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration
+-&gt; Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679236359"><span class="hs-identifier hs-var hs-var">stagingAreaTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679236359"><span class="hs-identifier hs-var">stagingAreaTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236358"><span class="annot"><span class="annottext">s :: UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236357"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679236357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stagingAreaTags:UpdateReplicationConfiguration' :: Maybe (Sensitive (HashMap Text Text))
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AstagingAreaTags%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">stagingAreaTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679236357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive (HashMap Text Text))
+  -&gt; f (Maybe (Sensitive (HashMap Text Text))))
+ -&gt; UpdateReplicationConfiguration
+ -&gt; f UpdateReplicationConfiguration)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (Sensitive (HashMap Text Text))
+    -&gt; f (Maybe (Sensitive (HashMap Text Text))))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; (Exchange
+      (HashMap Text Text)
+      (HashMap Text Text)
+      (HashMap Text Text)
+      (Identity (HashMap Text Text))
+    -&gt; Exchange
+         (HashMap Text Text)
+         (HashMap Text Text)
+         (HashMap Text Text)
+         (Identity (HashMap Text Text)))
+-&gt; AnIso
+     (Sensitive (HashMap Text Text))
+     (Sensitive (HashMap Text Text))
+     (HashMap Text Text)
+     (HashMap Text Text)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Exchange
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (Identity (HashMap Text Text))
+-&gt; Exchange
+     (HashMap Text Text)
+     (HashMap Text Text)
+     (HashMap Text Text)
+     (Identity (HashMap Text Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | Update replication configuration Staging Area subnet request.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_stagingAreaSubnetId"><span class="hs-identifier hs-type">updateReplicationConfiguration_stagingAreaSubnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="updateReplicationConfiguration_stagingAreaSubnetId"><span class="annot"><span class="annottext">updateReplicationConfiguration_stagingAreaSubnetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_stagingAreaSubnetId"><span class="hs-identifier hs-var hs-var">updateReplicationConfiguration_stagingAreaSubnetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationConfiguration -&gt; Maybe Text)
+-&gt; (UpdateReplicationConfiguration
+    -&gt; Maybe Text -&gt; UpdateReplicationConfiguration)
+-&gt; Lens
+     UpdateReplicationConfiguration
+     UpdateReplicationConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236352"><span class="annot"><span class="annottext">Maybe Text
+stagingAreaSubnetId :: Maybe Text
+$sel:stagingAreaSubnetId:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679236352"><span class="hs-identifier hs-var hs-var">stagingAreaSubnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236352"><span class="hs-identifier hs-var">stagingAreaSubnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236351"><span class="annot"><span class="annottext">s :: UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236350"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stagingAreaSubnetId:UpdateReplicationConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AstagingAreaSubnetId%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">stagingAreaSubnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | Update replication configuration Replication Server instance type</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_replicationServerInstanceType"><span class="hs-identifier hs-type">updateReplicationConfiguration_replicationServerInstanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="updateReplicationConfiguration_replicationServerInstanceType"><span class="annot"><span class="annottext">updateReplicationConfiguration_replicationServerInstanceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_replicationServerInstanceType"><span class="hs-identifier hs-var hs-var">updateReplicationConfiguration_replicationServerInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationConfiguration -&gt; Maybe Text)
+-&gt; (UpdateReplicationConfiguration
+    -&gt; Maybe Text -&gt; UpdateReplicationConfiguration)
+-&gt; Lens
+     UpdateReplicationConfiguration
+     UpdateReplicationConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236349"><span class="annot"><span class="annottext">Maybe Text
+replicationServerInstanceType :: Maybe Text
+$sel:replicationServerInstanceType:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679236349"><span class="hs-identifier hs-var hs-var">replicationServerInstanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236349"><span class="hs-identifier hs-var">replicationServerInstanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236348"><span class="annot"><span class="annottext">s :: UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236347"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationServerInstanceType:UpdateReplicationConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AreplicationServerInstanceType%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">replicationServerInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | Update replication configuration EBS encryption request.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_ebsEncryption"><span class="hs-identifier hs-type">updateReplicationConfiguration_ebsEncryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationEbsEncryption.html#ReplicationConfigurationEbsEncryption"><span class="hs-identifier hs-type">ReplicationConfigurationEbsEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="updateReplicationConfiguration_ebsEncryption"><span class="annot"><span class="annottext">updateReplicationConfiguration_ebsEncryption :: (Maybe ReplicationConfigurationEbsEncryption
+ -&gt; f (Maybe ReplicationConfigurationEbsEncryption))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_ebsEncryption"><span class="hs-identifier hs-var hs-var">updateReplicationConfiguration_ebsEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationConfiguration
+ -&gt; Maybe ReplicationConfigurationEbsEncryption)
+-&gt; (UpdateReplicationConfiguration
+    -&gt; Maybe ReplicationConfigurationEbsEncryption
+    -&gt; UpdateReplicationConfiguration)
+-&gt; Lens
+     UpdateReplicationConfiguration
+     UpdateReplicationConfiguration
+     (Maybe ReplicationConfigurationEbsEncryption)
+     (Maybe ReplicationConfigurationEbsEncryption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236346"><span class="annot"><span class="annottext">Maybe ReplicationConfigurationEbsEncryption
+ebsEncryption :: Maybe ReplicationConfigurationEbsEncryption
+$sel:ebsEncryption:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration
+-&gt; Maybe ReplicationConfigurationEbsEncryption
+</span><a href="#local-6989586621679236346"><span class="hs-identifier hs-var hs-var">ebsEncryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationEbsEncryption
+</span><a href="#local-6989586621679236346"><span class="hs-identifier hs-var">ebsEncryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236345"><span class="annot"><span class="annottext">s :: UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236344"><span class="annot"><span class="annottext">Maybe ReplicationConfigurationEbsEncryption
+</span><a href="#local-6989586621679236344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ebsEncryption:UpdateReplicationConfiguration' :: Maybe ReplicationConfigurationEbsEncryption
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AebsEncryption%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">ebsEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationEbsEncryption
+</span><a href="#local-6989586621679236344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | Update replication configuration associate default Application Migration</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- Service Security group request.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_associateDefaultSecurityGroup"><span class="hs-identifier hs-type">updateReplicationConfiguration_associateDefaultSecurityGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="updateReplicationConfiguration_associateDefaultSecurityGroup"><span class="annot"><span class="annottext">updateReplicationConfiguration_associateDefaultSecurityGroup :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_associateDefaultSecurityGroup"><span class="hs-identifier hs-var hs-var">updateReplicationConfiguration_associateDefaultSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationConfiguration -&gt; Maybe Bool)
+-&gt; (UpdateReplicationConfiguration
+    -&gt; Maybe Bool -&gt; UpdateReplicationConfiguration)
+-&gt; Lens
+     UpdateReplicationConfiguration
+     UpdateReplicationConfiguration
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236343"><span class="annot"><span class="annottext">Maybe Bool
+associateDefaultSecurityGroup :: Maybe Bool
+$sel:associateDefaultSecurityGroup:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679236343"><span class="hs-identifier hs-var hs-var">associateDefaultSecurityGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679236343"><span class="hs-identifier hs-var">associateDefaultSecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236342"><span class="annot"><span class="annottext">s :: UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236341"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679236341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associateDefaultSecurityGroup:UpdateReplicationConfiguration' :: Maybe Bool
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AassociateDefaultSecurityGroup%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">associateDefaultSecurityGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679236341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | Update replication configuration Replication Server Security Groups IDs</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_replicationServersSecurityGroupsIDs"><span class="hs-identifier hs-type">updateReplicationConfiguration_replicationServersSecurityGroupsIDs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="updateReplicationConfiguration_replicationServersSecurityGroupsIDs"><span class="annot"><span class="annottext">updateReplicationConfiguration_replicationServersSecurityGroupsIDs :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_replicationServersSecurityGroupsIDs"><span class="hs-identifier hs-var hs-var">updateReplicationConfiguration_replicationServersSecurityGroupsIDs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationConfiguration -&gt; Maybe [Text])
+-&gt; (UpdateReplicationConfiguration
+    -&gt; Maybe [Text] -&gt; UpdateReplicationConfiguration)
+-&gt; Lens
+     UpdateReplicationConfiguration
+     UpdateReplicationConfiguration
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236340"><span class="annot"><span class="annottext">Maybe [Text]
+replicationServersSecurityGroupsIDs :: Maybe [Text]
+$sel:replicationServersSecurityGroupsIDs:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe [Text]
+</span><a href="#local-6989586621679236340"><span class="hs-identifier hs-var hs-var">replicationServersSecurityGroupsIDs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679236340"><span class="hs-identifier hs-var">replicationServersSecurityGroupsIDs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236339"><span class="annot"><span class="annottext">s :: UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236338"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679236338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationServersSecurityGroupsIDs:UpdateReplicationConfiguration' :: Maybe [Text]
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AreplicationServersSecurityGroupsIDs%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">replicationServersSecurityGroupsIDs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679236338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; UpdateReplicationConfiguration
+ -&gt; f UpdateReplicationConfiguration)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | Update replication configuration EBS encryption key ARN request.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_ebsEncryptionKeyArn"><span class="hs-identifier hs-type">updateReplicationConfiguration_ebsEncryptionKeyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="updateReplicationConfiguration_ebsEncryptionKeyArn"><span class="annot"><span class="annottext">updateReplicationConfiguration_ebsEncryptionKeyArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_ebsEncryptionKeyArn"><span class="hs-identifier hs-var hs-var">updateReplicationConfiguration_ebsEncryptionKeyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationConfiguration -&gt; Maybe Text)
+-&gt; (UpdateReplicationConfiguration
+    -&gt; Maybe Text -&gt; UpdateReplicationConfiguration)
+-&gt; Lens
+     UpdateReplicationConfiguration
+     UpdateReplicationConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236337"><span class="annot"><span class="annottext">Maybe Text
+ebsEncryptionKeyArn :: Maybe Text
+$sel:ebsEncryptionKeyArn:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679236337"><span class="hs-identifier hs-var hs-var">ebsEncryptionKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236337"><span class="hs-identifier hs-var">ebsEncryptionKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236336"><span class="annot"><span class="annottext">s :: UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236335"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ebsEncryptionKeyArn:UpdateReplicationConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AebsEncryptionKeyArn%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">ebsEncryptionKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | Update replication configuration name request.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_name"><span class="hs-identifier hs-type">updateReplicationConfiguration_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="updateReplicationConfiguration_name"><span class="annot"><span class="annottext">updateReplicationConfiguration_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_name"><span class="hs-identifier hs-var hs-var">updateReplicationConfiguration_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationConfiguration -&gt; Maybe Text)
+-&gt; (UpdateReplicationConfiguration
+    -&gt; Maybe Text -&gt; UpdateReplicationConfiguration)
+-&gt; Lens
+     UpdateReplicationConfiguration
+     UpdateReplicationConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236334"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679236334"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236334"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236333"><span class="annot"><span class="annottext">s :: UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236332"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateReplicationConfiguration' :: Maybe Text
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3Aname%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | Update replication configuration use default large Staging Disk type</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_defaultLargeStagingDiskType"><span class="hs-identifier hs-type">updateReplicationConfiguration_defaultLargeStagingDiskType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType"><span class="hs-identifier hs-type">ReplicationConfigurationDefaultLargeStagingDiskType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="updateReplicationConfiguration_defaultLargeStagingDiskType"><span class="annot"><span class="annottext">updateReplicationConfiguration_defaultLargeStagingDiskType :: (Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+ -&gt; f (Maybe ReplicationConfigurationDefaultLargeStagingDiskType))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_defaultLargeStagingDiskType"><span class="hs-identifier hs-var hs-var">updateReplicationConfiguration_defaultLargeStagingDiskType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationConfiguration
+ -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType)
+-&gt; (UpdateReplicationConfiguration
+    -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+    -&gt; UpdateReplicationConfiguration)
+-&gt; Lens
+     UpdateReplicationConfiguration
+     UpdateReplicationConfiguration
+     (Maybe ReplicationConfigurationDefaultLargeStagingDiskType)
+     (Maybe ReplicationConfigurationDefaultLargeStagingDiskType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236331"><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+defaultLargeStagingDiskType :: Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+$sel:defaultLargeStagingDiskType:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration
+-&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+</span><a href="#local-6989586621679236331"><span class="hs-identifier hs-var hs-var">defaultLargeStagingDiskType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+</span><a href="#local-6989586621679236331"><span class="hs-identifier hs-var">defaultLargeStagingDiskType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236330"><span class="annot"><span class="annottext">s :: UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236329"><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+</span><a href="#local-6989586621679236329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultLargeStagingDiskType:UpdateReplicationConfiguration' :: Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AdefaultLargeStagingDiskType%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">defaultLargeStagingDiskType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+</span><a href="#local-6989586621679236329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | Update replication configuration bandwidth throttling request.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_bandwidthThrottling"><span class="hs-identifier hs-type">updateReplicationConfiguration_bandwidthThrottling</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="updateReplicationConfiguration_bandwidthThrottling"><span class="annot"><span class="annottext">updateReplicationConfiguration_bandwidthThrottling :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_bandwidthThrottling"><span class="hs-identifier hs-var hs-var">updateReplicationConfiguration_bandwidthThrottling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationConfiguration -&gt; Maybe Natural)
+-&gt; (UpdateReplicationConfiguration
+    -&gt; Maybe Natural -&gt; UpdateReplicationConfiguration)
+-&gt; Lens
+     UpdateReplicationConfiguration
+     UpdateReplicationConfiguration
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236328"><span class="annot"><span class="annottext">Maybe Natural
+bandwidthThrottling :: Maybe Natural
+$sel:bandwidthThrottling:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe Natural
+</span><a href="#local-6989586621679236328"><span class="hs-identifier hs-var hs-var">bandwidthThrottling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679236328"><span class="hs-identifier hs-var">bandwidthThrottling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236327"><span class="annot"><span class="annottext">s :: UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236326"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679236326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bandwidthThrottling:UpdateReplicationConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AbandwidthThrottling%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">bandwidthThrottling</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679236326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | Update replication configuration data plane routing request.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_dataPlaneRouting"><span class="hs-identifier hs-type">updateReplicationConfiguration_dataPlaneRouting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationDataPlaneRouting.html#ReplicationConfigurationDataPlaneRouting"><span class="hs-identifier hs-type">ReplicationConfigurationDataPlaneRouting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="updateReplicationConfiguration_dataPlaneRouting"><span class="annot"><span class="annottext">updateReplicationConfiguration_dataPlaneRouting :: (Maybe ReplicationConfigurationDataPlaneRouting
+ -&gt; f (Maybe ReplicationConfigurationDataPlaneRouting))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_dataPlaneRouting"><span class="hs-identifier hs-var hs-var">updateReplicationConfiguration_dataPlaneRouting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationConfiguration
+ -&gt; Maybe ReplicationConfigurationDataPlaneRouting)
+-&gt; (UpdateReplicationConfiguration
+    -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+    -&gt; UpdateReplicationConfiguration)
+-&gt; Lens
+     UpdateReplicationConfiguration
+     UpdateReplicationConfiguration
+     (Maybe ReplicationConfigurationDataPlaneRouting)
+     (Maybe ReplicationConfigurationDataPlaneRouting)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236325"><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDataPlaneRouting
+dataPlaneRouting :: Maybe ReplicationConfigurationDataPlaneRouting
+$sel:dataPlaneRouting:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration
+-&gt; Maybe ReplicationConfigurationDataPlaneRouting
+</span><a href="#local-6989586621679236325"><span class="hs-identifier hs-var hs-var">dataPlaneRouting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDataPlaneRouting
+</span><a href="#local-6989586621679236325"><span class="hs-identifier hs-var">dataPlaneRouting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236324"><span class="annot"><span class="annottext">s :: UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236323"><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDataPlaneRouting
+</span><a href="#local-6989586621679236323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataPlaneRouting:UpdateReplicationConfiguration' :: Maybe ReplicationConfigurationDataPlaneRouting
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AdataPlaneRouting%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">dataPlaneRouting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDataPlaneRouting
+</span><a href="#local-6989586621679236323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | Update replication configuration replicated disks request.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_replicatedDisks"><span class="hs-identifier hs-type">updateReplicationConfiguration_replicatedDisks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfigurationReplicatedDisk.html#ReplicationConfigurationReplicatedDisk"><span class="hs-identifier hs-type">ReplicationConfigurationReplicatedDisk</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="updateReplicationConfiguration_replicatedDisks"><span class="annot"><span class="annottext">updateReplicationConfiguration_replicatedDisks :: (Maybe [ReplicationConfigurationReplicatedDisk]
+ -&gt; f (Maybe [ReplicationConfigurationReplicatedDisk]))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_replicatedDisks"><span class="hs-identifier hs-var hs-var">updateReplicationConfiguration_replicatedDisks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationConfiguration
+ -&gt; Maybe [ReplicationConfigurationReplicatedDisk])
+-&gt; (UpdateReplicationConfiguration
+    -&gt; Maybe [ReplicationConfigurationReplicatedDisk]
+    -&gt; UpdateReplicationConfiguration)
+-&gt; Lens
+     UpdateReplicationConfiguration
+     UpdateReplicationConfiguration
+     (Maybe [ReplicationConfigurationReplicatedDisk])
+     (Maybe [ReplicationConfigurationReplicatedDisk])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236322"><span class="annot"><span class="annottext">Maybe [ReplicationConfigurationReplicatedDisk]
+replicatedDisks :: Maybe [ReplicationConfigurationReplicatedDisk]
+$sel:replicatedDisks:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration
+-&gt; Maybe [ReplicationConfigurationReplicatedDisk]
+</span><a href="#local-6989586621679236322"><span class="hs-identifier hs-var hs-var">replicatedDisks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicationConfigurationReplicatedDisk]
+</span><a href="#local-6989586621679236322"><span class="hs-identifier hs-var">replicatedDisks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236321"><span class="annot"><span class="annottext">s :: UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236320"><span class="annot"><span class="annottext">Maybe [ReplicationConfigurationReplicatedDisk]
+</span><a href="#local-6989586621679236320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicatedDisks:UpdateReplicationConfiguration' :: Maybe [ReplicationConfigurationReplicatedDisk]
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AreplicatedDisks%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">replicatedDisks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicationConfigurationReplicatedDisk]
+</span><a href="#local-6989586621679236320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReplicationConfigurationReplicatedDisk]
+  -&gt; f (Maybe [ReplicationConfigurationReplicatedDisk]))
+ -&gt; UpdateReplicationConfiguration
+ -&gt; f UpdateReplicationConfiguration)
+-&gt; ((Maybe [ReplicationConfigurationReplicatedDisk]
+     -&gt; f (Maybe [ReplicationConfigurationReplicatedDisk]))
+    -&gt; Maybe [ReplicationConfigurationReplicatedDisk]
+    -&gt; f (Maybe [ReplicationConfigurationReplicatedDisk]))
+-&gt; (Maybe [ReplicationConfigurationReplicatedDisk]
+    -&gt; f (Maybe [ReplicationConfigurationReplicatedDisk]))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReplicationConfigurationReplicatedDisk]
+  [ReplicationConfigurationReplicatedDisk]
+  [ReplicationConfigurationReplicatedDisk]
+  [ReplicationConfigurationReplicatedDisk]
+-&gt; Iso
+     (Maybe [ReplicationConfigurationReplicatedDisk])
+     (Maybe [ReplicationConfigurationReplicatedDisk])
+     (Maybe [ReplicationConfigurationReplicatedDisk])
+     (Maybe [ReplicationConfigurationReplicatedDisk])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReplicationConfigurationReplicatedDisk]
+  [ReplicationConfigurationReplicatedDisk]
+  [ReplicationConfigurationReplicatedDisk]
+  [ReplicationConfigurationReplicatedDisk]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | Update replication configuration use dedicated Replication Server</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_useDedicatedReplicationServer"><span class="hs-identifier hs-type">updateReplicationConfiguration_useDedicatedReplicationServer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="updateReplicationConfiguration_useDedicatedReplicationServer"><span class="annot"><span class="annottext">updateReplicationConfiguration_useDedicatedReplicationServer :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_useDedicatedReplicationServer"><span class="hs-identifier hs-var hs-var">updateReplicationConfiguration_useDedicatedReplicationServer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationConfiguration -&gt; Maybe Bool)
+-&gt; (UpdateReplicationConfiguration
+    -&gt; Maybe Bool -&gt; UpdateReplicationConfiguration)
+-&gt; Lens
+     UpdateReplicationConfiguration
+     UpdateReplicationConfiguration
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236319"><span class="annot"><span class="annottext">Maybe Bool
+useDedicatedReplicationServer :: Maybe Bool
+$sel:useDedicatedReplicationServer:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679236319"><span class="hs-identifier hs-var hs-var">useDedicatedReplicationServer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679236319"><span class="hs-identifier hs-var">useDedicatedReplicationServer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236318"><span class="annot"><span class="annottext">s :: UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236317"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679236317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useDedicatedReplicationServer:UpdateReplicationConfiguration' :: Maybe Bool
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AuseDedicatedReplicationServer%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">useDedicatedReplicationServer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679236317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | Update replication configuration Source Server ID request.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_sourceServerID"><span class="hs-identifier hs-type">updateReplicationConfiguration_sourceServerID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-251"></span><span id="updateReplicationConfiguration_sourceServerID"><span class="annot"><span class="annottext">updateReplicationConfiguration_sourceServerID :: (Text -&gt; f Text)
+-&gt; UpdateReplicationConfiguration
+-&gt; f UpdateReplicationConfiguration
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#updateReplicationConfiguration_sourceServerID"><span class="hs-identifier hs-var hs-var">updateReplicationConfiguration_sourceServerID</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationConfiguration -&gt; Text)
+-&gt; (UpdateReplicationConfiguration
+    -&gt; Text -&gt; UpdateReplicationConfiguration)
+-&gt; Lens
+     UpdateReplicationConfiguration
+     UpdateReplicationConfiguration
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236316"><span class="annot"><span class="annottext">Text
+sourceServerID :: Text
+$sel:sourceServerID:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Text
+</span><a href="#local-6989586621679236316"><span class="hs-identifier hs-var hs-var">sourceServerID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236316"><span class="hs-identifier hs-var">sourceServerID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236315"><span class="annot"><span class="annottext">s :: UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236314"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationConfiguration
+</span><a href="#local-6989586621679236315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceServerID:UpdateReplicationConfiguration' :: Text
+</span><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#%24sel%3AsourceServerID%3AUpdateReplicationConfiguration%27"><span class="hs-identifier hs-var">sourceServerID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-254"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span>
+</span><span id="line-256"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-257"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-258"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>      </span><span class="annot"><a href="Network.AWS.MGN.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679236310"><span class="annot"><span class="annottext">request :: UpdateReplicationConfiguration
+-&gt; Request UpdateReplicationConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateReplicationConfiguration
+-&gt; Request UpdateReplicationConfiguration
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MGN.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679236306"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateReplicationConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse UpdateReplicationConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateReplicationConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateReplicationConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse UpdateReplicationConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-263"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236303"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236303"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679236302"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679236302"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679236301"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236301"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String ReplicationConfiguration
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236301"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679236296"><span id="local-6989586621679236298"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span></span></span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621679236293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-274"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span>
+</span><span id="line-276"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-277"></span><span>  </span><span id="local-6989586621679236289"><span class="annot"><span class="annottext">toHeaders :: UpdateReplicationConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; UpdateReplicationConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-279"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-280"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-281"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-282"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-283"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-285"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236279"><span id="local-6989586621679236281"><span id="local-6989586621679236283"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-288"></span><span>  </span><span id="local-6989586621679236277"><span class="annot"><span class="annottext">toJSON :: UpdateReplicationConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration%27"><span class="hs-identifier hs-type">UpdateReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236261"><span id="local-6989586621679236262"><span id="local-6989586621679236263"><span id="local-6989586621679236264"><span id="local-6989586621679236265"><span id="local-6989586621679236266"><span id="local-6989586621679236267"><span id="local-6989586621679236268"><span id="local-6989586621679236269"><span id="local-6989586621679236270"><span id="local-6989586621679236271"><span id="local-6989586621679236272"><span id="local-6989586621679236273"><span id="local-6989586621679236274"><span id="local-6989586621679236275"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe [Text]
+Maybe [ReplicationConfigurationReplicatedDisk]
+Maybe Text
+Maybe (Sensitive (HashMap Text Text))
+Maybe ReplicationConfigurationDataPlaneRouting
+Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+Maybe ReplicationConfigurationEbsEncryption
+Text
+sourceServerID :: Text
+useDedicatedReplicationServer :: Maybe Bool
+replicatedDisks :: Maybe [ReplicationConfigurationReplicatedDisk]
+dataPlaneRouting :: Maybe ReplicationConfigurationDataPlaneRouting
+bandwidthThrottling :: Maybe Natural
+defaultLargeStagingDiskType :: Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+name :: Maybe Text
+ebsEncryptionKeyArn :: Maybe Text
+replicationServersSecurityGroupsIDs :: Maybe [Text]
+associateDefaultSecurityGroup :: Maybe Bool
+ebsEncryption :: Maybe ReplicationConfigurationEbsEncryption
+replicationServerInstanceType :: Maybe Text
+stagingAreaSubnetId :: Maybe Text
+stagingAreaTags :: Maybe (Sensitive (HashMap Text Text))
+createPublicIP :: Maybe Bool
+$sel:sourceServerID:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Text
+$sel:useDedicatedReplicationServer:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe Bool
+$sel:replicatedDisks:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration
+-&gt; Maybe [ReplicationConfigurationReplicatedDisk]
+$sel:dataPlaneRouting:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration
+-&gt; Maybe ReplicationConfigurationDataPlaneRouting
+$sel:bandwidthThrottling:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe Natural
+$sel:defaultLargeStagingDiskType:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration
+-&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+$sel:name:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe Text
+$sel:ebsEncryptionKeyArn:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe Text
+$sel:replicationServersSecurityGroupsIDs:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe [Text]
+$sel:associateDefaultSecurityGroup:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe Bool
+$sel:ebsEncryption:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration
+-&gt; Maybe ReplicationConfigurationEbsEncryption
+$sel:replicationServerInstanceType:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe Text
+$sel:stagingAreaSubnetId:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe Text
+$sel:stagingAreaTags:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration
+-&gt; Maybe (Sensitive (HashMap Text Text))
+$sel:createPublicIP:UpdateReplicationConfiguration' :: UpdateReplicationConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679236261"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-290"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-291"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createPublicIP&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679236275"><span class="hs-identifier hs-var">createPublicIP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stagingAreaTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive (HashMap Text Text) -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive (HashMap Text Text) -&gt; Pair)
+-&gt; Maybe (Sensitive (HashMap Text Text)) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679236274"><span class="hs-identifier hs-var">stagingAreaTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stagingAreaSubnetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236273"><span class="hs-identifier hs-var">stagingAreaSubnetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;replicationServerInstanceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236272"><span class="hs-identifier hs-var">replicationServerInstanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ebsEncryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReplicationConfigurationEbsEncryption -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ReplicationConfigurationEbsEncryption -&gt; Pair)
+-&gt; Maybe ReplicationConfigurationEbsEncryption -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationEbsEncryption
+</span><a href="#local-6989586621679236271"><span class="hs-identifier hs-var">ebsEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;associateDefaultSecurityGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679236270"><span class="hs-identifier hs-var">associateDefaultSecurityGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;replicationServersSecurityGroupsIDs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679236269"><span class="hs-identifier hs-var">replicationServersSecurityGroupsIDs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ebsEncryptionKeyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236268"><span class="hs-identifier hs-var">ebsEncryptionKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236267"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultLargeStagingDiskType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>              </span><span class="annot"><span class="annottext">(ReplicationConfigurationDefaultLargeStagingDiskType -&gt; Pair)
+-&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+</span><a href="#local-6989586621679236266"><span class="hs-identifier hs-var">defaultLargeStagingDiskType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bandwidthThrottling&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679236265"><span class="hs-identifier hs-var">bandwidthThrottling</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataPlaneRouting&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReplicationConfigurationDataPlaneRouting -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>              </span><span class="annot"><span class="annottext">(ReplicationConfigurationDataPlaneRouting -&gt; Pair)
+-&gt; Maybe ReplicationConfigurationDataPlaneRouting -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDataPlaneRouting
+</span><a href="#local-6989586621679236264"><span class="hs-identifier hs-var">dataPlaneRouting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;replicatedDisks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ReplicationConfigurationReplicatedDisk] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>              </span><span class="annot"><span class="annottext">([ReplicationConfigurationReplicatedDisk] -&gt; Pair)
+-&gt; Maybe [ReplicationConfigurationReplicatedDisk] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicationConfigurationReplicatedDisk]
+</span><a href="#local-6989586621679236263"><span class="hs-identifier hs-var">replicatedDisks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;useDedicatedReplicationServer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679236262"><span class="hs-identifier hs-var">useDedicatedReplicationServer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-318"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceServerID&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236261"><span class="hs-identifier hs-var">sourceServerID</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-320"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-321"></span><span>
+</span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-323"></span><span>  </span><span id="local-6989586621679236254"><span class="annot"><span class="annottext">toPath :: UpdateReplicationConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-324"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateReplicationConfiguration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/UpdateReplicationConfiguration&quot;</span></span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.UpdateReplicationConfiguration.html#UpdateReplicationConfiguration"><span class="hs-identifier hs-type">UpdateReplicationConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-327"></span><span>  </span><span id="local-6989586621679236250"><span class="annot"><span class="annottext">toQuery :: UpdateReplicationConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateReplicationConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-328"></span></pre></body></html>

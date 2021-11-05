@@ -53,13 +53,13 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDeleteSchema' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679734470"><span id="local-6989586621679734471"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSchema"><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema"><span class="hs-identifier hs-var">DeleteSchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSchema%27"><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema%27"><span class="hs-identifier hs-var">DeleteSchema'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679734479"><span id="local-6989586621679734480"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSchema"><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema"><span class="hs-identifier hs-var">DeleteSchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSchema%27"><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema%27"><span class="hs-identifier hs-var">DeleteSchema'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This is a wrapper structure that may contain the schema name and Amazon</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Resource Name (ARN).</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AschemaId%3ADeleteSchema%27"><span class="annot"><span class="annottext">DeleteSchema -&gt; SchemaId
 </span><a href="Network.AWS.Glue.DeleteSchema.html#%24sel%3AschemaId%3ADeleteSchema%27"><span class="hs-identifier hs-var hs-var">schemaId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679734464"><span id="local-6989586621679734466"><span class="annot"><span class="annottext">DeleteSchema -&gt; DeleteSchema -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679734473"><span id="local-6989586621679734475"><span class="annot"><span class="annottext">DeleteSchema -&gt; DeleteSchema -&gt; Bool
 (DeleteSchema -&gt; DeleteSchema -&gt; Bool)
 -&gt; (DeleteSchema -&gt; DeleteSchema -&gt; Bool) -&gt; Eq DeleteSchema
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteSchema -&gt; DeleteSchema -&gt; Bool
 == :: DeleteSchema -&gt; DeleteSchema -&gt; Bool
 $c== :: DeleteSchema -&gt; DeleteSchema -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679734455"><span id="local-6989586621679734457"><span id="local-6989586621679734459"><span id="local-6989586621679734461"><span class="annot"><span class="annottext">ReadPrec [DeleteSchema]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679734464"><span id="local-6989586621679734466"><span id="local-6989586621679734468"><span id="local-6989586621679734470"><span class="annot"><span class="annottext">ReadPrec [DeleteSchema]
 ReadPrec DeleteSchema
 Int -&gt; ReadS DeleteSchema
 ReadS [DeleteSchema]
@@ -87,7 +87,7 @@ readList :: ReadS [DeleteSchema]
 $creadList :: ReadS [DeleteSchema]
 readsPrec :: Int -&gt; ReadS DeleteSchema
 $creadsPrec :: Int -&gt; ReadS DeleteSchema
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679734448"><span id="local-6989586621679734450"><span id="local-6989586621679734452"><span class="annot"><span class="annottext">Int -&gt; DeleteSchema -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679734457"><span id="local-6989586621679734459"><span id="local-6989586621679734461"><span class="annot"><span class="annottext">Int -&gt; DeleteSchema -&gt; ShowS
 [DeleteSchema] -&gt; ShowS
 DeleteSchema -&gt; String
 (Int -&gt; DeleteSchema -&gt; ShowS)
@@ -128,12 +128,12 @@ $cfrom :: forall x. DeleteSchema -&gt; Rep DeleteSchema x
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema"><span class="hs-identifier hs-type">DeleteSchema</span></a></span><span>
 </span><span id="line-77"></span><span id="newDeleteSchema"><span class="annot"><span class="annottext">newDeleteSchema :: SchemaId -&gt; DeleteSchema
-</span><a href="Network.AWS.Glue.DeleteSchema.html#newDeleteSchema"><span class="hs-identifier hs-var hs-var">newDeleteSchema</span></a></span></span><span> </span><span id="local-6989586621679734443"><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679734443"><span class="hs-identifier hs-var">pSchemaId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.DeleteSchema.html#newDeleteSchema"><span class="hs-identifier hs-var hs-var">newDeleteSchema</span></a></span></span><span> </span><span id="local-6989586621679734452"><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679734452"><span class="hs-identifier hs-var">pSchemaId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DeleteSchema' :: SchemaId -&gt; DeleteSchema
 </span><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema%27"><span class="hs-identifier hs-type">DeleteSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaId:DeleteSchema' :: SchemaId
 </span><a href="Network.AWS.Glue.DeleteSchema.html#%24sel%3AschemaId%3ADeleteSchema%27"><span class="hs-identifier hs-var">schemaId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679734443"><span class="hs-identifier hs-var">pSchemaId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679734452"><span class="hs-identifier hs-var">pSchemaId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | This is a wrapper structure that may contain the schema name and Amazon</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- Resource Name (ARN).</span><span>
@@ -143,25 +143,25 @@ $cfrom :: forall x. DeleteSchema -&gt; Rep DeleteSchema x
 -&gt; (DeleteSchema -&gt; SchemaId -&gt; DeleteSchema)
 -&gt; Lens DeleteSchema DeleteSchema SchemaId SchemaId
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema%27"><span class="hs-identifier hs-type">DeleteSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734440"><span class="annot"><span class="annottext">SchemaId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema%27"><span class="hs-identifier hs-type">DeleteSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734449"><span class="annot"><span class="annottext">SchemaId
 schemaId :: SchemaId
 $sel:schemaId:DeleteSchema' :: DeleteSchema -&gt; SchemaId
-</span><a href="#local-6989586621679734440"><span class="hs-identifier hs-var hs-var">schemaId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679734440"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734439"><span class="annot"><span class="annottext">s :: DeleteSchema
-</span><a href="#local-6989586621679734439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema%27"><span class="hs-identifier hs-type">DeleteSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734438"><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679734438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSchema
-</span><a href="#local-6989586621679734439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaId:DeleteSchema' :: SchemaId
+</span><a href="#local-6989586621679734449"><span class="hs-identifier hs-var hs-var">schemaId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679734449"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734448"><span class="annot"><span class="annottext">s :: DeleteSchema
+</span><a href="#local-6989586621679734448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema%27"><span class="hs-identifier hs-type">DeleteSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734447"><span class="annot"><span class="annottext">SchemaId
+</span><a href="#local-6989586621679734447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSchema
+</span><a href="#local-6989586621679734448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaId:DeleteSchema' :: SchemaId
 </span><a href="Network.AWS.Glue.DeleteSchema.html#%24sel%3AschemaId%3ADeleteSchema%27"><span class="hs-identifier hs-var">schemaId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679734438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema"><span class="hs-identifier hs-type">DeleteSchema</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679734447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema"><span class="hs-identifier hs-type">DeleteSchema</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema"><span class="hs-identifier hs-type">DeleteSchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema"><span class="hs-identifier hs-type">DeleteSchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-type">DeleteSchemaResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679734434"><span class="annot"><span class="annottext">request :: DeleteSchema -&gt; Request DeleteSchema
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679734443"><span class="annot"><span class="annottext">request :: DeleteSchema -&gt; Request DeleteSchema
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteSchema -&gt; Request DeleteSchema
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679734430"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679734439"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteSchema
 -&gt; ClientResponse ClientBody
@@ -185,10 +185,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679734427"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679734427"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679734426"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679734426"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679734425"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679734425"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679734436"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679734436"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679734435"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679734435"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679734434"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679734434"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe SchemaStatus
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DeleteSchemaResponse
 </span><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-var">DeleteSchemaResponse'</span></a></span><span>
@@ -199,7 +199,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DeleteSchemaResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679734425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SchemaStatus)
+</span><a href="#local-6989586621679734434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SchemaStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -209,7 +209,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; DeleteSchemaResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679734425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679734434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaName&quot;</span></span><span class="hs-special">)</span><span>
@@ -218,7 +218,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DeleteSchemaResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679734425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679734434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -230,15 +230,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679734427"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679734436"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679734417"><span id="local-6989586621679734419"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema"><span class="hs-identifier hs-type">DeleteSchema</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679734426"><span id="local-6989586621679734428"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema"><span class="hs-identifier hs-type">DeleteSchema</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679734414"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema"><span class="hs-identifier hs-type">DeleteSchema</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679734423"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema"><span class="hs-identifier hs-type">DeleteSchema</span></a></span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema"><span class="hs-identifier hs-type">DeleteSchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679734410"><span class="annot"><span class="annottext">toHeaders :: DeleteSchema -&gt; ResponseHeaders
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679734419"><span class="annot"><span class="annottext">toHeaders :: DeleteSchema -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteSchema -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -263,12 +263,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679734400"><span id="local-6989586621679734402"><span id="local-6989586621679734404"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema"><span class="hs-identifier hs-type">DeleteSchema</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679734398"><span class="annot"><span class="annottext">toJSON :: DeleteSchema -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema%27"><span class="hs-identifier hs-type">DeleteSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734396"><span class="annot"><span class="annottext">SchemaId
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679734409"><span id="local-6989586621679734411"><span id="local-6989586621679734413"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema"><span class="hs-identifier hs-type">DeleteSchema</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679734407"><span class="annot"><span class="annottext">toJSON :: DeleteSchema -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema%27"><span class="hs-identifier hs-type">DeleteSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734405"><span class="annot"><span class="annottext">SchemaId
 schemaId :: SchemaId
 $sel:schemaId:DeleteSchema' :: DeleteSchema -&gt; SchemaId
-</span><a href="#local-6989586621679734396"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679734405"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -280,18 +280,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SchemaId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SchemaId -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SchemaId
-</span><a href="#local-6989586621679734396"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679734405"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema"><span class="hs-identifier hs-type">DeleteSchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679734390"><span class="annot"><span class="annottext">toPath :: DeleteSchema -&gt; ByteString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679734399"><span class="annot"><span class="annottext">toPath :: DeleteSchema -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteSchema -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchema"><span class="hs-identifier hs-type">DeleteSchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679734386"><span class="annot"><span class="annottext">toQuery :: DeleteSchema -&gt; QueryString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679734395"><span class="annot"><span class="annottext">toQuery :: DeleteSchema -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteSchema -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -299,7 +299,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newDeleteSchemaResponse' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679734383"><span id="local-6989586621679734384"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSchemaResponse"><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-var">DeleteSchemaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSchemaResponse%27"><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-var">DeleteSchemaResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679734392"><span id="local-6989586621679734393"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSchemaResponse"><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-var">DeleteSchemaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSchemaResponse%27"><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-var">DeleteSchemaResponse'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the schema.</span><span>
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3Astatus%3ADeleteSchemaResponse%27"><span class="annot"><span class="annottext">DeleteSchemaResponse -&gt; Maybe SchemaStatus
 </span><a href="Network.AWS.Glue.DeleteSchema.html#%24sel%3Astatus%3ADeleteSchemaResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaStatus.html#SchemaStatus"><span class="hs-identifier hs-type">SchemaStatus</span></a></span><span class="hs-special">,</span><span>
@@ -313,7 +313,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteSchemaResponse%27"><span class="annot"><span class="annottext">DeleteSchemaResponse -&gt; Int
 </span><a href="Network.AWS.Glue.DeleteSchema.html#%24sel%3AhttpStatus%3ADeleteSchemaResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679734375"><span id="local-6989586621679734377"><span class="annot"><span class="annottext">DeleteSchemaResponse -&gt; DeleteSchemaResponse -&gt; Bool
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679734384"><span id="local-6989586621679734386"><span class="annot"><span class="annottext">DeleteSchemaResponse -&gt; DeleteSchemaResponse -&gt; Bool
 (DeleteSchemaResponse -&gt; DeleteSchemaResponse -&gt; Bool)
 -&gt; (DeleteSchemaResponse -&gt; DeleteSchemaResponse -&gt; Bool)
 -&gt; Eq DeleteSchemaResponse
@@ -322,7 +322,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteSchemaResponse -&gt; DeleteSchemaResponse -&gt; Bool
 == :: DeleteSchemaResponse -&gt; DeleteSchemaResponse -&gt; Bool
 $c== :: DeleteSchemaResponse -&gt; DeleteSchemaResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679734367"><span id="local-6989586621679734369"><span id="local-6989586621679734371"><span id="local-6989586621679734373"><span class="annot"><span class="annottext">ReadPrec [DeleteSchemaResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679734376"><span id="local-6989586621679734378"><span id="local-6989586621679734380"><span id="local-6989586621679734382"><span class="annot"><span class="annottext">ReadPrec [DeleteSchemaResponse]
 ReadPrec DeleteSchemaResponse
 Int -&gt; ReadS DeleteSchemaResponse
 ReadS [DeleteSchemaResponse]
@@ -342,7 +342,7 @@ readList :: ReadS [DeleteSchemaResponse]
 $creadList :: ReadS [DeleteSchemaResponse]
 readsPrec :: Int -&gt; ReadS DeleteSchemaResponse
 $creadsPrec :: Int -&gt; ReadS DeleteSchemaResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679734361"><span id="local-6989586621679734363"><span id="local-6989586621679734365"><span class="annot"><span class="annottext">Int -&gt; DeleteSchemaResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679734370"><span id="local-6989586621679734372"><span id="local-6989586621679734374"><span class="annot"><span class="annottext">Int -&gt; DeleteSchemaResponse -&gt; ShowS
 [DeleteSchemaResponse] -&gt; ShowS
 DeleteSchemaResponse -&gt; String
 (Int -&gt; DeleteSchemaResponse -&gt; ShowS)
@@ -388,8 +388,8 @@ $cfrom :: forall x. DeleteSchemaResponse -&gt; Rep DeleteSchemaResponse x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-type">DeleteSchemaResponse</span></a></span><span>
 </span><span id="line-160"></span><span id="newDeleteSchemaResponse"><span class="annot"><span class="annottext">newDeleteSchemaResponse :: Int -&gt; DeleteSchemaResponse
-</span><a href="Network.AWS.Glue.DeleteSchema.html#newDeleteSchemaResponse"><span class="hs-identifier hs-var hs-var">newDeleteSchemaResponse</span></a></span></span><span> </span><span id="local-6989586621679734358"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679734358"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.DeleteSchema.html#newDeleteSchemaResponse"><span class="hs-identifier hs-var hs-var">newDeleteSchemaResponse</span></a></span></span><span> </span><span id="local-6989586621679734367"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679734367"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">DeleteSchemaResponse' :: Maybe SchemaStatus
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DeleteSchemaResponse
 </span><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span>
@@ -407,7 +407,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSchemaResponse' :: Int
 </span><a href="Network.AWS.Glue.DeleteSchema.html#%24sel%3AhttpStatus%3ADeleteSchemaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679734358"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679734367"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The status of the schema.</span><span>
@@ -423,16 +423,16 @@ forall a. Maybe a
      (Maybe SchemaStatus)
      (Maybe SchemaStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734357"><span class="annot"><span class="annottext">Maybe SchemaStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734366"><span class="annot"><span class="annottext">Maybe SchemaStatus
 status :: Maybe SchemaStatus
 $sel:status:DeleteSchemaResponse' :: DeleteSchemaResponse -&gt; Maybe SchemaStatus
-</span><a href="#local-6989586621679734357"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaStatus
-</span><a href="#local-6989586621679734357"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734356"><span class="annot"><span class="annottext">s :: DeleteSchemaResponse
-</span><a href="#local-6989586621679734356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734355"><span class="annot"><span class="annottext">Maybe SchemaStatus
-</span><a href="#local-6989586621679734355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSchemaResponse
-</span><a href="#local-6989586621679734356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DeleteSchemaResponse' :: Maybe SchemaStatus
+</span><a href="#local-6989586621679734366"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaStatus
+</span><a href="#local-6989586621679734366"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734365"><span class="annot"><span class="annottext">s :: DeleteSchemaResponse
+</span><a href="#local-6989586621679734365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734364"><span class="annot"><span class="annottext">Maybe SchemaStatus
+</span><a href="#local-6989586621679734364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSchemaResponse
+</span><a href="#local-6989586621679734365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DeleteSchemaResponse' :: Maybe SchemaStatus
 </span><a href="Network.AWS.Glue.DeleteSchema.html#%24sel%3Astatus%3ADeleteSchemaResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaStatus
-</span><a href="#local-6989586621679734355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-type">DeleteSchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679734364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-type">DeleteSchemaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The name of the schema being deleted.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#deleteSchemaResponse_schemaName"><span class="hs-identifier hs-type">deleteSchemaResponse_schemaName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-type">DeleteSchemaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -443,16 +443,16 @@ $sel:status:DeleteSchemaResponse' :: DeleteSchemaResponse -&gt; Maybe SchemaStat
 -&gt; Lens
      DeleteSchemaResponse DeleteSchemaResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734354"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734363"><span class="annot"><span class="annottext">Maybe Text
 schemaName :: Maybe Text
 $sel:schemaName:DeleteSchemaResponse' :: DeleteSchemaResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679734354"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679734354"><span class="hs-identifier hs-var">schemaName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734353"><span class="annot"><span class="annottext">s :: DeleteSchemaResponse
-</span><a href="#local-6989586621679734353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734352"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679734352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSchemaResponse
-</span><a href="#local-6989586621679734353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaName:DeleteSchemaResponse' :: Maybe Text
+</span><a href="#local-6989586621679734363"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679734363"><span class="hs-identifier hs-var">schemaName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734362"><span class="annot"><span class="annottext">s :: DeleteSchemaResponse
+</span><a href="#local-6989586621679734362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734361"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679734361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSchemaResponse
+</span><a href="#local-6989586621679734362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaName:DeleteSchemaResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.DeleteSchema.html#%24sel%3AschemaName%3ADeleteSchemaResponse%27"><span class="hs-identifier hs-var">schemaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679734352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-type">DeleteSchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679734361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-type">DeleteSchemaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the schema being deleted.</span><span>
 </span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#deleteSchemaResponse_schemaArn"><span class="hs-identifier hs-type">deleteSchemaResponse_schemaArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-type">DeleteSchemaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -463,16 +463,16 @@ $sel:schemaName:DeleteSchemaResponse' :: DeleteSchemaResponse -&gt; Maybe Text
 -&gt; Lens
      DeleteSchemaResponse DeleteSchemaResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734351"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734360"><span class="annot"><span class="annottext">Maybe Text
 schemaArn :: Maybe Text
 $sel:schemaArn:DeleteSchemaResponse' :: DeleteSchemaResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679734351"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679734351"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734350"><span class="annot"><span class="annottext">s :: DeleteSchemaResponse
-</span><a href="#local-6989586621679734350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734349"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679734349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSchemaResponse
-</span><a href="#local-6989586621679734350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:DeleteSchemaResponse' :: Maybe Text
+</span><a href="#local-6989586621679734360"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679734360"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734359"><span class="annot"><span class="annottext">s :: DeleteSchemaResponse
+</span><a href="#local-6989586621679734359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734358"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679734358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSchemaResponse
+</span><a href="#local-6989586621679734359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:DeleteSchemaResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.DeleteSchema.html#%24sel%3AschemaArn%3ADeleteSchemaResponse%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679734349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-type">DeleteSchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679734358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-type">DeleteSchemaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-181"></span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#deleteSchemaResponse_httpStatus"><span class="hs-identifier hs-type">deleteSchemaResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-type">DeleteSchemaResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -481,16 +481,16 @@ $sel:schemaArn:DeleteSchemaResponse' :: DeleteSchemaResponse -&gt; Maybe Text
 -&gt; (DeleteSchemaResponse -&gt; Int -&gt; DeleteSchemaResponse)
 -&gt; Lens DeleteSchemaResponse DeleteSchemaResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734348"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734357"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteSchemaResponse' :: DeleteSchemaResponse -&gt; Int
-</span><a href="#local-6989586621679734348"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679734348"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734347"><span class="annot"><span class="annottext">s :: DeleteSchemaResponse
-</span><a href="#local-6989586621679734347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734346"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679734346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSchemaResponse
-</span><a href="#local-6989586621679734347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSchemaResponse' :: Int
+</span><a href="#local-6989586621679734357"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679734357"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734356"><span class="annot"><span class="annottext">s :: DeleteSchemaResponse
+</span><a href="#local-6989586621679734356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse%27"><span class="hs-identifier hs-type">DeleteSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734355"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679734355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSchemaResponse
+</span><a href="#local-6989586621679734356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSchemaResponse' :: Int
 </span><a href="Network.AWS.Glue.DeleteSchema.html#%24sel%3AhttpStatus%3ADeleteSchemaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679734346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-type">DeleteSchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679734355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-type">DeleteSchemaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679734344"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-type">DeleteSchemaResponse</span></a></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679734353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteSchema.html#DeleteSchemaResponse"><span class="hs-identifier hs-type">DeleteSchemaResponse</span></a></span></span><span>
 </span><span id="line-185"></span></pre></body></html>

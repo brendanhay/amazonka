@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-comment">-- | Represents the input of a @PollForJobs@ action.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newPollForJobs' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679288695"><span id="local-6989586621679288696"></span></span><span class="hs-keyword">data</span><span> </span><span id="PollForJobs"><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-var">PollForJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PollForJobs%27"><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-var">PollForJobs'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679288704"><span id="local-6989586621679288705"></span></span><span class="hs-keyword">data</span><span> </span><span id="PollForJobs"><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-var">PollForJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PollForJobs%27"><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-var">PollForJobs'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of jobs to return in a poll for jobs call.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxBatchSize%3APollForJobs%27"><span class="annot"><span class="annottext">PollForJobs -&gt; Maybe Natural
 </span><a href="Network.AWS.CodePipeline.PollForJobs.html#%24sel%3AmaxBatchSize%3APollForJobs%27"><span class="hs-identifier hs-var hs-var">maxBatchSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AactionTypeId%3APollForJobs%27"><span class="annot"><span class="annottext">PollForJobs -&gt; ActionTypeId
 </span><a href="Network.AWS.CodePipeline.PollForJobs.html#%24sel%3AactionTypeId%3APollForJobs%27"><span class="hs-identifier hs-var hs-var">actionTypeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeId.html#ActionTypeId"><span class="hs-identifier hs-type">ActionTypeId</span></a></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288687"><span id="local-6989586621679288689"><span class="annot"><span class="annottext">PollForJobs -&gt; PollForJobs -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288696"><span id="local-6989586621679288698"><span class="annot"><span class="annottext">PollForJobs -&gt; PollForJobs -&gt; Bool
 (PollForJobs -&gt; PollForJobs -&gt; Bool)
 -&gt; (PollForJobs -&gt; PollForJobs -&gt; Bool) -&gt; Eq PollForJobs
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PollForJobs -&gt; PollForJobs -&gt; Bool
 == :: PollForJobs -&gt; PollForJobs -&gt; Bool
 $c== :: PollForJobs -&gt; PollForJobs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288678"><span id="local-6989586621679288680"><span id="local-6989586621679288682"><span id="local-6989586621679288684"><span class="annot"><span class="annottext">ReadPrec [PollForJobs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288687"><span id="local-6989586621679288689"><span id="local-6989586621679288691"><span id="local-6989586621679288693"><span class="annot"><span class="annottext">ReadPrec [PollForJobs]
 ReadPrec PollForJobs
 Int -&gt; ReadS PollForJobs
 ReadS [PollForJobs]
@@ -102,7 +102,7 @@ readList :: ReadS [PollForJobs]
 $creadList :: ReadS [PollForJobs]
 readsPrec :: Int -&gt; ReadS PollForJobs
 $creadsPrec :: Int -&gt; ReadS PollForJobs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288671"><span id="local-6989586621679288673"><span id="local-6989586621679288675"><span class="annot"><span class="annottext">Int -&gt; PollForJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288680"><span id="local-6989586621679288682"><span id="local-6989586621679288684"><span class="annot"><span class="annottext">Int -&gt; PollForJobs -&gt; ShowS
 [PollForJobs] -&gt; ShowS
 PollForJobs -&gt; String
 (Int -&gt; PollForJobs -&gt; ShowS)
@@ -150,8 +150,8 @@ $cfrom :: forall x. PollForJobs -&gt; Rep PollForJobs x
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeId.html#ActionTypeId"><span class="hs-identifier hs-type">ActionTypeId</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span><span>
 </span><span id="line-97"></span><span id="newPollForJobs"><span class="annot"><span class="annottext">newPollForJobs :: ActionTypeId -&gt; PollForJobs
-</span><a href="Network.AWS.CodePipeline.PollForJobs.html#newPollForJobs"><span class="hs-identifier hs-var hs-var">newPollForJobs</span></a></span></span><span> </span><span id="local-6989586621679288666"><span class="annot"><span class="annottext">ActionTypeId
-</span><a href="#local-6989586621679288666"><span class="hs-identifier hs-var">pActionTypeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.PollForJobs.html#newPollForJobs"><span class="hs-identifier hs-var hs-var">newPollForJobs</span></a></span></span><span> </span><span id="local-6989586621679288675"><span class="annot"><span class="annottext">ActionTypeId
+</span><a href="#local-6989586621679288675"><span class="hs-identifier hs-var">pActionTypeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">PollForJobs' :: Maybe Natural
 -&gt; Maybe (HashMap Text Text) -&gt; ActionTypeId -&gt; PollForJobs
 </span><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-type">PollForJobs'</span></a></span><span>
@@ -165,7 +165,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionTypeId:PollForJobs' :: ActionTypeId
 </span><a href="Network.AWS.CodePipeline.PollForJobs.html#%24sel%3AactionTypeId%3APollForJobs%27"><span class="hs-identifier hs-var">actionTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionTypeId
-</span><a href="#local-6989586621679288666"><span class="hs-identifier hs-var">pActionTypeId_</span></a></span><span>
+</span><a href="#local-6989586621679288675"><span class="hs-identifier hs-var">pActionTypeId_</span></a></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The maximum number of jobs to return in a poll for jobs call.</span><span>
@@ -176,16 +176,16 @@ forall a. Maybe a
 -&gt; (PollForJobs -&gt; Maybe Natural -&gt; PollForJobs)
 -&gt; Lens PollForJobs PollForJobs (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-type">PollForJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288663"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-type">PollForJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288672"><span class="annot"><span class="annottext">Maybe Natural
 maxBatchSize :: Maybe Natural
 $sel:maxBatchSize:PollForJobs' :: PollForJobs -&gt; Maybe Natural
-</span><a href="#local-6989586621679288663"><span class="hs-identifier hs-var hs-var">maxBatchSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679288663"><span class="hs-identifier hs-var">maxBatchSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288662"><span class="annot"><span class="annottext">s :: PollForJobs
-</span><a href="#local-6989586621679288662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-type">PollForJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288661"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679288661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PollForJobs
-</span><a href="#local-6989586621679288662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxBatchSize:PollForJobs' :: Maybe Natural
+</span><a href="#local-6989586621679288672"><span class="hs-identifier hs-var hs-var">maxBatchSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679288672"><span class="hs-identifier hs-var">maxBatchSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288671"><span class="annot"><span class="annottext">s :: PollForJobs
+</span><a href="#local-6989586621679288671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-type">PollForJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288670"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679288670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PollForJobs
+</span><a href="#local-6989586621679288671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxBatchSize:PollForJobs' :: Maybe Natural
 </span><a href="Network.AWS.CodePipeline.PollForJobs.html#%24sel%3AmaxBatchSize%3APollForJobs%27"><span class="hs-identifier hs-var">maxBatchSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679288661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | A map of property names and values. For an action type with no queryable</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- properties, this value must be null or an empty map. For an action type</span><span>
@@ -203,16 +203,16 @@ $sel:maxBatchSize:PollForJobs' :: PollForJobs -&gt; Maybe Natural
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-type">PollForJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288660"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-type">PollForJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288669"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 queryParam :: Maybe (HashMap Text Text)
 $sel:queryParam:PollForJobs' :: PollForJobs -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679288660"><span class="hs-identifier hs-var hs-var">queryParam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679288660"><span class="hs-identifier hs-var">queryParam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288659"><span class="annot"><span class="annottext">s :: PollForJobs
-</span><a href="#local-6989586621679288659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-type">PollForJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288658"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679288658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PollForJobs
-</span><a href="#local-6989586621679288659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryParam:PollForJobs' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679288669"><span class="hs-identifier hs-var hs-var">queryParam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679288669"><span class="hs-identifier hs-var">queryParam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288668"><span class="annot"><span class="annottext">s :: PollForJobs
+</span><a href="#local-6989586621679288668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-type">PollForJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288667"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679288667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PollForJobs
+</span><a href="#local-6989586621679288668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryParam:PollForJobs' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CodePipeline.PollForJobs.html#%24sel%3AqueryParam%3APollForJobs%27"><span class="hs-identifier hs-var">queryParam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679288658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679288667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; PollForJobs -&gt; f PollForJobs)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -248,25 +248,25 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (PollForJobs -&gt; ActionTypeId -&gt; PollForJobs)
 -&gt; Lens PollForJobs PollForJobs ActionTypeId ActionTypeId
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-type">PollForJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288654"><span class="annot"><span class="annottext">ActionTypeId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-type">PollForJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288663"><span class="annot"><span class="annottext">ActionTypeId
 actionTypeId :: ActionTypeId
 $sel:actionTypeId:PollForJobs' :: PollForJobs -&gt; ActionTypeId
-</span><a href="#local-6989586621679288654"><span class="hs-identifier hs-var hs-var">actionTypeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeId
-</span><a href="#local-6989586621679288654"><span class="hs-identifier hs-var">actionTypeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288653"><span class="annot"><span class="annottext">s :: PollForJobs
-</span><a href="#local-6989586621679288653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-type">PollForJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288652"><span class="annot"><span class="annottext">ActionTypeId
-</span><a href="#local-6989586621679288652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PollForJobs
-</span><a href="#local-6989586621679288653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionTypeId:PollForJobs' :: ActionTypeId
+</span><a href="#local-6989586621679288663"><span class="hs-identifier hs-var hs-var">actionTypeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeId
+</span><a href="#local-6989586621679288663"><span class="hs-identifier hs-var">actionTypeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288662"><span class="annot"><span class="annottext">s :: PollForJobs
+</span><a href="#local-6989586621679288662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-type">PollForJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288661"><span class="annot"><span class="annottext">ActionTypeId
+</span><a href="#local-6989586621679288661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PollForJobs
+</span><a href="#local-6989586621679288662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionTypeId:PollForJobs' :: ActionTypeId
 </span><a href="Network.AWS.CodePipeline.PollForJobs.html#%24sel%3AactionTypeId%3APollForJobs%27"><span class="hs-identifier hs-var">actionTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionTypeId
-</span><a href="#local-6989586621679288652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse"><span class="hs-identifier hs-type">PollForJobsResponse</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679288648"><span class="annot"><span class="annottext">request :: PollForJobs -&gt; Request PollForJobs
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679288657"><span class="annot"><span class="annottext">request :: PollForJobs -&gt; Request PollForJobs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PollForJobs -&gt; Request PollForJobs
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodePipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679288644"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679288653"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PollForJobs
 -&gt; ClientResponse ClientBody
@@ -290,10 +290,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679288641"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288641"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679288640"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679288640"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679288639"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288639"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679288650"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288650"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679288649"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679288649"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679288648"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679288648"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Job] -&gt; Int -&gt; PollForJobsResponse
 </span><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse%27"><span class="hs-identifier hs-var">PollForJobsResponse'</span></a></span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Job] -&gt; Int -&gt; PollForJobsResponse)
@@ -301,7 +301,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PollForJobsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Job]))
+</span><a href="#local-6989586621679288648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Job]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;jobs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Job]))
@@ -318,15 +318,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288641"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288650"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288630"><span id="local-6989586621679288632"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288639"><span id="local-6989586621679288641"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288627"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288636"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679288623"><span class="annot"><span class="annottext">toHeaders :: PollForJobs -&gt; ResponseHeaders
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679288632"><span class="annot"><span class="annottext">toHeaders :: PollForJobs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PollForJobs -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -353,9 +353,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288613"><span id="local-6989586621679288615"><span id="local-6989586621679288617"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679288611"><span class="annot"><span class="annottext">toJSON :: PollForJobs -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-type">PollForJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288607"><span id="local-6989586621679288608"><span id="local-6989586621679288609"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288622"><span id="local-6989586621679288624"><span id="local-6989586621679288626"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679288620"><span class="annot"><span class="annottext">toJSON :: PollForJobs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs%27"><span class="hs-identifier hs-type">PollForJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288616"><span id="local-6989586621679288617"><span id="local-6989586621679288618"><span class="annot"><span class="annottext">Maybe Natural
 Maybe (HashMap Text Text)
 ActionTypeId
 actionTypeId :: ActionTypeId
@@ -364,7 +364,7 @@ maxBatchSize :: Maybe Natural
 $sel:actionTypeId:PollForJobs' :: PollForJobs -&gt; ActionTypeId
 $sel:queryParam:PollForJobs' :: PollForJobs -&gt; Maybe (HashMap Text Text)
 $sel:maxBatchSize:PollForJobs' :: PollForJobs -&gt; Maybe Natural
-</span><a href="#local-6989586621679288607"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679288616"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -376,7 +376,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679288609"><span class="hs-identifier hs-var">maxBatchSize</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679288618"><span class="hs-identifier hs-var">maxBatchSize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queryParam&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -384,26 +384,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679288608"><span class="hs-identifier hs-var">queryParam</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679288617"><span class="hs-identifier hs-var">queryParam</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;actionTypeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ActionTypeId -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ActionTypeId
-</span><a href="#local-6989586621679288607"><span class="hs-identifier hs-var">actionTypeId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288616"><span class="hs-identifier hs-var">actionTypeId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679288601"><span class="annot"><span class="annottext">toPath :: PollForJobs -&gt; ByteString
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679288610"><span class="annot"><span class="annottext">toPath :: PollForJobs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PollForJobs -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobs"><span class="hs-identifier hs-type">PollForJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679288597"><span class="annot"><span class="annottext">toQuery :: PollForJobs -&gt; QueryString
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679288606"><span class="annot"><span class="annottext">toQuery :: PollForJobs -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PollForJobs -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -413,7 +413,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-166"></span><span class="hs-comment">-- | Represents the output of a @PollForJobs@ action.</span><span>
 </span><span id="line-167"></span><span class="hs-comment">--</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- /See:/ 'newPollForJobsResponse' smart constructor.</span><span>
-</span><span id="line-169"></span><span id="local-6989586621679288594"><span id="local-6989586621679288595"></span></span><span class="hs-keyword">data</span><span> </span><span id="PollForJobsResponse"><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse"><span class="hs-identifier hs-var">PollForJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PollForJobsResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse%27"><span class="hs-identifier hs-var">PollForJobsResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span id="local-6989586621679288603"><span id="local-6989586621679288604"></span></span><span class="hs-keyword">data</span><span> </span><span id="PollForJobsResponse"><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse"><span class="hs-identifier hs-var">PollForJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PollForJobsResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse%27"><span class="hs-identifier hs-var">PollForJobsResponse'</span></a></span></span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the jobs to take action on.</span><span>
 </span><span id="line-171"></span><span>    </span><span id="%24sel%3Ajobs%3APollForJobsResponse%27"><span class="annot"><span class="annottext">PollForJobsResponse -&gt; Maybe [Job]
 </span><a href="Network.AWS.CodePipeline.PollForJobs.html#%24sel%3Ajobs%3APollForJobsResponse%27"><span class="hs-identifier hs-var hs-var">jobs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -421,7 +421,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-173"></span><span>    </span><span id="%24sel%3AhttpStatus%3APollForJobsResponse%27"><span class="annot"><span class="annottext">PollForJobsResponse -&gt; Int
 </span><a href="Network.AWS.CodePipeline.PollForJobs.html#%24sel%3AhttpStatus%3APollForJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288588"><span id="local-6989586621679288590"><span class="annot"><span class="annottext">PollForJobsResponse -&gt; PollForJobsResponse -&gt; Bool
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288597"><span id="local-6989586621679288599"><span class="annot"><span class="annottext">PollForJobsResponse -&gt; PollForJobsResponse -&gt; Bool
 (PollForJobsResponse -&gt; PollForJobsResponse -&gt; Bool)
 -&gt; (PollForJobsResponse -&gt; PollForJobsResponse -&gt; Bool)
 -&gt; Eq PollForJobsResponse
@@ -430,7 +430,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PollForJobsResponse -&gt; PollForJobsResponse -&gt; Bool
 == :: PollForJobsResponse -&gt; PollForJobsResponse -&gt; Bool
 $c== :: PollForJobsResponse -&gt; PollForJobsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288582"><span id="local-6989586621679288584"><span id="local-6989586621679288586"><span class="annot"><span class="annottext">Int -&gt; PollForJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288591"><span id="local-6989586621679288593"><span id="local-6989586621679288595"><span class="annot"><span class="annottext">Int -&gt; PollForJobsResponse -&gt; ShowS
 [PollForJobsResponse] -&gt; ShowS
 PollForJobsResponse -&gt; String
 (Int -&gt; PollForJobsResponse -&gt; ShowS)
@@ -472,8 +472,8 @@ $cfrom :: forall x. PollForJobsResponse -&gt; Rep PollForJobsResponse x
 </span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse"><span class="hs-identifier hs-type">PollForJobsResponse</span></a></span><span>
 </span><span id="line-192"></span><span id="newPollForJobsResponse"><span class="annot"><span class="annottext">newPollForJobsResponse :: Int -&gt; PollForJobsResponse
-</span><a href="Network.AWS.CodePipeline.PollForJobs.html#newPollForJobsResponse"><span class="hs-identifier hs-var hs-var">newPollForJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679288579"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288579"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.PollForJobs.html#newPollForJobsResponse"><span class="hs-identifier hs-var hs-var">newPollForJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679288588"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288588"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="annottext">PollForJobsResponse' :: Maybe [Job] -&gt; Int -&gt; PollForJobsResponse
 </span><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse%27"><span class="hs-identifier hs-type">PollForJobsResponse'</span></a></span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobs:PollForJobsResponse' :: Maybe [Job]
@@ -482,7 +482,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PollForJobsResponse' :: Int
 </span><a href="Network.AWS.CodePipeline.PollForJobs.html#%24sel%3AhttpStatus%3APollForJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288579"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679288588"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | Information about the jobs to take action on.</span><span>
@@ -494,16 +494,16 @@ forall a. Maybe a
 -&gt; Lens
      PollForJobsResponse PollForJobsResponse (Maybe [Job]) (Maybe [Job])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse%27"><span class="hs-identifier hs-type">PollForJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288578"><span class="annot"><span class="annottext">Maybe [Job]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse%27"><span class="hs-identifier hs-type">PollForJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288587"><span class="annot"><span class="annottext">Maybe [Job]
 jobs :: Maybe [Job]
 $sel:jobs:PollForJobsResponse' :: PollForJobsResponse -&gt; Maybe [Job]
-</span><a href="#local-6989586621679288578"><span class="hs-identifier hs-var hs-var">jobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Job]
-</span><a href="#local-6989586621679288578"><span class="hs-identifier hs-var">jobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288577"><span class="annot"><span class="annottext">s :: PollForJobsResponse
-</span><a href="#local-6989586621679288577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse%27"><span class="hs-identifier hs-type">PollForJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288576"><span class="annot"><span class="annottext">Maybe [Job]
-</span><a href="#local-6989586621679288576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PollForJobsResponse
-</span><a href="#local-6989586621679288577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobs:PollForJobsResponse' :: Maybe [Job]
+</span><a href="#local-6989586621679288587"><span class="hs-identifier hs-var hs-var">jobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Job]
+</span><a href="#local-6989586621679288587"><span class="hs-identifier hs-var">jobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288586"><span class="annot"><span class="annottext">s :: PollForJobsResponse
+</span><a href="#local-6989586621679288586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse%27"><span class="hs-identifier hs-type">PollForJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288585"><span class="annot"><span class="annottext">Maybe [Job]
+</span><a href="#local-6989586621679288585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PollForJobsResponse
+</span><a href="#local-6989586621679288586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobs:PollForJobsResponse' :: Maybe [Job]
 </span><a href="Network.AWS.CodePipeline.PollForJobs.html#%24sel%3Ajobs%3APollForJobsResponse%27"><span class="hs-identifier hs-var">jobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Job]
-</span><a href="#local-6989586621679288576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse"><span class="hs-identifier hs-type">PollForJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Job] -&gt; f (Maybe [Job]))
+</span><a href="#local-6989586621679288585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse"><span class="hs-identifier hs-type">PollForJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Job] -&gt; f (Maybe [Job]))
  -&gt; PollForJobsResponse -&gt; f PollForJobsResponse)
 -&gt; ((Maybe [Job] -&gt; f (Maybe [Job]))
     -&gt; Maybe [Job] -&gt; f (Maybe [Job]))
@@ -527,16 +527,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (PollForJobsResponse -&gt; Int -&gt; PollForJobsResponse)
 -&gt; Lens PollForJobsResponse PollForJobsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse%27"><span class="hs-identifier hs-type">PollForJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288575"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse%27"><span class="hs-identifier hs-type">PollForJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288584"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PollForJobsResponse' :: PollForJobsResponse -&gt; Int
-</span><a href="#local-6989586621679288575"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288575"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288574"><span class="annot"><span class="annottext">s :: PollForJobsResponse
-</span><a href="#local-6989586621679288574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse%27"><span class="hs-identifier hs-type">PollForJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288573"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PollForJobsResponse
-</span><a href="#local-6989586621679288574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PollForJobsResponse' :: Int
+</span><a href="#local-6989586621679288584"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288584"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288583"><span class="annot"><span class="annottext">s :: PollForJobsResponse
+</span><a href="#local-6989586621679288583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse%27"><span class="hs-identifier hs-type">PollForJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288582"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PollForJobsResponse
+</span><a href="#local-6989586621679288583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PollForJobsResponse' :: Int
 </span><a href="Network.AWS.CodePipeline.PollForJobs.html#%24sel%3AhttpStatus%3APollForJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse"><span class="hs-identifier hs-type">PollForJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse"><span class="hs-identifier hs-type">PollForJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288571"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse"><span class="hs-identifier hs-type">PollForJobsResponse</span></a></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288580"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PollForJobs.html#PollForJobsResponse"><span class="hs-identifier hs-type">PollForJobsResponse</span></a></span></span><span>
 </span><span id="line-207"></span></pre></body></html>

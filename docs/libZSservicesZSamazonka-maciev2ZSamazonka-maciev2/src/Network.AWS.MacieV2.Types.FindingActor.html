@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.Types.FindingActor</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.Types.FindingActor</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.DomainDetails.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.DomainDetails</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.IpAddressDetails</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UserIdentity.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.UserIdentity</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Provides information about an entity that performed an action that</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- produced a policy finding for a resource.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newFindingActor' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679403166"><span id="local-6989586621679403167"></span></span><span class="hs-keyword">data</span><span> </span><span id="FindingActor"><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor"><span class="hs-identifier hs-var">FindingActor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingActor%27"><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor%27"><span class="hs-identifier hs-var">FindingActor'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type and other characteristics of the entity that performed the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- action on the affected resource.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AuserIdentity%3AFindingActor%27"><span class="annot"><span class="annottext">FindingActor -&gt; Maybe UserIdentity
+</span><a href="Network.AWS.MacieV2.Types.FindingActor.html#%24sel%3AuserIdentity%3AFindingActor%27"><span class="hs-identifier hs-var hs-var">userIdentity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UserIdentity.html#UserIdentity"><span class="hs-identifier hs-type">UserIdentity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The IP address of the device that the entity used to perform the action</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- on the affected resource. This object also provides information such as</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the owner and geographic location for the IP address.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AipAddressDetails%3AFindingActor%27"><span class="annot"><span class="annottext">FindingActor -&gt; Maybe IpAddressDetails
+</span><a href="Network.AWS.MacieV2.Types.FindingActor.html#%24sel%3AipAddressDetails%3AFindingActor%27"><span class="hs-identifier hs-var hs-var">ipAddressDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-type">IpAddressDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The domain name of the device that the entity used to perform the action</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- on the affected resource.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AdomainDetails%3AFindingActor%27"><span class="annot"><span class="annottext">FindingActor -&gt; Maybe DomainDetails
+</span><a href="Network.AWS.MacieV2.Types.FindingActor.html#%24sel%3AdomainDetails%3AFindingActor%27"><span class="hs-identifier hs-var hs-var">domainDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.DomainDetails.html#DomainDetails"><span class="hs-identifier hs-type">DomainDetails</span></a></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403158"><span id="local-6989586621679403160"><span class="annot"><span class="annottext">FindingActor -&gt; FindingActor -&gt; Bool
+(FindingActor -&gt; FindingActor -&gt; Bool)
+-&gt; (FindingActor -&gt; FindingActor -&gt; Bool) -&gt; Eq FindingActor
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FindingActor -&gt; FindingActor -&gt; Bool
+$c/= :: FindingActor -&gt; FindingActor -&gt; Bool
+== :: FindingActor -&gt; FindingActor -&gt; Bool
+$c== :: FindingActor -&gt; FindingActor -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403149"><span id="local-6989586621679403151"><span id="local-6989586621679403153"><span id="local-6989586621679403155"><span class="annot"><span class="annottext">ReadPrec [FindingActor]
+ReadPrec FindingActor
+Int -&gt; ReadS FindingActor
+ReadS [FindingActor]
+(Int -&gt; ReadS FindingActor)
+-&gt; ReadS [FindingActor]
+-&gt; ReadPrec FindingActor
+-&gt; ReadPrec [FindingActor]
+-&gt; Read FindingActor
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FindingActor]
+$creadListPrec :: ReadPrec [FindingActor]
+readPrec :: ReadPrec FindingActor
+$creadPrec :: ReadPrec FindingActor
+readList :: ReadS [FindingActor]
+$creadList :: ReadS [FindingActor]
+readsPrec :: Int -&gt; ReadS FindingActor
+$creadsPrec :: Int -&gt; ReadS FindingActor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403142"><span id="local-6989586621679403144"><span id="local-6989586621679403146"><span class="annot"><span class="annottext">Int -&gt; FindingActor -&gt; ShowS
+[FindingActor] -&gt; ShowS
+FindingActor -&gt; String
+(Int -&gt; FindingActor -&gt; ShowS)
+-&gt; (FindingActor -&gt; String)
+-&gt; ([FindingActor] -&gt; ShowS)
+-&gt; Show FindingActor
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FindingActor] -&gt; ShowS
+$cshowList :: [FindingActor] -&gt; ShowS
+show :: FindingActor -&gt; String
+$cshow :: FindingActor -&gt; String
+showsPrec :: Int -&gt; FindingActor -&gt; ShowS
+$cshowsPrec :: Int -&gt; FindingActor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FindingActor -&gt; Rep FindingActor x)
+-&gt; (forall x. Rep FindingActor x -&gt; FindingActor)
+-&gt; Generic FindingActor
+forall x. Rep FindingActor x -&gt; FindingActor
+forall x. FindingActor -&gt; Rep FindingActor x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FindingActor x -&gt; FindingActor
+$cfrom :: forall x. FindingActor -&gt; Rep FindingActor x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'FindingActor' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'userIdentity', 'findingActor_userIdentity' - The type and other characteristics of the entity that performed the</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- action on the affected resource.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'ipAddressDetails', 'findingActor_ipAddressDetails' - The IP address of the device that the entity used to perform the action</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- on the affected resource. This object also provides information such as</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- the owner and geographic location for the IP address.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'domainDetails', 'findingActor_domainDetails' - The domain name of the device that the entity used to perform the action</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- on the affected resource.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#newFindingActor"><span class="hs-identifier hs-type">newFindingActor</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor"><span class="hs-identifier hs-type">FindingActor</span></a></span><span>
+</span><span id="line-66"></span><span id="newFindingActor"><span class="annot"><span class="annottext">newFindingActor :: FindingActor
+</span><a href="Network.AWS.MacieV2.Types.FindingActor.html#newFindingActor"><span class="hs-identifier hs-var hs-var">newFindingActor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">FindingActor' :: Maybe UserIdentity
+-&gt; Maybe IpAddressDetails -&gt; Maybe DomainDetails -&gt; FindingActor
+</span><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor%27"><span class="hs-identifier hs-type">FindingActor'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userIdentity:FindingActor' :: Maybe UserIdentity
+</span><a href="Network.AWS.MacieV2.Types.FindingActor.html#%24sel%3AuserIdentity%3AFindingActor%27"><span class="hs-identifier hs-var">userIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserIdentity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipAddressDetails:FindingActor' :: Maybe IpAddressDetails
+</span><a href="Network.AWS.MacieV2.Types.FindingActor.html#%24sel%3AipAddressDetails%3AFindingActor%27"><span class="hs-identifier hs-var">ipAddressDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainDetails:FindingActor' :: Maybe DomainDetails
+</span><a href="Network.AWS.MacieV2.Types.FindingActor.html#%24sel%3AdomainDetails%3AFindingActor%27"><span class="hs-identifier hs-var">domainDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The type and other characteristics of the entity that performed the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- action on the affected resource.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#findingActor_userIdentity"><span class="hs-identifier hs-type">findingActor_userIdentity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor"><span class="hs-identifier hs-type">FindingActor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UserIdentity.html#UserIdentity"><span class="hs-identifier hs-type">UserIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="findingActor_userIdentity"><span class="annot"><span class="annottext">findingActor_userIdentity :: (Maybe UserIdentity -&gt; f (Maybe UserIdentity))
+-&gt; FindingActor -&gt; f FindingActor
+</span><a href="Network.AWS.MacieV2.Types.FindingActor.html#findingActor_userIdentity"><span class="hs-identifier hs-var hs-var">findingActor_userIdentity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingActor -&gt; Maybe UserIdentity)
+-&gt; (FindingActor -&gt; Maybe UserIdentity -&gt; FindingActor)
+-&gt; Lens
+     FindingActor FindingActor (Maybe UserIdentity) (Maybe UserIdentity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor%27"><span class="hs-identifier hs-type">FindingActor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403133"><span class="annot"><span class="annottext">Maybe UserIdentity
+userIdentity :: Maybe UserIdentity
+$sel:userIdentity:FindingActor' :: FindingActor -&gt; Maybe UserIdentity
+</span><a href="#local-6989586621679403133"><span class="hs-identifier hs-var hs-var">userIdentity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserIdentity
+</span><a href="#local-6989586621679403133"><span class="hs-identifier hs-var">userIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403132"><span class="annot"><span class="annottext">s :: FindingActor
+</span><a href="#local-6989586621679403132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor%27"><span class="hs-identifier hs-type">FindingActor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403131"><span class="annot"><span class="annottext">Maybe UserIdentity
+</span><a href="#local-6989586621679403131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingActor
+</span><a href="#local-6989586621679403132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userIdentity:FindingActor' :: Maybe UserIdentity
+</span><a href="Network.AWS.MacieV2.Types.FindingActor.html#%24sel%3AuserIdentity%3AFindingActor%27"><span class="hs-identifier hs-var">userIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserIdentity
+</span><a href="#local-6989586621679403131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor"><span class="hs-identifier hs-type">FindingActor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The IP address of the device that the entity used to perform the action</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- on the affected resource. This object also provides information such as</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- the owner and geographic location for the IP address.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#findingActor_ipAddressDetails"><span class="hs-identifier hs-type">findingActor_ipAddressDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor"><span class="hs-identifier hs-type">FindingActor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.IpAddressDetails.html#IpAddressDetails"><span class="hs-identifier hs-type">IpAddressDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="findingActor_ipAddressDetails"><span class="annot"><span class="annottext">findingActor_ipAddressDetails :: (Maybe IpAddressDetails -&gt; f (Maybe IpAddressDetails))
+-&gt; FindingActor -&gt; f FindingActor
+</span><a href="Network.AWS.MacieV2.Types.FindingActor.html#findingActor_ipAddressDetails"><span class="hs-identifier hs-var hs-var">findingActor_ipAddressDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingActor -&gt; Maybe IpAddressDetails)
+-&gt; (FindingActor -&gt; Maybe IpAddressDetails -&gt; FindingActor)
+-&gt; Lens
+     FindingActor
+     FindingActor
+     (Maybe IpAddressDetails)
+     (Maybe IpAddressDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor%27"><span class="hs-identifier hs-type">FindingActor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403129"><span class="annot"><span class="annottext">Maybe IpAddressDetails
+ipAddressDetails :: Maybe IpAddressDetails
+$sel:ipAddressDetails:FindingActor' :: FindingActor -&gt; Maybe IpAddressDetails
+</span><a href="#local-6989586621679403129"><span class="hs-identifier hs-var hs-var">ipAddressDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressDetails
+</span><a href="#local-6989586621679403129"><span class="hs-identifier hs-var">ipAddressDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403128"><span class="annot"><span class="annottext">s :: FindingActor
+</span><a href="#local-6989586621679403128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor%27"><span class="hs-identifier hs-type">FindingActor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403127"><span class="annot"><span class="annottext">Maybe IpAddressDetails
+</span><a href="#local-6989586621679403127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingActor
+</span><a href="#local-6989586621679403128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddressDetails:FindingActor' :: Maybe IpAddressDetails
+</span><a href="Network.AWS.MacieV2.Types.FindingActor.html#%24sel%3AipAddressDetails%3AFindingActor%27"><span class="hs-identifier hs-var">ipAddressDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressDetails
+</span><a href="#local-6989586621679403127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor"><span class="hs-identifier hs-type">FindingActor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The domain name of the device that the entity used to perform the action</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- on the affected resource.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#findingActor_domainDetails"><span class="hs-identifier hs-type">findingActor_domainDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor"><span class="hs-identifier hs-type">FindingActor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.DomainDetails.html#DomainDetails"><span class="hs-identifier hs-type">DomainDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="findingActor_domainDetails"><span class="annot"><span class="annottext">findingActor_domainDetails :: (Maybe DomainDetails -&gt; f (Maybe DomainDetails))
+-&gt; FindingActor -&gt; f FindingActor
+</span><a href="Network.AWS.MacieV2.Types.FindingActor.html#findingActor_domainDetails"><span class="hs-identifier hs-var hs-var">findingActor_domainDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingActor -&gt; Maybe DomainDetails)
+-&gt; (FindingActor -&gt; Maybe DomainDetails -&gt; FindingActor)
+-&gt; Lens
+     FindingActor
+     FindingActor
+     (Maybe DomainDetails)
+     (Maybe DomainDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor%27"><span class="hs-identifier hs-type">FindingActor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403125"><span class="annot"><span class="annottext">Maybe DomainDetails
+domainDetails :: Maybe DomainDetails
+$sel:domainDetails:FindingActor' :: FindingActor -&gt; Maybe DomainDetails
+</span><a href="#local-6989586621679403125"><span class="hs-identifier hs-var hs-var">domainDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DomainDetails
+</span><a href="#local-6989586621679403125"><span class="hs-identifier hs-var">domainDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403124"><span class="annot"><span class="annottext">s :: FindingActor
+</span><a href="#local-6989586621679403124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor%27"><span class="hs-identifier hs-type">FindingActor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403123"><span class="annot"><span class="annottext">Maybe DomainDetails
+</span><a href="#local-6989586621679403123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingActor
+</span><a href="#local-6989586621679403124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainDetails:FindingActor' :: Maybe DomainDetails
+</span><a href="Network.AWS.MacieV2.Types.FindingActor.html#%24sel%3AdomainDetails%3AFindingActor%27"><span class="hs-identifier hs-var">domainDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainDetails
+</span><a href="#local-6989586621679403123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor"><span class="hs-identifier hs-type">FindingActor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403120"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor"><span class="hs-identifier hs-type">FindingActor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679403118"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FindingActor
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FindingActor) -&gt; Value -&gt; Parser FindingActor
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FindingActor&quot;</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679403115"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403115"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe UserIdentity
+-&gt; Maybe IpAddressDetails -&gt; Maybe DomainDetails -&gt; FindingActor
+</span><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor%27"><span class="hs-identifier hs-var">FindingActor'</span></a></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe UserIdentity
+ -&gt; Maybe IpAddressDetails -&gt; Maybe DomainDetails -&gt; FindingActor)
+-&gt; Parser (Maybe UserIdentity)
+-&gt; Parser
+     (Maybe IpAddressDetails -&gt; Maybe DomainDetails -&gt; FindingActor)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UserIdentity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userIdentity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe IpAddressDetails -&gt; Maybe DomainDetails -&gt; FindingActor)
+-&gt; Parser (Maybe IpAddressDetails)
+-&gt; Parser (Maybe DomainDetails -&gt; FindingActor)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IpAddressDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipAddressDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DomainDetails -&gt; FindingActor)
+-&gt; Parser (Maybe DomainDetails) -&gt; Parser FindingActor
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DomainDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;domainDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403109"><span id="local-6989586621679403111"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor"><span class="hs-identifier hs-type">FindingActor</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403106"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingActor.html#FindingActor"><span class="hs-identifier hs-type">FindingActor</span></a></span></span><span>
+</span><span id="line-103"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | H264 Flicker Aq</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679879630"><span id="local-6989586621679879631"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264FlickerAq"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264FlickerAq.html#H264FlickerAq"><span class="hs-identifier hs-var">H264FlickerAq</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264FlickerAq%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264FlickerAq.html#H264FlickerAq%27"><span class="hs-identifier hs-var">H264FlickerAq'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679879639"><span id="local-6989586621679879640"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264FlickerAq"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264FlickerAq.html#H264FlickerAq"><span class="hs-identifier hs-var">H264FlickerAq</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264FlickerAq%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264FlickerAq.html#H264FlickerAq%27"><span class="hs-identifier hs-var">H264FlickerAq'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264FlickerAq"><span class="annot"><span class="annottext">H264FlickerAq -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.H264FlickerAq.html#fromH264FlickerAq"><span class="hs-identifier hs-var hs-var">fromH264FlickerAq</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679879622"><span id="local-6989586621679879624"><span id="local-6989586621679879626"><span class="annot"><span class="annottext">Int -&gt; H264FlickerAq -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679879631"><span id="local-6989586621679879633"><span id="local-6989586621679879635"><span class="annot"><span class="annottext">Int -&gt; H264FlickerAq -&gt; ShowS
 [H264FlickerAq] -&gt; ShowS
 H264FlickerAq -&gt; String
 (Int -&gt; H264FlickerAq -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: H264FlickerAq -&gt; String
 showsPrec :: Int -&gt; H264FlickerAq -&gt; ShowS
 $cshowsPrec :: Int -&gt; H264FlickerAq -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679879613"><span id="local-6989586621679879615"><span id="local-6989586621679879617"><span id="local-6989586621679879619"><span class="annot"><span class="annottext">ReadPrec [H264FlickerAq]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679879622"><span id="local-6989586621679879624"><span id="local-6989586621679879626"><span id="local-6989586621679879628"><span class="annot"><span class="annottext">ReadPrec [H264FlickerAq]
 ReadPrec H264FlickerAq
 Int -&gt; ReadS H264FlickerAq
 ReadS [H264FlickerAq]
@@ -73,7 +73,7 @@ $creadList :: ReadS [H264FlickerAq]
 readsPrec :: Int -&gt; ReadS H264FlickerAq
 $creadsPrec :: Int -&gt; ReadS H264FlickerAq
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679879608"><span id="local-6989586621679879610"><span class="annot"><span class="annottext">H264FlickerAq -&gt; H264FlickerAq -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679879617"><span id="local-6989586621679879619"><span class="annot"><span class="annottext">H264FlickerAq -&gt; H264FlickerAq -&gt; Bool
 (H264FlickerAq -&gt; H264FlickerAq -&gt; Bool)
 -&gt; (H264FlickerAq -&gt; H264FlickerAq -&gt; Bool) -&gt; Eq H264FlickerAq
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: H264FlickerAq -&gt; H264FlickerAq -&gt; Bool
 == :: H264FlickerAq -&gt; H264FlickerAq -&gt; Bool
 $c== :: H264FlickerAq -&gt; H264FlickerAq -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679879592"><span id="local-6989586621679879594"><span id="local-6989586621679879596"><span id="local-6989586621679879598"><span id="local-6989586621679879600"><span id="local-6989586621679879602"><span id="local-6989586621679879604"><span class="annot"><span class="annottext">Eq H264FlickerAq
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679879601"><span id="local-6989586621679879603"><span id="local-6989586621679879605"><span id="local-6989586621679879607"><span id="local-6989586621679879609"><span id="local-6989586621679879611"><span id="local-6989586621679879613"><span class="annot"><span class="annottext">Eq H264FlickerAq
 Eq H264FlickerAq
 -&gt; (H264FlickerAq -&gt; H264FlickerAq -&gt; Ordering)
 -&gt; (H264FlickerAq -&gt; H264FlickerAq -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. H264FlickerAq -&gt; Rep H264FlickerAq x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679879584"><span id="local-6989586621679879586"><span class="annot"><span class="annottext">Int -&gt; H264FlickerAq -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679879593"><span id="local-6989586621679879595"><span class="annot"><span class="annottext">Int -&gt; H264FlickerAq -&gt; Int
 H264FlickerAq -&gt; Int
 (Int -&gt; H264FlickerAq -&gt; Int)
 -&gt; (H264FlickerAq -&gt; Int) -&gt; Hashable H264FlickerAq
@@ -143,49 +143,49 @@ $chash :: H264FlickerAq -&gt; Int
 hashWithSalt :: Int -&gt; H264FlickerAq -&gt; Int
 $chashWithSalt :: Int -&gt; H264FlickerAq -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679879581"><span class="annot"><span class="annottext">H264FlickerAq -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679879590"><span class="annot"><span class="annottext">H264FlickerAq -&gt; ()
 (H264FlickerAq -&gt; ()) -&gt; NFData H264FlickerAq
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H264FlickerAq -&gt; ()
 $crnf :: H264FlickerAq -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679879578"><span class="annot"><span class="annottext">Text -&gt; Either String H264FlickerAq
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679879587"><span class="annot"><span class="annottext">Text -&gt; Either String H264FlickerAq
 (Text -&gt; Either String H264FlickerAq) -&gt; FromText H264FlickerAq
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H264FlickerAq
 $cfromText :: Text -&gt; Either String H264FlickerAq
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679879575"><span class="annot"><span class="annottext">H264FlickerAq -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679879584"><span class="annot"><span class="annottext">H264FlickerAq -&gt; Text
 (H264FlickerAq -&gt; Text) -&gt; ToText H264FlickerAq
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H264FlickerAq -&gt; Text
 $ctoText :: H264FlickerAq -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679879572"><span class="annot"><span class="annottext">H264FlickerAq -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679879581"><span class="annot"><span class="annottext">H264FlickerAq -&gt; ByteString
 (H264FlickerAq -&gt; ByteString) -&gt; ToByteString H264FlickerAq
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H264FlickerAq -&gt; ByteString
 $ctoBS :: H264FlickerAq -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679879569"><span class="annot"><span class="annottext">H264FlickerAq -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679879578"><span class="annot"><span class="annottext">H264FlickerAq -&gt; ByteStringBuilder
 (H264FlickerAq -&gt; ByteStringBuilder) -&gt; ToLog H264FlickerAq
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H264FlickerAq -&gt; ByteStringBuilder
 $cbuild :: H264FlickerAq -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679879566"><span class="annot"><span class="annottext">HeaderName -&gt; H264FlickerAq -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679879575"><span class="annot"><span class="annottext">HeaderName -&gt; H264FlickerAq -&gt; [Header]
 (HeaderName -&gt; H264FlickerAq -&gt; [Header]) -&gt; ToHeader H264FlickerAq
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H264FlickerAq -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H264FlickerAq -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679879563"><span class="annot"><span class="annottext">H264FlickerAq -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679879572"><span class="annot"><span class="annottext">H264FlickerAq -&gt; QueryString
 (H264FlickerAq -&gt; QueryString) -&gt; ToQuery H264FlickerAq
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H264FlickerAq -&gt; QueryString
 $ctoQuery :: H264FlickerAq -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679879558"><span id="local-6989586621679879560"><span class="annot"><span class="annottext">Value -&gt; Parser [H264FlickerAq]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679879567"><span id="local-6989586621679879569"><span class="annot"><span class="annottext">Value -&gt; Parser [H264FlickerAq]
 Value -&gt; Parser H264FlickerAq
 (Value -&gt; Parser H264FlickerAq)
 -&gt; (Value -&gt; Parser [H264FlickerAq]) -&gt; FromJSON H264FlickerAq
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [H264FlickerAq]
 parseJSON :: Value -&gt; Parser H264FlickerAq
 $cparseJSON :: Value -&gt; Parser H264FlickerAq
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679879553"><span id="local-6989586621679879555"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264FlickerAq]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679879562"><span id="local-6989586621679879564"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264FlickerAq]
 FromJSONKeyFunction H264FlickerAq
 FromJSONKeyFunction H264FlickerAq
 -&gt; FromJSONKeyFunction [H264FlickerAq] -&gt; FromJSONKey H264FlickerAq
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H264FlickerAq]
 fromJSONKey :: FromJSONKeyFunction H264FlickerAq
 $cfromJSONKey :: FromJSONKeyFunction H264FlickerAq
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679879544"><span id="local-6989586621679879546"><span id="local-6989586621679879548"><span id="local-6989586621679879550"><span class="annot"><span class="annottext">[H264FlickerAq] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679879553"><span id="local-6989586621679879555"><span id="local-6989586621679879557"><span id="local-6989586621679879559"><span class="annot"><span class="annottext">[H264FlickerAq] -&gt; Encoding
 [H264FlickerAq] -&gt; Value
 H264FlickerAq -&gt; Encoding
 H264FlickerAq -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: H264FlickerAq -&gt; Encoding
 toJSON :: H264FlickerAq -&gt; Value
 $ctoJSON :: H264FlickerAq -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679879539"><span id="local-6989586621679879541"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264FlickerAq]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679879548"><span id="local-6989586621679879550"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264FlickerAq]
 ToJSONKeyFunction H264FlickerAq
 ToJSONKeyFunction H264FlickerAq
 -&gt; ToJSONKeyFunction [H264FlickerAq] -&gt; ToJSONKey H264FlickerAq
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H264FlickerAq]
 toJSONKey :: ToJSONKeyFunction H264FlickerAq
 $ctoJSONKey :: ToJSONKeyFunction H264FlickerAq
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679879536"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264FlickerAq
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679879545"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264FlickerAq
 ([Node] -&gt; Either String H264FlickerAq) -&gt; FromXML H264FlickerAq
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H264FlickerAq
 $cparseXML :: [Node] -&gt; Either String H264FlickerAq
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679879533"><span class="annot"><span class="annottext">H264FlickerAq -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679879542"><span class="annot"><span class="annottext">H264FlickerAq -&gt; XML
 (H264FlickerAq -&gt; XML) -&gt; ToXML H264FlickerAq
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H264FlickerAq -&gt; XML

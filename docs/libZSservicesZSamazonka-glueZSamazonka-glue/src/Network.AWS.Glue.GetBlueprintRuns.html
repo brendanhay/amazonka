@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetBlueprintRuns' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679732308"><span id="local-6989586621679732309"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlueprintRuns"><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-var">GetBlueprintRuns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlueprintRuns%27"><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-var">GetBlueprintRuns'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679732317"><span id="local-6989586621679732318"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlueprintRuns"><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-var">GetBlueprintRuns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlueprintRuns%27"><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-var">GetBlueprintRuns'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, if this is a continuation request.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AnextToken%3AGetBlueprintRuns%27"><span class="annot"><span class="annottext">GetBlueprintRuns -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.GetBlueprintRuns.html#%24sel%3AnextToken%3AGetBlueprintRuns%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AblueprintName%3AGetBlueprintRuns%27"><span class="annot"><span class="annottext">GetBlueprintRuns -&gt; Text
 </span><a href="Network.AWS.Glue.GetBlueprintRuns.html#%24sel%3AblueprintName%3AGetBlueprintRuns%27"><span class="hs-identifier hs-var hs-var">blueprintName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679732300"><span id="local-6989586621679732302"><span class="annot"><span class="annottext">GetBlueprintRuns -&gt; GetBlueprintRuns -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679732309"><span id="local-6989586621679732311"><span class="annot"><span class="annottext">GetBlueprintRuns -&gt; GetBlueprintRuns -&gt; Bool
 (GetBlueprintRuns -&gt; GetBlueprintRuns -&gt; Bool)
 -&gt; (GetBlueprintRuns -&gt; GetBlueprintRuns -&gt; Bool)
 -&gt; Eq GetBlueprintRuns
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBlueprintRuns -&gt; GetBlueprintRuns -&gt; Bool
 == :: GetBlueprintRuns -&gt; GetBlueprintRuns -&gt; Bool
 $c== :: GetBlueprintRuns -&gt; GetBlueprintRuns -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732291"><span id="local-6989586621679732293"><span id="local-6989586621679732295"><span id="local-6989586621679732297"><span class="annot"><span class="annottext">ReadPrec [GetBlueprintRuns]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732300"><span id="local-6989586621679732302"><span id="local-6989586621679732304"><span id="local-6989586621679732306"><span class="annot"><span class="annottext">ReadPrec [GetBlueprintRuns]
 ReadPrec GetBlueprintRuns
 Int -&gt; ReadS GetBlueprintRuns
 ReadS [GetBlueprintRuns]
@@ -90,7 +90,7 @@ readList :: ReadS [GetBlueprintRuns]
 $creadList :: ReadS [GetBlueprintRuns]
 readsPrec :: Int -&gt; ReadS GetBlueprintRuns
 $creadsPrec :: Int -&gt; ReadS GetBlueprintRuns
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732284"><span id="local-6989586621679732286"><span id="local-6989586621679732288"><span class="annot"><span class="annottext">Int -&gt; GetBlueprintRuns -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732293"><span id="local-6989586621679732295"><span id="local-6989586621679732297"><span class="annot"><span class="annottext">Int -&gt; GetBlueprintRuns -&gt; ShowS
 [GetBlueprintRuns] -&gt; ShowS
 GetBlueprintRuns -&gt; String
 (Int -&gt; GetBlueprintRuns -&gt; ShowS)
@@ -134,8 +134,8 @@ $cfrom :: forall x. GetBlueprintRuns -&gt; Rep GetBlueprintRuns x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span><span>
 </span><span id="line-80"></span><span id="newGetBlueprintRuns"><span class="annot"><span class="annottext">newGetBlueprintRuns :: Text -&gt; GetBlueprintRuns
-</span><a href="Network.AWS.Glue.GetBlueprintRuns.html#newGetBlueprintRuns"><span class="hs-identifier hs-var hs-var">newGetBlueprintRuns</span></a></span></span><span> </span><span id="local-6989586621679732279"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679732279"><span class="hs-identifier hs-var">pBlueprintName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetBlueprintRuns.html#newGetBlueprintRuns"><span class="hs-identifier hs-var hs-var">newGetBlueprintRuns</span></a></span></span><span> </span><span id="local-6989586621679732288"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732288"><span class="hs-identifier hs-var">pBlueprintName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">GetBlueprintRuns' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; GetBlueprintRuns
 </span><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-type">GetBlueprintRuns'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetBlueprintRuns' :: Maybe Text
@@ -148,7 +148,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:blueprintName:GetBlueprintRuns' :: Text
 </span><a href="Network.AWS.Glue.GetBlueprintRuns.html#%24sel%3AblueprintName%3AGetBlueprintRuns%27"><span class="hs-identifier hs-var">blueprintName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679732279"><span class="hs-identifier hs-var">pBlueprintName_</span></a></span><span>
+</span><a href="#local-6989586621679732288"><span class="hs-identifier hs-var">pBlueprintName_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | A continuation token, if this is a continuation request.</span><span>
@@ -159,16 +159,16 @@ forall a. Maybe a
 -&gt; (GetBlueprintRuns -&gt; Maybe Text -&gt; GetBlueprintRuns)
 -&gt; Lens GetBlueprintRuns GetBlueprintRuns (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-type">GetBlueprintRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732276"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-type">GetBlueprintRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732285"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetBlueprintRuns' :: GetBlueprintRuns -&gt; Maybe Text
-</span><a href="#local-6989586621679732276"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732276"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732275"><span class="annot"><span class="annottext">s :: GetBlueprintRuns
-</span><a href="#local-6989586621679732275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-type">GetBlueprintRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732274"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlueprintRuns
-</span><a href="#local-6989586621679732275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetBlueprintRuns' :: Maybe Text
+</span><a href="#local-6989586621679732285"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679732285"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732284"><span class="annot"><span class="annottext">s :: GetBlueprintRuns
+</span><a href="#local-6989586621679732284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-type">GetBlueprintRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732283"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679732283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlueprintRuns
+</span><a href="#local-6989586621679732284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetBlueprintRuns' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetBlueprintRuns.html#%24sel%3AnextToken%3AGetBlueprintRuns%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679732283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The maximum size of a list to return.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#getBlueprintRuns_maxResults"><span class="hs-identifier hs-type">getBlueprintRuns_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -179,16 +179,16 @@ $sel:nextToken:GetBlueprintRuns' :: GetBlueprintRuns -&gt; Maybe Text
 -&gt; Lens
      GetBlueprintRuns GetBlueprintRuns (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-type">GetBlueprintRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732273"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-type">GetBlueprintRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732282"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:GetBlueprintRuns' :: GetBlueprintRuns -&gt; Maybe Natural
-</span><a href="#local-6989586621679732273"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679732273"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732272"><span class="annot"><span class="annottext">s :: GetBlueprintRuns
-</span><a href="#local-6989586621679732272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-type">GetBlueprintRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732271"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679732271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlueprintRuns
-</span><a href="#local-6989586621679732272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetBlueprintRuns' :: Maybe Natural
+</span><a href="#local-6989586621679732282"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679732282"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732281"><span class="annot"><span class="annottext">s :: GetBlueprintRuns
+</span><a href="#local-6989586621679732281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-type">GetBlueprintRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732280"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679732280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlueprintRuns
+</span><a href="#local-6989586621679732281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetBlueprintRuns' :: Maybe Natural
 </span><a href="Network.AWS.Glue.GetBlueprintRuns.html#%24sel%3AmaxResults%3AGetBlueprintRuns%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679732271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679732280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The name of the blueprint.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#getBlueprintRuns_blueprintName"><span class="hs-identifier hs-type">getBlueprintRuns_blueprintName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -197,27 +197,27 @@ $sel:maxResults:GetBlueprintRuns' :: GetBlueprintRuns -&gt; Maybe Natural
 -&gt; (GetBlueprintRuns -&gt; Text -&gt; GetBlueprintRuns)
 -&gt; Lens GetBlueprintRuns GetBlueprintRuns Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-type">GetBlueprintRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732270"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-type">GetBlueprintRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732279"><span class="annot"><span class="annottext">Text
 blueprintName :: Text
 $sel:blueprintName:GetBlueprintRuns' :: GetBlueprintRuns -&gt; Text
-</span><a href="#local-6989586621679732270"><span class="hs-identifier hs-var hs-var">blueprintName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679732270"><span class="hs-identifier hs-var">blueprintName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732269"><span class="annot"><span class="annottext">s :: GetBlueprintRuns
-</span><a href="#local-6989586621679732269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-type">GetBlueprintRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732268"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679732268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlueprintRuns
-</span><a href="#local-6989586621679732269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprintName:GetBlueprintRuns' :: Text
+</span><a href="#local-6989586621679732279"><span class="hs-identifier hs-var hs-var">blueprintName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732279"><span class="hs-identifier hs-var">blueprintName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732278"><span class="annot"><span class="annottext">s :: GetBlueprintRuns
+</span><a href="#local-6989586621679732278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-type">GetBlueprintRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732277"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlueprintRuns
+</span><a href="#local-6989586621679732278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprintName:GetBlueprintRuns' :: Text
 </span><a href="Network.AWS.Glue.GetBlueprintRuns.html#%24sel%3AblueprintName%3AGetBlueprintRuns%27"><span class="hs-identifier hs-var">blueprintName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679732268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679732277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse"><span class="hs-identifier hs-type">GetBlueprintRunsResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679732264"><span class="annot"><span class="annottext">request :: GetBlueprintRuns -&gt; Request GetBlueprintRuns
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679732273"><span class="annot"><span class="annottext">request :: GetBlueprintRuns -&gt; Request GetBlueprintRuns
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetBlueprintRuns -&gt; Request GetBlueprintRuns
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679732260"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679732269"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetBlueprintRuns
 -&gt; ClientResponse ClientBody
@@ -241,10 +241,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679732257"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679732257"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679732256"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679732256"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679732255"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679732255"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679732266"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732266"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679732265"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679732265"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679732264"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679732264"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BlueprintRun]
 -&gt; Maybe Text -&gt; Int -&gt; GetBlueprintRunsResponse
 </span><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse%27"><span class="hs-identifier hs-var">GetBlueprintRunsResponse'</span></a></span><span>
@@ -254,7 +254,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; GetBlueprintRunsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679732255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BlueprintRun]))
+</span><a href="#local-6989586621679732264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BlueprintRun]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BlueprintRuns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BlueprintRun]))
@@ -268,7 +268,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; GetBlueprintRunsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679732255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679732264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -280,15 +280,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679732257"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679732266"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732246"><span id="local-6989586621679732248"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732255"><span id="local-6989586621679732257"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679732239"><span class="annot"><span class="annottext">toHeaders :: GetBlueprintRuns -&gt; ResponseHeaders
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679732248"><span class="annot"><span class="annottext">toHeaders :: GetBlueprintRuns -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetBlueprintRuns -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -313,9 +313,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732229"><span id="local-6989586621679732231"><span id="local-6989586621679732233"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679732227"><span class="annot"><span class="annottext">toJSON :: GetBlueprintRuns -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-type">GetBlueprintRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732223"><span id="local-6989586621679732224"><span id="local-6989586621679732225"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732238"><span id="local-6989586621679732240"><span id="local-6989586621679732242"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679732236"><span class="annot"><span class="annottext">toJSON :: GetBlueprintRuns -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns%27"><span class="hs-identifier hs-type">GetBlueprintRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732232"><span id="local-6989586621679732233"><span id="local-6989586621679732234"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 blueprintName :: Text
@@ -324,7 +324,7 @@ nextToken :: Maybe Text
 $sel:blueprintName:GetBlueprintRuns' :: GetBlueprintRuns -&gt; Text
 $sel:maxResults:GetBlueprintRuns' :: GetBlueprintRuns -&gt; Maybe Natural
 $sel:nextToken:GetBlueprintRuns' :: GetBlueprintRuns -&gt; Maybe Text
-</span><a href="#local-6989586621679732223"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679732232"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -336,14 +336,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732225"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679732234"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679732224"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679732233"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -351,19 +351,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;BlueprintName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679732223"><span class="hs-identifier hs-var">blueprintName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679732232"><span class="hs-identifier hs-var">blueprintName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679732217"><span class="annot"><span class="annottext">toPath :: GetBlueprintRuns -&gt; ByteString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679732226"><span class="annot"><span class="annottext">toPath :: GetBlueprintRuns -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetBlueprintRuns -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRuns"><span class="hs-identifier hs-type">GetBlueprintRuns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679732213"><span class="annot"><span class="annottext">toQuery :: GetBlueprintRuns -&gt; QueryString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679732222"><span class="annot"><span class="annottext">toQuery :: GetBlueprintRuns -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetBlueprintRuns -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -371,7 +371,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newGetBlueprintRunsResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679732210"><span id="local-6989586621679732211"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlueprintRunsResponse"><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse"><span class="hs-identifier hs-var">GetBlueprintRunsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlueprintRunsResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse%27"><span class="hs-identifier hs-var">GetBlueprintRunsResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span id="local-6989586621679732219"><span id="local-6989586621679732220"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlueprintRunsResponse"><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse"><span class="hs-identifier hs-var">GetBlueprintRunsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlueprintRunsResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse%27"><span class="hs-identifier hs-var">GetBlueprintRunsResponse'</span></a></span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns a list of @BlueprintRun@ objects.</span><span>
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AblueprintRuns%3AGetBlueprintRunsResponse%27"><span class="annot"><span class="annottext">GetBlueprintRunsResponse -&gt; Maybe [BlueprintRun]
 </span><a href="Network.AWS.Glue.GetBlueprintRuns.html#%24sel%3AblueprintRuns%3AGetBlueprintRunsResponse%27"><span class="hs-identifier hs-var hs-var">blueprintRuns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.BlueprintRun.html#BlueprintRun"><span class="hs-identifier hs-type">BlueprintRun</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -382,7 +382,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBlueprintRunsResponse%27"><span class="annot"><span class="annottext">GetBlueprintRunsResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetBlueprintRuns.html#%24sel%3AhttpStatus%3AGetBlueprintRunsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679732203"><span id="local-6989586621679732205"><span class="annot"><span class="annottext">GetBlueprintRunsResponse -&gt; GetBlueprintRunsResponse -&gt; Bool
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679732212"><span id="local-6989586621679732214"><span class="annot"><span class="annottext">GetBlueprintRunsResponse -&gt; GetBlueprintRunsResponse -&gt; Bool
 (GetBlueprintRunsResponse -&gt; GetBlueprintRunsResponse -&gt; Bool)
 -&gt; (GetBlueprintRunsResponse -&gt; GetBlueprintRunsResponse -&gt; Bool)
 -&gt; Eq GetBlueprintRunsResponse
@@ -391,7 +391,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBlueprintRunsResponse -&gt; GetBlueprintRunsResponse -&gt; Bool
 == :: GetBlueprintRunsResponse -&gt; GetBlueprintRunsResponse -&gt; Bool
 $c== :: GetBlueprintRunsResponse -&gt; GetBlueprintRunsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732195"><span id="local-6989586621679732197"><span id="local-6989586621679732199"><span id="local-6989586621679732201"><span class="annot"><span class="annottext">ReadPrec [GetBlueprintRunsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732204"><span id="local-6989586621679732206"><span id="local-6989586621679732208"><span id="local-6989586621679732210"><span class="annot"><span class="annottext">ReadPrec [GetBlueprintRunsResponse]
 ReadPrec GetBlueprintRunsResponse
 Int -&gt; ReadS GetBlueprintRunsResponse
 ReadS [GetBlueprintRunsResponse]
@@ -411,7 +411,7 @@ readList :: ReadS [GetBlueprintRunsResponse]
 $creadList :: ReadS [GetBlueprintRunsResponse]
 readsPrec :: Int -&gt; ReadS GetBlueprintRunsResponse
 $creadsPrec :: Int -&gt; ReadS GetBlueprintRunsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732189"><span id="local-6989586621679732191"><span id="local-6989586621679732193"><span class="annot"><span class="annottext">Int -&gt; GetBlueprintRunsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732198"><span id="local-6989586621679732200"><span id="local-6989586621679732202"><span class="annot"><span class="annottext">Int -&gt; GetBlueprintRunsResponse -&gt; ShowS
 [GetBlueprintRunsResponse] -&gt; ShowS
 GetBlueprintRunsResponse -&gt; String
 (Int -&gt; GetBlueprintRunsResponse -&gt; ShowS)
@@ -461,8 +461,8 @@ GetBlueprintRunsResponse -&gt; Rep GetBlueprintRunsResponse x
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse"><span class="hs-identifier hs-type">GetBlueprintRunsResponse</span></a></span><span>
 </span><span id="line-175"></span><span id="newGetBlueprintRunsResponse"><span class="annot"><span class="annottext">newGetBlueprintRunsResponse :: Int -&gt; GetBlueprintRunsResponse
-</span><a href="Network.AWS.Glue.GetBlueprintRuns.html#newGetBlueprintRunsResponse"><span class="hs-identifier hs-var hs-var">newGetBlueprintRunsResponse</span></a></span></span><span> </span><span id="local-6989586621679732186"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679732186"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetBlueprintRuns.html#newGetBlueprintRunsResponse"><span class="hs-identifier hs-var hs-var">newGetBlueprintRunsResponse</span></a></span></span><span> </span><span id="local-6989586621679732195"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732195"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">GetBlueprintRunsResponse' :: Maybe [BlueprintRun]
 -&gt; Maybe Text -&gt; Int -&gt; GetBlueprintRunsResponse
 </span><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunsResponse'</span></a></span><span>
@@ -477,7 +477,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBlueprintRunsResponse' :: Int
 </span><a href="Network.AWS.Glue.GetBlueprintRuns.html#%24sel%3AhttpStatus%3AGetBlueprintRunsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679732186"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679732195"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | Returns a list of @BlueprintRun@ objects.</span><span>
@@ -493,16 +493,16 @@ forall a. Maybe a
      (Maybe [BlueprintRun])
      (Maybe [BlueprintRun])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732185"><span class="annot"><span class="annottext">Maybe [BlueprintRun]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732194"><span class="annot"><span class="annottext">Maybe [BlueprintRun]
 blueprintRuns :: Maybe [BlueprintRun]
 $sel:blueprintRuns:GetBlueprintRunsResponse' :: GetBlueprintRunsResponse -&gt; Maybe [BlueprintRun]
-</span><a href="#local-6989586621679732185"><span class="hs-identifier hs-var hs-var">blueprintRuns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BlueprintRun]
-</span><a href="#local-6989586621679732185"><span class="hs-identifier hs-var">blueprintRuns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732184"><span class="annot"><span class="annottext">s :: GetBlueprintRunsResponse
-</span><a href="#local-6989586621679732184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732183"><span class="annot"><span class="annottext">Maybe [BlueprintRun]
-</span><a href="#local-6989586621679732183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlueprintRunsResponse
-</span><a href="#local-6989586621679732184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprintRuns:GetBlueprintRunsResponse' :: Maybe [BlueprintRun]
+</span><a href="#local-6989586621679732194"><span class="hs-identifier hs-var hs-var">blueprintRuns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BlueprintRun]
+</span><a href="#local-6989586621679732194"><span class="hs-identifier hs-var">blueprintRuns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732193"><span class="annot"><span class="annottext">s :: GetBlueprintRunsResponse
+</span><a href="#local-6989586621679732193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732192"><span class="annot"><span class="annottext">Maybe [BlueprintRun]
+</span><a href="#local-6989586621679732192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlueprintRunsResponse
+</span><a href="#local-6989586621679732193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprintRuns:GetBlueprintRunsResponse' :: Maybe [BlueprintRun]
 </span><a href="Network.AWS.Glue.GetBlueprintRuns.html#%24sel%3AblueprintRuns%3AGetBlueprintRunsResponse%27"><span class="hs-identifier hs-var">blueprintRuns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BlueprintRun]
-</span><a href="#local-6989586621679732183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse"><span class="hs-identifier hs-type">GetBlueprintRunsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BlueprintRun] -&gt; f (Maybe [BlueprintRun]))
+</span><a href="#local-6989586621679732192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse"><span class="hs-identifier hs-type">GetBlueprintRunsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BlueprintRun] -&gt; f (Maybe [BlueprintRun]))
  -&gt; GetBlueprintRunsResponse -&gt; f GetBlueprintRunsResponse)
 -&gt; ((Maybe [BlueprintRun] -&gt; f (Maybe [BlueprintRun]))
     -&gt; Maybe [BlueprintRun] -&gt; f (Maybe [BlueprintRun]))
@@ -536,16 +536,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732179"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732188"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetBlueprintRunsResponse' :: GetBlueprintRunsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679732179"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732179"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732178"><span class="annot"><span class="annottext">s :: GetBlueprintRunsResponse
-</span><a href="#local-6989586621679732178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732177"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlueprintRunsResponse
-</span><a href="#local-6989586621679732178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetBlueprintRunsResponse' :: Maybe Text
+</span><a href="#local-6989586621679732188"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679732188"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732187"><span class="annot"><span class="annottext">s :: GetBlueprintRunsResponse
+</span><a href="#local-6989586621679732187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732186"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679732186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlueprintRunsResponse
+</span><a href="#local-6989586621679732187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetBlueprintRunsResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetBlueprintRuns.html#%24sel%3AnextToken%3AGetBlueprintRunsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse"><span class="hs-identifier hs-type">GetBlueprintRunsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679732186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse"><span class="hs-identifier hs-type">GetBlueprintRunsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#getBlueprintRunsResponse_httpStatus"><span class="hs-identifier hs-type">getBlueprintRunsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse"><span class="hs-identifier hs-type">GetBlueprintRunsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -555,16 +555,16 @@ $sel:nextToken:GetBlueprintRunsResponse' :: GetBlueprintRunsResponse -&gt; Maybe
 -&gt; (GetBlueprintRunsResponse -&gt; Int -&gt; GetBlueprintRunsResponse)
 -&gt; Lens GetBlueprintRunsResponse GetBlueprintRunsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732176"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732185"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetBlueprintRunsResponse' :: GetBlueprintRunsResponse -&gt; Int
-</span><a href="#local-6989586621679732176"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679732176"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732175"><span class="annot"><span class="annottext">s :: GetBlueprintRunsResponse
-</span><a href="#local-6989586621679732175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732174"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679732174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlueprintRunsResponse
-</span><a href="#local-6989586621679732175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBlueprintRunsResponse' :: Int
+</span><a href="#local-6989586621679732185"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732185"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732184"><span class="annot"><span class="annottext">s :: GetBlueprintRunsResponse
+</span><a href="#local-6989586621679732184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse%27"><span class="hs-identifier hs-type">GetBlueprintRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732183"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlueprintRunsResponse
+</span><a href="#local-6989586621679732184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBlueprintRunsResponse' :: Int
 </span><a href="Network.AWS.Glue.GetBlueprintRuns.html#%24sel%3AhttpStatus%3AGetBlueprintRunsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679732174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse"><span class="hs-identifier hs-type">GetBlueprintRunsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679732183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse"><span class="hs-identifier hs-type">GetBlueprintRunsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732172"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse"><span class="hs-identifier hs-type">GetBlueprintRunsResponse</span></a></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetBlueprintRuns.html#GetBlueprintRunsResponse"><span class="hs-identifier hs-type">GetBlueprintRunsResponse</span></a></span></span><span>
 </span><span id="line-196"></span></pre></body></html>

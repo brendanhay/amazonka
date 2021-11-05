@@ -74,7 +74,7 @@
 </span><span id="line-74"></span><span class="hs-comment">-- vault.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- /See:/ 'newDeleteArchive' smart constructor.</span><span>
-</span><span id="line-77"></span><span id="local-6989586621679225238"><span id="local-6989586621679225239"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteArchive"><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-var">DeleteArchive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteArchive%27"><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-var">DeleteArchive'</span></a></span></span><span>
+</span><span id="line-77"></span><span id="local-6989586621679225247"><span id="local-6989586621679225248"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteArchive"><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-var">DeleteArchive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteArchive%27"><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-var">DeleteArchive'</span></a></span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-comment">-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account</span><span>
@@ -89,7 +89,7 @@
 </span><span id="line-87"></span><span>    </span><span id="%24sel%3AarchiveId%3ADeleteArchive%27"><span class="annot"><span class="annottext">DeleteArchive -&gt; Text
 </span><a href="Network.AWS.Glacier.DeleteArchive.html#%24sel%3AarchiveId%3ADeleteArchive%27"><span class="hs-identifier hs-var hs-var">archiveId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225230"><span id="local-6989586621679225232"><span class="annot"><span class="annottext">DeleteArchive -&gt; DeleteArchive -&gt; Bool
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225239"><span id="local-6989586621679225241"><span class="annot"><span class="annottext">DeleteArchive -&gt; DeleteArchive -&gt; Bool
 (DeleteArchive -&gt; DeleteArchive -&gt; Bool)
 -&gt; (DeleteArchive -&gt; DeleteArchive -&gt; Bool) -&gt; Eq DeleteArchive
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -97,7 +97,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteArchive -&gt; DeleteArchive -&gt; Bool
 == :: DeleteArchive -&gt; DeleteArchive -&gt; Bool
 $c== :: DeleteArchive -&gt; DeleteArchive -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225221"><span id="local-6989586621679225223"><span id="local-6989586621679225225"><span id="local-6989586621679225227"><span class="annot"><span class="annottext">ReadPrec [DeleteArchive]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225230"><span id="local-6989586621679225232"><span id="local-6989586621679225234"><span id="local-6989586621679225236"><span class="annot"><span class="annottext">ReadPrec [DeleteArchive]
 ReadPrec DeleteArchive
 Int -&gt; ReadS DeleteArchive
 ReadS [DeleteArchive]
@@ -117,7 +117,7 @@ readList :: ReadS [DeleteArchive]
 $creadList :: ReadS [DeleteArchive]
 readsPrec :: Int -&gt; ReadS DeleteArchive
 $creadsPrec :: Int -&gt; ReadS DeleteArchive
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225214"><span id="local-6989586621679225216"><span id="local-6989586621679225218"><span class="annot"><span class="annottext">Int -&gt; DeleteArchive -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225223"><span id="local-6989586621679225225"><span id="local-6989586621679225227"><span class="annot"><span class="annottext">Int -&gt; DeleteArchive -&gt; ShowS
 [DeleteArchive] -&gt; ShowS
 DeleteArchive -&gt; String
 (Int -&gt; DeleteArchive -&gt; ShowS)
@@ -169,21 +169,21 @@ $cfrom :: forall x. DeleteArchive -&gt; Rep DeleteArchive x
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span>
 </span><span id="line-116"></span><span id="newDeleteArchive"><span class="annot"><span class="annottext">newDeleteArchive :: Text -&gt; Text -&gt; Text -&gt; DeleteArchive
-</span><a href="Network.AWS.Glacier.DeleteArchive.html#newDeleteArchive"><span class="hs-identifier hs-var hs-var">newDeleteArchive</span></a></span></span><span> </span><span id="local-6989586621679225209"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225209"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679225208"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225208"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span id="local-6989586621679225207"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225207"><span class="hs-identifier hs-var">pArchiveId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.DeleteArchive.html#newDeleteArchive"><span class="hs-identifier hs-var hs-var">newDeleteArchive</span></a></span></span><span> </span><span id="local-6989586621679225218"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225218"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679225217"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225217"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span id="local-6989586621679225216"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225216"><span class="hs-identifier hs-var">pArchiveId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">DeleteArchive' :: Text -&gt; Text -&gt; Text -&gt; DeleteArchive
 </span><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:DeleteArchive' :: Text
 </span><a href="Network.AWS.Glacier.DeleteArchive.html#%24sel%3AaccountId%3ADeleteArchive%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225209"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225218"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:DeleteArchive' :: Text
 </span><a href="Network.AWS.Glacier.DeleteArchive.html#%24sel%3AvaultName%3ADeleteArchive%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225208"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225217"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:archiveId:DeleteArchive' :: Text
 </span><a href="Network.AWS.Glacier.DeleteArchive.html#%24sel%3AarchiveId%3ADeleteArchive%27"><span class="hs-identifier hs-var">archiveId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225207"><span class="hs-identifier hs-var">pArchiveId_</span></a></span><span>
+</span><a href="#local-6989586621679225216"><span class="hs-identifier hs-var">pArchiveId_</span></a></span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
@@ -197,16 +197,16 @@ $cfrom :: forall x. DeleteArchive -&gt; Rep DeleteArchive x
 -&gt; (DeleteArchive -&gt; Text -&gt; DeleteArchive)
 -&gt; Lens DeleteArchive DeleteArchive Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225204"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225213"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:DeleteArchive' :: DeleteArchive -&gt; Text
-</span><a href="#local-6989586621679225204"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225204"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225203"><span class="annot"><span class="annottext">s :: DeleteArchive
-</span><a href="#local-6989586621679225203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225202"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteArchive
-</span><a href="#local-6989586621679225203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DeleteArchive' :: Text
+</span><a href="#local-6989586621679225213"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225213"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225212"><span class="annot"><span class="annottext">s :: DeleteArchive
+</span><a href="#local-6989586621679225212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225211"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteArchive
+</span><a href="#local-6989586621679225212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DeleteArchive' :: Text
 </span><a href="Network.AWS.Glacier.DeleteArchive.html#%24sel%3AaccountId%3ADeleteArchive%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | The name of the vault.</span><span>
 </span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#deleteArchive_vaultName"><span class="hs-identifier hs-type">deleteArchive_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -215,16 +215,16 @@ $sel:accountId:DeleteArchive' :: DeleteArchive -&gt; Text
 -&gt; (DeleteArchive -&gt; Text -&gt; DeleteArchive)
 -&gt; Lens DeleteArchive DeleteArchive Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225201"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225210"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 $sel:vaultName:DeleteArchive' :: DeleteArchive -&gt; Text
-</span><a href="#local-6989586621679225201"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225201"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225200"><span class="annot"><span class="annottext">s :: DeleteArchive
-</span><a href="#local-6989586621679225200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225199"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteArchive
-</span><a href="#local-6989586621679225200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:DeleteArchive' :: Text
+</span><a href="#local-6989586621679225210"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225210"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225209"><span class="annot"><span class="annottext">s :: DeleteArchive
+</span><a href="#local-6989586621679225209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225208"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteArchive
+</span><a href="#local-6989586621679225209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:DeleteArchive' :: Text
 </span><a href="Network.AWS.Glacier.DeleteArchive.html#%24sel%3AvaultName%3ADeleteArchive%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The ID of the archive to delete.</span><span>
 </span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#deleteArchive_archiveId"><span class="hs-identifier hs-type">deleteArchive_archiveId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -233,22 +233,22 @@ $sel:vaultName:DeleteArchive' :: DeleteArchive -&gt; Text
 -&gt; (DeleteArchive -&gt; Text -&gt; DeleteArchive)
 -&gt; Lens DeleteArchive DeleteArchive Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225198"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225207"><span class="annot"><span class="annottext">Text
 archiveId :: Text
 $sel:archiveId:DeleteArchive' :: DeleteArchive -&gt; Text
-</span><a href="#local-6989586621679225198"><span class="hs-identifier hs-var hs-var">archiveId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225198"><span class="hs-identifier hs-var">archiveId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225197"><span class="annot"><span class="annottext">s :: DeleteArchive
-</span><a href="#local-6989586621679225197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225196"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteArchive
-</span><a href="#local-6989586621679225197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveId:DeleteArchive' :: Text
+</span><a href="#local-6989586621679225207"><span class="hs-identifier hs-var hs-var">archiveId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225207"><span class="hs-identifier hs-var">archiveId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225206"><span class="annot"><span class="annottext">s :: DeleteArchive
+</span><a href="#local-6989586621679225206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225205"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteArchive
+</span><a href="#local-6989586621679225206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveId:DeleteArchive' :: Text
 </span><a href="Network.AWS.Glacier.DeleteArchive.html#%24sel%3AarchiveId%3ADeleteArchive%27"><span class="hs-identifier hs-var">archiveId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchiveResponse"><span class="hs-identifier hs-type">DeleteArchiveResponse</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679225192"><span class="annot"><span class="annottext">request :: DeleteArchive -&gt; Request DeleteArchive
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679225201"><span class="annot"><span class="annottext">request :: DeleteArchive -&gt; Request DeleteArchive
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; Request DeleteArchive -&gt; Request DeleteArchive
 forall a. ByteString -&gt; Request a -&gt; Request a
@@ -264,7 +264,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679225185"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679225194"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteArchive
 -&gt; ClientResponse ClientBody
@@ -288,12 +288,12 @@ AWSResponse a
 DeleteArchiveResponse
 </span><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchiveResponse%27"><span class="hs-identifier hs-var">DeleteArchiveResponse'</span></a></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225178"><span id="local-6989586621679225180"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225187"><span id="local-6989586621679225189"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span></span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225184"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679225171"><span class="annot"><span class="annottext">toHeaders :: DeleteArchive -&gt; [Header]
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679225180"><span class="annot"><span class="annottext">toHeaders :: DeleteArchive -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteArchive -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -301,15 +301,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679225166"><span class="annot"><span class="annottext">toPath :: DeleteArchive -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225162"><span id="local-6989586621679225163"><span id="local-6989586621679225164"><span class="annot"><span class="annottext">Text
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679225175"><span class="annot"><span class="annottext">toPath :: DeleteArchive -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225171"><span id="local-6989586621679225172"><span id="local-6989586621679225173"><span class="annot"><span class="annottext">Text
 archiveId :: Text
 vaultName :: Text
 accountId :: Text
 $sel:archiveId:DeleteArchive' :: DeleteArchive -&gt; Text
 $sel:vaultName:DeleteArchive' :: DeleteArchive -&gt; Text
 $sel:accountId:DeleteArchive' :: DeleteArchive -&gt; Text
-</span><a href="#local-6989586621679225162"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679225171"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -318,23 +318,23 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225164"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225173"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225163"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225172"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/archives/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225162"><span class="hs-identifier hs-var">archiveId</span></a></span><span>
+</span><a href="#local-6989586621679225171"><span class="hs-identifier hs-var">archiveId</span></a></span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679225158"><span class="annot"><span class="annottext">toQuery :: DeleteArchive -&gt; QueryString
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679225167"><span class="annot"><span class="annottext">toQuery :: DeleteArchive -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteArchive -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -342,10 +342,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | /See:/ 'newDeleteArchiveResponse' smart constructor.</span><span>
-</span><span id="line-171"></span><span id="local-6989586621679225155"><span id="local-6989586621679225156"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteArchiveResponse"><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchiveResponse"><span class="hs-identifier hs-var">DeleteArchiveResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteArchiveResponse%27"><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchiveResponse%27"><span class="hs-identifier hs-var">DeleteArchiveResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span id="local-6989586621679225164"><span id="local-6989586621679225165"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteArchiveResponse"><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchiveResponse"><span class="hs-identifier hs-var">DeleteArchiveResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteArchiveResponse%27"><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchiveResponse%27"><span class="hs-identifier hs-var">DeleteArchiveResponse'</span></a></span></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225151"><span id="local-6989586621679225153"><span class="annot"><span class="annottext">DeleteArchiveResponse -&gt; DeleteArchiveResponse -&gt; Bool
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225160"><span id="local-6989586621679225162"><span class="annot"><span class="annottext">DeleteArchiveResponse -&gt; DeleteArchiveResponse -&gt; Bool
 (DeleteArchiveResponse -&gt; DeleteArchiveResponse -&gt; Bool)
 -&gt; (DeleteArchiveResponse -&gt; DeleteArchiveResponse -&gt; Bool)
 -&gt; Eq DeleteArchiveResponse
@@ -354,7 +354,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteArchiveResponse -&gt; DeleteArchiveResponse -&gt; Bool
 == :: DeleteArchiveResponse -&gt; DeleteArchiveResponse -&gt; Bool
 $c== :: DeleteArchiveResponse -&gt; DeleteArchiveResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225143"><span id="local-6989586621679225145"><span id="local-6989586621679225147"><span id="local-6989586621679225149"><span class="annot"><span class="annottext">ReadPrec [DeleteArchiveResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225152"><span id="local-6989586621679225154"><span id="local-6989586621679225156"><span id="local-6989586621679225158"><span class="annot"><span class="annottext">ReadPrec [DeleteArchiveResponse]
 ReadPrec DeleteArchiveResponse
 Int -&gt; ReadS DeleteArchiveResponse
 ReadS [DeleteArchiveResponse]
@@ -374,7 +374,7 @@ readList :: ReadS [DeleteArchiveResponse]
 $creadList :: ReadS [DeleteArchiveResponse]
 readsPrec :: Int -&gt; ReadS DeleteArchiveResponse
 $creadsPrec :: Int -&gt; ReadS DeleteArchiveResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225137"><span id="local-6989586621679225139"><span id="local-6989586621679225141"><span class="annot"><span class="annottext">Int -&gt; DeleteArchiveResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225146"><span id="local-6989586621679225148"><span id="local-6989586621679225150"><span class="annot"><span class="annottext">Int -&gt; DeleteArchiveResponse -&gt; ShowS
 [DeleteArchiveResponse] -&gt; ShowS
 DeleteArchiveResponse -&gt; String
 (Int -&gt; DeleteArchiveResponse -&gt; ShowS)
@@ -410,5 +410,5 @@ $cfrom :: forall x. DeleteArchiveResponse -&gt; Rep DeleteArchiveResponse x
 </span><a href="Network.AWS.Glacier.DeleteArchive.html#newDeleteArchiveResponse"><span class="hs-identifier hs-var hs-var">newDeleteArchiveResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteArchiveResponse
 </span><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchiveResponse%27"><span class="hs-identifier hs-var">DeleteArchiveResponse'</span></a></span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchiveResponse"><span class="hs-identifier hs-type">DeleteArchiveResponse</span></a></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225142"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteArchive.html#DeleteArchiveResponse"><span class="hs-identifier hs-type">DeleteArchiveResponse</span></a></span></span><span>
 </span><span id="line-185"></span></pre></body></html>

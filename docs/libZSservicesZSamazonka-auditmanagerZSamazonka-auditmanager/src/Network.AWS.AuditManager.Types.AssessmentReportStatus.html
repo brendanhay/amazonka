@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AuditManager.Types.AssessmentReportStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AuditManager.Types.AssessmentReportStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus"><span class="hs-identifier">AssessmentReportStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus_COMPLETE"><span class="hs-identifier">AssessmentReportStatus_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus_FAILED"><span class="hs-identifier">AssessmentReportStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus_IN_PROGRESS"><span class="hs-identifier">AssessmentReportStatus_IN_PROGRESS</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679290265"><span id="local-6989586621679290266"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssessmentReportStatus"><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus"><span class="hs-identifier hs-var">AssessmentReportStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentReportStatus%27"><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus%27"><span class="hs-identifier hs-var">AssessmentReportStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssessmentReportStatus"><span class="annot"><span class="annottext">AssessmentReportStatus -&gt; Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#fromAssessmentReportStatus"><span class="hs-identifier hs-var hs-var">fromAssessmentReportStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679290257"><span id="local-6989586621679290259"><span id="local-6989586621679290261"><span class="annot"><span class="annottext">Int -&gt; AssessmentReportStatus -&gt; ShowS
+[AssessmentReportStatus] -&gt; ShowS
+AssessmentReportStatus -&gt; String
+(Int -&gt; AssessmentReportStatus -&gt; ShowS)
+-&gt; (AssessmentReportStatus -&gt; String)
+-&gt; ([AssessmentReportStatus] -&gt; ShowS)
+-&gt; Show AssessmentReportStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssessmentReportStatus] -&gt; ShowS
+$cshowList :: [AssessmentReportStatus] -&gt; ShowS
+show :: AssessmentReportStatus -&gt; String
+$cshow :: AssessmentReportStatus -&gt; String
+showsPrec :: Int -&gt; AssessmentReportStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssessmentReportStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679290248"><span id="local-6989586621679290250"><span id="local-6989586621679290252"><span id="local-6989586621679290254"><span class="annot"><span class="annottext">ReadPrec [AssessmentReportStatus]
+ReadPrec AssessmentReportStatus
+Int -&gt; ReadS AssessmentReportStatus
+ReadS [AssessmentReportStatus]
+(Int -&gt; ReadS AssessmentReportStatus)
+-&gt; ReadS [AssessmentReportStatus]
+-&gt; ReadPrec AssessmentReportStatus
+-&gt; ReadPrec [AssessmentReportStatus]
+-&gt; Read AssessmentReportStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssessmentReportStatus]
+$creadListPrec :: ReadPrec [AssessmentReportStatus]
+readPrec :: ReadPrec AssessmentReportStatus
+$creadPrec :: ReadPrec AssessmentReportStatus
+readList :: ReadS [AssessmentReportStatus]
+$creadList :: ReadS [AssessmentReportStatus]
+readsPrec :: Int -&gt; ReadS AssessmentReportStatus
+$creadsPrec :: Int -&gt; ReadS AssessmentReportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679290243"><span id="local-6989586621679290245"><span class="annot"><span class="annottext">AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool
+(AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool)
+-&gt; (AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool)
+-&gt; Eq AssessmentReportStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool
+$c/= :: AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool
+== :: AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool
+$c== :: AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679290227"><span id="local-6989586621679290229"><span id="local-6989586621679290231"><span id="local-6989586621679290233"><span id="local-6989586621679290235"><span id="local-6989586621679290237"><span id="local-6989586621679290239"><span class="annot"><span class="annottext">Eq AssessmentReportStatus
+Eq AssessmentReportStatus
+-&gt; (AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Ordering)
+-&gt; (AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool)
+-&gt; (AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool)
+-&gt; (AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool)
+-&gt; (AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool)
+-&gt; (AssessmentReportStatus
+    -&gt; AssessmentReportStatus -&gt; AssessmentReportStatus)
+-&gt; (AssessmentReportStatus
+    -&gt; AssessmentReportStatus -&gt; AssessmentReportStatus)
+-&gt; Ord AssessmentReportStatus
+AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool
+AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Ordering
+AssessmentReportStatus
+-&gt; AssessmentReportStatus -&gt; AssessmentReportStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AssessmentReportStatus
+-&gt; AssessmentReportStatus -&gt; AssessmentReportStatus
+$cmin :: AssessmentReportStatus
+-&gt; AssessmentReportStatus -&gt; AssessmentReportStatus
+max :: AssessmentReportStatus
+-&gt; AssessmentReportStatus -&gt; AssessmentReportStatus
+$cmax :: AssessmentReportStatus
+-&gt; AssessmentReportStatus -&gt; AssessmentReportStatus
+&gt;= :: AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool
+$c&gt;= :: AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool
+&gt; :: AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool
+$c&gt; :: AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool
+&lt;= :: AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool
+$c&lt;= :: AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool
+&lt; :: AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool
+$c&lt; :: AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Bool
+compare :: AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Ordering
+$ccompare :: AssessmentReportStatus -&gt; AssessmentReportStatus -&gt; Ordering
+$cp1Ord :: Eq AssessmentReportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AssessmentReportStatus -&gt; Rep AssessmentReportStatus x)
+-&gt; (forall x.
+    Rep AssessmentReportStatus x -&gt; AssessmentReportStatus)
+-&gt; Generic AssessmentReportStatus
+forall x. Rep AssessmentReportStatus x -&gt; AssessmentReportStatus
+forall x. AssessmentReportStatus -&gt; Rep AssessmentReportStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssessmentReportStatus x -&gt; AssessmentReportStatus
+$cfrom :: forall x. AssessmentReportStatus -&gt; Rep AssessmentReportStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679290219"><span id="local-6989586621679290221"><span class="annot"><span class="annottext">Int -&gt; AssessmentReportStatus -&gt; Int
+AssessmentReportStatus -&gt; Int
+(Int -&gt; AssessmentReportStatus -&gt; Int)
+-&gt; (AssessmentReportStatus -&gt; Int)
+-&gt; Hashable AssessmentReportStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AssessmentReportStatus -&gt; Int
+$chash :: AssessmentReportStatus -&gt; Int
+hashWithSalt :: Int -&gt; AssessmentReportStatus -&gt; Int
+$chashWithSalt :: Int -&gt; AssessmentReportStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679290216"><span class="annot"><span class="annottext">AssessmentReportStatus -&gt; ()
+(AssessmentReportStatus -&gt; ()) -&gt; NFData AssessmentReportStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AssessmentReportStatus -&gt; ()
+$crnf :: AssessmentReportStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679290213"><span class="annot"><span class="annottext">Text -&gt; Either String AssessmentReportStatus
+(Text -&gt; Either String AssessmentReportStatus)
+-&gt; FromText AssessmentReportStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AssessmentReportStatus
+$cfromText :: Text -&gt; Either String AssessmentReportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679290210"><span class="annot"><span class="annottext">AssessmentReportStatus -&gt; Text
+(AssessmentReportStatus -&gt; Text) -&gt; ToText AssessmentReportStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AssessmentReportStatus -&gt; Text
+$ctoText :: AssessmentReportStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679290207"><span class="annot"><span class="annottext">AssessmentReportStatus -&gt; ByteString
+(AssessmentReportStatus -&gt; ByteString)
+-&gt; ToByteString AssessmentReportStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AssessmentReportStatus -&gt; ByteString
+$ctoBS :: AssessmentReportStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679290204"><span class="annot"><span class="annottext">AssessmentReportStatus -&gt; ByteStringBuilder
+(AssessmentReportStatus -&gt; ByteStringBuilder)
+-&gt; ToLog AssessmentReportStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AssessmentReportStatus -&gt; ByteStringBuilder
+$cbuild :: AssessmentReportStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679290201"><span class="annot"><span class="annottext">HeaderName -&gt; AssessmentReportStatus -&gt; [Header]
+(HeaderName -&gt; AssessmentReportStatus -&gt; [Header])
+-&gt; ToHeader AssessmentReportStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AssessmentReportStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AssessmentReportStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679290198"><span class="annot"><span class="annottext">AssessmentReportStatus -&gt; QueryString
+(AssessmentReportStatus -&gt; QueryString)
+-&gt; ToQuery AssessmentReportStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AssessmentReportStatus -&gt; QueryString
+$ctoQuery :: AssessmentReportStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679290193"><span id="local-6989586621679290195"><span class="annot"><span class="annottext">Value -&gt; Parser [AssessmentReportStatus]
+Value -&gt; Parser AssessmentReportStatus
+(Value -&gt; Parser AssessmentReportStatus)
+-&gt; (Value -&gt; Parser [AssessmentReportStatus])
+-&gt; FromJSON AssessmentReportStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AssessmentReportStatus]
+$cparseJSONList :: Value -&gt; Parser [AssessmentReportStatus]
+parseJSON :: Value -&gt; Parser AssessmentReportStatus
+$cparseJSON :: Value -&gt; Parser AssessmentReportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679290188"><span id="local-6989586621679290190"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssessmentReportStatus]
+FromJSONKeyFunction AssessmentReportStatus
+FromJSONKeyFunction AssessmentReportStatus
+-&gt; FromJSONKeyFunction [AssessmentReportStatus]
+-&gt; FromJSONKey AssessmentReportStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AssessmentReportStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [AssessmentReportStatus]
+fromJSONKey :: FromJSONKeyFunction AssessmentReportStatus
+$cfromJSONKey :: FromJSONKeyFunction AssessmentReportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679290179"><span id="local-6989586621679290181"><span id="local-6989586621679290183"><span id="local-6989586621679290185"><span class="annot"><span class="annottext">[AssessmentReportStatus] -&gt; Encoding
+[AssessmentReportStatus] -&gt; Value
+AssessmentReportStatus -&gt; Encoding
+AssessmentReportStatus -&gt; Value
+(AssessmentReportStatus -&gt; Value)
+-&gt; (AssessmentReportStatus -&gt; Encoding)
+-&gt; ([AssessmentReportStatus] -&gt; Value)
+-&gt; ([AssessmentReportStatus] -&gt; Encoding)
+-&gt; ToJSON AssessmentReportStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AssessmentReportStatus] -&gt; Encoding
+$ctoEncodingList :: [AssessmentReportStatus] -&gt; Encoding
+toJSONList :: [AssessmentReportStatus] -&gt; Value
+$ctoJSONList :: [AssessmentReportStatus] -&gt; Value
+toEncoding :: AssessmentReportStatus -&gt; Encoding
+$ctoEncoding :: AssessmentReportStatus -&gt; Encoding
+toJSON :: AssessmentReportStatus -&gt; Value
+$ctoJSON :: AssessmentReportStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679290174"><span id="local-6989586621679290176"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssessmentReportStatus]
+ToJSONKeyFunction AssessmentReportStatus
+ToJSONKeyFunction AssessmentReportStatus
+-&gt; ToJSONKeyFunction [AssessmentReportStatus]
+-&gt; ToJSONKey AssessmentReportStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AssessmentReportStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [AssessmentReportStatus]
+toJSONKey :: ToJSONKeyFunction AssessmentReportStatus
+$ctoJSONKey :: ToJSONKeyFunction AssessmentReportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679290171"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssessmentReportStatus
+([Node] -&gt; Either String AssessmentReportStatus)
+-&gt; FromXML AssessmentReportStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AssessmentReportStatus
+$cparseXML :: [Node] -&gt; Either String AssessmentReportStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679290168"><span class="annot"><span class="annottext">AssessmentReportStatus -&gt; XML
+(AssessmentReportStatus -&gt; XML) -&gt; ToXML AssessmentReportStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AssessmentReportStatus -&gt; XML
+$ctoXML :: AssessmentReportStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus_COMPLETE"><span class="hs-identifier hs-type">AssessmentReportStatus_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus"><span class="hs-identifier hs-type">AssessmentReportStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssessmentReportStatus_COMPLETE"><span id="%24mAssessmentReportStatus_COMPLETE"><span id="AssessmentReportStatus_COMPLETE"><span class="annot"><span class="annottext">$bAssessmentReportStatus_COMPLETE :: AssessmentReportStatus
+$mAssessmentReportStatus_COMPLETE :: forall r.
+AssessmentReportStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#%24bAssessmentReportStatus_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">AssessmentReportStatus_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus%27"><span class="hs-identifier hs-type">AssessmentReportStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus_FAILED"><span class="hs-identifier hs-type">AssessmentReportStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus"><span class="hs-identifier hs-type">AssessmentReportStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssessmentReportStatus_FAILED"><span id="%24mAssessmentReportStatus_FAILED"><span id="AssessmentReportStatus_FAILED"><span class="annot"><span class="annottext">$bAssessmentReportStatus_FAILED :: AssessmentReportStatus
+$mAssessmentReportStatus_FAILED :: forall r.
+AssessmentReportStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#%24bAssessmentReportStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">AssessmentReportStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus%27"><span class="hs-identifier hs-type">AssessmentReportStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus_IN_PROGRESS"><span class="hs-identifier hs-type">AssessmentReportStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus"><span class="hs-identifier hs-type">AssessmentReportStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssessmentReportStatus_IN_PROGRESS"><span id="%24mAssessmentReportStatus_IN_PROGRESS"><span id="AssessmentReportStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bAssessmentReportStatus_IN_PROGRESS :: AssessmentReportStatus
+$mAssessmentReportStatus_IN_PROGRESS :: forall r.
+AssessmentReportStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#%24bAssessmentReportStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">AssessmentReportStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus%27"><span class="hs-identifier hs-type">AssessmentReportStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus_COMPLETE"><span class="hs-pragma hs-type">AssessmentReportStatus_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus_FAILED"><span class="hs-pragma hs-type">AssessmentReportStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus_IN_PROGRESS"><span class="hs-pragma hs-type">AssessmentReportStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportStatus.html#AssessmentReportStatus%27"><span class="hs-pragma hs-type">AssessmentReportStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

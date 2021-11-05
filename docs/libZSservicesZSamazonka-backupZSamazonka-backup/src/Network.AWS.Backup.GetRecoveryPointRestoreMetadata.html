@@ -1,0 +1,721 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Backup.GetRecoveryPointRestoreMetadata</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a set of metadata key-value pairs that were used to create the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- backup.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Backup.GetRecoveryPointRestoreMetadata</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata"><span class="hs-identifier">GetRecoveryPointRestoreMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#newGetRecoveryPointRestoreMetadata"><span class="hs-identifier">newGetRecoveryPointRestoreMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadata_backupVaultName"><span class="hs-identifier">getRecoveryPointRestoreMetadata_backupVaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadata_recoveryPointArn"><span class="hs-identifier">getRecoveryPointRestoreMetadata_recoveryPointArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse"><span class="hs-identifier">GetRecoveryPointRestoreMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#newGetRecoveryPointRestoreMetadataResponse"><span class="hs-identifier">newGetRecoveryPointRestoreMetadataResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadataResponse_backupVaultArn"><span class="hs-identifier">getRecoveryPointRestoreMetadataResponse_backupVaultArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadataResponse_recoveryPointArn"><span class="hs-identifier">getRecoveryPointRestoreMetadataResponse_recoveryPointArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadataResponse_restoreMetadata"><span class="hs-identifier">getRecoveryPointRestoreMetadataResponse_restoreMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadataResponse_httpStatus"><span class="hs-identifier">getRecoveryPointRestoreMetadataResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.html"><span class="hs-identifier">Network.AWS.Backup.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newGetRecoveryPointRestoreMetadata' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679317351"><span id="local-6989586621679317352"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRecoveryPointRestoreMetadata"><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata"><span class="hs-identifier hs-var">GetRecoveryPointRestoreMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRecoveryPointRestoreMetadata%27"><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata%27"><span class="hs-identifier hs-var">GetRecoveryPointRestoreMetadata'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a logical container where backups are stored. Backup vaults</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- are identified by names that are unique to the account used to create</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- them and the Amazon Web Services Region where they are created. They</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- consist of lowercase letters, numbers, and hyphens.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AbackupVaultName%3AGetRecoveryPointRestoreMetadata%27"><span class="annot"><span class="annottext">GetRecoveryPointRestoreMetadata -&gt; Text
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3AbackupVaultName%3AGetRecoveryPointRestoreMetadata%27"><span class="hs-identifier hs-var hs-var">backupVaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | An Amazon Resource Name (ARN) that uniquely identifies a recovery point;</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- for example,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3ArecoveryPointArn%3AGetRecoveryPointRestoreMetadata%27"><span class="annot"><span class="annottext">GetRecoveryPointRestoreMetadata -&gt; Text
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3ArecoveryPointArn%3AGetRecoveryPointRestoreMetadata%27"><span class="hs-identifier hs-var hs-var">recoveryPointArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317344"><span id="local-6989586621679317346"><span class="annot"><span class="annottext">GetRecoveryPointRestoreMetadata
+-&gt; GetRecoveryPointRestoreMetadata -&gt; Bool
+(GetRecoveryPointRestoreMetadata
+ -&gt; GetRecoveryPointRestoreMetadata -&gt; Bool)
+-&gt; (GetRecoveryPointRestoreMetadata
+    -&gt; GetRecoveryPointRestoreMetadata -&gt; Bool)
+-&gt; Eq GetRecoveryPointRestoreMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetRecoveryPointRestoreMetadata
+-&gt; GetRecoveryPointRestoreMetadata -&gt; Bool
+$c/= :: GetRecoveryPointRestoreMetadata
+-&gt; GetRecoveryPointRestoreMetadata -&gt; Bool
+== :: GetRecoveryPointRestoreMetadata
+-&gt; GetRecoveryPointRestoreMetadata -&gt; Bool
+$c== :: GetRecoveryPointRestoreMetadata
+-&gt; GetRecoveryPointRestoreMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317335"><span id="local-6989586621679317337"><span id="local-6989586621679317339"><span id="local-6989586621679317341"><span class="annot"><span class="annottext">ReadPrec [GetRecoveryPointRestoreMetadata]
+ReadPrec GetRecoveryPointRestoreMetadata
+Int -&gt; ReadS GetRecoveryPointRestoreMetadata
+ReadS [GetRecoveryPointRestoreMetadata]
+(Int -&gt; ReadS GetRecoveryPointRestoreMetadata)
+-&gt; ReadS [GetRecoveryPointRestoreMetadata]
+-&gt; ReadPrec GetRecoveryPointRestoreMetadata
+-&gt; ReadPrec [GetRecoveryPointRestoreMetadata]
+-&gt; Read GetRecoveryPointRestoreMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetRecoveryPointRestoreMetadata]
+$creadListPrec :: ReadPrec [GetRecoveryPointRestoreMetadata]
+readPrec :: ReadPrec GetRecoveryPointRestoreMetadata
+$creadPrec :: ReadPrec GetRecoveryPointRestoreMetadata
+readList :: ReadS [GetRecoveryPointRestoreMetadata]
+$creadList :: ReadS [GetRecoveryPointRestoreMetadata]
+readsPrec :: Int -&gt; ReadS GetRecoveryPointRestoreMetadata
+$creadsPrec :: Int -&gt; ReadS GetRecoveryPointRestoreMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317328"><span id="local-6989586621679317330"><span id="local-6989586621679317332"><span class="annot"><span class="annottext">Int -&gt; GetRecoveryPointRestoreMetadata -&gt; ShowS
+[GetRecoveryPointRestoreMetadata] -&gt; ShowS
+GetRecoveryPointRestoreMetadata -&gt; String
+(Int -&gt; GetRecoveryPointRestoreMetadata -&gt; ShowS)
+-&gt; (GetRecoveryPointRestoreMetadata -&gt; String)
+-&gt; ([GetRecoveryPointRestoreMetadata] -&gt; ShowS)
+-&gt; Show GetRecoveryPointRestoreMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetRecoveryPointRestoreMetadata] -&gt; ShowS
+$cshowList :: [GetRecoveryPointRestoreMetadata] -&gt; ShowS
+show :: GetRecoveryPointRestoreMetadata -&gt; String
+$cshow :: GetRecoveryPointRestoreMetadata -&gt; String
+showsPrec :: Int -&gt; GetRecoveryPointRestoreMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetRecoveryPointRestoreMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetRecoveryPointRestoreMetadata
+ -&gt; Rep GetRecoveryPointRestoreMetadata x)
+-&gt; (forall x.
+    Rep GetRecoveryPointRestoreMetadata x
+    -&gt; GetRecoveryPointRestoreMetadata)
+-&gt; Generic GetRecoveryPointRestoreMetadata
+forall x.
+Rep GetRecoveryPointRestoreMetadata x
+-&gt; GetRecoveryPointRestoreMetadata
+forall x.
+GetRecoveryPointRestoreMetadata
+-&gt; Rep GetRecoveryPointRestoreMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetRecoveryPointRestoreMetadata x
+-&gt; GetRecoveryPointRestoreMetadata
+$cfrom :: forall x.
+GetRecoveryPointRestoreMetadata
+-&gt; Rep GetRecoveryPointRestoreMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'GetRecoveryPointRestoreMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'backupVaultName', 'getRecoveryPointRestoreMetadata_backupVaultName' - The name of a logical container where backups are stored. Backup vaults</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- are identified by names that are unique to the account used to create</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- them and the Amazon Web Services Region where they are created. They</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- consist of lowercase letters, numbers, and hyphens.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'recoveryPointArn', 'getRecoveryPointRestoreMetadata_recoveryPointArn' - An Amazon Resource Name (ARN) that uniquely identifies a recovery point;</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for example,</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#newGetRecoveryPointRestoreMetadata"><span class="hs-identifier hs-type">newGetRecoveryPointRestoreMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'backupVaultName'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'recoveryPointArn'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata</span></a></span><span>
+</span><span id="line-89"></span><span id="newGetRecoveryPointRestoreMetadata"><span class="annot"><span class="annottext">newGetRecoveryPointRestoreMetadata :: Text -&gt; Text -&gt; GetRecoveryPointRestoreMetadata
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#newGetRecoveryPointRestoreMetadata"><span class="hs-identifier hs-var hs-var">newGetRecoveryPointRestoreMetadata</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679317323"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317323"><span class="hs-identifier hs-var">pBackupVaultName_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679317322"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317322"><span class="hs-identifier hs-var">pRecoveryPointArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">GetRecoveryPointRestoreMetadata' :: Text -&gt; Text -&gt; GetRecoveryPointRestoreMetadata
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata%27"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata'</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backupVaultName:GetRecoveryPointRestoreMetadata' :: Text
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3AbackupVaultName%3AGetRecoveryPointRestoreMetadata%27"><span class="hs-identifier hs-var">backupVaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317323"><span class="hs-identifier hs-var">pBackupVaultName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:recoveryPointArn:GetRecoveryPointRestoreMetadata' :: Text
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3ArecoveryPointArn%3AGetRecoveryPointRestoreMetadata%27"><span class="hs-identifier hs-var">recoveryPointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317322"><span class="hs-identifier hs-var">pRecoveryPointArn_</span></a></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The name of a logical container where backups are stored. Backup vaults</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- are identified by names that are unique to the account used to create</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- them and the Amazon Web Services Region where they are created. They</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- consist of lowercase letters, numbers, and hyphens.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadata_backupVaultName"><span class="hs-identifier hs-type">getRecoveryPointRestoreMetadata_backupVaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="getRecoveryPointRestoreMetadata_backupVaultName"><span class="annot"><span class="annottext">getRecoveryPointRestoreMetadata_backupVaultName :: (Text -&gt; f Text)
+-&gt; GetRecoveryPointRestoreMetadata
+-&gt; f GetRecoveryPointRestoreMetadata
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadata_backupVaultName"><span class="hs-identifier hs-var hs-var">getRecoveryPointRestoreMetadata_backupVaultName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecoveryPointRestoreMetadata -&gt; Text)
+-&gt; (GetRecoveryPointRestoreMetadata
+    -&gt; Text -&gt; GetRecoveryPointRestoreMetadata)
+-&gt; Lens
+     GetRecoveryPointRestoreMetadata
+     GetRecoveryPointRestoreMetadata
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata%27"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317319"><span class="annot"><span class="annottext">Text
+backupVaultName :: Text
+$sel:backupVaultName:GetRecoveryPointRestoreMetadata' :: GetRecoveryPointRestoreMetadata -&gt; Text
+</span><a href="#local-6989586621679317319"><span class="hs-identifier hs-var hs-var">backupVaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317319"><span class="hs-identifier hs-var">backupVaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317318"><span class="annot"><span class="annottext">s :: GetRecoveryPointRestoreMetadata
+</span><a href="#local-6989586621679317318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata%27"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317317"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecoveryPointRestoreMetadata
+</span><a href="#local-6989586621679317318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupVaultName:GetRecoveryPointRestoreMetadata' :: Text
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3AbackupVaultName%3AGetRecoveryPointRestoreMetadata%27"><span class="hs-identifier hs-var">backupVaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | An Amazon Resource Name (ARN) that uniquely identifies a recovery point;</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- for example,</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadata_recoveryPointArn"><span class="hs-identifier hs-type">getRecoveryPointRestoreMetadata_recoveryPointArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="getRecoveryPointRestoreMetadata_recoveryPointArn"><span class="annot"><span class="annottext">getRecoveryPointRestoreMetadata_recoveryPointArn :: (Text -&gt; f Text)
+-&gt; GetRecoveryPointRestoreMetadata
+-&gt; f GetRecoveryPointRestoreMetadata
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadata_recoveryPointArn"><span class="hs-identifier hs-var hs-var">getRecoveryPointRestoreMetadata_recoveryPointArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecoveryPointRestoreMetadata -&gt; Text)
+-&gt; (GetRecoveryPointRestoreMetadata
+    -&gt; Text -&gt; GetRecoveryPointRestoreMetadata)
+-&gt; Lens
+     GetRecoveryPointRestoreMetadata
+     GetRecoveryPointRestoreMetadata
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata%27"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317316"><span class="annot"><span class="annottext">Text
+recoveryPointArn :: Text
+$sel:recoveryPointArn:GetRecoveryPointRestoreMetadata' :: GetRecoveryPointRestoreMetadata -&gt; Text
+</span><a href="#local-6989586621679317316"><span class="hs-identifier hs-var hs-var">recoveryPointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317316"><span class="hs-identifier hs-var">recoveryPointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317315"><span class="annot"><span class="annottext">s :: GetRecoveryPointRestoreMetadata
+</span><a href="#local-6989586621679317315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata%27"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317314"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecoveryPointRestoreMetadata
+</span><a href="#local-6989586621679317315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recoveryPointArn:GetRecoveryPointRestoreMetadata' :: Text
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3ArecoveryPointArn%3AGetRecoveryPointRestoreMetadata%27"><span class="hs-identifier hs-var">recoveryPointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679317310"><span class="annot"><span class="annottext">request :: GetRecoveryPointRestoreMetadata
+-&gt; Request GetRecoveryPointRestoreMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetRecoveryPointRestoreMetadata
+-&gt; Request GetRecoveryPointRestoreMetadata
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679317306"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetRecoveryPointRestoreMetadata
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetRecoveryPointRestoreMetadata)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetRecoveryPointRestoreMetadata))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetRecoveryPointRestoreMetadata
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetRecoveryPointRestoreMetadata)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317303"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317303"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317302"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679317302"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317301"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317301"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive (HashMap Text Text))
+-&gt; Int
+-&gt; GetRecoveryPointRestoreMetadataResponse
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-var">GetRecoveryPointRestoreMetadataResponse'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (Sensitive (HashMap Text Text))
+ -&gt; Int
+ -&gt; GetRecoveryPointRestoreMetadataResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Int
+      -&gt; GetRecoveryPointRestoreMetadataResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackupVaultArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Int
+   -&gt; GetRecoveryPointRestoreMetadataResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (Sensitive (HashMap Text Text))
+      -&gt; Int -&gt; GetRecoveryPointRestoreMetadataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecoveryPointArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (Sensitive (HashMap Text Text))
+   -&gt; Int -&gt; GetRecoveryPointRestoreMetadataResponse)
+-&gt; Either String (Maybe (Sensitive (HashMap Text Text)))
+-&gt; Either String (Int -&gt; GetRecoveryPointRestoreMetadataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe (Sensitive (HashMap Text Text))))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RestoreMetadata&quot;</span></span><span>
+</span><span id="line-126"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (Sensitive (HashMap Text Text))))
+-&gt; Maybe (Sensitive (HashMap Text Text))
+-&gt; Either String (Maybe (Sensitive (HashMap Text Text)))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-127"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetRecoveryPointRestoreMetadataResponse)
+-&gt; Either String Int
+-&gt; Either String GetRecoveryPointRestoreMetadataResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317303"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679317292"><span id="local-6989586621679317294"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata</span></a></span></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679317289"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata</span></a></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679317285"><span class="annot"><span class="annottext">toHeaders :: GetRecoveryPointRestoreMetadata -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GetRecoveryPointRestoreMetadata -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-149"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679317279"><span class="annot"><span class="annottext">toPath :: GetRecoveryPointRestoreMetadata -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata%27"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317276"><span id="local-6989586621679317277"><span class="annot"><span class="annottext">Text
+recoveryPointArn :: Text
+backupVaultName :: Text
+$sel:recoveryPointArn:GetRecoveryPointRestoreMetadata' :: GetRecoveryPointRestoreMetadata -&gt; Text
+$sel:backupVaultName:GetRecoveryPointRestoreMetadata' :: GetRecoveryPointRestoreMetadata -&gt; Text
+</span><a href="#local-6989586621679317276"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/backup-vaults/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317277"><span class="hs-identifier hs-var">backupVaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/recovery-points/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317276"><span class="hs-identifier hs-var">recoveryPointArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/restore-metadata&quot;</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadata"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679317272"><span class="annot"><span class="annottext">toQuery :: GetRecoveryPointRestoreMetadata -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetRecoveryPointRestoreMetadata -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | /See:/ 'newGetRecoveryPointRestoreMetadataResponse' smart constructor.</span><span>
+</span><span id="line-167"></span><span id="local-6989586621679317269"><span id="local-6989586621679317270"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRecoveryPointRestoreMetadataResponse"><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse"><span class="hs-identifier hs-var">GetRecoveryPointRestoreMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRecoveryPointRestoreMetadataResponse%27"><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-var">GetRecoveryPointRestoreMetadataResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An ARN that uniquely identifies a backup vault; for example,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AbackupVaultArn%3AGetRecoveryPointRestoreMetadataResponse%27"><span class="annot"><span class="annottext">GetRecoveryPointRestoreMetadataResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3AbackupVaultArn%3AGetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-var hs-var">backupVaultArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | An ARN that uniquely identifies a recovery point; for example,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3ArecoveryPointArn%3AGetRecoveryPointRestoreMetadataResponse%27"><span class="annot"><span class="annottext">GetRecoveryPointRestoreMetadataResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3ArecoveryPointArn%3AGetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-var hs-var">recoveryPointArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | The set of metadata key-value pairs that describe the original</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- configuration of the backed-up resource. These values vary depending on</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- the service that is being restored.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3ArestoreMetadata%3AGetRecoveryPointRestoreMetadataResponse%27"><span class="annot"><span class="annottext">GetRecoveryPointRestoreMetadataResponse
+-&gt; Maybe (Sensitive (HashMap Text Text))
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3ArestoreMetadata%3AGetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-var hs-var">restoreMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetRecoveryPointRestoreMetadataResponse%27"><span class="annot"><span class="annottext">GetRecoveryPointRestoreMetadataResponse -&gt; Int
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3AhttpStatus%3AGetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317261"><span id="local-6989586621679317263"><span class="annot"><span class="annottext">GetRecoveryPointRestoreMetadataResponse
+-&gt; GetRecoveryPointRestoreMetadataResponse -&gt; Bool
+(GetRecoveryPointRestoreMetadataResponse
+ -&gt; GetRecoveryPointRestoreMetadataResponse -&gt; Bool)
+-&gt; (GetRecoveryPointRestoreMetadataResponse
+    -&gt; GetRecoveryPointRestoreMetadataResponse -&gt; Bool)
+-&gt; Eq GetRecoveryPointRestoreMetadataResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetRecoveryPointRestoreMetadataResponse
+-&gt; GetRecoveryPointRestoreMetadataResponse -&gt; Bool
+$c/= :: GetRecoveryPointRestoreMetadataResponse
+-&gt; GetRecoveryPointRestoreMetadataResponse -&gt; Bool
+== :: GetRecoveryPointRestoreMetadataResponse
+-&gt; GetRecoveryPointRestoreMetadataResponse -&gt; Bool
+$c== :: GetRecoveryPointRestoreMetadataResponse
+-&gt; GetRecoveryPointRestoreMetadataResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317255"><span id="local-6989586621679317257"><span id="local-6989586621679317259"><span class="annot"><span class="annottext">Int -&gt; GetRecoveryPointRestoreMetadataResponse -&gt; ShowS
+[GetRecoveryPointRestoreMetadataResponse] -&gt; ShowS
+GetRecoveryPointRestoreMetadataResponse -&gt; String
+(Int -&gt; GetRecoveryPointRestoreMetadataResponse -&gt; ShowS)
+-&gt; (GetRecoveryPointRestoreMetadataResponse -&gt; String)
+-&gt; ([GetRecoveryPointRestoreMetadataResponse] -&gt; ShowS)
+-&gt; Show GetRecoveryPointRestoreMetadataResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetRecoveryPointRestoreMetadataResponse] -&gt; ShowS
+$cshowList :: [GetRecoveryPointRestoreMetadataResponse] -&gt; ShowS
+show :: GetRecoveryPointRestoreMetadataResponse -&gt; String
+$cshow :: GetRecoveryPointRestoreMetadataResponse -&gt; String
+showsPrec :: Int -&gt; GetRecoveryPointRestoreMetadataResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetRecoveryPointRestoreMetadataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetRecoveryPointRestoreMetadataResponse
+ -&gt; Rep GetRecoveryPointRestoreMetadataResponse x)
+-&gt; (forall x.
+    Rep GetRecoveryPointRestoreMetadataResponse x
+    -&gt; GetRecoveryPointRestoreMetadataResponse)
+-&gt; Generic GetRecoveryPointRestoreMetadataResponse
+forall x.
+Rep GetRecoveryPointRestoreMetadataResponse x
+-&gt; GetRecoveryPointRestoreMetadataResponse
+forall x.
+GetRecoveryPointRestoreMetadataResponse
+-&gt; Rep GetRecoveryPointRestoreMetadataResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetRecoveryPointRestoreMetadataResponse x
+-&gt; GetRecoveryPointRestoreMetadataResponse
+$cfrom :: forall x.
+GetRecoveryPointRestoreMetadataResponse
+-&gt; Rep GetRecoveryPointRestoreMetadataResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Create a value of 'GetRecoveryPointRestoreMetadataResponse' with all optional fields omitted.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'backupVaultArn', 'getRecoveryPointRestoreMetadataResponse_backupVaultArn' - An ARN that uniquely identifies a backup vault; for example,</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'recoveryPointArn', 'getRecoveryPointRestoreMetadataResponse_recoveryPointArn' - An ARN that uniquely identifies a recovery point; for example,</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'restoreMetadata', 'getRecoveryPointRestoreMetadataResponse_restoreMetadata' - The set of metadata key-value pairs that describe the original</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- configuration of the backed-up resource. These values vary depending on</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- the service that is being restored.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'httpStatus', 'getRecoveryPointRestoreMetadataResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#newGetRecoveryPointRestoreMetadataResponse"><span class="hs-identifier hs-type">newGetRecoveryPointRestoreMetadataResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse</span></a></span><span>
+</span><span id="line-206"></span><span id="newGetRecoveryPointRestoreMetadataResponse"><span class="annot"><span class="annottext">newGetRecoveryPointRestoreMetadataResponse :: Int -&gt; GetRecoveryPointRestoreMetadataResponse
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#newGetRecoveryPointRestoreMetadataResponse"><span class="hs-identifier hs-var hs-var">newGetRecoveryPointRestoreMetadataResponse</span></a></span></span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679317252"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317252"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">GetRecoveryPointRestoreMetadataResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive (HashMap Text Text))
+-&gt; Int
+-&gt; GetRecoveryPointRestoreMetadataResponse
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse'</span></a></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backupVaultArn:GetRecoveryPointRestoreMetadataResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3AbackupVaultArn%3AGetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-var">backupVaultArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">$sel:recoveryPointArn:GetRecoveryPointRestoreMetadataResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3ArecoveryPointArn%3AGetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-var">recoveryPointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">$sel:restoreMetadata:GetRecoveryPointRestoreMetadataResponse' :: Maybe (Sensitive (HashMap Text Text))
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3ArestoreMetadata%3AGetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-var">restoreMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetRecoveryPointRestoreMetadataResponse' :: Int
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3AhttpStatus%3AGetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317252"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | An ARN that uniquely identifies a backup vault; for example,</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadataResponse_backupVaultArn"><span class="hs-identifier hs-type">getRecoveryPointRestoreMetadataResponse_backupVaultArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="getRecoveryPointRestoreMetadataResponse_backupVaultArn"><span class="annot"><span class="annottext">getRecoveryPointRestoreMetadataResponse_backupVaultArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetRecoveryPointRestoreMetadataResponse
+-&gt; f GetRecoveryPointRestoreMetadataResponse
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadataResponse_backupVaultArn"><span class="hs-identifier hs-var hs-var">getRecoveryPointRestoreMetadataResponse_backupVaultArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecoveryPointRestoreMetadataResponse -&gt; Maybe Text)
+-&gt; (GetRecoveryPointRestoreMetadataResponse
+    -&gt; Maybe Text -&gt; GetRecoveryPointRestoreMetadataResponse)
+-&gt; Lens
+     GetRecoveryPointRestoreMetadataResponse
+     GetRecoveryPointRestoreMetadataResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317251"><span class="annot"><span class="annottext">Maybe Text
+backupVaultArn :: Maybe Text
+$sel:backupVaultArn:GetRecoveryPointRestoreMetadataResponse' :: GetRecoveryPointRestoreMetadataResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679317251"><span class="hs-identifier hs-var hs-var">backupVaultArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317251"><span class="hs-identifier hs-var">backupVaultArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317250"><span class="annot"><span class="annottext">s :: GetRecoveryPointRestoreMetadataResponse
+</span><a href="#local-6989586621679317250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317249"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecoveryPointRestoreMetadataResponse
+</span><a href="#local-6989586621679317250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupVaultArn:GetRecoveryPointRestoreMetadataResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3AbackupVaultArn%3AGetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-var">backupVaultArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | An ARN that uniquely identifies a recovery point; for example,</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadataResponse_recoveryPointArn"><span class="hs-identifier hs-type">getRecoveryPointRestoreMetadataResponse_recoveryPointArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="getRecoveryPointRestoreMetadataResponse_recoveryPointArn"><span class="annot"><span class="annottext">getRecoveryPointRestoreMetadataResponse_recoveryPointArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetRecoveryPointRestoreMetadataResponse
+-&gt; f GetRecoveryPointRestoreMetadataResponse
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadataResponse_recoveryPointArn"><span class="hs-identifier hs-var hs-var">getRecoveryPointRestoreMetadataResponse_recoveryPointArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecoveryPointRestoreMetadataResponse -&gt; Maybe Text)
+-&gt; (GetRecoveryPointRestoreMetadataResponse
+    -&gt; Maybe Text -&gt; GetRecoveryPointRestoreMetadataResponse)
+-&gt; Lens
+     GetRecoveryPointRestoreMetadataResponse
+     GetRecoveryPointRestoreMetadataResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317248"><span class="annot"><span class="annottext">Maybe Text
+recoveryPointArn :: Maybe Text
+$sel:recoveryPointArn:GetRecoveryPointRestoreMetadataResponse' :: GetRecoveryPointRestoreMetadataResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679317248"><span class="hs-identifier hs-var hs-var">recoveryPointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317248"><span class="hs-identifier hs-var">recoveryPointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317247"><span class="annot"><span class="annottext">s :: GetRecoveryPointRestoreMetadataResponse
+</span><a href="#local-6989586621679317247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317246"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecoveryPointRestoreMetadataResponse
+</span><a href="#local-6989586621679317247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recoveryPointArn:GetRecoveryPointRestoreMetadataResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3ArecoveryPointArn%3AGetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-var">recoveryPointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The set of metadata key-value pairs that describe the original</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- configuration of the backed-up resource. These values vary depending on</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- the service that is being restored.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadataResponse_restoreMetadata"><span class="hs-identifier hs-type">getRecoveryPointRestoreMetadataResponse_restoreMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="getRecoveryPointRestoreMetadataResponse_restoreMetadata"><span class="annot"><span class="annottext">getRecoveryPointRestoreMetadataResponse_restoreMetadata :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetRecoveryPointRestoreMetadataResponse
+-&gt; f GetRecoveryPointRestoreMetadataResponse
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadataResponse_restoreMetadata"><span class="hs-identifier hs-var hs-var">getRecoveryPointRestoreMetadataResponse_restoreMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecoveryPointRestoreMetadataResponse
+ -&gt; Maybe (Sensitive (HashMap Text Text)))
+-&gt; (GetRecoveryPointRestoreMetadataResponse
+    -&gt; Maybe (Sensitive (HashMap Text Text))
+    -&gt; GetRecoveryPointRestoreMetadataResponse)
+-&gt; Lens
+     GetRecoveryPointRestoreMetadataResponse
+     GetRecoveryPointRestoreMetadataResponse
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (Sensitive (HashMap Text Text)))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317245"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+restoreMetadata :: Maybe (Sensitive (HashMap Text Text))
+$sel:restoreMetadata:GetRecoveryPointRestoreMetadataResponse' :: GetRecoveryPointRestoreMetadataResponse
+-&gt; Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679317245"><span class="hs-identifier hs-var hs-var">restoreMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679317245"><span class="hs-identifier hs-var">restoreMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317244"><span class="annot"><span class="annottext">s :: GetRecoveryPointRestoreMetadataResponse
+</span><a href="#local-6989586621679317244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317243"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679317243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecoveryPointRestoreMetadataResponse
+</span><a href="#local-6989586621679317244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restoreMetadata:GetRecoveryPointRestoreMetadataResponse' :: Maybe (Sensitive (HashMap Text Text))
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3ArestoreMetadata%3AGetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-var">restoreMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679317243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive (HashMap Text Text))
+  -&gt; f (Maybe (Sensitive (HashMap Text Text))))
+ -&gt; GetRecoveryPointRestoreMetadataResponse
+ -&gt; f GetRecoveryPointRestoreMetadataResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (Sensitive (HashMap Text Text))
+    -&gt; f (Maybe (Sensitive (HashMap Text Text))))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetRecoveryPointRestoreMetadataResponse
+-&gt; f GetRecoveryPointRestoreMetadataResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; (Exchange
+      (HashMap Text Text)
+      (HashMap Text Text)
+      (HashMap Text Text)
+      (Identity (HashMap Text Text))
+    -&gt; Exchange
+         (HashMap Text Text)
+         (HashMap Text Text)
+         (HashMap Text Text)
+         (Identity (HashMap Text Text)))
+-&gt; AnIso
+     (Sensitive (HashMap Text Text))
+     (Sensitive (HashMap Text Text))
+     (HashMap Text Text)
+     (HashMap Text Text)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Exchange
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (Identity (HashMap Text Text))
+-&gt; Exchange
+     (HashMap Text Text)
+     (HashMap Text Text)
+     (HashMap Text Text)
+     (Identity (HashMap Text Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadataResponse_httpStatus"><span class="hs-identifier hs-type">getRecoveryPointRestoreMetadataResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-234"></span><span id="getRecoveryPointRestoreMetadataResponse_httpStatus"><span class="annot"><span class="annottext">getRecoveryPointRestoreMetadataResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetRecoveryPointRestoreMetadataResponse
+-&gt; f GetRecoveryPointRestoreMetadataResponse
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#getRecoveryPointRestoreMetadataResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getRecoveryPointRestoreMetadataResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecoveryPointRestoreMetadataResponse -&gt; Int)
+-&gt; (GetRecoveryPointRestoreMetadataResponse
+    -&gt; Int -&gt; GetRecoveryPointRestoreMetadataResponse)
+-&gt; Lens
+     GetRecoveryPointRestoreMetadataResponse
+     GetRecoveryPointRestoreMetadataResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317238"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetRecoveryPointRestoreMetadataResponse' :: GetRecoveryPointRestoreMetadataResponse -&gt; Int
+</span><a href="#local-6989586621679317238"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317238"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317237"><span class="annot"><span class="annottext">s :: GetRecoveryPointRestoreMetadataResponse
+</span><a href="#local-6989586621679317237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317236"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecoveryPointRestoreMetadataResponse
+</span><a href="#local-6989586621679317237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRecoveryPointRestoreMetadataResponse' :: Int
+</span><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#%24sel%3AhttpStatus%3AGetRecoveryPointRestoreMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679317234"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.GetRecoveryPointRestoreMetadata.html#GetRecoveryPointRestoreMetadataResponse"><span class="hs-identifier hs-type">GetRecoveryPointRestoreMetadataResponse</span></a></span></span><span>
+</span><span id="line-239"></span></pre></body></html>

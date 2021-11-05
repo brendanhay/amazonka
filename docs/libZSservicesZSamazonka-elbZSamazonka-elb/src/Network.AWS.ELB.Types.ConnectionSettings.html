@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about the @ConnectionSettings@ attribute.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newConnectionSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679195802"><span id="local-6989586621679195803"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionSettings"><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings"><span class="hs-identifier hs-var">ConnectionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionSettings%27"><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings%27"><span class="hs-identifier hs-var">ConnectionSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679195811"><span id="local-6989586621679195812"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionSettings"><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings"><span class="hs-identifier hs-var">ConnectionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionSettings%27"><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings%27"><span class="hs-identifier hs-var">ConnectionSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, in seconds, that the connection is allowed to be idle (no data</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- has been sent over the connection) before it is closed by the load</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- balancer.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AidleTimeout%3AConnectionSettings%27"><span class="annot"><span class="annottext">ConnectionSettings -&gt; Natural
 </span><a href="Network.AWS.ELB.Types.ConnectionSettings.html#%24sel%3AidleTimeout%3AConnectionSettings%27"><span class="hs-identifier hs-var hs-var">idleTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195796"><span id="local-6989586621679195798"><span class="annot"><span class="annottext">ConnectionSettings -&gt; ConnectionSettings -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195805"><span id="local-6989586621679195807"><span class="annot"><span class="annottext">ConnectionSettings -&gt; ConnectionSettings -&gt; Bool
 (ConnectionSettings -&gt; ConnectionSettings -&gt; Bool)
 -&gt; (ConnectionSettings -&gt; ConnectionSettings -&gt; Bool)
 -&gt; Eq ConnectionSettings
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConnectionSettings -&gt; ConnectionSettings -&gt; Bool
 == :: ConnectionSettings -&gt; ConnectionSettings -&gt; Bool
 $c== :: ConnectionSettings -&gt; ConnectionSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195787"><span id="local-6989586621679195789"><span id="local-6989586621679195791"><span id="local-6989586621679195793"><span class="annot"><span class="annottext">ReadPrec [ConnectionSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195796"><span id="local-6989586621679195798"><span id="local-6989586621679195800"><span id="local-6989586621679195802"><span class="annot"><span class="annottext">ReadPrec [ConnectionSettings]
 ReadPrec ConnectionSettings
 Int -&gt; ReadS ConnectionSettings
 ReadS [ConnectionSettings]
@@ -63,7 +63,7 @@ readList :: ReadS [ConnectionSettings]
 $creadList :: ReadS [ConnectionSettings]
 readsPrec :: Int -&gt; ReadS ConnectionSettings
 $creadsPrec :: Int -&gt; ReadS ConnectionSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195780"><span id="local-6989586621679195782"><span id="local-6989586621679195784"><span class="annot"><span class="annottext">Int -&gt; ConnectionSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195789"><span id="local-6989586621679195791"><span id="local-6989586621679195793"><span class="annot"><span class="annottext">Int -&gt; ConnectionSettings -&gt; ShowS
 [ConnectionSettings] -&gt; ShowS
 ConnectionSettings -&gt; String
 (Int -&gt; ConnectionSettings -&gt; ShowS)
@@ -105,12 +105,12 @@ $cfrom :: forall x. ConnectionSettings -&gt; Rep ConnectionSettings x
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings"><span class="hs-identifier hs-type">ConnectionSettings</span></a></span><span>
 </span><span id="line-53"></span><span id="newConnectionSettings"><span class="annot"><span class="annottext">newConnectionSettings :: Natural -&gt; ConnectionSettings
-</span><a href="Network.AWS.ELB.Types.ConnectionSettings.html#newConnectionSettings"><span class="hs-identifier hs-var hs-var">newConnectionSettings</span></a></span></span><span> </span><span id="local-6989586621679195774"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679195774"><span class="hs-identifier hs-var">pIdleTimeout_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ELB.Types.ConnectionSettings.html#newConnectionSettings"><span class="hs-identifier hs-var hs-var">newConnectionSettings</span></a></span></span><span> </span><span id="local-6989586621679195783"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679195783"><span class="hs-identifier hs-var">pIdleTimeout_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">ConnectionSettings' :: Natural -&gt; ConnectionSettings
 </span><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings%27"><span class="hs-identifier hs-type">ConnectionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idleTimeout:ConnectionSettings' :: Natural
 </span><a href="Network.AWS.ELB.Types.ConnectionSettings.html#%24sel%3AidleTimeout%3AConnectionSettings%27"><span class="hs-identifier hs-var">idleTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679195774"><span class="hs-identifier hs-var">pIdleTimeout_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679195783"><span class="hs-identifier hs-var">pIdleTimeout_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | The time, in seconds, that the connection is allowed to be idle (no data</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- has been sent over the connection) before it is closed by the load</span><span>
@@ -122,47 +122,47 @@ $cfrom :: forall x. ConnectionSettings -&gt; Rep ConnectionSettings x
 -&gt; (ConnectionSettings -&gt; Natural -&gt; ConnectionSettings)
 -&gt; Lens ConnectionSettings ConnectionSettings Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings%27"><span class="hs-identifier hs-type">ConnectionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195770"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings%27"><span class="hs-identifier hs-type">ConnectionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195779"><span class="annot"><span class="annottext">Natural
 idleTimeout :: Natural
 $sel:idleTimeout:ConnectionSettings' :: ConnectionSettings -&gt; Natural
-</span><a href="#local-6989586621679195770"><span class="hs-identifier hs-var hs-var">idleTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679195770"><span class="hs-identifier hs-var">idleTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195769"><span class="annot"><span class="annottext">s :: ConnectionSettings
-</span><a href="#local-6989586621679195769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings%27"><span class="hs-identifier hs-type">ConnectionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195768"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679195768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionSettings
-</span><a href="#local-6989586621679195769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idleTimeout:ConnectionSettings' :: Natural
+</span><a href="#local-6989586621679195779"><span class="hs-identifier hs-var hs-var">idleTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679195779"><span class="hs-identifier hs-var">idleTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195778"><span class="annot"><span class="annottext">s :: ConnectionSettings
+</span><a href="#local-6989586621679195778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings%27"><span class="hs-identifier hs-type">ConnectionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195777"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679195777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionSettings
+</span><a href="#local-6989586621679195778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idleTimeout:ConnectionSettings' :: Natural
 </span><a href="Network.AWS.ELB.Types.ConnectionSettings.html#%24sel%3AidleTimeout%3AConnectionSettings%27"><span class="hs-identifier hs-var">idleTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679195768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings"><span class="hs-identifier hs-type">ConnectionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679195777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings"><span class="hs-identifier hs-type">ConnectionSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings"><span class="hs-identifier hs-type">ConnectionSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679195765"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ConnectionSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679195763"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679195763"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679195774"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ConnectionSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679195772"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679195772"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">Natural -&gt; ConnectionSettings
 </span><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings%27"><span class="hs-identifier hs-var">ConnectionSettings'</span></a></span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">(Natural -&gt; ConnectionSettings)
 -&gt; Either String Natural -&gt; Either String ConnectionSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679195763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
+</span><a href="#local-6989586621679195772"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IdleTimeout&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195757"><span id="local-6989586621679195759"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings"><span class="hs-identifier hs-type">ConnectionSettings</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195766"><span id="local-6989586621679195768"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings"><span class="hs-identifier hs-type">ConnectionSettings</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195754"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings"><span class="hs-identifier hs-type">ConnectionSettings</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195763"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings"><span class="hs-identifier hs-type">ConnectionSettings</span></a></span></span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings"><span class="hs-identifier hs-type">ConnectionSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679195750"><span class="annot"><span class="annottext">toQuery :: ConnectionSettings -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings%27"><span class="hs-identifier hs-type">ConnectionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195748"><span class="annot"><span class="annottext">Natural
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679195759"><span class="annot"><span class="annottext">toQuery :: ConnectionSettings -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionSettings.html#ConnectionSettings%27"><span class="hs-identifier hs-type">ConnectionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195757"><span class="annot"><span class="annottext">Natural
 idleTimeout :: Natural
 $sel:idleTimeout:ConnectionSettings' :: ConnectionSettings -&gt; Natural
-</span><a href="#local-6989586621679195748"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679195757"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;IdleTimeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679195748"><span class="hs-identifier hs-var">idleTimeout</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679195757"><span class="hs-identifier hs-var">idleTimeout</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-74"></span></pre></body></html>

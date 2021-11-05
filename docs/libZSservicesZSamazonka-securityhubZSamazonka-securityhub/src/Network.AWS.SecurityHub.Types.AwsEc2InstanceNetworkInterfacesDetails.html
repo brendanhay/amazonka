@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Identifies a network interface for the EC2 instance.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAwsEc2InstanceNetworkInterfacesDetails' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679942970"><span id="local-6989586621679942971"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsEc2InstanceNetworkInterfacesDetails"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#AwsEc2InstanceNetworkInterfacesDetails"><span class="hs-identifier hs-var">AwsEc2InstanceNetworkInterfacesDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsEc2InstanceNetworkInterfacesDetails%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#AwsEc2InstanceNetworkInterfacesDetails%27"><span class="hs-identifier hs-var">AwsEc2InstanceNetworkInterfacesDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the network interface. The details are in a</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- corresponding @AwsEc2NetworkInterfacesDetails@ object.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AnetworkInterfaceId%3AAwsEc2InstanceNetworkInterfacesDetails%27"><span class="annot"><span class="annottext">AwsEc2InstanceNetworkInterfacesDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#%24sel%3AnetworkInterfaceId%3AAwsEc2InstanceNetworkInterfacesDetails%27"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679942964"><span id="local-6989586621679942966"><span class="annot"><span class="annottext">AwsEc2InstanceNetworkInterfacesDetails
+-&gt; AwsEc2InstanceNetworkInterfacesDetails -&gt; Bool
+(AwsEc2InstanceNetworkInterfacesDetails
+ -&gt; AwsEc2InstanceNetworkInterfacesDetails -&gt; Bool)
+-&gt; (AwsEc2InstanceNetworkInterfacesDetails
+    -&gt; AwsEc2InstanceNetworkInterfacesDetails -&gt; Bool)
+-&gt; Eq AwsEc2InstanceNetworkInterfacesDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsEc2InstanceNetworkInterfacesDetails
+-&gt; AwsEc2InstanceNetworkInterfacesDetails -&gt; Bool
+$c/= :: AwsEc2InstanceNetworkInterfacesDetails
+-&gt; AwsEc2InstanceNetworkInterfacesDetails -&gt; Bool
+== :: AwsEc2InstanceNetworkInterfacesDetails
+-&gt; AwsEc2InstanceNetworkInterfacesDetails -&gt; Bool
+$c== :: AwsEc2InstanceNetworkInterfacesDetails
+-&gt; AwsEc2InstanceNetworkInterfacesDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679942955"><span id="local-6989586621679942957"><span id="local-6989586621679942959"><span id="local-6989586621679942961"><span class="annot"><span class="annottext">ReadPrec [AwsEc2InstanceNetworkInterfacesDetails]
+ReadPrec AwsEc2InstanceNetworkInterfacesDetails
+Int -&gt; ReadS AwsEc2InstanceNetworkInterfacesDetails
+ReadS [AwsEc2InstanceNetworkInterfacesDetails]
+(Int -&gt; ReadS AwsEc2InstanceNetworkInterfacesDetails)
+-&gt; ReadS [AwsEc2InstanceNetworkInterfacesDetails]
+-&gt; ReadPrec AwsEc2InstanceNetworkInterfacesDetails
+-&gt; ReadPrec [AwsEc2InstanceNetworkInterfacesDetails]
+-&gt; Read AwsEc2InstanceNetworkInterfacesDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsEc2InstanceNetworkInterfacesDetails]
+$creadListPrec :: ReadPrec [AwsEc2InstanceNetworkInterfacesDetails]
+readPrec :: ReadPrec AwsEc2InstanceNetworkInterfacesDetails
+$creadPrec :: ReadPrec AwsEc2InstanceNetworkInterfacesDetails
+readList :: ReadS [AwsEc2InstanceNetworkInterfacesDetails]
+$creadList :: ReadS [AwsEc2InstanceNetworkInterfacesDetails]
+readsPrec :: Int -&gt; ReadS AwsEc2InstanceNetworkInterfacesDetails
+$creadsPrec :: Int -&gt; ReadS AwsEc2InstanceNetworkInterfacesDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679942948"><span id="local-6989586621679942950"><span id="local-6989586621679942952"><span class="annot"><span class="annottext">Int -&gt; AwsEc2InstanceNetworkInterfacesDetails -&gt; ShowS
+[AwsEc2InstanceNetworkInterfacesDetails] -&gt; ShowS
+AwsEc2InstanceNetworkInterfacesDetails -&gt; String
+(Int -&gt; AwsEc2InstanceNetworkInterfacesDetails -&gt; ShowS)
+-&gt; (AwsEc2InstanceNetworkInterfacesDetails -&gt; String)
+-&gt; ([AwsEc2InstanceNetworkInterfacesDetails] -&gt; ShowS)
+-&gt; Show AwsEc2InstanceNetworkInterfacesDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsEc2InstanceNetworkInterfacesDetails] -&gt; ShowS
+$cshowList :: [AwsEc2InstanceNetworkInterfacesDetails] -&gt; ShowS
+show :: AwsEc2InstanceNetworkInterfacesDetails -&gt; String
+$cshow :: AwsEc2InstanceNetworkInterfacesDetails -&gt; String
+showsPrec :: Int -&gt; AwsEc2InstanceNetworkInterfacesDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsEc2InstanceNetworkInterfacesDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AwsEc2InstanceNetworkInterfacesDetails
+ -&gt; Rep AwsEc2InstanceNetworkInterfacesDetails x)
+-&gt; (forall x.
+    Rep AwsEc2InstanceNetworkInterfacesDetails x
+    -&gt; AwsEc2InstanceNetworkInterfacesDetails)
+-&gt; Generic AwsEc2InstanceNetworkInterfacesDetails
+forall x.
+Rep AwsEc2InstanceNetworkInterfacesDetails x
+-&gt; AwsEc2InstanceNetworkInterfacesDetails
+forall x.
+AwsEc2InstanceNetworkInterfacesDetails
+-&gt; Rep AwsEc2InstanceNetworkInterfacesDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AwsEc2InstanceNetworkInterfacesDetails x
+-&gt; AwsEc2InstanceNetworkInterfacesDetails
+$cfrom :: forall x.
+AwsEc2InstanceNetworkInterfacesDetails
+-&gt; Rep AwsEc2InstanceNetworkInterfacesDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'AwsEc2InstanceNetworkInterfacesDetails' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'networkInterfaceId', 'awsEc2InstanceNetworkInterfacesDetails_networkInterfaceId' - The identifier of the network interface. The details are in a</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- corresponding @AwsEc2NetworkInterfacesDetails@ object.</span><span>
+</span><span id="line-46"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#newAwsEc2InstanceNetworkInterfacesDetails"><span class="hs-identifier hs-type">newAwsEc2InstanceNetworkInterfacesDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#AwsEc2InstanceNetworkInterfacesDetails"><span class="hs-identifier hs-type">AwsEc2InstanceNetworkInterfacesDetails</span></a></span><span>
+</span><span id="line-48"></span><span id="newAwsEc2InstanceNetworkInterfacesDetails"><span class="annot"><span class="annottext">newAwsEc2InstanceNetworkInterfacesDetails :: AwsEc2InstanceNetworkInterfacesDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#newAwsEc2InstanceNetworkInterfacesDetails"><span class="hs-identifier hs-var hs-var">newAwsEc2InstanceNetworkInterfacesDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><span class="annottext">AwsEc2InstanceNetworkInterfacesDetails' :: Maybe Text -&gt; AwsEc2InstanceNetworkInterfacesDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#AwsEc2InstanceNetworkInterfacesDetails%27"><span class="hs-identifier hs-type">AwsEc2InstanceNetworkInterfacesDetails'</span></a></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:networkInterfaceId:AwsEc2InstanceNetworkInterfacesDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#%24sel%3AnetworkInterfaceId%3AAwsEc2InstanceNetworkInterfacesDetails%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | The identifier of the network interface. The details are in a</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- corresponding @AwsEc2NetworkInterfacesDetails@ object.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#awsEc2InstanceNetworkInterfacesDetails_networkInterfaceId"><span class="hs-identifier hs-type">awsEc2InstanceNetworkInterfacesDetails_networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#AwsEc2InstanceNetworkInterfacesDetails"><span class="hs-identifier hs-type">AwsEc2InstanceNetworkInterfacesDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span id="awsEc2InstanceNetworkInterfacesDetails_networkInterfaceId"><span class="annot"><span class="annottext">awsEc2InstanceNetworkInterfacesDetails_networkInterfaceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEc2InstanceNetworkInterfacesDetails
+-&gt; f AwsEc2InstanceNetworkInterfacesDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#awsEc2InstanceNetworkInterfacesDetails_networkInterfaceId"><span class="hs-identifier hs-var hs-var">awsEc2InstanceNetworkInterfacesDetails_networkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2InstanceNetworkInterfacesDetails -&gt; Maybe Text)
+-&gt; (AwsEc2InstanceNetworkInterfacesDetails
+    -&gt; Maybe Text -&gt; AwsEc2InstanceNetworkInterfacesDetails)
+-&gt; Lens
+     AwsEc2InstanceNetworkInterfacesDetails
+     AwsEc2InstanceNetworkInterfacesDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#AwsEc2InstanceNetworkInterfacesDetails%27"><span class="hs-identifier hs-type">AwsEc2InstanceNetworkInterfacesDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942939"><span class="annot"><span class="annottext">Maybe Text
+networkInterfaceId :: Maybe Text
+$sel:networkInterfaceId:AwsEc2InstanceNetworkInterfacesDetails' :: AwsEc2InstanceNetworkInterfacesDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679942939"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679942939"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942938"><span class="annot"><span class="annottext">s :: AwsEc2InstanceNetworkInterfacesDetails
+</span><a href="#local-6989586621679942938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#AwsEc2InstanceNetworkInterfacesDetails%27"><span class="hs-identifier hs-type">AwsEc2InstanceNetworkInterfacesDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942937"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679942937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2InstanceNetworkInterfacesDetails
+</span><a href="#local-6989586621679942938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceId:AwsEc2InstanceNetworkInterfacesDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#%24sel%3AnetworkInterfaceId%3AAwsEc2InstanceNetworkInterfacesDetails%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679942937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#AwsEc2InstanceNetworkInterfacesDetails"><span class="hs-identifier hs-type">AwsEc2InstanceNetworkInterfacesDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679942934"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#AwsEc2InstanceNetworkInterfacesDetails"><span class="hs-identifier hs-type">AwsEc2InstanceNetworkInterfacesDetails</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679942932"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsEc2InstanceNetworkInterfacesDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AwsEc2InstanceNetworkInterfacesDetails)
+-&gt; Value
+-&gt; Parser AwsEc2InstanceNetworkInterfacesDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsEc2InstanceNetworkInterfacesDetails&quot;</span></span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679942929"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679942929"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; AwsEc2InstanceNetworkInterfacesDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#AwsEc2InstanceNetworkInterfacesDetails%27"><span class="hs-identifier hs-var">AwsEc2InstanceNetworkInterfacesDetails'</span></a></span><span>
+</span><span id="line-68"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; AwsEc2InstanceNetworkInterfacesDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser AwsEc2InstanceNetworkInterfacesDetails
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679942929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkInterfaceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679942923"><span id="local-6989586621679942925"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#AwsEc2InstanceNetworkInterfacesDetails"><span class="hs-identifier hs-type">AwsEc2InstanceNetworkInterfacesDetails</span></a></span></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679942920"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#AwsEc2InstanceNetworkInterfacesDetails"><span class="hs-identifier hs-type">AwsEc2InstanceNetworkInterfacesDetails</span></a></span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679942912"><span id="local-6989586621679942914"><span id="local-6989586621679942916"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#AwsEc2InstanceNetworkInterfacesDetails"><span class="hs-identifier hs-type">AwsEc2InstanceNetworkInterfacesDetails</span></a></span></span></span></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679942910"><span class="annot"><span class="annottext">toJSON :: AwsEc2InstanceNetworkInterfacesDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails.html#AwsEc2InstanceNetworkInterfacesDetails%27"><span class="hs-identifier hs-type">AwsEc2InstanceNetworkInterfacesDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942908"><span class="annot"><span class="annottext">Maybe Text
+networkInterfaceId :: Maybe Text
+$sel:networkInterfaceId:AwsEc2InstanceNetworkInterfacesDetails' :: AwsEc2InstanceNetworkInterfacesDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679942908"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-86"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkInterfaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679942908"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span></pre></body></html>

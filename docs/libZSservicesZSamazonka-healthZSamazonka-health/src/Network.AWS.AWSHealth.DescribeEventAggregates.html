@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDescribeEventAggregates' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679191167"><span id="local-6989586621679191168"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventAggregates"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-var">DescribeEventAggregates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventAggregates%27"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-var">DescribeEventAggregates'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679191176"><span id="local-6989586621679191177"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventAggregates"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-var">DescribeEventAggregates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventAggregates%27"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-var">DescribeEventAggregates'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the results of a search are large, only a portion of the results are</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- returned, and a @nextToken@ pagination token is returned in the</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- response. To retrieve the next batch of results, reissue the search</span><span>
@@ -77,7 +77,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AaggregateField%3ADescribeEventAggregates%27"><span class="annot"><span class="annottext">DescribeEventAggregates -&gt; EventAggregateField
 </span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#%24sel%3AaggregateField%3ADescribeEventAggregates%27"><span class="hs-identifier hs-var hs-var">aggregateField</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAggregateField.html#EventAggregateField"><span class="hs-identifier hs-type">EventAggregateField</span></a></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191158"><span id="local-6989586621679191160"><span class="annot"><span class="annottext">DescribeEventAggregates -&gt; DescribeEventAggregates -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191167"><span id="local-6989586621679191169"><span class="annot"><span class="annottext">DescribeEventAggregates -&gt; DescribeEventAggregates -&gt; Bool
 (DescribeEventAggregates -&gt; DescribeEventAggregates -&gt; Bool)
 -&gt; (DescribeEventAggregates -&gt; DescribeEventAggregates -&gt; Bool)
 -&gt; Eq DescribeEventAggregates
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeEventAggregates -&gt; DescribeEventAggregates -&gt; Bool
 == :: DescribeEventAggregates -&gt; DescribeEventAggregates -&gt; Bool
 $c== :: DescribeEventAggregates -&gt; DescribeEventAggregates -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191149"><span id="local-6989586621679191151"><span id="local-6989586621679191153"><span id="local-6989586621679191155"><span class="annot"><span class="annottext">ReadPrec [DescribeEventAggregates]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191158"><span id="local-6989586621679191160"><span id="local-6989586621679191162"><span id="local-6989586621679191164"><span class="annot"><span class="annottext">ReadPrec [DescribeEventAggregates]
 ReadPrec DescribeEventAggregates
 Int -&gt; ReadS DescribeEventAggregates
 ReadS [DescribeEventAggregates]
@@ -106,7 +106,7 @@ readList :: ReadS [DescribeEventAggregates]
 $creadList :: ReadS [DescribeEventAggregates]
 readsPrec :: Int -&gt; ReadS DescribeEventAggregates
 $creadsPrec :: Int -&gt; ReadS DescribeEventAggregates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191142"><span id="local-6989586621679191144"><span id="local-6989586621679191146"><span class="annot"><span class="annottext">Int -&gt; DescribeEventAggregates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191151"><span id="local-6989586621679191153"><span id="local-6989586621679191155"><span class="annot"><span class="annottext">Int -&gt; DescribeEventAggregates -&gt; ShowS
 [DescribeEventAggregates] -&gt; ShowS
 DescribeEventAggregates -&gt; String
 (Int -&gt; DescribeEventAggregates -&gt; ShowS)
@@ -159,8 +159,8 @@ $cfrom :: forall x. DescribeEventAggregates -&gt; Rep DescribeEventAggregates x
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAggregateField.html#EventAggregateField"><span class="hs-identifier hs-type">EventAggregateField</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span><span>
 </span><span id="line-102"></span><span id="newDescribeEventAggregates"><span class="annot"><span class="annottext">newDescribeEventAggregates :: EventAggregateField -&gt; DescribeEventAggregates
-</span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#newDescribeEventAggregates"><span class="hs-identifier hs-var hs-var">newDescribeEventAggregates</span></a></span></span><span> </span><span id="local-6989586621679191137"><span class="annot"><span class="annottext">EventAggregateField
-</span><a href="#local-6989586621679191137"><span class="hs-identifier hs-var">pAggregateField_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#newDescribeEventAggregates"><span class="hs-identifier hs-var hs-var">newDescribeEventAggregates</span></a></span></span><span> </span><span id="local-6989586621679191146"><span class="annot"><span class="annottext">EventAggregateField
+</span><a href="#local-6989586621679191146"><span class="hs-identifier hs-var">pAggregateField_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">DescribeEventAggregates' :: Maybe Text
 -&gt; Maybe EventFilter
 -&gt; Maybe Natural
@@ -182,7 +182,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:aggregateField:DescribeEventAggregates' :: EventAggregateField
 </span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#%24sel%3AaggregateField%3ADescribeEventAggregates%27"><span class="hs-identifier hs-var">aggregateField</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EventAggregateField
-</span><a href="#local-6989586621679191137"><span class="hs-identifier hs-var">pAggregateField_</span></a></span><span>
+</span><a href="#local-6989586621679191146"><span class="hs-identifier hs-var">pAggregateField_</span></a></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | If the results of a search are large, only a portion of the results are</span><span>
@@ -202,16 +202,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191135"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191144"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeEventAggregates' :: DescribeEventAggregates -&gt; Maybe Text
-</span><a href="#local-6989586621679191135"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191135"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191134"><span class="annot"><span class="annottext">s :: DescribeEventAggregates
-</span><a href="#local-6989586621679191134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191133"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventAggregates
-</span><a href="#local-6989586621679191134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEventAggregates' :: Maybe Text
+</span><a href="#local-6989586621679191144"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191144"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191143"><span class="annot"><span class="annottext">s :: DescribeEventAggregates
+</span><a href="#local-6989586621679191143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191142"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventAggregates
+</span><a href="#local-6989586621679191143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEventAggregates' :: Maybe Text
 </span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#%24sel%3AnextToken%3ADescribeEventAggregates%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | Values to narrow the results returned.</span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#describeEventAggregates_filter"><span class="hs-identifier hs-type">describeEventAggregates_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventFilter.html#EventFilter"><span class="hs-identifier hs-type">EventFilter</span></a></span><span class="hs-special">)</span><span>
@@ -226,16 +226,16 @@ $sel:nextToken:DescribeEventAggregates' :: DescribeEventAggregates -&gt; Maybe T
      (Maybe EventFilter)
      (Maybe EventFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191132"><span class="annot"><span class="annottext">Maybe EventFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191141"><span class="annot"><span class="annottext">Maybe EventFilter
 filter' :: Maybe EventFilter
 $sel:filter':DescribeEventAggregates' :: DescribeEventAggregates -&gt; Maybe EventFilter
-</span><a href="#local-6989586621679191132"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventFilter
-</span><a href="#local-6989586621679191132"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191131"><span class="annot"><span class="annottext">s :: DescribeEventAggregates
-</span><a href="#local-6989586621679191131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191130"><span class="annot"><span class="annottext">Maybe EventFilter
-</span><a href="#local-6989586621679191130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventAggregates
-</span><a href="#local-6989586621679191131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':DescribeEventAggregates' :: Maybe EventFilter
+</span><a href="#local-6989586621679191141"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventFilter
+</span><a href="#local-6989586621679191141"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191140"><span class="annot"><span class="annottext">s :: DescribeEventAggregates
+</span><a href="#local-6989586621679191140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191139"><span class="annot"><span class="annottext">Maybe EventFilter
+</span><a href="#local-6989586621679191139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventAggregates
+</span><a href="#local-6989586621679191140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':DescribeEventAggregates' :: Maybe EventFilter
 </span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#%24sel%3Afilter%27%3ADescribeEventAggregates%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventFilter
-</span><a href="#local-6989586621679191130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The maximum number of items to return in one batch, between 10 and 100,</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- inclusive.</span><span>
@@ -251,16 +251,16 @@ $sel:filter':DescribeEventAggregates' :: DescribeEventAggregates -&gt; Maybe Eve
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191129"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191138"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:DescribeEventAggregates' :: DescribeEventAggregates -&gt; Maybe Natural
-</span><a href="#local-6989586621679191129"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679191129"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191128"><span class="annot"><span class="annottext">s :: DescribeEventAggregates
-</span><a href="#local-6989586621679191128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191127"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679191127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventAggregates
-</span><a href="#local-6989586621679191128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeEventAggregates' :: Maybe Natural
+</span><a href="#local-6989586621679191138"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679191138"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191137"><span class="annot"><span class="annottext">s :: DescribeEventAggregates
+</span><a href="#local-6989586621679191137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191136"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679191136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventAggregates
+</span><a href="#local-6989586621679191137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeEventAggregates' :: Maybe Natural
 </span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#%24sel%3AmaxResults%3ADescribeEventAggregates%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679191127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The only currently supported value is @eventTypeCategory@.</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#describeEventAggregates_aggregateField"><span class="hs-identifier hs-type">describeEventAggregates_aggregateField</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAggregateField.html#EventAggregateField"><span class="hs-identifier hs-type">EventAggregateField</span></a></span><span>
@@ -275,30 +275,30 @@ $sel:maxResults:DescribeEventAggregates' :: DescribeEventAggregates -&gt; Maybe 
      EventAggregateField
      EventAggregateField
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191126"><span class="annot"><span class="annottext">EventAggregateField
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191135"><span class="annot"><span class="annottext">EventAggregateField
 aggregateField :: EventAggregateField
 $sel:aggregateField:DescribeEventAggregates' :: DescribeEventAggregates -&gt; EventAggregateField
-</span><a href="#local-6989586621679191126"><span class="hs-identifier hs-var hs-var">aggregateField</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventAggregateField
-</span><a href="#local-6989586621679191126"><span class="hs-identifier hs-var">aggregateField</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191125"><span class="annot"><span class="annottext">s :: DescribeEventAggregates
-</span><a href="#local-6989586621679191125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191124"><span class="annot"><span class="annottext">EventAggregateField
-</span><a href="#local-6989586621679191124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventAggregates
-</span><a href="#local-6989586621679191125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregateField:DescribeEventAggregates' :: EventAggregateField
+</span><a href="#local-6989586621679191135"><span class="hs-identifier hs-var hs-var">aggregateField</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventAggregateField
+</span><a href="#local-6989586621679191135"><span class="hs-identifier hs-var">aggregateField</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191134"><span class="annot"><span class="annottext">s :: DescribeEventAggregates
+</span><a href="#local-6989586621679191134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191133"><span class="annot"><span class="annottext">EventAggregateField
+</span><a href="#local-6989586621679191133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventAggregates
+</span><a href="#local-6989586621679191134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregateField:DescribeEventAggregates' :: EventAggregateField
 </span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#%24sel%3AaggregateField%3ADescribeEventAggregates%27"><span class="hs-identifier hs-var">aggregateField</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EventAggregateField
-</span><a href="#local-6989586621679191124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679191120"><span class="annot"><span class="annottext">page :: DescribeEventAggregates
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679191129"><span class="annot"><span class="annottext">page :: DescribeEventAggregates
 -&gt; AWSResponse DescribeEventAggregates
 -&gt; Maybe DescribeEventAggregates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679191118"><span class="annot"><span class="annottext">DescribeEventAggregates
-</span><a href="#local-6989586621679191118"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679191117"><span class="annot"><span class="annottext">AWSResponse DescribeEventAggregates
-</span><a href="#local-6989586621679191117"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679191127"><span class="annot"><span class="annottext">DescribeEventAggregates
+</span><a href="#local-6989586621679191127"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679191126"><span class="annot"><span class="annottext">AWSResponse DescribeEventAggregates
+</span><a href="#local-6989586621679191126"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-135"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEventAggregates
 DescribeEventAggregatesResponse
-</span><a href="#local-6989586621679191117"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679191126"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">DescribeEventAggregatesResponse
 -&gt; Getting (First Text) DescribeEventAggregatesResponse Text
 -&gt; Maybe Text
@@ -328,7 +328,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-141"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEventAggregates
 DescribeEventAggregatesResponse
-</span><a href="#local-6989586621679191117"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679191126"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">DescribeEventAggregatesResponse
 -&gt; Getting
      (First [EventAggregate])
@@ -374,7 +374,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">DescribeEventAggregates
-</span><a href="#local-6989586621679191118"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679191127"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">DescribeEventAggregates
 -&gt; (DescribeEventAggregates -&gt; DescribeEventAggregates)
 -&gt; DescribeEventAggregates
@@ -393,7 +393,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEventAggregates
 DescribeEventAggregatesResponse
-</span><a href="#local-6989586621679191117"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679191126"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">DescribeEventAggregatesResponse
 -&gt; Getting (First Text) DescribeEventAggregatesResponse Text
 -&gt; Maybe Text
@@ -419,13 +419,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-155"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-156"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse</span></a></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679191107"><span class="annot"><span class="annottext">request :: DescribeEventAggregates -&gt; Request DescribeEventAggregates
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679191116"><span class="annot"><span class="annottext">request :: DescribeEventAggregates -&gt; Request DescribeEventAggregates
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeEventAggregates -&gt; Request DescribeEventAggregates
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AWSHealth.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679191103"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679191112"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeEventAggregates
 -&gt; ClientResponse ClientBody
@@ -451,10 +451,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679191100"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191100"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679191099"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679191099"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679191098"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679191098"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679191109"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679191109"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679191108"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679191108"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679191107"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679191107"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [EventAggregate] -&gt; Int -&gt; DescribeEventAggregatesResponse
 </span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse%27"><span class="hs-identifier hs-var">DescribeEventAggregatesResponse'</span></a></span><span>
@@ -468,7 +468,7 @@ MonadResource m =&gt;
      (Maybe [EventAggregate] -&gt; Int -&gt; DescribeEventAggregatesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679191098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679191107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -479,7 +479,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeEventAggregatesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679191098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [EventAggregate]))
+</span><a href="#local-6989586621679191107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [EventAggregate]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;eventAggregates&quot;</span></span><span>
@@ -499,15 +499,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191100"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191109"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191089"><span id="local-6989586621679191091"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191098"><span id="local-6989586621679191100"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span></span></span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191086"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679191082"><span class="annot"><span class="annottext">toHeaders :: DescribeEventAggregates -&gt; ResponseHeaders
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679191091"><span class="annot"><span class="annottext">toHeaders :: DescribeEventAggregates -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeEventAggregates -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -534,9 +534,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-186"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191072"><span id="local-6989586621679191074"><span id="local-6989586621679191076"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679191070"><span class="annot"><span class="annottext">toJSON :: DescribeEventAggregates -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191065"><span id="local-6989586621679191066"><span id="local-6989586621679191067"><span id="local-6989586621679191068"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191081"><span id="local-6989586621679191083"><span id="local-6989586621679191085"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679191079"><span class="annot"><span class="annottext">toJSON :: DescribeEventAggregates -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates%27"><span class="hs-identifier hs-type">DescribeEventAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191074"><span id="local-6989586621679191075"><span id="local-6989586621679191076"><span id="local-6989586621679191077"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe EventFilter
 EventAggregateField
@@ -548,7 +548,7 @@ $sel:aggregateField:DescribeEventAggregates' :: DescribeEventAggregates -&gt; Ev
 $sel:maxResults:DescribeEventAggregates' :: DescribeEventAggregates -&gt; Maybe Natural
 $sel:filter':DescribeEventAggregates' :: DescribeEventAggregates -&gt; Maybe EventFilter
 $sel:nextToken:DescribeEventAggregates' :: DescribeEventAggregates -&gt; Maybe Text
-</span><a href="#local-6989586621679191065"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679191074"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -560,21 +560,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191068"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679191077"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EventFilter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EventFilter -&gt; Pair) -&gt; Maybe EventFilter -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EventFilter
-</span><a href="#local-6989586621679191067"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679191076"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679191066"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679191075"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -582,19 +582,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;aggregateField&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EventAggregateField -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EventAggregateField
-</span><a href="#local-6989586621679191065"><span class="hs-identifier hs-var">aggregateField</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191074"><span class="hs-identifier hs-var">aggregateField</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679191059"><span class="annot"><span class="annottext">toPath :: DescribeEventAggregates -&gt; ByteString
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679191068"><span class="annot"><span class="annottext">toPath :: DescribeEventAggregates -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEventAggregates -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregates"><span class="hs-identifier hs-type">DescribeEventAggregates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679191055"><span class="annot"><span class="annottext">toQuery :: DescribeEventAggregates -&gt; QueryString
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679191064"><span class="annot"><span class="annottext">toQuery :: DescribeEventAggregates -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeEventAggregates -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -602,7 +602,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | /See:/ 'newDescribeEventAggregatesResponse' smart constructor.</span><span>
-</span><span id="line-208"></span><span id="local-6989586621679191052"><span id="local-6989586621679191053"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventAggregatesResponse"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse"><span class="hs-identifier hs-var">DescribeEventAggregatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventAggregatesResponse%27"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse%27"><span class="hs-identifier hs-var">DescribeEventAggregatesResponse'</span></a></span></span><span>
+</span><span id="line-208"></span><span id="local-6989586621679191061"><span id="local-6989586621679191062"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventAggregatesResponse"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse"><span class="hs-identifier hs-var">DescribeEventAggregatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventAggregatesResponse%27"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse%27"><span class="hs-identifier hs-var">DescribeEventAggregatesResponse'</span></a></span></span><span>
 </span><span id="line-209"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the results of a search are large, only a portion of the results are</span><span>
 </span><span id="line-210"></span><span>    </span><span class="hs-comment">-- returned, and a @nextToken@ pagination token is returned in the</span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-comment">-- response. To retrieve the next batch of results, reissue the search</span><span>
@@ -618,7 +618,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-219"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEventAggregatesResponse%27"><span class="annot"><span class="annottext">DescribeEventAggregatesResponse -&gt; Int
 </span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#%24sel%3AhttpStatus%3ADescribeEventAggregatesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-220"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-221"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191045"><span id="local-6989586621679191047"><span class="annot"><span class="annottext">DescribeEventAggregatesResponse
+</span><span id="line-221"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191054"><span id="local-6989586621679191056"><span class="annot"><span class="annottext">DescribeEventAggregatesResponse
 -&gt; DescribeEventAggregatesResponse -&gt; Bool
 (DescribeEventAggregatesResponse
  -&gt; DescribeEventAggregatesResponse -&gt; Bool)
@@ -634,7 +634,7 @@ $c/= :: DescribeEventAggregatesResponse
 -&gt; DescribeEventAggregatesResponse -&gt; Bool
 $c== :: DescribeEventAggregatesResponse
 -&gt; DescribeEventAggregatesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191037"><span id="local-6989586621679191039"><span id="local-6989586621679191041"><span id="local-6989586621679191043"><span class="annot"><span class="annottext">ReadPrec [DescribeEventAggregatesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191046"><span id="local-6989586621679191048"><span id="local-6989586621679191050"><span id="local-6989586621679191052"><span class="annot"><span class="annottext">ReadPrec [DescribeEventAggregatesResponse]
 ReadPrec DescribeEventAggregatesResponse
 Int -&gt; ReadS DescribeEventAggregatesResponse
 ReadS [DescribeEventAggregatesResponse]
@@ -654,7 +654,7 @@ readList :: ReadS [DescribeEventAggregatesResponse]
 $creadList :: ReadS [DescribeEventAggregatesResponse]
 readsPrec :: Int -&gt; ReadS DescribeEventAggregatesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeEventAggregatesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191031"><span id="local-6989586621679191033"><span id="local-6989586621679191035"><span class="annot"><span class="annottext">Int -&gt; DescribeEventAggregatesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191040"><span id="local-6989586621679191042"><span id="local-6989586621679191044"><span class="annot"><span class="annottext">Int -&gt; DescribeEventAggregatesResponse -&gt; ShowS
 [DescribeEventAggregatesResponse] -&gt; ShowS
 DescribeEventAggregatesResponse -&gt; String
 (Int -&gt; DescribeEventAggregatesResponse -&gt; ShowS)
@@ -715,8 +715,8 @@ DescribeEventAggregatesResponse
 </span><span id="line-243"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-244"></span><span>  </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse</span></a></span><span>
 </span><span id="line-245"></span><span id="newDescribeEventAggregatesResponse"><span class="annot"><span class="annottext">newDescribeEventAggregatesResponse :: Int -&gt; DescribeEventAggregatesResponse
-</span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#newDescribeEventAggregatesResponse"><span class="hs-identifier hs-var hs-var">newDescribeEventAggregatesResponse</span></a></span></span><span> </span><span id="local-6989586621679191028"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191028"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#newDescribeEventAggregatesResponse"><span class="hs-identifier hs-var hs-var">newDescribeEventAggregatesResponse</span></a></span></span><span> </span><span id="local-6989586621679191037"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679191037"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>  </span><span class="annot"><span class="annottext">DescribeEventAggregatesResponse' :: Maybe Text
 -&gt; Maybe [EventAggregate] -&gt; Int -&gt; DescribeEventAggregatesResponse
 </span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse%27"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse'</span></a></span><span>
@@ -731,7 +731,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventAggregatesResponse' :: Int
 </span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#%24sel%3AhttpStatus%3ADescribeEventAggregatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191028"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679191037"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-251"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | If the results of a search are large, only a portion of the results are</span><span>
@@ -748,16 +748,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeEventAggregatesResponse)
 -&gt; Lens' DescribeEventAggregatesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse%27"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191027"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse%27"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191036"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeEventAggregatesResponse' :: DescribeEventAggregatesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679191027"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191027"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191026"><span class="annot"><span class="annottext">s :: DescribeEventAggregatesResponse
-</span><a href="#local-6989586621679191026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse%27"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191025"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventAggregatesResponse
-</span><a href="#local-6989586621679191026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEventAggregatesResponse' :: Maybe Text
+</span><a href="#local-6989586621679191036"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191036"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191035"><span class="annot"><span class="annottext">s :: DescribeEventAggregatesResponse
+</span><a href="#local-6989586621679191035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse%27"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191034"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventAggregatesResponse
+</span><a href="#local-6989586621679191035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEventAggregatesResponse' :: Maybe Text
 </span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#%24sel%3AnextToken%3ADescribeEventAggregatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- | The number of events in each category that meet the optional filter</span><span>
 </span><span id="line-262"></span><span class="hs-comment">-- criteria.</span><span>
@@ -770,16 +770,16 @@ $sel:nextToken:DescribeEventAggregatesResponse' :: DescribeEventAggregatesRespon
     -&gt; Maybe [EventAggregate] -&gt; DescribeEventAggregatesResponse)
 -&gt; Lens' DescribeEventAggregatesResponse (Maybe [EventAggregate])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse%27"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191024"><span class="annot"><span class="annottext">Maybe [EventAggregate]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse%27"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191033"><span class="annot"><span class="annottext">Maybe [EventAggregate]
 eventAggregates :: Maybe [EventAggregate]
 $sel:eventAggregates:DescribeEventAggregatesResponse' :: DescribeEventAggregatesResponse -&gt; Maybe [EventAggregate]
-</span><a href="#local-6989586621679191024"><span class="hs-identifier hs-var hs-var">eventAggregates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EventAggregate]
-</span><a href="#local-6989586621679191024"><span class="hs-identifier hs-var">eventAggregates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191023"><span class="annot"><span class="annottext">s :: DescribeEventAggregatesResponse
-</span><a href="#local-6989586621679191023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse%27"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191022"><span class="annot"><span class="annottext">Maybe [EventAggregate]
-</span><a href="#local-6989586621679191022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventAggregatesResponse
-</span><a href="#local-6989586621679191023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventAggregates:DescribeEventAggregatesResponse' :: Maybe [EventAggregate]
+</span><a href="#local-6989586621679191033"><span class="hs-identifier hs-var hs-var">eventAggregates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EventAggregate]
+</span><a href="#local-6989586621679191033"><span class="hs-identifier hs-var">eventAggregates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191032"><span class="annot"><span class="annottext">s :: DescribeEventAggregatesResponse
+</span><a href="#local-6989586621679191032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse%27"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191031"><span class="annot"><span class="annottext">Maybe [EventAggregate]
+</span><a href="#local-6989586621679191031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventAggregatesResponse
+</span><a href="#local-6989586621679191032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventAggregates:DescribeEventAggregatesResponse' :: Maybe [EventAggregate]
 </span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#%24sel%3AeventAggregates%3ADescribeEventAggregatesResponse%27"><span class="hs-identifier hs-var">eventAggregates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EventAggregate]
-</span><a href="#local-6989586621679191022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EventAggregate] -&gt; f (Maybe [EventAggregate]))
+</span><a href="#local-6989586621679191031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EventAggregate] -&gt; f (Maybe [EventAggregate]))
  -&gt; DescribeEventAggregatesResponse
  -&gt; f DescribeEventAggregatesResponse)
 -&gt; ((Maybe [EventAggregate] -&gt; f (Maybe [EventAggregate]))
@@ -817,18 +817,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse%27"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191019"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse%27"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191028"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeEventAggregatesResponse' :: DescribeEventAggregatesResponse -&gt; Int
-</span><a href="#local-6989586621679191019"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191019"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191018"><span class="annot"><span class="annottext">s :: DescribeEventAggregatesResponse
-</span><a href="#local-6989586621679191018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse%27"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191017"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventAggregatesResponse
-</span><a href="#local-6989586621679191018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventAggregatesResponse' :: Int
+</span><a href="#local-6989586621679191028"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679191028"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191027"><span class="annot"><span class="annottext">s :: DescribeEventAggregatesResponse
+</span><a href="#local-6989586621679191027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse%27"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191026"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679191026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventAggregatesResponse
+</span><a href="#local-6989586621679191027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventAggregatesResponse' :: Int
 </span><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#%24sel%3AhttpStatus%3ADescribeEventAggregatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-271"></span><span>  </span><span id="local-6989586621679191015"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679191024"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-272"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventAggregates.html#DescribeEventAggregatesResponse"><span class="hs-identifier hs-type">DescribeEventAggregatesResponse</span></a></span></span><span>
 </span><span id="line-273"></span></pre></body></html>

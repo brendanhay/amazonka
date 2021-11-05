@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.LakeFormation.Types.LFTagPair</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LakeFormation.Types.LFTagPair</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A structure containing a tag key-value pair.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLFTagPair' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679197976"><span id="local-6989586621679197977"></span></span><span class="hs-keyword">data</span><span> </span><span id="LFTagPair"><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair"><span class="hs-identifier hs-var">LFTagPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LFTagPair%27"><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair%27"><span class="hs-identifier hs-var">LFTagPair'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the Data Catalog. By default, the account ID. The</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Data Catalog is the persistent metadata store. It contains database</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- definitions, table definitions, and other control information to manage</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- your AWS Lake Formation environment.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcatalogId%3ALFTagPair%27"><span class="annot"><span class="annottext">LFTagPair -&gt; Maybe Text
+</span><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#%24sel%3AcatalogId%3ALFTagPair%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The key-name for the tag.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtagKey%3ALFTagPair%27"><span class="annot"><span class="annottext">LFTagPair -&gt; Text
+</span><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#%24sel%3AtagKey%3ALFTagPair%27"><span class="hs-identifier hs-var hs-var">tagKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A list of possible values an attribute can take.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtagValues%3ALFTagPair%27"><span class="annot"><span class="annottext">LFTagPair -&gt; NonEmpty Text
+</span><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#%24sel%3AtagValues%3ALFTagPair%27"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197968"><span id="local-6989586621679197970"><span class="annot"><span class="annottext">LFTagPair -&gt; LFTagPair -&gt; Bool
+(LFTagPair -&gt; LFTagPair -&gt; Bool)
+-&gt; (LFTagPair -&gt; LFTagPair -&gt; Bool) -&gt; Eq LFTagPair
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LFTagPair -&gt; LFTagPair -&gt; Bool
+$c/= :: LFTagPair -&gt; LFTagPair -&gt; Bool
+== :: LFTagPair -&gt; LFTagPair -&gt; Bool
+$c== :: LFTagPair -&gt; LFTagPair -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197959"><span id="local-6989586621679197961"><span id="local-6989586621679197963"><span id="local-6989586621679197965"><span class="annot"><span class="annottext">ReadPrec [LFTagPair]
+ReadPrec LFTagPair
+Int -&gt; ReadS LFTagPair
+ReadS [LFTagPair]
+(Int -&gt; ReadS LFTagPair)
+-&gt; ReadS [LFTagPair]
+-&gt; ReadPrec LFTagPair
+-&gt; ReadPrec [LFTagPair]
+-&gt; Read LFTagPair
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LFTagPair]
+$creadListPrec :: ReadPrec [LFTagPair]
+readPrec :: ReadPrec LFTagPair
+$creadPrec :: ReadPrec LFTagPair
+readList :: ReadS [LFTagPair]
+$creadList :: ReadS [LFTagPair]
+readsPrec :: Int -&gt; ReadS LFTagPair
+$creadsPrec :: Int -&gt; ReadS LFTagPair
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197952"><span id="local-6989586621679197954"><span id="local-6989586621679197956"><span class="annot"><span class="annottext">Int -&gt; LFTagPair -&gt; ShowS
+[LFTagPair] -&gt; ShowS
+LFTagPair -&gt; String
+(Int -&gt; LFTagPair -&gt; ShowS)
+-&gt; (LFTagPair -&gt; String)
+-&gt; ([LFTagPair] -&gt; ShowS)
+-&gt; Show LFTagPair
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LFTagPair] -&gt; ShowS
+$cshowList :: [LFTagPair] -&gt; ShowS
+show :: LFTagPair -&gt; String
+$cshow :: LFTagPair -&gt; String
+showsPrec :: Int -&gt; LFTagPair -&gt; ShowS
+$cshowsPrec :: Int -&gt; LFTagPair -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LFTagPair -&gt; Rep LFTagPair x)
+-&gt; (forall x. Rep LFTagPair x -&gt; LFTagPair) -&gt; Generic LFTagPair
+forall x. Rep LFTagPair x -&gt; LFTagPair
+forall x. LFTagPair -&gt; Rep LFTagPair x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LFTagPair x -&gt; LFTagPair
+$cfrom :: forall x. LFTagPair -&gt; Rep LFTagPair x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'LFTagPair' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'catalogId', 'lFTagPair_catalogId' - The identifier for the Data Catalog. By default, the account ID. The</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Data Catalog is the persistent metadata store. It contains database</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- definitions, table definitions, and other control information to manage</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- your AWS Lake Formation environment.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'tagKey', 'lFTagPair_tagKey' - The key-name for the tag.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'tagValues', 'lFTagPair_tagValues' - A list of possible values an attribute can take.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#newLFTagPair"><span class="hs-identifier hs-type">newLFTagPair</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-comment">-- | 'tagKey'</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-comment">-- | 'tagValues'</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair"><span class="hs-identifier hs-type">LFTagPair</span></a></span><span>
+</span><span id="line-64"></span><span id="newLFTagPair"><span class="annot"><span class="annottext">newLFTagPair :: Text -&gt; NonEmpty Text -&gt; LFTagPair
+</span><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#newLFTagPair"><span class="hs-identifier hs-var hs-var">newLFTagPair</span></a></span></span><span> </span><span id="local-6989586621679197946"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197946"><span class="hs-identifier hs-var">pTagKey_</span></a></span></span><span> </span><span id="local-6989586621679197945"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679197945"><span class="hs-identifier hs-var">pTagValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">LFTagPair' :: Maybe Text -&gt; Text -&gt; NonEmpty Text -&gt; LFTagPair
+</span><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair%27"><span class="hs-identifier hs-type">LFTagPair'</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:catalogId:LFTagPair' :: Maybe Text
+</span><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#%24sel%3AcatalogId%3ALFTagPair%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKey:LFTagPair' :: Text
+</span><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#%24sel%3AtagKey%3ALFTagPair%27"><span class="hs-identifier hs-var">tagKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197946"><span class="hs-identifier hs-var">pTagKey_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagValues:LFTagPair' :: NonEmpty Text
+</span><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#%24sel%3AtagValues%3ALFTagPair%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679197945"><span class="hs-identifier hs-var">pTagValues_</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The identifier for the Data Catalog. By default, the account ID. The</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Data Catalog is the persistent metadata store. It contains database</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- definitions, table definitions, and other control information to manage</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- your AWS Lake Formation environment.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#lFTagPair_catalogId"><span class="hs-identifier hs-type">lFTagPair_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair"><span class="hs-identifier hs-type">LFTagPair</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="lFTagPair_catalogId"><span class="annot"><span class="annottext">lFTagPair_catalogId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LFTagPair -&gt; f LFTagPair
+</span><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#lFTagPair_catalogId"><span class="hs-identifier hs-var hs-var">lFTagPair_catalogId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LFTagPair -&gt; Maybe Text)
+-&gt; (LFTagPair -&gt; Maybe Text -&gt; LFTagPair)
+-&gt; Lens LFTagPair LFTagPair (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair%27"><span class="hs-identifier hs-type">LFTagPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197939"><span class="annot"><span class="annottext">Maybe Text
+catalogId :: Maybe Text
+$sel:catalogId:LFTagPair' :: LFTagPair -&gt; Maybe Text
+</span><a href="#local-6989586621679197939"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197939"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197938"><span class="annot"><span class="annottext">s :: LFTagPair
+</span><a href="#local-6989586621679197938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair%27"><span class="hs-identifier hs-type">LFTagPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197937"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LFTagPair
+</span><a href="#local-6989586621679197938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:LFTagPair' :: Maybe Text
+</span><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#%24sel%3AcatalogId%3ALFTagPair%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair"><span class="hs-identifier hs-type">LFTagPair</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The key-name for the tag.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#lFTagPair_tagKey"><span class="hs-identifier hs-type">lFTagPair_tagKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair"><span class="hs-identifier hs-type">LFTagPair</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="lFTagPair_tagKey"><span class="annot"><span class="annottext">lFTagPair_tagKey :: (Text -&gt; f Text) -&gt; LFTagPair -&gt; f LFTagPair
+</span><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#lFTagPair_tagKey"><span class="hs-identifier hs-var hs-var">lFTagPair_tagKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LFTagPair -&gt; Text)
+-&gt; (LFTagPair -&gt; Text -&gt; LFTagPair)
+-&gt; Lens LFTagPair LFTagPair Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair%27"><span class="hs-identifier hs-type">LFTagPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197935"><span class="annot"><span class="annottext">Text
+tagKey :: Text
+$sel:tagKey:LFTagPair' :: LFTagPair -&gt; Text
+</span><a href="#local-6989586621679197935"><span class="hs-identifier hs-var hs-var">tagKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197935"><span class="hs-identifier hs-var">tagKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197934"><span class="annot"><span class="annottext">s :: LFTagPair
+</span><a href="#local-6989586621679197934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair%27"><span class="hs-identifier hs-type">LFTagPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197933"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LFTagPair
+</span><a href="#local-6989586621679197934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKey:LFTagPair' :: Text
+</span><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#%24sel%3AtagKey%3ALFTagPair%27"><span class="hs-identifier hs-var">tagKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair"><span class="hs-identifier hs-type">LFTagPair</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | A list of possible values an attribute can take.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#lFTagPair_tagValues"><span class="hs-identifier hs-type">lFTagPair_tagValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair"><span class="hs-identifier hs-type">LFTagPair</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="lFTagPair_tagValues"><span class="annot"><span class="annottext">lFTagPair_tagValues :: (NonEmpty Text -&gt; f (NonEmpty Text)) -&gt; LFTagPair -&gt; f LFTagPair
+</span><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#lFTagPair_tagValues"><span class="hs-identifier hs-var hs-var">lFTagPair_tagValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LFTagPair -&gt; NonEmpty Text)
+-&gt; (LFTagPair -&gt; NonEmpty Text -&gt; LFTagPair)
+-&gt; Lens LFTagPair LFTagPair (NonEmpty Text) (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair%27"><span class="hs-identifier hs-type">LFTagPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197931"><span class="annot"><span class="annottext">NonEmpty Text
+tagValues :: NonEmpty Text
+$sel:tagValues:LFTagPair' :: LFTagPair -&gt; NonEmpty Text
+</span><a href="#local-6989586621679197931"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679197931"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197930"><span class="annot"><span class="annottext">s :: LFTagPair
+</span><a href="#local-6989586621679197930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair%27"><span class="hs-identifier hs-type">LFTagPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197929"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679197929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LFTagPair
+</span><a href="#local-6989586621679197930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagValues:LFTagPair' :: NonEmpty Text
+</span><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#%24sel%3AtagValues%3ALFTagPair%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679197929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair"><span class="hs-identifier hs-type">LFTagPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text)) -&gt; LFTagPair -&gt; f LFTagPair)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; LFTagPair
+-&gt; f LFTagPair
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197925"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair"><span class="hs-identifier hs-type">LFTagPair</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679197923"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LFTagPair
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser LFTagPair) -&gt; Value -&gt; Parser LFTagPair
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LFTagPair&quot;</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197920"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197920"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; NonEmpty Text -&gt; LFTagPair
+</span><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair%27"><span class="hs-identifier hs-var">LFTagPair'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; NonEmpty Text -&gt; LFTagPair)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Text -&gt; NonEmpty Text -&gt; LFTagPair)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197920"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; NonEmpty Text -&gt; LFTagPair)
+-&gt; Parser Text -&gt; Parser (NonEmpty Text -&gt; LFTagPair)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197920"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TagKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (NonEmpty Text -&gt; LFTagPair)
+-&gt; Parser (NonEmpty Text) -&gt; Parser LFTagPair
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197920"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TagValues&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197913"><span id="local-6989586621679197915"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair"><span class="hs-identifier hs-type">LFTagPair</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197910"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair"><span class="hs-identifier hs-type">LFTagPair</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197902"><span id="local-6989586621679197904"><span id="local-6989586621679197906"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair"><span class="hs-identifier hs-type">LFTagPair</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679197900"><span class="annot"><span class="annottext">toJSON :: LFTagPair -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.LFTagPair.html#LFTagPair%27"><span class="hs-identifier hs-type">LFTagPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197896"><span id="local-6989586621679197897"><span id="local-6989586621679197898"><span class="annot"><span class="annottext">Maybe Text
+NonEmpty Text
+Text
+tagValues :: NonEmpty Text
+tagKey :: Text
+catalogId :: Maybe Text
+$sel:tagValues:LFTagPair' :: LFTagPair -&gt; NonEmpty Text
+$sel:tagKey:LFTagPair' :: LFTagPair -&gt; Text
+$sel:catalogId:LFTagPair' :: LFTagPair -&gt; Maybe Text
+</span><a href="#local-6989586621679197896"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197898"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TagKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197897"><span class="hs-identifier hs-var">tagKey</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TagValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679197896"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span></pre></body></html>

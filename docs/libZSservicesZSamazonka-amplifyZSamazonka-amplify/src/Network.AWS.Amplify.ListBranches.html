@@ -1,0 +1,600 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Amplify.ListBranches</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the branches of an Amplify app.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Amplify.ListBranches</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier">ListBranches</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#newListBranches"><span class="hs-identifier">newListBranches</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#listBranches_nextToken"><span class="hs-identifier">listBranches_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#listBranches_maxResults"><span class="hs-identifier">listBranches_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#listBranches_appId"><span class="hs-identifier">listBranches_appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse"><span class="hs-identifier">ListBranchesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#newListBranchesResponse"><span class="hs-identifier">newListBranchesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#listBranchesResponse_nextToken"><span class="hs-identifier">listBranchesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#listBranchesResponse_httpStatus"><span class="hs-identifier">listBranchesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#listBranchesResponse_branches"><span class="hs-identifier">listBranchesResponse_branches</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.html"><span class="hs-identifier">Network.AWS.Amplify.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | The request structure for the list branches request.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newListBranches' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679248861"><span id="local-6989586621679248862"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBranches"><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier hs-var">ListBranches</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBranches%27"><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches%27"><span class="hs-identifier hs-var">ListBranches'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token. Set to null to start listing branches from the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- start. If a non-null pagination token is returned in a result, pass its</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- value in here to list more branches.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListBranches%27"><span class="annot"><span class="annottext">ListBranches -&gt; Maybe Text
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3AnextToken%3AListBranches%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to list in a single response.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3AListBranches%27"><span class="annot"><span class="annottext">ListBranches -&gt; Maybe Natural
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3AmaxResults%3AListBranches%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The unique ID for an Amplify app.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AappId%3AListBranches%27"><span class="annot"><span class="annottext">ListBranches -&gt; Text
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3AappId%3AListBranches%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248853"><span id="local-6989586621679248855"><span class="annot"><span class="annottext">ListBranches -&gt; ListBranches -&gt; Bool
+(ListBranches -&gt; ListBranches -&gt; Bool)
+-&gt; (ListBranches -&gt; ListBranches -&gt; Bool) -&gt; Eq ListBranches
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListBranches -&gt; ListBranches -&gt; Bool
+$c/= :: ListBranches -&gt; ListBranches -&gt; Bool
+== :: ListBranches -&gt; ListBranches -&gt; Bool
+$c== :: ListBranches -&gt; ListBranches -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248844"><span id="local-6989586621679248846"><span id="local-6989586621679248848"><span id="local-6989586621679248850"><span class="annot"><span class="annottext">ReadPrec [ListBranches]
+ReadPrec ListBranches
+Int -&gt; ReadS ListBranches
+ReadS [ListBranches]
+(Int -&gt; ReadS ListBranches)
+-&gt; ReadS [ListBranches]
+-&gt; ReadPrec ListBranches
+-&gt; ReadPrec [ListBranches]
+-&gt; Read ListBranches
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListBranches]
+$creadListPrec :: ReadPrec [ListBranches]
+readPrec :: ReadPrec ListBranches
+$creadPrec :: ReadPrec ListBranches
+readList :: ReadS [ListBranches]
+$creadList :: ReadS [ListBranches]
+readsPrec :: Int -&gt; ReadS ListBranches
+$creadsPrec :: Int -&gt; ReadS ListBranches
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248837"><span id="local-6989586621679248839"><span id="local-6989586621679248841"><span class="annot"><span class="annottext">Int -&gt; ListBranches -&gt; ShowS
+[ListBranches] -&gt; ShowS
+ListBranches -&gt; String
+(Int -&gt; ListBranches -&gt; ShowS)
+-&gt; (ListBranches -&gt; String)
+-&gt; ([ListBranches] -&gt; ShowS)
+-&gt; Show ListBranches
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListBranches] -&gt; ShowS
+$cshowList :: [ListBranches] -&gt; ShowS
+show :: ListBranches -&gt; String
+$cshow :: ListBranches -&gt; String
+showsPrec :: Int -&gt; ListBranches -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListBranches -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListBranches -&gt; Rep ListBranches x)
+-&gt; (forall x. Rep ListBranches x -&gt; ListBranches)
+-&gt; Generic ListBranches
+forall x. Rep ListBranches x -&gt; ListBranches
+forall x. ListBranches -&gt; Rep ListBranches x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListBranches x -&gt; ListBranches
+$cfrom :: forall x. ListBranches -&gt; Rep ListBranches x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'ListBranches' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'nextToken', 'listBranches_nextToken' - A pagination token. Set to null to start listing branches from the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- start. If a non-null pagination token is returned in a result, pass its</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- value in here to list more branches.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'maxResults', 'listBranches_maxResults' - The maximum number of records to list in a single response.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'appId', 'listBranches_appId' - The unique ID for an Amplify app.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#newListBranches"><span class="hs-identifier hs-type">newListBranches</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'appId'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier hs-type">ListBranches</span></a></span><span>
+</span><span id="line-88"></span><span id="newListBranches"><span class="annot"><span class="annottext">newListBranches :: Text -&gt; ListBranches
+</span><a href="Network.AWS.Amplify.ListBranches.html#newListBranches"><span class="hs-identifier hs-var hs-var">newListBranches</span></a></span></span><span> </span><span id="local-6989586621679248832"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248832"><span class="hs-identifier hs-var">pAppId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">ListBranches' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListBranches
+</span><a href="Network.AWS.Amplify.ListBranches.html#ListBranches%27"><span class="hs-identifier hs-type">ListBranches'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListBranches' :: Maybe Text
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3AnextToken%3AListBranches%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListBranches' :: Maybe Natural
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3AmaxResults%3AListBranches%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:appId:ListBranches' :: Text
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3AappId%3AListBranches%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248832"><span class="hs-identifier hs-var">pAppId_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | A pagination token. Set to null to start listing branches from the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- start. If a non-null pagination token is returned in a result, pass its</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- value in here to list more branches.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#listBranches_nextToken"><span class="hs-identifier hs-type">listBranches_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier hs-type">ListBranches</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="listBranches_nextToken"><span class="annot"><span class="annottext">listBranches_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListBranches -&gt; f ListBranches
+</span><a href="Network.AWS.Amplify.ListBranches.html#listBranches_nextToken"><span class="hs-identifier hs-var hs-var">listBranches_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBranches -&gt; Maybe Text)
+-&gt; (ListBranches -&gt; Maybe Text -&gt; ListBranches)
+-&gt; Lens ListBranches ListBranches (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches%27"><span class="hs-identifier hs-type">ListBranches'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248830"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListBranches' :: ListBranches -&gt; Maybe Text
+</span><a href="#local-6989586621679248830"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248830"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248829"><span class="annot"><span class="annottext">s :: ListBranches
+</span><a href="#local-6989586621679248829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches%27"><span class="hs-identifier hs-type">ListBranches'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248828"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBranches
+</span><a href="#local-6989586621679248829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBranches' :: Maybe Text
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3AnextToken%3AListBranches%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier hs-type">ListBranches</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The maximum number of records to list in a single response.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#listBranches_maxResults"><span class="hs-identifier hs-type">listBranches_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier hs-type">ListBranches</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="listBranches_maxResults"><span class="annot"><span class="annottext">listBranches_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListBranches -&gt; f ListBranches
+</span><a href="Network.AWS.Amplify.ListBranches.html#listBranches_maxResults"><span class="hs-identifier hs-var hs-var">listBranches_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBranches -&gt; Maybe Natural)
+-&gt; (ListBranches -&gt; Maybe Natural -&gt; ListBranches)
+-&gt; Lens ListBranches ListBranches (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches%27"><span class="hs-identifier hs-type">ListBranches'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248827"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListBranches' :: ListBranches -&gt; Maybe Natural
+</span><a href="#local-6989586621679248827"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679248827"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248826"><span class="annot"><span class="annottext">s :: ListBranches
+</span><a href="#local-6989586621679248826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches%27"><span class="hs-identifier hs-type">ListBranches'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248825"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679248825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBranches
+</span><a href="#local-6989586621679248826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListBranches' :: Maybe Natural
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3AmaxResults%3AListBranches%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679248825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier hs-type">ListBranches</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The unique ID for an Amplify app.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#listBranches_appId"><span class="hs-identifier hs-type">listBranches_appId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier hs-type">ListBranches</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="listBranches_appId"><span class="annot"><span class="annottext">listBranches_appId :: (Text -&gt; f Text) -&gt; ListBranches -&gt; f ListBranches
+</span><a href="Network.AWS.Amplify.ListBranches.html#listBranches_appId"><span class="hs-identifier hs-var hs-var">listBranches_appId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBranches -&gt; Text)
+-&gt; (ListBranches -&gt; Text -&gt; ListBranches)
+-&gt; Lens ListBranches ListBranches Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches%27"><span class="hs-identifier hs-type">ListBranches'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248824"><span class="annot"><span class="annottext">Text
+appId :: Text
+$sel:appId:ListBranches' :: ListBranches -&gt; Text
+</span><a href="#local-6989586621679248824"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248824"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248823"><span class="annot"><span class="annottext">s :: ListBranches
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches%27"><span class="hs-identifier hs-type">ListBranches'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248822"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBranches
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:ListBranches' :: Text
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3AappId%3AListBranches%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier hs-type">ListBranches</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier hs-type">ListBranches</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679248818"><span class="annot"><span class="annottext">page :: ListBranches -&gt; AWSResponse ListBranches -&gt; Maybe ListBranches
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679248816"><span class="annot"><span class="annottext">ListBranches
+</span><a href="#local-6989586621679248816"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679248815"><span class="annot"><span class="annottext">AWSResponse ListBranches
+</span><a href="#local-6989586621679248815"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-112"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBranches
+ListBranchesResponse
+</span><a href="#local-6989586621679248815"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">ListBranchesResponse
+-&gt; Getting (First Text) ListBranchesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListBranchesResponse -&gt; Const (First Text) ListBranchesResponse
+Lens' ListBranchesResponse (Maybe Text)
+</span><a href="Network.AWS.Amplify.ListBranches.html#listBranchesResponse_nextToken"><span class="hs-identifier hs-var">listBranchesResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListBranchesResponse -&gt; Const (First Text) ListBranchesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListBranchesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-114"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListBranches
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">[Branch] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-117"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse ListBranches
+ListBranchesResponse
+</span><a href="#local-6989586621679248815"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListBranchesResponse
+-&gt; Getting [Branch] ListBranchesResponse [Branch] -&gt; [Branch]
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting [Branch] ListBranchesResponse [Branch]
+Lens' ListBranchesResponse [Branch]
+</span><a href="Network.AWS.Amplify.ListBranches.html#listBranchesResponse_branches"><span class="hs-identifier hs-var">listBranchesResponse_branches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListBranches
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">ListBranches -&gt; Maybe ListBranches
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListBranches -&gt; Maybe ListBranches)
+-&gt; ListBranches -&gt; Maybe ListBranches
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ListBranches
+</span><a href="#local-6989586621679248816"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">ListBranches -&gt; (ListBranches -&gt; ListBranches) -&gt; ListBranches
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListBranches -&gt; Identity ListBranches
+Lens ListBranches ListBranches (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.Amplify.ListBranches.html#listBranches_nextToken"><span class="hs-identifier hs-var">listBranches_nextToken</span></a></span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListBranches -&gt; Identity ListBranches)
+-&gt; Maybe Text -&gt; ListBranches -&gt; ListBranches
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBranches
+ListBranchesResponse
+</span><a href="#local-6989586621679248815"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">ListBranchesResponse
+-&gt; Getting (First Text) ListBranchesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListBranchesResponse -&gt; Const (First Text) ListBranchesResponse
+Lens' ListBranchesResponse (Maybe Text)
+</span><a href="Network.AWS.Amplify.ListBranches.html#listBranchesResponse_nextToken"><span class="hs-identifier hs-var">listBranchesResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListBranchesResponse -&gt; Const (First Text) ListBranchesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListBranchesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier hs-type">ListBranches</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier hs-type">ListBranches</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse"><span class="hs-identifier hs-type">ListBranchesResponse</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679248804"><span class="annot"><span class="annottext">request :: ListBranches -&gt; Request ListBranches
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListBranches -&gt; Request ListBranches
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Amplify.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679248800"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListBranches
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListBranches)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListBranches))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListBranches
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListBranches)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248797"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248797"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679248796"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679248796"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679248795"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248795"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [Branch] -&gt; ListBranchesResponse
+</span><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse%27"><span class="hs-identifier hs-var">ListBranchesResponse'</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [Branch] -&gt; ListBranchesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; [Branch] -&gt; ListBranchesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248795"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; [Branch] -&gt; ListBranchesResponse)
+-&gt; Either String Int
+-&gt; Either String ([Branch] -&gt; ListBranchesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248797"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Branch] -&gt; ListBranchesResponse)
+-&gt; Either String [Branch] -&gt; Either String ListBranchesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248795"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Branch])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;branches&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Branch])
+-&gt; [Branch] -&gt; Either String [Branch]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Branch]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248786"><span id="local-6989586621679248788"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier hs-type">ListBranches</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248783"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier hs-type">ListBranches</span></a></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier hs-type">ListBranches</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679248779"><span class="annot"><span class="annottext">toHeaders :: ListBranches -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListBranches -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-149"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier hs-type">ListBranches</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679248773"><span class="annot"><span class="annottext">toPath :: ListBranches -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches%27"><span class="hs-identifier hs-type">ListBranches'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248769"><span id="local-6989586621679248770"><span id="local-6989586621679248771"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+appId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:appId:ListBranches' :: ListBranches -&gt; Text
+$sel:maxResults:ListBranches' :: ListBranches -&gt; Maybe Natural
+$sel:nextToken:ListBranches' :: ListBranches -&gt; Maybe Text
+</span><a href="#local-6989586621679248769"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/apps/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248769"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/branches&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches"><span class="hs-identifier hs-type">ListBranches</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679248765"><span class="annot"><span class="annottext">toQuery :: ListBranches -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranches%27"><span class="hs-identifier hs-type">ListBranches'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248761"><span id="local-6989586621679248762"><span id="local-6989586621679248763"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+appId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:appId:ListBranches' :: ListBranches -&gt; Text
+$sel:maxResults:ListBranches' :: ListBranches -&gt; Maybe Natural
+$sel:nextToken:ListBranches' :: ListBranches -&gt; Maybe Text
+</span><a href="#local-6989586621679248761"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248763"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679248762"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The result structure for the list branches request.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- /See:/ 'newListBranchesResponse' smart constructor.</span><span>
+</span><span id="line-168"></span><span id="local-6989586621679248758"><span id="local-6989586621679248759"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBranchesResponse"><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse"><span class="hs-identifier hs-var">ListBranchesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBranchesResponse%27"><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse%27"><span class="hs-identifier hs-var">ListBranchesResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token. If a non-null pagination token is returned in a</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- result, pass its value in another request to retrieve more entries.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AnextToken%3AListBranchesResponse%27"><span class="annot"><span class="annottext">ListBranchesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3AnextToken%3AListBranchesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListBranchesResponse%27"><span class="annot"><span class="annottext">ListBranchesResponse -&gt; Int
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3AhttpStatus%3AListBranchesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | A list of branches for an Amplify app.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3Abranches%3AListBranchesResponse%27"><span class="annot"><span class="annottext">ListBranchesResponse -&gt; [Branch]
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3Abranches%3AListBranchesResponse%27"><span class="hs-identifier hs-var hs-var">branches</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Amplify.Types.Branch.html#Branch"><span class="hs-identifier hs-type">Branch</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248751"><span id="local-6989586621679248753"><span class="annot"><span class="annottext">ListBranchesResponse -&gt; ListBranchesResponse -&gt; Bool
+(ListBranchesResponse -&gt; ListBranchesResponse -&gt; Bool)
+-&gt; (ListBranchesResponse -&gt; ListBranchesResponse -&gt; Bool)
+-&gt; Eq ListBranchesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListBranchesResponse -&gt; ListBranchesResponse -&gt; Bool
+$c/= :: ListBranchesResponse -&gt; ListBranchesResponse -&gt; Bool
+== :: ListBranchesResponse -&gt; ListBranchesResponse -&gt; Bool
+$c== :: ListBranchesResponse -&gt; ListBranchesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248745"><span id="local-6989586621679248747"><span id="local-6989586621679248749"><span class="annot"><span class="annottext">Int -&gt; ListBranchesResponse -&gt; ShowS
+[ListBranchesResponse] -&gt; ShowS
+ListBranchesResponse -&gt; String
+(Int -&gt; ListBranchesResponse -&gt; ShowS)
+-&gt; (ListBranchesResponse -&gt; String)
+-&gt; ([ListBranchesResponse] -&gt; ShowS)
+-&gt; Show ListBranchesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListBranchesResponse] -&gt; ShowS
+$cshowList :: [ListBranchesResponse] -&gt; ShowS
+show :: ListBranchesResponse -&gt; String
+$cshow :: ListBranchesResponse -&gt; String
+showsPrec :: Int -&gt; ListBranchesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListBranchesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListBranchesResponse -&gt; Rep ListBranchesResponse x)
+-&gt; (forall x. Rep ListBranchesResponse x -&gt; ListBranchesResponse)
+-&gt; Generic ListBranchesResponse
+forall x. Rep ListBranchesResponse x -&gt; ListBranchesResponse
+forall x. ListBranchesResponse -&gt; Rep ListBranchesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListBranchesResponse x -&gt; ListBranchesResponse
+$cfrom :: forall x. ListBranchesResponse -&gt; Rep ListBranchesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Create a value of 'ListBranchesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'nextToken', 'listBranchesResponse_nextToken' - A pagination token. If a non-null pagination token is returned in a</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- result, pass its value in another request to retrieve more entries.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'httpStatus', 'listBranchesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'branches', 'listBranchesResponse_branches' - A list of branches for an Amplify app.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#newListBranchesResponse"><span class="hs-identifier hs-type">newListBranchesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse"><span class="hs-identifier hs-type">ListBranchesResponse</span></a></span><span>
+</span><span id="line-197"></span><span id="newListBranchesResponse"><span class="annot"><span class="annottext">newListBranchesResponse :: Int -&gt; ListBranchesResponse
+</span><a href="Network.AWS.Amplify.ListBranches.html#newListBranchesResponse"><span class="hs-identifier hs-var hs-var">newListBranchesResponse</span></a></span></span><span> </span><span id="local-6989586621679248742"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248742"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="annottext">ListBranchesResponse' :: Maybe Text -&gt; Int -&gt; [Branch] -&gt; ListBranchesResponse
+</span><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse%27"><span class="hs-identifier hs-type">ListBranchesResponse'</span></a></span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListBranchesResponse' :: Maybe Text
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3AnextToken%3AListBranchesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListBranchesResponse' :: Int
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3AhttpStatus%3AListBranchesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248742"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:branches:ListBranchesResponse' :: [Branch]
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3Abranches%3AListBranchesResponse%27"><span class="hs-identifier hs-var">branches</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Branch]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | A pagination token. If a non-null pagination token is returned in a</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- result, pass its value in another request to retrieve more entries.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#listBranchesResponse_nextToken"><span class="hs-identifier hs-type">listBranchesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse"><span class="hs-identifier hs-type">ListBranchesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="listBranchesResponse_nextToken"><span class="annot"><span class="annottext">listBranchesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBranchesResponse -&gt; f ListBranchesResponse
+</span><a href="Network.AWS.Amplify.ListBranches.html#listBranchesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listBranchesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBranchesResponse -&gt; Maybe Text)
+-&gt; (ListBranchesResponse -&gt; Maybe Text -&gt; ListBranchesResponse)
+-&gt; Lens' ListBranchesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse%27"><span class="hs-identifier hs-type">ListBranchesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248741"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListBranchesResponse' :: ListBranchesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679248741"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248741"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248740"><span class="annot"><span class="annottext">s :: ListBranchesResponse
+</span><a href="#local-6989586621679248740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse%27"><span class="hs-identifier hs-type">ListBranchesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248739"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBranchesResponse
+</span><a href="#local-6989586621679248740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBranchesResponse' :: Maybe Text
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3AnextToken%3AListBranchesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse"><span class="hs-identifier hs-type">ListBranchesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#listBranchesResponse_httpStatus"><span class="hs-identifier hs-type">listBranchesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse"><span class="hs-identifier hs-type">ListBranchesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-211"></span><span id="listBranchesResponse_httpStatus"><span class="annot"><span class="annottext">listBranchesResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListBranchesResponse -&gt; f ListBranchesResponse
+</span><a href="Network.AWS.Amplify.ListBranches.html#listBranchesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listBranchesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBranchesResponse -&gt; Int)
+-&gt; (ListBranchesResponse -&gt; Int -&gt; ListBranchesResponse)
+-&gt; Lens ListBranchesResponse ListBranchesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse%27"><span class="hs-identifier hs-type">ListBranchesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248738"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListBranchesResponse' :: ListBranchesResponse -&gt; Int
+</span><a href="#local-6989586621679248738"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248738"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248737"><span class="annot"><span class="annottext">s :: ListBranchesResponse
+</span><a href="#local-6989586621679248737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse%27"><span class="hs-identifier hs-type">ListBranchesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248736"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBranchesResponse
+</span><a href="#local-6989586621679248737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBranchesResponse' :: Int
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3AhttpStatus%3AListBranchesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse"><span class="hs-identifier hs-type">ListBranchesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | A list of branches for an Amplify app.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#listBranchesResponse_branches"><span class="hs-identifier hs-type">listBranchesResponse_branches</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse"><span class="hs-identifier hs-type">ListBranchesResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Amplify.Types.Branch.html#Branch"><span class="hs-identifier hs-type">Branch</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-215"></span><span id="listBranchesResponse_branches"><span class="annot"><span class="annottext">listBranchesResponse_branches :: ([Branch] -&gt; f [Branch])
+-&gt; ListBranchesResponse -&gt; f ListBranchesResponse
+</span><a href="Network.AWS.Amplify.ListBranches.html#listBranchesResponse_branches"><span class="hs-identifier hs-var hs-var">listBranchesResponse_branches</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBranchesResponse -&gt; [Branch])
+-&gt; (ListBranchesResponse -&gt; [Branch] -&gt; ListBranchesResponse)
+-&gt; Lens' ListBranchesResponse [Branch]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse%27"><span class="hs-identifier hs-type">ListBranchesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248735"><span class="annot"><span class="annottext">[Branch]
+branches :: [Branch]
+$sel:branches:ListBranchesResponse' :: ListBranchesResponse -&gt; [Branch]
+</span><a href="#local-6989586621679248735"><span class="hs-identifier hs-var hs-var">branches</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Branch]
+</span><a href="#local-6989586621679248735"><span class="hs-identifier hs-var">branches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248734"><span class="annot"><span class="annottext">s :: ListBranchesResponse
+</span><a href="#local-6989586621679248734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse%27"><span class="hs-identifier hs-type">ListBranchesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248733"><span class="annot"><span class="annottext">[Branch]
+</span><a href="#local-6989586621679248733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBranchesResponse
+</span><a href="#local-6989586621679248734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branches:ListBranchesResponse' :: [Branch]
+</span><a href="Network.AWS.Amplify.ListBranches.html#%24sel%3Abranches%3AListBranchesResponse%27"><span class="hs-identifier hs-var">branches</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Branch]
+</span><a href="#local-6989586621679248733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse"><span class="hs-identifier hs-type">ListBranchesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Branch] -&gt; f [Branch])
+ -&gt; ListBranchesResponse -&gt; f ListBranchesResponse)
+-&gt; (([Branch] -&gt; f [Branch]) -&gt; [Branch] -&gt; f [Branch])
+-&gt; ([Branch] -&gt; f [Branch])
+-&gt; ListBranchesResponse
+-&gt; f ListBranchesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Branch] -&gt; f [Branch]) -&gt; [Branch] -&gt; f [Branch]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248730"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.ListBranches.html#ListBranchesResponse"><span class="hs-identifier hs-type">ListBranchesResponse</span></a></span></span><span>
+</span><span id="line-218"></span></pre></body></html>

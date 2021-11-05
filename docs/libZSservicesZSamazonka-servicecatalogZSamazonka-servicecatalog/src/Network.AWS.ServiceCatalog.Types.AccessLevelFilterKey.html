@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679397569"><span id="local-6989586621679397570"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccessLevelFilterKey"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey.html#AccessLevelFilterKey"><span class="hs-identifier hs-var">AccessLevelFilterKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessLevelFilterKey%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey.html#AccessLevelFilterKey%27"><span class="hs-identifier hs-var">AccessLevelFilterKey'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679397578"><span id="local-6989586621679397579"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccessLevelFilterKey"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey.html#AccessLevelFilterKey"><span class="hs-identifier hs-var">AccessLevelFilterKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessLevelFilterKey%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey.html#AccessLevelFilterKey%27"><span class="hs-identifier hs-var">AccessLevelFilterKey'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAccessLevelFilterKey"><span class="annot"><span class="annottext">AccessLevelFilterKey -&gt; Text
 </span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey.html#fromAccessLevelFilterKey"><span class="hs-identifier hs-var hs-var">fromAccessLevelFilterKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397561"><span id="local-6989586621679397563"><span id="local-6989586621679397565"><span class="annot"><span class="annottext">Int -&gt; AccessLevelFilterKey -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397570"><span id="local-6989586621679397572"><span id="local-6989586621679397574"><span class="annot"><span class="annottext">Int -&gt; AccessLevelFilterKey -&gt; ShowS
 [AccessLevelFilterKey] -&gt; ShowS
 AccessLevelFilterKey -&gt; String
 (Int -&gt; AccessLevelFilterKey -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AccessLevelFilterKey -&gt; String
 showsPrec :: Int -&gt; AccessLevelFilterKey -&gt; ShowS
 $cshowsPrec :: Int -&gt; AccessLevelFilterKey -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679397552"><span id="local-6989586621679397554"><span id="local-6989586621679397556"><span id="local-6989586621679397558"><span class="annot"><span class="annottext">ReadPrec [AccessLevelFilterKey]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679397561"><span id="local-6989586621679397563"><span id="local-6989586621679397565"><span id="local-6989586621679397567"><span class="annot"><span class="annottext">ReadPrec [AccessLevelFilterKey]
 ReadPrec AccessLevelFilterKey
 Int -&gt; ReadS AccessLevelFilterKey
 ReadS [AccessLevelFilterKey]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AccessLevelFilterKey]
 readsPrec :: Int -&gt; ReadS AccessLevelFilterKey
 $creadsPrec :: Int -&gt; ReadS AccessLevelFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679397547"><span id="local-6989586621679397549"><span class="annot"><span class="annottext">AccessLevelFilterKey -&gt; AccessLevelFilterKey -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679397556"><span id="local-6989586621679397558"><span class="annot"><span class="annottext">AccessLevelFilterKey -&gt; AccessLevelFilterKey -&gt; Bool
 (AccessLevelFilterKey -&gt; AccessLevelFilterKey -&gt; Bool)
 -&gt; (AccessLevelFilterKey -&gt; AccessLevelFilterKey -&gt; Bool)
 -&gt; Eq AccessLevelFilterKey
@@ -83,7 +83,7 @@ $c/= :: AccessLevelFilterKey -&gt; AccessLevelFilterKey -&gt; Bool
 == :: AccessLevelFilterKey -&gt; AccessLevelFilterKey -&gt; Bool
 $c== :: AccessLevelFilterKey -&gt; AccessLevelFilterKey -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679397531"><span id="local-6989586621679397533"><span id="local-6989586621679397535"><span id="local-6989586621679397537"><span id="local-6989586621679397539"><span id="local-6989586621679397541"><span id="local-6989586621679397543"><span class="annot"><span class="annottext">Eq AccessLevelFilterKey
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679397540"><span id="local-6989586621679397542"><span id="local-6989586621679397544"><span id="local-6989586621679397546"><span id="local-6989586621679397548"><span id="local-6989586621679397550"><span id="local-6989586621679397552"><span class="annot"><span class="annottext">Eq AccessLevelFilterKey
 Eq AccessLevelFilterKey
 -&gt; (AccessLevelFilterKey -&gt; AccessLevelFilterKey -&gt; Ordering)
 -&gt; (AccessLevelFilterKey -&gt; AccessLevelFilterKey -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. AccessLevelFilterKey -&gt; Rep AccessLevelFilterKey x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397523"><span id="local-6989586621679397525"><span class="annot"><span class="annottext">Int -&gt; AccessLevelFilterKey -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397532"><span id="local-6989586621679397534"><span class="annot"><span class="annottext">Int -&gt; AccessLevelFilterKey -&gt; Int
 AccessLevelFilterKey -&gt; Int
 (Int -&gt; AccessLevelFilterKey -&gt; Int)
 -&gt; (AccessLevelFilterKey -&gt; Int) -&gt; Hashable AccessLevelFilterKey
@@ -151,54 +151,54 @@ $chash :: AccessLevelFilterKey -&gt; Int
 hashWithSalt :: Int -&gt; AccessLevelFilterKey -&gt; Int
 $chashWithSalt :: Int -&gt; AccessLevelFilterKey -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679397520"><span class="annot"><span class="annottext">AccessLevelFilterKey -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679397529"><span class="annot"><span class="annottext">AccessLevelFilterKey -&gt; ()
 (AccessLevelFilterKey -&gt; ()) -&gt; NFData AccessLevelFilterKey
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AccessLevelFilterKey -&gt; ()
 $crnf :: AccessLevelFilterKey -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679397517"><span class="annot"><span class="annottext">Text -&gt; Either String AccessLevelFilterKey
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679397526"><span class="annot"><span class="annottext">Text -&gt; Either String AccessLevelFilterKey
 (Text -&gt; Either String AccessLevelFilterKey)
 -&gt; FromText AccessLevelFilterKey
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AccessLevelFilterKey
 $cfromText :: Text -&gt; Either String AccessLevelFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679397514"><span class="annot"><span class="annottext">AccessLevelFilterKey -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679397523"><span class="annot"><span class="annottext">AccessLevelFilterKey -&gt; Text
 (AccessLevelFilterKey -&gt; Text) -&gt; ToText AccessLevelFilterKey
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AccessLevelFilterKey -&gt; Text
 $ctoText :: AccessLevelFilterKey -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679397511"><span class="annot"><span class="annottext">AccessLevelFilterKey -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679397520"><span class="annot"><span class="annottext">AccessLevelFilterKey -&gt; ByteString
 (AccessLevelFilterKey -&gt; ByteString)
 -&gt; ToByteString AccessLevelFilterKey
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AccessLevelFilterKey -&gt; ByteString
 $ctoBS :: AccessLevelFilterKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679397508"><span class="annot"><span class="annottext">AccessLevelFilterKey -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679397517"><span class="annot"><span class="annottext">AccessLevelFilterKey -&gt; ByteStringBuilder
 (AccessLevelFilterKey -&gt; ByteStringBuilder)
 -&gt; ToLog AccessLevelFilterKey
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AccessLevelFilterKey -&gt; ByteStringBuilder
 $cbuild :: AccessLevelFilterKey -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679397505"><span class="annot"><span class="annottext">HeaderName -&gt; AccessLevelFilterKey -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679397514"><span class="annot"><span class="annottext">HeaderName -&gt; AccessLevelFilterKey -&gt; [Header]
 (HeaderName -&gt; AccessLevelFilterKey -&gt; [Header])
 -&gt; ToHeader AccessLevelFilterKey
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AccessLevelFilterKey -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AccessLevelFilterKey -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679397502"><span class="annot"><span class="annottext">AccessLevelFilterKey -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679397511"><span class="annot"><span class="annottext">AccessLevelFilterKey -&gt; QueryString
 (AccessLevelFilterKey -&gt; QueryString)
 -&gt; ToQuery AccessLevelFilterKey
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AccessLevelFilterKey -&gt; QueryString
 $ctoQuery :: AccessLevelFilterKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679397497"><span id="local-6989586621679397499"><span class="annot"><span class="annottext">Value -&gt; Parser [AccessLevelFilterKey]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679397506"><span id="local-6989586621679397508"><span class="annot"><span class="annottext">Value -&gt; Parser [AccessLevelFilterKey]
 Value -&gt; Parser AccessLevelFilterKey
 (Value -&gt; Parser AccessLevelFilterKey)
 -&gt; (Value -&gt; Parser [AccessLevelFilterKey])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [AccessLevelFilterKey]
 parseJSON :: Value -&gt; Parser AccessLevelFilterKey
 $cparseJSON :: Value -&gt; Parser AccessLevelFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679397492"><span id="local-6989586621679397494"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccessLevelFilterKey]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679397501"><span id="local-6989586621679397503"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccessLevelFilterKey]
 FromJSONKeyFunction AccessLevelFilterKey
 FromJSONKeyFunction AccessLevelFilterKey
 -&gt; FromJSONKeyFunction [AccessLevelFilterKey]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AccessLevelFilterKey]
 fromJSONKey :: FromJSONKeyFunction AccessLevelFilterKey
 $cfromJSONKey :: FromJSONKeyFunction AccessLevelFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679397483"><span id="local-6989586621679397485"><span id="local-6989586621679397487"><span id="local-6989586621679397489"><span class="annot"><span class="annottext">[AccessLevelFilterKey] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679397492"><span id="local-6989586621679397494"><span id="local-6989586621679397496"><span id="local-6989586621679397498"><span class="annot"><span class="annottext">[AccessLevelFilterKey] -&gt; Encoding
 [AccessLevelFilterKey] -&gt; Value
 AccessLevelFilterKey -&gt; Encoding
 AccessLevelFilterKey -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: AccessLevelFilterKey -&gt; Encoding
 toJSON :: AccessLevelFilterKey -&gt; Value
 $ctoJSON :: AccessLevelFilterKey -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679397478"><span id="local-6989586621679397480"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccessLevelFilterKey]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679397487"><span id="local-6989586621679397489"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccessLevelFilterKey]
 ToJSONKeyFunction AccessLevelFilterKey
 ToJSONKeyFunction AccessLevelFilterKey
 -&gt; ToJSONKeyFunction [AccessLevelFilterKey]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AccessLevelFilterKey]
 toJSONKey :: ToJSONKeyFunction AccessLevelFilterKey
 $ctoJSONKey :: ToJSONKeyFunction AccessLevelFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679397475"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccessLevelFilterKey
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679397484"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccessLevelFilterKey
 ([Node] -&gt; Either String AccessLevelFilterKey)
 -&gt; FromXML AccessLevelFilterKey
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AccessLevelFilterKey
 $cparseXML :: [Node] -&gt; Either String AccessLevelFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679397472"><span class="annot"><span class="annottext">AccessLevelFilterKey -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679397481"><span class="annot"><span class="annottext">AccessLevelFilterKey -&gt; XML
 (AccessLevelFilterKey -&gt; XML) -&gt; ToXML AccessLevelFilterKey
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AccessLevelFilterKey -&gt; XML

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679373035"><span id="local-6989586621679373036"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OnDemandCapacityReservationPreference"><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandCapacityReservationPreference.html#OnDemandCapacityReservationPreference"><span class="hs-identifier hs-var">OnDemandCapacityReservationPreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OnDemandCapacityReservationPreference%27"><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandCapacityReservationPreference.html#OnDemandCapacityReservationPreference%27"><span class="hs-identifier hs-var">OnDemandCapacityReservationPreference'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679373044"><span id="local-6989586621679373045"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OnDemandCapacityReservationPreference"><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandCapacityReservationPreference.html#OnDemandCapacityReservationPreference"><span class="hs-identifier hs-var">OnDemandCapacityReservationPreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OnDemandCapacityReservationPreference%27"><span class="annot"><a href="Network.AWS.EMR.Types.OnDemandCapacityReservationPreference.html#OnDemandCapacityReservationPreference%27"><span class="hs-identifier hs-var">OnDemandCapacityReservationPreference'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOnDemandCapacityReservationPreference"><span class="annot"><span class="annottext">OnDemandCapacityReservationPreference -&gt; Text
 </span><a href="Network.AWS.EMR.Types.OnDemandCapacityReservationPreference.html#fromOnDemandCapacityReservationPreference"><span class="hs-identifier hs-var hs-var">fromOnDemandCapacityReservationPreference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373027"><span id="local-6989586621679373029"><span id="local-6989586621679373031"><span class="annot"><span class="annottext">Int -&gt; OnDemandCapacityReservationPreference -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373036"><span id="local-6989586621679373038"><span id="local-6989586621679373040"><span class="annot"><span class="annottext">Int -&gt; OnDemandCapacityReservationPreference -&gt; ShowS
 [OnDemandCapacityReservationPreference] -&gt; ShowS
 OnDemandCapacityReservationPreference -&gt; String
 (Int -&gt; OnDemandCapacityReservationPreference -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: OnDemandCapacityReservationPreference -&gt; String
 showsPrec :: Int -&gt; OnDemandCapacityReservationPreference -&gt; ShowS
 $cshowsPrec :: Int -&gt; OnDemandCapacityReservationPreference -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679373018"><span id="local-6989586621679373020"><span id="local-6989586621679373022"><span id="local-6989586621679373024"><span class="annot"><span class="annottext">ReadPrec [OnDemandCapacityReservationPreference]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679373027"><span id="local-6989586621679373029"><span id="local-6989586621679373031"><span id="local-6989586621679373033"><span class="annot"><span class="annottext">ReadPrec [OnDemandCapacityReservationPreference]
 ReadPrec OnDemandCapacityReservationPreference
 Int -&gt; ReadS OnDemandCapacityReservationPreference
 ReadS [OnDemandCapacityReservationPreference]
@@ -72,7 +72,7 @@ $creadList :: ReadS [OnDemandCapacityReservationPreference]
 readsPrec :: Int -&gt; ReadS OnDemandCapacityReservationPreference
 $creadsPrec :: Int -&gt; ReadS OnDemandCapacityReservationPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679373013"><span id="local-6989586621679373015"><span class="annot"><span class="annottext">OnDemandCapacityReservationPreference
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679373022"><span id="local-6989586621679373024"><span class="annot"><span class="annottext">OnDemandCapacityReservationPreference
 -&gt; OnDemandCapacityReservationPreference -&gt; Bool
 (OnDemandCapacityReservationPreference
  -&gt; OnDemandCapacityReservationPreference -&gt; Bool)
@@ -89,7 +89,7 @@ $c/= :: OnDemandCapacityReservationPreference
 $c== :: OnDemandCapacityReservationPreference
 -&gt; OnDemandCapacityReservationPreference -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679372997"><span id="local-6989586621679372999"><span id="local-6989586621679373001"><span id="local-6989586621679373003"><span id="local-6989586621679373005"><span id="local-6989586621679373007"><span id="local-6989586621679373009"><span class="annot"><span class="annottext">Eq OnDemandCapacityReservationPreference
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679373006"><span id="local-6989586621679373008"><span id="local-6989586621679373010"><span id="local-6989586621679373012"><span id="local-6989586621679373014"><span id="local-6989586621679373016"><span id="local-6989586621679373018"><span class="annot"><span class="annottext">Eq OnDemandCapacityReservationPreference
 Eq OnDemandCapacityReservationPreference
 -&gt; (OnDemandCapacityReservationPreference
     -&gt; OnDemandCapacityReservationPreference -&gt; Ordering)
@@ -183,7 +183,7 @@ OnDemandCapacityReservationPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372989"><span id="local-6989586621679372991"><span class="annot"><span class="annottext">Int -&gt; OnDemandCapacityReservationPreference -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372998"><span id="local-6989586621679373000"><span class="annot"><span class="annottext">Int -&gt; OnDemandCapacityReservationPreference -&gt; Int
 OnDemandCapacityReservationPreference -&gt; Int
 (Int -&gt; OnDemandCapacityReservationPreference -&gt; Int)
 -&gt; (OnDemandCapacityReservationPreference -&gt; Int)
@@ -194,56 +194,56 @@ $chash :: OnDemandCapacityReservationPreference -&gt; Int
 hashWithSalt :: Int -&gt; OnDemandCapacityReservationPreference -&gt; Int
 $chashWithSalt :: Int -&gt; OnDemandCapacityReservationPreference -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679372986"><span class="annot"><span class="annottext">OnDemandCapacityReservationPreference -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679372995"><span class="annot"><span class="annottext">OnDemandCapacityReservationPreference -&gt; ()
 (OnDemandCapacityReservationPreference -&gt; ())
 -&gt; NFData OnDemandCapacityReservationPreference
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OnDemandCapacityReservationPreference -&gt; ()
 $crnf :: OnDemandCapacityReservationPreference -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679372983"><span class="annot"><span class="annottext">Text -&gt; Either String OnDemandCapacityReservationPreference
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679372992"><span class="annot"><span class="annottext">Text -&gt; Either String OnDemandCapacityReservationPreference
 (Text -&gt; Either String OnDemandCapacityReservationPreference)
 -&gt; FromText OnDemandCapacityReservationPreference
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OnDemandCapacityReservationPreference
 $cfromText :: Text -&gt; Either String OnDemandCapacityReservationPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679372980"><span class="annot"><span class="annottext">OnDemandCapacityReservationPreference -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679372989"><span class="annot"><span class="annottext">OnDemandCapacityReservationPreference -&gt; Text
 (OnDemandCapacityReservationPreference -&gt; Text)
 -&gt; ToText OnDemandCapacityReservationPreference
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OnDemandCapacityReservationPreference -&gt; Text
 $ctoText :: OnDemandCapacityReservationPreference -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679372977"><span class="annot"><span class="annottext">OnDemandCapacityReservationPreference -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679372986"><span class="annot"><span class="annottext">OnDemandCapacityReservationPreference -&gt; ByteString
 (OnDemandCapacityReservationPreference -&gt; ByteString)
 -&gt; ToByteString OnDemandCapacityReservationPreference
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OnDemandCapacityReservationPreference -&gt; ByteString
 $ctoBS :: OnDemandCapacityReservationPreference -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679372974"><span class="annot"><span class="annottext">OnDemandCapacityReservationPreference -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679372983"><span class="annot"><span class="annottext">OnDemandCapacityReservationPreference -&gt; ByteStringBuilder
 (OnDemandCapacityReservationPreference -&gt; ByteStringBuilder)
 -&gt; ToLog OnDemandCapacityReservationPreference
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OnDemandCapacityReservationPreference -&gt; ByteStringBuilder
 $cbuild :: OnDemandCapacityReservationPreference -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679372971"><span class="annot"><span class="annottext">HeaderName -&gt; OnDemandCapacityReservationPreference -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679372980"><span class="annot"><span class="annottext">HeaderName -&gt; OnDemandCapacityReservationPreference -&gt; [Header]
 (HeaderName -&gt; OnDemandCapacityReservationPreference -&gt; [Header])
 -&gt; ToHeader OnDemandCapacityReservationPreference
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OnDemandCapacityReservationPreference -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OnDemandCapacityReservationPreference -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679372968"><span class="annot"><span class="annottext">OnDemandCapacityReservationPreference -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679372977"><span class="annot"><span class="annottext">OnDemandCapacityReservationPreference -&gt; QueryString
 (OnDemandCapacityReservationPreference -&gt; QueryString)
 -&gt; ToQuery OnDemandCapacityReservationPreference
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OnDemandCapacityReservationPreference -&gt; QueryString
 $ctoQuery :: OnDemandCapacityReservationPreference -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679372963"><span id="local-6989586621679372965"><span class="annot"><span class="annottext">Value -&gt; Parser [OnDemandCapacityReservationPreference]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679372972"><span id="local-6989586621679372974"><span class="annot"><span class="annottext">Value -&gt; Parser [OnDemandCapacityReservationPreference]
 Value -&gt; Parser OnDemandCapacityReservationPreference
 (Value -&gt; Parser OnDemandCapacityReservationPreference)
 -&gt; (Value -&gt; Parser [OnDemandCapacityReservationPreference])
@@ -255,7 +255,7 @@ $cparseJSONList :: Value -&gt; Parser [OnDemandCapacityReservationPreference]
 parseJSON :: Value -&gt; Parser OnDemandCapacityReservationPreference
 $cparseJSON :: Value -&gt; Parser OnDemandCapacityReservationPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679372958"><span id="local-6989586621679372960"><span class="annot"><span class="annottext">FromJSONKeyFunction [OnDemandCapacityReservationPreference]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679372967"><span id="local-6989586621679372969"><span class="annot"><span class="annottext">FromJSONKeyFunction [OnDemandCapacityReservationPreference]
 FromJSONKeyFunction OnDemandCapacityReservationPreference
 FromJSONKeyFunction OnDemandCapacityReservationPreference
 -&gt; FromJSONKeyFunction [OnDemandCapacityReservationPreference]
@@ -267,7 +267,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OnDemandCapacityReservationPreference]
 fromJSONKey :: FromJSONKeyFunction OnDemandCapacityReservationPreference
 $cfromJSONKey :: FromJSONKeyFunction OnDemandCapacityReservationPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679372949"><span id="local-6989586621679372951"><span id="local-6989586621679372953"><span id="local-6989586621679372955"><span class="annot"><span class="annottext">[OnDemandCapacityReservationPreference] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679372958"><span id="local-6989586621679372960"><span id="local-6989586621679372962"><span id="local-6989586621679372964"><span class="annot"><span class="annottext">[OnDemandCapacityReservationPreference] -&gt; Encoding
 [OnDemandCapacityReservationPreference] -&gt; Value
 OnDemandCapacityReservationPreference -&gt; Encoding
 OnDemandCapacityReservationPreference -&gt; Value
@@ -291,7 +291,7 @@ $ctoEncoding :: OnDemandCapacityReservationPreference -&gt; Encoding
 toJSON :: OnDemandCapacityReservationPreference -&gt; Value
 $ctoJSON :: OnDemandCapacityReservationPreference -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679372944"><span id="local-6989586621679372946"><span class="annot"><span class="annottext">ToJSONKeyFunction [OnDemandCapacityReservationPreference]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679372953"><span id="local-6989586621679372955"><span class="annot"><span class="annottext">ToJSONKeyFunction [OnDemandCapacityReservationPreference]
 ToJSONKeyFunction OnDemandCapacityReservationPreference
 ToJSONKeyFunction OnDemandCapacityReservationPreference
 -&gt; ToJSONKeyFunction [OnDemandCapacityReservationPreference]
@@ -303,14 +303,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OnDemandCapacityReservationPreference]
 toJSONKey :: ToJSONKeyFunction OnDemandCapacityReservationPreference
 $ctoJSONKey :: ToJSONKeyFunction OnDemandCapacityReservationPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679372941"><span class="annot"><span class="annottext">[Node] -&gt; Either String OnDemandCapacityReservationPreference
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679372950"><span class="annot"><span class="annottext">[Node] -&gt; Either String OnDemandCapacityReservationPreference
 ([Node] -&gt; Either String OnDemandCapacityReservationPreference)
 -&gt; FromXML OnDemandCapacityReservationPreference
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OnDemandCapacityReservationPreference
 $cparseXML :: [Node] -&gt; Either String OnDemandCapacityReservationPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679372938"><span class="annot"><span class="annottext">OnDemandCapacityReservationPreference -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679372947"><span class="annot"><span class="annottext">OnDemandCapacityReservationPreference -&gt; XML
 (OnDemandCapacityReservationPreference -&gt; XML)
 -&gt; ToXML OnDemandCapacityReservationPreference
 forall a. (a -&gt; XML) -&gt; ToXML a

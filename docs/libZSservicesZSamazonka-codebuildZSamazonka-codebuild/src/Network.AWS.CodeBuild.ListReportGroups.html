@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListReportGroups' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679386490"><span id="local-6989586621679386491"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReportGroups"><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-var">ListReportGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReportGroups%27"><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-var">ListReportGroups'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679386499"><span id="local-6989586621679386500"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReportGroups"><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-var">ListReportGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReportGroups%27"><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-var">ListReportGroups'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Used to specify the order to sort the list of returned report groups.</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Valid values are @ASCENDING@ and @DESCENDING@.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AsortOrder%3AListReportGroups%27"><span class="annot"><span class="annottext">ListReportGroups -&gt; Maybe SortOrderType
@@ -85,7 +85,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AsortBy%3AListReportGroups%27"><span class="annot"><span class="annottext">ListReportGroups -&gt; Maybe ReportGroupSortByType
 </span><a href="Network.AWS.CodeBuild.ListReportGroups.html#%24sel%3AsortBy%3AListReportGroups%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportGroupSortByType.html#ReportGroupSortByType"><span class="hs-identifier hs-type">ReportGroupSortByType</span></a></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386481"><span id="local-6989586621679386483"><span class="annot"><span class="annottext">ListReportGroups -&gt; ListReportGroups -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386490"><span id="local-6989586621679386492"><span class="annot"><span class="annottext">ListReportGroups -&gt; ListReportGroups -&gt; Bool
 (ListReportGroups -&gt; ListReportGroups -&gt; Bool)
 -&gt; (ListReportGroups -&gt; ListReportGroups -&gt; Bool)
 -&gt; Eq ListReportGroups
@@ -94,7 +94,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListReportGroups -&gt; ListReportGroups -&gt; Bool
 == :: ListReportGroups -&gt; ListReportGroups -&gt; Bool
 $c== :: ListReportGroups -&gt; ListReportGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386472"><span id="local-6989586621679386474"><span id="local-6989586621679386476"><span id="local-6989586621679386478"><span class="annot"><span class="annottext">ReadPrec [ListReportGroups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386481"><span id="local-6989586621679386483"><span id="local-6989586621679386485"><span id="local-6989586621679386487"><span class="annot"><span class="annottext">ReadPrec [ListReportGroups]
 ReadPrec ListReportGroups
 Int -&gt; ReadS ListReportGroups
 ReadS [ListReportGroups]
@@ -114,7 +114,7 @@ readList :: ReadS [ListReportGroups]
 $creadList :: ReadS [ListReportGroups]
 readsPrec :: Int -&gt; ReadS ListReportGroups
 $creadsPrec :: Int -&gt; ReadS ListReportGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386465"><span id="local-6989586621679386467"><span id="local-6989586621679386469"><span class="annot"><span class="annottext">Int -&gt; ListReportGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386474"><span id="local-6989586621679386476"><span id="local-6989586621679386478"><span class="annot"><span class="annottext">Int -&gt; ListReportGroups -&gt; ShowS
 [ListReportGroups] -&gt; ShowS
 ListReportGroups -&gt; String
 (Int -&gt; ListReportGroups -&gt; ShowS)
@@ -213,16 +213,16 @@ forall a. Maybe a
      (Maybe SortOrderType)
      (Maybe SortOrderType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386459"><span class="annot"><span class="annottext">Maybe SortOrderType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386468"><span class="annot"><span class="annottext">Maybe SortOrderType
 sortOrder :: Maybe SortOrderType
 $sel:sortOrder:ListReportGroups' :: ListReportGroups -&gt; Maybe SortOrderType
-</span><a href="#local-6989586621679386459"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrderType
-</span><a href="#local-6989586621679386459"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386458"><span class="annot"><span class="annottext">s :: ListReportGroups
-</span><a href="#local-6989586621679386458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386457"><span class="annot"><span class="annottext">Maybe SortOrderType
-</span><a href="#local-6989586621679386457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportGroups
-</span><a href="#local-6989586621679386458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListReportGroups' :: Maybe SortOrderType
+</span><a href="#local-6989586621679386468"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrderType
+</span><a href="#local-6989586621679386468"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386467"><span class="annot"><span class="annottext">s :: ListReportGroups
+</span><a href="#local-6989586621679386467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386466"><span class="annot"><span class="annottext">Maybe SortOrderType
+</span><a href="#local-6989586621679386466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportGroups
+</span><a href="#local-6989586621679386467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListReportGroups' :: Maybe SortOrderType
 </span><a href="Network.AWS.CodeBuild.ListReportGroups.html#%24sel%3AsortOrder%3AListReportGroups%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrderType
-</span><a href="#local-6989586621679386457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | During a previous call, the maximum number of items that can be returned</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- is the value specified in @maxResults@. If there more items in the list,</span><span>
@@ -238,16 +238,16 @@ $sel:sortOrder:ListReportGroups' :: ListReportGroups -&gt; Maybe SortOrderType
 -&gt; (ListReportGroups -&gt; Maybe Text -&gt; ListReportGroups)
 -&gt; Lens ListReportGroups ListReportGroups (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386456"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386465"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListReportGroups' :: ListReportGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679386456"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386456"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386455"><span class="annot"><span class="annottext">s :: ListReportGroups
-</span><a href="#local-6989586621679386455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386454"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportGroups
-</span><a href="#local-6989586621679386455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListReportGroups' :: Maybe Text
+</span><a href="#local-6989586621679386465"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386465"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386464"><span class="annot"><span class="annottext">s :: ListReportGroups
+</span><a href="#local-6989586621679386464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386463"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportGroups
+</span><a href="#local-6989586621679386464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListReportGroups' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.ListReportGroups.html#%24sel%3AnextToken%3AListReportGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The maximum number of paginated report groups returned per response. Use</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- @nextToken@ to iterate pages in the list of returned @ReportGroup@</span><span>
@@ -260,16 +260,16 @@ $sel:nextToken:ListReportGroups' :: ListReportGroups -&gt; Maybe Text
 -&gt; Lens
      ListReportGroups ListReportGroups (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386453"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386462"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListReportGroups' :: ListReportGroups -&gt; Maybe Natural
-</span><a href="#local-6989586621679386453"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679386453"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386452"><span class="annot"><span class="annottext">s :: ListReportGroups
-</span><a href="#local-6989586621679386452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386451"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679386451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportGroups
-</span><a href="#local-6989586621679386452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListReportGroups' :: Maybe Natural
+</span><a href="#local-6989586621679386462"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679386462"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386461"><span class="annot"><span class="annottext">s :: ListReportGroups
+</span><a href="#local-6989586621679386461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386460"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679386460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportGroups
+</span><a href="#local-6989586621679386461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListReportGroups' :: Maybe Natural
 </span><a href="Network.AWS.CodeBuild.ListReportGroups.html#%24sel%3AmaxResults%3AListReportGroups%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679386451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The criterion to be used to list build report groups. Valid values</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- include:</span><span>
@@ -292,29 +292,29 @@ $sel:maxResults:ListReportGroups' :: ListReportGroups -&gt; Maybe Natural
      (Maybe ReportGroupSortByType)
      (Maybe ReportGroupSortByType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386450"><span class="annot"><span class="annottext">Maybe ReportGroupSortByType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386459"><span class="annot"><span class="annottext">Maybe ReportGroupSortByType
 sortBy :: Maybe ReportGroupSortByType
 $sel:sortBy:ListReportGroups' :: ListReportGroups -&gt; Maybe ReportGroupSortByType
-</span><a href="#local-6989586621679386450"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReportGroupSortByType
-</span><a href="#local-6989586621679386450"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386449"><span class="annot"><span class="annottext">s :: ListReportGroups
-</span><a href="#local-6989586621679386449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386448"><span class="annot"><span class="annottext">Maybe ReportGroupSortByType
-</span><a href="#local-6989586621679386448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportGroups
-</span><a href="#local-6989586621679386449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListReportGroups' :: Maybe ReportGroupSortByType
+</span><a href="#local-6989586621679386459"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReportGroupSortByType
+</span><a href="#local-6989586621679386459"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386458"><span class="annot"><span class="annottext">s :: ListReportGroups
+</span><a href="#local-6989586621679386458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386457"><span class="annot"><span class="annottext">Maybe ReportGroupSortByType
+</span><a href="#local-6989586621679386457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportGroups
+</span><a href="#local-6989586621679386458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListReportGroups' :: Maybe ReportGroupSortByType
 </span><a href="Network.AWS.CodeBuild.ListReportGroups.html#%24sel%3AsortBy%3AListReportGroups%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReportGroupSortByType
-</span><a href="#local-6989586621679386448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679386444"><span class="annot"><span class="annottext">page :: ListReportGroups
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679386453"><span class="annot"><span class="annottext">page :: ListReportGroups
 -&gt; AWSResponse ListReportGroups -&gt; Maybe ListReportGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679386442"><span class="annot"><span class="annottext">ListReportGroups
-</span><a href="#local-6989586621679386442"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679386441"><span class="annot"><span class="annottext">AWSResponse ListReportGroups
-</span><a href="#local-6989586621679386441"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679386451"><span class="annot"><span class="annottext">ListReportGroups
+</span><a href="#local-6989586621679386451"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679386450"><span class="annot"><span class="annottext">AWSResponse ListReportGroups
+</span><a href="#local-6989586621679386450"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-164"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListReportGroups
 ListReportGroupsResponse
-</span><a href="#local-6989586621679386441"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679386450"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">ListReportGroupsResponse
 -&gt; Getting (First Text) ListReportGroupsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -343,7 +343,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-170"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListReportGroups
 ListReportGroupsResponse
-</span><a href="#local-6989586621679386441"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679386450"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">ListReportGroupsResponse
 -&gt; Getting (First [Text]) ListReportGroupsResponse [Text]
 -&gt; Maybe [Text]
@@ -400,7 +400,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ListReportGroups
-</span><a href="#local-6989586621679386442"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679386451"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">ListReportGroups
 -&gt; (ListReportGroups -&gt; ListReportGroups) -&gt; ListReportGroups
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -414,7 +414,7 @@ Lens ListReportGroups ListReportGroups (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListReportGroups
 ListReportGroupsResponse
-</span><a href="#local-6989586621679386441"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679386450"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">ListReportGroupsResponse
 -&gt; Getting (First Text) ListReportGroupsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -439,12 +439,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-185"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-186"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse"><span class="hs-identifier hs-type">ListReportGroupsResponse</span></a></span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679386430"><span class="annot"><span class="annottext">request :: ListReportGroups -&gt; Request ListReportGroups
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679386439"><span class="annot"><span class="annottext">request :: ListReportGroups -&gt; Request ListReportGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListReportGroups -&gt; Request ListReportGroups
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeBuild.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679386426"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679386435"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListReportGroups
 -&gt; ClientResponse ClientBody
@@ -468,10 +468,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386423"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386423"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386422"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679386422"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386421"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386421"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679386432"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386432"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679386431"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679386431"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679386430"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679386430"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-192"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; ListReportGroupsResponse
 </span><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse%27"><span class="hs-identifier hs-var">ListReportGroupsResponse'</span></a></span><span>
@@ -482,7 +482,7 @@ MonadResource m =&gt;
      String (Maybe (NonEmpty Text) -&gt; Int -&gt; ListReportGroupsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386421"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679386430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -492,7 +492,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListReportGroupsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679386421"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679386430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;reportGroups&quot;</span></span><span class="hs-special">)</span><span>
@@ -504,15 +504,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386423"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386432"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386413"><span id="local-6989586621679386415"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span></span></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386422"><span id="local-6989586621679386424"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span></span></span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386410"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386419"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span></span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679386406"><span class="annot"><span class="annottext">toHeaders :: ListReportGroups -&gt; ResponseHeaders
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679386415"><span class="annot"><span class="annottext">toHeaders :: ListReportGroups -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-204"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListReportGroups -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -539,9 +539,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-214"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386396"><span id="local-6989586621679386398"><span id="local-6989586621679386400"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621679386394"><span class="annot"><span class="annottext">toJSON :: ListReportGroups -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386389"><span id="local-6989586621679386390"><span id="local-6989586621679386391"><span id="local-6989586621679386392"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386405"><span id="local-6989586621679386407"><span id="local-6989586621679386409"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679386403"><span class="annot"><span class="annottext">toJSON :: ListReportGroups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups%27"><span class="hs-identifier hs-type">ListReportGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386398"><span id="local-6989586621679386399"><span id="local-6989586621679386400"><span id="local-6989586621679386401"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe ReportGroupSortByType
 Maybe SortOrderType
@@ -553,7 +553,7 @@ $sel:sortBy:ListReportGroups' :: ListReportGroups -&gt; Maybe ReportGroupSortByT
 $sel:maxResults:ListReportGroups' :: ListReportGroups -&gt; Maybe Natural
 $sel:nextToken:ListReportGroups' :: ListReportGroups -&gt; Maybe Text
 $sel:sortOrder:ListReportGroups' :: ListReportGroups -&gt; Maybe SortOrderType
-</span><a href="#local-6989586621679386389"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679386398"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-220"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -565,21 +565,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrderType -&gt; Pair) -&gt; Maybe SortOrderType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrderType
-</span><a href="#local-6989586621679386392"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386401"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386391"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386400"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679386390"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386399"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReportGroupSortByType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -587,19 +587,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ReportGroupSortByType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReportGroupSortByType
-</span><a href="#local-6989586621679386389"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
+</span><a href="#local-6989586621679386398"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
 </span><span id="line-225"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-226"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679386383"><span class="annot"><span class="annottext">toPath :: ListReportGroups -&gt; ByteString
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679386392"><span class="annot"><span class="annottext">toPath :: ListReportGroups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListReportGroups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroups"><span class="hs-identifier hs-type">ListReportGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679386379"><span class="annot"><span class="annottext">toQuery :: ListReportGroups -&gt; QueryString
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679386388"><span class="annot"><span class="annottext">toQuery :: ListReportGroups -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListReportGroups -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -607,7 +607,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | /See:/ 'newListReportGroupsResponse' smart constructor.</span><span>
-</span><span id="line-235"></span><span id="local-6989586621679386376"><span id="local-6989586621679386377"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReportGroupsResponse"><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse"><span class="hs-identifier hs-var">ListReportGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReportGroupsResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse%27"><span class="hs-identifier hs-var">ListReportGroupsResponse'</span></a></span></span><span>
+</span><span id="line-235"></span><span id="local-6989586621679386385"><span id="local-6989586621679386386"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReportGroupsResponse"><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse"><span class="hs-identifier hs-var">ListReportGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReportGroupsResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse%27"><span class="hs-identifier hs-var">ListReportGroupsResponse'</span></a></span></span><span>
 </span><span id="line-236"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | During a previous call, the maximum number of items that can be returned</span><span>
 </span><span id="line-237"></span><span>    </span><span class="hs-comment">-- is the value specified in @maxResults@. If there more items in the list,</span><span>
 </span><span id="line-238"></span><span>    </span><span class="hs-comment">-- then a unique string called a /nextToken/ is returned. To get the next</span><span>
@@ -625,7 +625,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-248"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListReportGroupsResponse%27"><span class="annot"><span class="annottext">ListReportGroupsResponse -&gt; Int
 </span><a href="Network.AWS.CodeBuild.ListReportGroups.html#%24sel%3AhttpStatus%3AListReportGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-249"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-250"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386369"><span id="local-6989586621679386371"><span class="annot"><span class="annottext">ListReportGroupsResponse -&gt; ListReportGroupsResponse -&gt; Bool
+</span><span id="line-250"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386378"><span id="local-6989586621679386380"><span class="annot"><span class="annottext">ListReportGroupsResponse -&gt; ListReportGroupsResponse -&gt; Bool
 (ListReportGroupsResponse -&gt; ListReportGroupsResponse -&gt; Bool)
 -&gt; (ListReportGroupsResponse -&gt; ListReportGroupsResponse -&gt; Bool)
 -&gt; Eq ListReportGroupsResponse
@@ -634,7 +634,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListReportGroupsResponse -&gt; ListReportGroupsResponse -&gt; Bool
 == :: ListReportGroupsResponse -&gt; ListReportGroupsResponse -&gt; Bool
 $c== :: ListReportGroupsResponse -&gt; ListReportGroupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386361"><span id="local-6989586621679386363"><span id="local-6989586621679386365"><span id="local-6989586621679386367"><span class="annot"><span class="annottext">ReadPrec [ListReportGroupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386370"><span id="local-6989586621679386372"><span id="local-6989586621679386374"><span id="local-6989586621679386376"><span class="annot"><span class="annottext">ReadPrec [ListReportGroupsResponse]
 ReadPrec ListReportGroupsResponse
 Int -&gt; ReadS ListReportGroupsResponse
 ReadS [ListReportGroupsResponse]
@@ -654,7 +654,7 @@ readList :: ReadS [ListReportGroupsResponse]
 $creadList :: ReadS [ListReportGroupsResponse]
 readsPrec :: Int -&gt; ReadS ListReportGroupsResponse
 $creadsPrec :: Int -&gt; ReadS ListReportGroupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386355"><span id="local-6989586621679386357"><span id="local-6989586621679386359"><span class="annot"><span class="annottext">Int -&gt; ListReportGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386364"><span id="local-6989586621679386366"><span id="local-6989586621679386368"><span class="annot"><span class="annottext">Int -&gt; ListReportGroupsResponse -&gt; ShowS
 [ListReportGroupsResponse] -&gt; ShowS
 ListReportGroupsResponse -&gt; String
 (Int -&gt; ListReportGroupsResponse -&gt; ShowS)
@@ -711,8 +711,8 @@ ListReportGroupsResponse -&gt; Rep ListReportGroupsResponse x
 </span><span id="line-274"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-275"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse"><span class="hs-identifier hs-type">ListReportGroupsResponse</span></a></span><span>
 </span><span id="line-276"></span><span id="newListReportGroupsResponse"><span class="annot"><span class="annottext">newListReportGroupsResponse :: Int -&gt; ListReportGroupsResponse
-</span><a href="Network.AWS.CodeBuild.ListReportGroups.html#newListReportGroupsResponse"><span class="hs-identifier hs-var hs-var">newListReportGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679386352"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386352"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.ListReportGroups.html#newListReportGroupsResponse"><span class="hs-identifier hs-var hs-var">newListReportGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679386361"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386361"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-277"></span><span>  </span><span class="annot"><span class="annottext">ListReportGroupsResponse' :: Maybe Text
 -&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; ListReportGroupsResponse
 </span><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse%27"><span class="hs-identifier hs-type">ListReportGroupsResponse'</span></a></span><span>
@@ -727,7 +727,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListReportGroupsResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.ListReportGroups.html#%24sel%3AhttpStatus%3AListReportGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386352"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679386361"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-282"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-comment">-- | During a previous call, the maximum number of items that can be returned</span><span>
@@ -745,16 +745,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListReportGroupsResponse)
 -&gt; Lens' ListReportGroupsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse%27"><span class="hs-identifier hs-type">ListReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386351"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse%27"><span class="hs-identifier hs-type">ListReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386360"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListReportGroupsResponse' :: ListReportGroupsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679386351"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386351"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386350"><span class="annot"><span class="annottext">s :: ListReportGroupsResponse
-</span><a href="#local-6989586621679386350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse%27"><span class="hs-identifier hs-type">ListReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386349"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportGroupsResponse
-</span><a href="#local-6989586621679386350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListReportGroupsResponse' :: Maybe Text
+</span><a href="#local-6989586621679386360"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386360"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386359"><span class="annot"><span class="annottext">s :: ListReportGroupsResponse
+</span><a href="#local-6989586621679386359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse%27"><span class="hs-identifier hs-type">ListReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386358"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportGroupsResponse
+</span><a href="#local-6989586621679386359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListReportGroupsResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.ListReportGroups.html#%24sel%3AnextToken%3AListReportGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse"><span class="hs-identifier hs-type">ListReportGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse"><span class="hs-identifier hs-type">ListReportGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-293"></span><span>
 </span><span id="line-294"></span><span class="hs-comment">-- | The list of ARNs for the report groups in the current Amazon Web</span><span>
 </span><span id="line-295"></span><span class="hs-comment">-- Services account.</span><span>
@@ -766,16 +766,16 @@ $sel:nextToken:ListReportGroupsResponse' :: ListReportGroupsResponse -&gt; Maybe
     -&gt; Maybe (NonEmpty Text) -&gt; ListReportGroupsResponse)
 -&gt; Lens' ListReportGroupsResponse (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse%27"><span class="hs-identifier hs-type">ListReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386348"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse%27"><span class="hs-identifier hs-type">ListReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386357"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 reportGroups :: Maybe (NonEmpty Text)
 $sel:reportGroups:ListReportGroupsResponse' :: ListReportGroupsResponse -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679386348"><span class="hs-identifier hs-var hs-var">reportGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679386348"><span class="hs-identifier hs-var">reportGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386347"><span class="annot"><span class="annottext">s :: ListReportGroupsResponse
-</span><a href="#local-6989586621679386347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse%27"><span class="hs-identifier hs-type">ListReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386346"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679386346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportGroupsResponse
-</span><a href="#local-6989586621679386347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportGroups:ListReportGroupsResponse' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679386357"><span class="hs-identifier hs-var hs-var">reportGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679386357"><span class="hs-identifier hs-var">reportGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386356"><span class="annot"><span class="annottext">s :: ListReportGroupsResponse
+</span><a href="#local-6989586621679386356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse%27"><span class="hs-identifier hs-type">ListReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386355"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679386355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportGroupsResponse
+</span><a href="#local-6989586621679386356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportGroups:ListReportGroupsResponse' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.CodeBuild.ListReportGroups.html#%24sel%3AreportGroups%3AListReportGroupsResponse%27"><span class="hs-identifier hs-var">reportGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679386346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse"><span class="hs-identifier hs-type">ListReportGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679386355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse"><span class="hs-identifier hs-type">ListReportGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; ListReportGroupsResponse -&gt; f ListReportGroupsResponse)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -806,16 +806,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListReportGroupsResponse -&gt; Int -&gt; ListReportGroupsResponse)
 -&gt; Lens ListReportGroupsResponse ListReportGroupsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse%27"><span class="hs-identifier hs-type">ListReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386343"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse%27"><span class="hs-identifier hs-type">ListReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386352"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListReportGroupsResponse' :: ListReportGroupsResponse -&gt; Int
-</span><a href="#local-6989586621679386343"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386343"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386342"><span class="annot"><span class="annottext">s :: ListReportGroupsResponse
-</span><a href="#local-6989586621679386342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse%27"><span class="hs-identifier hs-type">ListReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386341"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportGroupsResponse
-</span><a href="#local-6989586621679386342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListReportGroupsResponse' :: Int
+</span><a href="#local-6989586621679386352"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386352"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386351"><span class="annot"><span class="annottext">s :: ListReportGroupsResponse
+</span><a href="#local-6989586621679386351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse%27"><span class="hs-identifier hs-type">ListReportGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386350"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679386350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReportGroupsResponse
+</span><a href="#local-6989586621679386351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListReportGroupsResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.ListReportGroups.html#%24sel%3AhttpStatus%3AListReportGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679386341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse"><span class="hs-identifier hs-type">ListReportGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse"><span class="hs-identifier hs-type">ListReportGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-302"></span><span>
-</span><span id="line-303"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386339"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse"><span class="hs-identifier hs-type">ListReportGroupsResponse</span></a></span></span><span>
+</span><span id="line-303"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386348"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListReportGroups.html#ListReportGroupsResponse"><span class="hs-identifier hs-type">ListReportGroupsResponse</span></a></span></span><span>
 </span><span id="line-304"></span></pre></body></html>

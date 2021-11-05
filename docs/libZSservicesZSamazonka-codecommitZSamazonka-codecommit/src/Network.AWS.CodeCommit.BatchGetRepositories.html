@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-comment">-- | Represents the input of a batch get repositories operation.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newBatchGetRepositories' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679371741"><span id="local-6989586621679371742"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetRepositories"><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories"><span class="hs-identifier hs-var">BatchGetRepositories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetRepositories%27"><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories%27"><span class="hs-identifier hs-var">BatchGetRepositories'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679371750"><span id="local-6989586621679371751"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetRepositories"><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories"><span class="hs-identifier hs-var">BatchGetRepositories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetRepositories%27"><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories%27"><span class="hs-identifier hs-var">BatchGetRepositories'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The names of the repositories to get information about.</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- The length constraint limit is for each string in the array. The array</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3ArepositoryNames%3ABatchGetRepositories%27"><span class="annot"><span class="annottext">BatchGetRepositories -&gt; [Text]
 </span><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#%24sel%3ArepositoryNames%3ABatchGetRepositories%27"><span class="hs-identifier hs-var hs-var">repositoryNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371735"><span id="local-6989586621679371737"><span class="annot"><span class="annottext">BatchGetRepositories -&gt; BatchGetRepositories -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371744"><span id="local-6989586621679371746"><span class="annot"><span class="annottext">BatchGetRepositories -&gt; BatchGetRepositories -&gt; Bool
 (BatchGetRepositories -&gt; BatchGetRepositories -&gt; Bool)
 -&gt; (BatchGetRepositories -&gt; BatchGetRepositories -&gt; Bool)
 -&gt; Eq BatchGetRepositories
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchGetRepositories -&gt; BatchGetRepositories -&gt; Bool
 == :: BatchGetRepositories -&gt; BatchGetRepositories -&gt; Bool
 $c== :: BatchGetRepositories -&gt; BatchGetRepositories -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371726"><span id="local-6989586621679371728"><span id="local-6989586621679371730"><span id="local-6989586621679371732"><span class="annot"><span class="annottext">ReadPrec [BatchGetRepositories]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371735"><span id="local-6989586621679371737"><span id="local-6989586621679371739"><span id="local-6989586621679371741"><span class="annot"><span class="annottext">ReadPrec [BatchGetRepositories]
 ReadPrec BatchGetRepositories
 Int -&gt; ReadS BatchGetRepositories
 ReadS [BatchGetRepositories]
@@ -94,7 +94,7 @@ readList :: ReadS [BatchGetRepositories]
 $creadList :: ReadS [BatchGetRepositories]
 readsPrec :: Int -&gt; ReadS BatchGetRepositories
 $creadsPrec :: Int -&gt; ReadS BatchGetRepositories
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371719"><span id="local-6989586621679371721"><span id="local-6989586621679371723"><span class="annot"><span class="annottext">Int -&gt; BatchGetRepositories -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371728"><span id="local-6989586621679371730"><span id="local-6989586621679371732"><span class="annot"><span class="annottext">Int -&gt; BatchGetRepositories -&gt; ShowS
 [BatchGetRepositories] -&gt; ShowS
 BatchGetRepositories -&gt; String
 (Int -&gt; BatchGetRepositories -&gt; ShowS)
@@ -156,16 +156,16 @@ forall a. Monoid a =&gt; a
 -&gt; (BatchGetRepositories -&gt; [Text] -&gt; BatchGetRepositories)
 -&gt; Lens BatchGetRepositories BatchGetRepositories [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories%27"><span class="hs-identifier hs-type">BatchGetRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371712"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories%27"><span class="hs-identifier hs-type">BatchGetRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371721"><span class="annot"><span class="annottext">[Text]
 repositoryNames :: [Text]
 $sel:repositoryNames:BatchGetRepositories' :: BatchGetRepositories -&gt; [Text]
-</span><a href="#local-6989586621679371712"><span class="hs-identifier hs-var hs-var">repositoryNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679371712"><span class="hs-identifier hs-var">repositoryNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371711"><span class="annot"><span class="annottext">s :: BatchGetRepositories
-</span><a href="#local-6989586621679371711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories%27"><span class="hs-identifier hs-type">BatchGetRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371710"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679371710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetRepositories
-</span><a href="#local-6989586621679371711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryNames:BatchGetRepositories' :: [Text]
+</span><a href="#local-6989586621679371721"><span class="hs-identifier hs-var hs-var">repositoryNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679371721"><span class="hs-identifier hs-var">repositoryNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371720"><span class="annot"><span class="annottext">s :: BatchGetRepositories
+</span><a href="#local-6989586621679371720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories%27"><span class="hs-identifier hs-type">BatchGetRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371719"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679371719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetRepositories
+</span><a href="#local-6989586621679371720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryNames:BatchGetRepositories' :: [Text]
 </span><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#%24sel%3ArepositoryNames%3ABatchGetRepositories%27"><span class="hs-identifier hs-var">repositoryNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679371710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories"><span class="hs-identifier hs-type">BatchGetRepositories</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679371719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories"><span class="hs-identifier hs-type">BatchGetRepositories</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; BatchGetRepositories -&gt; f BatchGetRepositories)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -180,12 +180,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories"><span class="hs-identifier hs-type">BatchGetRepositories</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679371704"><span class="annot"><span class="annottext">request :: BatchGetRepositories -&gt; Request BatchGetRepositories
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679371713"><span class="annot"><span class="annottext">request :: BatchGetRepositories -&gt; Request BatchGetRepositories
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchGetRepositories -&gt; Request BatchGetRepositories
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679371700"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679371709"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchGetRepositories
 -&gt; ClientResponse ClientBody
@@ -211,10 +211,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371697"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679371697"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679371696"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679371696"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679371695"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371695"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371706"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679371706"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679371705"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679371705"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679371704"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371704"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RepositoryMetadata]
 -&gt; Maybe [Text] -&gt; Int -&gt; BatchGetRepositoriesResponse
 </span><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse%27"><span class="hs-identifier hs-var">BatchGetRepositoriesResponse'</span></a></span><span>
@@ -225,7 +225,7 @@ MonadResource m =&gt;
      String (Maybe [Text] -&gt; Int -&gt; BatchGetRepositoriesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [RepositoryMetadata]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -241,7 +241,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; BatchGetRepositoriesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679371704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;repositoriesNotFound&quot;</span></span><span>
@@ -260,15 +260,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679371697"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371706"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371686"><span id="local-6989586621679371688"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories"><span class="hs-identifier hs-type">BatchGetRepositories</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371695"><span id="local-6989586621679371697"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories"><span class="hs-identifier hs-type">BatchGetRepositories</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371683"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories"><span class="hs-identifier hs-type">BatchGetRepositories</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371692"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories"><span class="hs-identifier hs-type">BatchGetRepositories</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories"><span class="hs-identifier hs-type">BatchGetRepositories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679371679"><span class="annot"><span class="annottext">toHeaders :: BatchGetRepositories -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679371688"><span class="annot"><span class="annottext">toHeaders :: BatchGetRepositories -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchGetRepositories -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -295,12 +295,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371669"><span id="local-6989586621679371671"><span id="local-6989586621679371673"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories"><span class="hs-identifier hs-type">BatchGetRepositories</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679371667"><span class="annot"><span class="annottext">toJSON :: BatchGetRepositories -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories%27"><span class="hs-identifier hs-type">BatchGetRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371665"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371678"><span id="local-6989586621679371680"><span id="local-6989586621679371682"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories"><span class="hs-identifier hs-type">BatchGetRepositories</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679371676"><span class="annot"><span class="annottext">toJSON :: BatchGetRepositories -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories%27"><span class="hs-identifier hs-type">BatchGetRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371674"><span class="annot"><span class="annottext">[Text]
 repositoryNames :: [Text]
 $sel:repositoryNames:BatchGetRepositories' :: BatchGetRepositories -&gt; [Text]
-</span><a href="#local-6989586621679371665"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679371674"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -313,19 +313,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679371665"><span class="hs-identifier hs-var">repositoryNames</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371674"><span class="hs-identifier hs-var">repositoryNames</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories"><span class="hs-identifier hs-type">BatchGetRepositories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679371659"><span class="annot"><span class="annottext">toPath :: BatchGetRepositories -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679371668"><span class="annot"><span class="annottext">toPath :: BatchGetRepositories -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchGetRepositories -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositories"><span class="hs-identifier hs-type">BatchGetRepositories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679371655"><span class="annot"><span class="annottext">toQuery :: BatchGetRepositories -&gt; QueryString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679371664"><span class="annot"><span class="annottext">toQuery :: BatchGetRepositories -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchGetRepositories -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -335,7 +335,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-146"></span><span class="hs-comment">-- | Represents the output of a batch get repositories operation.</span><span>
 </span><span id="line-147"></span><span class="hs-comment">--</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- /See:/ 'newBatchGetRepositoriesResponse' smart constructor.</span><span>
-</span><span id="line-149"></span><span id="local-6989586621679371652"><span id="local-6989586621679371653"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetRepositoriesResponse"><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse"><span class="hs-identifier hs-var">BatchGetRepositoriesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetRepositoriesResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse%27"><span class="hs-identifier hs-var">BatchGetRepositoriesResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span id="local-6989586621679371661"><span id="local-6989586621679371662"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetRepositoriesResponse"><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse"><span class="hs-identifier hs-var">BatchGetRepositoriesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetRepositoriesResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse%27"><span class="hs-identifier hs-var">BatchGetRepositoriesResponse'</span></a></span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of repositories returned by the batch get repositories operation.</span><span>
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3Arepositories%3ABatchGetRepositoriesResponse%27"><span class="annot"><span class="annottext">BatchGetRepositoriesResponse -&gt; Maybe [RepositoryMetadata]
 </span><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#%24sel%3Arepositories%3ABatchGetRepositoriesResponse%27"><span class="hs-identifier hs-var hs-var">repositories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryMetadata.html#RepositoryMetadata"><span class="hs-identifier hs-type">RepositoryMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -347,7 +347,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchGetRepositoriesResponse%27"><span class="annot"><span class="annottext">BatchGetRepositoriesResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#%24sel%3AhttpStatus%3ABatchGetRepositoriesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371645"><span id="local-6989586621679371647"><span class="annot"><span class="annottext">BatchGetRepositoriesResponse
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371654"><span id="local-6989586621679371656"><span class="annot"><span class="annottext">BatchGetRepositoriesResponse
 -&gt; BatchGetRepositoriesResponse -&gt; Bool
 (BatchGetRepositoriesResponse
  -&gt; BatchGetRepositoriesResponse -&gt; Bool)
@@ -363,7 +363,7 @@ $c/= :: BatchGetRepositoriesResponse
 -&gt; BatchGetRepositoriesResponse -&gt; Bool
 $c== :: BatchGetRepositoriesResponse
 -&gt; BatchGetRepositoriesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371637"><span id="local-6989586621679371639"><span id="local-6989586621679371641"><span id="local-6989586621679371643"><span class="annot"><span class="annottext">ReadPrec [BatchGetRepositoriesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371646"><span id="local-6989586621679371648"><span id="local-6989586621679371650"><span id="local-6989586621679371652"><span class="annot"><span class="annottext">ReadPrec [BatchGetRepositoriesResponse]
 ReadPrec BatchGetRepositoriesResponse
 Int -&gt; ReadS BatchGetRepositoriesResponse
 ReadS [BatchGetRepositoriesResponse]
@@ -383,7 +383,7 @@ readList :: ReadS [BatchGetRepositoriesResponse]
 $creadList :: ReadS [BatchGetRepositoriesResponse]
 readsPrec :: Int -&gt; ReadS BatchGetRepositoriesResponse
 $creadsPrec :: Int -&gt; ReadS BatchGetRepositoriesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371631"><span id="local-6989586621679371633"><span id="local-6989586621679371635"><span class="annot"><span class="annottext">Int -&gt; BatchGetRepositoriesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371640"><span id="local-6989586621679371642"><span id="local-6989586621679371644"><span class="annot"><span class="annottext">Int -&gt; BatchGetRepositoriesResponse -&gt; ShowS
 [BatchGetRepositoriesResponse] -&gt; ShowS
 BatchGetRepositoriesResponse -&gt; String
 (Int -&gt; BatchGetRepositoriesResponse -&gt; ShowS)
@@ -434,8 +434,8 @@ BatchGetRepositoriesResponse -&gt; Rep BatchGetRepositoriesResponse x
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse</span></a></span><span>
 </span><span id="line-178"></span><span id="newBatchGetRepositoriesResponse"><span class="annot"><span class="annottext">newBatchGetRepositoriesResponse :: Int -&gt; BatchGetRepositoriesResponse
-</span><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#newBatchGetRepositoriesResponse"><span class="hs-identifier hs-var hs-var">newBatchGetRepositoriesResponse</span></a></span></span><span> </span><span id="local-6989586621679371628"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679371628"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#newBatchGetRepositoriesResponse"><span class="hs-identifier hs-var hs-var">newBatchGetRepositoriesResponse</span></a></span></span><span> </span><span id="local-6989586621679371637"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679371637"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">BatchGetRepositoriesResponse' :: Maybe [RepositoryMetadata]
 -&gt; Maybe [Text] -&gt; Int -&gt; BatchGetRepositoriesResponse
 </span><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse%27"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse'</span></a></span><span>
@@ -450,7 +450,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetRepositoriesResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#%24sel%3AhttpStatus%3ABatchGetRepositoriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679371628"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679371637"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | A list of repositories returned by the batch get repositories operation.</span><span>
@@ -466,16 +466,16 @@ forall a. Maybe a
      (Maybe [RepositoryMetadata])
      (Maybe [RepositoryMetadata])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse%27"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371627"><span class="annot"><span class="annottext">Maybe [RepositoryMetadata]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse%27"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371636"><span class="annot"><span class="annottext">Maybe [RepositoryMetadata]
 repositories :: Maybe [RepositoryMetadata]
 $sel:repositories:BatchGetRepositoriesResponse' :: BatchGetRepositoriesResponse -&gt; Maybe [RepositoryMetadata]
-</span><a href="#local-6989586621679371627"><span class="hs-identifier hs-var hs-var">repositories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RepositoryMetadata]
-</span><a href="#local-6989586621679371627"><span class="hs-identifier hs-var">repositories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371626"><span class="annot"><span class="annottext">s :: BatchGetRepositoriesResponse
-</span><a href="#local-6989586621679371626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse%27"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371625"><span class="annot"><span class="annottext">Maybe [RepositoryMetadata]
-</span><a href="#local-6989586621679371625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetRepositoriesResponse
-</span><a href="#local-6989586621679371626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositories:BatchGetRepositoriesResponse' :: Maybe [RepositoryMetadata]
+</span><a href="#local-6989586621679371636"><span class="hs-identifier hs-var hs-var">repositories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RepositoryMetadata]
+</span><a href="#local-6989586621679371636"><span class="hs-identifier hs-var">repositories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371635"><span class="annot"><span class="annottext">s :: BatchGetRepositoriesResponse
+</span><a href="#local-6989586621679371635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse%27"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371634"><span class="annot"><span class="annottext">Maybe [RepositoryMetadata]
+</span><a href="#local-6989586621679371634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetRepositoriesResponse
+</span><a href="#local-6989586621679371635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositories:BatchGetRepositoriesResponse' :: Maybe [RepositoryMetadata]
 </span><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#%24sel%3Arepositories%3ABatchGetRepositoriesResponse%27"><span class="hs-identifier hs-var">repositories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RepositoryMetadata]
-</span><a href="#local-6989586621679371625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RepositoryMetadata] -&gt; f (Maybe [RepositoryMetadata]))
+</span><a href="#local-6989586621679371634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RepositoryMetadata] -&gt; f (Maybe [RepositoryMetadata]))
  -&gt; BatchGetRepositoriesResponse -&gt; f BatchGetRepositoriesResponse)
 -&gt; ((Maybe [RepositoryMetadata] -&gt; f (Maybe [RepositoryMetadata]))
     -&gt; Maybe [RepositoryMetadata] -&gt; f (Maybe [RepositoryMetadata]))
@@ -518,16 +518,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse%27"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371623"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse%27"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371632"><span class="annot"><span class="annottext">Maybe [Text]
 repositoriesNotFound :: Maybe [Text]
 $sel:repositoriesNotFound:BatchGetRepositoriesResponse' :: BatchGetRepositoriesResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679371623"><span class="hs-identifier hs-var hs-var">repositoriesNotFound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679371623"><span class="hs-identifier hs-var">repositoriesNotFound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371622"><span class="annot"><span class="annottext">s :: BatchGetRepositoriesResponse
-</span><a href="#local-6989586621679371622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse%27"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371621"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679371621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetRepositoriesResponse
-</span><a href="#local-6989586621679371622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoriesNotFound:BatchGetRepositoriesResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679371632"><span class="hs-identifier hs-var hs-var">repositoriesNotFound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679371632"><span class="hs-identifier hs-var">repositoriesNotFound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371631"><span class="annot"><span class="annottext">s :: BatchGetRepositoriesResponse
+</span><a href="#local-6989586621679371631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse%27"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371630"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679371630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetRepositoriesResponse
+</span><a href="#local-6989586621679371631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoriesNotFound:BatchGetRepositoriesResponse' :: Maybe [Text]
 </span><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#%24sel%3ArepositoriesNotFound%3ABatchGetRepositoriesResponse%27"><span class="hs-identifier hs-var">repositoriesNotFound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679371621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679371630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; BatchGetRepositoriesResponse -&gt; f BatchGetRepositoriesResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -554,16 +554,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      BatchGetRepositoriesResponse BatchGetRepositoriesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse%27"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371620"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse%27"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371629"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchGetRepositoriesResponse' :: BatchGetRepositoriesResponse -&gt; Int
-</span><a href="#local-6989586621679371620"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679371620"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371619"><span class="annot"><span class="annottext">s :: BatchGetRepositoriesResponse
-</span><a href="#local-6989586621679371619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse%27"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371618"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679371618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetRepositoriesResponse
-</span><a href="#local-6989586621679371619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetRepositoriesResponse' :: Int
+</span><a href="#local-6989586621679371629"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679371629"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371628"><span class="annot"><span class="annottext">s :: BatchGetRepositoriesResponse
+</span><a href="#local-6989586621679371628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse%27"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371627"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679371627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetRepositoriesResponse
+</span><a href="#local-6989586621679371628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetRepositoriesResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#%24sel%3AhttpStatus%3ABatchGetRepositoriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679371618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse</span></a></span></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.BatchGetRepositories.html#BatchGetRepositoriesResponse"><span class="hs-identifier hs-type">BatchGetRepositoriesResponse</span></a></span></span><span>
 </span><span id="line-200"></span></pre></body></html>

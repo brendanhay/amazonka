@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | This structure specifies the network configuration for an ECS task.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newNetworkConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679303332"><span id="local-6989586621679303333"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkConfiguration"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration"><span class="hs-identifier hs-var">NetworkConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkConfiguration%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration%27"><span class="hs-identifier hs-var">NetworkConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679303341"><span id="local-6989586621679303342"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkConfiguration"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration"><span class="hs-identifier hs-var">NetworkConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkConfiguration%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration%27"><span class="hs-identifier hs-var">NetworkConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this structure to specify the VPC subnets and security groups for</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the task, and whether a public IP address is to be used. This structure</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- is relevant only for ECS tasks that use the @awsvpc@ network mode.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AawsvpcConfiguration%3ANetworkConfiguration%27"><span class="annot"><span class="annottext">NetworkConfiguration -&gt; Maybe AwsVpcConfiguration
 </span><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#%24sel%3AawsvpcConfiguration%3ANetworkConfiguration%27"><span class="hs-identifier hs-var hs-var">awsvpcConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-type">AwsVpcConfiguration</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303326"><span id="local-6989586621679303328"><span class="annot"><span class="annottext">NetworkConfiguration -&gt; NetworkConfiguration -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303335"><span id="local-6989586621679303337"><span class="annot"><span class="annottext">NetworkConfiguration -&gt; NetworkConfiguration -&gt; Bool
 (NetworkConfiguration -&gt; NetworkConfiguration -&gt; Bool)
 -&gt; (NetworkConfiguration -&gt; NetworkConfiguration -&gt; Bool)
 -&gt; Eq NetworkConfiguration
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NetworkConfiguration -&gt; NetworkConfiguration -&gt; Bool
 == :: NetworkConfiguration -&gt; NetworkConfiguration -&gt; Bool
 $c== :: NetworkConfiguration -&gt; NetworkConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303317"><span id="local-6989586621679303319"><span id="local-6989586621679303321"><span id="local-6989586621679303323"><span class="annot"><span class="annottext">ReadPrec [NetworkConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303326"><span id="local-6989586621679303328"><span id="local-6989586621679303330"><span id="local-6989586621679303332"><span class="annot"><span class="annottext">ReadPrec [NetworkConfiguration]
 ReadPrec NetworkConfiguration
 Int -&gt; ReadS NetworkConfiguration
 ReadS [NetworkConfiguration]
@@ -63,7 +63,7 @@ readList :: ReadS [NetworkConfiguration]
 $creadList :: ReadS [NetworkConfiguration]
 readsPrec :: Int -&gt; ReadS NetworkConfiguration
 $creadsPrec :: Int -&gt; ReadS NetworkConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303310"><span id="local-6989586621679303312"><span id="local-6989586621679303314"><span class="annot"><span class="annottext">Int -&gt; NetworkConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303319"><span id="local-6989586621679303321"><span id="local-6989586621679303323"><span class="annot"><span class="annottext">Int -&gt; NetworkConfiguration -&gt; ShowS
 [NetworkConfiguration] -&gt; ShowS
 NetworkConfiguration -&gt; String
 (Int -&gt; NetworkConfiguration -&gt; ShowS)
@@ -128,19 +128,19 @@ forall a. Maybe a
      (Maybe AwsVpcConfiguration)
      (Maybe AwsVpcConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration%27"><span class="hs-identifier hs-type">NetworkConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303301"><span class="annot"><span class="annottext">Maybe AwsVpcConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration%27"><span class="hs-identifier hs-type">NetworkConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303310"><span class="annot"><span class="annottext">Maybe AwsVpcConfiguration
 awsvpcConfiguration :: Maybe AwsVpcConfiguration
 $sel:awsvpcConfiguration:NetworkConfiguration' :: NetworkConfiguration -&gt; Maybe AwsVpcConfiguration
-</span><a href="#local-6989586621679303301"><span class="hs-identifier hs-var hs-var">awsvpcConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsVpcConfiguration
-</span><a href="#local-6989586621679303301"><span class="hs-identifier hs-var">awsvpcConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303300"><span class="annot"><span class="annottext">s :: NetworkConfiguration
-</span><a href="#local-6989586621679303300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration%27"><span class="hs-identifier hs-type">NetworkConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303299"><span class="annot"><span class="annottext">Maybe AwsVpcConfiguration
-</span><a href="#local-6989586621679303299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkConfiguration
-</span><a href="#local-6989586621679303300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsvpcConfiguration:NetworkConfiguration' :: Maybe AwsVpcConfiguration
+</span><a href="#local-6989586621679303310"><span class="hs-identifier hs-var hs-var">awsvpcConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsVpcConfiguration
+</span><a href="#local-6989586621679303310"><span class="hs-identifier hs-var">awsvpcConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303309"><span class="annot"><span class="annottext">s :: NetworkConfiguration
+</span><a href="#local-6989586621679303309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration%27"><span class="hs-identifier hs-type">NetworkConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303308"><span class="annot"><span class="annottext">Maybe AwsVpcConfiguration
+</span><a href="#local-6989586621679303308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkConfiguration
+</span><a href="#local-6989586621679303309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsvpcConfiguration:NetworkConfiguration' :: Maybe AwsVpcConfiguration
 </span><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#%24sel%3AawsvpcConfiguration%3ANetworkConfiguration%27"><span class="hs-identifier hs-var">awsvpcConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsVpcConfiguration
-</span><a href="#local-6989586621679303299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration"><span class="hs-identifier hs-type">NetworkConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration"><span class="hs-identifier hs-type">NetworkConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303296"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration"><span class="hs-identifier hs-type">NetworkConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679303294"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NetworkConfiguration
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303305"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration"><span class="hs-identifier hs-type">NetworkConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679303303"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NetworkConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser NetworkConfiguration)
@@ -150,8 +150,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;NetworkConfiguration&quot;</span></span><span>
-</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303291"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303291"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303300"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303300"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Maybe AwsVpcConfiguration -&gt; NetworkConfiguration
 </span><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration%27"><span class="hs-identifier hs-var">NetworkConfiguration'</span></a></span><span>
 </span><span id="line-69"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AwsVpcConfiguration -&gt; NetworkConfiguration)
@@ -159,22 +159,22 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser NetworkConfiguration
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AwsVpcConfiguration)
+</span><a href="#local-6989586621679303300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AwsVpcConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;awsvpcConfiguration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303285"><span id="local-6989586621679303287"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration"><span class="hs-identifier hs-type">NetworkConfiguration</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303294"><span id="local-6989586621679303296"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration"><span class="hs-identifier hs-type">NetworkConfiguration</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration"><span class="hs-identifier hs-type">NetworkConfiguration</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303291"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration"><span class="hs-identifier hs-type">NetworkConfiguration</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303274"><span id="local-6989586621679303276"><span id="local-6989586621679303278"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration"><span class="hs-identifier hs-type">NetworkConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679303272"><span class="annot"><span class="annottext">toJSON :: NetworkConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration%27"><span class="hs-identifier hs-type">NetworkConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303270"><span class="annot"><span class="annottext">Maybe AwsVpcConfiguration
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303283"><span id="local-6989586621679303285"><span id="local-6989586621679303287"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration"><span class="hs-identifier hs-type">NetworkConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679303281"><span class="annot"><span class="annottext">toJSON :: NetworkConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.NetworkConfiguration.html#NetworkConfiguration%27"><span class="hs-identifier hs-type">NetworkConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303279"><span class="annot"><span class="annottext">Maybe AwsVpcConfiguration
 awsvpcConfiguration :: Maybe AwsVpcConfiguration
 $sel:awsvpcConfiguration:NetworkConfiguration' :: NetworkConfiguration -&gt; Maybe AwsVpcConfiguration
-</span><a href="#local-6989586621679303270"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679303279"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -188,7 +188,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AwsVpcConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsVpcConfiguration
-</span><a href="#local-6989586621679303270"><span class="hs-identifier hs-var">awsvpcConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679303279"><span class="hs-identifier hs-var">awsvpcConfiguration</span></a></span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span></pre></body></html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.LicenseManager.Types.TokenType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LicenseManager.Types.TokenType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.TokenType.html#TokenType"><span class="hs-identifier">TokenType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.TokenType.html#TokenType_REFRESH_TOKEN"><span class="hs-identifier">TokenType_REFRESH_TOKEN</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679303360"><span id="local-6989586621679303361"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TokenType"><span class="annot"><a href="Network.AWS.LicenseManager.Types.TokenType.html#TokenType"><span class="hs-identifier hs-var">TokenType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TokenType%27"><span class="annot"><a href="Network.AWS.LicenseManager.Types.TokenType.html#TokenType%27"><span class="hs-identifier hs-var">TokenType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTokenType"><span class="annot"><span class="annottext">TokenType -&gt; Text
+</span><a href="Network.AWS.LicenseManager.Types.TokenType.html#fromTokenType"><span class="hs-identifier hs-var hs-var">fromTokenType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679303352"><span id="local-6989586621679303354"><span id="local-6989586621679303356"><span class="annot"><span class="annottext">Int -&gt; TokenType -&gt; ShowS
+[TokenType] -&gt; ShowS
+TokenType -&gt; String
+(Int -&gt; TokenType -&gt; ShowS)
+-&gt; (TokenType -&gt; String)
+-&gt; ([TokenType] -&gt; ShowS)
+-&gt; Show TokenType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TokenType] -&gt; ShowS
+$cshowList :: [TokenType] -&gt; ShowS
+show :: TokenType -&gt; String
+$cshow :: TokenType -&gt; String
+showsPrec :: Int -&gt; TokenType -&gt; ShowS
+$cshowsPrec :: Int -&gt; TokenType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679303343"><span id="local-6989586621679303345"><span id="local-6989586621679303347"><span id="local-6989586621679303349"><span class="annot"><span class="annottext">ReadPrec [TokenType]
+ReadPrec TokenType
+Int -&gt; ReadS TokenType
+ReadS [TokenType]
+(Int -&gt; ReadS TokenType)
+-&gt; ReadS [TokenType]
+-&gt; ReadPrec TokenType
+-&gt; ReadPrec [TokenType]
+-&gt; Read TokenType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TokenType]
+$creadListPrec :: ReadPrec [TokenType]
+readPrec :: ReadPrec TokenType
+$creadPrec :: ReadPrec TokenType
+readList :: ReadS [TokenType]
+$creadList :: ReadS [TokenType]
+readsPrec :: Int -&gt; ReadS TokenType
+$creadsPrec :: Int -&gt; ReadS TokenType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679303338"><span id="local-6989586621679303340"><span class="annot"><span class="annottext">TokenType -&gt; TokenType -&gt; Bool
+(TokenType -&gt; TokenType -&gt; Bool)
+-&gt; (TokenType -&gt; TokenType -&gt; Bool) -&gt; Eq TokenType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TokenType -&gt; TokenType -&gt; Bool
+$c/= :: TokenType -&gt; TokenType -&gt; Bool
+== :: TokenType -&gt; TokenType -&gt; Bool
+$c== :: TokenType -&gt; TokenType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679303322"><span id="local-6989586621679303324"><span id="local-6989586621679303326"><span id="local-6989586621679303328"><span id="local-6989586621679303330"><span id="local-6989586621679303332"><span id="local-6989586621679303334"><span class="annot"><span class="annottext">Eq TokenType
+Eq TokenType
+-&gt; (TokenType -&gt; TokenType -&gt; Ordering)
+-&gt; (TokenType -&gt; TokenType -&gt; Bool)
+-&gt; (TokenType -&gt; TokenType -&gt; Bool)
+-&gt; (TokenType -&gt; TokenType -&gt; Bool)
+-&gt; (TokenType -&gt; TokenType -&gt; Bool)
+-&gt; (TokenType -&gt; TokenType -&gt; TokenType)
+-&gt; (TokenType -&gt; TokenType -&gt; TokenType)
+-&gt; Ord TokenType
+TokenType -&gt; TokenType -&gt; Bool
+TokenType -&gt; TokenType -&gt; Ordering
+TokenType -&gt; TokenType -&gt; TokenType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TokenType -&gt; TokenType -&gt; TokenType
+$cmin :: TokenType -&gt; TokenType -&gt; TokenType
+max :: TokenType -&gt; TokenType -&gt; TokenType
+$cmax :: TokenType -&gt; TokenType -&gt; TokenType
+&gt;= :: TokenType -&gt; TokenType -&gt; Bool
+$c&gt;= :: TokenType -&gt; TokenType -&gt; Bool
+&gt; :: TokenType -&gt; TokenType -&gt; Bool
+$c&gt; :: TokenType -&gt; TokenType -&gt; Bool
+&lt;= :: TokenType -&gt; TokenType -&gt; Bool
+$c&lt;= :: TokenType -&gt; TokenType -&gt; Bool
+&lt; :: TokenType -&gt; TokenType -&gt; Bool
+$c&lt; :: TokenType -&gt; TokenType -&gt; Bool
+compare :: TokenType -&gt; TokenType -&gt; Ordering
+$ccompare :: TokenType -&gt; TokenType -&gt; Ordering
+$cp1Ord :: Eq TokenType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TokenType -&gt; Rep TokenType x)
+-&gt; (forall x. Rep TokenType x -&gt; TokenType) -&gt; Generic TokenType
+forall x. Rep TokenType x -&gt; TokenType
+forall x. TokenType -&gt; Rep TokenType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TokenType x -&gt; TokenType
+$cfrom :: forall x. TokenType -&gt; Rep TokenType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679303314"><span id="local-6989586621679303316"><span class="annot"><span class="annottext">Int -&gt; TokenType -&gt; Int
+TokenType -&gt; Int
+(Int -&gt; TokenType -&gt; Int)
+-&gt; (TokenType -&gt; Int) -&gt; Hashable TokenType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TokenType -&gt; Int
+$chash :: TokenType -&gt; Int
+hashWithSalt :: Int -&gt; TokenType -&gt; Int
+$chashWithSalt :: Int -&gt; TokenType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679303311"><span class="annot"><span class="annottext">TokenType -&gt; ()
+(TokenType -&gt; ()) -&gt; NFData TokenType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TokenType -&gt; ()
+$crnf :: TokenType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679303308"><span class="annot"><span class="annottext">Text -&gt; Either String TokenType
+(Text -&gt; Either String TokenType) -&gt; FromText TokenType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TokenType
+$cfromText :: Text -&gt; Either String TokenType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679303305"><span class="annot"><span class="annottext">TokenType -&gt; Text
+(TokenType -&gt; Text) -&gt; ToText TokenType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TokenType -&gt; Text
+$ctoText :: TokenType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679303302"><span class="annot"><span class="annottext">TokenType -&gt; ByteString
+(TokenType -&gt; ByteString) -&gt; ToByteString TokenType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TokenType -&gt; ByteString
+$ctoBS :: TokenType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679303299"><span class="annot"><span class="annottext">TokenType -&gt; ByteStringBuilder
+(TokenType -&gt; ByteStringBuilder) -&gt; ToLog TokenType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TokenType -&gt; ByteStringBuilder
+$cbuild :: TokenType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679303296"><span class="annot"><span class="annottext">HeaderName -&gt; TokenType -&gt; [Header]
+(HeaderName -&gt; TokenType -&gt; [Header]) -&gt; ToHeader TokenType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TokenType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TokenType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679303293"><span class="annot"><span class="annottext">TokenType -&gt; QueryString
+(TokenType -&gt; QueryString) -&gt; ToQuery TokenType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TokenType -&gt; QueryString
+$ctoQuery :: TokenType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679303288"><span id="local-6989586621679303290"><span class="annot"><span class="annottext">Value -&gt; Parser [TokenType]
+Value -&gt; Parser TokenType
+(Value -&gt; Parser TokenType)
+-&gt; (Value -&gt; Parser [TokenType]) -&gt; FromJSON TokenType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TokenType]
+$cparseJSONList :: Value -&gt; Parser [TokenType]
+parseJSON :: Value -&gt; Parser TokenType
+$cparseJSON :: Value -&gt; Parser TokenType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679303283"><span id="local-6989586621679303285"><span class="annot"><span class="annottext">FromJSONKeyFunction [TokenType]
+FromJSONKeyFunction TokenType
+FromJSONKeyFunction TokenType
+-&gt; FromJSONKeyFunction [TokenType] -&gt; FromJSONKey TokenType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TokenType]
+$cfromJSONKeyList :: FromJSONKeyFunction [TokenType]
+fromJSONKey :: FromJSONKeyFunction TokenType
+$cfromJSONKey :: FromJSONKeyFunction TokenType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679303274"><span id="local-6989586621679303276"><span id="local-6989586621679303278"><span id="local-6989586621679303280"><span class="annot"><span class="annottext">[TokenType] -&gt; Encoding
+[TokenType] -&gt; Value
+TokenType -&gt; Encoding
+TokenType -&gt; Value
+(TokenType -&gt; Value)
+-&gt; (TokenType -&gt; Encoding)
+-&gt; ([TokenType] -&gt; Value)
+-&gt; ([TokenType] -&gt; Encoding)
+-&gt; ToJSON TokenType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TokenType] -&gt; Encoding
+$ctoEncodingList :: [TokenType] -&gt; Encoding
+toJSONList :: [TokenType] -&gt; Value
+$ctoJSONList :: [TokenType] -&gt; Value
+toEncoding :: TokenType -&gt; Encoding
+$ctoEncoding :: TokenType -&gt; Encoding
+toJSON :: TokenType -&gt; Value
+$ctoJSON :: TokenType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679303269"><span id="local-6989586621679303271"><span class="annot"><span class="annottext">ToJSONKeyFunction [TokenType]
+ToJSONKeyFunction TokenType
+ToJSONKeyFunction TokenType
+-&gt; ToJSONKeyFunction [TokenType] -&gt; ToJSONKey TokenType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TokenType]
+$ctoJSONKeyList :: ToJSONKeyFunction [TokenType]
+toJSONKey :: ToJSONKeyFunction TokenType
+$ctoJSONKey :: ToJSONKeyFunction TokenType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679303266"><span class="annot"><span class="annottext">[Node] -&gt; Either String TokenType
+([Node] -&gt; Either String TokenType) -&gt; FromXML TokenType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TokenType
+$cparseXML :: [Node] -&gt; Either String TokenType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679303263"><span class="annot"><span class="annottext">TokenType -&gt; XML
+(TokenType -&gt; XML) -&gt; ToXML TokenType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TokenType -&gt; XML
+$ctoXML :: TokenType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.TokenType.html#TokenType_REFRESH_TOKEN"><span class="hs-identifier hs-type">TokenType_REFRESH_TOKEN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.TokenType.html#TokenType"><span class="hs-identifier hs-type">TokenType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTokenType_REFRESH_TOKEN"><span id="%24mTokenType_REFRESH_TOKEN"><span id="TokenType_REFRESH_TOKEN"><span class="annot"><span class="annottext">$bTokenType_REFRESH_TOKEN :: TokenType
+$mTokenType_REFRESH_TOKEN :: forall r. TokenType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.TokenType.html#%24bTokenType_REFRESH_TOKEN"><span class="hs-identifier hs-var hs-var hs-var">TokenType_REFRESH_TOKEN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.TokenType.html#TokenType%27"><span class="hs-identifier hs-type">TokenType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REFRESH_TOKEN&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.TokenType.html#TokenType_REFRESH_TOKEN"><span class="hs-pragma hs-type">TokenType_REFRESH_TOKEN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.TokenType.html#TokenType%27"><span class="hs-pragma hs-type">TokenType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

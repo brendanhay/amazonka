@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.DataSetImportMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.DataSetImportMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#DataSetImportMode"><span class="hs-identifier">DataSetImportMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#DataSetImportMode_DIRECT_QUERY"><span class="hs-identifier">DataSetImportMode_DIRECT_QUERY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#DataSetImportMode_SPICE"><span class="hs-identifier">DataSetImportMode_SPICE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679552508"><span id="local-6989586621679552509"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataSetImportMode"><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#DataSetImportMode"><span class="hs-identifier hs-var">DataSetImportMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataSetImportMode%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#DataSetImportMode%27"><span class="hs-identifier hs-var">DataSetImportMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDataSetImportMode"><span class="annot"><span class="annottext">DataSetImportMode -&gt; Text
+</span><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#fromDataSetImportMode"><span class="hs-identifier hs-var hs-var">fromDataSetImportMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679552500"><span id="local-6989586621679552502"><span id="local-6989586621679552504"><span class="annot"><span class="annottext">Int -&gt; DataSetImportMode -&gt; ShowS
+[DataSetImportMode] -&gt; ShowS
+DataSetImportMode -&gt; String
+(Int -&gt; DataSetImportMode -&gt; ShowS)
+-&gt; (DataSetImportMode -&gt; String)
+-&gt; ([DataSetImportMode] -&gt; ShowS)
+-&gt; Show DataSetImportMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataSetImportMode] -&gt; ShowS
+$cshowList :: [DataSetImportMode] -&gt; ShowS
+show :: DataSetImportMode -&gt; String
+$cshow :: DataSetImportMode -&gt; String
+showsPrec :: Int -&gt; DataSetImportMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataSetImportMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679552491"><span id="local-6989586621679552493"><span id="local-6989586621679552495"><span id="local-6989586621679552497"><span class="annot"><span class="annottext">ReadPrec [DataSetImportMode]
+ReadPrec DataSetImportMode
+Int -&gt; ReadS DataSetImportMode
+ReadS [DataSetImportMode]
+(Int -&gt; ReadS DataSetImportMode)
+-&gt; ReadS [DataSetImportMode]
+-&gt; ReadPrec DataSetImportMode
+-&gt; ReadPrec [DataSetImportMode]
+-&gt; Read DataSetImportMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataSetImportMode]
+$creadListPrec :: ReadPrec [DataSetImportMode]
+readPrec :: ReadPrec DataSetImportMode
+$creadPrec :: ReadPrec DataSetImportMode
+readList :: ReadS [DataSetImportMode]
+$creadList :: ReadS [DataSetImportMode]
+readsPrec :: Int -&gt; ReadS DataSetImportMode
+$creadsPrec :: Int -&gt; ReadS DataSetImportMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679552486"><span id="local-6989586621679552488"><span class="annot"><span class="annottext">DataSetImportMode -&gt; DataSetImportMode -&gt; Bool
+(DataSetImportMode -&gt; DataSetImportMode -&gt; Bool)
+-&gt; (DataSetImportMode -&gt; DataSetImportMode -&gt; Bool)
+-&gt; Eq DataSetImportMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataSetImportMode -&gt; DataSetImportMode -&gt; Bool
+$c/= :: DataSetImportMode -&gt; DataSetImportMode -&gt; Bool
+== :: DataSetImportMode -&gt; DataSetImportMode -&gt; Bool
+$c== :: DataSetImportMode -&gt; DataSetImportMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679552470"><span id="local-6989586621679552472"><span id="local-6989586621679552474"><span id="local-6989586621679552476"><span id="local-6989586621679552478"><span id="local-6989586621679552480"><span id="local-6989586621679552482"><span class="annot"><span class="annottext">Eq DataSetImportMode
+Eq DataSetImportMode
+-&gt; (DataSetImportMode -&gt; DataSetImportMode -&gt; Ordering)
+-&gt; (DataSetImportMode -&gt; DataSetImportMode -&gt; Bool)
+-&gt; (DataSetImportMode -&gt; DataSetImportMode -&gt; Bool)
+-&gt; (DataSetImportMode -&gt; DataSetImportMode -&gt; Bool)
+-&gt; (DataSetImportMode -&gt; DataSetImportMode -&gt; Bool)
+-&gt; (DataSetImportMode -&gt; DataSetImportMode -&gt; DataSetImportMode)
+-&gt; (DataSetImportMode -&gt; DataSetImportMode -&gt; DataSetImportMode)
+-&gt; Ord DataSetImportMode
+DataSetImportMode -&gt; DataSetImportMode -&gt; Bool
+DataSetImportMode -&gt; DataSetImportMode -&gt; Ordering
+DataSetImportMode -&gt; DataSetImportMode -&gt; DataSetImportMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DataSetImportMode -&gt; DataSetImportMode -&gt; DataSetImportMode
+$cmin :: DataSetImportMode -&gt; DataSetImportMode -&gt; DataSetImportMode
+max :: DataSetImportMode -&gt; DataSetImportMode -&gt; DataSetImportMode
+$cmax :: DataSetImportMode -&gt; DataSetImportMode -&gt; DataSetImportMode
+&gt;= :: DataSetImportMode -&gt; DataSetImportMode -&gt; Bool
+$c&gt;= :: DataSetImportMode -&gt; DataSetImportMode -&gt; Bool
+&gt; :: DataSetImportMode -&gt; DataSetImportMode -&gt; Bool
+$c&gt; :: DataSetImportMode -&gt; DataSetImportMode -&gt; Bool
+&lt;= :: DataSetImportMode -&gt; DataSetImportMode -&gt; Bool
+$c&lt;= :: DataSetImportMode -&gt; DataSetImportMode -&gt; Bool
+&lt; :: DataSetImportMode -&gt; DataSetImportMode -&gt; Bool
+$c&lt; :: DataSetImportMode -&gt; DataSetImportMode -&gt; Bool
+compare :: DataSetImportMode -&gt; DataSetImportMode -&gt; Ordering
+$ccompare :: DataSetImportMode -&gt; DataSetImportMode -&gt; Ordering
+$cp1Ord :: Eq DataSetImportMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DataSetImportMode -&gt; Rep DataSetImportMode x)
+-&gt; (forall x. Rep DataSetImportMode x -&gt; DataSetImportMode)
+-&gt; Generic DataSetImportMode
+forall x. Rep DataSetImportMode x -&gt; DataSetImportMode
+forall x. DataSetImportMode -&gt; Rep DataSetImportMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DataSetImportMode x -&gt; DataSetImportMode
+$cfrom :: forall x. DataSetImportMode -&gt; Rep DataSetImportMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679552462"><span id="local-6989586621679552464"><span class="annot"><span class="annottext">Int -&gt; DataSetImportMode -&gt; Int
+DataSetImportMode -&gt; Int
+(Int -&gt; DataSetImportMode -&gt; Int)
+-&gt; (DataSetImportMode -&gt; Int) -&gt; Hashable DataSetImportMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DataSetImportMode -&gt; Int
+$chash :: DataSetImportMode -&gt; Int
+hashWithSalt :: Int -&gt; DataSetImportMode -&gt; Int
+$chashWithSalt :: Int -&gt; DataSetImportMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679552459"><span class="annot"><span class="annottext">DataSetImportMode -&gt; ()
+(DataSetImportMode -&gt; ()) -&gt; NFData DataSetImportMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DataSetImportMode -&gt; ()
+$crnf :: DataSetImportMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679552456"><span class="annot"><span class="annottext">Text -&gt; Either String DataSetImportMode
+(Text -&gt; Either String DataSetImportMode)
+-&gt; FromText DataSetImportMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DataSetImportMode
+$cfromText :: Text -&gt; Either String DataSetImportMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679552453"><span class="annot"><span class="annottext">DataSetImportMode -&gt; Text
+(DataSetImportMode -&gt; Text) -&gt; ToText DataSetImportMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DataSetImportMode -&gt; Text
+$ctoText :: DataSetImportMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679552450"><span class="annot"><span class="annottext">DataSetImportMode -&gt; ByteString
+(DataSetImportMode -&gt; ByteString) -&gt; ToByteString DataSetImportMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DataSetImportMode -&gt; ByteString
+$ctoBS :: DataSetImportMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679552447"><span class="annot"><span class="annottext">DataSetImportMode -&gt; ByteStringBuilder
+(DataSetImportMode -&gt; ByteStringBuilder) -&gt; ToLog DataSetImportMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DataSetImportMode -&gt; ByteStringBuilder
+$cbuild :: DataSetImportMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679552444"><span class="annot"><span class="annottext">HeaderName -&gt; DataSetImportMode -&gt; [Header]
+(HeaderName -&gt; DataSetImportMode -&gt; [Header])
+-&gt; ToHeader DataSetImportMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DataSetImportMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DataSetImportMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679552441"><span class="annot"><span class="annottext">DataSetImportMode -&gt; QueryString
+(DataSetImportMode -&gt; QueryString) -&gt; ToQuery DataSetImportMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DataSetImportMode -&gt; QueryString
+$ctoQuery :: DataSetImportMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679552436"><span id="local-6989586621679552438"><span class="annot"><span class="annottext">Value -&gt; Parser [DataSetImportMode]
+Value -&gt; Parser DataSetImportMode
+(Value -&gt; Parser DataSetImportMode)
+-&gt; (Value -&gt; Parser [DataSetImportMode])
+-&gt; FromJSON DataSetImportMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DataSetImportMode]
+$cparseJSONList :: Value -&gt; Parser [DataSetImportMode]
+parseJSON :: Value -&gt; Parser DataSetImportMode
+$cparseJSON :: Value -&gt; Parser DataSetImportMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679552431"><span id="local-6989586621679552433"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataSetImportMode]
+FromJSONKeyFunction DataSetImportMode
+FromJSONKeyFunction DataSetImportMode
+-&gt; FromJSONKeyFunction [DataSetImportMode]
+-&gt; FromJSONKey DataSetImportMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DataSetImportMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [DataSetImportMode]
+fromJSONKey :: FromJSONKeyFunction DataSetImportMode
+$cfromJSONKey :: FromJSONKeyFunction DataSetImportMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679552422"><span id="local-6989586621679552424"><span id="local-6989586621679552426"><span id="local-6989586621679552428"><span class="annot"><span class="annottext">[DataSetImportMode] -&gt; Encoding
+[DataSetImportMode] -&gt; Value
+DataSetImportMode -&gt; Encoding
+DataSetImportMode -&gt; Value
+(DataSetImportMode -&gt; Value)
+-&gt; (DataSetImportMode -&gt; Encoding)
+-&gt; ([DataSetImportMode] -&gt; Value)
+-&gt; ([DataSetImportMode] -&gt; Encoding)
+-&gt; ToJSON DataSetImportMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DataSetImportMode] -&gt; Encoding
+$ctoEncodingList :: [DataSetImportMode] -&gt; Encoding
+toJSONList :: [DataSetImportMode] -&gt; Value
+$ctoJSONList :: [DataSetImportMode] -&gt; Value
+toEncoding :: DataSetImportMode -&gt; Encoding
+$ctoEncoding :: DataSetImportMode -&gt; Encoding
+toJSON :: DataSetImportMode -&gt; Value
+$ctoJSON :: DataSetImportMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679552417"><span id="local-6989586621679552419"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataSetImportMode]
+ToJSONKeyFunction DataSetImportMode
+ToJSONKeyFunction DataSetImportMode
+-&gt; ToJSONKeyFunction [DataSetImportMode]
+-&gt; ToJSONKey DataSetImportMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DataSetImportMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [DataSetImportMode]
+toJSONKey :: ToJSONKeyFunction DataSetImportMode
+$ctoJSONKey :: ToJSONKeyFunction DataSetImportMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679552414"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataSetImportMode
+([Node] -&gt; Either String DataSetImportMode)
+-&gt; FromXML DataSetImportMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DataSetImportMode
+$cparseXML :: [Node] -&gt; Either String DataSetImportMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679552411"><span class="annot"><span class="annottext">DataSetImportMode -&gt; XML
+(DataSetImportMode -&gt; XML) -&gt; ToXML DataSetImportMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DataSetImportMode -&gt; XML
+$ctoXML :: DataSetImportMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#DataSetImportMode_DIRECT_QUERY"><span class="hs-identifier hs-type">DataSetImportMode_DIRECT_QUERY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#DataSetImportMode"><span class="hs-identifier hs-type">DataSetImportMode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSetImportMode_DIRECT_QUERY"><span id="%24mDataSetImportMode_DIRECT_QUERY"><span id="DataSetImportMode_DIRECT_QUERY"><span class="annot"><span class="annottext">$bDataSetImportMode_DIRECT_QUERY :: DataSetImportMode
+$mDataSetImportMode_DIRECT_QUERY :: forall r. DataSetImportMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#%24bDataSetImportMode_DIRECT_QUERY"><span class="hs-identifier hs-var hs-var hs-var">DataSetImportMode_DIRECT_QUERY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#DataSetImportMode%27"><span class="hs-identifier hs-type">DataSetImportMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DIRECT_QUERY&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#DataSetImportMode_SPICE"><span class="hs-identifier hs-type">DataSetImportMode_SPICE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#DataSetImportMode"><span class="hs-identifier hs-type">DataSetImportMode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSetImportMode_SPICE"><span id="%24mDataSetImportMode_SPICE"><span id="DataSetImportMode_SPICE"><span class="annot"><span class="annottext">$bDataSetImportMode_SPICE :: DataSetImportMode
+$mDataSetImportMode_SPICE :: forall r. DataSetImportMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#%24bDataSetImportMode_SPICE"><span class="hs-identifier hs-var hs-var hs-var">DataSetImportMode_SPICE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#DataSetImportMode%27"><span class="hs-identifier hs-type">DataSetImportMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPICE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#DataSetImportMode_DIRECT_QUERY"><span class="hs-pragma hs-type">DataSetImportMode_DIRECT_QUERY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#DataSetImportMode_SPICE"><span class="hs-pragma hs-type">DataSetImportMode_SPICE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetImportMode.html#DataSetImportMode%27"><span class="hs-pragma hs-type">DataSetImportMode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

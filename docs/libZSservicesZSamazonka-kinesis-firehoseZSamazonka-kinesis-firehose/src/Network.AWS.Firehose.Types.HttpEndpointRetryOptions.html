@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- HTTP endpoint destination.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newHttpEndpointRetryOptions' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679271859"><span id="local-6989586621679271860"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpEndpointRetryOptions"><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions"><span class="hs-identifier hs-var">HttpEndpointRetryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpEndpointRetryOptions%27"><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions%27"><span class="hs-identifier hs-var">HttpEndpointRetryOptions'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679271868"><span id="local-6989586621679271869"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpEndpointRetryOptions"><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions"><span class="hs-identifier hs-var">HttpEndpointRetryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpEndpointRetryOptions%27"><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions%27"><span class="hs-identifier hs-var">HttpEndpointRetryOptions'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total amount of time that Kinesis Data Firehose spends on retries.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- This duration starts after the initial attempt to send data to the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- custom destination via HTTPS endpoint fails. It doesn\'t include the</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AdurationInSeconds%3AHttpEndpointRetryOptions%27"><span class="annot"><span class="annottext">HttpEndpointRetryOptions -&gt; Maybe Natural
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#%24sel%3AdurationInSeconds%3AHttpEndpointRetryOptions%27"><span class="hs-identifier hs-var hs-var">durationInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271853"><span id="local-6989586621679271855"><span class="annot"><span class="annottext">HttpEndpointRetryOptions -&gt; HttpEndpointRetryOptions -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271862"><span id="local-6989586621679271864"><span class="annot"><span class="annottext">HttpEndpointRetryOptions -&gt; HttpEndpointRetryOptions -&gt; Bool
 (HttpEndpointRetryOptions -&gt; HttpEndpointRetryOptions -&gt; Bool)
 -&gt; (HttpEndpointRetryOptions -&gt; HttpEndpointRetryOptions -&gt; Bool)
 -&gt; Eq HttpEndpointRetryOptions
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HttpEndpointRetryOptions -&gt; HttpEndpointRetryOptions -&gt; Bool
 == :: HttpEndpointRetryOptions -&gt; HttpEndpointRetryOptions -&gt; Bool
 $c== :: HttpEndpointRetryOptions -&gt; HttpEndpointRetryOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271844"><span id="local-6989586621679271846"><span id="local-6989586621679271848"><span id="local-6989586621679271850"><span class="annot"><span class="annottext">ReadPrec [HttpEndpointRetryOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271853"><span id="local-6989586621679271855"><span id="local-6989586621679271857"><span id="local-6989586621679271859"><span class="annot"><span class="annottext">ReadPrec [HttpEndpointRetryOptions]
 ReadPrec HttpEndpointRetryOptions
 Int -&gt; ReadS HttpEndpointRetryOptions
 ReadS [HttpEndpointRetryOptions]
@@ -67,7 +67,7 @@ readList :: ReadS [HttpEndpointRetryOptions]
 $creadList :: ReadS [HttpEndpointRetryOptions]
 readsPrec :: Int -&gt; ReadS HttpEndpointRetryOptions
 $creadsPrec :: Int -&gt; ReadS HttpEndpointRetryOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271837"><span id="local-6989586621679271839"><span id="local-6989586621679271841"><span class="annot"><span class="annottext">Int -&gt; HttpEndpointRetryOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271846"><span id="local-6989586621679271848"><span id="local-6989586621679271850"><span class="annot"><span class="annottext">Int -&gt; HttpEndpointRetryOptions -&gt; ShowS
 [HttpEndpointRetryOptions] -&gt; ShowS
 HttpEndpointRetryOptions -&gt; String
 (Int -&gt; HttpEndpointRetryOptions -&gt; ShowS)
@@ -142,19 +142,19 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions%27"><span class="hs-identifier hs-type">HttpEndpointRetryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271828"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions%27"><span class="hs-identifier hs-type">HttpEndpointRetryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271837"><span class="annot"><span class="annottext">Maybe Natural
 durationInSeconds :: Maybe Natural
 $sel:durationInSeconds:HttpEndpointRetryOptions' :: HttpEndpointRetryOptions -&gt; Maybe Natural
-</span><a href="#local-6989586621679271828"><span class="hs-identifier hs-var hs-var">durationInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679271828"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271827"><span class="annot"><span class="annottext">s :: HttpEndpointRetryOptions
-</span><a href="#local-6989586621679271827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions%27"><span class="hs-identifier hs-type">HttpEndpointRetryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271826"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679271826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointRetryOptions
-</span><a href="#local-6989586621679271827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInSeconds:HttpEndpointRetryOptions' :: Maybe Natural
+</span><a href="#local-6989586621679271837"><span class="hs-identifier hs-var hs-var">durationInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679271837"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271836"><span class="annot"><span class="annottext">s :: HttpEndpointRetryOptions
+</span><a href="#local-6989586621679271836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions%27"><span class="hs-identifier hs-type">HttpEndpointRetryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271835"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679271835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpEndpointRetryOptions
+</span><a href="#local-6989586621679271836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInSeconds:HttpEndpointRetryOptions' :: Maybe Natural
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#%24sel%3AdurationInSeconds%3AHttpEndpointRetryOptions%27"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679271826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions"><span class="hs-identifier hs-type">HttpEndpointRetryOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions"><span class="hs-identifier hs-type">HttpEndpointRetryOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271823"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions"><span class="hs-identifier hs-type">HttpEndpointRetryOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679271821"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HttpEndpointRetryOptions
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271832"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions"><span class="hs-identifier hs-type">HttpEndpointRetryOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679271830"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HttpEndpointRetryOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HttpEndpointRetryOptions)
@@ -164,30 +164,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HttpEndpointRetryOptions&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271818"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271818"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271827"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271827"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; HttpEndpointRetryOptions
 </span><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions%27"><span class="hs-identifier hs-var">HttpEndpointRetryOptions'</span></a></span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; HttpEndpointRetryOptions)
 -&gt; Parser (Maybe Natural) -&gt; Parser HttpEndpointRetryOptions
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679271827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DurationInSeconds&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271812"><span id="local-6989586621679271814"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions"><span class="hs-identifier hs-type">HttpEndpointRetryOptions</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271821"><span id="local-6989586621679271823"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions"><span class="hs-identifier hs-type">HttpEndpointRetryOptions</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions"><span class="hs-identifier hs-type">HttpEndpointRetryOptions</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271818"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions"><span class="hs-identifier hs-type">HttpEndpointRetryOptions</span></a></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271801"><span id="local-6989586621679271803"><span id="local-6989586621679271805"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions"><span class="hs-identifier hs-type">HttpEndpointRetryOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679271799"><span class="annot"><span class="annottext">toJSON :: HttpEndpointRetryOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions%27"><span class="hs-identifier hs-type">HttpEndpointRetryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271797"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271810"><span id="local-6989586621679271812"><span id="local-6989586621679271814"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions"><span class="hs-identifier hs-type">HttpEndpointRetryOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679271808"><span class="annot"><span class="annottext">toJSON :: HttpEndpointRetryOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HttpEndpointRetryOptions.html#HttpEndpointRetryOptions%27"><span class="hs-identifier hs-type">HttpEndpointRetryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271806"><span class="annot"><span class="annottext">Maybe Natural
 durationInSeconds :: Maybe Natural
 $sel:durationInSeconds:HttpEndpointRetryOptions' :: HttpEndpointRetryOptions -&gt; Maybe Natural
-</span><a href="#local-6989586621679271797"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679271806"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -200,7 +200,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-89"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679271797"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span>
+</span><a href="#local-6989586621679271806"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

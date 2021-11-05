@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679176049"><span id="local-6989586621679176050"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LoadMetricType"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.LoadMetricType.html#LoadMetricType"><span class="hs-identifier hs-var">LoadMetricType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadMetricType%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.LoadMetricType.html#LoadMetricType%27"><span class="hs-identifier hs-var">LoadMetricType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679176058"><span id="local-6989586621679176059"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LoadMetricType"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.LoadMetricType.html#LoadMetricType"><span class="hs-identifier hs-var">LoadMetricType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadMetricType%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.LoadMetricType.html#LoadMetricType%27"><span class="hs-identifier hs-var">LoadMetricType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLoadMetricType"><span class="annot"><span class="annottext">LoadMetricType -&gt; Text
 </span><a href="Network.AWS.AutoScalingPlans.Types.LoadMetricType.html#fromLoadMetricType"><span class="hs-identifier hs-var hs-var">fromLoadMetricType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176041"><span id="local-6989586621679176043"><span id="local-6989586621679176045"><span class="annot"><span class="annottext">Int -&gt; LoadMetricType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176050"><span id="local-6989586621679176052"><span id="local-6989586621679176054"><span class="annot"><span class="annottext">Int -&gt; LoadMetricType -&gt; ShowS
 [LoadMetricType] -&gt; ShowS
 LoadMetricType -&gt; String
 (Int -&gt; LoadMetricType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: LoadMetricType -&gt; String
 showsPrec :: Int -&gt; LoadMetricType -&gt; ShowS
 $cshowsPrec :: Int -&gt; LoadMetricType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679176032"><span id="local-6989586621679176034"><span id="local-6989586621679176036"><span id="local-6989586621679176038"><span class="annot"><span class="annottext">ReadPrec [LoadMetricType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679176041"><span id="local-6989586621679176043"><span id="local-6989586621679176045"><span id="local-6989586621679176047"><span class="annot"><span class="annottext">ReadPrec [LoadMetricType]
 ReadPrec LoadMetricType
 Int -&gt; ReadS LoadMetricType
 ReadS [LoadMetricType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [LoadMetricType]
 readsPrec :: Int -&gt; ReadS LoadMetricType
 $creadsPrec :: Int -&gt; ReadS LoadMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679176027"><span id="local-6989586621679176029"><span class="annot"><span class="annottext">LoadMetricType -&gt; LoadMetricType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679176036"><span id="local-6989586621679176038"><span class="annot"><span class="annottext">LoadMetricType -&gt; LoadMetricType -&gt; Bool
 (LoadMetricType -&gt; LoadMetricType -&gt; Bool)
 -&gt; (LoadMetricType -&gt; LoadMetricType -&gt; Bool) -&gt; Eq LoadMetricType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: LoadMetricType -&gt; LoadMetricType -&gt; Bool
 == :: LoadMetricType -&gt; LoadMetricType -&gt; Bool
 $c== :: LoadMetricType -&gt; LoadMetricType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679176011"><span id="local-6989586621679176013"><span id="local-6989586621679176015"><span id="local-6989586621679176017"><span id="local-6989586621679176019"><span id="local-6989586621679176021"><span id="local-6989586621679176023"><span class="annot"><span class="annottext">Eq LoadMetricType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679176020"><span id="local-6989586621679176022"><span id="local-6989586621679176024"><span id="local-6989586621679176026"><span id="local-6989586621679176028"><span id="local-6989586621679176030"><span id="local-6989586621679176032"><span class="annot"><span class="annottext">Eq LoadMetricType
 Eq LoadMetricType
 -&gt; (LoadMetricType -&gt; LoadMetricType -&gt; Ordering)
 -&gt; (LoadMetricType -&gt; LoadMetricType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. LoadMetricType -&gt; Rep LoadMetricType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176003"><span id="local-6989586621679176005"><span class="annot"><span class="annottext">Int -&gt; LoadMetricType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176012"><span id="local-6989586621679176014"><span class="annot"><span class="annottext">Int -&gt; LoadMetricType -&gt; Int
 LoadMetricType -&gt; Int
 (Int -&gt; LoadMetricType -&gt; Int)
 -&gt; (LoadMetricType -&gt; Int) -&gt; Hashable LoadMetricType
@@ -144,50 +144,50 @@ $chash :: LoadMetricType -&gt; Int
 hashWithSalt :: Int -&gt; LoadMetricType -&gt; Int
 $chashWithSalt :: Int -&gt; LoadMetricType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679176000"><span class="annot"><span class="annottext">LoadMetricType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679176009"><span class="annot"><span class="annottext">LoadMetricType -&gt; ()
 (LoadMetricType -&gt; ()) -&gt; NFData LoadMetricType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LoadMetricType -&gt; ()
 $crnf :: LoadMetricType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679175997"><span class="annot"><span class="annottext">Text -&gt; Either String LoadMetricType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679176006"><span class="annot"><span class="annottext">Text -&gt; Either String LoadMetricType
 (Text -&gt; Either String LoadMetricType) -&gt; FromText LoadMetricType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LoadMetricType
 $cfromText :: Text -&gt; Either String LoadMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679175994"><span class="annot"><span class="annottext">LoadMetricType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679176003"><span class="annot"><span class="annottext">LoadMetricType -&gt; Text
 (LoadMetricType -&gt; Text) -&gt; ToText LoadMetricType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LoadMetricType -&gt; Text
 $ctoText :: LoadMetricType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679175991"><span class="annot"><span class="annottext">LoadMetricType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679176000"><span class="annot"><span class="annottext">LoadMetricType -&gt; ByteString
 (LoadMetricType -&gt; ByteString) -&gt; ToByteString LoadMetricType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LoadMetricType -&gt; ByteString
 $ctoBS :: LoadMetricType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679175988"><span class="annot"><span class="annottext">LoadMetricType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679175997"><span class="annot"><span class="annottext">LoadMetricType -&gt; ByteStringBuilder
 (LoadMetricType -&gt; ByteStringBuilder) -&gt; ToLog LoadMetricType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LoadMetricType -&gt; ByteStringBuilder
 $cbuild :: LoadMetricType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679175985"><span class="annot"><span class="annottext">HeaderName -&gt; LoadMetricType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679175994"><span class="annot"><span class="annottext">HeaderName -&gt; LoadMetricType -&gt; [Header]
 (HeaderName -&gt; LoadMetricType -&gt; [Header])
 -&gt; ToHeader LoadMetricType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LoadMetricType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LoadMetricType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679175982"><span class="annot"><span class="annottext">LoadMetricType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679175991"><span class="annot"><span class="annottext">LoadMetricType -&gt; QueryString
 (LoadMetricType -&gt; QueryString) -&gt; ToQuery LoadMetricType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LoadMetricType -&gt; QueryString
 $ctoQuery :: LoadMetricType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679175977"><span id="local-6989586621679175979"><span class="annot"><span class="annottext">Value -&gt; Parser [LoadMetricType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679175986"><span id="local-6989586621679175988"><span class="annot"><span class="annottext">Value -&gt; Parser [LoadMetricType]
 Value -&gt; Parser LoadMetricType
 (Value -&gt; Parser LoadMetricType)
 -&gt; (Value -&gt; Parser [LoadMetricType]) -&gt; FromJSON LoadMetricType
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [LoadMetricType]
 parseJSON :: Value -&gt; Parser LoadMetricType
 $cparseJSON :: Value -&gt; Parser LoadMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679175972"><span id="local-6989586621679175974"><span class="annot"><span class="annottext">FromJSONKeyFunction [LoadMetricType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679175981"><span id="local-6989586621679175983"><span class="annot"><span class="annottext">FromJSONKeyFunction [LoadMetricType]
 FromJSONKeyFunction LoadMetricType
 FromJSONKeyFunction LoadMetricType
 -&gt; FromJSONKeyFunction [LoadMetricType]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LoadMetricType]
 fromJSONKey :: FromJSONKeyFunction LoadMetricType
 $cfromJSONKey :: FromJSONKeyFunction LoadMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679175963"><span id="local-6989586621679175965"><span id="local-6989586621679175967"><span id="local-6989586621679175969"><span class="annot"><span class="annottext">[LoadMetricType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679175972"><span id="local-6989586621679175974"><span id="local-6989586621679175976"><span id="local-6989586621679175978"><span class="annot"><span class="annottext">[LoadMetricType] -&gt; Encoding
 [LoadMetricType] -&gt; Value
 LoadMetricType -&gt; Encoding
 LoadMetricType -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: LoadMetricType -&gt; Encoding
 toJSON :: LoadMetricType -&gt; Value
 $ctoJSON :: LoadMetricType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679175958"><span id="local-6989586621679175960"><span class="annot"><span class="annottext">ToJSONKeyFunction [LoadMetricType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679175967"><span id="local-6989586621679175969"><span class="annot"><span class="annottext">ToJSONKeyFunction [LoadMetricType]
 ToJSONKeyFunction LoadMetricType
 ToJSONKeyFunction LoadMetricType
 -&gt; ToJSONKeyFunction [LoadMetricType] -&gt; ToJSONKey LoadMetricType
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LoadMetricType]
 toJSONKey :: ToJSONKeyFunction LoadMetricType
 $ctoJSONKey :: ToJSONKeyFunction LoadMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679175955"><span class="annot"><span class="annottext">[Node] -&gt; Either String LoadMetricType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679175964"><span class="annot"><span class="annottext">[Node] -&gt; Either String LoadMetricType
 ([Node] -&gt; Either String LoadMetricType) -&gt; FromXML LoadMetricType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LoadMetricType
 $cparseXML :: [Node] -&gt; Either String LoadMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679175952"><span class="annot"><span class="annottext">LoadMetricType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679175961"><span class="annot"><span class="annottext">LoadMetricType -&gt; XML
 (LoadMetricType -&gt; XML) -&gt; ToXML LoadMetricType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LoadMetricType -&gt; XML

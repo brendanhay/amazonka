@@ -74,7 +74,7 @@
 </span><span id="line-74"></span><span class="hs-comment">-- | The input argument to the AddJobFlowSteps operation.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- /See:/ 'newAddJobFlowSteps' smart constructor.</span><span>
-</span><span id="line-77"></span><span id="local-6989586621679394141"><span id="local-6989586621679394142"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddJobFlowSteps"><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-var">AddJobFlowSteps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddJobFlowSteps%27"><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps%27"><span class="hs-identifier hs-var">AddJobFlowSteps'</span></a></span></span><span>
+</span><span id="line-77"></span><span id="local-6989586621679394150"><span id="local-6989586621679394151"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddJobFlowSteps"><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-var">AddJobFlowSteps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddJobFlowSteps%27"><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps%27"><span class="hs-identifier hs-var">AddJobFlowSteps'</span></a></span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string that uniquely identifies the job flow. This identifier is</span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-comment">-- returned by RunJobFlow and can also be obtained from ListClusters.</span><span>
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AjobFlowId%3AAddJobFlowSteps%27"><span class="annot"><span class="annottext">AddJobFlowSteps -&gt; Text
@@ -83,7 +83,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3Asteps%3AAddJobFlowSteps%27"><span class="annot"><span class="annottext">AddJobFlowSteps -&gt; [StepConfig]
 </span><a href="Network.AWS.EMR.AddJobFlowSteps.html#%24sel%3Asteps%3AAddJobFlowSteps%27"><span class="hs-identifier hs-var hs-var">steps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394134"><span id="local-6989586621679394136"><span class="annot"><span class="annottext">AddJobFlowSteps -&gt; AddJobFlowSteps -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394143"><span id="local-6989586621679394145"><span class="annot"><span class="annottext">AddJobFlowSteps -&gt; AddJobFlowSteps -&gt; Bool
 (AddJobFlowSteps -&gt; AddJobFlowSteps -&gt; Bool)
 -&gt; (AddJobFlowSteps -&gt; AddJobFlowSteps -&gt; Bool)
 -&gt; Eq AddJobFlowSteps
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddJobFlowSteps -&gt; AddJobFlowSteps -&gt; Bool
 == :: AddJobFlowSteps -&gt; AddJobFlowSteps -&gt; Bool
 $c== :: AddJobFlowSteps -&gt; AddJobFlowSteps -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394125"><span id="local-6989586621679394127"><span id="local-6989586621679394129"><span id="local-6989586621679394131"><span class="annot"><span class="annottext">ReadPrec [AddJobFlowSteps]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394134"><span id="local-6989586621679394136"><span id="local-6989586621679394138"><span id="local-6989586621679394140"><span class="annot"><span class="annottext">ReadPrec [AddJobFlowSteps]
 ReadPrec AddJobFlowSteps
 Int -&gt; ReadS AddJobFlowSteps
 ReadS [AddJobFlowSteps]
@@ -112,7 +112,7 @@ readList :: ReadS [AddJobFlowSteps]
 $creadList :: ReadS [AddJobFlowSteps]
 readsPrec :: Int -&gt; ReadS AddJobFlowSteps
 $creadsPrec :: Int -&gt; ReadS AddJobFlowSteps
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394118"><span id="local-6989586621679394120"><span id="local-6989586621679394122"><span class="annot"><span class="annottext">Int -&gt; AddJobFlowSteps -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394127"><span id="local-6989586621679394129"><span id="local-6989586621679394131"><span class="annot"><span class="annottext">Int -&gt; AddJobFlowSteps -&gt; ShowS
 [AddJobFlowSteps] -&gt; ShowS
 AddJobFlowSteps -&gt; String
 (Int -&gt; AddJobFlowSteps -&gt; ShowS)
@@ -155,13 +155,13 @@ $cfrom :: forall x. AddJobFlowSteps -&gt; Rep AddJobFlowSteps x
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-type">AddJobFlowSteps</span></a></span><span>
 </span><span id="line-102"></span><span id="newAddJobFlowSteps"><span class="annot"><span class="annottext">newAddJobFlowSteps :: Text -&gt; AddJobFlowSteps
-</span><a href="Network.AWS.EMR.AddJobFlowSteps.html#newAddJobFlowSteps"><span class="hs-identifier hs-var hs-var">newAddJobFlowSteps</span></a></span></span><span> </span><span id="local-6989586621679394113"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394113"><span class="hs-identifier hs-var">pJobFlowId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.AddJobFlowSteps.html#newAddJobFlowSteps"><span class="hs-identifier hs-var hs-var">newAddJobFlowSteps</span></a></span></span><span> </span><span id="local-6989586621679394122"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394122"><span class="hs-identifier hs-var">pJobFlowId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">AddJobFlowSteps' :: Text -&gt; [StepConfig] -&gt; AddJobFlowSteps
 </span><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps%27"><span class="hs-identifier hs-type">AddJobFlowSteps'</span></a></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobFlowId:AddJobFlowSteps' :: Text
 </span><a href="Network.AWS.EMR.AddJobFlowSteps.html#%24sel%3AjobFlowId%3AAddJobFlowSteps%27"><span class="hs-identifier hs-var">jobFlowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394113"><span class="hs-identifier hs-var">pJobFlowId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394122"><span class="hs-identifier hs-var">pJobFlowId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:steps:AddJobFlowSteps' :: [StepConfig]
 </span><a href="Network.AWS.EMR.AddJobFlowSteps.html#%24sel%3Asteps%3AAddJobFlowSteps%27"><span class="hs-identifier hs-var">steps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[StepConfig]
 forall a. Monoid a =&gt; a
@@ -176,16 +176,16 @@ forall a. Monoid a =&gt; a
 -&gt; (AddJobFlowSteps -&gt; Text -&gt; AddJobFlowSteps)
 -&gt; Lens AddJobFlowSteps AddJobFlowSteps Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps%27"><span class="hs-identifier hs-type">AddJobFlowSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394110"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps%27"><span class="hs-identifier hs-type">AddJobFlowSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394119"><span class="annot"><span class="annottext">Text
 jobFlowId :: Text
 $sel:jobFlowId:AddJobFlowSteps' :: AddJobFlowSteps -&gt; Text
-</span><a href="#local-6989586621679394110"><span class="hs-identifier hs-var hs-var">jobFlowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394110"><span class="hs-identifier hs-var">jobFlowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394109"><span class="annot"><span class="annottext">s :: AddJobFlowSteps
-</span><a href="#local-6989586621679394109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps%27"><span class="hs-identifier hs-type">AddJobFlowSteps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394108"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddJobFlowSteps
-</span><a href="#local-6989586621679394109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobFlowId:AddJobFlowSteps' :: Text
+</span><a href="#local-6989586621679394119"><span class="hs-identifier hs-var hs-var">jobFlowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394119"><span class="hs-identifier hs-var">jobFlowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394118"><span class="annot"><span class="annottext">s :: AddJobFlowSteps
+</span><a href="#local-6989586621679394118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps%27"><span class="hs-identifier hs-type">AddJobFlowSteps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394117"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddJobFlowSteps
+</span><a href="#local-6989586621679394118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobFlowId:AddJobFlowSteps' :: Text
 </span><a href="Network.AWS.EMR.AddJobFlowSteps.html#%24sel%3AjobFlowId%3AAddJobFlowSteps%27"><span class="hs-identifier hs-var">jobFlowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-type">AddJobFlowSteps</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-type">AddJobFlowSteps</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | A list of StepConfig to be executed by the job flow.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#addJobFlowSteps_steps"><span class="hs-identifier hs-type">addJobFlowSteps_steps</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-type">AddJobFlowSteps</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span><span class="hs-special">]</span><span>
@@ -195,16 +195,16 @@ $sel:jobFlowId:AddJobFlowSteps' :: AddJobFlowSteps -&gt; Text
 -&gt; (AddJobFlowSteps -&gt; [StepConfig] -&gt; AddJobFlowSteps)
 -&gt; Lens AddJobFlowSteps AddJobFlowSteps [StepConfig] [StepConfig]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps%27"><span class="hs-identifier hs-type">AddJobFlowSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394107"><span class="annot"><span class="annottext">[StepConfig]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps%27"><span class="hs-identifier hs-type">AddJobFlowSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394116"><span class="annot"><span class="annottext">[StepConfig]
 steps :: [StepConfig]
 $sel:steps:AddJobFlowSteps' :: AddJobFlowSteps -&gt; [StepConfig]
-</span><a href="#local-6989586621679394107"><span class="hs-identifier hs-var hs-var">steps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[StepConfig]
-</span><a href="#local-6989586621679394107"><span class="hs-identifier hs-var">steps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394106"><span class="annot"><span class="annottext">s :: AddJobFlowSteps
-</span><a href="#local-6989586621679394106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps%27"><span class="hs-identifier hs-type">AddJobFlowSteps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394105"><span class="annot"><span class="annottext">[StepConfig]
-</span><a href="#local-6989586621679394105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddJobFlowSteps
-</span><a href="#local-6989586621679394106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:steps:AddJobFlowSteps' :: [StepConfig]
+</span><a href="#local-6989586621679394116"><span class="hs-identifier hs-var hs-var">steps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[StepConfig]
+</span><a href="#local-6989586621679394116"><span class="hs-identifier hs-var">steps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394115"><span class="annot"><span class="annottext">s :: AddJobFlowSteps
+</span><a href="#local-6989586621679394115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps%27"><span class="hs-identifier hs-type">AddJobFlowSteps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394114"><span class="annot"><span class="annottext">[StepConfig]
+</span><a href="#local-6989586621679394114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddJobFlowSteps
+</span><a href="#local-6989586621679394115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:steps:AddJobFlowSteps' :: [StepConfig]
 </span><a href="Network.AWS.EMR.AddJobFlowSteps.html#%24sel%3Asteps%3AAddJobFlowSteps%27"><span class="hs-identifier hs-var">steps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[StepConfig]
-</span><a href="#local-6989586621679394105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-type">AddJobFlowSteps</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([StepConfig] -&gt; f [StepConfig])
+</span><a href="#local-6989586621679394114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-type">AddJobFlowSteps</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([StepConfig] -&gt; f [StepConfig])
  -&gt; AddJobFlowSteps -&gt; f AddJobFlowSteps)
 -&gt; (([StepConfig] -&gt; f [StepConfig])
     -&gt; [StepConfig] -&gt; f [StepConfig])
@@ -220,12 +220,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-type">AddJobFlowSteps</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse"><span class="hs-identifier hs-type">AddJobFlowStepsResponse</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679394099"><span class="annot"><span class="annottext">request :: AddJobFlowSteps -&gt; Request AddJobFlowSteps
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679394108"><span class="annot"><span class="annottext">request :: AddJobFlowSteps -&gt; Request AddJobFlowSteps
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddJobFlowSteps -&gt; Request AddJobFlowSteps
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EMR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679394095"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679394104"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AddJobFlowSteps
 -&gt; ClientResponse ClientBody
@@ -249,10 +249,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679394092"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394092"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394091"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679394091"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679394090"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394090"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679394101"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394101"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394100"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679394100"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679394099"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394099"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Int -&gt; AddJobFlowStepsResponse
 </span><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse%27"><span class="hs-identifier hs-var">AddJobFlowStepsResponse'</span></a></span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Int -&gt; AddJobFlowStepsResponse)
@@ -260,7 +260,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; AddJobFlowStepsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394090"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679394099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StepIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -277,15 +277,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394092"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394101"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394081"><span id="local-6989586621679394083"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-type">AddJobFlowSteps</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394090"><span id="local-6989586621679394092"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-type">AddJobFlowSteps</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394078"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-type">AddJobFlowSteps</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394087"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-type">AddJobFlowSteps</span></a></span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-type">AddJobFlowSteps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679394074"><span class="annot"><span class="annottext">toHeaders :: AddJobFlowSteps -&gt; ResponseHeaders
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679394083"><span class="annot"><span class="annottext">toHeaders :: AddJobFlowSteps -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddJobFlowSteps -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -312,15 +312,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394064"><span id="local-6989586621679394066"><span id="local-6989586621679394068"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-type">AddJobFlowSteps</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679394062"><span class="annot"><span class="annottext">toJSON :: AddJobFlowSteps -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps%27"><span class="hs-identifier hs-type">AddJobFlowSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394059"><span id="local-6989586621679394060"><span class="annot"><span class="annottext">[StepConfig]
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394073"><span id="local-6989586621679394075"><span id="local-6989586621679394077"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-type">AddJobFlowSteps</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679394071"><span class="annot"><span class="annottext">toJSON :: AddJobFlowSteps -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps%27"><span class="hs-identifier hs-type">AddJobFlowSteps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394068"><span id="local-6989586621679394069"><span class="annot"><span class="annottext">[StepConfig]
 Text
 steps :: [StepConfig]
 jobFlowId :: Text
 $sel:steps:AddJobFlowSteps' :: AddJobFlowSteps -&gt; [StepConfig]
 $sel:jobFlowId:AddJobFlowSteps' :: AddJobFlowSteps -&gt; Text
-</span><a href="#local-6989586621679394059"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679394068"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -332,26 +332,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;JobFlowId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394060"><span class="hs-identifier hs-var">jobFlowId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394069"><span class="hs-identifier hs-var">jobFlowId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Steps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [StepConfig] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[StepConfig]
-</span><a href="#local-6989586621679394059"><span class="hs-identifier hs-var">steps</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394068"><span class="hs-identifier hs-var">steps</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-type">AddJobFlowSteps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679394053"><span class="annot"><span class="annottext">toPath :: AddJobFlowSteps -&gt; ByteString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679394062"><span class="annot"><span class="annottext">toPath :: AddJobFlowSteps -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AddJobFlowSteps -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowSteps"><span class="hs-identifier hs-type">AddJobFlowSteps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679394049"><span class="annot"><span class="annottext">toQuery :: AddJobFlowSteps -&gt; QueryString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679394058"><span class="annot"><span class="annottext">toQuery :: AddJobFlowSteps -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddJobFlowSteps -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -361,7 +361,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-164"></span><span class="hs-comment">-- | The output for the AddJobFlowSteps operation.</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- /See:/ 'newAddJobFlowStepsResponse' smart constructor.</span><span>
-</span><span id="line-167"></span><span id="local-6989586621679394046"><span id="local-6989586621679394047"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddJobFlowStepsResponse"><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse"><span class="hs-identifier hs-var">AddJobFlowStepsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddJobFlowStepsResponse%27"><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse%27"><span class="hs-identifier hs-var">AddJobFlowStepsResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span id="local-6989586621679394055"><span id="local-6989586621679394056"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddJobFlowStepsResponse"><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse"><span class="hs-identifier hs-var">AddJobFlowStepsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddJobFlowStepsResponse%27"><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse%27"><span class="hs-identifier hs-var">AddJobFlowStepsResponse'</span></a></span></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifiers of the list of steps added to the job flow.</span><span>
 </span><span id="line-169"></span><span>    </span><span id="%24sel%3AstepIds%3AAddJobFlowStepsResponse%27"><span class="annot"><span class="annottext">AddJobFlowStepsResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.EMR.AddJobFlowSteps.html#%24sel%3AstepIds%3AAddJobFlowStepsResponse%27"><span class="hs-identifier hs-var hs-var">stepIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -369,7 +369,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddJobFlowStepsResponse%27"><span class="annot"><span class="annottext">AddJobFlowStepsResponse -&gt; Int
 </span><a href="Network.AWS.EMR.AddJobFlowSteps.html#%24sel%3AhttpStatus%3AAddJobFlowStepsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394040"><span id="local-6989586621679394042"><span class="annot"><span class="annottext">AddJobFlowStepsResponse -&gt; AddJobFlowStepsResponse -&gt; Bool
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394049"><span id="local-6989586621679394051"><span class="annot"><span class="annottext">AddJobFlowStepsResponse -&gt; AddJobFlowStepsResponse -&gt; Bool
 (AddJobFlowStepsResponse -&gt; AddJobFlowStepsResponse -&gt; Bool)
 -&gt; (AddJobFlowStepsResponse -&gt; AddJobFlowStepsResponse -&gt; Bool)
 -&gt; Eq AddJobFlowStepsResponse
@@ -378,7 +378,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddJobFlowStepsResponse -&gt; AddJobFlowStepsResponse -&gt; Bool
 == :: AddJobFlowStepsResponse -&gt; AddJobFlowStepsResponse -&gt; Bool
 $c== :: AddJobFlowStepsResponse -&gt; AddJobFlowStepsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394032"><span id="local-6989586621679394034"><span id="local-6989586621679394036"><span id="local-6989586621679394038"><span class="annot"><span class="annottext">ReadPrec [AddJobFlowStepsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394041"><span id="local-6989586621679394043"><span id="local-6989586621679394045"><span id="local-6989586621679394047"><span class="annot"><span class="annottext">ReadPrec [AddJobFlowStepsResponse]
 ReadPrec AddJobFlowStepsResponse
 Int -&gt; ReadS AddJobFlowStepsResponse
 ReadS [AddJobFlowStepsResponse]
@@ -398,7 +398,7 @@ readList :: ReadS [AddJobFlowStepsResponse]
 $creadList :: ReadS [AddJobFlowStepsResponse]
 readsPrec :: Int -&gt; ReadS AddJobFlowStepsResponse
 $creadsPrec :: Int -&gt; ReadS AddJobFlowStepsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394026"><span id="local-6989586621679394028"><span id="local-6989586621679394030"><span class="annot"><span class="annottext">Int -&gt; AddJobFlowStepsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394035"><span id="local-6989586621679394037"><span id="local-6989586621679394039"><span class="annot"><span class="annottext">Int -&gt; AddJobFlowStepsResponse -&gt; ShowS
 [AddJobFlowStepsResponse] -&gt; ShowS
 AddJobFlowStepsResponse -&gt; String
 (Int -&gt; AddJobFlowStepsResponse -&gt; ShowS)
@@ -442,8 +442,8 @@ $cfrom :: forall x. AddJobFlowStepsResponse -&gt; Rep AddJobFlowStepsResponse x
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse"><span class="hs-identifier hs-type">AddJobFlowStepsResponse</span></a></span><span>
 </span><span id="line-190"></span><span id="newAddJobFlowStepsResponse"><span class="annot"><span class="annottext">newAddJobFlowStepsResponse :: Int -&gt; AddJobFlowStepsResponse
-</span><a href="Network.AWS.EMR.AddJobFlowSteps.html#newAddJobFlowStepsResponse"><span class="hs-identifier hs-var hs-var">newAddJobFlowStepsResponse</span></a></span></span><span> </span><span id="local-6989586621679394023"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394023"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.AddJobFlowSteps.html#newAddJobFlowStepsResponse"><span class="hs-identifier hs-var hs-var">newAddJobFlowStepsResponse</span></a></span></span><span> </span><span id="local-6989586621679394032"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394032"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="annottext">AddJobFlowStepsResponse' :: Maybe [Text] -&gt; Int -&gt; AddJobFlowStepsResponse
 </span><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse%27"><span class="hs-identifier hs-type">AddJobFlowStepsResponse'</span></a></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stepIds:AddJobFlowStepsResponse' :: Maybe [Text]
@@ -452,7 +452,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AddJobFlowStepsResponse' :: Int
 </span><a href="Network.AWS.EMR.AddJobFlowSteps.html#%24sel%3AhttpStatus%3AAddJobFlowStepsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394023"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679394032"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The identifiers of the list of steps added to the job flow.</span><span>
@@ -468,16 +468,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse%27"><span class="hs-identifier hs-type">AddJobFlowStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394022"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse%27"><span class="hs-identifier hs-type">AddJobFlowStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394031"><span class="annot"><span class="annottext">Maybe [Text]
 stepIds :: Maybe [Text]
 $sel:stepIds:AddJobFlowStepsResponse' :: AddJobFlowStepsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679394022"><span class="hs-identifier hs-var hs-var">stepIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679394022"><span class="hs-identifier hs-var">stepIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394021"><span class="annot"><span class="annottext">s :: AddJobFlowStepsResponse
-</span><a href="#local-6989586621679394021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse%27"><span class="hs-identifier hs-type">AddJobFlowStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394020"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679394020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddJobFlowStepsResponse
-</span><a href="#local-6989586621679394021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stepIds:AddJobFlowStepsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679394031"><span class="hs-identifier hs-var hs-var">stepIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679394031"><span class="hs-identifier hs-var">stepIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394030"><span class="annot"><span class="annottext">s :: AddJobFlowStepsResponse
+</span><a href="#local-6989586621679394030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse%27"><span class="hs-identifier hs-type">AddJobFlowStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394029"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679394029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddJobFlowStepsResponse
+</span><a href="#local-6989586621679394030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stepIds:AddJobFlowStepsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.EMR.AddJobFlowSteps.html#%24sel%3AstepIds%3AAddJobFlowStepsResponse%27"><span class="hs-identifier hs-var">stepIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679394020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse"><span class="hs-identifier hs-type">AddJobFlowStepsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679394029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse"><span class="hs-identifier hs-type">AddJobFlowStepsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; AddJobFlowStepsResponse -&gt; f AddJobFlowStepsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -502,16 +502,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (AddJobFlowStepsResponse -&gt; Int -&gt; AddJobFlowStepsResponse)
 -&gt; Lens AddJobFlowStepsResponse AddJobFlowStepsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse%27"><span class="hs-identifier hs-type">AddJobFlowStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394018"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse%27"><span class="hs-identifier hs-type">AddJobFlowStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394027"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AddJobFlowStepsResponse' :: AddJobFlowStepsResponse -&gt; Int
-</span><a href="#local-6989586621679394018"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394018"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394017"><span class="annot"><span class="annottext">s :: AddJobFlowStepsResponse
-</span><a href="#local-6989586621679394017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse%27"><span class="hs-identifier hs-type">AddJobFlowStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394016"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddJobFlowStepsResponse
-</span><a href="#local-6989586621679394017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddJobFlowStepsResponse' :: Int
+</span><a href="#local-6989586621679394027"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394027"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394026"><span class="annot"><span class="annottext">s :: AddJobFlowStepsResponse
+</span><a href="#local-6989586621679394026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse%27"><span class="hs-identifier hs-type">AddJobFlowStepsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394025"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddJobFlowStepsResponse
+</span><a href="#local-6989586621679394026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddJobFlowStepsResponse' :: Int
 </span><a href="Network.AWS.EMR.AddJobFlowSteps.html#%24sel%3AhttpStatus%3AAddJobFlowStepsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse"><span class="hs-identifier hs-type">AddJobFlowStepsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse"><span class="hs-identifier hs-type">AddJobFlowStepsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394014"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse"><span class="hs-identifier hs-type">AddJobFlowStepsResponse</span></a></span></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394023"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddJobFlowSteps.html#AddJobFlowStepsResponse"><span class="hs-identifier hs-type">AddJobFlowStepsResponse</span></a></span></span><span>
 </span><span id="line-205"></span></pre></body></html>

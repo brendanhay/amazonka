@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Nimble.Types.LaunchProfilePersona</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Nimble.Types.LaunchProfilePersona</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.LaunchProfilePersona.html#LaunchProfilePersona"><span class="hs-identifier">LaunchProfilePersona</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Nimble.Types.LaunchProfilePersona.html#LaunchProfilePersona_USER"><span class="hs-identifier">LaunchProfilePersona_USER</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679282373"><span id="local-6989586621679282374"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LaunchProfilePersona"><span class="annot"><a href="Network.AWS.Nimble.Types.LaunchProfilePersona.html#LaunchProfilePersona"><span class="hs-identifier hs-var">LaunchProfilePersona</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchProfilePersona%27"><span class="annot"><a href="Network.AWS.Nimble.Types.LaunchProfilePersona.html#LaunchProfilePersona%27"><span class="hs-identifier hs-var">LaunchProfilePersona'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLaunchProfilePersona"><span class="annot"><span class="annottext">LaunchProfilePersona -&gt; Text
+</span><a href="Network.AWS.Nimble.Types.LaunchProfilePersona.html#fromLaunchProfilePersona"><span class="hs-identifier hs-var hs-var">fromLaunchProfilePersona</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679282365"><span id="local-6989586621679282367"><span id="local-6989586621679282369"><span class="annot"><span class="annottext">Int -&gt; LaunchProfilePersona -&gt; ShowS
+[LaunchProfilePersona] -&gt; ShowS
+LaunchProfilePersona -&gt; String
+(Int -&gt; LaunchProfilePersona -&gt; ShowS)
+-&gt; (LaunchProfilePersona -&gt; String)
+-&gt; ([LaunchProfilePersona] -&gt; ShowS)
+-&gt; Show LaunchProfilePersona
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LaunchProfilePersona] -&gt; ShowS
+$cshowList :: [LaunchProfilePersona] -&gt; ShowS
+show :: LaunchProfilePersona -&gt; String
+$cshow :: LaunchProfilePersona -&gt; String
+showsPrec :: Int -&gt; LaunchProfilePersona -&gt; ShowS
+$cshowsPrec :: Int -&gt; LaunchProfilePersona -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679282356"><span id="local-6989586621679282358"><span id="local-6989586621679282360"><span id="local-6989586621679282362"><span class="annot"><span class="annottext">ReadPrec [LaunchProfilePersona]
+ReadPrec LaunchProfilePersona
+Int -&gt; ReadS LaunchProfilePersona
+ReadS [LaunchProfilePersona]
+(Int -&gt; ReadS LaunchProfilePersona)
+-&gt; ReadS [LaunchProfilePersona]
+-&gt; ReadPrec LaunchProfilePersona
+-&gt; ReadPrec [LaunchProfilePersona]
+-&gt; Read LaunchProfilePersona
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LaunchProfilePersona]
+$creadListPrec :: ReadPrec [LaunchProfilePersona]
+readPrec :: ReadPrec LaunchProfilePersona
+$creadPrec :: ReadPrec LaunchProfilePersona
+readList :: ReadS [LaunchProfilePersona]
+$creadList :: ReadS [LaunchProfilePersona]
+readsPrec :: Int -&gt; ReadS LaunchProfilePersona
+$creadsPrec :: Int -&gt; ReadS LaunchProfilePersona
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679282351"><span id="local-6989586621679282353"><span class="annot"><span class="annottext">LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool
+(LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool)
+-&gt; (LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool)
+-&gt; Eq LaunchProfilePersona
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool
+$c/= :: LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool
+== :: LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool
+$c== :: LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679282335"><span id="local-6989586621679282337"><span id="local-6989586621679282339"><span id="local-6989586621679282341"><span id="local-6989586621679282343"><span id="local-6989586621679282345"><span id="local-6989586621679282347"><span class="annot"><span class="annottext">Eq LaunchProfilePersona
+Eq LaunchProfilePersona
+-&gt; (LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Ordering)
+-&gt; (LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool)
+-&gt; (LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool)
+-&gt; (LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool)
+-&gt; (LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool)
+-&gt; (LaunchProfilePersona
+    -&gt; LaunchProfilePersona -&gt; LaunchProfilePersona)
+-&gt; (LaunchProfilePersona
+    -&gt; LaunchProfilePersona -&gt; LaunchProfilePersona)
+-&gt; Ord LaunchProfilePersona
+LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool
+LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Ordering
+LaunchProfilePersona
+-&gt; LaunchProfilePersona -&gt; LaunchProfilePersona
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LaunchProfilePersona
+-&gt; LaunchProfilePersona -&gt; LaunchProfilePersona
+$cmin :: LaunchProfilePersona
+-&gt; LaunchProfilePersona -&gt; LaunchProfilePersona
+max :: LaunchProfilePersona
+-&gt; LaunchProfilePersona -&gt; LaunchProfilePersona
+$cmax :: LaunchProfilePersona
+-&gt; LaunchProfilePersona -&gt; LaunchProfilePersona
+&gt;= :: LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool
+$c&gt;= :: LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool
+&gt; :: LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool
+$c&gt; :: LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool
+&lt;= :: LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool
+$c&lt;= :: LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool
+&lt; :: LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool
+$c&lt; :: LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Bool
+compare :: LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Ordering
+$ccompare :: LaunchProfilePersona -&gt; LaunchProfilePersona -&gt; Ordering
+$cp1Ord :: Eq LaunchProfilePersona
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. LaunchProfilePersona -&gt; Rep LaunchProfilePersona x)
+-&gt; (forall x. Rep LaunchProfilePersona x -&gt; LaunchProfilePersona)
+-&gt; Generic LaunchProfilePersona
+forall x. Rep LaunchProfilePersona x -&gt; LaunchProfilePersona
+forall x. LaunchProfilePersona -&gt; Rep LaunchProfilePersona x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LaunchProfilePersona x -&gt; LaunchProfilePersona
+$cfrom :: forall x. LaunchProfilePersona -&gt; Rep LaunchProfilePersona x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679282327"><span id="local-6989586621679282329"><span class="annot"><span class="annottext">Int -&gt; LaunchProfilePersona -&gt; Int
+LaunchProfilePersona -&gt; Int
+(Int -&gt; LaunchProfilePersona -&gt; Int)
+-&gt; (LaunchProfilePersona -&gt; Int) -&gt; Hashable LaunchProfilePersona
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LaunchProfilePersona -&gt; Int
+$chash :: LaunchProfilePersona -&gt; Int
+hashWithSalt :: Int -&gt; LaunchProfilePersona -&gt; Int
+$chashWithSalt :: Int -&gt; LaunchProfilePersona -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679282324"><span class="annot"><span class="annottext">LaunchProfilePersona -&gt; ()
+(LaunchProfilePersona -&gt; ()) -&gt; NFData LaunchProfilePersona
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LaunchProfilePersona -&gt; ()
+$crnf :: LaunchProfilePersona -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679282321"><span class="annot"><span class="annottext">Text -&gt; Either String LaunchProfilePersona
+(Text -&gt; Either String LaunchProfilePersona)
+-&gt; FromText LaunchProfilePersona
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LaunchProfilePersona
+$cfromText :: Text -&gt; Either String LaunchProfilePersona
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679282318"><span class="annot"><span class="annottext">LaunchProfilePersona -&gt; Text
+(LaunchProfilePersona -&gt; Text) -&gt; ToText LaunchProfilePersona
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LaunchProfilePersona -&gt; Text
+$ctoText :: LaunchProfilePersona -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679282315"><span class="annot"><span class="annottext">LaunchProfilePersona -&gt; ByteString
+(LaunchProfilePersona -&gt; ByteString)
+-&gt; ToByteString LaunchProfilePersona
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LaunchProfilePersona -&gt; ByteString
+$ctoBS :: LaunchProfilePersona -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679282312"><span class="annot"><span class="annottext">LaunchProfilePersona -&gt; ByteStringBuilder
+(LaunchProfilePersona -&gt; ByteStringBuilder)
+-&gt; ToLog LaunchProfilePersona
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LaunchProfilePersona -&gt; ByteStringBuilder
+$cbuild :: LaunchProfilePersona -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679282309"><span class="annot"><span class="annottext">HeaderName -&gt; LaunchProfilePersona -&gt; [Header]
+(HeaderName -&gt; LaunchProfilePersona -&gt; [Header])
+-&gt; ToHeader LaunchProfilePersona
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LaunchProfilePersona -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LaunchProfilePersona -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679282306"><span class="annot"><span class="annottext">LaunchProfilePersona -&gt; QueryString
+(LaunchProfilePersona -&gt; QueryString)
+-&gt; ToQuery LaunchProfilePersona
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LaunchProfilePersona -&gt; QueryString
+$ctoQuery :: LaunchProfilePersona -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679282301"><span id="local-6989586621679282303"><span class="annot"><span class="annottext">Value -&gt; Parser [LaunchProfilePersona]
+Value -&gt; Parser LaunchProfilePersona
+(Value -&gt; Parser LaunchProfilePersona)
+-&gt; (Value -&gt; Parser [LaunchProfilePersona])
+-&gt; FromJSON LaunchProfilePersona
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LaunchProfilePersona]
+$cparseJSONList :: Value -&gt; Parser [LaunchProfilePersona]
+parseJSON :: Value -&gt; Parser LaunchProfilePersona
+$cparseJSON :: Value -&gt; Parser LaunchProfilePersona
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679282296"><span id="local-6989586621679282298"><span class="annot"><span class="annottext">FromJSONKeyFunction [LaunchProfilePersona]
+FromJSONKeyFunction LaunchProfilePersona
+FromJSONKeyFunction LaunchProfilePersona
+-&gt; FromJSONKeyFunction [LaunchProfilePersona]
+-&gt; FromJSONKey LaunchProfilePersona
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LaunchProfilePersona]
+$cfromJSONKeyList :: FromJSONKeyFunction [LaunchProfilePersona]
+fromJSONKey :: FromJSONKeyFunction LaunchProfilePersona
+$cfromJSONKey :: FromJSONKeyFunction LaunchProfilePersona
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679282287"><span id="local-6989586621679282289"><span id="local-6989586621679282291"><span id="local-6989586621679282293"><span class="annot"><span class="annottext">[LaunchProfilePersona] -&gt; Encoding
+[LaunchProfilePersona] -&gt; Value
+LaunchProfilePersona -&gt; Encoding
+LaunchProfilePersona -&gt; Value
+(LaunchProfilePersona -&gt; Value)
+-&gt; (LaunchProfilePersona -&gt; Encoding)
+-&gt; ([LaunchProfilePersona] -&gt; Value)
+-&gt; ([LaunchProfilePersona] -&gt; Encoding)
+-&gt; ToJSON LaunchProfilePersona
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LaunchProfilePersona] -&gt; Encoding
+$ctoEncodingList :: [LaunchProfilePersona] -&gt; Encoding
+toJSONList :: [LaunchProfilePersona] -&gt; Value
+$ctoJSONList :: [LaunchProfilePersona] -&gt; Value
+toEncoding :: LaunchProfilePersona -&gt; Encoding
+$ctoEncoding :: LaunchProfilePersona -&gt; Encoding
+toJSON :: LaunchProfilePersona -&gt; Value
+$ctoJSON :: LaunchProfilePersona -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679282282"><span id="local-6989586621679282284"><span class="annot"><span class="annottext">ToJSONKeyFunction [LaunchProfilePersona]
+ToJSONKeyFunction LaunchProfilePersona
+ToJSONKeyFunction LaunchProfilePersona
+-&gt; ToJSONKeyFunction [LaunchProfilePersona]
+-&gt; ToJSONKey LaunchProfilePersona
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LaunchProfilePersona]
+$ctoJSONKeyList :: ToJSONKeyFunction [LaunchProfilePersona]
+toJSONKey :: ToJSONKeyFunction LaunchProfilePersona
+$ctoJSONKey :: ToJSONKeyFunction LaunchProfilePersona
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679282279"><span class="annot"><span class="annottext">[Node] -&gt; Either String LaunchProfilePersona
+([Node] -&gt; Either String LaunchProfilePersona)
+-&gt; FromXML LaunchProfilePersona
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LaunchProfilePersona
+$cparseXML :: [Node] -&gt; Either String LaunchProfilePersona
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679282276"><span class="annot"><span class="annottext">LaunchProfilePersona -&gt; XML
+(LaunchProfilePersona -&gt; XML) -&gt; ToXML LaunchProfilePersona
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LaunchProfilePersona -&gt; XML
+$ctoXML :: LaunchProfilePersona -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.LaunchProfilePersona.html#LaunchProfilePersona_USER"><span class="hs-identifier hs-type">LaunchProfilePersona_USER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.LaunchProfilePersona.html#LaunchProfilePersona"><span class="hs-identifier hs-type">LaunchProfilePersona</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLaunchProfilePersona_USER"><span id="%24mLaunchProfilePersona_USER"><span id="LaunchProfilePersona_USER"><span class="annot"><span class="annottext">$bLaunchProfilePersona_USER :: LaunchProfilePersona
+$mLaunchProfilePersona_USER :: forall r. LaunchProfilePersona -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Nimble.Types.LaunchProfilePersona.html#%24bLaunchProfilePersona_USER"><span class="hs-identifier hs-var hs-var hs-var">LaunchProfilePersona_USER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.LaunchProfilePersona.html#LaunchProfilePersona%27"><span class="hs-identifier hs-type">LaunchProfilePersona'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;USER&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Nimble.Types.LaunchProfilePersona.html#LaunchProfilePersona_USER"><span class="hs-pragma hs-type">LaunchProfilePersona_USER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.Nimble.Types.LaunchProfilePersona.html#LaunchProfilePersona%27"><span class="hs-pragma hs-type">LaunchProfilePersona'</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-67"></span></pre></body></html>

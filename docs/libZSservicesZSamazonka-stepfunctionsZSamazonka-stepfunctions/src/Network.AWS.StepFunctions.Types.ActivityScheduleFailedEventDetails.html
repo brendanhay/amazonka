@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- an execution.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newActivityScheduleFailedEventDetails' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679222993"><span id="local-6989586621679222994"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivityScheduleFailedEventDetails"><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails"><span class="hs-identifier hs-var">ActivityScheduleFailedEventDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityScheduleFailedEventDetails%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails%27"><span class="hs-identifier hs-var">ActivityScheduleFailedEventDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679223002"><span id="local-6989586621679223003"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivityScheduleFailedEventDetails"><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails"><span class="hs-identifier hs-var">ActivityScheduleFailedEventDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityScheduleFailedEventDetails%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails%27"><span class="hs-identifier hs-var">ActivityScheduleFailedEventDetails'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code of the failure.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aerror%3AActivityScheduleFailedEventDetails%27"><span class="annot"><span class="annottext">ActivityScheduleFailedEventDetails -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#%24sel%3Aerror%3AActivityScheduleFailedEventDetails%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Acause%3AActivityScheduleFailedEventDetails%27"><span class="annot"><span class="annottext">ActivityScheduleFailedEventDetails -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#%24sel%3Acause%3AActivityScheduleFailedEventDetails%27"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222986"><span id="local-6989586621679222988"><span class="annot"><span class="annottext">ActivityScheduleFailedEventDetails
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222995"><span id="local-6989586621679222997"><span class="annot"><span class="annottext">ActivityScheduleFailedEventDetails
 -&gt; ActivityScheduleFailedEventDetails -&gt; Bool
 (ActivityScheduleFailedEventDetails
  -&gt; ActivityScheduleFailedEventDetails -&gt; Bool)
@@ -51,7 +51,7 @@ $c/= :: ActivityScheduleFailedEventDetails
 -&gt; ActivityScheduleFailedEventDetails -&gt; Bool
 $c== :: ActivityScheduleFailedEventDetails
 -&gt; ActivityScheduleFailedEventDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222979"><span id="local-6989586621679222981"><span id="local-6989586621679222983"><span class="annot"><span class="annottext">Int -&gt; ActivityScheduleFailedEventDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222988"><span id="local-6989586621679222990"><span id="local-6989586621679222992"><span class="annot"><span class="annottext">Int -&gt; ActivityScheduleFailedEventDetails -&gt; ShowS
 [ActivityScheduleFailedEventDetails] -&gt; ShowS
 ActivityScheduleFailedEventDetails -&gt; String
 (Int -&gt; ActivityScheduleFailedEventDetails -&gt; ShowS)
@@ -132,16 +132,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails%27"><span class="hs-identifier hs-type">ActivityScheduleFailedEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222970"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails%27"><span class="hs-identifier hs-type">ActivityScheduleFailedEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222979"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 error :: Maybe (Sensitive Text)
 $sel:error:ActivityScheduleFailedEventDetails' :: ActivityScheduleFailedEventDetails -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679222970"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679222970"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222969"><span class="annot"><span class="annottext">s :: ActivityScheduleFailedEventDetails
-</span><a href="#local-6989586621679222969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails%27"><span class="hs-identifier hs-type">ActivityScheduleFailedEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222968"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679222968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityScheduleFailedEventDetails
-</span><a href="#local-6989586621679222969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:ActivityScheduleFailedEventDetails' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679222979"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679222979"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222978"><span class="annot"><span class="annottext">s :: ActivityScheduleFailedEventDetails
+</span><a href="#local-6989586621679222978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails%27"><span class="hs-identifier hs-type">ActivityScheduleFailedEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222977"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679222977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityScheduleFailedEventDetails
+</span><a href="#local-6989586621679222978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:ActivityScheduleFailedEventDetails' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#%24sel%3Aerror%3AActivityScheduleFailedEventDetails%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679222968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails"><span class="hs-identifier hs-type">ActivityScheduleFailedEventDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679222977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails"><span class="hs-identifier hs-type">ActivityScheduleFailedEventDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; ActivityScheduleFailedEventDetails
  -&gt; f ActivityScheduleFailedEventDetails)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
@@ -177,16 +177,16 @@ forall a. Iso' (Sensitive a) a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails%27"><span class="hs-identifier hs-type">ActivityScheduleFailedEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222963"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails%27"><span class="hs-identifier hs-type">ActivityScheduleFailedEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222972"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 cause :: Maybe (Sensitive Text)
 $sel:cause:ActivityScheduleFailedEventDetails' :: ActivityScheduleFailedEventDetails -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679222963"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679222963"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222962"><span class="annot"><span class="annottext">s :: ActivityScheduleFailedEventDetails
-</span><a href="#local-6989586621679222962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails%27"><span class="hs-identifier hs-type">ActivityScheduleFailedEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222961"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679222961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityScheduleFailedEventDetails
-</span><a href="#local-6989586621679222962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cause:ActivityScheduleFailedEventDetails' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679222972"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679222972"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222971"><span class="annot"><span class="annottext">s :: ActivityScheduleFailedEventDetails
+</span><a href="#local-6989586621679222971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails%27"><span class="hs-identifier hs-type">ActivityScheduleFailedEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222970"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679222970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityScheduleFailedEventDetails
+</span><a href="#local-6989586621679222971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cause:ActivityScheduleFailedEventDetails' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#%24sel%3Acause%3AActivityScheduleFailedEventDetails%27"><span class="hs-identifier hs-var">cause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679222961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails"><span class="hs-identifier hs-type">ActivityScheduleFailedEventDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679222970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails"><span class="hs-identifier hs-type">ActivityScheduleFailedEventDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; ActivityScheduleFailedEventDetails
  -&gt; f ActivityScheduleFailedEventDetails)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
@@ -209,10 +209,10 @@ forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679222958"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679222967"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails"><span class="hs-identifier hs-type">ActivityScheduleFailedEventDetails</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679222956"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActivityScheduleFailedEventDetails
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679222965"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActivityScheduleFailedEventDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ActivityScheduleFailedEventDetails)
@@ -222,8 +222,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ActivityScheduleFailedEventDetails&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222953"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222953"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222962"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222962"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 -&gt; Maybe (Sensitive Text) -&gt; ActivityScheduleFailedEventDetails
 </span><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails%27"><span class="hs-identifier hs-var">ActivityScheduleFailedEventDetails'</span></a></span><span>
@@ -234,7 +234,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe (Sensitive Text) -&gt; ActivityScheduleFailedEventDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679222962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;error&quot;</span></span><span class="hs-special">)</span><span>
@@ -244,17 +244,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ActivityScheduleFailedEventDetails
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679222962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cause&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679222947"><span id="local-6989586621679222949"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679222956"><span id="local-6989586621679222958"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails"><span class="hs-identifier hs-type">ActivityScheduleFailedEventDetails</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679222944"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679222953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails.html#ActivityScheduleFailedEventDetails"><span class="hs-identifier hs-type">ActivityScheduleFailedEventDetails</span></a></span></span><span>
 </span><span id="line-86"></span></pre></body></html>

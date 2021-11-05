@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.Types.ListenerTimeout</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.Types.ListenerTimeout</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.GrpcTimeout</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpTimeout.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.HttpTimeout</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.TcpTimeout.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.TcpTimeout</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | An object that represents timeouts for different protocols.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newListenerTimeout' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679333176"><span id="local-6989586621679333177"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListenerTimeout"><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout"><span class="hs-identifier hs-var">ListenerTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListenerTimeout%27"><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout%27"><span class="hs-identifier hs-var">ListenerTimeout'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that represents types of timeouts.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Ahttp2%3AListenerTimeout%27"><span class="annot"><span class="annottext">ListenerTimeout -&gt; Maybe HttpTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#%24sel%3Ahttp2%3AListenerTimeout%27"><span class="hs-identifier hs-var hs-var">http2</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpTimeout.html#HttpTimeout"><span class="hs-identifier hs-type">HttpTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | An object that represents types of timeouts.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Agrpc%3AListenerTimeout%27"><span class="annot"><span class="annottext">ListenerTimeout -&gt; Maybe GrpcTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#%24sel%3Agrpc%3AListenerTimeout%27"><span class="hs-identifier hs-var hs-var">grpc</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout"><span class="hs-identifier hs-type">GrpcTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | An object that represents types of timeouts.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Atcp%3AListenerTimeout%27"><span class="annot"><span class="annottext">ListenerTimeout -&gt; Maybe TcpTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#%24sel%3Atcp%3AListenerTimeout%27"><span class="hs-identifier hs-var hs-var">tcp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.TcpTimeout.html#TcpTimeout"><span class="hs-identifier hs-type">TcpTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | An object that represents types of timeouts.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Ahttp%3AListenerTimeout%27"><span class="annot"><span class="annottext">ListenerTimeout -&gt; Maybe HttpTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#%24sel%3Ahttp%3AListenerTimeout%27"><span class="hs-identifier hs-var hs-var">http</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpTimeout.html#HttpTimeout"><span class="hs-identifier hs-type">HttpTimeout</span></a></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333167"><span id="local-6989586621679333169"><span class="annot"><span class="annottext">ListenerTimeout -&gt; ListenerTimeout -&gt; Bool
+(ListenerTimeout -&gt; ListenerTimeout -&gt; Bool)
+-&gt; (ListenerTimeout -&gt; ListenerTimeout -&gt; Bool)
+-&gt; Eq ListenerTimeout
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListenerTimeout -&gt; ListenerTimeout -&gt; Bool
+$c/= :: ListenerTimeout -&gt; ListenerTimeout -&gt; Bool
+== :: ListenerTimeout -&gt; ListenerTimeout -&gt; Bool
+$c== :: ListenerTimeout -&gt; ListenerTimeout -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333158"><span id="local-6989586621679333160"><span id="local-6989586621679333162"><span id="local-6989586621679333164"><span class="annot"><span class="annottext">ReadPrec [ListenerTimeout]
+ReadPrec ListenerTimeout
+Int -&gt; ReadS ListenerTimeout
+ReadS [ListenerTimeout]
+(Int -&gt; ReadS ListenerTimeout)
+-&gt; ReadS [ListenerTimeout]
+-&gt; ReadPrec ListenerTimeout
+-&gt; ReadPrec [ListenerTimeout]
+-&gt; Read ListenerTimeout
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListenerTimeout]
+$creadListPrec :: ReadPrec [ListenerTimeout]
+readPrec :: ReadPrec ListenerTimeout
+$creadPrec :: ReadPrec ListenerTimeout
+readList :: ReadS [ListenerTimeout]
+$creadList :: ReadS [ListenerTimeout]
+readsPrec :: Int -&gt; ReadS ListenerTimeout
+$creadsPrec :: Int -&gt; ReadS ListenerTimeout
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333151"><span id="local-6989586621679333153"><span id="local-6989586621679333155"><span class="annot"><span class="annottext">Int -&gt; ListenerTimeout -&gt; ShowS
+[ListenerTimeout] -&gt; ShowS
+ListenerTimeout -&gt; String
+(Int -&gt; ListenerTimeout -&gt; ShowS)
+-&gt; (ListenerTimeout -&gt; String)
+-&gt; ([ListenerTimeout] -&gt; ShowS)
+-&gt; Show ListenerTimeout
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListenerTimeout] -&gt; ShowS
+$cshowList :: [ListenerTimeout] -&gt; ShowS
+show :: ListenerTimeout -&gt; String
+$cshow :: ListenerTimeout -&gt; String
+showsPrec :: Int -&gt; ListenerTimeout -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListenerTimeout -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListenerTimeout -&gt; Rep ListenerTimeout x)
+-&gt; (forall x. Rep ListenerTimeout x -&gt; ListenerTimeout)
+-&gt; Generic ListenerTimeout
+forall x. Rep ListenerTimeout x -&gt; ListenerTimeout
+forall x. ListenerTimeout -&gt; Rep ListenerTimeout x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListenerTimeout x -&gt; ListenerTimeout
+$cfrom :: forall x. ListenerTimeout -&gt; Rep ListenerTimeout x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'ListenerTimeout' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'http2', 'listenerTimeout_http2' - An object that represents types of timeouts.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'grpc', 'listenerTimeout_grpc' - An object that represents types of timeouts.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'tcp', 'listenerTimeout_tcp' - An object that represents types of timeouts.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'http', 'listenerTimeout_http' - An object that represents types of timeouts.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#newListenerTimeout"><span class="hs-identifier hs-type">newListenerTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout"><span class="hs-identifier hs-type">ListenerTimeout</span></a></span><span>
+</span><span id="line-61"></span><span id="newListenerTimeout"><span class="annot"><span class="annottext">newListenerTimeout :: ListenerTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#newListenerTimeout"><span class="hs-identifier hs-var hs-var">newListenerTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">ListenerTimeout' :: Maybe HttpTimeout
+-&gt; Maybe GrpcTimeout
+-&gt; Maybe TcpTimeout
+-&gt; Maybe HttpTimeout
+-&gt; ListenerTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout%27"><span class="hs-identifier hs-type">ListenerTimeout'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:http2:ListenerTimeout' :: Maybe HttpTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#%24sel%3Ahttp2%3AListenerTimeout%27"><span class="hs-identifier hs-var">http2</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpTimeout
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:grpc:ListenerTimeout' :: Maybe GrpcTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#%24sel%3Agrpc%3AListenerTimeout%27"><span class="hs-identifier hs-var">grpc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GrpcTimeout
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:tcp:ListenerTimeout' :: Maybe TcpTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#%24sel%3Atcp%3AListenerTimeout%27"><span class="hs-identifier hs-var">tcp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TcpTimeout
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:http:ListenerTimeout' :: Maybe HttpTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#%24sel%3Ahttp%3AListenerTimeout%27"><span class="hs-identifier hs-var">http</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpTimeout
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | An object that represents types of timeouts.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#listenerTimeout_http2"><span class="hs-identifier hs-type">listenerTimeout_http2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout"><span class="hs-identifier hs-type">ListenerTimeout</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpTimeout.html#HttpTimeout"><span class="hs-identifier hs-type">HttpTimeout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="listenerTimeout_http2"><span class="annot"><span class="annottext">listenerTimeout_http2 :: (Maybe HttpTimeout -&gt; f (Maybe HttpTimeout))
+-&gt; ListenerTimeout -&gt; f ListenerTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#listenerTimeout_http2"><span class="hs-identifier hs-var hs-var">listenerTimeout_http2</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListenerTimeout -&gt; Maybe HttpTimeout)
+-&gt; (ListenerTimeout -&gt; Maybe HttpTimeout -&gt; ListenerTimeout)
+-&gt; Lens
+     ListenerTimeout
+     ListenerTimeout
+     (Maybe HttpTimeout)
+     (Maybe HttpTimeout)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout%27"><span class="hs-identifier hs-type">ListenerTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333142"><span class="annot"><span class="annottext">Maybe HttpTimeout
+http2 :: Maybe HttpTimeout
+$sel:http2:ListenerTimeout' :: ListenerTimeout -&gt; Maybe HttpTimeout
+</span><a href="#local-6989586621679333142"><span class="hs-identifier hs-var hs-var">http2</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpTimeout
+</span><a href="#local-6989586621679333142"><span class="hs-identifier hs-var">http2</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333141"><span class="annot"><span class="annottext">s :: ListenerTimeout
+</span><a href="#local-6989586621679333141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout%27"><span class="hs-identifier hs-type">ListenerTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333140"><span class="annot"><span class="annottext">Maybe HttpTimeout
+</span><a href="#local-6989586621679333140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListenerTimeout
+</span><a href="#local-6989586621679333141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:http2:ListenerTimeout' :: Maybe HttpTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#%24sel%3Ahttp2%3AListenerTimeout%27"><span class="hs-identifier hs-var">http2</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpTimeout
+</span><a href="#local-6989586621679333140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout"><span class="hs-identifier hs-type">ListenerTimeout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | An object that represents types of timeouts.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#listenerTimeout_grpc"><span class="hs-identifier hs-type">listenerTimeout_grpc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout"><span class="hs-identifier hs-type">ListenerTimeout</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcTimeout.html#GrpcTimeout"><span class="hs-identifier hs-type">GrpcTimeout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="listenerTimeout_grpc"><span class="annot"><span class="annottext">listenerTimeout_grpc :: (Maybe GrpcTimeout -&gt; f (Maybe GrpcTimeout))
+-&gt; ListenerTimeout -&gt; f ListenerTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#listenerTimeout_grpc"><span class="hs-identifier hs-var hs-var">listenerTimeout_grpc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListenerTimeout -&gt; Maybe GrpcTimeout)
+-&gt; (ListenerTimeout -&gt; Maybe GrpcTimeout -&gt; ListenerTimeout)
+-&gt; Lens
+     ListenerTimeout
+     ListenerTimeout
+     (Maybe GrpcTimeout)
+     (Maybe GrpcTimeout)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout%27"><span class="hs-identifier hs-type">ListenerTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333138"><span class="annot"><span class="annottext">Maybe GrpcTimeout
+grpc :: Maybe GrpcTimeout
+$sel:grpc:ListenerTimeout' :: ListenerTimeout -&gt; Maybe GrpcTimeout
+</span><a href="#local-6989586621679333138"><span class="hs-identifier hs-var hs-var">grpc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GrpcTimeout
+</span><a href="#local-6989586621679333138"><span class="hs-identifier hs-var">grpc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333137"><span class="annot"><span class="annottext">s :: ListenerTimeout
+</span><a href="#local-6989586621679333137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout%27"><span class="hs-identifier hs-type">ListenerTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333136"><span class="annot"><span class="annottext">Maybe GrpcTimeout
+</span><a href="#local-6989586621679333136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListenerTimeout
+</span><a href="#local-6989586621679333137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grpc:ListenerTimeout' :: Maybe GrpcTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#%24sel%3Agrpc%3AListenerTimeout%27"><span class="hs-identifier hs-var">grpc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GrpcTimeout
+</span><a href="#local-6989586621679333136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout"><span class="hs-identifier hs-type">ListenerTimeout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | An object that represents types of timeouts.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#listenerTimeout_tcp"><span class="hs-identifier hs-type">listenerTimeout_tcp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout"><span class="hs-identifier hs-type">ListenerTimeout</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.TcpTimeout.html#TcpTimeout"><span class="hs-identifier hs-type">TcpTimeout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="listenerTimeout_tcp"><span class="annot"><span class="annottext">listenerTimeout_tcp :: (Maybe TcpTimeout -&gt; f (Maybe TcpTimeout))
+-&gt; ListenerTimeout -&gt; f ListenerTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#listenerTimeout_tcp"><span class="hs-identifier hs-var hs-var">listenerTimeout_tcp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListenerTimeout -&gt; Maybe TcpTimeout)
+-&gt; (ListenerTimeout -&gt; Maybe TcpTimeout -&gt; ListenerTimeout)
+-&gt; Lens
+     ListenerTimeout
+     ListenerTimeout
+     (Maybe TcpTimeout)
+     (Maybe TcpTimeout)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout%27"><span class="hs-identifier hs-type">ListenerTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333134"><span class="annot"><span class="annottext">Maybe TcpTimeout
+tcp :: Maybe TcpTimeout
+$sel:tcp:ListenerTimeout' :: ListenerTimeout -&gt; Maybe TcpTimeout
+</span><a href="#local-6989586621679333134"><span class="hs-identifier hs-var hs-var">tcp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TcpTimeout
+</span><a href="#local-6989586621679333134"><span class="hs-identifier hs-var">tcp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333133"><span class="annot"><span class="annottext">s :: ListenerTimeout
+</span><a href="#local-6989586621679333133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout%27"><span class="hs-identifier hs-type">ListenerTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333132"><span class="annot"><span class="annottext">Maybe TcpTimeout
+</span><a href="#local-6989586621679333132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListenerTimeout
+</span><a href="#local-6989586621679333133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tcp:ListenerTimeout' :: Maybe TcpTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#%24sel%3Atcp%3AListenerTimeout%27"><span class="hs-identifier hs-var">tcp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TcpTimeout
+</span><a href="#local-6989586621679333132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout"><span class="hs-identifier hs-type">ListenerTimeout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | An object that represents types of timeouts.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#listenerTimeout_http"><span class="hs-identifier hs-type">listenerTimeout_http</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout"><span class="hs-identifier hs-type">ListenerTimeout</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.HttpTimeout.html#HttpTimeout"><span class="hs-identifier hs-type">HttpTimeout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="listenerTimeout_http"><span class="annot"><span class="annottext">listenerTimeout_http :: (Maybe HttpTimeout -&gt; f (Maybe HttpTimeout))
+-&gt; ListenerTimeout -&gt; f ListenerTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#listenerTimeout_http"><span class="hs-identifier hs-var hs-var">listenerTimeout_http</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListenerTimeout -&gt; Maybe HttpTimeout)
+-&gt; (ListenerTimeout -&gt; Maybe HttpTimeout -&gt; ListenerTimeout)
+-&gt; Lens
+     ListenerTimeout
+     ListenerTimeout
+     (Maybe HttpTimeout)
+     (Maybe HttpTimeout)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout%27"><span class="hs-identifier hs-type">ListenerTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333130"><span class="annot"><span class="annottext">Maybe HttpTimeout
+http :: Maybe HttpTimeout
+$sel:http:ListenerTimeout' :: ListenerTimeout -&gt; Maybe HttpTimeout
+</span><a href="#local-6989586621679333130"><span class="hs-identifier hs-var hs-var">http</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpTimeout
+</span><a href="#local-6989586621679333130"><span class="hs-identifier hs-var">http</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333129"><span class="annot"><span class="annottext">s :: ListenerTimeout
+</span><a href="#local-6989586621679333129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout%27"><span class="hs-identifier hs-type">ListenerTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333128"><span class="annot"><span class="annottext">Maybe HttpTimeout
+</span><a href="#local-6989586621679333128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListenerTimeout
+</span><a href="#local-6989586621679333129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:http:ListenerTimeout' :: Maybe HttpTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#%24sel%3Ahttp%3AListenerTimeout%27"><span class="hs-identifier hs-var">http</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpTimeout
+</span><a href="#local-6989586621679333128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout"><span class="hs-identifier hs-type">ListenerTimeout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333125"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout"><span class="hs-identifier hs-type">ListenerTimeout</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679333123"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ListenerTimeout
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ListenerTimeout)
+-&gt; Value
+-&gt; Parser ListenerTimeout
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ListenerTimeout&quot;</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679333120"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333120"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe HttpTimeout
+-&gt; Maybe GrpcTimeout
+-&gt; Maybe TcpTimeout
+-&gt; Maybe HttpTimeout
+-&gt; ListenerTimeout
+</span><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout%27"><span class="hs-identifier hs-var">ListenerTimeout'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe HttpTimeout
+ -&gt; Maybe GrpcTimeout
+ -&gt; Maybe TcpTimeout
+ -&gt; Maybe HttpTimeout
+ -&gt; ListenerTimeout)
+-&gt; Parser (Maybe HttpTimeout)
+-&gt; Parser
+     (Maybe GrpcTimeout
+      -&gt; Maybe TcpTimeout -&gt; Maybe HttpTimeout -&gt; ListenerTimeout)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpTimeout)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;http2&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe GrpcTimeout
+   -&gt; Maybe TcpTimeout -&gt; Maybe HttpTimeout -&gt; ListenerTimeout)
+-&gt; Parser (Maybe GrpcTimeout)
+-&gt; Parser
+     (Maybe TcpTimeout -&gt; Maybe HttpTimeout -&gt; ListenerTimeout)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GrpcTimeout)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;grpc&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TcpTimeout -&gt; Maybe HttpTimeout -&gt; ListenerTimeout)
+-&gt; Parser (Maybe TcpTimeout)
+-&gt; Parser (Maybe HttpTimeout -&gt; ListenerTimeout)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TcpTimeout)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tcp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe HttpTimeout -&gt; ListenerTimeout)
+-&gt; Parser (Maybe HttpTimeout) -&gt; Parser ListenerTimeout
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpTimeout)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;http&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333114"><span id="local-6989586621679333116"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout"><span class="hs-identifier hs-type">ListenerTimeout</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout"><span class="hs-identifier hs-type">ListenerTimeout</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333103"><span id="local-6989586621679333105"><span id="local-6989586621679333107"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout"><span class="hs-identifier hs-type">ListenerTimeout</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679333101"><span class="annot"><span class="annottext">toJSON :: ListenerTimeout -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTimeout.html#ListenerTimeout%27"><span class="hs-identifier hs-type">ListenerTimeout'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333096"><span id="local-6989586621679333097"><span id="local-6989586621679333098"><span id="local-6989586621679333099"><span class="annot"><span class="annottext">Maybe GrpcTimeout
+Maybe HttpTimeout
+Maybe TcpTimeout
+http :: Maybe HttpTimeout
+tcp :: Maybe TcpTimeout
+grpc :: Maybe GrpcTimeout
+http2 :: Maybe HttpTimeout
+$sel:http:ListenerTimeout' :: ListenerTimeout -&gt; Maybe HttpTimeout
+$sel:tcp:ListenerTimeout' :: ListenerTimeout -&gt; Maybe TcpTimeout
+$sel:grpc:ListenerTimeout' :: ListenerTimeout -&gt; Maybe GrpcTimeout
+$sel:http2:ListenerTimeout' :: ListenerTimeout -&gt; Maybe HttpTimeout
+</span><a href="#local-6989586621679333096"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;http2&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpTimeout -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HttpTimeout -&gt; Pair) -&gt; Maybe HttpTimeout -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpTimeout
+</span><a href="#local-6989586621679333099"><span class="hs-identifier hs-var">http2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;grpc&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GrpcTimeout -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(GrpcTimeout -&gt; Pair) -&gt; Maybe GrpcTimeout -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GrpcTimeout
+</span><a href="#local-6989586621679333098"><span class="hs-identifier hs-var">grpc</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tcp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TcpTimeout -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TcpTimeout -&gt; Pair) -&gt; Maybe TcpTimeout -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TcpTimeout
+</span><a href="#local-6989586621679333097"><span class="hs-identifier hs-var">tcp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;http&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpTimeout -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HttpTimeout -&gt; Pair) -&gt; Maybe HttpTimeout -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpTimeout
+</span><a href="#local-6989586621679333096"><span class="hs-identifier hs-var">http</span></a></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span></pre></body></html>

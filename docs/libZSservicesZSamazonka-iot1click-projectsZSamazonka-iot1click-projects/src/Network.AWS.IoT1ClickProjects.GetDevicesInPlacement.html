@@ -1,0 +1,483 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoT1ClickProjects.GetDevicesInPlacement</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns an object enumerating the devices in a placement.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT1ClickProjects.GetDevicesInPlacement</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement"><span class="hs-identifier">GetDevicesInPlacement</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#newGetDevicesInPlacement"><span class="hs-identifier">newGetDevicesInPlacement</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#getDevicesInPlacement_projectName"><span class="hs-identifier">getDevicesInPlacement_projectName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#getDevicesInPlacement_placementName"><span class="hs-identifier">getDevicesInPlacement_placementName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacementResponse"><span class="hs-identifier">GetDevicesInPlacementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#newGetDevicesInPlacementResponse"><span class="hs-identifier">newGetDevicesInPlacementResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#getDevicesInPlacementResponse_httpStatus"><span class="hs-identifier">getDevicesInPlacementResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#getDevicesInPlacementResponse_devices"><span class="hs-identifier">getDevicesInPlacementResponse_devices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.Types.html"><span class="hs-identifier">Network.AWS.IoT1ClickProjects.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetDevicesInPlacement' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679161277"><span id="local-6989586621679161278"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDevicesInPlacement"><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement"><span class="hs-identifier hs-var">GetDevicesInPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDevicesInPlacement%27"><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement%27"><span class="hs-identifier hs-var">GetDevicesInPlacement'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the project containing the placement.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AprojectName%3AGetDevicesInPlacement%27"><span class="annot"><span class="annottext">GetDevicesInPlacement -&gt; Text
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#%24sel%3AprojectName%3AGetDevicesInPlacement%27"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The name of the placement to get the devices from.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AplacementName%3AGetDevicesInPlacement%27"><span class="annot"><span class="annottext">GetDevicesInPlacement -&gt; Text
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#%24sel%3AplacementName%3AGetDevicesInPlacement%27"><span class="hs-identifier hs-var hs-var">placementName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679161270"><span id="local-6989586621679161272"><span class="annot"><span class="annottext">GetDevicesInPlacement -&gt; GetDevicesInPlacement -&gt; Bool
+(GetDevicesInPlacement -&gt; GetDevicesInPlacement -&gt; Bool)
+-&gt; (GetDevicesInPlacement -&gt; GetDevicesInPlacement -&gt; Bool)
+-&gt; Eq GetDevicesInPlacement
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDevicesInPlacement -&gt; GetDevicesInPlacement -&gt; Bool
+$c/= :: GetDevicesInPlacement -&gt; GetDevicesInPlacement -&gt; Bool
+== :: GetDevicesInPlacement -&gt; GetDevicesInPlacement -&gt; Bool
+$c== :: GetDevicesInPlacement -&gt; GetDevicesInPlacement -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679161261"><span id="local-6989586621679161263"><span id="local-6989586621679161265"><span id="local-6989586621679161267"><span class="annot"><span class="annottext">ReadPrec [GetDevicesInPlacement]
+ReadPrec GetDevicesInPlacement
+Int -&gt; ReadS GetDevicesInPlacement
+ReadS [GetDevicesInPlacement]
+(Int -&gt; ReadS GetDevicesInPlacement)
+-&gt; ReadS [GetDevicesInPlacement]
+-&gt; ReadPrec GetDevicesInPlacement
+-&gt; ReadPrec [GetDevicesInPlacement]
+-&gt; Read GetDevicesInPlacement
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDevicesInPlacement]
+$creadListPrec :: ReadPrec [GetDevicesInPlacement]
+readPrec :: ReadPrec GetDevicesInPlacement
+$creadPrec :: ReadPrec GetDevicesInPlacement
+readList :: ReadS [GetDevicesInPlacement]
+$creadList :: ReadS [GetDevicesInPlacement]
+readsPrec :: Int -&gt; ReadS GetDevicesInPlacement
+$creadsPrec :: Int -&gt; ReadS GetDevicesInPlacement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679161254"><span id="local-6989586621679161256"><span id="local-6989586621679161258"><span class="annot"><span class="annottext">Int -&gt; GetDevicesInPlacement -&gt; ShowS
+[GetDevicesInPlacement] -&gt; ShowS
+GetDevicesInPlacement -&gt; String
+(Int -&gt; GetDevicesInPlacement -&gt; ShowS)
+-&gt; (GetDevicesInPlacement -&gt; String)
+-&gt; ([GetDevicesInPlacement] -&gt; ShowS)
+-&gt; Show GetDevicesInPlacement
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDevicesInPlacement] -&gt; ShowS
+$cshowList :: [GetDevicesInPlacement] -&gt; ShowS
+show :: GetDevicesInPlacement -&gt; String
+$cshow :: GetDevicesInPlacement -&gt; String
+showsPrec :: Int -&gt; GetDevicesInPlacement -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDevicesInPlacement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDevicesInPlacement -&gt; Rep GetDevicesInPlacement x)
+-&gt; (forall x. Rep GetDevicesInPlacement x -&gt; GetDevicesInPlacement)
+-&gt; Generic GetDevicesInPlacement
+forall x. Rep GetDevicesInPlacement x -&gt; GetDevicesInPlacement
+forall x. GetDevicesInPlacement -&gt; Rep GetDevicesInPlacement x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDevicesInPlacement x -&gt; GetDevicesInPlacement
+$cfrom :: forall x. GetDevicesInPlacement -&gt; Rep GetDevicesInPlacement x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'GetDevicesInPlacement' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'projectName', 'getDevicesInPlacement_projectName' - The name of the project containing the placement.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'placementName', 'getDevicesInPlacement_placementName' - The name of the placement to get the devices from.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#newGetDevicesInPlacement"><span class="hs-identifier hs-type">newGetDevicesInPlacement</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'projectName'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'placementName'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement"><span class="hs-identifier hs-type">GetDevicesInPlacement</span></a></span><span>
+</span><span id="line-76"></span><span id="newGetDevicesInPlacement"><span class="annot"><span class="annottext">newGetDevicesInPlacement :: Text -&gt; Text -&gt; GetDevicesInPlacement
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#newGetDevicesInPlacement"><span class="hs-identifier hs-var hs-var">newGetDevicesInPlacement</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679161249"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161249"><span class="hs-identifier hs-var">pProjectName_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679161248"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161248"><span class="hs-identifier hs-var">pPlacementName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">GetDevicesInPlacement' :: Text -&gt; Text -&gt; GetDevicesInPlacement
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement%27"><span class="hs-identifier hs-type">GetDevicesInPlacement'</span></a></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:projectName:GetDevicesInPlacement' :: Text
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#%24sel%3AprojectName%3AGetDevicesInPlacement%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161249"><span class="hs-identifier hs-var">pProjectName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:placementName:GetDevicesInPlacement' :: Text
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#%24sel%3AplacementName%3AGetDevicesInPlacement%27"><span class="hs-identifier hs-var">placementName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161248"><span class="hs-identifier hs-var">pPlacementName_</span></a></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The name of the project containing the placement.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#getDevicesInPlacement_projectName"><span class="hs-identifier hs-type">getDevicesInPlacement_projectName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement"><span class="hs-identifier hs-type">GetDevicesInPlacement</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="getDevicesInPlacement_projectName"><span class="annot"><span class="annottext">getDevicesInPlacement_projectName :: (Text -&gt; f Text)
+-&gt; GetDevicesInPlacement -&gt; f GetDevicesInPlacement
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#getDevicesInPlacement_projectName"><span class="hs-identifier hs-var hs-var">getDevicesInPlacement_projectName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDevicesInPlacement -&gt; Text)
+-&gt; (GetDevicesInPlacement -&gt; Text -&gt; GetDevicesInPlacement)
+-&gt; Lens GetDevicesInPlacement GetDevicesInPlacement Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement%27"><span class="hs-identifier hs-type">GetDevicesInPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161245"><span class="annot"><span class="annottext">Text
+projectName :: Text
+$sel:projectName:GetDevicesInPlacement' :: GetDevicesInPlacement -&gt; Text
+</span><a href="#local-6989586621679161245"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161245"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161244"><span class="annot"><span class="annottext">s :: GetDevicesInPlacement
+</span><a href="#local-6989586621679161244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement%27"><span class="hs-identifier hs-type">GetDevicesInPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161243"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDevicesInPlacement
+</span><a href="#local-6989586621679161244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:GetDevicesInPlacement' :: Text
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#%24sel%3AprojectName%3AGetDevicesInPlacement%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement"><span class="hs-identifier hs-type">GetDevicesInPlacement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The name of the placement to get the devices from.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#getDevicesInPlacement_placementName"><span class="hs-identifier hs-type">getDevicesInPlacement_placementName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement"><span class="hs-identifier hs-type">GetDevicesInPlacement</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="getDevicesInPlacement_placementName"><span class="annot"><span class="annottext">getDevicesInPlacement_placementName :: (Text -&gt; f Text)
+-&gt; GetDevicesInPlacement -&gt; f GetDevicesInPlacement
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#getDevicesInPlacement_placementName"><span class="hs-identifier hs-var hs-var">getDevicesInPlacement_placementName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDevicesInPlacement -&gt; Text)
+-&gt; (GetDevicesInPlacement -&gt; Text -&gt; GetDevicesInPlacement)
+-&gt; Lens GetDevicesInPlacement GetDevicesInPlacement Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement%27"><span class="hs-identifier hs-type">GetDevicesInPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161242"><span class="annot"><span class="annottext">Text
+placementName :: Text
+$sel:placementName:GetDevicesInPlacement' :: GetDevicesInPlacement -&gt; Text
+</span><a href="#local-6989586621679161242"><span class="hs-identifier hs-var hs-var">placementName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161242"><span class="hs-identifier hs-var">placementName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161241"><span class="annot"><span class="annottext">s :: GetDevicesInPlacement
+</span><a href="#local-6989586621679161241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement%27"><span class="hs-identifier hs-type">GetDevicesInPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161240"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDevicesInPlacement
+</span><a href="#local-6989586621679161241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementName:GetDevicesInPlacement' :: Text
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#%24sel%3AplacementName%3AGetDevicesInPlacement%27"><span class="hs-identifier hs-var">placementName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement"><span class="hs-identifier hs-type">GetDevicesInPlacement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement"><span class="hs-identifier hs-type">GetDevicesInPlacement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement"><span class="hs-identifier hs-type">GetDevicesInPlacement</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacementResponse"><span class="hs-identifier hs-type">GetDevicesInPlacementResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679161236"><span class="annot"><span class="annottext">request :: GetDevicesInPlacement -&gt; Request GetDevicesInPlacement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDevicesInPlacement -&gt; Request GetDevicesInPlacement
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoT1ClickProjects.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679161232"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDevicesInPlacement
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetDevicesInPlacement)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDevicesInPlacement))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDevicesInPlacement
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetDevicesInPlacement)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679161229"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679161229"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679161228"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679161228"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679161227"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679161227"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; HashMap Text Text -&gt; GetDevicesInPlacementResponse
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacementResponse%27"><span class="hs-identifier hs-var">GetDevicesInPlacementResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; HashMap Text Text -&gt; GetDevicesInPlacementResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (HashMap Text Text -&gt; GetDevicesInPlacementResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679161229"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (HashMap Text Text -&gt; GetDevicesInPlacementResponse)
+-&gt; Either String (HashMap Text Text)
+-&gt; Either String GetDevicesInPlacementResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679161227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (HashMap Text Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;devices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (HashMap Text Text))
+-&gt; HashMap Text Text -&gt; Either String (HashMap Text Text)
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679161218"><span id="local-6989586621679161220"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement"><span class="hs-identifier hs-type">GetDevicesInPlacement</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679161215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement"><span class="hs-identifier hs-type">GetDevicesInPlacement</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement"><span class="hs-identifier hs-type">GetDevicesInPlacement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679161211"><span class="annot"><span class="annottext">toHeaders :: GetDevicesInPlacement -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDevicesInPlacement -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement"><span class="hs-identifier hs-type">GetDevicesInPlacement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679161205"><span class="annot"><span class="annottext">toPath :: GetDevicesInPlacement -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement%27"><span class="hs-identifier hs-type">GetDevicesInPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161202"><span id="local-6989586621679161203"><span class="annot"><span class="annottext">Text
+placementName :: Text
+projectName :: Text
+$sel:placementName:GetDevicesInPlacement' :: GetDevicesInPlacement -&gt; Text
+$sel:projectName:GetDevicesInPlacement' :: GetDevicesInPlacement -&gt; Text
+</span><a href="#local-6989586621679161202"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/projects/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161203"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/placements/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161202"><span class="hs-identifier hs-var">placementName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/devices&quot;</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacement"><span class="hs-identifier hs-type">GetDevicesInPlacement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679161198"><span class="annot"><span class="annottext">toQuery :: GetDevicesInPlacement -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDevicesInPlacement -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newGetDevicesInPlacementResponse' smart constructor.</span><span>
+</span><span id="line-134"></span><span id="local-6989586621679161195"><span id="local-6989586621679161196"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDevicesInPlacementResponse"><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacementResponse"><span class="hs-identifier hs-var">GetDevicesInPlacementResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDevicesInPlacementResponse%27"><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacementResponse%27"><span class="hs-identifier hs-var">GetDevicesInPlacementResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDevicesInPlacementResponse%27"><span class="annot"><span class="annottext">GetDevicesInPlacementResponse -&gt; Int
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#%24sel%3AhttpStatus%3AGetDevicesInPlacementResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | An object containing the devices (zero or more) within the placement.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3Adevices%3AGetDevicesInPlacementResponse%27"><span class="annot"><span class="annottext">GetDevicesInPlacementResponse -&gt; HashMap Text Text
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#%24sel%3Adevices%3AGetDevicesInPlacementResponse%27"><span class="hs-identifier hs-var hs-var">devices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679161189"><span id="local-6989586621679161191"><span class="annot"><span class="annottext">GetDevicesInPlacementResponse
+-&gt; GetDevicesInPlacementResponse -&gt; Bool
+(GetDevicesInPlacementResponse
+ -&gt; GetDevicesInPlacementResponse -&gt; Bool)
+-&gt; (GetDevicesInPlacementResponse
+    -&gt; GetDevicesInPlacementResponse -&gt; Bool)
+-&gt; Eq GetDevicesInPlacementResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDevicesInPlacementResponse
+-&gt; GetDevicesInPlacementResponse -&gt; Bool
+$c/= :: GetDevicesInPlacementResponse
+-&gt; GetDevicesInPlacementResponse -&gt; Bool
+== :: GetDevicesInPlacementResponse
+-&gt; GetDevicesInPlacementResponse -&gt; Bool
+$c== :: GetDevicesInPlacementResponse
+-&gt; GetDevicesInPlacementResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679161181"><span id="local-6989586621679161183"><span id="local-6989586621679161185"><span id="local-6989586621679161187"><span class="annot"><span class="annottext">ReadPrec [GetDevicesInPlacementResponse]
+ReadPrec GetDevicesInPlacementResponse
+Int -&gt; ReadS GetDevicesInPlacementResponse
+ReadS [GetDevicesInPlacementResponse]
+(Int -&gt; ReadS GetDevicesInPlacementResponse)
+-&gt; ReadS [GetDevicesInPlacementResponse]
+-&gt; ReadPrec GetDevicesInPlacementResponse
+-&gt; ReadPrec [GetDevicesInPlacementResponse]
+-&gt; Read GetDevicesInPlacementResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDevicesInPlacementResponse]
+$creadListPrec :: ReadPrec [GetDevicesInPlacementResponse]
+readPrec :: ReadPrec GetDevicesInPlacementResponse
+$creadPrec :: ReadPrec GetDevicesInPlacementResponse
+readList :: ReadS [GetDevicesInPlacementResponse]
+$creadList :: ReadS [GetDevicesInPlacementResponse]
+readsPrec :: Int -&gt; ReadS GetDevicesInPlacementResponse
+$creadsPrec :: Int -&gt; ReadS GetDevicesInPlacementResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679161175"><span id="local-6989586621679161177"><span id="local-6989586621679161179"><span class="annot"><span class="annottext">Int -&gt; GetDevicesInPlacementResponse -&gt; ShowS
+[GetDevicesInPlacementResponse] -&gt; ShowS
+GetDevicesInPlacementResponse -&gt; String
+(Int -&gt; GetDevicesInPlacementResponse -&gt; ShowS)
+-&gt; (GetDevicesInPlacementResponse -&gt; String)
+-&gt; ([GetDevicesInPlacementResponse] -&gt; ShowS)
+-&gt; Show GetDevicesInPlacementResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDevicesInPlacementResponse] -&gt; ShowS
+$cshowList :: [GetDevicesInPlacementResponse] -&gt; ShowS
+show :: GetDevicesInPlacementResponse -&gt; String
+$cshow :: GetDevicesInPlacementResponse -&gt; String
+showsPrec :: Int -&gt; GetDevicesInPlacementResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDevicesInPlacementResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDevicesInPlacementResponse
+ -&gt; Rep GetDevicesInPlacementResponse x)
+-&gt; (forall x.
+    Rep GetDevicesInPlacementResponse x
+    -&gt; GetDevicesInPlacementResponse)
+-&gt; Generic GetDevicesInPlacementResponse
+forall x.
+Rep GetDevicesInPlacementResponse x
+-&gt; GetDevicesInPlacementResponse
+forall x.
+GetDevicesInPlacementResponse
+-&gt; Rep GetDevicesInPlacementResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetDevicesInPlacementResponse x
+-&gt; GetDevicesInPlacementResponse
+$cfrom :: forall x.
+GetDevicesInPlacementResponse
+-&gt; Rep GetDevicesInPlacementResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'GetDevicesInPlacementResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'httpStatus', 'getDevicesInPlacementResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'devices', 'getDevicesInPlacementResponse_devices' - An object containing the devices (zero or more) within the placement.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#newGetDevicesInPlacementResponse"><span class="hs-identifier hs-type">newGetDevicesInPlacementResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacementResponse"><span class="hs-identifier hs-type">GetDevicesInPlacementResponse</span></a></span><span>
+</span><span id="line-157"></span><span id="newGetDevicesInPlacementResponse"><span class="annot"><span class="annottext">newGetDevicesInPlacementResponse :: Int -&gt; GetDevicesInPlacementResponse
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#newGetDevicesInPlacementResponse"><span class="hs-identifier hs-var hs-var">newGetDevicesInPlacementResponse</span></a></span></span><span> </span><span id="local-6989586621679161172"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679161172"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">GetDevicesInPlacementResponse' :: Int -&gt; HashMap Text Text -&gt; GetDevicesInPlacementResponse
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacementResponse%27"><span class="hs-identifier hs-type">GetDevicesInPlacementResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDevicesInPlacementResponse' :: Int
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#%24sel%3AhttpStatus%3AGetDevicesInPlacementResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679161172"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:devices:GetDevicesInPlacementResponse' :: HashMap Text Text
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#%24sel%3Adevices%3AGetDevicesInPlacementResponse%27"><span class="hs-identifier hs-var">devices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#getDevicesInPlacementResponse_httpStatus"><span class="hs-identifier hs-type">getDevicesInPlacementResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacementResponse"><span class="hs-identifier hs-type">GetDevicesInPlacementResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-166"></span><span id="getDevicesInPlacementResponse_httpStatus"><span class="annot"><span class="annottext">getDevicesInPlacementResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetDevicesInPlacementResponse -&gt; f GetDevicesInPlacementResponse
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#getDevicesInPlacementResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDevicesInPlacementResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDevicesInPlacementResponse -&gt; Int)
+-&gt; (GetDevicesInPlacementResponse
+    -&gt; Int -&gt; GetDevicesInPlacementResponse)
+-&gt; Lens
+     GetDevicesInPlacementResponse GetDevicesInPlacementResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacementResponse%27"><span class="hs-identifier hs-type">GetDevicesInPlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161171"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDevicesInPlacementResponse' :: GetDevicesInPlacementResponse -&gt; Int
+</span><a href="#local-6989586621679161171"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679161171"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161170"><span class="annot"><span class="annottext">s :: GetDevicesInPlacementResponse
+</span><a href="#local-6989586621679161170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacementResponse%27"><span class="hs-identifier hs-type">GetDevicesInPlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161169"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679161169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDevicesInPlacementResponse
+</span><a href="#local-6989586621679161170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDevicesInPlacementResponse' :: Int
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#%24sel%3AhttpStatus%3AGetDevicesInPlacementResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679161169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacementResponse"><span class="hs-identifier hs-type">GetDevicesInPlacementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | An object containing the devices (zero or more) within the placement.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#getDevicesInPlacementResponse_devices"><span class="hs-identifier hs-type">getDevicesInPlacementResponse_devices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacementResponse"><span class="hs-identifier hs-type">GetDevicesInPlacementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="getDevicesInPlacementResponse_devices"><span class="annot"><span class="annottext">getDevicesInPlacementResponse_devices :: (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; GetDevicesInPlacementResponse -&gt; f GetDevicesInPlacementResponse
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#getDevicesInPlacementResponse_devices"><span class="hs-identifier hs-var hs-var">getDevicesInPlacementResponse_devices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDevicesInPlacementResponse -&gt; HashMap Text Text)
+-&gt; (GetDevicesInPlacementResponse
+    -&gt; HashMap Text Text -&gt; GetDevicesInPlacementResponse)
+-&gt; Lens
+     GetDevicesInPlacementResponse
+     GetDevicesInPlacementResponse
+     (HashMap Text Text)
+     (HashMap Text Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacementResponse%27"><span class="hs-identifier hs-type">GetDevicesInPlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161168"><span class="annot"><span class="annottext">HashMap Text Text
+devices :: HashMap Text Text
+$sel:devices:GetDevicesInPlacementResponse' :: GetDevicesInPlacementResponse -&gt; HashMap Text Text
+</span><a href="#local-6989586621679161168"><span class="hs-identifier hs-var hs-var">devices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679161168"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161167"><span class="annot"><span class="annottext">s :: GetDevicesInPlacementResponse
+</span><a href="#local-6989586621679161167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacementResponse%27"><span class="hs-identifier hs-type">GetDevicesInPlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161166"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679161166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDevicesInPlacementResponse
+</span><a href="#local-6989586621679161167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devices:GetDevicesInPlacementResponse' :: HashMap Text Text
+</span><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#%24sel%3Adevices%3AGetDevicesInPlacementResponse%27"><span class="hs-identifier hs-var">devices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679161166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacementResponse"><span class="hs-identifier hs-type">GetDevicesInPlacementResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+ -&gt; GetDevicesInPlacementResponse
+ -&gt; f GetDevicesInPlacementResponse)
+-&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
+    -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; GetDevicesInPlacementResponse
+-&gt; f GetDevicesInPlacementResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; HashMap Text Text -&gt; f (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679161162"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.html#GetDevicesInPlacementResponse"><span class="hs-identifier hs-type">GetDevicesInPlacementResponse</span></a></span></span><span>
+</span><span id="line-173"></span></pre></body></html>

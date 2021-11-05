@@ -34,10 +34,10 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679269884"><span id="local-6989586621679269885"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Compute"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Compute.html#Compute"><span class="hs-identifier hs-var">Compute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Compute%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Compute.html#Compute%27"><span class="hs-identifier hs-var">Compute'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromCompute"><span class="annot"><span class="annottext">Compute -&gt; Text
+</span><span id="line-37"></span><span id="local-6989586621679269893"><span id="local-6989586621679269894"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Compute"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Compute.html#Compute"><span class="hs-identifier hs-var">Compute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Compute%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Compute.html#Compute%27"><span class="hs-identifier hs-var">Compute'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromCompute"><span class="annot"><span class="annottext">Compute -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.Types.Compute.html#fromCompute"><span class="hs-identifier hs-var hs-var">fromCompute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679269876"><span id="local-6989586621679269878"><span id="local-6989586621679269880"><span class="annot"><span class="annottext">Int -&gt; Compute -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679269885"><span id="local-6989586621679269887"><span id="local-6989586621679269889"><span class="annot"><span class="annottext">Int -&gt; Compute -&gt; ShowS
 [Compute] -&gt; ShowS
 Compute -&gt; String
 (Int -&gt; Compute -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: Compute -&gt; String
 showsPrec :: Int -&gt; Compute -&gt; ShowS
 $cshowsPrec :: Int -&gt; Compute -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679269867"><span id="local-6989586621679269869"><span id="local-6989586621679269871"><span id="local-6989586621679269873"><span class="annot"><span class="annottext">ReadPrec [Compute]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679269876"><span id="local-6989586621679269878"><span id="local-6989586621679269880"><span id="local-6989586621679269882"><span class="annot"><span class="annottext">ReadPrec [Compute]
 ReadPrec Compute
 Int -&gt; ReadS Compute
 ReadS [Compute]
@@ -72,7 +72,7 @@ $creadList :: ReadS [Compute]
 readsPrec :: Int -&gt; ReadS Compute
 $creadsPrec :: Int -&gt; ReadS Compute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679269862"><span id="local-6989586621679269864"><span class="annot"><span class="annottext">Compute -&gt; Compute -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679269871"><span id="local-6989586621679269873"><span class="annot"><span class="annottext">Compute -&gt; Compute -&gt; Bool
 (Compute -&gt; Compute -&gt; Bool)
 -&gt; (Compute -&gt; Compute -&gt; Bool) -&gt; Eq Compute
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: Compute -&gt; Compute -&gt; Bool
 == :: Compute -&gt; Compute -&gt; Bool
 $c== :: Compute -&gt; Compute -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679269846"><span id="local-6989586621679269848"><span id="local-6989586621679269850"><span id="local-6989586621679269852"><span id="local-6989586621679269854"><span id="local-6989586621679269856"><span id="local-6989586621679269858"><span class="annot"><span class="annottext">Eq Compute
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679269855"><span id="local-6989586621679269857"><span id="local-6989586621679269859"><span id="local-6989586621679269861"><span id="local-6989586621679269863"><span id="local-6989586621679269865"><span id="local-6989586621679269867"><span class="annot"><span class="annottext">Eq Compute
 Eq Compute
 -&gt; (Compute -&gt; Compute -&gt; Ordering)
 -&gt; (Compute -&gt; Compute -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. Compute -&gt; Rep Compute x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679269838"><span id="local-6989586621679269840"><span class="annot"><span class="annottext">Int -&gt; Compute -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679269847"><span id="local-6989586621679269849"><span class="annot"><span class="annottext">Int -&gt; Compute -&gt; Int
 Compute -&gt; Int
 (Int -&gt; Compute -&gt; Int) -&gt; (Compute -&gt; Int) -&gt; Hashable Compute
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -140,49 +140,49 @@ $chash :: Compute -&gt; Int
 hashWithSalt :: Int -&gt; Compute -&gt; Int
 $chashWithSalt :: Int -&gt; Compute -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679269835"><span class="annot"><span class="annottext">Compute -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679269844"><span class="annot"><span class="annottext">Compute -&gt; ()
 (Compute -&gt; ()) -&gt; NFData Compute
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Compute -&gt; ()
 $crnf :: Compute -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679269832"><span class="annot"><span class="annottext">Text -&gt; Either String Compute
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679269841"><span class="annot"><span class="annottext">Text -&gt; Either String Compute
 (Text -&gt; Either String Compute) -&gt; FromText Compute
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Compute
 $cfromText :: Text -&gt; Either String Compute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679269829"><span class="annot"><span class="annottext">Compute -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679269838"><span class="annot"><span class="annottext">Compute -&gt; Text
 (Compute -&gt; Text) -&gt; ToText Compute
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Compute -&gt; Text
 $ctoText :: Compute -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679269826"><span class="annot"><span class="annottext">Compute -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679269835"><span class="annot"><span class="annottext">Compute -&gt; ByteString
 (Compute -&gt; ByteString) -&gt; ToByteString Compute
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Compute -&gt; ByteString
 $ctoBS :: Compute -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679269823"><span class="annot"><span class="annottext">Compute -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679269832"><span class="annot"><span class="annottext">Compute -&gt; ByteStringBuilder
 (Compute -&gt; ByteStringBuilder) -&gt; ToLog Compute
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Compute -&gt; ByteStringBuilder
 $cbuild :: Compute -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679269820"><span class="annot"><span class="annottext">HeaderName -&gt; Compute -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679269829"><span class="annot"><span class="annottext">HeaderName -&gt; Compute -&gt; [Header]
 (HeaderName -&gt; Compute -&gt; [Header]) -&gt; ToHeader Compute
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Compute -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Compute -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679269817"><span class="annot"><span class="annottext">Compute -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679269826"><span class="annot"><span class="annottext">Compute -&gt; QueryString
 (Compute -&gt; QueryString) -&gt; ToQuery Compute
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Compute -&gt; QueryString
 $ctoQuery :: Compute -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679269812"><span id="local-6989586621679269814"><span class="annot"><span class="annottext">Value -&gt; Parser [Compute]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679269821"><span id="local-6989586621679269823"><span class="annot"><span class="annottext">Value -&gt; Parser [Compute]
 Value -&gt; Parser Compute
 (Value -&gt; Parser Compute)
 -&gt; (Value -&gt; Parser [Compute]) -&gt; FromJSON Compute
@@ -193,7 +193,7 @@ $cparseJSONList :: Value -&gt; Parser [Compute]
 parseJSON :: Value -&gt; Parser Compute
 $cparseJSON :: Value -&gt; Parser Compute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679269807"><span id="local-6989586621679269809"><span class="annot"><span class="annottext">FromJSONKeyFunction [Compute]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679269816"><span id="local-6989586621679269818"><span class="annot"><span class="annottext">FromJSONKeyFunction [Compute]
 FromJSONKeyFunction Compute
 FromJSONKeyFunction Compute
 -&gt; FromJSONKeyFunction [Compute] -&gt; FromJSONKey Compute
@@ -204,7 +204,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Compute]
 fromJSONKey :: FromJSONKeyFunction Compute
 $cfromJSONKey :: FromJSONKeyFunction Compute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679269798"><span id="local-6989586621679269800"><span id="local-6989586621679269802"><span id="local-6989586621679269804"><span class="annot"><span class="annottext">[Compute] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679269807"><span id="local-6989586621679269809"><span id="local-6989586621679269811"><span id="local-6989586621679269813"><span class="annot"><span class="annottext">[Compute] -&gt; Encoding
 [Compute] -&gt; Value
 Compute -&gt; Encoding
 Compute -&gt; Value
@@ -228,7 +228,7 @@ $ctoEncoding :: Compute -&gt; Encoding
 toJSON :: Compute -&gt; Value
 $ctoJSON :: Compute -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679269793"><span id="local-6989586621679269795"><span class="annot"><span class="annottext">ToJSONKeyFunction [Compute]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679269802"><span id="local-6989586621679269804"><span class="annot"><span class="annottext">ToJSONKeyFunction [Compute]
 ToJSONKeyFunction Compute
 ToJSONKeyFunction Compute
 -&gt; ToJSONKeyFunction [Compute] -&gt; ToJSONKey Compute
@@ -239,13 +239,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Compute]
 toJSONKey :: ToJSONKeyFunction Compute
 $ctoJSONKey :: ToJSONKeyFunction Compute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679269790"><span class="annot"><span class="annottext">[Node] -&gt; Either String Compute
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679269799"><span class="annot"><span class="annottext">[Node] -&gt; Either String Compute
 ([Node] -&gt; Either String Compute) -&gt; FromXML Compute
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Compute
 $cparseXML :: [Node] -&gt; Either String Compute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679269787"><span class="annot"><span class="annottext">Compute -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679269796"><span class="annot"><span class="annottext">Compute -&gt; XML
 (Compute -&gt; XML) -&gt; ToXML Compute
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Compute -&gt; XML

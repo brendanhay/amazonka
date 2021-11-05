@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679272954"><span id="local-6989586621679272955"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReconnectEnum"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ReconnectEnum.html#ReconnectEnum"><span class="hs-identifier hs-var">ReconnectEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReconnectEnum%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ReconnectEnum.html#ReconnectEnum%27"><span class="hs-identifier hs-var">ReconnectEnum'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679272963"><span id="local-6989586621679272964"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReconnectEnum"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ReconnectEnum.html#ReconnectEnum"><span class="hs-identifier hs-var">ReconnectEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReconnectEnum%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ReconnectEnum.html#ReconnectEnum%27"><span class="hs-identifier hs-var">ReconnectEnum'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReconnectEnum"><span class="annot"><span class="annottext">ReconnectEnum -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.Types.ReconnectEnum.html#fromReconnectEnum"><span class="hs-identifier hs-var hs-var">fromReconnectEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272946"><span id="local-6989586621679272948"><span id="local-6989586621679272950"><span class="annot"><span class="annottext">Int -&gt; ReconnectEnum -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272955"><span id="local-6989586621679272957"><span id="local-6989586621679272959"><span class="annot"><span class="annottext">Int -&gt; ReconnectEnum -&gt; ShowS
 [ReconnectEnum] -&gt; ShowS
 ReconnectEnum -&gt; String
 (Int -&gt; ReconnectEnum -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ReconnectEnum -&gt; String
 showsPrec :: Int -&gt; ReconnectEnum -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReconnectEnum -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679272937"><span id="local-6989586621679272939"><span id="local-6989586621679272941"><span id="local-6989586621679272943"><span class="annot"><span class="annottext">ReadPrec [ReconnectEnum]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679272946"><span id="local-6989586621679272948"><span id="local-6989586621679272950"><span id="local-6989586621679272952"><span class="annot"><span class="annottext">ReadPrec [ReconnectEnum]
 ReadPrec ReconnectEnum
 Int -&gt; ReadS ReconnectEnum
 ReadS [ReconnectEnum]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ReconnectEnum]
 readsPrec :: Int -&gt; ReadS ReconnectEnum
 $creadsPrec :: Int -&gt; ReadS ReconnectEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679272932"><span id="local-6989586621679272934"><span class="annot"><span class="annottext">ReconnectEnum -&gt; ReconnectEnum -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679272941"><span id="local-6989586621679272943"><span class="annot"><span class="annottext">ReconnectEnum -&gt; ReconnectEnum -&gt; Bool
 (ReconnectEnum -&gt; ReconnectEnum -&gt; Bool)
 -&gt; (ReconnectEnum -&gt; ReconnectEnum -&gt; Bool) -&gt; Eq ReconnectEnum
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: ReconnectEnum -&gt; ReconnectEnum -&gt; Bool
 == :: ReconnectEnum -&gt; ReconnectEnum -&gt; Bool
 $c== :: ReconnectEnum -&gt; ReconnectEnum -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679272916"><span id="local-6989586621679272918"><span id="local-6989586621679272920"><span id="local-6989586621679272922"><span id="local-6989586621679272924"><span id="local-6989586621679272926"><span id="local-6989586621679272928"><span class="annot"><span class="annottext">Eq ReconnectEnum
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679272925"><span id="local-6989586621679272927"><span id="local-6989586621679272929"><span id="local-6989586621679272931"><span id="local-6989586621679272933"><span id="local-6989586621679272935"><span id="local-6989586621679272937"><span class="annot"><span class="annottext">Eq ReconnectEnum
 Eq ReconnectEnum
 -&gt; (ReconnectEnum -&gt; ReconnectEnum -&gt; Ordering)
 -&gt; (ReconnectEnum -&gt; ReconnectEnum -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ReconnectEnum -&gt; Rep ReconnectEnum x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272908"><span id="local-6989586621679272910"><span class="annot"><span class="annottext">Int -&gt; ReconnectEnum -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272917"><span id="local-6989586621679272919"><span class="annot"><span class="annottext">Int -&gt; ReconnectEnum -&gt; Int
 ReconnectEnum -&gt; Int
 (Int -&gt; ReconnectEnum -&gt; Int)
 -&gt; (ReconnectEnum -&gt; Int) -&gt; Hashable ReconnectEnum
@@ -142,49 +142,49 @@ $chash :: ReconnectEnum -&gt; Int
 hashWithSalt :: Int -&gt; ReconnectEnum -&gt; Int
 $chashWithSalt :: Int -&gt; ReconnectEnum -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679272905"><span class="annot"><span class="annottext">ReconnectEnum -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679272914"><span class="annot"><span class="annottext">ReconnectEnum -&gt; ()
 (ReconnectEnum -&gt; ()) -&gt; NFData ReconnectEnum
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReconnectEnum -&gt; ()
 $crnf :: ReconnectEnum -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679272902"><span class="annot"><span class="annottext">Text -&gt; Either String ReconnectEnum
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679272911"><span class="annot"><span class="annottext">Text -&gt; Either String ReconnectEnum
 (Text -&gt; Either String ReconnectEnum) -&gt; FromText ReconnectEnum
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReconnectEnum
 $cfromText :: Text -&gt; Either String ReconnectEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679272899"><span class="annot"><span class="annottext">ReconnectEnum -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679272908"><span class="annot"><span class="annottext">ReconnectEnum -&gt; Text
 (ReconnectEnum -&gt; Text) -&gt; ToText ReconnectEnum
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReconnectEnum -&gt; Text
 $ctoText :: ReconnectEnum -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679272896"><span class="annot"><span class="annottext">ReconnectEnum -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679272905"><span class="annot"><span class="annottext">ReconnectEnum -&gt; ByteString
 (ReconnectEnum -&gt; ByteString) -&gt; ToByteString ReconnectEnum
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReconnectEnum -&gt; ByteString
 $ctoBS :: ReconnectEnum -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679272893"><span class="annot"><span class="annottext">ReconnectEnum -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679272902"><span class="annot"><span class="annottext">ReconnectEnum -&gt; ByteStringBuilder
 (ReconnectEnum -&gt; ByteStringBuilder) -&gt; ToLog ReconnectEnum
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReconnectEnum -&gt; ByteStringBuilder
 $cbuild :: ReconnectEnum -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679272890"><span class="annot"><span class="annottext">HeaderName -&gt; ReconnectEnum -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679272899"><span class="annot"><span class="annottext">HeaderName -&gt; ReconnectEnum -&gt; [Header]
 (HeaderName -&gt; ReconnectEnum -&gt; [Header]) -&gt; ToHeader ReconnectEnum
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReconnectEnum -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReconnectEnum -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679272887"><span class="annot"><span class="annottext">ReconnectEnum -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679272896"><span class="annot"><span class="annottext">ReconnectEnum -&gt; QueryString
 (ReconnectEnum -&gt; QueryString) -&gt; ToQuery ReconnectEnum
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReconnectEnum -&gt; QueryString
 $ctoQuery :: ReconnectEnum -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679272882"><span id="local-6989586621679272884"><span class="annot"><span class="annottext">Value -&gt; Parser [ReconnectEnum]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679272891"><span id="local-6989586621679272893"><span class="annot"><span class="annottext">Value -&gt; Parser [ReconnectEnum]
 Value -&gt; Parser ReconnectEnum
 (Value -&gt; Parser ReconnectEnum)
 -&gt; (Value -&gt; Parser [ReconnectEnum]) -&gt; FromJSON ReconnectEnum
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [ReconnectEnum]
 parseJSON :: Value -&gt; Parser ReconnectEnum
 $cparseJSON :: Value -&gt; Parser ReconnectEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679272877"><span id="local-6989586621679272879"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReconnectEnum]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679272886"><span id="local-6989586621679272888"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReconnectEnum]
 FromJSONKeyFunction ReconnectEnum
 FromJSONKeyFunction ReconnectEnum
 -&gt; FromJSONKeyFunction [ReconnectEnum] -&gt; FromJSONKey ReconnectEnum
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReconnectEnum]
 fromJSONKey :: FromJSONKeyFunction ReconnectEnum
 $cfromJSONKey :: FromJSONKeyFunction ReconnectEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679272868"><span id="local-6989586621679272870"><span id="local-6989586621679272872"><span id="local-6989586621679272874"><span class="annot"><span class="annottext">[ReconnectEnum] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679272877"><span id="local-6989586621679272879"><span id="local-6989586621679272881"><span id="local-6989586621679272883"><span class="annot"><span class="annottext">[ReconnectEnum] -&gt; Encoding
 [ReconnectEnum] -&gt; Value
 ReconnectEnum -&gt; Encoding
 ReconnectEnum -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: ReconnectEnum -&gt; Encoding
 toJSON :: ReconnectEnum -&gt; Value
 $ctoJSON :: ReconnectEnum -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679272863"><span id="local-6989586621679272865"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReconnectEnum]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679272872"><span id="local-6989586621679272874"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReconnectEnum]
 ToJSONKeyFunction ReconnectEnum
 ToJSONKeyFunction ReconnectEnum
 -&gt; ToJSONKeyFunction [ReconnectEnum] -&gt; ToJSONKey ReconnectEnum
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReconnectEnum]
 toJSONKey :: ToJSONKeyFunction ReconnectEnum
 $ctoJSONKey :: ToJSONKeyFunction ReconnectEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679272860"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReconnectEnum
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679272869"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReconnectEnum
 ([Node] -&gt; Either String ReconnectEnum) -&gt; FromXML ReconnectEnum
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReconnectEnum
 $cparseXML :: [Node] -&gt; Either String ReconnectEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679272857"><span class="annot"><span class="annottext">ReconnectEnum -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679272866"><span class="annot"><span class="annottext">ReconnectEnum -&gt; XML
 (ReconnectEnum -&gt; XML) -&gt; ToXML ReconnectEnum
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReconnectEnum -&gt; XML

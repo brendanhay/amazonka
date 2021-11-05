@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679182472"><span id="local-6989586621679182473"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AmbiguousRoleResolutionType"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType"><span class="hs-identifier hs-var">AmbiguousRoleResolutionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AmbiguousRoleResolutionType%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType%27"><span class="hs-identifier hs-var">AmbiguousRoleResolutionType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679182481"><span id="local-6989586621679182482"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AmbiguousRoleResolutionType"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType"><span class="hs-identifier hs-var">AmbiguousRoleResolutionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AmbiguousRoleResolutionType%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#AmbiguousRoleResolutionType%27"><span class="hs-identifier hs-var">AmbiguousRoleResolutionType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAmbiguousRoleResolutionType"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; Text
 </span><a href="Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType.html#fromAmbiguousRoleResolutionType"><span class="hs-identifier hs-var hs-var">fromAmbiguousRoleResolutionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182464"><span id="local-6989586621679182466"><span id="local-6989586621679182468"><span class="annot"><span class="annottext">Int -&gt; AmbiguousRoleResolutionType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182473"><span id="local-6989586621679182475"><span id="local-6989586621679182477"><span class="annot"><span class="annottext">Int -&gt; AmbiguousRoleResolutionType -&gt; ShowS
 [AmbiguousRoleResolutionType] -&gt; ShowS
 AmbiguousRoleResolutionType -&gt; String
 (Int -&gt; AmbiguousRoleResolutionType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: AmbiguousRoleResolutionType -&gt; String
 showsPrec :: Int -&gt; AmbiguousRoleResolutionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AmbiguousRoleResolutionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679182455"><span id="local-6989586621679182457"><span id="local-6989586621679182459"><span id="local-6989586621679182461"><span class="annot"><span class="annottext">ReadPrec [AmbiguousRoleResolutionType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679182464"><span id="local-6989586621679182466"><span id="local-6989586621679182468"><span id="local-6989586621679182470"><span class="annot"><span class="annottext">ReadPrec [AmbiguousRoleResolutionType]
 ReadPrec AmbiguousRoleResolutionType
 Int -&gt; ReadS AmbiguousRoleResolutionType
 ReadS [AmbiguousRoleResolutionType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [AmbiguousRoleResolutionType]
 readsPrec :: Int -&gt; ReadS AmbiguousRoleResolutionType
 $creadsPrec :: Int -&gt; ReadS AmbiguousRoleResolutionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679182450"><span id="local-6989586621679182452"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679182459"><span id="local-6989586621679182461"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
 (AmbiguousRoleResolutionType
  -&gt; AmbiguousRoleResolutionType -&gt; Bool)
 -&gt; (AmbiguousRoleResolutionType
@@ -84,7 +84,7 @@ $c/= :: AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
 == :: AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
 $c== :: AmbiguousRoleResolutionType -&gt; AmbiguousRoleResolutionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679182434"><span id="local-6989586621679182436"><span id="local-6989586621679182438"><span id="local-6989586621679182440"><span id="local-6989586621679182442"><span id="local-6989586621679182444"><span id="local-6989586621679182446"><span class="annot"><span class="annottext">Eq AmbiguousRoleResolutionType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679182443"><span id="local-6989586621679182445"><span id="local-6989586621679182447"><span id="local-6989586621679182449"><span id="local-6989586621679182451"><span id="local-6989586621679182453"><span id="local-6989586621679182455"><span class="annot"><span class="annottext">Eq AmbiguousRoleResolutionType
 Eq AmbiguousRoleResolutionType
 -&gt; (AmbiguousRoleResolutionType
     -&gt; AmbiguousRoleResolutionType -&gt; Ordering)
@@ -156,7 +156,7 @@ AmbiguousRoleResolutionType -&gt; Rep AmbiguousRoleResolutionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182426"><span id="local-6989586621679182428"><span class="annot"><span class="annottext">Int -&gt; AmbiguousRoleResolutionType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182435"><span id="local-6989586621679182437"><span class="annot"><span class="annottext">Int -&gt; AmbiguousRoleResolutionType -&gt; Int
 AmbiguousRoleResolutionType -&gt; Int
 (Int -&gt; AmbiguousRoleResolutionType -&gt; Int)
 -&gt; (AmbiguousRoleResolutionType -&gt; Int)
@@ -167,56 +167,56 @@ $chash :: AmbiguousRoleResolutionType -&gt; Int
 hashWithSalt :: Int -&gt; AmbiguousRoleResolutionType -&gt; Int
 $chashWithSalt :: Int -&gt; AmbiguousRoleResolutionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679182423"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679182432"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; ()
 (AmbiguousRoleResolutionType -&gt; ())
 -&gt; NFData AmbiguousRoleResolutionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AmbiguousRoleResolutionType -&gt; ()
 $crnf :: AmbiguousRoleResolutionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679182420"><span class="annot"><span class="annottext">Text -&gt; Either String AmbiguousRoleResolutionType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679182429"><span class="annot"><span class="annottext">Text -&gt; Either String AmbiguousRoleResolutionType
 (Text -&gt; Either String AmbiguousRoleResolutionType)
 -&gt; FromText AmbiguousRoleResolutionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AmbiguousRoleResolutionType
 $cfromText :: Text -&gt; Either String AmbiguousRoleResolutionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679182417"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679182426"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; Text
 (AmbiguousRoleResolutionType -&gt; Text)
 -&gt; ToText AmbiguousRoleResolutionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AmbiguousRoleResolutionType -&gt; Text
 $ctoText :: AmbiguousRoleResolutionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679182414"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679182423"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; ByteString
 (AmbiguousRoleResolutionType -&gt; ByteString)
 -&gt; ToByteString AmbiguousRoleResolutionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AmbiguousRoleResolutionType -&gt; ByteString
 $ctoBS :: AmbiguousRoleResolutionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679182411"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679182420"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; ByteStringBuilder
 (AmbiguousRoleResolutionType -&gt; ByteStringBuilder)
 -&gt; ToLog AmbiguousRoleResolutionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AmbiguousRoleResolutionType -&gt; ByteStringBuilder
 $cbuild :: AmbiguousRoleResolutionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679182408"><span class="annot"><span class="annottext">HeaderName -&gt; AmbiguousRoleResolutionType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679182417"><span class="annot"><span class="annottext">HeaderName -&gt; AmbiguousRoleResolutionType -&gt; [Header]
 (HeaderName -&gt; AmbiguousRoleResolutionType -&gt; [Header])
 -&gt; ToHeader AmbiguousRoleResolutionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AmbiguousRoleResolutionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AmbiguousRoleResolutionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679182405"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679182414"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; QueryString
 (AmbiguousRoleResolutionType -&gt; QueryString)
 -&gt; ToQuery AmbiguousRoleResolutionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AmbiguousRoleResolutionType -&gt; QueryString
 $ctoQuery :: AmbiguousRoleResolutionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679182400"><span id="local-6989586621679182402"><span class="annot"><span class="annottext">Value -&gt; Parser [AmbiguousRoleResolutionType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679182409"><span id="local-6989586621679182411"><span class="annot"><span class="annottext">Value -&gt; Parser [AmbiguousRoleResolutionType]
 Value -&gt; Parser AmbiguousRoleResolutionType
 (Value -&gt; Parser AmbiguousRoleResolutionType)
 -&gt; (Value -&gt; Parser [AmbiguousRoleResolutionType])
@@ -228,7 +228,7 @@ $cparseJSONList :: Value -&gt; Parser [AmbiguousRoleResolutionType]
 parseJSON :: Value -&gt; Parser AmbiguousRoleResolutionType
 $cparseJSON :: Value -&gt; Parser AmbiguousRoleResolutionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679182395"><span id="local-6989586621679182397"><span class="annot"><span class="annottext">FromJSONKeyFunction [AmbiguousRoleResolutionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679182404"><span id="local-6989586621679182406"><span class="annot"><span class="annottext">FromJSONKeyFunction [AmbiguousRoleResolutionType]
 FromJSONKeyFunction AmbiguousRoleResolutionType
 FromJSONKeyFunction AmbiguousRoleResolutionType
 -&gt; FromJSONKeyFunction [AmbiguousRoleResolutionType]
@@ -240,7 +240,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AmbiguousRoleResolutionType]
 fromJSONKey :: FromJSONKeyFunction AmbiguousRoleResolutionType
 $cfromJSONKey :: FromJSONKeyFunction AmbiguousRoleResolutionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679182386"><span id="local-6989586621679182388"><span id="local-6989586621679182390"><span id="local-6989586621679182392"><span class="annot"><span class="annottext">[AmbiguousRoleResolutionType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679182395"><span id="local-6989586621679182397"><span id="local-6989586621679182399"><span id="local-6989586621679182401"><span class="annot"><span class="annottext">[AmbiguousRoleResolutionType] -&gt; Encoding
 [AmbiguousRoleResolutionType] -&gt; Value
 AmbiguousRoleResolutionType -&gt; Encoding
 AmbiguousRoleResolutionType -&gt; Value
@@ -264,7 +264,7 @@ $ctoEncoding :: AmbiguousRoleResolutionType -&gt; Encoding
 toJSON :: AmbiguousRoleResolutionType -&gt; Value
 $ctoJSON :: AmbiguousRoleResolutionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679182381"><span id="local-6989586621679182383"><span class="annot"><span class="annottext">ToJSONKeyFunction [AmbiguousRoleResolutionType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679182390"><span id="local-6989586621679182392"><span class="annot"><span class="annottext">ToJSONKeyFunction [AmbiguousRoleResolutionType]
 ToJSONKeyFunction AmbiguousRoleResolutionType
 ToJSONKeyFunction AmbiguousRoleResolutionType
 -&gt; ToJSONKeyFunction [AmbiguousRoleResolutionType]
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AmbiguousRoleResolutionType]
 toJSONKey :: ToJSONKeyFunction AmbiguousRoleResolutionType
 $ctoJSONKey :: ToJSONKeyFunction AmbiguousRoleResolutionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679182378"><span class="annot"><span class="annottext">[Node] -&gt; Either String AmbiguousRoleResolutionType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679182387"><span class="annot"><span class="annottext">[Node] -&gt; Either String AmbiguousRoleResolutionType
 ([Node] -&gt; Either String AmbiguousRoleResolutionType)
 -&gt; FromXML AmbiguousRoleResolutionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AmbiguousRoleResolutionType
 $cparseXML :: [Node] -&gt; Either String AmbiguousRoleResolutionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679182375"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679182384"><span class="annot"><span class="annottext">AmbiguousRoleResolutionType -&gt; XML
 (AmbiguousRoleResolutionType -&gt; XML)
 -&gt; ToXML AmbiguousRoleResolutionType
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeGuruReviewer.Types.S3BucketRepository</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeGuruReviewer.Types.S3BucketRepository</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3RepositoryDetails.html"><span class="hs-identifier">Network.AWS.CodeGuruReviewer.Types.S3RepositoryDetails</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about an associated repository in an S3 bucket. The</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- associated repository contains a source code .zip file and a build</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- artifacts .zip file that contains .jar or .class files.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newS3BucketRepository' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679200339"><span id="local-6989586621679200340"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3BucketRepository"><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository"><span class="hs-identifier hs-var">S3BucketRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3BucketRepository%27"><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository%27"><span class="hs-identifier hs-var">S3BucketRepository'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An @S3RepositoryDetails@ object that specifies the name of an S3 bucket</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- and a @CodeArtifacts@ object. The @CodeArtifacts@ object includes the S3</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- object keys for a source code .zip file and for a build artifacts .zip</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- file.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Adetails%3AS3BucketRepository%27"><span class="annot"><span class="annottext">S3BucketRepository -&gt; Maybe S3RepositoryDetails
+</span><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#%24sel%3Adetails%3AS3BucketRepository%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3RepositoryDetails.html#S3RepositoryDetails"><span class="hs-identifier hs-type">S3RepositoryDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the repository when the @ProviderType@ is @S3Bucket@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aname%3AS3BucketRepository%27"><span class="annot"><span class="annottext">S3BucketRepository -&gt; Text
+</span><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#%24sel%3Aname%3AS3BucketRepository%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200332"><span id="local-6989586621679200334"><span class="annot"><span class="annottext">S3BucketRepository -&gt; S3BucketRepository -&gt; Bool
+(S3BucketRepository -&gt; S3BucketRepository -&gt; Bool)
+-&gt; (S3BucketRepository -&gt; S3BucketRepository -&gt; Bool)
+-&gt; Eq S3BucketRepository
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: S3BucketRepository -&gt; S3BucketRepository -&gt; Bool
+$c/= :: S3BucketRepository -&gt; S3BucketRepository -&gt; Bool
+== :: S3BucketRepository -&gt; S3BucketRepository -&gt; Bool
+$c== :: S3BucketRepository -&gt; S3BucketRepository -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200323"><span id="local-6989586621679200325"><span id="local-6989586621679200327"><span id="local-6989586621679200329"><span class="annot"><span class="annottext">ReadPrec [S3BucketRepository]
+ReadPrec S3BucketRepository
+Int -&gt; ReadS S3BucketRepository
+ReadS [S3BucketRepository]
+(Int -&gt; ReadS S3BucketRepository)
+-&gt; ReadS [S3BucketRepository]
+-&gt; ReadPrec S3BucketRepository
+-&gt; ReadPrec [S3BucketRepository]
+-&gt; Read S3BucketRepository
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [S3BucketRepository]
+$creadListPrec :: ReadPrec [S3BucketRepository]
+readPrec :: ReadPrec S3BucketRepository
+$creadPrec :: ReadPrec S3BucketRepository
+readList :: ReadS [S3BucketRepository]
+$creadList :: ReadS [S3BucketRepository]
+readsPrec :: Int -&gt; ReadS S3BucketRepository
+$creadsPrec :: Int -&gt; ReadS S3BucketRepository
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200316"><span id="local-6989586621679200318"><span id="local-6989586621679200320"><span class="annot"><span class="annottext">Int -&gt; S3BucketRepository -&gt; ShowS
+[S3BucketRepository] -&gt; ShowS
+S3BucketRepository -&gt; String
+(Int -&gt; S3BucketRepository -&gt; ShowS)
+-&gt; (S3BucketRepository -&gt; String)
+-&gt; ([S3BucketRepository] -&gt; ShowS)
+-&gt; Show S3BucketRepository
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [S3BucketRepository] -&gt; ShowS
+$cshowList :: [S3BucketRepository] -&gt; ShowS
+show :: S3BucketRepository -&gt; String
+$cshow :: S3BucketRepository -&gt; String
+showsPrec :: Int -&gt; S3BucketRepository -&gt; ShowS
+$cshowsPrec :: Int -&gt; S3BucketRepository -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. S3BucketRepository -&gt; Rep S3BucketRepository x)
+-&gt; (forall x. Rep S3BucketRepository x -&gt; S3BucketRepository)
+-&gt; Generic S3BucketRepository
+forall x. Rep S3BucketRepository x -&gt; S3BucketRepository
+forall x. S3BucketRepository -&gt; Rep S3BucketRepository x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep S3BucketRepository x -&gt; S3BucketRepository
+$cfrom :: forall x. S3BucketRepository -&gt; Rep S3BucketRepository x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'S3BucketRepository' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'details', 's3BucketRepository_details' - An @S3RepositoryDetails@ object that specifies the name of an S3 bucket</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- and a @CodeArtifacts@ object. The @CodeArtifacts@ object includes the S3</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- object keys for a source code .zip file and for a build artifacts .zip</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- file.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'name', 's3BucketRepository_name' - The name of the repository when the @ProviderType@ is @S3Bucket@.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#newS3BucketRepository"><span class="hs-identifier hs-type">newS3BucketRepository</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository"><span class="hs-identifier hs-type">S3BucketRepository</span></a></span><span>
+</span><span id="line-61"></span><span id="newS3BucketRepository"><span class="annot"><span class="annottext">newS3BucketRepository :: Text -&gt; S3BucketRepository
+</span><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#newS3BucketRepository"><span class="hs-identifier hs-var hs-var">newS3BucketRepository</span></a></span></span><span> </span><span id="local-6989586621679200310"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200310"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">S3BucketRepository' :: Maybe S3RepositoryDetails -&gt; Text -&gt; S3BucketRepository
+</span><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository%27"><span class="hs-identifier hs-type">S3BucketRepository'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:details:S3BucketRepository' :: Maybe S3RepositoryDetails
+</span><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#%24sel%3Adetails%3AS3BucketRepository%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3RepositoryDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:S3BucketRepository' :: Text
+</span><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#%24sel%3Aname%3AS3BucketRepository%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200310"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | An @S3RepositoryDetails@ object that specifies the name of an S3 bucket</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- and a @CodeArtifacts@ object. The @CodeArtifacts@ object includes the S3</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- object keys for a source code .zip file and for a build artifacts .zip</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- file.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#s3BucketRepository_details"><span class="hs-identifier hs-type">s3BucketRepository_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository"><span class="hs-identifier hs-type">S3BucketRepository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3RepositoryDetails.html#S3RepositoryDetails"><span class="hs-identifier hs-type">S3RepositoryDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="s3BucketRepository_details"><span class="annot"><span class="annottext">s3BucketRepository_details :: (Maybe S3RepositoryDetails -&gt; f (Maybe S3RepositoryDetails))
+-&gt; S3BucketRepository -&gt; f S3BucketRepository
+</span><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#s3BucketRepository_details"><span class="hs-identifier hs-var hs-var">s3BucketRepository_details</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3BucketRepository -&gt; Maybe S3RepositoryDetails)
+-&gt; (S3BucketRepository
+    -&gt; Maybe S3RepositoryDetails -&gt; S3BucketRepository)
+-&gt; Lens
+     S3BucketRepository
+     S3BucketRepository
+     (Maybe S3RepositoryDetails)
+     (Maybe S3RepositoryDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository%27"><span class="hs-identifier hs-type">S3BucketRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200306"><span class="annot"><span class="annottext">Maybe S3RepositoryDetails
+details :: Maybe S3RepositoryDetails
+$sel:details:S3BucketRepository' :: S3BucketRepository -&gt; Maybe S3RepositoryDetails
+</span><a href="#local-6989586621679200306"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3RepositoryDetails
+</span><a href="#local-6989586621679200306"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200305"><span class="annot"><span class="annottext">s :: S3BucketRepository
+</span><a href="#local-6989586621679200305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository%27"><span class="hs-identifier hs-type">S3BucketRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200304"><span class="annot"><span class="annottext">Maybe S3RepositoryDetails
+</span><a href="#local-6989586621679200304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3BucketRepository
+</span><a href="#local-6989586621679200305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:S3BucketRepository' :: Maybe S3RepositoryDetails
+</span><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#%24sel%3Adetails%3AS3BucketRepository%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3RepositoryDetails
+</span><a href="#local-6989586621679200304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository"><span class="hs-identifier hs-type">S3BucketRepository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The name of the repository when the @ProviderType@ is @S3Bucket@.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#s3BucketRepository_name"><span class="hs-identifier hs-type">s3BucketRepository_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository"><span class="hs-identifier hs-type">S3BucketRepository</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="s3BucketRepository_name"><span class="annot"><span class="annottext">s3BucketRepository_name :: (Text -&gt; f Text) -&gt; S3BucketRepository -&gt; f S3BucketRepository
+</span><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#s3BucketRepository_name"><span class="hs-identifier hs-var hs-var">s3BucketRepository_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3BucketRepository -&gt; Text)
+-&gt; (S3BucketRepository -&gt; Text -&gt; S3BucketRepository)
+-&gt; Lens S3BucketRepository S3BucketRepository Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository%27"><span class="hs-identifier hs-type">S3BucketRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200302"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:S3BucketRepository' :: S3BucketRepository -&gt; Text
+</span><a href="#local-6989586621679200302"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200302"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200301"><span class="annot"><span class="annottext">s :: S3BucketRepository
+</span><a href="#local-6989586621679200301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository%27"><span class="hs-identifier hs-type">S3BucketRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200300"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3BucketRepository
+</span><a href="#local-6989586621679200301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:S3BucketRepository' :: Text
+</span><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#%24sel%3Aname%3AS3BucketRepository%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository"><span class="hs-identifier hs-type">S3BucketRepository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200297"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository"><span class="hs-identifier hs-type">S3BucketRepository</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679200295"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3BucketRepository
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser S3BucketRepository)
+-&gt; Value
+-&gt; Parser S3BucketRepository
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;S3BucketRepository&quot;</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200292"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200292"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe S3RepositoryDetails -&gt; Text -&gt; S3BucketRepository
+</span><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository%27"><span class="hs-identifier hs-var">S3BucketRepository'</span></a></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe S3RepositoryDetails -&gt; Text -&gt; S3BucketRepository)
+-&gt; Parser (Maybe S3RepositoryDetails)
+-&gt; Parser (Text -&gt; S3BucketRepository)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3RepositoryDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Details&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; S3BucketRepository)
+-&gt; Parser Text -&gt; Parser S3BucketRepository
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200285"><span id="local-6989586621679200287"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository"><span class="hs-identifier hs-type">S3BucketRepository</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository"><span class="hs-identifier hs-type">S3BucketRepository</span></a></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200274"><span id="local-6989586621679200276"><span id="local-6989586621679200278"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository"><span class="hs-identifier hs-type">S3BucketRepository</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679200272"><span class="annot"><span class="annottext">toJSON :: S3BucketRepository -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.S3BucketRepository.html#S3BucketRepository%27"><span class="hs-identifier hs-type">S3BucketRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200269"><span id="local-6989586621679200270"><span class="annot"><span class="annottext">Maybe S3RepositoryDetails
+Text
+name :: Text
+details :: Maybe S3RepositoryDetails
+$sel:name:S3BucketRepository' :: S3BucketRepository -&gt; Text
+$sel:details:S3BucketRepository' :: S3BucketRepository -&gt; Maybe S3RepositoryDetails
+</span><a href="#local-6989586621679200269"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-96"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Details&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3RepositoryDetails -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3RepositoryDetails -&gt; Pair)
+-&gt; Maybe S3RepositoryDetails -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3RepositoryDetails
+</span><a href="#local-6989586621679200270"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200269"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span></pre></body></html>

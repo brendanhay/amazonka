@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetSecurityConfiguration' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679722646"><span id="local-6989586621679722647"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSecurityConfiguration"><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-var">GetSecurityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSecurityConfiguration%27"><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration%27"><span class="hs-identifier hs-var">GetSecurityConfiguration'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679722655"><span id="local-6989586621679722656"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSecurityConfiguration"><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-var">GetSecurityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSecurityConfiguration%27"><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration%27"><span class="hs-identifier hs-var">GetSecurityConfiguration'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the security configuration to retrieve.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3AGetSecurityConfiguration%27"><span class="annot"><span class="annottext">GetSecurityConfiguration -&gt; Text
 </span><a href="Network.AWS.Glue.GetSecurityConfiguration.html#%24sel%3Aname%3AGetSecurityConfiguration%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679722640"><span id="local-6989586621679722642"><span class="annot"><span class="annottext">GetSecurityConfiguration -&gt; GetSecurityConfiguration -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679722649"><span id="local-6989586621679722651"><span class="annot"><span class="annottext">GetSecurityConfiguration -&gt; GetSecurityConfiguration -&gt; Bool
 (GetSecurityConfiguration -&gt; GetSecurityConfiguration -&gt; Bool)
 -&gt; (GetSecurityConfiguration -&gt; GetSecurityConfiguration -&gt; Bool)
 -&gt; Eq GetSecurityConfiguration
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetSecurityConfiguration -&gt; GetSecurityConfiguration -&gt; Bool
 == :: GetSecurityConfiguration -&gt; GetSecurityConfiguration -&gt; Bool
 $c== :: GetSecurityConfiguration -&gt; GetSecurityConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679722631"><span id="local-6989586621679722633"><span id="local-6989586621679722635"><span id="local-6989586621679722637"><span class="annot"><span class="annottext">ReadPrec [GetSecurityConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679722640"><span id="local-6989586621679722642"><span id="local-6989586621679722644"><span id="local-6989586621679722646"><span class="annot"><span class="annottext">ReadPrec [GetSecurityConfiguration]
 ReadPrec GetSecurityConfiguration
 Int -&gt; ReadS GetSecurityConfiguration
 ReadS [GetSecurityConfiguration]
@@ -81,7 +81,7 @@ readList :: ReadS [GetSecurityConfiguration]
 $creadList :: ReadS [GetSecurityConfiguration]
 readsPrec :: Int -&gt; ReadS GetSecurityConfiguration
 $creadsPrec :: Int -&gt; ReadS GetSecurityConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679722624"><span id="local-6989586621679722626"><span id="local-6989586621679722628"><span class="annot"><span class="annottext">Int -&gt; GetSecurityConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679722633"><span id="local-6989586621679722635"><span id="local-6989586621679722637"><span class="annot"><span class="annottext">Int -&gt; GetSecurityConfiguration -&gt; ShowS
 [GetSecurityConfiguration] -&gt; ShowS
 GetSecurityConfiguration -&gt; String
 (Int -&gt; GetSecurityConfiguration -&gt; ShowS)
@@ -127,12 +127,12 @@ GetSecurityConfiguration -&gt; Rep GetSecurityConfiguration x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-type">GetSecurityConfiguration</span></a></span><span>
 </span><span id="line-69"></span><span id="newGetSecurityConfiguration"><span class="annot"><span class="annottext">newGetSecurityConfiguration :: Text -&gt; GetSecurityConfiguration
-</span><a href="Network.AWS.Glue.GetSecurityConfiguration.html#newGetSecurityConfiguration"><span class="hs-identifier hs-var hs-var">newGetSecurityConfiguration</span></a></span></span><span> </span><span id="local-6989586621679722619"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679722619"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetSecurityConfiguration.html#newGetSecurityConfiguration"><span class="hs-identifier hs-var hs-var">newGetSecurityConfiguration</span></a></span></span><span> </span><span id="local-6989586621679722628"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679722628"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetSecurityConfiguration' :: Text -&gt; GetSecurityConfiguration
 </span><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration%27"><span class="hs-identifier hs-type">GetSecurityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetSecurityConfiguration' :: Text
 </span><a href="Network.AWS.Glue.GetSecurityConfiguration.html#%24sel%3Aname%3AGetSecurityConfiguration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679722619"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679722628"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the security configuration to retrieve.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#getSecurityConfiguration_name"><span class="hs-identifier hs-type">getSecurityConfiguration_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-type">GetSecurityConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -142,28 +142,28 @@ GetSecurityConfiguration -&gt; Rep GetSecurityConfiguration x
 -&gt; (GetSecurityConfiguration -&gt; Text -&gt; GetSecurityConfiguration)
 -&gt; Lens GetSecurityConfiguration GetSecurityConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration%27"><span class="hs-identifier hs-type">GetSecurityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679722616"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration%27"><span class="hs-identifier hs-type">GetSecurityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679722625"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:GetSecurityConfiguration' :: GetSecurityConfiguration -&gt; Text
-</span><a href="#local-6989586621679722616"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679722616"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679722615"><span class="annot"><span class="annottext">s :: GetSecurityConfiguration
-</span><a href="#local-6989586621679722615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration%27"><span class="hs-identifier hs-type">GetSecurityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679722614"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679722614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSecurityConfiguration
-</span><a href="#local-6989586621679722615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetSecurityConfiguration' :: Text
+</span><a href="#local-6989586621679722625"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679722625"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679722624"><span class="annot"><span class="annottext">s :: GetSecurityConfiguration
+</span><a href="#local-6989586621679722624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration%27"><span class="hs-identifier hs-type">GetSecurityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679722623"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679722623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSecurityConfiguration
+</span><a href="#local-6989586621679722624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetSecurityConfiguration' :: Text
 </span><a href="Network.AWS.Glue.GetSecurityConfiguration.html#%24sel%3Aname%3AGetSecurityConfiguration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679722614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-type">GetSecurityConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679722623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-type">GetSecurityConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-type">GetSecurityConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-type">GetSecurityConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679722610"><span class="annot"><span class="annottext">request :: GetSecurityConfiguration -&gt; Request GetSecurityConfiguration
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679722619"><span class="annot"><span class="annottext">request :: GetSecurityConfiguration -&gt; Request GetSecurityConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetSecurityConfiguration -&gt; Request GetSecurityConfiguration
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679722606"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679722615"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetSecurityConfiguration
 -&gt; ClientResponse ClientBody
@@ -189,10 +189,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679722603"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679722603"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679722602"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679722602"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679722601"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679722601"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679722612"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679722612"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679722611"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679722611"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679722610"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679722610"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe SecurityConfiguration
 -&gt; Int -&gt; GetSecurityConfigurationResponse
 </span><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse%27"><span class="hs-identifier hs-var">GetSecurityConfigurationResponse'</span></a></span><span>
@@ -202,7 +202,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetSecurityConfigurationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679722601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SecurityConfiguration)
+</span><a href="#local-6989586621679722610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SecurityConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecurityConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -215,15 +215,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679722603"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679722612"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679722593"><span id="local-6989586621679722595"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-type">GetSecurityConfiguration</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679722602"><span id="local-6989586621679722604"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-type">GetSecurityConfiguration</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679722590"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-type">GetSecurityConfiguration</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679722599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-type">GetSecurityConfiguration</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-type">GetSecurityConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679722586"><span class="annot"><span class="annottext">toHeaders :: GetSecurityConfiguration -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679722595"><span class="annot"><span class="annottext">toHeaders :: GetSecurityConfiguration -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSecurityConfiguration -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -250,12 +250,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679722576"><span id="local-6989586621679722578"><span id="local-6989586621679722580"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-type">GetSecurityConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679722574"><span class="annot"><span class="annottext">toJSON :: GetSecurityConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration%27"><span class="hs-identifier hs-type">GetSecurityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679722572"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679722585"><span id="local-6989586621679722587"><span id="local-6989586621679722589"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-type">GetSecurityConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679722583"><span class="annot"><span class="annottext">toJSON :: GetSecurityConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration%27"><span class="hs-identifier hs-type">GetSecurityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679722581"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:GetSecurityConfiguration' :: GetSecurityConfiguration -&gt; Text
-</span><a href="#local-6989586621679722572"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679722581"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -267,18 +267,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679722572"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679722581"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-type">GetSecurityConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679722566"><span class="annot"><span class="annottext">toPath :: GetSecurityConfiguration -&gt; ByteString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679722575"><span class="annot"><span class="annottext">toPath :: GetSecurityConfiguration -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetSecurityConfiguration -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfiguration"><span class="hs-identifier hs-type">GetSecurityConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679722562"><span class="annot"><span class="annottext">toQuery :: GetSecurityConfiguration -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679722571"><span class="annot"><span class="annottext">toQuery :: GetSecurityConfiguration -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetSecurityConfiguration -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -286,7 +286,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newGetSecurityConfigurationResponse' smart constructor.</span><span>
-</span><span id="line-122"></span><span id="local-6989586621679722559"><span id="local-6989586621679722560"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSecurityConfigurationResponse"><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse"><span class="hs-identifier hs-var">GetSecurityConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSecurityConfigurationResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse%27"><span class="hs-identifier hs-var">GetSecurityConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span id="local-6989586621679722568"><span id="local-6989586621679722569"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSecurityConfigurationResponse"><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse"><span class="hs-identifier hs-var">GetSecurityConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSecurityConfigurationResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse%27"><span class="hs-identifier hs-var">GetSecurityConfigurationResponse'</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The requested security configuration.</span><span>
 </span><span id="line-124"></span><span>    </span><span id="%24sel%3AsecurityConfiguration%3AGetSecurityConfigurationResponse%27"><span class="annot"><span class="annottext">GetSecurityConfigurationResponse -&gt; Maybe SecurityConfiguration
 </span><a href="Network.AWS.Glue.GetSecurityConfiguration.html#%24sel%3AsecurityConfiguration%3AGetSecurityConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">securityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SecurityConfiguration.html#SecurityConfiguration"><span class="hs-identifier hs-type">SecurityConfiguration</span></a></span><span class="hs-special">,</span><span>
@@ -294,7 +294,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSecurityConfigurationResponse%27"><span class="annot"><span class="annottext">GetSecurityConfigurationResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetSecurityConfiguration.html#%24sel%3AhttpStatus%3AGetSecurityConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679722553"><span id="local-6989586621679722555"><span class="annot"><span class="annottext">GetSecurityConfigurationResponse
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679722562"><span id="local-6989586621679722564"><span class="annot"><span class="annottext">GetSecurityConfigurationResponse
 -&gt; GetSecurityConfigurationResponse -&gt; Bool
 (GetSecurityConfigurationResponse
  -&gt; GetSecurityConfigurationResponse -&gt; Bool)
@@ -310,7 +310,7 @@ $c/= :: GetSecurityConfigurationResponse
 -&gt; GetSecurityConfigurationResponse -&gt; Bool
 $c== :: GetSecurityConfigurationResponse
 -&gt; GetSecurityConfigurationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679722545"><span id="local-6989586621679722547"><span id="local-6989586621679722549"><span id="local-6989586621679722551"><span class="annot"><span class="annottext">ReadPrec [GetSecurityConfigurationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679722554"><span id="local-6989586621679722556"><span id="local-6989586621679722558"><span id="local-6989586621679722560"><span class="annot"><span class="annottext">ReadPrec [GetSecurityConfigurationResponse]
 ReadPrec GetSecurityConfigurationResponse
 Int -&gt; ReadS GetSecurityConfigurationResponse
 ReadS [GetSecurityConfigurationResponse]
@@ -330,7 +330,7 @@ readList :: ReadS [GetSecurityConfigurationResponse]
 $creadList :: ReadS [GetSecurityConfigurationResponse]
 readsPrec :: Int -&gt; ReadS GetSecurityConfigurationResponse
 $creadsPrec :: Int -&gt; ReadS GetSecurityConfigurationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679722539"><span id="local-6989586621679722541"><span id="local-6989586621679722543"><span class="annot"><span class="annottext">Int -&gt; GetSecurityConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679722548"><span id="local-6989586621679722550"><span id="local-6989586621679722552"><span class="annot"><span class="annottext">Int -&gt; GetSecurityConfigurationResponse -&gt; ShowS
 [GetSecurityConfigurationResponse] -&gt; ShowS
 GetSecurityConfigurationResponse -&gt; String
 (Int -&gt; GetSecurityConfigurationResponse -&gt; ShowS)
@@ -384,8 +384,8 @@ GetSecurityConfigurationResponse
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse</span></a></span><span>
 </span><span id="line-145"></span><span id="newGetSecurityConfigurationResponse"><span class="annot"><span class="annottext">newGetSecurityConfigurationResponse :: Int -&gt; GetSecurityConfigurationResponse
-</span><a href="Network.AWS.Glue.GetSecurityConfiguration.html#newGetSecurityConfigurationResponse"><span class="hs-identifier hs-var hs-var">newGetSecurityConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679722536"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679722536"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetSecurityConfiguration.html#newGetSecurityConfigurationResponse"><span class="hs-identifier hs-var hs-var">newGetSecurityConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679722545"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679722545"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">GetSecurityConfigurationResponse' :: Maybe SecurityConfiguration
 -&gt; Int -&gt; GetSecurityConfigurationResponse
 </span><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse%27"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse'</span></a></span><span>
@@ -396,7 +396,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSecurityConfigurationResponse' :: Int
 </span><a href="Network.AWS.Glue.GetSecurityConfiguration.html#%24sel%3AhttpStatus%3AGetSecurityConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679722536"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679722545"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The requested security configuration.</span><span>
@@ -413,16 +413,16 @@ forall a. Maybe a
      (Maybe SecurityConfiguration)
      (Maybe SecurityConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse%27"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679722535"><span class="annot"><span class="annottext">Maybe SecurityConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse%27"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679722544"><span class="annot"><span class="annottext">Maybe SecurityConfiguration
 securityConfiguration :: Maybe SecurityConfiguration
 $sel:securityConfiguration:GetSecurityConfigurationResponse' :: GetSecurityConfigurationResponse -&gt; Maybe SecurityConfiguration
-</span><a href="#local-6989586621679722535"><span class="hs-identifier hs-var hs-var">securityConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SecurityConfiguration
-</span><a href="#local-6989586621679722535"><span class="hs-identifier hs-var">securityConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679722534"><span class="annot"><span class="annottext">s :: GetSecurityConfigurationResponse
-</span><a href="#local-6989586621679722534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse%27"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679722533"><span class="annot"><span class="annottext">Maybe SecurityConfiguration
-</span><a href="#local-6989586621679722533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSecurityConfigurationResponse
-</span><a href="#local-6989586621679722534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityConfiguration:GetSecurityConfigurationResponse' :: Maybe SecurityConfiguration
+</span><a href="#local-6989586621679722544"><span class="hs-identifier hs-var hs-var">securityConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SecurityConfiguration
+</span><a href="#local-6989586621679722544"><span class="hs-identifier hs-var">securityConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679722543"><span class="annot"><span class="annottext">s :: GetSecurityConfigurationResponse
+</span><a href="#local-6989586621679722543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse%27"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679722542"><span class="annot"><span class="annottext">Maybe SecurityConfiguration
+</span><a href="#local-6989586621679722542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSecurityConfigurationResponse
+</span><a href="#local-6989586621679722543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityConfiguration:GetSecurityConfigurationResponse' :: Maybe SecurityConfiguration
 </span><a href="Network.AWS.Glue.GetSecurityConfiguration.html#%24sel%3AsecurityConfiguration%3AGetSecurityConfigurationResponse%27"><span class="hs-identifier hs-var">securityConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SecurityConfiguration
-</span><a href="#local-6989586621679722533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679722542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#getSecurityConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">getSecurityConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -438,18 +438,18 @@ $sel:securityConfiguration:GetSecurityConfigurationResponse' :: GetSecurityConfi
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse%27"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679722532"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse%27"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679722541"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetSecurityConfigurationResponse' :: GetSecurityConfigurationResponse -&gt; Int
-</span><a href="#local-6989586621679722532"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679722532"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679722531"><span class="annot"><span class="annottext">s :: GetSecurityConfigurationResponse
-</span><a href="#local-6989586621679722531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse%27"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679722530"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679722530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSecurityConfigurationResponse
-</span><a href="#local-6989586621679722531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSecurityConfigurationResponse' :: Int
+</span><a href="#local-6989586621679722541"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679722541"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679722540"><span class="annot"><span class="annottext">s :: GetSecurityConfigurationResponse
+</span><a href="#local-6989586621679722540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse%27"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679722539"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679722539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSecurityConfigurationResponse
+</span><a href="#local-6989586621679722540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSecurityConfigurationResponse' :: Int
 </span><a href="Network.AWS.Glue.GetSecurityConfiguration.html#%24sel%3AhttpStatus%3AGetSecurityConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679722530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679722539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679722528"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679722537"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetSecurityConfiguration.html#GetSecurityConfigurationResponse"><span class="hs-identifier hs-type">GetSecurityConfigurationResponse</span></a></span></span><span>
 </span><span id="line-163"></span></pre></body></html>

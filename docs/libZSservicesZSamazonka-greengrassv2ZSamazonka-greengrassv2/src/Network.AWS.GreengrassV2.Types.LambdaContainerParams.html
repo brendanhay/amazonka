@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GreengrassV2.Types.LambdaContainerParams</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GreengrassV2.Types.LambdaContainerParams</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaDeviceMount.html"><span class="hs-identifier">Network.AWS.GreengrassV2.Types.LambdaDeviceMount</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaVolumeMount.html"><span class="hs-identifier">Network.AWS.GreengrassV2.Types.LambdaVolumeMount</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Contains information about a container in which Lambda functions run on</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Greengrass core devices.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLambdaContainerParams' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679232258"><span id="local-6989586621679232259"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaContainerParams"><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams"><span class="hs-identifier hs-var">LambdaContainerParams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaContainerParams%27"><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams%27"><span class="hs-identifier hs-var">LambdaContainerParams'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether or not the container can read information from the device\'s</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @\/sys@ folder.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AmountROSysfs%3ALambdaContainerParams%27"><span class="annot"><span class="annottext">LambdaContainerParams -&gt; Maybe Bool
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#%24sel%3AmountROSysfs%3ALambdaContainerParams%27"><span class="hs-identifier hs-var hs-var">mountROSysfs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The memory size of the container, expressed in kilobytes.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Default: @16384@ (16 MB)</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AmemorySizeInKB%3ALambdaContainerParams%27"><span class="annot"><span class="annottext">LambdaContainerParams -&gt; Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#%24sel%3AmemorySizeInKB%3ALambdaContainerParams%27"><span class="hs-identifier hs-var hs-var">memorySizeInKB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The list of system devices that the container can access.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Adevices%3ALambdaContainerParams%27"><span class="annot"><span class="annottext">LambdaContainerParams -&gt; Maybe [LambdaDeviceMount]
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#%24sel%3Adevices%3ALambdaContainerParams%27"><span class="hs-identifier hs-var hs-var">devices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount"><span class="hs-identifier hs-type">LambdaDeviceMount</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The list of volumes that the container can access.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Avolumes%3ALambdaContainerParams%27"><span class="annot"><span class="annottext">LambdaContainerParams -&gt; Maybe [LambdaVolumeMount]
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#%24sel%3Avolumes%3ALambdaContainerParams%27"><span class="hs-identifier hs-var hs-var">volumes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount"><span class="hs-identifier hs-type">LambdaVolumeMount</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232249"><span id="local-6989586621679232251"><span class="annot"><span class="annottext">LambdaContainerParams -&gt; LambdaContainerParams -&gt; Bool
+(LambdaContainerParams -&gt; LambdaContainerParams -&gt; Bool)
+-&gt; (LambdaContainerParams -&gt; LambdaContainerParams -&gt; Bool)
+-&gt; Eq LambdaContainerParams
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LambdaContainerParams -&gt; LambdaContainerParams -&gt; Bool
+$c/= :: LambdaContainerParams -&gt; LambdaContainerParams -&gt; Bool
+== :: LambdaContainerParams -&gt; LambdaContainerParams -&gt; Bool
+$c== :: LambdaContainerParams -&gt; LambdaContainerParams -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232240"><span id="local-6989586621679232242"><span id="local-6989586621679232244"><span id="local-6989586621679232246"><span class="annot"><span class="annottext">ReadPrec [LambdaContainerParams]
+ReadPrec LambdaContainerParams
+Int -&gt; ReadS LambdaContainerParams
+ReadS [LambdaContainerParams]
+(Int -&gt; ReadS LambdaContainerParams)
+-&gt; ReadS [LambdaContainerParams]
+-&gt; ReadPrec LambdaContainerParams
+-&gt; ReadPrec [LambdaContainerParams]
+-&gt; Read LambdaContainerParams
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LambdaContainerParams]
+$creadListPrec :: ReadPrec [LambdaContainerParams]
+readPrec :: ReadPrec LambdaContainerParams
+$creadPrec :: ReadPrec LambdaContainerParams
+readList :: ReadS [LambdaContainerParams]
+$creadList :: ReadS [LambdaContainerParams]
+readsPrec :: Int -&gt; ReadS LambdaContainerParams
+$creadsPrec :: Int -&gt; ReadS LambdaContainerParams
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232233"><span id="local-6989586621679232235"><span id="local-6989586621679232237"><span class="annot"><span class="annottext">Int -&gt; LambdaContainerParams -&gt; ShowS
+[LambdaContainerParams] -&gt; ShowS
+LambdaContainerParams -&gt; String
+(Int -&gt; LambdaContainerParams -&gt; ShowS)
+-&gt; (LambdaContainerParams -&gt; String)
+-&gt; ([LambdaContainerParams] -&gt; ShowS)
+-&gt; Show LambdaContainerParams
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LambdaContainerParams] -&gt; ShowS
+$cshowList :: [LambdaContainerParams] -&gt; ShowS
+show :: LambdaContainerParams -&gt; String
+$cshow :: LambdaContainerParams -&gt; String
+showsPrec :: Int -&gt; LambdaContainerParams -&gt; ShowS
+$cshowsPrec :: Int -&gt; LambdaContainerParams -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LambdaContainerParams -&gt; Rep LambdaContainerParams x)
+-&gt; (forall x. Rep LambdaContainerParams x -&gt; LambdaContainerParams)
+-&gt; Generic LambdaContainerParams
+forall x. Rep LambdaContainerParams x -&gt; LambdaContainerParams
+forall x. LambdaContainerParams -&gt; Rep LambdaContainerParams x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LambdaContainerParams x -&gt; LambdaContainerParams
+$cfrom :: forall x. LambdaContainerParams -&gt; Rep LambdaContainerParams x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'LambdaContainerParams' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'mountROSysfs', 'lambdaContainerParams_mountROSysfs' - Whether or not the container can read information from the device\'s</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- @\/sys@ folder.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'memorySizeInKB', 'lambdaContainerParams_memorySizeInKB' - The memory size of the container, expressed in kilobytes.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Default: @16384@ (16 MB)</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'devices', 'lambdaContainerParams_devices' - The list of system devices that the container can access.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'volumes', 'lambdaContainerParams_volumes' - The list of volumes that the container can access.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#newLambdaContainerParams"><span class="hs-identifier hs-type">newLambdaContainerParams</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams"><span class="hs-identifier hs-type">LambdaContainerParams</span></a></span><span>
+</span><span id="line-71"></span><span id="newLambdaContainerParams"><span class="annot"><span class="annottext">newLambdaContainerParams :: LambdaContainerParams
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#newLambdaContainerParams"><span class="hs-identifier hs-var hs-var">newLambdaContainerParams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">LambdaContainerParams' :: Maybe Bool
+-&gt; Maybe Int
+-&gt; Maybe [LambdaDeviceMount]
+-&gt; Maybe [LambdaVolumeMount]
+-&gt; LambdaContainerParams
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams%27"><span class="hs-identifier hs-type">LambdaContainerParams'</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mountROSysfs:LambdaContainerParams' :: Maybe Bool
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#%24sel%3AmountROSysfs%3ALambdaContainerParams%27"><span class="hs-identifier hs-var">mountROSysfs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:memorySizeInKB:LambdaContainerParams' :: Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#%24sel%3AmemorySizeInKB%3ALambdaContainerParams%27"><span class="hs-identifier hs-var">memorySizeInKB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:devices:LambdaContainerParams' :: Maybe [LambdaDeviceMount]
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#%24sel%3Adevices%3ALambdaContainerParams%27"><span class="hs-identifier hs-var">devices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaDeviceMount]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumes:LambdaContainerParams' :: Maybe [LambdaVolumeMount]
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#%24sel%3Avolumes%3ALambdaContainerParams%27"><span class="hs-identifier hs-var">volumes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaVolumeMount]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Whether or not the container can read information from the device\'s</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- @\/sys@ folder.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Default: @false@</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#lambdaContainerParams_mountROSysfs"><span class="hs-identifier hs-type">lambdaContainerParams_mountROSysfs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams"><span class="hs-identifier hs-type">LambdaContainerParams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="lambdaContainerParams_mountROSysfs"><span class="annot"><span class="annottext">lambdaContainerParams_mountROSysfs :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LambdaContainerParams -&gt; f LambdaContainerParams
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#lambdaContainerParams_mountROSysfs"><span class="hs-identifier hs-var hs-var">lambdaContainerParams_mountROSysfs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaContainerParams -&gt; Maybe Bool)
+-&gt; (LambdaContainerParams -&gt; Maybe Bool -&gt; LambdaContainerParams)
+-&gt; Lens
+     LambdaContainerParams
+     LambdaContainerParams
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams%27"><span class="hs-identifier hs-type">LambdaContainerParams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232224"><span class="annot"><span class="annottext">Maybe Bool
+mountROSysfs :: Maybe Bool
+$sel:mountROSysfs:LambdaContainerParams' :: LambdaContainerParams -&gt; Maybe Bool
+</span><a href="#local-6989586621679232224"><span class="hs-identifier hs-var hs-var">mountROSysfs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679232224"><span class="hs-identifier hs-var">mountROSysfs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232223"><span class="annot"><span class="annottext">s :: LambdaContainerParams
+</span><a href="#local-6989586621679232223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams%27"><span class="hs-identifier hs-type">LambdaContainerParams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232222"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679232222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaContainerParams
+</span><a href="#local-6989586621679232223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mountROSysfs:LambdaContainerParams' :: Maybe Bool
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#%24sel%3AmountROSysfs%3ALambdaContainerParams%27"><span class="hs-identifier hs-var">mountROSysfs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679232222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams"><span class="hs-identifier hs-type">LambdaContainerParams</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The memory size of the container, expressed in kilobytes.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Default: @16384@ (16 MB)</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#lambdaContainerParams_memorySizeInKB"><span class="hs-identifier hs-type">lambdaContainerParams_memorySizeInKB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams"><span class="hs-identifier hs-type">LambdaContainerParams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="lambdaContainerParams_memorySizeInKB"><span class="annot"><span class="annottext">lambdaContainerParams_memorySizeInKB :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; LambdaContainerParams -&gt; f LambdaContainerParams
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#lambdaContainerParams_memorySizeInKB"><span class="hs-identifier hs-var hs-var">lambdaContainerParams_memorySizeInKB</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaContainerParams -&gt; Maybe Int)
+-&gt; (LambdaContainerParams -&gt; Maybe Int -&gt; LambdaContainerParams)
+-&gt; Lens
+     LambdaContainerParams LambdaContainerParams (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams%27"><span class="hs-identifier hs-type">LambdaContainerParams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232220"><span class="annot"><span class="annottext">Maybe Int
+memorySizeInKB :: Maybe Int
+$sel:memorySizeInKB:LambdaContainerParams' :: LambdaContainerParams -&gt; Maybe Int
+</span><a href="#local-6989586621679232220"><span class="hs-identifier hs-var hs-var">memorySizeInKB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232220"><span class="hs-identifier hs-var">memorySizeInKB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232219"><span class="annot"><span class="annottext">s :: LambdaContainerParams
+</span><a href="#local-6989586621679232219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams%27"><span class="hs-identifier hs-type">LambdaContainerParams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232218"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaContainerParams
+</span><a href="#local-6989586621679232219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memorySizeInKB:LambdaContainerParams' :: Maybe Int
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#%24sel%3AmemorySizeInKB%3ALambdaContainerParams%27"><span class="hs-identifier hs-var">memorySizeInKB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams"><span class="hs-identifier hs-type">LambdaContainerParams</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The list of system devices that the container can access.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#lambdaContainerParams_devices"><span class="hs-identifier hs-type">lambdaContainerParams_devices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams"><span class="hs-identifier hs-type">LambdaContainerParams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaDeviceMount.html#LambdaDeviceMount"><span class="hs-identifier hs-type">LambdaDeviceMount</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="lambdaContainerParams_devices"><span class="annot"><span class="annottext">lambdaContainerParams_devices :: (Maybe [LambdaDeviceMount] -&gt; f (Maybe [LambdaDeviceMount]))
+-&gt; LambdaContainerParams -&gt; f LambdaContainerParams
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#lambdaContainerParams_devices"><span class="hs-identifier hs-var hs-var">lambdaContainerParams_devices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaContainerParams -&gt; Maybe [LambdaDeviceMount])
+-&gt; (LambdaContainerParams
+    -&gt; Maybe [LambdaDeviceMount] -&gt; LambdaContainerParams)
+-&gt; Lens
+     LambdaContainerParams
+     LambdaContainerParams
+     (Maybe [LambdaDeviceMount])
+     (Maybe [LambdaDeviceMount])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams%27"><span class="hs-identifier hs-type">LambdaContainerParams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232216"><span class="annot"><span class="annottext">Maybe [LambdaDeviceMount]
+devices :: Maybe [LambdaDeviceMount]
+$sel:devices:LambdaContainerParams' :: LambdaContainerParams -&gt; Maybe [LambdaDeviceMount]
+</span><a href="#local-6989586621679232216"><span class="hs-identifier hs-var hs-var">devices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaDeviceMount]
+</span><a href="#local-6989586621679232216"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232215"><span class="annot"><span class="annottext">s :: LambdaContainerParams
+</span><a href="#local-6989586621679232215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams%27"><span class="hs-identifier hs-type">LambdaContainerParams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232214"><span class="annot"><span class="annottext">Maybe [LambdaDeviceMount]
+</span><a href="#local-6989586621679232214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaContainerParams
+</span><a href="#local-6989586621679232215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devices:LambdaContainerParams' :: Maybe [LambdaDeviceMount]
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#%24sel%3Adevices%3ALambdaContainerParams%27"><span class="hs-identifier hs-var">devices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaDeviceMount]
+</span><a href="#local-6989586621679232214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams"><span class="hs-identifier hs-type">LambdaContainerParams</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LambdaDeviceMount] -&gt; f (Maybe [LambdaDeviceMount]))
+ -&gt; LambdaContainerParams -&gt; f LambdaContainerParams)
+-&gt; ((Maybe [LambdaDeviceMount] -&gt; f (Maybe [LambdaDeviceMount]))
+    -&gt; Maybe [LambdaDeviceMount] -&gt; f (Maybe [LambdaDeviceMount]))
+-&gt; (Maybe [LambdaDeviceMount] -&gt; f (Maybe [LambdaDeviceMount]))
+-&gt; LambdaContainerParams
+-&gt; f LambdaContainerParams
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LambdaDeviceMount]
+  [LambdaDeviceMount]
+  [LambdaDeviceMount]
+  [LambdaDeviceMount]
+-&gt; Iso
+     (Maybe [LambdaDeviceMount])
+     (Maybe [LambdaDeviceMount])
+     (Maybe [LambdaDeviceMount])
+     (Maybe [LambdaDeviceMount])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LambdaDeviceMount]
+  [LambdaDeviceMount]
+  [LambdaDeviceMount]
+  [LambdaDeviceMount]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The list of volumes that the container can access.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#lambdaContainerParams_volumes"><span class="hs-identifier hs-type">lambdaContainerParams_volumes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams"><span class="hs-identifier hs-type">LambdaContainerParams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaVolumeMount.html#LambdaVolumeMount"><span class="hs-identifier hs-type">LambdaVolumeMount</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="lambdaContainerParams_volumes"><span class="annot"><span class="annottext">lambdaContainerParams_volumes :: (Maybe [LambdaVolumeMount] -&gt; f (Maybe [LambdaVolumeMount]))
+-&gt; LambdaContainerParams -&gt; f LambdaContainerParams
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#lambdaContainerParams_volumes"><span class="hs-identifier hs-var hs-var">lambdaContainerParams_volumes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaContainerParams -&gt; Maybe [LambdaVolumeMount])
+-&gt; (LambdaContainerParams
+    -&gt; Maybe [LambdaVolumeMount] -&gt; LambdaContainerParams)
+-&gt; Lens
+     LambdaContainerParams
+     LambdaContainerParams
+     (Maybe [LambdaVolumeMount])
+     (Maybe [LambdaVolumeMount])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams%27"><span class="hs-identifier hs-type">LambdaContainerParams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232209"><span class="annot"><span class="annottext">Maybe [LambdaVolumeMount]
+volumes :: Maybe [LambdaVolumeMount]
+$sel:volumes:LambdaContainerParams' :: LambdaContainerParams -&gt; Maybe [LambdaVolumeMount]
+</span><a href="#local-6989586621679232209"><span class="hs-identifier hs-var hs-var">volumes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaVolumeMount]
+</span><a href="#local-6989586621679232209"><span class="hs-identifier hs-var">volumes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232208"><span class="annot"><span class="annottext">s :: LambdaContainerParams
+</span><a href="#local-6989586621679232208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams%27"><span class="hs-identifier hs-type">LambdaContainerParams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232207"><span class="annot"><span class="annottext">Maybe [LambdaVolumeMount]
+</span><a href="#local-6989586621679232207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaContainerParams
+</span><a href="#local-6989586621679232208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumes:LambdaContainerParams' :: Maybe [LambdaVolumeMount]
+</span><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#%24sel%3Avolumes%3ALambdaContainerParams%27"><span class="hs-identifier hs-var">volumes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaVolumeMount]
+</span><a href="#local-6989586621679232207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams"><span class="hs-identifier hs-type">LambdaContainerParams</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LambdaVolumeMount] -&gt; f (Maybe [LambdaVolumeMount]))
+ -&gt; LambdaContainerParams -&gt; f LambdaContainerParams)
+-&gt; ((Maybe [LambdaVolumeMount] -&gt; f (Maybe [LambdaVolumeMount]))
+    -&gt; Maybe [LambdaVolumeMount] -&gt; f (Maybe [LambdaVolumeMount]))
+-&gt; (Maybe [LambdaVolumeMount] -&gt; f (Maybe [LambdaVolumeMount]))
+-&gt; LambdaContainerParams
+-&gt; f LambdaContainerParams
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LambdaVolumeMount]
+  [LambdaVolumeMount]
+  [LambdaVolumeMount]
+  [LambdaVolumeMount]
+-&gt; Iso
+     (Maybe [LambdaVolumeMount])
+     (Maybe [LambdaVolumeMount])
+     (Maybe [LambdaVolumeMount])
+     (Maybe [LambdaVolumeMount])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LambdaVolumeMount]
+  [LambdaVolumeMount]
+  [LambdaVolumeMount]
+  [LambdaVolumeMount]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232203"><span id="local-6989586621679232205"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams"><span class="hs-identifier hs-type">LambdaContainerParams</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232200"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams"><span class="hs-identifier hs-type">LambdaContainerParams</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232192"><span id="local-6989586621679232194"><span id="local-6989586621679232196"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams"><span class="hs-identifier hs-type">LambdaContainerParams</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679232190"><span class="annot"><span class="annottext">toJSON :: LambdaContainerParams -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.LambdaContainerParams.html#LambdaContainerParams%27"><span class="hs-identifier hs-type">LambdaContainerParams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232185"><span id="local-6989586621679232186"><span id="local-6989586621679232187"><span id="local-6989586621679232188"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe [LambdaDeviceMount]
+Maybe [LambdaVolumeMount]
+volumes :: Maybe [LambdaVolumeMount]
+devices :: Maybe [LambdaDeviceMount]
+memorySizeInKB :: Maybe Int
+mountROSysfs :: Maybe Bool
+$sel:volumes:LambdaContainerParams' :: LambdaContainerParams -&gt; Maybe [LambdaVolumeMount]
+$sel:devices:LambdaContainerParams' :: LambdaContainerParams -&gt; Maybe [LambdaDeviceMount]
+$sel:memorySizeInKB:LambdaContainerParams' :: LambdaContainerParams -&gt; Maybe Int
+$sel:mountROSysfs:LambdaContainerParams' :: LambdaContainerParams -&gt; Maybe Bool
+</span><a href="#local-6989586621679232185"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mountROSysfs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679232188"><span class="hs-identifier hs-var">mountROSysfs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;memorySizeInKB&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679232187"><span class="hs-identifier hs-var">memorySizeInKB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;devices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [LambdaDeviceMount] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([LambdaDeviceMount] -&gt; Pair)
+-&gt; Maybe [LambdaDeviceMount] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaDeviceMount]
+</span><a href="#local-6989586621679232186"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;volumes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [LambdaVolumeMount] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([LambdaVolumeMount] -&gt; Pair)
+-&gt; Maybe [LambdaVolumeMount] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaVolumeMount]
+</span><a href="#local-6989586621679232185"><span class="hs-identifier hs-var">volumes</span></a></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span></pre></body></html>

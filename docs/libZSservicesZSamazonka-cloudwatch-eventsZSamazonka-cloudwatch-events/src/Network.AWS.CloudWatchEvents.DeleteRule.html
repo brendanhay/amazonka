@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newDeleteRule' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679316815"><span id="local-6989586621679316816"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRule"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-var">DeleteRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRule%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-var">DeleteRule'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679316824"><span id="local-6989586621679316825"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRule"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-var">DeleteRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRule%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-var">DeleteRule'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If this is a managed rule, created by an Amazon Web Services service on</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- your behalf, you must specify @Force@ as @True@ to delete the rule. This</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- parameter is ignored for rules that are not managed rules. You can check</span><span>
@@ -77,7 +77,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3Aname%3ADeleteRule%27"><span class="annot"><span class="annottext">DeleteRule -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#%24sel%3Aname%3ADeleteRule%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316807"><span id="local-6989586621679316809"><span class="annot"><span class="annottext">DeleteRule -&gt; DeleteRule -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316816"><span id="local-6989586621679316818"><span class="annot"><span class="annottext">DeleteRule -&gt; DeleteRule -&gt; Bool
 (DeleteRule -&gt; DeleteRule -&gt; Bool)
 -&gt; (DeleteRule -&gt; DeleteRule -&gt; Bool) -&gt; Eq DeleteRule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteRule -&gt; DeleteRule -&gt; Bool
 == :: DeleteRule -&gt; DeleteRule -&gt; Bool
 $c== :: DeleteRule -&gt; DeleteRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316798"><span id="local-6989586621679316800"><span id="local-6989586621679316802"><span id="local-6989586621679316804"><span class="annot"><span class="annottext">ReadPrec [DeleteRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316807"><span id="local-6989586621679316809"><span id="local-6989586621679316811"><span id="local-6989586621679316813"><span class="annot"><span class="annottext">ReadPrec [DeleteRule]
 ReadPrec DeleteRule
 Int -&gt; ReadS DeleteRule
 ReadS [DeleteRule]
@@ -105,7 +105,7 @@ readList :: ReadS [DeleteRule]
 $creadList :: ReadS [DeleteRule]
 readsPrec :: Int -&gt; ReadS DeleteRule
 $creadsPrec :: Int -&gt; ReadS DeleteRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316791"><span id="local-6989586621679316793"><span id="local-6989586621679316795"><span class="annot"><span class="annottext">Int -&gt; DeleteRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316800"><span id="local-6989586621679316802"><span id="local-6989586621679316804"><span class="annot"><span class="annottext">Int -&gt; DeleteRule -&gt; ShowS
 [DeleteRule] -&gt; ShowS
 DeleteRule -&gt; String
 (Int -&gt; DeleteRule -&gt; ShowS)
@@ -153,8 +153,8 @@ $cfrom :: forall x. DeleteRule -&gt; Rep DeleteRule x
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span>
 </span><span id="line-101"></span><span id="newDeleteRule"><span class="annot"><span class="annottext">newDeleteRule :: Text -&gt; DeleteRule
-</span><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#newDeleteRule"><span class="hs-identifier hs-var hs-var">newDeleteRule</span></a></span></span><span> </span><span id="local-6989586621679316786"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316786"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#newDeleteRule"><span class="hs-identifier hs-var hs-var">newDeleteRule</span></a></span></span><span> </span><span id="local-6989586621679316795"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316795"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">DeleteRule' :: Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; DeleteRule
 </span><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:force:DeleteRule' :: Maybe Bool
@@ -167,7 +167,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DeleteRule' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#%24sel%3Aname%3ADeleteRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316786"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679316795"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | If this is a managed rule, created by an Amazon Web Services service on</span><span>
@@ -181,16 +181,16 @@ forall a. Maybe a
 -&gt; (DeleteRule -&gt; Maybe Bool -&gt; DeleteRule)
 -&gt; Lens DeleteRule DeleteRule (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316783"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316792"><span class="annot"><span class="annottext">Maybe Bool
 force :: Maybe Bool
 $sel:force:DeleteRule' :: DeleteRule -&gt; Maybe Bool
-</span><a href="#local-6989586621679316783"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679316783"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316782"><span class="annot"><span class="annottext">s :: DeleteRule
-</span><a href="#local-6989586621679316782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316781"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679316781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRule
-</span><a href="#local-6989586621679316782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:DeleteRule' :: Maybe Bool
+</span><a href="#local-6989586621679316792"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679316792"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316791"><span class="annot"><span class="annottext">s :: DeleteRule
+</span><a href="#local-6989586621679316791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316790"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679316790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRule
+</span><a href="#local-6989586621679316791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:DeleteRule' :: Maybe Bool
 </span><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#%24sel%3Aforce%3ADeleteRule%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679316781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The name or ARN of the event bus associated with the rule. If you omit</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- this, the default event bus is used.</span><span>
@@ -200,16 +200,16 @@ $sel:force:DeleteRule' :: DeleteRule -&gt; Maybe Bool
 -&gt; (DeleteRule -&gt; Maybe Text -&gt; DeleteRule)
 -&gt; Lens DeleteRule DeleteRule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316780"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316789"><span class="annot"><span class="annottext">Maybe Text
 eventBusName :: Maybe Text
 $sel:eventBusName:DeleteRule' :: DeleteRule -&gt; Maybe Text
-</span><a href="#local-6989586621679316780"><span class="hs-identifier hs-var hs-var">eventBusName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316780"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316779"><span class="annot"><span class="annottext">s :: DeleteRule
-</span><a href="#local-6989586621679316779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316778"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRule
-</span><a href="#local-6989586621679316779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventBusName:DeleteRule' :: Maybe Text
+</span><a href="#local-6989586621679316789"><span class="hs-identifier hs-var hs-var">eventBusName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316789"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316788"><span class="annot"><span class="annottext">s :: DeleteRule
+</span><a href="#local-6989586621679316788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316787"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRule
+</span><a href="#local-6989586621679316788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventBusName:DeleteRule' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#%24sel%3AeventBusName%3ADeleteRule%27"><span class="hs-identifier hs-var">eventBusName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The name of the rule.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#deleteRule_name"><span class="hs-identifier hs-type">deleteRule_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -218,25 +218,25 @@ $sel:eventBusName:DeleteRule' :: DeleteRule -&gt; Maybe Text
 -&gt; (DeleteRule -&gt; Text -&gt; DeleteRule)
 -&gt; Lens DeleteRule DeleteRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316777"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316786"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteRule' :: DeleteRule -&gt; Text
-</span><a href="#local-6989586621679316777"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316777"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316776"><span class="annot"><span class="annottext">s :: DeleteRule
-</span><a href="#local-6989586621679316776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316775"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRule
-</span><a href="#local-6989586621679316776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteRule' :: Text
+</span><a href="#local-6989586621679316786"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316786"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316785"><span class="annot"><span class="annottext">s :: DeleteRule
+</span><a href="#local-6989586621679316785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316784"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRule
+</span><a href="#local-6989586621679316785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteRule' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#%24sel%3Aname%3ADeleteRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRuleResponse"><span class="hs-identifier hs-type">DeleteRuleResponse</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679316771"><span class="annot"><span class="annottext">request :: DeleteRule -&gt; Request DeleteRule
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679316780"><span class="annot"><span class="annottext">request :: DeleteRule -&gt; Request DeleteRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteRule -&gt; Request DeleteRule
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679316767"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679316776"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteRule
 -&gt; ClientResponse ClientBody
@@ -259,12 +259,12 @@ AWSResponse a
 DeleteRuleResponse
 </span><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRuleResponse%27"><span class="hs-identifier hs-var">DeleteRuleResponse'</span></a></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316760"><span id="local-6989586621679316762"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316769"><span id="local-6989586621679316771"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316757"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316766"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679316753"><span class="annot"><span class="annottext">toHeaders :: DeleteRule -&gt; [Header]
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679316762"><span class="annot"><span class="annottext">toHeaders :: DeleteRule -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteRule -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -289,9 +289,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316743"><span id="local-6989586621679316745"><span id="local-6989586621679316747"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679316741"><span class="annot"><span class="annottext">toJSON :: DeleteRule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316737"><span id="local-6989586621679316738"><span id="local-6989586621679316739"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316752"><span id="local-6989586621679316754"><span id="local-6989586621679316756"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679316750"><span class="annot"><span class="annottext">toJSON :: DeleteRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316746"><span id="local-6989586621679316747"><span id="local-6989586621679316748"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 name :: Text
@@ -300,7 +300,7 @@ force :: Maybe Bool
 $sel:name:DeleteRule' :: DeleteRule -&gt; Text
 $sel:eventBusName:DeleteRule' :: DeleteRule -&gt; Maybe Text
 $sel:force:DeleteRule' :: DeleteRule -&gt; Maybe Bool
-</span><a href="#local-6989586621679316737"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679316746"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -312,33 +312,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679316739"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316748"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventBusName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316738"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316747"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316737"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316746"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679316730"><span class="annot"><span class="annottext">toPath :: DeleteRule -&gt; ByteString
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679316739"><span class="annot"><span class="annottext">toPath :: DeleteRule -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteRule -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679316726"><span class="annot"><span class="annottext">toQuery :: DeleteRule -&gt; QueryString
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679316735"><span class="annot"><span class="annottext">toQuery :: DeleteRule -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteRule -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -346,10 +346,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | /See:/ 'newDeleteRuleResponse' smart constructor.</span><span>
-</span><span id="line-164"></span><span id="local-6989586621679316723"><span id="local-6989586621679316724"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRuleResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRuleResponse"><span class="hs-identifier hs-var">DeleteRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRuleResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRuleResponse%27"><span class="hs-identifier hs-var">DeleteRuleResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span id="local-6989586621679316732"><span id="local-6989586621679316733"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRuleResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRuleResponse"><span class="hs-identifier hs-var">DeleteRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRuleResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRuleResponse%27"><span class="hs-identifier hs-var">DeleteRuleResponse'</span></a></span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-167"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316719"><span id="local-6989586621679316721"><span class="annot"><span class="annottext">DeleteRuleResponse -&gt; DeleteRuleResponse -&gt; Bool
+</span><span id="line-167"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316728"><span id="local-6989586621679316730"><span class="annot"><span class="annottext">DeleteRuleResponse -&gt; DeleteRuleResponse -&gt; Bool
 (DeleteRuleResponse -&gt; DeleteRuleResponse -&gt; Bool)
 -&gt; (DeleteRuleResponse -&gt; DeleteRuleResponse -&gt; Bool)
 -&gt; Eq DeleteRuleResponse
@@ -358,7 +358,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteRuleResponse -&gt; DeleteRuleResponse -&gt; Bool
 == :: DeleteRuleResponse -&gt; DeleteRuleResponse -&gt; Bool
 $c== :: DeleteRuleResponse -&gt; DeleteRuleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316711"><span id="local-6989586621679316713"><span id="local-6989586621679316715"><span id="local-6989586621679316717"><span class="annot"><span class="annottext">ReadPrec [DeleteRuleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316720"><span id="local-6989586621679316722"><span id="local-6989586621679316724"><span id="local-6989586621679316726"><span class="annot"><span class="annottext">ReadPrec [DeleteRuleResponse]
 ReadPrec DeleteRuleResponse
 Int -&gt; ReadS DeleteRuleResponse
 ReadS [DeleteRuleResponse]
@@ -378,7 +378,7 @@ readList :: ReadS [DeleteRuleResponse]
 $creadList :: ReadS [DeleteRuleResponse]
 readsPrec :: Int -&gt; ReadS DeleteRuleResponse
 $creadsPrec :: Int -&gt; ReadS DeleteRuleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316705"><span id="local-6989586621679316707"><span id="local-6989586621679316709"><span class="annot"><span class="annottext">Int -&gt; DeleteRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316714"><span id="local-6989586621679316716"><span id="local-6989586621679316718"><span class="annot"><span class="annottext">Int -&gt; DeleteRuleResponse -&gt; ShowS
 [DeleteRuleResponse] -&gt; ShowS
 DeleteRuleResponse -&gt; String
 (Int -&gt; DeleteRuleResponse -&gt; ShowS)
@@ -414,5 +414,5 @@ $cfrom :: forall x. DeleteRuleResponse -&gt; Rep DeleteRuleResponse x
 </span><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#newDeleteRuleResponse"><span class="hs-identifier hs-var hs-var">newDeleteRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteRuleResponse
 </span><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRuleResponse%27"><span class="hs-identifier hs-var">DeleteRuleResponse'</span></a></span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316701"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRuleResponse"><span class="hs-identifier hs-type">DeleteRuleResponse</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316710"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteRule.html#DeleteRuleResponse"><span class="hs-identifier hs-type">DeleteRuleResponse</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

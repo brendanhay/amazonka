@@ -47,13 +47,13 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-49"></span><span>
-</span><span id="line-50"></span><span id="local-6989586621679184721"><span id="local-6989586621679184722"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScalableDimension"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-var">ScalableDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalableDimension%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-var">ScalableDimension'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679184730"><span id="local-6989586621679184731"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScalableDimension"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-var">ScalableDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalableDimension%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension%27"><span class="hs-identifier hs-var">ScalableDimension'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScalableDimension"><span class="annot"><span class="annottext">ScalableDimension -&gt; Text
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html#fromScalableDimension"><span class="hs-identifier hs-var hs-var">fromScalableDimension</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-52"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679184713"><span id="local-6989586621679184715"><span id="local-6989586621679184717"><span class="annot"><span class="annottext">Int -&gt; ScalableDimension -&gt; ShowS
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679184722"><span id="local-6989586621679184724"><span id="local-6989586621679184726"><span class="annot"><span class="annottext">Int -&gt; ScalableDimension -&gt; ShowS
 [ScalableDimension] -&gt; ShowS
 ScalableDimension -&gt; String
 (Int -&gt; ScalableDimension -&gt; ShowS)
@@ -69,7 +69,7 @@ $cshow :: ScalableDimension -&gt; String
 showsPrec :: Int -&gt; ScalableDimension -&gt; ShowS
 $cshowsPrec :: Int -&gt; ScalableDimension -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679184704"><span id="local-6989586621679184706"><span id="local-6989586621679184708"><span id="local-6989586621679184710"><span class="annot"><span class="annottext">ReadPrec [ScalableDimension]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679184713"><span id="local-6989586621679184715"><span id="local-6989586621679184717"><span id="local-6989586621679184719"><span class="annot"><span class="annottext">ReadPrec [ScalableDimension]
 ReadPrec ScalableDimension
 Int -&gt; ReadS ScalableDimension
 ReadS [ScalableDimension]
@@ -90,7 +90,7 @@ $creadList :: ReadS [ScalableDimension]
 readsPrec :: Int -&gt; ReadS ScalableDimension
 $creadsPrec :: Int -&gt; ReadS ScalableDimension
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679184699"><span id="local-6989586621679184701"><span class="annot"><span class="annottext">ScalableDimension -&gt; ScalableDimension -&gt; Bool
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679184708"><span id="local-6989586621679184710"><span class="annot"><span class="annottext">ScalableDimension -&gt; ScalableDimension -&gt; Bool
 (ScalableDimension -&gt; ScalableDimension -&gt; Bool)
 -&gt; (ScalableDimension -&gt; ScalableDimension -&gt; Bool)
 -&gt; Eq ScalableDimension
@@ -100,7 +100,7 @@ $c/= :: ScalableDimension -&gt; ScalableDimension -&gt; Bool
 == :: ScalableDimension -&gt; ScalableDimension -&gt; Bool
 $c== :: ScalableDimension -&gt; ScalableDimension -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679184683"><span id="local-6989586621679184685"><span id="local-6989586621679184687"><span id="local-6989586621679184689"><span id="local-6989586621679184691"><span id="local-6989586621679184693"><span id="local-6989586621679184695"><span class="annot"><span class="annottext">Eq ScalableDimension
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679184692"><span id="local-6989586621679184694"><span id="local-6989586621679184696"><span id="local-6989586621679184698"><span id="local-6989586621679184700"><span id="local-6989586621679184702"><span id="local-6989586621679184704"><span class="annot"><span class="annottext">Eq ScalableDimension
 Eq ScalableDimension
 -&gt; (ScalableDimension -&gt; ScalableDimension -&gt; Ordering)
 -&gt; (ScalableDimension -&gt; ScalableDimension -&gt; Bool)
@@ -151,7 +151,7 @@ $cfrom :: forall x. ScalableDimension -&gt; Rep ScalableDimension x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679184675"><span id="local-6989586621679184677"><span class="annot"><span class="annottext">Int -&gt; ScalableDimension -&gt; Int
+</span><span id="line-62"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679184684"><span id="local-6989586621679184686"><span class="annot"><span class="annottext">Int -&gt; ScalableDimension -&gt; Int
 ScalableDimension -&gt; Int
 (Int -&gt; ScalableDimension -&gt; Int)
 -&gt; (ScalableDimension -&gt; Int) -&gt; Hashable ScalableDimension
@@ -161,51 +161,51 @@ $chash :: ScalableDimension -&gt; Int
 hashWithSalt :: Int -&gt; ScalableDimension -&gt; Int
 $chashWithSalt :: Int -&gt; ScalableDimension -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679184672"><span class="annot"><span class="annottext">ScalableDimension -&gt; ()
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679184681"><span class="annot"><span class="annottext">ScalableDimension -&gt; ()
 (ScalableDimension -&gt; ()) -&gt; NFData ScalableDimension
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ScalableDimension -&gt; ()
 $crnf :: ScalableDimension -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679184669"><span class="annot"><span class="annottext">Text -&gt; Either String ScalableDimension
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679184678"><span class="annot"><span class="annottext">Text -&gt; Either String ScalableDimension
 (Text -&gt; Either String ScalableDimension)
 -&gt; FromText ScalableDimension
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ScalableDimension
 $cfromText :: Text -&gt; Either String ScalableDimension
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679184666"><span class="annot"><span class="annottext">ScalableDimension -&gt; Text
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679184675"><span class="annot"><span class="annottext">ScalableDimension -&gt; Text
 (ScalableDimension -&gt; Text) -&gt; ToText ScalableDimension
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ScalableDimension -&gt; Text
 $ctoText :: ScalableDimension -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679184663"><span class="annot"><span class="annottext">ScalableDimension -&gt; ByteString
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679184672"><span class="annot"><span class="annottext">ScalableDimension -&gt; ByteString
 (ScalableDimension -&gt; ByteString) -&gt; ToByteString ScalableDimension
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ScalableDimension -&gt; ByteString
 $ctoBS :: ScalableDimension -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679184660"><span class="annot"><span class="annottext">ScalableDimension -&gt; ByteStringBuilder
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679184669"><span class="annot"><span class="annottext">ScalableDimension -&gt; ByteStringBuilder
 (ScalableDimension -&gt; ByteStringBuilder) -&gt; ToLog ScalableDimension
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ScalableDimension -&gt; ByteStringBuilder
 $cbuild :: ScalableDimension -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679184657"><span class="annot"><span class="annottext">HeaderName -&gt; ScalableDimension -&gt; [Header]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679184666"><span class="annot"><span class="annottext">HeaderName -&gt; ScalableDimension -&gt; [Header]
 (HeaderName -&gt; ScalableDimension -&gt; [Header])
 -&gt; ToHeader ScalableDimension
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ScalableDimension -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ScalableDimension -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679184654"><span class="annot"><span class="annottext">ScalableDimension -&gt; QueryString
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679184663"><span class="annot"><span class="annottext">ScalableDimension -&gt; QueryString
 (ScalableDimension -&gt; QueryString) -&gt; ToQuery ScalableDimension
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ScalableDimension -&gt; QueryString
 $ctoQuery :: ScalableDimension -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679184649"><span id="local-6989586621679184651"><span class="annot"><span class="annottext">Value -&gt; Parser [ScalableDimension]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679184658"><span id="local-6989586621679184660"><span class="annot"><span class="annottext">Value -&gt; Parser [ScalableDimension]
 Value -&gt; Parser ScalableDimension
 (Value -&gt; Parser ScalableDimension)
 -&gt; (Value -&gt; Parser [ScalableDimension])
@@ -217,7 +217,7 @@ $cparseJSONList :: Value -&gt; Parser [ScalableDimension]
 parseJSON :: Value -&gt; Parser ScalableDimension
 $cparseJSON :: Value -&gt; Parser ScalableDimension
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679184644"><span id="local-6989586621679184646"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScalableDimension]
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679184653"><span id="local-6989586621679184655"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScalableDimension]
 FromJSONKeyFunction ScalableDimension
 FromJSONKeyFunction ScalableDimension
 -&gt; FromJSONKeyFunction [ScalableDimension]
@@ -229,7 +229,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ScalableDimension]
 fromJSONKey :: FromJSONKeyFunction ScalableDimension
 $cfromJSONKey :: FromJSONKeyFunction ScalableDimension
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679184635"><span id="local-6989586621679184637"><span id="local-6989586621679184639"><span id="local-6989586621679184641"><span class="annot"><span class="annottext">[ScalableDimension] -&gt; Encoding
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679184644"><span id="local-6989586621679184646"><span id="local-6989586621679184648"><span id="local-6989586621679184650"><span class="annot"><span class="annottext">[ScalableDimension] -&gt; Encoding
 [ScalableDimension] -&gt; Value
 ScalableDimension -&gt; Encoding
 ScalableDimension -&gt; Value
@@ -253,7 +253,7 @@ $ctoEncoding :: ScalableDimension -&gt; Encoding
 toJSON :: ScalableDimension -&gt; Value
 $ctoJSON :: ScalableDimension -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679184630"><span id="local-6989586621679184632"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScalableDimension]
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679184639"><span id="local-6989586621679184641"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScalableDimension]
 ToJSONKeyFunction ScalableDimension
 ToJSONKeyFunction ScalableDimension
 -&gt; ToJSONKeyFunction [ScalableDimension]
@@ -265,14 +265,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ScalableDimension]
 toJSONKey :: ToJSONKeyFunction ScalableDimension
 $ctoJSONKey :: ToJSONKeyFunction ScalableDimension
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679184627"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScalableDimension
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679184636"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScalableDimension
 ([Node] -&gt; Either String ScalableDimension)
 -&gt; FromXML ScalableDimension
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ScalableDimension
 $cparseXML :: [Node] -&gt; Either String ScalableDimension
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679184624"><span class="annot"><span class="annottext">ScalableDimension -&gt; XML
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679184633"><span class="annot"><span class="annottext">ScalableDimension -&gt; XML
 (ScalableDimension -&gt; XML) -&gt; ToXML ScalableDimension
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ScalableDimension -&gt; XML

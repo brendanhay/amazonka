@@ -1,0 +1,1122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.RobOMaker.UpdateRobotApplication</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a robot application.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RobOMaker.UpdateRobotApplication</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier">UpdateRobotApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#newUpdateRobotApplication"><span class="hs-identifier">newUpdateRobotApplication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplication_currentRevisionId"><span class="hs-identifier">updateRobotApplication_currentRevisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplication_environment"><span class="hs-identifier">updateRobotApplication_environment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplication_sources"><span class="hs-identifier">updateRobotApplication_sources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplication_application"><span class="hs-identifier">updateRobotApplication_application</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplication_robotSoftwareSuite"><span class="hs-identifier">updateRobotApplication_robotSoftwareSuite</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier">UpdateRobotApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#newUpdateRobotApplicationResponse"><span class="hs-identifier">newUpdateRobotApplicationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_lastUpdatedAt"><span class="hs-identifier">updateRobotApplicationResponse_lastUpdatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_arn"><span class="hs-identifier">updateRobotApplicationResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_environment"><span class="hs-identifier">updateRobotApplicationResponse_environment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_sources"><span class="hs-identifier">updateRobotApplicationResponse_sources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_name"><span class="hs-identifier">updateRobotApplicationResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_version"><span class="hs-identifier">updateRobotApplicationResponse_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_robotSoftwareSuite"><span class="hs-identifier">updateRobotApplicationResponse_robotSoftwareSuite</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_revisionId"><span class="hs-identifier">updateRobotApplicationResponse_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_httpStatus"><span class="hs-identifier">updateRobotApplicationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.html"><span class="hs-identifier">Network.AWS.RobOMaker.Types</span></a></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newUpdateRobotApplication' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679391332"><span id="local-6989586621679391333"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRobotApplication"><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-var">UpdateRobotApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRobotApplication%27"><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication%27"><span class="hs-identifier hs-var">UpdateRobotApplication'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The revision id for the robot application.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AcurrentRevisionId%3AUpdateRobotApplication%27"><span class="annot"><span class="annottext">UpdateRobotApplication -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3AcurrentRevisionId%3AUpdateRobotApplication%27"><span class="hs-identifier hs-var hs-var">currentRevisionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The object that contains the Docker image URI for your robot</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Aenvironment%3AUpdateRobotApplication%27"><span class="annot"><span class="annottext">UpdateRobotApplication -&gt; Maybe Environment
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aenvironment%3AUpdateRobotApplication%27"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Environment.html#Environment"><span class="hs-identifier hs-type">Environment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The sources of the robot application.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Asources%3AUpdateRobotApplication%27"><span class="annot"><span class="annottext">UpdateRobotApplication -&gt; Maybe [SourceConfig]
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Asources%3AUpdateRobotApplication%27"><span class="hs-identifier hs-var hs-var">sources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SourceConfig.html#SourceConfig"><span class="hs-identifier hs-type">SourceConfig</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The application information for the robot application.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Aapplication%3AUpdateRobotApplication%27"><span class="annot"><span class="annottext">UpdateRobotApplication -&gt; Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aapplication%3AUpdateRobotApplication%27"><span class="hs-identifier hs-var hs-var">application</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The robot software suite (ROS distribution) used by the robot</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3ArobotSoftwareSuite%3AUpdateRobotApplication%27"><span class="annot"><span class="annottext">UpdateRobotApplication -&gt; RobotSoftwareSuite
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3ArobotSoftwareSuite%3AUpdateRobotApplication%27"><span class="hs-identifier hs-var hs-var">robotSoftwareSuite</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuite.html#RobotSoftwareSuite"><span class="hs-identifier hs-type">RobotSoftwareSuite</span></a></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391322"><span id="local-6989586621679391324"><span class="annot"><span class="annottext">UpdateRobotApplication -&gt; UpdateRobotApplication -&gt; Bool
+(UpdateRobotApplication -&gt; UpdateRobotApplication -&gt; Bool)
+-&gt; (UpdateRobotApplication -&gt; UpdateRobotApplication -&gt; Bool)
+-&gt; Eq UpdateRobotApplication
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRobotApplication -&gt; UpdateRobotApplication -&gt; Bool
+$c/= :: UpdateRobotApplication -&gt; UpdateRobotApplication -&gt; Bool
+== :: UpdateRobotApplication -&gt; UpdateRobotApplication -&gt; Bool
+$c== :: UpdateRobotApplication -&gt; UpdateRobotApplication -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391313"><span id="local-6989586621679391315"><span id="local-6989586621679391317"><span id="local-6989586621679391319"><span class="annot"><span class="annottext">ReadPrec [UpdateRobotApplication]
+ReadPrec UpdateRobotApplication
+Int -&gt; ReadS UpdateRobotApplication
+ReadS [UpdateRobotApplication]
+(Int -&gt; ReadS UpdateRobotApplication)
+-&gt; ReadS [UpdateRobotApplication]
+-&gt; ReadPrec UpdateRobotApplication
+-&gt; ReadPrec [UpdateRobotApplication]
+-&gt; Read UpdateRobotApplication
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateRobotApplication]
+$creadListPrec :: ReadPrec [UpdateRobotApplication]
+readPrec :: ReadPrec UpdateRobotApplication
+$creadPrec :: ReadPrec UpdateRobotApplication
+readList :: ReadS [UpdateRobotApplication]
+$creadList :: ReadS [UpdateRobotApplication]
+readsPrec :: Int -&gt; ReadS UpdateRobotApplication
+$creadsPrec :: Int -&gt; ReadS UpdateRobotApplication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391306"><span id="local-6989586621679391308"><span id="local-6989586621679391310"><span class="annot"><span class="annottext">Int -&gt; UpdateRobotApplication -&gt; ShowS
+[UpdateRobotApplication] -&gt; ShowS
+UpdateRobotApplication -&gt; String
+(Int -&gt; UpdateRobotApplication -&gt; ShowS)
+-&gt; (UpdateRobotApplication -&gt; String)
+-&gt; ([UpdateRobotApplication] -&gt; ShowS)
+-&gt; Show UpdateRobotApplication
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRobotApplication] -&gt; ShowS
+$cshowList :: [UpdateRobotApplication] -&gt; ShowS
+show :: UpdateRobotApplication -&gt; String
+$cshow :: UpdateRobotApplication -&gt; String
+showsPrec :: Int -&gt; UpdateRobotApplication -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRobotApplication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateRobotApplication -&gt; Rep UpdateRobotApplication x)
+-&gt; (forall x.
+    Rep UpdateRobotApplication x -&gt; UpdateRobotApplication)
+-&gt; Generic UpdateRobotApplication
+forall x. Rep UpdateRobotApplication x -&gt; UpdateRobotApplication
+forall x. UpdateRobotApplication -&gt; Rep UpdateRobotApplication x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateRobotApplication x -&gt; UpdateRobotApplication
+$cfrom :: forall x. UpdateRobotApplication -&gt; Rep UpdateRobotApplication x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Create a value of 'UpdateRobotApplication' with all optional fields omitted.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'currentRevisionId', 'updateRobotApplication_currentRevisionId' - The revision id for the robot application.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'environment', 'updateRobotApplication_environment' - The object that contains the Docker image URI for your robot</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'sources', 'updateRobotApplication_sources' - The sources of the robot application.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'application', 'updateRobotApplication_application' - The application information for the robot application.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'robotSoftwareSuite', 'updateRobotApplication_robotSoftwareSuite' - The robot software suite (ROS distribution) used by the robot</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#newUpdateRobotApplication"><span class="hs-identifier hs-type">newUpdateRobotApplication</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'application'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'robotSoftwareSuite'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuite.html#RobotSoftwareSuite"><span class="hs-identifier hs-type">RobotSoftwareSuite</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span><span>
+</span><span id="line-102"></span><span id="newUpdateRobotApplication"><span class="annot"><span class="annottext">newUpdateRobotApplication :: Text -&gt; RobotSoftwareSuite -&gt; UpdateRobotApplication
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#newUpdateRobotApplication"><span class="hs-identifier hs-var hs-var">newUpdateRobotApplication</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679391301"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391301"><span class="hs-identifier hs-var">pApplication_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679391300"><span class="annot"><span class="annottext">RobotSoftwareSuite
+</span><a href="#local-6989586621679391300"><span class="hs-identifier hs-var">pRobotSoftwareSuite_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">UpdateRobotApplication' :: Maybe Text
+-&gt; Maybe Environment
+-&gt; Maybe [SourceConfig]
+-&gt; Text
+-&gt; RobotSoftwareSuite
+-&gt; UpdateRobotApplication
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication%27"><span class="hs-identifier hs-type">UpdateRobotApplication'</span></a></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:currentRevisionId:UpdateRobotApplication' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3AcurrentRevisionId%3AUpdateRobotApplication%27"><span class="hs-identifier hs-var">currentRevisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:environment:UpdateRobotApplication' :: Maybe Environment
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aenvironment%3AUpdateRobotApplication%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Environment
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:sources:UpdateRobotApplication' :: Maybe [SourceConfig]
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Asources%3AUpdateRobotApplication%27"><span class="hs-identifier hs-var">sources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SourceConfig]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:application:UpdateRobotApplication' :: Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aapplication%3AUpdateRobotApplication%27"><span class="hs-identifier hs-var">application</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391301"><span class="hs-identifier hs-var">pApplication_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:robotSoftwareSuite:UpdateRobotApplication' :: RobotSoftwareSuite
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3ArobotSoftwareSuite%3AUpdateRobotApplication%27"><span class="hs-identifier hs-var">robotSoftwareSuite</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RobotSoftwareSuite
+</span><a href="#local-6989586621679391300"><span class="hs-identifier hs-var">pRobotSoftwareSuite_</span></a></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The revision id for the robot application.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplication_currentRevisionId"><span class="hs-identifier hs-type">updateRobotApplication_currentRevisionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="updateRobotApplication_currentRevisionId"><span class="annot"><span class="annottext">updateRobotApplication_currentRevisionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRobotApplication -&gt; f UpdateRobotApplication
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplication_currentRevisionId"><span class="hs-identifier hs-var hs-var">updateRobotApplication_currentRevisionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRobotApplication -&gt; Maybe Text)
+-&gt; (UpdateRobotApplication -&gt; Maybe Text -&gt; UpdateRobotApplication)
+-&gt; Lens
+     UpdateRobotApplication
+     UpdateRobotApplication
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication%27"><span class="hs-identifier hs-type">UpdateRobotApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391297"><span class="annot"><span class="annottext">Maybe Text
+currentRevisionId :: Maybe Text
+$sel:currentRevisionId:UpdateRobotApplication' :: UpdateRobotApplication -&gt; Maybe Text
+</span><a href="#local-6989586621679391297"><span class="hs-identifier hs-var hs-var">currentRevisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391297"><span class="hs-identifier hs-var">currentRevisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391296"><span class="annot"><span class="annottext">s :: UpdateRobotApplication
+</span><a href="#local-6989586621679391296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication%27"><span class="hs-identifier hs-type">UpdateRobotApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391295"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRobotApplication
+</span><a href="#local-6989586621679391296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentRevisionId:UpdateRobotApplication' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3AcurrentRevisionId%3AUpdateRobotApplication%27"><span class="hs-identifier hs-var">currentRevisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The object that contains the Docker image URI for your robot</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplication_environment"><span class="hs-identifier hs-type">updateRobotApplication_environment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Environment.html#Environment"><span class="hs-identifier hs-type">Environment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="updateRobotApplication_environment"><span class="annot"><span class="annottext">updateRobotApplication_environment :: (Maybe Environment -&gt; f (Maybe Environment))
+-&gt; UpdateRobotApplication -&gt; f UpdateRobotApplication
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplication_environment"><span class="hs-identifier hs-var hs-var">updateRobotApplication_environment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRobotApplication -&gt; Maybe Environment)
+-&gt; (UpdateRobotApplication
+    -&gt; Maybe Environment -&gt; UpdateRobotApplication)
+-&gt; Lens
+     UpdateRobotApplication
+     UpdateRobotApplication
+     (Maybe Environment)
+     (Maybe Environment)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication%27"><span class="hs-identifier hs-type">UpdateRobotApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391294"><span class="annot"><span class="annottext">Maybe Environment
+environment :: Maybe Environment
+$sel:environment:UpdateRobotApplication' :: UpdateRobotApplication -&gt; Maybe Environment
+</span><a href="#local-6989586621679391294"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Environment
+</span><a href="#local-6989586621679391294"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391293"><span class="annot"><span class="annottext">s :: UpdateRobotApplication
+</span><a href="#local-6989586621679391293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication%27"><span class="hs-identifier hs-type">UpdateRobotApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391292"><span class="annot"><span class="annottext">Maybe Environment
+</span><a href="#local-6989586621679391292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRobotApplication
+</span><a href="#local-6989586621679391293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:UpdateRobotApplication' :: Maybe Environment
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aenvironment%3AUpdateRobotApplication%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Environment
+</span><a href="#local-6989586621679391292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The sources of the robot application.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplication_sources"><span class="hs-identifier hs-type">updateRobotApplication_sources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.SourceConfig.html#SourceConfig"><span class="hs-identifier hs-type">SourceConfig</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="updateRobotApplication_sources"><span class="annot"><span class="annottext">updateRobotApplication_sources :: (Maybe [SourceConfig] -&gt; f (Maybe [SourceConfig]))
+-&gt; UpdateRobotApplication -&gt; f UpdateRobotApplication
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplication_sources"><span class="hs-identifier hs-var hs-var">updateRobotApplication_sources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRobotApplication -&gt; Maybe [SourceConfig])
+-&gt; (UpdateRobotApplication
+    -&gt; Maybe [SourceConfig] -&gt; UpdateRobotApplication)
+-&gt; Lens
+     UpdateRobotApplication
+     UpdateRobotApplication
+     (Maybe [SourceConfig])
+     (Maybe [SourceConfig])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication%27"><span class="hs-identifier hs-type">UpdateRobotApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391291"><span class="annot"><span class="annottext">Maybe [SourceConfig]
+sources :: Maybe [SourceConfig]
+$sel:sources:UpdateRobotApplication' :: UpdateRobotApplication -&gt; Maybe [SourceConfig]
+</span><a href="#local-6989586621679391291"><span class="hs-identifier hs-var hs-var">sources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SourceConfig]
+</span><a href="#local-6989586621679391291"><span class="hs-identifier hs-var">sources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391290"><span class="annot"><span class="annottext">s :: UpdateRobotApplication
+</span><a href="#local-6989586621679391290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication%27"><span class="hs-identifier hs-type">UpdateRobotApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391289"><span class="annot"><span class="annottext">Maybe [SourceConfig]
+</span><a href="#local-6989586621679391289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRobotApplication
+</span><a href="#local-6989586621679391290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sources:UpdateRobotApplication' :: Maybe [SourceConfig]
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Asources%3AUpdateRobotApplication%27"><span class="hs-identifier hs-var">sources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SourceConfig]
+</span><a href="#local-6989586621679391289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SourceConfig] -&gt; f (Maybe [SourceConfig]))
+ -&gt; UpdateRobotApplication -&gt; f UpdateRobotApplication)
+-&gt; ((Maybe [SourceConfig] -&gt; f (Maybe [SourceConfig]))
+    -&gt; Maybe [SourceConfig] -&gt; f (Maybe [SourceConfig]))
+-&gt; (Maybe [SourceConfig] -&gt; f (Maybe [SourceConfig]))
+-&gt; UpdateRobotApplication
+-&gt; f UpdateRobotApplication
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [SourceConfig] [SourceConfig] [SourceConfig] [SourceConfig]
+-&gt; Iso
+     (Maybe [SourceConfig])
+     (Maybe [SourceConfig])
+     (Maybe [SourceConfig])
+     (Maybe [SourceConfig])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [SourceConfig] [SourceConfig] [SourceConfig] [SourceConfig]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The application information for the robot application.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplication_application"><span class="hs-identifier hs-type">updateRobotApplication_application</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-129"></span><span id="updateRobotApplication_application"><span class="annot"><span class="annottext">updateRobotApplication_application :: (Text -&gt; f Text)
+-&gt; UpdateRobotApplication -&gt; f UpdateRobotApplication
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplication_application"><span class="hs-identifier hs-var hs-var">updateRobotApplication_application</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRobotApplication -&gt; Text)
+-&gt; (UpdateRobotApplication -&gt; Text -&gt; UpdateRobotApplication)
+-&gt; Lens UpdateRobotApplication UpdateRobotApplication Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication%27"><span class="hs-identifier hs-type">UpdateRobotApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391285"><span class="annot"><span class="annottext">Text
+application :: Text
+$sel:application:UpdateRobotApplication' :: UpdateRobotApplication -&gt; Text
+</span><a href="#local-6989586621679391285"><span class="hs-identifier hs-var hs-var">application</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391285"><span class="hs-identifier hs-var">application</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391284"><span class="annot"><span class="annottext">s :: UpdateRobotApplication
+</span><a href="#local-6989586621679391284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication%27"><span class="hs-identifier hs-type">UpdateRobotApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391283"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRobotApplication
+</span><a href="#local-6989586621679391284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:application:UpdateRobotApplication' :: Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aapplication%3AUpdateRobotApplication%27"><span class="hs-identifier hs-var">application</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The robot software suite (ROS distribution) used by the robot</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplication_robotSoftwareSuite"><span class="hs-identifier hs-type">updateRobotApplication_robotSoftwareSuite</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuite.html#RobotSoftwareSuite"><span class="hs-identifier hs-type">RobotSoftwareSuite</span></a></span><span>
+</span><span id="line-134"></span><span id="updateRobotApplication_robotSoftwareSuite"><span class="annot"><span class="annottext">updateRobotApplication_robotSoftwareSuite :: (RobotSoftwareSuite -&gt; f RobotSoftwareSuite)
+-&gt; UpdateRobotApplication -&gt; f UpdateRobotApplication
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplication_robotSoftwareSuite"><span class="hs-identifier hs-var hs-var">updateRobotApplication_robotSoftwareSuite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRobotApplication -&gt; RobotSoftwareSuite)
+-&gt; (UpdateRobotApplication
+    -&gt; RobotSoftwareSuite -&gt; UpdateRobotApplication)
+-&gt; Lens
+     UpdateRobotApplication
+     UpdateRobotApplication
+     RobotSoftwareSuite
+     RobotSoftwareSuite
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication%27"><span class="hs-identifier hs-type">UpdateRobotApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391282"><span class="annot"><span class="annottext">RobotSoftwareSuite
+robotSoftwareSuite :: RobotSoftwareSuite
+$sel:robotSoftwareSuite:UpdateRobotApplication' :: UpdateRobotApplication -&gt; RobotSoftwareSuite
+</span><a href="#local-6989586621679391282"><span class="hs-identifier hs-var hs-var">robotSoftwareSuite</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RobotSoftwareSuite
+</span><a href="#local-6989586621679391282"><span class="hs-identifier hs-var">robotSoftwareSuite</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391281"><span class="annot"><span class="annottext">s :: UpdateRobotApplication
+</span><a href="#local-6989586621679391281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication%27"><span class="hs-identifier hs-type">UpdateRobotApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391280"><span class="annot"><span class="annottext">RobotSoftwareSuite
+</span><a href="#local-6989586621679391280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRobotApplication
+</span><a href="#local-6989586621679391281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:robotSoftwareSuite:UpdateRobotApplication' :: RobotSoftwareSuite
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3ArobotSoftwareSuite%3AUpdateRobotApplication%27"><span class="hs-identifier hs-var">robotSoftwareSuite</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RobotSoftwareSuite
+</span><a href="#local-6989586621679391280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-138"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679391276"><span class="annot"><span class="annottext">request :: UpdateRobotApplication -&gt; Request UpdateRobotApplication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateRobotApplication -&gt; Request UpdateRobotApplication
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.RobOMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679391272"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateRobotApplication
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateRobotApplication)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateRobotApplication))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateRobotApplication
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateRobotApplication)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679391269"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391269"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391268"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679391268"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391267"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391267"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Environment
+-&gt; Maybe [Source]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe RobotSoftwareSuite
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateRobotApplicationResponse
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">UpdateRobotApplicationResponse'</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Environment
+ -&gt; Maybe [Source]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe RobotSoftwareSuite
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; UpdateRobotApplicationResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Environment
+      -&gt; Maybe [Source]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RobotSoftwareSuite
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateRobotApplicationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391267"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Environment
+   -&gt; Maybe [Source]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RobotSoftwareSuite
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateRobotApplicationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Environment
+      -&gt; Maybe [Source]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RobotSoftwareSuite
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateRobotApplicationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391267"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Environment
+   -&gt; Maybe [Source]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RobotSoftwareSuite
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateRobotApplicationResponse)
+-&gt; Either String (Maybe Environment)
+-&gt; Either
+     String
+     (Maybe [Source]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RobotSoftwareSuite
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateRobotApplicationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391267"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Environment)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;environment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Source]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RobotSoftwareSuite
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateRobotApplicationResponse)
+-&gt; Either String (Maybe [Source])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe RobotSoftwareSuite
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateRobotApplicationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391267"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Source]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Source]))
+-&gt; Maybe [Source] -&gt; Either String (Maybe [Source])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Source]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe RobotSoftwareSuite
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateRobotApplicationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe RobotSoftwareSuite
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateRobotApplicationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391267"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe RobotSoftwareSuite
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateRobotApplicationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe RobotSoftwareSuite
+      -&gt; Maybe Text -&gt; Int -&gt; UpdateRobotApplicationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391267"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe RobotSoftwareSuite
+   -&gt; Maybe Text -&gt; Int -&gt; UpdateRobotApplicationResponse)
+-&gt; Either String (Maybe RobotSoftwareSuite)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; UpdateRobotApplicationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391267"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RobotSoftwareSuite)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;robotSoftwareSuite&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; UpdateRobotApplicationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateRobotApplicationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391267"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;revisionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateRobotApplicationResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateRobotApplicationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391269"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391258"><span id="local-6989586621679391260"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span></span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391255"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679391251"><span class="annot"><span class="annottext">toHeaders :: UpdateRobotApplication -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateRobotApplication -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-167"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391241"><span id="local-6989586621679391243"><span id="local-6989586621679391245"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679391239"><span class="annot"><span class="annottext">toJSON :: UpdateRobotApplication -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication%27"><span class="hs-identifier hs-type">UpdateRobotApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391233"><span id="local-6989586621679391234"><span id="local-6989586621679391235"><span id="local-6989586621679391236"><span id="local-6989586621679391237"><span class="annot"><span class="annottext">Maybe [SourceConfig]
+Maybe Text
+Maybe Environment
+Text
+RobotSoftwareSuite
+robotSoftwareSuite :: RobotSoftwareSuite
+application :: Text
+sources :: Maybe [SourceConfig]
+environment :: Maybe Environment
+currentRevisionId :: Maybe Text
+$sel:robotSoftwareSuite:UpdateRobotApplication' :: UpdateRobotApplication -&gt; RobotSoftwareSuite
+$sel:application:UpdateRobotApplication' :: UpdateRobotApplication -&gt; Text
+$sel:sources:UpdateRobotApplication' :: UpdateRobotApplication -&gt; Maybe [SourceConfig]
+$sel:environment:UpdateRobotApplication' :: UpdateRobotApplication -&gt; Maybe Environment
+$sel:currentRevisionId:UpdateRobotApplication' :: UpdateRobotApplication -&gt; Maybe Text
+</span><a href="#local-6989586621679391233"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-175"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;currentRevisionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391237"><span class="hs-identifier hs-var">currentRevisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;environment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Environment -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Environment -&gt; Pair) -&gt; Maybe Environment -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Environment
+</span><a href="#local-6989586621679391236"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [SourceConfig] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([SourceConfig] -&gt; Pair) -&gt; Maybe [SourceConfig] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SourceConfig]
+</span><a href="#local-6989586621679391235"><span class="hs-identifier hs-var">sources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;application&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391234"><span class="hs-identifier hs-var">application</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-181"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;robotSoftwareSuite&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RobotSoftwareSuite -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RobotSoftwareSuite
+</span><a href="#local-6989586621679391233"><span class="hs-identifier hs-var">robotSoftwareSuite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679391227"><span class="annot"><span class="annottext">toPath :: UpdateRobotApplication -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateRobotApplication -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/updateRobotApplication&quot;</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplication"><span class="hs-identifier hs-type">UpdateRobotApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679391223"><span class="annot"><span class="annottext">toQuery :: UpdateRobotApplication -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateRobotApplication -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newUpdateRobotApplicationResponse' smart constructor.</span><span>
+</span><span id="line-192"></span><span id="local-6989586621679391220"><span id="local-6989586621679391221"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRobotApplicationResponse"><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-var">UpdateRobotApplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRobotApplicationResponse%27"><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">UpdateRobotApplicationResponse'</span></a></span></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the robot application</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- was last updated.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AlastUpdatedAt%3AUpdateRobotApplicationResponse%27"><span class="annot"><span class="annottext">UpdateRobotApplicationResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3AlastUpdatedAt%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the updated robot application.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3Aarn%3AUpdateRobotApplicationResponse%27"><span class="annot"><span class="annottext">UpdateRobotApplicationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aarn%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | The object that contains the Docker image URI for your robot</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-200"></span><span>    </span><span id="%24sel%3Aenvironment%3AUpdateRobotApplicationResponse%27"><span class="annot"><span class="annottext">UpdateRobotApplicationResponse -&gt; Maybe Environment
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aenvironment%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Environment.html#Environment"><span class="hs-identifier hs-type">Environment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- | The sources of the robot application.</span><span>
+</span><span id="line-202"></span><span>    </span><span id="%24sel%3Asources%3AUpdateRobotApplicationResponse%27"><span class="annot"><span class="annottext">UpdateRobotApplicationResponse -&gt; Maybe [Source]
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Asources%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var hs-var">sources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- | The name of the robot application.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3Aname%3AUpdateRobotApplicationResponse%27"><span class="annot"><span class="annottext">UpdateRobotApplicationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aname%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | The version of the robot application.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3Aversion%3AUpdateRobotApplicationResponse%27"><span class="annot"><span class="annottext">UpdateRobotApplicationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aversion%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- | The robot software suite (ROS distribution) used by the robot</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3ArobotSoftwareSuite%3AUpdateRobotApplicationResponse%27"><span class="annot"><span class="annottext">UpdateRobotApplicationResponse -&gt; Maybe RobotSoftwareSuite
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3ArobotSoftwareSuite%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var hs-var">robotSoftwareSuite</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuite.html#RobotSoftwareSuite"><span class="hs-identifier hs-type">RobotSoftwareSuite</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- | The revision id of the robot application.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3ArevisionId%3AUpdateRobotApplicationResponse%27"><span class="annot"><span class="annottext">UpdateRobotApplicationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3ArevisionId%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateRobotApplicationResponse%27"><span class="annot"><span class="annottext">UpdateRobotApplicationResponse -&gt; Int
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3AhttpStatus%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391207"><span id="local-6989586621679391209"><span class="annot"><span class="annottext">UpdateRobotApplicationResponse
+-&gt; UpdateRobotApplicationResponse -&gt; Bool
+(UpdateRobotApplicationResponse
+ -&gt; UpdateRobotApplicationResponse -&gt; Bool)
+-&gt; (UpdateRobotApplicationResponse
+    -&gt; UpdateRobotApplicationResponse -&gt; Bool)
+-&gt; Eq UpdateRobotApplicationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRobotApplicationResponse
+-&gt; UpdateRobotApplicationResponse -&gt; Bool
+$c/= :: UpdateRobotApplicationResponse
+-&gt; UpdateRobotApplicationResponse -&gt; Bool
+== :: UpdateRobotApplicationResponse
+-&gt; UpdateRobotApplicationResponse -&gt; Bool
+$c== :: UpdateRobotApplicationResponse
+-&gt; UpdateRobotApplicationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391199"><span id="local-6989586621679391201"><span id="local-6989586621679391203"><span id="local-6989586621679391205"><span class="annot"><span class="annottext">ReadPrec [UpdateRobotApplicationResponse]
+ReadPrec UpdateRobotApplicationResponse
+Int -&gt; ReadS UpdateRobotApplicationResponse
+ReadS [UpdateRobotApplicationResponse]
+(Int -&gt; ReadS UpdateRobotApplicationResponse)
+-&gt; ReadS [UpdateRobotApplicationResponse]
+-&gt; ReadPrec UpdateRobotApplicationResponse
+-&gt; ReadPrec [UpdateRobotApplicationResponse]
+-&gt; Read UpdateRobotApplicationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateRobotApplicationResponse]
+$creadListPrec :: ReadPrec [UpdateRobotApplicationResponse]
+readPrec :: ReadPrec UpdateRobotApplicationResponse
+$creadPrec :: ReadPrec UpdateRobotApplicationResponse
+readList :: ReadS [UpdateRobotApplicationResponse]
+$creadList :: ReadS [UpdateRobotApplicationResponse]
+readsPrec :: Int -&gt; ReadS UpdateRobotApplicationResponse
+$creadsPrec :: Int -&gt; ReadS UpdateRobotApplicationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391193"><span id="local-6989586621679391195"><span id="local-6989586621679391197"><span class="annot"><span class="annottext">Int -&gt; UpdateRobotApplicationResponse -&gt; ShowS
+[UpdateRobotApplicationResponse] -&gt; ShowS
+UpdateRobotApplicationResponse -&gt; String
+(Int -&gt; UpdateRobotApplicationResponse -&gt; ShowS)
+-&gt; (UpdateRobotApplicationResponse -&gt; String)
+-&gt; ([UpdateRobotApplicationResponse] -&gt; ShowS)
+-&gt; Show UpdateRobotApplicationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRobotApplicationResponse] -&gt; ShowS
+$cshowList :: [UpdateRobotApplicationResponse] -&gt; ShowS
+show :: UpdateRobotApplicationResponse -&gt; String
+$cshow :: UpdateRobotApplicationResponse -&gt; String
+showsPrec :: Int -&gt; UpdateRobotApplicationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRobotApplicationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateRobotApplicationResponse
+ -&gt; Rep UpdateRobotApplicationResponse x)
+-&gt; (forall x.
+    Rep UpdateRobotApplicationResponse x
+    -&gt; UpdateRobotApplicationResponse)
+-&gt; Generic UpdateRobotApplicationResponse
+forall x.
+Rep UpdateRobotApplicationResponse x
+-&gt; UpdateRobotApplicationResponse
+forall x.
+UpdateRobotApplicationResponse
+-&gt; Rep UpdateRobotApplicationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateRobotApplicationResponse x
+-&gt; UpdateRobotApplicationResponse
+$cfrom :: forall x.
+UpdateRobotApplicationResponse
+-&gt; Rep UpdateRobotApplicationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Create a value of 'UpdateRobotApplicationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'lastUpdatedAt', 'updateRobotApplicationResponse_lastUpdatedAt' - The time, in milliseconds since the epoch, when the robot application</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- was last updated.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'arn', 'updateRobotApplicationResponse_arn' - The Amazon Resource Name (ARN) of the updated robot application.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'environment', 'updateRobotApplicationResponse_environment' - The object that contains the Docker image URI for your robot</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 'sources', 'updateRobotApplicationResponse_sources' - The sources of the robot application.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'name', 'updateRobotApplicationResponse_name' - The name of the robot application.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- 'version', 'updateRobotApplicationResponse_version' - The version of the robot application.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'robotSoftwareSuite', 'updateRobotApplicationResponse_robotSoftwareSuite' - The robot software suite (ROS distribution) used by the robot</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'revisionId', 'updateRobotApplicationResponse_revisionId' - The revision id of the robot application.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'httpStatus', 'updateRobotApplicationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#newUpdateRobotApplicationResponse"><span class="hs-identifier hs-type">newUpdateRobotApplicationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span>
+</span><span id="line-249"></span><span id="newUpdateRobotApplicationResponse"><span class="annot"><span class="annottext">newUpdateRobotApplicationResponse :: Int -&gt; UpdateRobotApplicationResponse
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#newUpdateRobotApplicationResponse"><span class="hs-identifier hs-var hs-var">newUpdateRobotApplicationResponse</span></a></span></span><span> </span><span id="local-6989586621679391190"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391190"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><span class="annottext">UpdateRobotApplicationResponse' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Environment
+-&gt; Maybe [Source]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe RobotSoftwareSuite
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateRobotApplicationResponse
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:UpdateRobotApplicationResponse' :: Maybe POSIX
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3AlastUpdatedAt%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:UpdateRobotApplicationResponse' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aarn%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">$sel:environment:UpdateRobotApplicationResponse' :: Maybe Environment
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aenvironment%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Environment
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:sources:UpdateRobotApplicationResponse' :: Maybe [Source]
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Asources%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">sources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Source]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateRobotApplicationResponse' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aname%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:UpdateRobotApplicationResponse' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aversion%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:robotSoftwareSuite:UpdateRobotApplicationResponse' :: Maybe RobotSoftwareSuite
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3ArobotSoftwareSuite%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">robotSoftwareSuite</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RobotSoftwareSuite
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">$sel:revisionId:UpdateRobotApplicationResponse' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3ArevisionId%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRobotApplicationResponse' :: Int
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3AhttpStatus%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391190"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-261"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the robot application</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- was last updated.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_lastUpdatedAt"><span class="hs-identifier hs-type">updateRobotApplicationResponse_lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span id="updateRobotApplicationResponse_lastUpdatedAt"><span class="annot"><span class="annottext">updateRobotApplicationResponse_lastUpdatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateRobotApplicationResponse
+-&gt; f UpdateRobotApplicationResponse
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_lastUpdatedAt"><span class="hs-identifier hs-var hs-var">updateRobotApplicationResponse_lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRobotApplicationResponse -&gt; Maybe POSIX)
+-&gt; (UpdateRobotApplicationResponse
+    -&gt; Maybe POSIX -&gt; UpdateRobotApplicationResponse)
+-&gt; Lens
+     UpdateRobotApplicationResponse
+     UpdateRobotApplicationResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391189"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedAt :: Maybe POSIX
+$sel:lastUpdatedAt:UpdateRobotApplicationResponse' :: UpdateRobotApplicationResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679391189"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679391189"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391188"><span class="annot"><span class="annottext">s :: UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391187"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679391187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:UpdateRobotApplicationResponse' :: Maybe POSIX
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3AlastUpdatedAt%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679391187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; UpdateRobotApplicationResponse
+ -&gt; f UpdateRobotApplicationResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateRobotApplicationResponse
+-&gt; f UpdateRobotApplicationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the updated robot application.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_arn"><span class="hs-identifier hs-type">updateRobotApplicationResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="updateRobotApplicationResponse_arn"><span class="annot"><span class="annottext">updateRobotApplicationResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRobotApplicationResponse
+-&gt; f UpdateRobotApplicationResponse
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_arn"><span class="hs-identifier hs-var hs-var">updateRobotApplicationResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRobotApplicationResponse -&gt; Maybe Text)
+-&gt; (UpdateRobotApplicationResponse
+    -&gt; Maybe Text -&gt; UpdateRobotApplicationResponse)
+-&gt; Lens
+     UpdateRobotApplicationResponse
+     UpdateRobotApplicationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391185"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:UpdateRobotApplicationResponse' :: UpdateRobotApplicationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679391185"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391185"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391184"><span class="annot"><span class="annottext">s :: UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391183"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:UpdateRobotApplicationResponse' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aarn%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | The object that contains the Docker image URI for your robot</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_environment"><span class="hs-identifier hs-type">updateRobotApplicationResponse_environment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Environment.html#Environment"><span class="hs-identifier hs-type">Environment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="updateRobotApplicationResponse_environment"><span class="annot"><span class="annottext">updateRobotApplicationResponse_environment :: (Maybe Environment -&gt; f (Maybe Environment))
+-&gt; UpdateRobotApplicationResponse
+-&gt; f UpdateRobotApplicationResponse
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_environment"><span class="hs-identifier hs-var hs-var">updateRobotApplicationResponse_environment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRobotApplicationResponse -&gt; Maybe Environment)
+-&gt; (UpdateRobotApplicationResponse
+    -&gt; Maybe Environment -&gt; UpdateRobotApplicationResponse)
+-&gt; Lens
+     UpdateRobotApplicationResponse
+     UpdateRobotApplicationResponse
+     (Maybe Environment)
+     (Maybe Environment)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391182"><span class="annot"><span class="annottext">Maybe Environment
+environment :: Maybe Environment
+$sel:environment:UpdateRobotApplicationResponse' :: UpdateRobotApplicationResponse -&gt; Maybe Environment
+</span><a href="#local-6989586621679391182"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Environment
+</span><a href="#local-6989586621679391182"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391181"><span class="annot"><span class="annottext">s :: UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391180"><span class="annot"><span class="annottext">Maybe Environment
+</span><a href="#local-6989586621679391180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:UpdateRobotApplicationResponse' :: Maybe Environment
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aenvironment%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Environment
+</span><a href="#local-6989586621679391180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | The sources of the robot application.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_sources"><span class="hs-identifier hs-type">updateRobotApplicationResponse_sources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span id="updateRobotApplicationResponse_sources"><span class="annot"><span class="annottext">updateRobotApplicationResponse_sources :: (Maybe [Source] -&gt; f (Maybe [Source]))
+-&gt; UpdateRobotApplicationResponse
+-&gt; f UpdateRobotApplicationResponse
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_sources"><span class="hs-identifier hs-var hs-var">updateRobotApplicationResponse_sources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRobotApplicationResponse -&gt; Maybe [Source])
+-&gt; (UpdateRobotApplicationResponse
+    -&gt; Maybe [Source] -&gt; UpdateRobotApplicationResponse)
+-&gt; Lens
+     UpdateRobotApplicationResponse
+     UpdateRobotApplicationResponse
+     (Maybe [Source])
+     (Maybe [Source])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391179"><span class="annot"><span class="annottext">Maybe [Source]
+sources :: Maybe [Source]
+$sel:sources:UpdateRobotApplicationResponse' :: UpdateRobotApplicationResponse -&gt; Maybe [Source]
+</span><a href="#local-6989586621679391179"><span class="hs-identifier hs-var hs-var">sources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Source]
+</span><a href="#local-6989586621679391179"><span class="hs-identifier hs-var">sources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391178"><span class="annot"><span class="annottext">s :: UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391177"><span class="annot"><span class="annottext">Maybe [Source]
+</span><a href="#local-6989586621679391177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sources:UpdateRobotApplicationResponse' :: Maybe [Source]
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Asources%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">sources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Source]
+</span><a href="#local-6989586621679391177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Source] -&gt; f (Maybe [Source]))
+ -&gt; UpdateRobotApplicationResponse
+ -&gt; f UpdateRobotApplicationResponse)
+-&gt; ((Maybe [Source] -&gt; f (Maybe [Source]))
+    -&gt; Maybe [Source] -&gt; f (Maybe [Source]))
+-&gt; (Maybe [Source] -&gt; f (Maybe [Source]))
+-&gt; UpdateRobotApplicationResponse
+-&gt; f UpdateRobotApplicationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Source] [Source] [Source] [Source]
+-&gt; Iso
+     (Maybe [Source]) (Maybe [Source]) (Maybe [Source]) (Maybe [Source])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Source] [Source] [Source] [Source]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | The name of the robot application.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_name"><span class="hs-identifier hs-type">updateRobotApplicationResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="updateRobotApplicationResponse_name"><span class="annot"><span class="annottext">updateRobotApplicationResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRobotApplicationResponse
+-&gt; f UpdateRobotApplicationResponse
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_name"><span class="hs-identifier hs-var hs-var">updateRobotApplicationResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRobotApplicationResponse -&gt; Maybe Text)
+-&gt; (UpdateRobotApplicationResponse
+    -&gt; Maybe Text -&gt; UpdateRobotApplicationResponse)
+-&gt; Lens
+     UpdateRobotApplicationResponse
+     UpdateRobotApplicationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391176"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateRobotApplicationResponse' :: UpdateRobotApplicationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679391176"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391176"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391175"><span class="annot"><span class="annottext">s :: UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391174"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateRobotApplicationResponse' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aname%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The version of the robot application.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_version"><span class="hs-identifier hs-type">updateRobotApplicationResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="updateRobotApplicationResponse_version"><span class="annot"><span class="annottext">updateRobotApplicationResponse_version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRobotApplicationResponse
+-&gt; f UpdateRobotApplicationResponse
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_version"><span class="hs-identifier hs-var hs-var">updateRobotApplicationResponse_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRobotApplicationResponse -&gt; Maybe Text)
+-&gt; (UpdateRobotApplicationResponse
+    -&gt; Maybe Text -&gt; UpdateRobotApplicationResponse)
+-&gt; Lens
+     UpdateRobotApplicationResponse
+     UpdateRobotApplicationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391173"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:UpdateRobotApplicationResponse' :: UpdateRobotApplicationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679391173"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391173"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391172"><span class="annot"><span class="annottext">s :: UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391171"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:UpdateRobotApplicationResponse' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3Aversion%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | The robot software suite (ROS distribution) used by the robot</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_robotSoftwareSuite"><span class="hs-identifier hs-type">updateRobotApplicationResponse_robotSoftwareSuite</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotSoftwareSuite.html#RobotSoftwareSuite"><span class="hs-identifier hs-type">RobotSoftwareSuite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span id="updateRobotApplicationResponse_robotSoftwareSuite"><span class="annot"><span class="annottext">updateRobotApplicationResponse_robotSoftwareSuite :: (Maybe RobotSoftwareSuite -&gt; f (Maybe RobotSoftwareSuite))
+-&gt; UpdateRobotApplicationResponse
+-&gt; f UpdateRobotApplicationResponse
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_robotSoftwareSuite"><span class="hs-identifier hs-var hs-var">updateRobotApplicationResponse_robotSoftwareSuite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRobotApplicationResponse -&gt; Maybe RobotSoftwareSuite)
+-&gt; (UpdateRobotApplicationResponse
+    -&gt; Maybe RobotSoftwareSuite -&gt; UpdateRobotApplicationResponse)
+-&gt; Lens
+     UpdateRobotApplicationResponse
+     UpdateRobotApplicationResponse
+     (Maybe RobotSoftwareSuite)
+     (Maybe RobotSoftwareSuite)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391170"><span class="annot"><span class="annottext">Maybe RobotSoftwareSuite
+robotSoftwareSuite :: Maybe RobotSoftwareSuite
+$sel:robotSoftwareSuite:UpdateRobotApplicationResponse' :: UpdateRobotApplicationResponse -&gt; Maybe RobotSoftwareSuite
+</span><a href="#local-6989586621679391170"><span class="hs-identifier hs-var hs-var">robotSoftwareSuite</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RobotSoftwareSuite
+</span><a href="#local-6989586621679391170"><span class="hs-identifier hs-var">robotSoftwareSuite</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391169"><span class="annot"><span class="annottext">s :: UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391168"><span class="annot"><span class="annottext">Maybe RobotSoftwareSuite
+</span><a href="#local-6989586621679391168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:robotSoftwareSuite:UpdateRobotApplicationResponse' :: Maybe RobotSoftwareSuite
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3ArobotSoftwareSuite%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">robotSoftwareSuite</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RobotSoftwareSuite
+</span><a href="#local-6989586621679391168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- | The revision id of the robot application.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_revisionId"><span class="hs-identifier hs-type">updateRobotApplicationResponse_revisionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="updateRobotApplicationResponse_revisionId"><span class="annot"><span class="annottext">updateRobotApplicationResponse_revisionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRobotApplicationResponse
+-&gt; f UpdateRobotApplicationResponse
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_revisionId"><span class="hs-identifier hs-var hs-var">updateRobotApplicationResponse_revisionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRobotApplicationResponse -&gt; Maybe Text)
+-&gt; (UpdateRobotApplicationResponse
+    -&gt; Maybe Text -&gt; UpdateRobotApplicationResponse)
+-&gt; Lens
+     UpdateRobotApplicationResponse
+     UpdateRobotApplicationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391167"><span class="annot"><span class="annottext">Maybe Text
+revisionId :: Maybe Text
+$sel:revisionId:UpdateRobotApplicationResponse' :: UpdateRobotApplicationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679391167"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391167"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391166"><span class="annot"><span class="annottext">s :: UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391165"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:UpdateRobotApplicationResponse' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3ArevisionId%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-299"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_httpStatus"><span class="hs-identifier hs-type">updateRobotApplicationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-300"></span><span id="updateRobotApplicationResponse_httpStatus"><span class="annot"><span class="annottext">updateRobotApplicationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateRobotApplicationResponse
+-&gt; f UpdateRobotApplicationResponse
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#updateRobotApplicationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateRobotApplicationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRobotApplicationResponse -&gt; Int)
+-&gt; (UpdateRobotApplicationResponse
+    -&gt; Int -&gt; UpdateRobotApplicationResponse)
+-&gt; Lens
+     UpdateRobotApplicationResponse
+     UpdateRobotApplicationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391164"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateRobotApplicationResponse' :: UpdateRobotApplicationResponse -&gt; Int
+</span><a href="#local-6989586621679391164"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391164"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391163"><span class="annot"><span class="annottext">s :: UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse%27"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391162"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRobotApplicationResponse
+</span><a href="#local-6989586621679391163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRobotApplicationResponse' :: Int
+</span><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#%24sel%3AhttpStatus%3AUpdateRobotApplicationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-303"></span><span>  </span><span id="local-6989586621679391160"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateRobotApplication.html#UpdateRobotApplicationResponse"><span class="hs-identifier hs-type">UpdateRobotApplicationResponse</span></a></span></span><span>
+</span><span id="line-305"></span></pre></body></html>

@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListBillingGroups' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679827569"><span id="local-6989586621679827570"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBillingGroups"><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-var">ListBillingGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBillingGroups%27"><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups%27"><span class="hs-identifier hs-var">ListBillingGroups'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679827578"><span id="local-6989586621679827579"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBillingGroups"><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-var">ListBillingGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBillingGroups%27"><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups%27"><span class="hs-identifier hs-var">ListBillingGroups'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Limit the results to billing groups whose names have the given prefix.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AnamePrefixFilter%3AListBillingGroups%27"><span class="annot"><span class="annottext">ListBillingGroups -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.ListBillingGroups.html#%24sel%3AnamePrefixFilter%3AListBillingGroups%27"><span class="hs-identifier hs-var hs-var">namePrefixFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -69,7 +69,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AmaxResults%3AListBillingGroups%27"><span class="annot"><span class="annottext">ListBillingGroups -&gt; Maybe Natural
 </span><a href="Network.AWS.IoT.ListBillingGroups.html#%24sel%3AmaxResults%3AListBillingGroups%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827561"><span id="local-6989586621679827563"><span class="annot"><span class="annottext">ListBillingGroups -&gt; ListBillingGroups -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827570"><span id="local-6989586621679827572"><span class="annot"><span class="annottext">ListBillingGroups -&gt; ListBillingGroups -&gt; Bool
 (ListBillingGroups -&gt; ListBillingGroups -&gt; Bool)
 -&gt; (ListBillingGroups -&gt; ListBillingGroups -&gt; Bool)
 -&gt; Eq ListBillingGroups
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListBillingGroups -&gt; ListBillingGroups -&gt; Bool
 == :: ListBillingGroups -&gt; ListBillingGroups -&gt; Bool
 $c== :: ListBillingGroups -&gt; ListBillingGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827552"><span id="local-6989586621679827554"><span id="local-6989586621679827556"><span id="local-6989586621679827558"><span class="annot"><span class="annottext">ReadPrec [ListBillingGroups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827561"><span id="local-6989586621679827563"><span id="local-6989586621679827565"><span id="local-6989586621679827567"><span class="annot"><span class="annottext">ReadPrec [ListBillingGroups]
 ReadPrec ListBillingGroups
 Int -&gt; ReadS ListBillingGroups
 ReadS [ListBillingGroups]
@@ -98,7 +98,7 @@ readList :: ReadS [ListBillingGroups]
 $creadList :: ReadS [ListBillingGroups]
 readsPrec :: Int -&gt; ReadS ListBillingGroups
 $creadsPrec :: Int -&gt; ReadS ListBillingGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827545"><span id="local-6989586621679827547"><span id="local-6989586621679827549"><span class="annot"><span class="annottext">Int -&gt; ListBillingGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827554"><span id="local-6989586621679827556"><span id="local-6989586621679827558"><span class="annot"><span class="annottext">Int -&gt; ListBillingGroups -&gt; ShowS
 [ListBillingGroups] -&gt; ShowS
 ListBillingGroups -&gt; String
 (Int -&gt; ListBillingGroups -&gt; ShowS)
@@ -169,16 +169,16 @@ forall a. Maybe a
 -&gt; Lens
      ListBillingGroups ListBillingGroups (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups%27"><span class="hs-identifier hs-type">ListBillingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827539"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups%27"><span class="hs-identifier hs-type">ListBillingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827548"><span class="annot"><span class="annottext">Maybe Text
 namePrefixFilter :: Maybe Text
 $sel:namePrefixFilter:ListBillingGroups' :: ListBillingGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679827539"><span class="hs-identifier hs-var hs-var">namePrefixFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827539"><span class="hs-identifier hs-var">namePrefixFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827538"><span class="annot"><span class="annottext">s :: ListBillingGroups
-</span><a href="#local-6989586621679827538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups%27"><span class="hs-identifier hs-type">ListBillingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827537"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBillingGroups
-</span><a href="#local-6989586621679827538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namePrefixFilter:ListBillingGroups' :: Maybe Text
+</span><a href="#local-6989586621679827548"><span class="hs-identifier hs-var hs-var">namePrefixFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827548"><span class="hs-identifier hs-var">namePrefixFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827547"><span class="annot"><span class="annottext">s :: ListBillingGroups
+</span><a href="#local-6989586621679827547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups%27"><span class="hs-identifier hs-type">ListBillingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827546"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBillingGroups
+</span><a href="#local-6989586621679827547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namePrefixFilter:ListBillingGroups' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListBillingGroups.html#%24sel%3AnamePrefixFilter%3AListBillingGroups%27"><span class="hs-identifier hs-var">namePrefixFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-type">ListBillingGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-type">ListBillingGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | To retrieve the next set of results, the @nextToken@ value from a</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
@@ -191,16 +191,16 @@ $sel:namePrefixFilter:ListBillingGroups' :: ListBillingGroups -&gt; Maybe Text
 -&gt; Lens
      ListBillingGroups ListBillingGroups (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups%27"><span class="hs-identifier hs-type">ListBillingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827536"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups%27"><span class="hs-identifier hs-type">ListBillingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827545"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListBillingGroups' :: ListBillingGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679827536"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827536"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827535"><span class="annot"><span class="annottext">s :: ListBillingGroups
-</span><a href="#local-6989586621679827535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups%27"><span class="hs-identifier hs-type">ListBillingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827534"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBillingGroups
-</span><a href="#local-6989586621679827535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBillingGroups' :: Maybe Text
+</span><a href="#local-6989586621679827545"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827545"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827544"><span class="annot"><span class="annottext">s :: ListBillingGroups
+</span><a href="#local-6989586621679827544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups%27"><span class="hs-identifier hs-type">ListBillingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827543"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBillingGroups
+</span><a href="#local-6989586621679827544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBillingGroups' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListBillingGroups.html#%24sel%3AnextToken%3AListBillingGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-type">ListBillingGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-type">ListBillingGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The maximum number of results to return per request.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#listBillingGroups_maxResults"><span class="hs-identifier hs-type">listBillingGroups_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-type">ListBillingGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -211,29 +211,29 @@ $sel:nextToken:ListBillingGroups' :: ListBillingGroups -&gt; Maybe Text
 -&gt; Lens
      ListBillingGroups ListBillingGroups (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups%27"><span class="hs-identifier hs-type">ListBillingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827533"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups%27"><span class="hs-identifier hs-type">ListBillingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827542"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListBillingGroups' :: ListBillingGroups -&gt; Maybe Natural
-</span><a href="#local-6989586621679827533"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679827533"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827532"><span class="annot"><span class="annottext">s :: ListBillingGroups
-</span><a href="#local-6989586621679827532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups%27"><span class="hs-identifier hs-type">ListBillingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827531"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679827531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBillingGroups
-</span><a href="#local-6989586621679827532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListBillingGroups' :: Maybe Natural
+</span><a href="#local-6989586621679827542"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679827542"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827541"><span class="annot"><span class="annottext">s :: ListBillingGroups
+</span><a href="#local-6989586621679827541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups%27"><span class="hs-identifier hs-type">ListBillingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827540"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679827540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBillingGroups
+</span><a href="#local-6989586621679827541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListBillingGroups' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListBillingGroups.html#%24sel%3AmaxResults%3AListBillingGroups%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679827531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-type">ListBillingGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-type">ListBillingGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-type">ListBillingGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679827527"><span class="annot"><span class="annottext">page :: ListBillingGroups
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679827536"><span class="annot"><span class="annottext">page :: ListBillingGroups
 -&gt; AWSResponse ListBillingGroups -&gt; Maybe ListBillingGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679827525"><span class="annot"><span class="annottext">ListBillingGroups
-</span><a href="#local-6989586621679827525"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679827524"><span class="annot"><span class="annottext">AWSResponse ListBillingGroups
-</span><a href="#local-6989586621679827524"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679827534"><span class="annot"><span class="annottext">ListBillingGroups
+</span><a href="#local-6989586621679827534"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679827533"><span class="annot"><span class="annottext">AWSResponse ListBillingGroups
+</span><a href="#local-6989586621679827533"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBillingGroups
 ListBillingGroupsResponse
-</span><a href="#local-6989586621679827524"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679827533"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">ListBillingGroupsResponse
 -&gt; Getting (First Text) ListBillingGroupsResponse Text
 -&gt; Maybe Text
@@ -263,7 +263,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-119"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBillingGroups
 ListBillingGroupsResponse
-</span><a href="#local-6989586621679827524"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679827533"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">ListBillingGroupsResponse
 -&gt; Getting
      (First [GroupNameAndArn])
@@ -309,7 +309,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ListBillingGroups
-</span><a href="#local-6989586621679827525"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679827534"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ListBillingGroups
 -&gt; (ListBillingGroups -&gt; ListBillingGroups) -&gt; ListBillingGroups
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -323,7 +323,7 @@ Lens ListBillingGroups ListBillingGroups (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBillingGroups
 ListBillingGroupsResponse
-</span><a href="#local-6989586621679827524"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679827533"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">ListBillingGroupsResponse
 -&gt; Getting (First Text) ListBillingGroupsResponse Text
 -&gt; Maybe Text
@@ -349,12 +349,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-type">ListBillingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse"><span class="hs-identifier hs-type">ListBillingGroupsResponse</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679827514"><span class="annot"><span class="annottext">request :: ListBillingGroups -&gt; Request ListBillingGroups
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679827523"><span class="annot"><span class="annottext">request :: ListBillingGroups -&gt; Request ListBillingGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListBillingGroups -&gt; Request ListBillingGroups
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679827510"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679827519"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListBillingGroups
 -&gt; ClientResponse ClientBody
@@ -380,10 +380,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679827507"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827507"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679827506"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679827506"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679827505"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679827505"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679827516"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827516"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679827515"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679827515"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679827514"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679827514"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [GroupNameAndArn] -&gt; Int -&gt; ListBillingGroupsResponse
 </span><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse%27"><span class="hs-identifier hs-var">ListBillingGroupsResponse'</span></a></span><span>
@@ -395,7 +395,7 @@ MonadResource m =&gt;
      (Maybe [GroupNameAndArn] -&gt; Int -&gt; ListBillingGroupsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679827505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679827514"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -406,7 +406,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListBillingGroupsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679827505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [GroupNameAndArn]))
+</span><a href="#local-6989586621679827514"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [GroupNameAndArn]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;billingGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [GroupNameAndArn]))
@@ -424,15 +424,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827507"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827516"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827496"><span id="local-6989586621679827498"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-type">ListBillingGroups</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827505"><span id="local-6989586621679827507"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-type">ListBillingGroups</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827493"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-type">ListBillingGroups</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827502"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-type">ListBillingGroups</span></a></span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-type">ListBillingGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679827489"><span class="annot"><span class="annottext">toHeaders :: ListBillingGroups -&gt; ResponseHeaders
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679827498"><span class="annot"><span class="annottext">toHeaders :: ListBillingGroups -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListBillingGroups -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -440,15 +440,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-type">ListBillingGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679827484"><span class="annot"><span class="annottext">toPath :: ListBillingGroups -&gt; ByteString
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679827493"><span class="annot"><span class="annottext">toPath :: ListBillingGroups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListBillingGroups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/billing-groups&quot;</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups"><span class="hs-identifier hs-type">ListBillingGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679827480"><span class="annot"><span class="annottext">toQuery :: ListBillingGroups -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups%27"><span class="hs-identifier hs-type">ListBillingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827476"><span id="local-6989586621679827477"><span id="local-6989586621679827478"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679827489"><span class="annot"><span class="annottext">toQuery :: ListBillingGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroups%27"><span class="hs-identifier hs-type">ListBillingGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827485"><span id="local-6989586621679827486"><span id="local-6989586621679827487"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
@@ -456,7 +456,7 @@ namePrefixFilter :: Maybe Text
 $sel:maxResults:ListBillingGroups' :: ListBillingGroups -&gt; Maybe Natural
 $sel:nextToken:ListBillingGroups' :: ListBillingGroups -&gt; Maybe Text
 $sel:namePrefixFilter:ListBillingGroups' :: ListBillingGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679827476"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679827485"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -464,21 +464,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;namePrefixFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827478"><span class="hs-identifier hs-var">namePrefixFilter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679827487"><span class="hs-identifier hs-var">namePrefixFilter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827477"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679827486"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679827476"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679827485"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newListBillingGroupsResponse' smart constructor.</span><span>
-</span><span id="line-165"></span><span id="local-6989586621679827473"><span id="local-6989586621679827474"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBillingGroupsResponse"><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse"><span class="hs-identifier hs-var">ListBillingGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBillingGroupsResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse%27"><span class="hs-identifier hs-var">ListBillingGroupsResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span id="local-6989586621679827482"><span id="local-6989586621679827483"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBillingGroupsResponse"><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse"><span class="hs-identifier hs-var">ListBillingGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBillingGroupsResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse%27"><span class="hs-identifier hs-var">ListBillingGroupsResponse'</span></a></span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to get the next set of results, or __null__ if there</span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-comment">-- are no additional results.</span><span>
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3AnextToken%3AListBillingGroupsResponse%27"><span class="annot"><span class="annottext">ListBillingGroupsResponse -&gt; Maybe Text
@@ -490,7 +490,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListBillingGroupsResponse%27"><span class="annot"><span class="annottext">ListBillingGroupsResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListBillingGroups.html#%24sel%3AhttpStatus%3AListBillingGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827466"><span id="local-6989586621679827468"><span class="annot"><span class="annottext">ListBillingGroupsResponse -&gt; ListBillingGroupsResponse -&gt; Bool
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827475"><span id="local-6989586621679827477"><span class="annot"><span class="annottext">ListBillingGroupsResponse -&gt; ListBillingGroupsResponse -&gt; Bool
 (ListBillingGroupsResponse -&gt; ListBillingGroupsResponse -&gt; Bool)
 -&gt; (ListBillingGroupsResponse -&gt; ListBillingGroupsResponse -&gt; Bool)
 -&gt; Eq ListBillingGroupsResponse
@@ -499,7 +499,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListBillingGroupsResponse -&gt; ListBillingGroupsResponse -&gt; Bool
 == :: ListBillingGroupsResponse -&gt; ListBillingGroupsResponse -&gt; Bool
 $c== :: ListBillingGroupsResponse -&gt; ListBillingGroupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827458"><span id="local-6989586621679827460"><span id="local-6989586621679827462"><span id="local-6989586621679827464"><span class="annot"><span class="annottext">ReadPrec [ListBillingGroupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827467"><span id="local-6989586621679827469"><span id="local-6989586621679827471"><span id="local-6989586621679827473"><span class="annot"><span class="annottext">ReadPrec [ListBillingGroupsResponse]
 ReadPrec ListBillingGroupsResponse
 Int -&gt; ReadS ListBillingGroupsResponse
 ReadS [ListBillingGroupsResponse]
@@ -519,7 +519,7 @@ readList :: ReadS [ListBillingGroupsResponse]
 $creadList :: ReadS [ListBillingGroupsResponse]
 readsPrec :: Int -&gt; ReadS ListBillingGroupsResponse
 $creadsPrec :: Int -&gt; ReadS ListBillingGroupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827452"><span id="local-6989586621679827454"><span id="local-6989586621679827456"><span class="annot"><span class="annottext">Int -&gt; ListBillingGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827461"><span id="local-6989586621679827463"><span id="local-6989586621679827465"><span class="annot"><span class="annottext">Int -&gt; ListBillingGroupsResponse -&gt; ShowS
 [ListBillingGroupsResponse] -&gt; ShowS
 ListBillingGroupsResponse -&gt; String
 (Int -&gt; ListBillingGroupsResponse -&gt; ShowS)
@@ -570,8 +570,8 @@ ListBillingGroupsResponse -&gt; Rep ListBillingGroupsResponse x
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse"><span class="hs-identifier hs-type">ListBillingGroupsResponse</span></a></span><span>
 </span><span id="line-194"></span><span id="newListBillingGroupsResponse"><span class="annot"><span class="annottext">newListBillingGroupsResponse :: Int -&gt; ListBillingGroupsResponse
-</span><a href="Network.AWS.IoT.ListBillingGroups.html#newListBillingGroupsResponse"><span class="hs-identifier hs-var hs-var">newListBillingGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679827449"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListBillingGroups.html#newListBillingGroupsResponse"><span class="hs-identifier hs-var hs-var">newListBillingGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679827458"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827458"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><span class="annottext">ListBillingGroupsResponse' :: Maybe Text
 -&gt; Maybe [GroupNameAndArn] -&gt; Int -&gt; ListBillingGroupsResponse
 </span><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse%27"><span class="hs-identifier hs-type">ListBillingGroupsResponse'</span></a></span><span>
@@ -586,7 +586,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListBillingGroupsResponse' :: Int
 </span><a href="Network.AWS.IoT.ListBillingGroups.html#%24sel%3AhttpStatus%3AListBillingGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679827458"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The token to use to get the next set of results, or __null__ if there</span><span>
@@ -599,16 +599,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListBillingGroupsResponse)
 -&gt; Lens' ListBillingGroupsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse%27"><span class="hs-identifier hs-type">ListBillingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827448"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse%27"><span class="hs-identifier hs-type">ListBillingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827457"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListBillingGroupsResponse' :: ListBillingGroupsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679827448"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827448"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827447"><span class="annot"><span class="annottext">s :: ListBillingGroupsResponse
-</span><a href="#local-6989586621679827447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse%27"><span class="hs-identifier hs-type">ListBillingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827446"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBillingGroupsResponse
-</span><a href="#local-6989586621679827447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBillingGroupsResponse' :: Maybe Text
+</span><a href="#local-6989586621679827457"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827457"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827456"><span class="annot"><span class="annottext">s :: ListBillingGroupsResponse
+</span><a href="#local-6989586621679827456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse%27"><span class="hs-identifier hs-type">ListBillingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827455"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBillingGroupsResponse
+</span><a href="#local-6989586621679827456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBillingGroupsResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListBillingGroups.html#%24sel%3AnextToken%3AListBillingGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse"><span class="hs-identifier hs-type">ListBillingGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse"><span class="hs-identifier hs-type">ListBillingGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | The list of billing groups.</span><span>
 </span><span id="line-208"></span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#listBillingGroupsResponse_billingGroups"><span class="hs-identifier hs-type">listBillingGroupsResponse_billingGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse"><span class="hs-identifier hs-type">ListBillingGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-type">GroupNameAndArn</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -619,16 +619,16 @@ $sel:nextToken:ListBillingGroupsResponse' :: ListBillingGroupsResponse -&gt; May
     -&gt; Maybe [GroupNameAndArn] -&gt; ListBillingGroupsResponse)
 -&gt; Lens' ListBillingGroupsResponse (Maybe [GroupNameAndArn])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse%27"><span class="hs-identifier hs-type">ListBillingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827445"><span class="annot"><span class="annottext">Maybe [GroupNameAndArn]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse%27"><span class="hs-identifier hs-type">ListBillingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827454"><span class="annot"><span class="annottext">Maybe [GroupNameAndArn]
 billingGroups :: Maybe [GroupNameAndArn]
 $sel:billingGroups:ListBillingGroupsResponse' :: ListBillingGroupsResponse -&gt; Maybe [GroupNameAndArn]
-</span><a href="#local-6989586621679827445"><span class="hs-identifier hs-var hs-var">billingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupNameAndArn]
-</span><a href="#local-6989586621679827445"><span class="hs-identifier hs-var">billingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827444"><span class="annot"><span class="annottext">s :: ListBillingGroupsResponse
-</span><a href="#local-6989586621679827444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse%27"><span class="hs-identifier hs-type">ListBillingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827443"><span class="annot"><span class="annottext">Maybe [GroupNameAndArn]
-</span><a href="#local-6989586621679827443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBillingGroupsResponse
-</span><a href="#local-6989586621679827444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingGroups:ListBillingGroupsResponse' :: Maybe [GroupNameAndArn]
+</span><a href="#local-6989586621679827454"><span class="hs-identifier hs-var hs-var">billingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupNameAndArn]
+</span><a href="#local-6989586621679827454"><span class="hs-identifier hs-var">billingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827453"><span class="annot"><span class="annottext">s :: ListBillingGroupsResponse
+</span><a href="#local-6989586621679827453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse%27"><span class="hs-identifier hs-type">ListBillingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827452"><span class="annot"><span class="annottext">Maybe [GroupNameAndArn]
+</span><a href="#local-6989586621679827452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBillingGroupsResponse
+</span><a href="#local-6989586621679827453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingGroups:ListBillingGroupsResponse' :: Maybe [GroupNameAndArn]
 </span><a href="Network.AWS.IoT.ListBillingGroups.html#%24sel%3AbillingGroups%3AListBillingGroupsResponse%27"><span class="hs-identifier hs-var">billingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupNameAndArn]
-</span><a href="#local-6989586621679827443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse"><span class="hs-identifier hs-type">ListBillingGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupNameAndArn] -&gt; f (Maybe [GroupNameAndArn]))
+</span><a href="#local-6989586621679827452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse"><span class="hs-identifier hs-type">ListBillingGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupNameAndArn] -&gt; f (Maybe [GroupNameAndArn]))
  -&gt; ListBillingGroupsResponse -&gt; f ListBillingGroupsResponse)
 -&gt; ((Maybe [GroupNameAndArn] -&gt; f (Maybe [GroupNameAndArn]))
     -&gt; Maybe [GroupNameAndArn] -&gt; f (Maybe [GroupNameAndArn]))
@@ -665,16 +665,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListBillingGroupsResponse -&gt; Int -&gt; ListBillingGroupsResponse)
 -&gt; Lens ListBillingGroupsResponse ListBillingGroupsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse%27"><span class="hs-identifier hs-type">ListBillingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827440"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse%27"><span class="hs-identifier hs-type">ListBillingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827449"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListBillingGroupsResponse' :: ListBillingGroupsResponse -&gt; Int
-</span><a href="#local-6989586621679827440"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827440"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827439"><span class="annot"><span class="annottext">s :: ListBillingGroupsResponse
-</span><a href="#local-6989586621679827439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse%27"><span class="hs-identifier hs-type">ListBillingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827438"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBillingGroupsResponse
-</span><a href="#local-6989586621679827439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBillingGroupsResponse' :: Int
+</span><a href="#local-6989586621679827449"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827449"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827448"><span class="annot"><span class="annottext">s :: ListBillingGroupsResponse
+</span><a href="#local-6989586621679827448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse%27"><span class="hs-identifier hs-type">ListBillingGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827447"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBillingGroupsResponse
+</span><a href="#local-6989586621679827448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBillingGroupsResponse' :: Int
 </span><a href="Network.AWS.IoT.ListBillingGroups.html#%24sel%3AhttpStatus%3AListBillingGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse"><span class="hs-identifier hs-type">ListBillingGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse"><span class="hs-identifier hs-type">ListBillingGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827436"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse"><span class="hs-identifier hs-type">ListBillingGroupsResponse</span></a></span></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827445"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListBillingGroups.html#ListBillingGroupsResponse"><span class="hs-identifier hs-type">ListBillingGroupsResponse</span></a></span></span><span>
 </span><span id="line-216"></span></pre></body></html>

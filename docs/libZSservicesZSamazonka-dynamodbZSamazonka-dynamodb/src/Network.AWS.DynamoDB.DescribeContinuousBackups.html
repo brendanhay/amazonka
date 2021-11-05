@@ -61,13 +61,13 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newDescribeContinuousBackups' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679393600"><span id="local-6989586621679393601"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeContinuousBackups"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups"><span class="hs-identifier hs-var">DescribeContinuousBackups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeContinuousBackups%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups%27"><span class="hs-identifier hs-var">DescribeContinuousBackups'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679393609"><span id="local-6989586621679393610"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeContinuousBackups"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups"><span class="hs-identifier hs-var">DescribeContinuousBackups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeContinuousBackups%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups%27"><span class="hs-identifier hs-var">DescribeContinuousBackups'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the table for which the customer wants to check the continuous</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- backups and point in time recovery settings.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AtableName%3ADescribeContinuousBackups%27"><span class="annot"><span class="annottext">DescribeContinuousBackups -&gt; Text
 </span><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#%24sel%3AtableName%3ADescribeContinuousBackups%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393594"><span id="local-6989586621679393596"><span class="annot"><span class="annottext">DescribeContinuousBackups -&gt; DescribeContinuousBackups -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393603"><span id="local-6989586621679393605"><span class="annot"><span class="annottext">DescribeContinuousBackups -&gt; DescribeContinuousBackups -&gt; Bool
 (DescribeContinuousBackups -&gt; DescribeContinuousBackups -&gt; Bool)
 -&gt; (DescribeContinuousBackups -&gt; DescribeContinuousBackups -&gt; Bool)
 -&gt; Eq DescribeContinuousBackups
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeContinuousBackups -&gt; DescribeContinuousBackups -&gt; Bool
 == :: DescribeContinuousBackups -&gt; DescribeContinuousBackups -&gt; Bool
 $c== :: DescribeContinuousBackups -&gt; DescribeContinuousBackups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393585"><span id="local-6989586621679393587"><span id="local-6989586621679393589"><span id="local-6989586621679393591"><span class="annot"><span class="annottext">ReadPrec [DescribeContinuousBackups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393594"><span id="local-6989586621679393596"><span id="local-6989586621679393598"><span id="local-6989586621679393600"><span class="annot"><span class="annottext">ReadPrec [DescribeContinuousBackups]
 ReadPrec DescribeContinuousBackups
 Int -&gt; ReadS DescribeContinuousBackups
 ReadS [DescribeContinuousBackups]
@@ -96,7 +96,7 @@ readList :: ReadS [DescribeContinuousBackups]
 $creadList :: ReadS [DescribeContinuousBackups]
 readsPrec :: Int -&gt; ReadS DescribeContinuousBackups
 $creadsPrec :: Int -&gt; ReadS DescribeContinuousBackups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393578"><span id="local-6989586621679393580"><span id="local-6989586621679393582"><span class="annot"><span class="annottext">Int -&gt; DescribeContinuousBackups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393587"><span id="local-6989586621679393589"><span id="local-6989586621679393591"><span class="annot"><span class="annottext">Int -&gt; DescribeContinuousBackups -&gt; ShowS
 [DescribeContinuousBackups] -&gt; ShowS
 DescribeContinuousBackups -&gt; String
 (Int -&gt; DescribeContinuousBackups -&gt; ShowS)
@@ -143,12 +143,12 @@ DescribeContinuousBackups -&gt; Rep DescribeContinuousBackups x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups"><span class="hs-identifier hs-type">DescribeContinuousBackups</span></a></span><span>
 </span><span id="line-85"></span><span id="newDescribeContinuousBackups"><span class="annot"><span class="annottext">newDescribeContinuousBackups :: Text -&gt; DescribeContinuousBackups
-</span><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#newDescribeContinuousBackups"><span class="hs-identifier hs-var hs-var">newDescribeContinuousBackups</span></a></span></span><span> </span><span id="local-6989586621679393573"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393573"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#newDescribeContinuousBackups"><span class="hs-identifier hs-var hs-var">newDescribeContinuousBackups</span></a></span></span><span> </span><span id="local-6989586621679393582"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393582"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">DescribeContinuousBackups' :: Text -&gt; DescribeContinuousBackups
 </span><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups%27"><span class="hs-identifier hs-type">DescribeContinuousBackups'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DescribeContinuousBackups' :: Text
 </span><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#%24sel%3AtableName%3ADescribeContinuousBackups%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393573"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679393582"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | Name of the table for which the customer wants to check the continuous</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- backups and point in time recovery settings.</span><span>
@@ -160,28 +160,28 @@ DescribeContinuousBackups -&gt; Rep DescribeContinuousBackups x
 -&gt; Lens
      DescribeContinuousBackups DescribeContinuousBackups Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups%27"><span class="hs-identifier hs-type">DescribeContinuousBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393570"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups%27"><span class="hs-identifier hs-type">DescribeContinuousBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393579"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:DescribeContinuousBackups' :: DescribeContinuousBackups -&gt; Text
-</span><a href="#local-6989586621679393570"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393570"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393569"><span class="annot"><span class="annottext">s :: DescribeContinuousBackups
-</span><a href="#local-6989586621679393569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups%27"><span class="hs-identifier hs-type">DescribeContinuousBackups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393568"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeContinuousBackups
-</span><a href="#local-6989586621679393569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DescribeContinuousBackups' :: Text
+</span><a href="#local-6989586621679393579"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393579"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393578"><span class="annot"><span class="annottext">s :: DescribeContinuousBackups
+</span><a href="#local-6989586621679393578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups%27"><span class="hs-identifier hs-type">DescribeContinuousBackups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393577"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeContinuousBackups
+</span><a href="#local-6989586621679393578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DescribeContinuousBackups' :: Text
 </span><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#%24sel%3AtableName%3ADescribeContinuousBackups%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups"><span class="hs-identifier hs-type">DescribeContinuousBackups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups"><span class="hs-identifier hs-type">DescribeContinuousBackups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups"><span class="hs-identifier hs-type">DescribeContinuousBackups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups"><span class="hs-identifier hs-type">DescribeContinuousBackups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679393564"><span class="annot"><span class="annottext">request :: DescribeContinuousBackups -&gt; Request DescribeContinuousBackups
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679393573"><span class="annot"><span class="annottext">request :: DescribeContinuousBackups -&gt; Request DescribeContinuousBackups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeContinuousBackups -&gt; Request DescribeContinuousBackups
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679393560"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679393569"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeContinuousBackups
 -&gt; ClientResponse ClientBody
@@ -207,10 +207,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679393557"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393557"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393556"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679393556"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393555"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393555"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679393566"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393566"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393565"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679393565"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393564"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679393564"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe ContinuousBackupsDescription
 -&gt; Int -&gt; DescribeContinuousBackupsResponse
 </span><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse%27"><span class="hs-identifier hs-var">DescribeContinuousBackupsResponse'</span></a></span><span>
@@ -220,7 +220,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeContinuousBackupsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393555"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679393564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe ContinuousBackupsDescription)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -234,15 +234,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393557"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393566"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393547"><span id="local-6989586621679393549"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups"><span class="hs-identifier hs-type">DescribeContinuousBackups</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393556"><span id="local-6989586621679393558"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups"><span class="hs-identifier hs-type">DescribeContinuousBackups</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393544"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups"><span class="hs-identifier hs-type">DescribeContinuousBackups</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393553"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups"><span class="hs-identifier hs-type">DescribeContinuousBackups</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups"><span class="hs-identifier hs-type">DescribeContinuousBackups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679393540"><span class="annot"><span class="annottext">toHeaders :: DescribeContinuousBackups -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679393549"><span class="annot"><span class="annottext">toHeaders :: DescribeContinuousBackups -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeContinuousBackups -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -269,12 +269,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393530"><span id="local-6989586621679393532"><span id="local-6989586621679393534"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups"><span class="hs-identifier hs-type">DescribeContinuousBackups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679393528"><span class="annot"><span class="annottext">toJSON :: DescribeContinuousBackups -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups%27"><span class="hs-identifier hs-type">DescribeContinuousBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393526"><span class="annot"><span class="annottext">Text
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393539"><span id="local-6989586621679393541"><span id="local-6989586621679393543"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups"><span class="hs-identifier hs-type">DescribeContinuousBackups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679393537"><span class="annot"><span class="annottext">toJSON :: DescribeContinuousBackups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups%27"><span class="hs-identifier hs-type">DescribeContinuousBackups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393535"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:DescribeContinuousBackups' :: DescribeContinuousBackups -&gt; Text
-</span><a href="#local-6989586621679393526"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679393535"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -286,18 +286,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393526"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679393535"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups"><span class="hs-identifier hs-type">DescribeContinuousBackups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679393520"><span class="annot"><span class="annottext">toPath :: DescribeContinuousBackups -&gt; ByteString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679393529"><span class="annot"><span class="annottext">toPath :: DescribeContinuousBackups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeContinuousBackups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackups"><span class="hs-identifier hs-type">DescribeContinuousBackups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679393516"><span class="annot"><span class="annottext">toQuery :: DescribeContinuousBackups -&gt; QueryString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679393525"><span class="annot"><span class="annottext">toQuery :: DescribeContinuousBackups -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeContinuousBackups -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -305,7 +305,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | /See:/ 'newDescribeContinuousBackupsResponse' smart constructor.</span><span>
-</span><span id="line-139"></span><span id="local-6989586621679393513"><span id="local-6989586621679393514"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeContinuousBackupsResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse"><span class="hs-identifier hs-var">DescribeContinuousBackupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeContinuousBackupsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse%27"><span class="hs-identifier hs-var">DescribeContinuousBackupsResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span id="local-6989586621679393522"><span id="local-6989586621679393523"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeContinuousBackupsResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse"><span class="hs-identifier hs-var">DescribeContinuousBackupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeContinuousBackupsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse%27"><span class="hs-identifier hs-var">DescribeContinuousBackupsResponse'</span></a></span></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the continuous backups and point in time recovery settings on</span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-comment">-- the table.</span><span>
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AcontinuousBackupsDescription%3ADescribeContinuousBackupsResponse%27"><span class="annot"><span class="annottext">DescribeContinuousBackupsResponse
@@ -315,7 +315,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeContinuousBackupsResponse%27"><span class="annot"><span class="annottext">DescribeContinuousBackupsResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#%24sel%3AhttpStatus%3ADescribeContinuousBackupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393507"><span id="local-6989586621679393509"><span class="annot"><span class="annottext">DescribeContinuousBackupsResponse
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393516"><span id="local-6989586621679393518"><span class="annot"><span class="annottext">DescribeContinuousBackupsResponse
 -&gt; DescribeContinuousBackupsResponse -&gt; Bool
 (DescribeContinuousBackupsResponse
  -&gt; DescribeContinuousBackupsResponse -&gt; Bool)
@@ -331,7 +331,7 @@ $c/= :: DescribeContinuousBackupsResponse
 -&gt; DescribeContinuousBackupsResponse -&gt; Bool
 $c== :: DescribeContinuousBackupsResponse
 -&gt; DescribeContinuousBackupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393499"><span id="local-6989586621679393501"><span id="local-6989586621679393503"><span id="local-6989586621679393505"><span class="annot"><span class="annottext">ReadPrec [DescribeContinuousBackupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393508"><span id="local-6989586621679393510"><span id="local-6989586621679393512"><span id="local-6989586621679393514"><span class="annot"><span class="annottext">ReadPrec [DescribeContinuousBackupsResponse]
 ReadPrec DescribeContinuousBackupsResponse
 Int -&gt; ReadS DescribeContinuousBackupsResponse
 ReadS [DescribeContinuousBackupsResponse]
@@ -351,7 +351,7 @@ readList :: ReadS [DescribeContinuousBackupsResponse]
 $creadList :: ReadS [DescribeContinuousBackupsResponse]
 readsPrec :: Int -&gt; ReadS DescribeContinuousBackupsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeContinuousBackupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393493"><span id="local-6989586621679393495"><span id="local-6989586621679393497"><span class="annot"><span class="annottext">Int -&gt; DescribeContinuousBackupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393502"><span id="local-6989586621679393504"><span id="local-6989586621679393506"><span class="annot"><span class="annottext">Int -&gt; DescribeContinuousBackupsResponse -&gt; ShowS
 [DescribeContinuousBackupsResponse] -&gt; ShowS
 DescribeContinuousBackupsResponse -&gt; String
 (Int -&gt; DescribeContinuousBackupsResponse -&gt; ShowS)
@@ -406,8 +406,8 @@ DescribeContinuousBackupsResponse
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse</span></a></span><span>
 </span><span id="line-164"></span><span id="newDescribeContinuousBackupsResponse"><span class="annot"><span class="annottext">newDescribeContinuousBackupsResponse :: Int -&gt; DescribeContinuousBackupsResponse
-</span><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#newDescribeContinuousBackupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeContinuousBackupsResponse</span></a></span></span><span> </span><span id="local-6989586621679393490"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393490"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#newDescribeContinuousBackupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeContinuousBackupsResponse</span></a></span></span><span> </span><span id="local-6989586621679393499"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393499"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">DescribeContinuousBackupsResponse' :: Maybe ContinuousBackupsDescription
 -&gt; Int -&gt; DescribeContinuousBackupsResponse
 </span><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse%27"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse'</span></a></span><span>
@@ -418,7 +418,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeContinuousBackupsResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#%24sel%3AhttpStatus%3ADescribeContinuousBackupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393490"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679393499"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | Represents the continuous backups and point in time recovery settings on</span><span>
@@ -439,17 +439,17 @@ forall a. Maybe a
      (Maybe ContinuousBackupsDescription)
      (Maybe ContinuousBackupsDescription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse%27"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393489"><span class="annot"><span class="annottext">Maybe ContinuousBackupsDescription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse%27"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393498"><span class="annot"><span class="annottext">Maybe ContinuousBackupsDescription
 continuousBackupsDescription :: Maybe ContinuousBackupsDescription
 $sel:continuousBackupsDescription:DescribeContinuousBackupsResponse' :: DescribeContinuousBackupsResponse
 -&gt; Maybe ContinuousBackupsDescription
-</span><a href="#local-6989586621679393489"><span class="hs-identifier hs-var hs-var">continuousBackupsDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContinuousBackupsDescription
-</span><a href="#local-6989586621679393489"><span class="hs-identifier hs-var">continuousBackupsDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393488"><span class="annot"><span class="annottext">s :: DescribeContinuousBackupsResponse
-</span><a href="#local-6989586621679393488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse%27"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393487"><span class="annot"><span class="annottext">Maybe ContinuousBackupsDescription
-</span><a href="#local-6989586621679393487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeContinuousBackupsResponse
-</span><a href="#local-6989586621679393488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continuousBackupsDescription:DescribeContinuousBackupsResponse' :: Maybe ContinuousBackupsDescription
+</span><a href="#local-6989586621679393498"><span class="hs-identifier hs-var hs-var">continuousBackupsDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContinuousBackupsDescription
+</span><a href="#local-6989586621679393498"><span class="hs-identifier hs-var">continuousBackupsDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393497"><span class="annot"><span class="annottext">s :: DescribeContinuousBackupsResponse
+</span><a href="#local-6989586621679393497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse%27"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393496"><span class="annot"><span class="annottext">Maybe ContinuousBackupsDescription
+</span><a href="#local-6989586621679393496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeContinuousBackupsResponse
+</span><a href="#local-6989586621679393497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continuousBackupsDescription:DescribeContinuousBackupsResponse' :: Maybe ContinuousBackupsDescription
 </span><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#%24sel%3AcontinuousBackupsDescription%3ADescribeContinuousBackupsResponse%27"><span class="hs-identifier hs-var">continuousBackupsDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContinuousBackupsDescription
-</span><a href="#local-6989586621679393487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-177"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#describeContinuousBackupsResponse_httpStatus"><span class="hs-identifier hs-type">describeContinuousBackupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -465,18 +465,18 @@ $sel:continuousBackupsDescription:DescribeContinuousBackupsResponse' :: Describe
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse%27"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393486"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse%27"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393495"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeContinuousBackupsResponse' :: DescribeContinuousBackupsResponse -&gt; Int
-</span><a href="#local-6989586621679393486"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393486"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393485"><span class="annot"><span class="annottext">s :: DescribeContinuousBackupsResponse
-</span><a href="#local-6989586621679393485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse%27"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393484"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeContinuousBackupsResponse
-</span><a href="#local-6989586621679393485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeContinuousBackupsResponse' :: Int
+</span><a href="#local-6989586621679393495"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393495"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393494"><span class="annot"><span class="annottext">s :: DescribeContinuousBackupsResponse
+</span><a href="#local-6989586621679393494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse%27"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393493"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeContinuousBackupsResponse
+</span><a href="#local-6989586621679393494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeContinuousBackupsResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#%24sel%3AhttpStatus%3ADescribeContinuousBackupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679393482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679393491"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeContinuousBackups.html#DescribeContinuousBackupsResponse"><span class="hs-identifier hs-type">DescribeContinuousBackupsResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

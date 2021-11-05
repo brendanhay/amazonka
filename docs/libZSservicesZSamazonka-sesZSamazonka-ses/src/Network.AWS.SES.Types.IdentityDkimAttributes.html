@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents the DKIM attributes of a verified email address or a domain.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIdentityDkimAttributes' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679276698"><span id="local-6989586621679276699"></span></span><span class="hs-keyword">data</span><span> </span><span id="IdentityDkimAttributes"><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-var">IdentityDkimAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IdentityDkimAttributes%27"><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes%27"><span class="hs-identifier hs-var">IdentityDkimAttributes'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679276707"><span id="local-6989586621679276708"></span></span><span class="hs-keyword">data</span><span> </span><span id="IdentityDkimAttributes"><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-var">IdentityDkimAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IdentityDkimAttributes%27"><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes%27"><span class="hs-identifier hs-var">IdentityDkimAttributes'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A set of character strings that represent the domain\'s identity. Using</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- these tokens, you need to create DNS CNAME records that point to DKIM</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- public keys that are hosted by Amazon SES. Amazon Web Services</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AdkimVerificationStatus%3AIdentityDkimAttributes%27"><span class="annot"><span class="annottext">IdentityDkimAttributes -&gt; VerificationStatus
 </span><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#%24sel%3AdkimVerificationStatus%3AIdentityDkimAttributes%27"><span class="hs-identifier hs-var hs-var">dkimVerificationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.VerificationStatus.html#VerificationStatus"><span class="hs-identifier hs-type">VerificationStatus</span></a></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276690"><span id="local-6989586621679276692"><span class="annot"><span class="annottext">IdentityDkimAttributes -&gt; IdentityDkimAttributes -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276699"><span id="local-6989586621679276701"><span class="annot"><span class="annottext">IdentityDkimAttributes -&gt; IdentityDkimAttributes -&gt; Bool
 (IdentityDkimAttributes -&gt; IdentityDkimAttributes -&gt; Bool)
 -&gt; (IdentityDkimAttributes -&gt; IdentityDkimAttributes -&gt; Bool)
 -&gt; Eq IdentityDkimAttributes
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IdentityDkimAttributes -&gt; IdentityDkimAttributes -&gt; Bool
 == :: IdentityDkimAttributes -&gt; IdentityDkimAttributes -&gt; Bool
 $c== :: IdentityDkimAttributes -&gt; IdentityDkimAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276681"><span id="local-6989586621679276683"><span id="local-6989586621679276685"><span id="local-6989586621679276687"><span class="annot"><span class="annottext">ReadPrec [IdentityDkimAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276690"><span id="local-6989586621679276692"><span id="local-6989586621679276694"><span id="local-6989586621679276696"><span class="annot"><span class="annottext">ReadPrec [IdentityDkimAttributes]
 ReadPrec IdentityDkimAttributes
 Int -&gt; ReadS IdentityDkimAttributes
 ReadS [IdentityDkimAttributes]
@@ -80,7 +80,7 @@ readList :: ReadS [IdentityDkimAttributes]
 $creadList :: ReadS [IdentityDkimAttributes]
 readsPrec :: Int -&gt; ReadS IdentityDkimAttributes
 $creadsPrec :: Int -&gt; ReadS IdentityDkimAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276674"><span id="local-6989586621679276676"><span id="local-6989586621679276678"><span class="annot"><span class="annottext">Int -&gt; IdentityDkimAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276683"><span id="local-6989586621679276685"><span id="local-6989586621679276687"><span class="annot"><span class="annottext">Int -&gt; IdentityDkimAttributes -&gt; ShowS
 [IdentityDkimAttributes] -&gt; ShowS
 IdentityDkimAttributes -&gt; String
 (Int -&gt; IdentityDkimAttributes -&gt; ShowS)
@@ -141,10 +141,10 @@ $cfrom :: forall x. IdentityDkimAttributes -&gt; Rep IdentityDkimAttributes x
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-type">IdentityDkimAttributes</span></a></span><span>
 </span><span id="line-85"></span><span id="newIdentityDkimAttributes"><span class="annot"><span class="annottext">newIdentityDkimAttributes :: Bool -&gt; VerificationStatus -&gt; IdentityDkimAttributes
 </span><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#newIdentityDkimAttributes"><span class="hs-identifier hs-var hs-var">newIdentityDkimAttributes</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679276668"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679276668"><span class="hs-identifier hs-var">pDkimEnabled_</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679276667"><span class="annot"><span class="annottext">VerificationStatus
-</span><a href="#local-6989586621679276667"><span class="hs-identifier hs-var">pDkimVerificationStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679276677"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679276677"><span class="hs-identifier hs-var">pDkimEnabled_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679276676"><span class="annot"><span class="annottext">VerificationStatus
+</span><a href="#local-6989586621679276676"><span class="hs-identifier hs-var">pDkimVerificationStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">IdentityDkimAttributes' :: Maybe [Text]
 -&gt; Bool -&gt; VerificationStatus -&gt; IdentityDkimAttributes
 </span><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes%27"><span class="hs-identifier hs-type">IdentityDkimAttributes'</span></a></span><span>
@@ -155,10 +155,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:dkimEnabled:IdentityDkimAttributes' :: Bool
 </span><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#%24sel%3AdkimEnabled%3AIdentityDkimAttributes%27"><span class="hs-identifier hs-var">dkimEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679276668"><span class="hs-identifier hs-var">pDkimEnabled_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276677"><span class="hs-identifier hs-var">pDkimEnabled_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:dkimVerificationStatus:IdentityDkimAttributes' :: VerificationStatus
 </span><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#%24sel%3AdkimVerificationStatus%3AIdentityDkimAttributes%27"><span class="hs-identifier hs-var">dkimVerificationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VerificationStatus
-</span><a href="#local-6989586621679276667"><span class="hs-identifier hs-var">pDkimVerificationStatus_</span></a></span><span>
+</span><a href="#local-6989586621679276676"><span class="hs-identifier hs-var">pDkimVerificationStatus_</span></a></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | A set of character strings that represent the domain\'s identity. Using</span><span>
@@ -184,16 +184,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes%27"><span class="hs-identifier hs-type">IdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276663"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes%27"><span class="hs-identifier hs-type">IdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276672"><span class="annot"><span class="annottext">Maybe [Text]
 dkimTokens :: Maybe [Text]
 $sel:dkimTokens:IdentityDkimAttributes' :: IdentityDkimAttributes -&gt; Maybe [Text]
-</span><a href="#local-6989586621679276663"><span class="hs-identifier hs-var hs-var">dkimTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679276663"><span class="hs-identifier hs-var">dkimTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276662"><span class="annot"><span class="annottext">s :: IdentityDkimAttributes
-</span><a href="#local-6989586621679276662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes%27"><span class="hs-identifier hs-type">IdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276661"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679276661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityDkimAttributes
-</span><a href="#local-6989586621679276662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dkimTokens:IdentityDkimAttributes' :: Maybe [Text]
+</span><a href="#local-6989586621679276672"><span class="hs-identifier hs-var hs-var">dkimTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679276672"><span class="hs-identifier hs-var">dkimTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276671"><span class="annot"><span class="annottext">s :: IdentityDkimAttributes
+</span><a href="#local-6989586621679276671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes%27"><span class="hs-identifier hs-type">IdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276670"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679276670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityDkimAttributes
+</span><a href="#local-6989586621679276671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dkimTokens:IdentityDkimAttributes' :: Maybe [Text]
 </span><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#%24sel%3AdkimTokens%3AIdentityDkimAttributes%27"><span class="hs-identifier hs-var">dkimTokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679276661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-type">IdentityDkimAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679276670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-type">IdentityDkimAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; IdentityDkimAttributes -&gt; f IdentityDkimAttributes)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -219,16 +219,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (IdentityDkimAttributes -&gt; Bool -&gt; IdentityDkimAttributes)
 -&gt; Lens IdentityDkimAttributes IdentityDkimAttributes Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes%27"><span class="hs-identifier hs-type">IdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276656"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes%27"><span class="hs-identifier hs-type">IdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276665"><span class="annot"><span class="annottext">Bool
 dkimEnabled :: Bool
 $sel:dkimEnabled:IdentityDkimAttributes' :: IdentityDkimAttributes -&gt; Bool
-</span><a href="#local-6989586621679276656"><span class="hs-identifier hs-var hs-var">dkimEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679276656"><span class="hs-identifier hs-var">dkimEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276655"><span class="annot"><span class="annottext">s :: IdentityDkimAttributes
-</span><a href="#local-6989586621679276655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes%27"><span class="hs-identifier hs-type">IdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276654"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679276654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityDkimAttributes
-</span><a href="#local-6989586621679276655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dkimEnabled:IdentityDkimAttributes' :: Bool
+</span><a href="#local-6989586621679276665"><span class="hs-identifier hs-var hs-var">dkimEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679276665"><span class="hs-identifier hs-var">dkimEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276664"><span class="annot"><span class="annottext">s :: IdentityDkimAttributes
+</span><a href="#local-6989586621679276664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes%27"><span class="hs-identifier hs-type">IdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276663"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679276663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityDkimAttributes
+</span><a href="#local-6989586621679276664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dkimEnabled:IdentityDkimAttributes' :: Bool
 </span><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#%24sel%3AdkimEnabled%3AIdentityDkimAttributes%27"><span class="hs-identifier hs-var">dkimEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679276654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-type">IdentityDkimAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-type">IdentityDkimAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | Describes whether Amazon SES has successfully verified the DKIM DNS</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- records (tokens) published in the domain name\'s DNS. (This only applies</span><span>
@@ -245,21 +245,21 @@ $sel:dkimEnabled:IdentityDkimAttributes' :: IdentityDkimAttributes -&gt; Bool
      VerificationStatus
      VerificationStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes%27"><span class="hs-identifier hs-type">IdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276652"><span class="annot"><span class="annottext">VerificationStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes%27"><span class="hs-identifier hs-type">IdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276661"><span class="annot"><span class="annottext">VerificationStatus
 dkimVerificationStatus :: VerificationStatus
 $sel:dkimVerificationStatus:IdentityDkimAttributes' :: IdentityDkimAttributes -&gt; VerificationStatus
-</span><a href="#local-6989586621679276652"><span class="hs-identifier hs-var hs-var">dkimVerificationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerificationStatus
-</span><a href="#local-6989586621679276652"><span class="hs-identifier hs-var">dkimVerificationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276651"><span class="annot"><span class="annottext">s :: IdentityDkimAttributes
-</span><a href="#local-6989586621679276651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes%27"><span class="hs-identifier hs-type">IdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276650"><span class="annot"><span class="annottext">VerificationStatus
-</span><a href="#local-6989586621679276650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityDkimAttributes
-</span><a href="#local-6989586621679276651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dkimVerificationStatus:IdentityDkimAttributes' :: VerificationStatus
+</span><a href="#local-6989586621679276661"><span class="hs-identifier hs-var hs-var">dkimVerificationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerificationStatus
+</span><a href="#local-6989586621679276661"><span class="hs-identifier hs-var">dkimVerificationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276660"><span class="annot"><span class="annottext">s :: IdentityDkimAttributes
+</span><a href="#local-6989586621679276660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes%27"><span class="hs-identifier hs-type">IdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276659"><span class="annot"><span class="annottext">VerificationStatus
+</span><a href="#local-6989586621679276659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityDkimAttributes
+</span><a href="#local-6989586621679276660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dkimVerificationStatus:IdentityDkimAttributes' :: VerificationStatus
 </span><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#%24sel%3AdkimVerificationStatus%3AIdentityDkimAttributes%27"><span class="hs-identifier hs-var">dkimVerificationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VerificationStatus
-</span><a href="#local-6989586621679276650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-type">IdentityDkimAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-type">IdentityDkimAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-type">IdentityDkimAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679276647"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IdentityDkimAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679276645"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276645"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679276656"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IdentityDkimAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679276654"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679276654"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Bool -&gt; VerificationStatus -&gt; IdentityDkimAttributes
 </span><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes%27"><span class="hs-identifier hs-var">IdentityDkimAttributes'</span></a></span><span>
@@ -270,7 +270,7 @@ $sel:dkimVerificationStatus:IdentityDkimAttributes' :: IdentityDkimAttributes -&
      String (Bool -&gt; VerificationStatus -&gt; IdentityDkimAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276645"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679276654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DkimTokens&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -298,7 +298,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (VerificationStatus -&gt; IdentityDkimAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276645"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+</span><a href="#local-6989586621679276654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DkimEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -307,12 +307,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String IdentityDkimAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276645"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String VerificationStatus
+</span><a href="#local-6989586621679276654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String VerificationStatus
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DkimVerificationStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276635"><span id="local-6989586621679276637"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-type">IdentityDkimAttributes</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276644"><span id="local-6989586621679276646"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-type">IdentityDkimAttributes</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276632"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-type">IdentityDkimAttributes</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276641"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.IdentityDkimAttributes.html#IdentityDkimAttributes"><span class="hs-identifier hs-type">IdentityDkimAttributes</span></a></span></span><span>
 </span><span id="line-132"></span></pre></body></html>

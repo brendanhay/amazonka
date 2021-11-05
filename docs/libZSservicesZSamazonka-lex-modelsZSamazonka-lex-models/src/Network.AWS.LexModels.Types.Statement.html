@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- runtime, Amazon Lex selects the message to convey.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newStatement' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679316475"><span id="local-6989586621679316476"></span></span><span class="hs-keyword">data</span><span> </span><span id="Statement"><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-var">Statement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Statement%27"><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement%27"><span class="hs-identifier hs-var">Statement'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679316484"><span id="local-6989586621679316485"></span></span><span class="hs-keyword">data</span><span> </span><span id="Statement"><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-var">Statement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Statement%27"><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement%27"><span class="hs-identifier hs-var">Statement'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | At runtime, if the client is using the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText&gt;</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- API, Amazon Lex includes the response card in the response. It</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Amessages%3AStatement%27"><span class="annot"><span class="annottext">Statement -&gt; NonEmpty Message
 </span><a href="Network.AWS.LexModels.Types.Statement.html#%24sel%3Amessages%3AStatement%27"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316468"><span id="local-6989586621679316470"><span class="annot"><span class="annottext">Statement -&gt; Statement -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316477"><span id="local-6989586621679316479"><span class="annot"><span class="annottext">Statement -&gt; Statement -&gt; Bool
 (Statement -&gt; Statement -&gt; Bool)
 -&gt; (Statement -&gt; Statement -&gt; Bool) -&gt; Eq Statement
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Statement -&gt; Statement -&gt; Bool
 == :: Statement -&gt; Statement -&gt; Bool
 $c== :: Statement -&gt; Statement -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316459"><span id="local-6989586621679316461"><span id="local-6989586621679316463"><span id="local-6989586621679316465"><span class="annot"><span class="annottext">ReadPrec [Statement]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316468"><span id="local-6989586621679316470"><span id="local-6989586621679316472"><span id="local-6989586621679316474"><span class="annot"><span class="annottext">ReadPrec [Statement]
 ReadPrec Statement
 Int -&gt; ReadS Statement
 ReadS [Statement]
@@ -68,7 +68,7 @@ readList :: ReadS [Statement]
 $creadList :: ReadS [Statement]
 readsPrec :: Int -&gt; ReadS Statement
 $creadsPrec :: Int -&gt; ReadS Statement
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316452"><span id="local-6989586621679316454"><span id="local-6989586621679316456"><span class="annot"><span class="annottext">Int -&gt; Statement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316461"><span id="local-6989586621679316463"><span id="local-6989586621679316465"><span class="annot"><span class="annottext">Int -&gt; Statement -&gt; ShowS
 [Statement] -&gt; ShowS
 Statement -&gt; String
 (Int -&gt; Statement -&gt; ShowS)
@@ -113,8 +113,8 @@ $cfrom :: forall x. Statement -&gt; Rep Statement x
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span>
 </span><span id="line-62"></span><span id="newStatement"><span class="annot"><span class="annottext">newStatement :: NonEmpty Message -&gt; Statement
-</span><a href="Network.AWS.LexModels.Types.Statement.html#newStatement"><span class="hs-identifier hs-var hs-var">newStatement</span></a></span></span><span> </span><span id="local-6989586621679316446"><span class="annot"><span class="annottext">NonEmpty Message
-</span><a href="#local-6989586621679316446"><span class="hs-identifier hs-var">pMessages_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.LexModels.Types.Statement.html#newStatement"><span class="hs-identifier hs-var hs-var">newStatement</span></a></span></span><span> </span><span id="local-6989586621679316455"><span class="annot"><span class="annottext">NonEmpty Message
+</span><a href="#local-6989586621679316455"><span class="hs-identifier hs-var">pMessages_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">Statement' :: Maybe Text -&gt; NonEmpty Message -&gt; Statement
 </span><a href="Network.AWS.LexModels.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:responseCard:Statement' :: Maybe Text
@@ -130,7 +130,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Message -&gt; NonEmpty Message
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Message
-</span><a href="#local-6989586621679316446"><span class="hs-identifier hs-var">pMessages_</span></a></span><span>
+</span><a href="#local-6989586621679316455"><span class="hs-identifier hs-var">pMessages_</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | At runtime, if the client is using the</span><span>
@@ -144,16 +144,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (Statement -&gt; Maybe Text -&gt; Statement)
 -&gt; Lens Statement Statement (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316440"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316449"><span class="annot"><span class="annottext">Maybe Text
 responseCard :: Maybe Text
 $sel:responseCard:Statement' :: Statement -&gt; Maybe Text
-</span><a href="#local-6989586621679316440"><span class="hs-identifier hs-var hs-var">responseCard</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316440"><span class="hs-identifier hs-var">responseCard</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316439"><span class="annot"><span class="annottext">s :: Statement
-</span><a href="#local-6989586621679316439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316438"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Statement
-</span><a href="#local-6989586621679316439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseCard:Statement' :: Maybe Text
+</span><a href="#local-6989586621679316449"><span class="hs-identifier hs-var hs-var">responseCard</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316449"><span class="hs-identifier hs-var">responseCard</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316448"><span class="annot"><span class="annottext">s :: Statement
+</span><a href="#local-6989586621679316448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316447"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Statement
+</span><a href="#local-6989586621679316448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseCard:Statement' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.Statement.html#%24sel%3AresponseCard%3AStatement%27"><span class="hs-identifier hs-var">responseCard</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | A collection of message objects.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#statement_messages"><span class="hs-identifier hs-type">statement_messages</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
@@ -163,16 +163,16 @@ $sel:responseCard:Statement' :: Statement -&gt; Maybe Text
 -&gt; (Statement -&gt; NonEmpty Message -&gt; Statement)
 -&gt; Lens Statement Statement (NonEmpty Message) (NonEmpty Message)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316436"><span class="annot"><span class="annottext">NonEmpty Message
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316445"><span class="annot"><span class="annottext">NonEmpty Message
 messages :: NonEmpty Message
 $sel:messages:Statement' :: Statement -&gt; NonEmpty Message
-</span><a href="#local-6989586621679316436"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Message
-</span><a href="#local-6989586621679316436"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316435"><span class="annot"><span class="annottext">s :: Statement
-</span><a href="#local-6989586621679316435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316434"><span class="annot"><span class="annottext">NonEmpty Message
-</span><a href="#local-6989586621679316434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Statement
-</span><a href="#local-6989586621679316435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messages:Statement' :: NonEmpty Message
+</span><a href="#local-6989586621679316445"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Message
+</span><a href="#local-6989586621679316445"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316444"><span class="annot"><span class="annottext">s :: Statement
+</span><a href="#local-6989586621679316444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316443"><span class="annot"><span class="annottext">NonEmpty Message
+</span><a href="#local-6989586621679316443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Statement
+</span><a href="#local-6989586621679316444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messages:Statement' :: NonEmpty Message
 </span><a href="Network.AWS.LexModels.Types.Statement.html#%24sel%3Amessages%3AStatement%27"><span class="hs-identifier hs-var">messages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Message
-</span><a href="#local-6989586621679316434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Message -&gt; f (NonEmpty Message))
+</span><a href="#local-6989586621679316443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Message -&gt; f (NonEmpty Message))
  -&gt; Statement -&gt; f Statement)
 -&gt; ((NonEmpty Message -&gt; f (NonEmpty Message))
     -&gt; NonEmpty Message -&gt; f (NonEmpty Message))
@@ -185,23 +185,23 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316430"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679316428"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Statement
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316439"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679316437"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Statement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Statement) -&gt; Value -&gt; Parser Statement
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Statement&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316425"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316425"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316434"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316434"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; NonEmpty Message -&gt; Statement
 </span><a href="Network.AWS.LexModels.Types.Statement.html#Statement%27"><span class="hs-identifier hs-var">Statement'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; NonEmpty Message -&gt; Statement)
 -&gt; Parser (Maybe Text) -&gt; Parser (NonEmpty Message -&gt; Statement)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679316434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;responseCard&quot;</span></span><span class="hs-special">)</span><span>
@@ -209,25 +209,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (NonEmpty Message) -&gt; Parser Statement
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Message)
+</span><a href="#local-6989586621679316434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Message)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;messages&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316418"><span id="local-6989586621679316420"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316427"><span id="local-6989586621679316429"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316415"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316424"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316407"><span id="local-6989586621679316409"><span id="local-6989586621679316411"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679316405"><span class="annot"><span class="annottext">toJSON :: Statement -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316402"><span id="local-6989586621679316403"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316416"><span id="local-6989586621679316418"><span id="local-6989586621679316420"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679316414"><span class="annot"><span class="annottext">toJSON :: Statement -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316411"><span id="local-6989586621679316412"><span class="annot"><span class="annottext">Maybe Text
 NonEmpty Message
 messages :: NonEmpty Message
 responseCard :: Maybe Text
 $sel:messages:Statement' :: Statement -&gt; NonEmpty Message
 $sel:responseCard:Statement' :: Statement -&gt; Maybe Text
-</span><a href="#local-6989586621679316402"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679316411"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -239,14 +239,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316403"><span class="hs-identifier hs-var">responseCard</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316412"><span class="hs-identifier hs-var">responseCard</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;messages&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Message -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Message
-</span><a href="#local-6989586621679316402"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316411"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span></pre></body></html>

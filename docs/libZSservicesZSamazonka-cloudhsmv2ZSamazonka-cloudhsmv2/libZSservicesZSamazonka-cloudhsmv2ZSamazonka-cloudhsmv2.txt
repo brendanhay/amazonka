@@ -5,59 +5,59 @@
 @version 2.0
 
 
-module Network.AWS.CloudHSMv2.Types.BackupPolicy
+module Network.AWS.CloudHSMV2.Types.BackupPolicy
 newtype BackupPolicy
 BackupPolicy' :: Text -> BackupPolicy
 [fromBackupPolicy] :: BackupPolicy -> Text
 pattern BackupPolicy_DEFAULT :: BackupPolicy
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance GHC.Classes.Ord Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance GHC.Read.Read Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
-instance GHC.Show.Show Network.AWS.CloudHSMv2.Types.BackupPolicy.BackupPolicy
+instance Network.AWS.Data.XML.ToXML Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance Network.AWS.Data.XML.FromXML Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance Network.AWS.Data.Log.ToLog Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance Network.AWS.Data.Text.ToText Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance Network.AWS.Data.Text.FromText Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance GHC.Classes.Ord Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance GHC.Read.Read Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
+instance GHC.Show.Show Network.AWS.CloudHSMV2.Types.BackupPolicy.BackupPolicy
 
 
-module Network.AWS.CloudHSMv2.Types.BackupRetentionType
+module Network.AWS.CloudHSMV2.Types.BackupRetentionType
 newtype BackupRetentionType
 BackupRetentionType' :: Text -> BackupRetentionType
 [fromBackupRetentionType] :: BackupRetentionType -> Text
 pattern BackupRetentionType_DAYS :: BackupRetentionType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance GHC.Classes.Ord Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance GHC.Read.Read Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
-instance GHC.Show.Show Network.AWS.CloudHSMv2.Types.BackupRetentionType.BackupRetentionType
+instance Network.AWS.Data.XML.ToXML Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance Network.AWS.Data.XML.FromXML Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance Network.AWS.Data.Log.ToLog Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance Network.AWS.Data.Text.ToText Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance Network.AWS.Data.Text.FromText Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance GHC.Classes.Ord Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance GHC.Read.Read Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
+instance GHC.Show.Show Network.AWS.CloudHSMV2.Types.BackupRetentionType.BackupRetentionType
 
 
-module Network.AWS.CloudHSMv2.Types.BackupRetentionPolicy
+module Network.AWS.CloudHSMV2.Types.BackupRetentionPolicy
 
 -- | A policy that defines the number of days to retain backups.
 --   
@@ -96,17 +96,17 @@ backupRetentionPolicy_value :: Lens' BackupRetentionPolicy (Maybe Text)
 -- | The type of backup retention policy. For the <tt>DAYS</tt> type, the
 --   value is the number of days to retain backups.
 backupRetentionPolicy_type :: Lens' BackupRetentionPolicy (Maybe BackupRetentionType)
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.Types.BackupRetentionPolicy.BackupRetentionPolicy
-instance GHC.Show.Show Network.AWS.CloudHSMv2.Types.BackupRetentionPolicy.BackupRetentionPolicy
-instance GHC.Read.Read Network.AWS.CloudHSMv2.Types.BackupRetentionPolicy.BackupRetentionPolicy
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.Types.BackupRetentionPolicy.BackupRetentionPolicy
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMv2.Types.BackupRetentionPolicy.BackupRetentionPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.Types.BackupRetentionPolicy.BackupRetentionPolicy
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.Types.BackupRetentionPolicy.BackupRetentionPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.Types.BackupRetentionPolicy.BackupRetentionPolicy
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.Types.BackupRetentionPolicy.BackupRetentionPolicy
+instance GHC.Show.Show Network.AWS.CloudHSMV2.Types.BackupRetentionPolicy.BackupRetentionPolicy
+instance GHC.Read.Read Network.AWS.CloudHSMV2.Types.BackupRetentionPolicy.BackupRetentionPolicy
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.Types.BackupRetentionPolicy.BackupRetentionPolicy
+instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMV2.Types.BackupRetentionPolicy.BackupRetentionPolicy
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.Types.BackupRetentionPolicy.BackupRetentionPolicy
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.Types.BackupRetentionPolicy.BackupRetentionPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.Types.BackupRetentionPolicy.BackupRetentionPolicy
 
 
-module Network.AWS.CloudHSMv2.Types.BackupState
+module Network.AWS.CloudHSMV2.Types.BackupState
 newtype BackupState
 BackupState' :: Text -> BackupState
 [fromBackupState] :: BackupState -> Text
@@ -114,28 +114,28 @@ pattern BackupState_CREATE_IN_PROGRESS :: BackupState
 pattern BackupState_DELETED :: BackupState
 pattern BackupState_PENDING_DELETION :: BackupState
 pattern BackupState_READY :: BackupState
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance GHC.Classes.Ord Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance GHC.Read.Read Network.AWS.CloudHSMv2.Types.BackupState.BackupState
-instance GHC.Show.Show Network.AWS.CloudHSMv2.Types.BackupState.BackupState
+instance Network.AWS.Data.XML.ToXML Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance Network.AWS.Data.XML.FromXML Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance Network.AWS.Data.Log.ToLog Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance Network.AWS.Data.Text.ToText Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance Network.AWS.Data.Text.FromText Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance GHC.Classes.Ord Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance GHC.Read.Read Network.AWS.CloudHSMV2.Types.BackupState.BackupState
+instance GHC.Show.Show Network.AWS.CloudHSMV2.Types.BackupState.BackupState
 
 
-module Network.AWS.CloudHSMv2.Types.Certificates
+module Network.AWS.CloudHSMV2.Types.Certificates
 
 -- | Contains one or more certificates or a certificate signing request
 --   (CSR).
@@ -210,16 +210,16 @@ certificates_clusterCertificate :: Lens' Certificates (Maybe Text)
 
 -- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
 certificates_awsHardwareCertificate :: Lens' Certificates (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.Types.Certificates.Certificates
-instance GHC.Show.Show Network.AWS.CloudHSMv2.Types.Certificates.Certificates
-instance GHC.Read.Read Network.AWS.CloudHSMv2.Types.Certificates.Certificates
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.Types.Certificates.Certificates
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMv2.Types.Certificates.Certificates
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.Types.Certificates.Certificates
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.Types.Certificates.Certificates
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.Types.Certificates.Certificates
+instance GHC.Show.Show Network.AWS.CloudHSMV2.Types.Certificates.Certificates
+instance GHC.Read.Read Network.AWS.CloudHSMV2.Types.Certificates.Certificates
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.Types.Certificates.Certificates
+instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMV2.Types.Certificates.Certificates
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.Types.Certificates.Certificates
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.Types.Certificates.Certificates
 
 
-module Network.AWS.CloudHSMv2.Types.ClusterState
+module Network.AWS.CloudHSMV2.Types.ClusterState
 newtype ClusterState
 ClusterState' :: Text -> ClusterState
 [fromClusterState] :: ClusterState -> Text
@@ -232,28 +232,28 @@ pattern ClusterState_INITIALIZED :: ClusterState
 pattern ClusterState_INITIALIZE_IN_PROGRESS :: ClusterState
 pattern ClusterState_UNINITIALIZED :: ClusterState
 pattern ClusterState_UPDATE_IN_PROGRESS :: ClusterState
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance GHC.Classes.Ord Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance GHC.Read.Read Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
-instance GHC.Show.Show Network.AWS.CloudHSMv2.Types.ClusterState.ClusterState
+instance Network.AWS.Data.XML.ToXML Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance Network.AWS.Data.XML.FromXML Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance Network.AWS.Data.Log.ToLog Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance Network.AWS.Data.Text.ToText Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance Network.AWS.Data.Text.FromText Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance GHC.Classes.Ord Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance GHC.Read.Read Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
+instance GHC.Show.Show Network.AWS.CloudHSMV2.Types.ClusterState.ClusterState
 
 
-module Network.AWS.CloudHSMv2.Types.DestinationBackup
+module Network.AWS.CloudHSMV2.Types.DestinationBackup
 
 -- | Contains information about the backup that will be copied and created
 --   by the CopyBackupToRegion operation.
@@ -318,16 +318,16 @@ destinationBackup_sourceBackup :: Lens' DestinationBackup (Maybe Text)
 
 -- | The date and time when both the source backup was created.
 destinationBackup_createTimestamp :: Lens' DestinationBackup (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.Types.DestinationBackup.DestinationBackup
-instance GHC.Show.Show Network.AWS.CloudHSMv2.Types.DestinationBackup.DestinationBackup
-instance GHC.Read.Read Network.AWS.CloudHSMv2.Types.DestinationBackup.DestinationBackup
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.Types.DestinationBackup.DestinationBackup
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMv2.Types.DestinationBackup.DestinationBackup
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.Types.DestinationBackup.DestinationBackup
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.Types.DestinationBackup.DestinationBackup
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.Types.DestinationBackup.DestinationBackup
+instance GHC.Show.Show Network.AWS.CloudHSMV2.Types.DestinationBackup.DestinationBackup
+instance GHC.Read.Read Network.AWS.CloudHSMV2.Types.DestinationBackup.DestinationBackup
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.Types.DestinationBackup.DestinationBackup
+instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMV2.Types.DestinationBackup.DestinationBackup
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.Types.DestinationBackup.DestinationBackup
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.Types.DestinationBackup.DestinationBackup
 
 
-module Network.AWS.CloudHSMv2.Types.HsmState
+module Network.AWS.CloudHSMV2.Types.HsmState
 newtype HsmState
 HsmState' :: Text -> HsmState
 [fromHsmState] :: HsmState -> Text
@@ -336,28 +336,28 @@ pattern HsmState_CREATE_IN_PROGRESS :: HsmState
 pattern HsmState_DEGRADED :: HsmState
 pattern HsmState_DELETED :: HsmState
 pattern HsmState_DELETE_IN_PROGRESS :: HsmState
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance GHC.Classes.Ord Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance GHC.Read.Read Network.AWS.CloudHSMv2.Types.HsmState.HsmState
-instance GHC.Show.Show Network.AWS.CloudHSMv2.Types.HsmState.HsmState
+instance Network.AWS.Data.XML.ToXML Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance Network.AWS.Data.XML.FromXML Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance Network.AWS.Data.Log.ToLog Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance Network.AWS.Data.Text.ToText Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance Network.AWS.Data.Text.FromText Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance GHC.Classes.Ord Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance GHC.Read.Read Network.AWS.CloudHSMV2.Types.HsmState.HsmState
+instance GHC.Show.Show Network.AWS.CloudHSMV2.Types.HsmState.HsmState
 
 
-module Network.AWS.CloudHSMv2.Types.Hsm
+module Network.AWS.CloudHSMV2.Types.Hsm
 
 -- | Contains information about a hardware security module (HSM) in an AWS
 --   CloudHSM cluster.
@@ -444,16 +444,16 @@ hsm_eniIp :: Lens' Hsm (Maybe Text)
 
 -- | The HSM's identifier (ID).
 hsm_hsmId :: Lens' Hsm Text
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.Types.Hsm.Hsm
-instance GHC.Show.Show Network.AWS.CloudHSMv2.Types.Hsm.Hsm
-instance GHC.Read.Read Network.AWS.CloudHSMv2.Types.Hsm.Hsm
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.Types.Hsm.Hsm
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMv2.Types.Hsm.Hsm
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.Types.Hsm.Hsm
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.Types.Hsm.Hsm
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.Types.Hsm.Hsm
+instance GHC.Show.Show Network.AWS.CloudHSMV2.Types.Hsm.Hsm
+instance GHC.Read.Read Network.AWS.CloudHSMV2.Types.Hsm.Hsm
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.Types.Hsm.Hsm
+instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMV2.Types.Hsm.Hsm
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.Types.Hsm.Hsm
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.Types.Hsm.Hsm
 
 
-module Network.AWS.CloudHSMv2.Types.Tag
+module Network.AWS.CloudHSMV2.Types.Tag
 
 -- | Contains a tag. A tag is a key-value pair.
 --   
@@ -485,17 +485,17 @@ tag_key :: Lens' Tag Text
 
 -- | The value of the tag.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.CloudHSMv2.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.CloudHSMv2.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMv2.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.Types.Tag.Tag
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.Types.Tag.Tag
+instance GHC.Show.Show Network.AWS.CloudHSMV2.Types.Tag.Tag
+instance GHC.Read.Read Network.AWS.CloudHSMV2.Types.Tag.Tag
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMV2.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.Types.Tag.Tag
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.Types.Tag.Tag
 
 
-module Network.AWS.CloudHSMv2.Types.Cluster
+module Network.AWS.CloudHSMV2.Types.Cluster
 
 -- | Contains information about an AWS CloudHSM cluster.
 --   
@@ -660,16 +660,16 @@ cluster_backupPolicy :: Lens' Cluster (Maybe BackupPolicy)
 
 -- | The type of HSM that the cluster contains.
 cluster_hsmType :: Lens' Cluster (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.Types.Cluster.Cluster
-instance GHC.Show.Show Network.AWS.CloudHSMv2.Types.Cluster.Cluster
-instance GHC.Read.Read Network.AWS.CloudHSMv2.Types.Cluster.Cluster
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.Types.Cluster.Cluster
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMv2.Types.Cluster.Cluster
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.Types.Cluster.Cluster
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.Types.Cluster.Cluster
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.Types.Cluster.Cluster
+instance GHC.Show.Show Network.AWS.CloudHSMV2.Types.Cluster.Cluster
+instance GHC.Read.Read Network.AWS.CloudHSMV2.Types.Cluster.Cluster
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.Types.Cluster.Cluster
+instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMV2.Types.Cluster.Cluster
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.Types.Cluster.Cluster
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.Types.Cluster.Cluster
 
 
-module Network.AWS.CloudHSMv2.Types.Backup
+module Network.AWS.CloudHSMV2.Types.Backup
 
 -- | Contains information about a backup of an AWS CloudHSM cluster. All
 --   backup objects contain the <tt>BackupId</tt>, <tt>BackupState</tt>,
@@ -808,16 +808,16 @@ backup_backupState :: Lens' Backup (Maybe BackupState)
 
 -- | The identifier (ID) of the backup.
 backup_backupId :: Lens' Backup Text
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.Types.Backup.Backup
-instance GHC.Show.Show Network.AWS.CloudHSMv2.Types.Backup.Backup
-instance GHC.Read.Read Network.AWS.CloudHSMv2.Types.Backup.Backup
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.Types.Backup.Backup
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMv2.Types.Backup.Backup
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.Types.Backup.Backup
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.Types.Backup.Backup
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.Types.Backup.Backup
+instance GHC.Show.Show Network.AWS.CloudHSMV2.Types.Backup.Backup
+instance GHC.Read.Read Network.AWS.CloudHSMV2.Types.Backup.Backup
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.Types.Backup.Backup
+instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudHSMV2.Types.Backup.Backup
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.Types.Backup.Backup
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.Types.Backup.Backup
 
 
-module Network.AWS.CloudHSMv2.Types
+module Network.AWS.CloudHSMV2.Types
 
 -- | API version <tt>2017-04-28</tt> of the Amazon CloudHSM V2 SDK
 --   configuration.
@@ -1478,7 +1478,7 @@ tag_value :: Lens' Tag Text
 
 -- | Adds or overwrites one or more tags for the specified AWS CloudHSM
 --   cluster.
-module Network.AWS.CloudHSMv2.TagResource
+module Network.AWS.CloudHSMV2.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -1537,28 +1537,28 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.CloudHSMv2.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.CloudHSMv2.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.CloudHSMv2.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.CloudHSMv2.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMv2.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMv2.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMv2.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.TagResource.TagResource
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.TagResource.TagResource
+instance GHC.Show.Show Network.AWS.CloudHSMV2.TagResource.TagResource
+instance GHC.Read.Read Network.AWS.CloudHSMV2.TagResource.TagResource
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.TagResource.TagResource
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.TagResource.TagResourceResponse
+instance GHC.Show.Show Network.AWS.CloudHSMV2.TagResource.TagResourceResponse
+instance GHC.Read.Read Network.AWS.CloudHSMV2.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.TagResource.TagResourceResponse
+instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMV2.TagResource.TagResource
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.TagResource.TagResource
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.TagResource.TagResource
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMV2.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.TagResource.TagResource
+instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMV2.TagResource.TagResource
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.TagResource.TagResource
 
 
 -- | Restores a specified AWS CloudHSM backup that is in the
 --   <tt>PENDING_DELETION</tt> state. For mor information on deleting a
 --   backup, see DeleteBackup.
-module Network.AWS.CloudHSMv2.RestoreBackup
+module Network.AWS.CloudHSMV2.RestoreBackup
 
 -- | <i>See:</i> <a>newRestoreBackup</a> smart constructor.
 data RestoreBackup
@@ -1619,26 +1619,26 @@ restoreBackupResponse_backup :: Lens' RestoreBackupResponse (Maybe Backup)
 
 -- | The response's http status code.
 restoreBackupResponse_httpStatus :: Lens' RestoreBackupResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.RestoreBackup.RestoreBackup
-instance GHC.Show.Show Network.AWS.CloudHSMv2.RestoreBackup.RestoreBackup
-instance GHC.Read.Read Network.AWS.CloudHSMv2.RestoreBackup.RestoreBackup
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.RestoreBackup.RestoreBackup
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.RestoreBackup.RestoreBackupResponse
-instance GHC.Show.Show Network.AWS.CloudHSMv2.RestoreBackup.RestoreBackupResponse
-instance GHC.Read.Read Network.AWS.CloudHSMv2.RestoreBackup.RestoreBackupResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.RestoreBackup.RestoreBackupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMv2.RestoreBackup.RestoreBackup
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.RestoreBackup.RestoreBackupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.RestoreBackup.RestoreBackup
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.RestoreBackup.RestoreBackup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMv2.RestoreBackup.RestoreBackup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.RestoreBackup.RestoreBackup
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMv2.RestoreBackup.RestoreBackup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.RestoreBackup.RestoreBackup
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.RestoreBackup.RestoreBackup
+instance GHC.Show.Show Network.AWS.CloudHSMV2.RestoreBackup.RestoreBackup
+instance GHC.Read.Read Network.AWS.CloudHSMV2.RestoreBackup.RestoreBackup
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.RestoreBackup.RestoreBackup
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.RestoreBackup.RestoreBackupResponse
+instance GHC.Show.Show Network.AWS.CloudHSMV2.RestoreBackup.RestoreBackupResponse
+instance GHC.Read.Read Network.AWS.CloudHSMV2.RestoreBackup.RestoreBackupResponse
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.RestoreBackup.RestoreBackupResponse
+instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMV2.RestoreBackup.RestoreBackup
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.RestoreBackup.RestoreBackupResponse
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.RestoreBackup.RestoreBackup
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.RestoreBackup.RestoreBackup
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMV2.RestoreBackup.RestoreBackup
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.RestoreBackup.RestoreBackup
+instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMV2.RestoreBackup.RestoreBackup
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.RestoreBackup.RestoreBackup
 
 
 -- | Modifies AWS CloudHSM cluster.
-module Network.AWS.CloudHSMv2.ModifyCluster
+module Network.AWS.CloudHSMV2.ModifyCluster
 
 -- | <i>See:</i> <a>newModifyCluster</a> smart constructor.
 data ModifyCluster
@@ -1706,26 +1706,26 @@ modifyClusterResponse_cluster :: Lens' ModifyClusterResponse (Maybe Cluster)
 
 -- | The response's http status code.
 modifyClusterResponse_httpStatus :: Lens' ModifyClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.ModifyCluster.ModifyCluster
-instance GHC.Show.Show Network.AWS.CloudHSMv2.ModifyCluster.ModifyCluster
-instance GHC.Read.Read Network.AWS.CloudHSMv2.ModifyCluster.ModifyCluster
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.ModifyCluster.ModifyCluster
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.ModifyCluster.ModifyClusterResponse
-instance GHC.Show.Show Network.AWS.CloudHSMv2.ModifyCluster.ModifyClusterResponse
-instance GHC.Read.Read Network.AWS.CloudHSMv2.ModifyCluster.ModifyClusterResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.ModifyCluster.ModifyClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMv2.ModifyCluster.ModifyCluster
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.ModifyCluster.ModifyClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.ModifyCluster.ModifyCluster
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.ModifyCluster.ModifyCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMv2.ModifyCluster.ModifyCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.ModifyCluster.ModifyCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMv2.ModifyCluster.ModifyCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.ModifyCluster.ModifyCluster
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.ModifyCluster.ModifyCluster
+instance GHC.Show.Show Network.AWS.CloudHSMV2.ModifyCluster.ModifyCluster
+instance GHC.Read.Read Network.AWS.CloudHSMV2.ModifyCluster.ModifyCluster
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.ModifyCluster.ModifyCluster
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.ModifyCluster.ModifyClusterResponse
+instance GHC.Show.Show Network.AWS.CloudHSMV2.ModifyCluster.ModifyClusterResponse
+instance GHC.Read.Read Network.AWS.CloudHSMV2.ModifyCluster.ModifyClusterResponse
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.ModifyCluster.ModifyClusterResponse
+instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMV2.ModifyCluster.ModifyCluster
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.ModifyCluster.ModifyClusterResponse
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.ModifyCluster.ModifyCluster
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.ModifyCluster.ModifyCluster
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMV2.ModifyCluster.ModifyCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.ModifyCluster.ModifyCluster
+instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMV2.ModifyCluster.ModifyCluster
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.ModifyCluster.ModifyCluster
 
 
 -- | Modifies attributes for AWS CloudHSM backup.
-module Network.AWS.CloudHSMv2.ModifyBackupAttributes
+module Network.AWS.CloudHSMV2.ModifyBackupAttributes
 
 -- | <i>See:</i> <a>newModifyBackupAttributes</a> smart constructor.
 data ModifyBackupAttributes
@@ -1804,22 +1804,22 @@ modifyBackupAttributesResponse_backup :: Lens' ModifyBackupAttributesResponse (M
 
 -- | The response's http status code.
 modifyBackupAttributesResponse_httpStatus :: Lens' ModifyBackupAttributesResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.ModifyBackupAttributes.ModifyBackupAttributes
-instance GHC.Show.Show Network.AWS.CloudHSMv2.ModifyBackupAttributes.ModifyBackupAttributes
-instance GHC.Read.Read Network.AWS.CloudHSMv2.ModifyBackupAttributes.ModifyBackupAttributes
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.ModifyBackupAttributes.ModifyBackupAttributes
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.ModifyBackupAttributes.ModifyBackupAttributesResponse
-instance GHC.Show.Show Network.AWS.CloudHSMv2.ModifyBackupAttributes.ModifyBackupAttributesResponse
-instance GHC.Read.Read Network.AWS.CloudHSMv2.ModifyBackupAttributes.ModifyBackupAttributesResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.ModifyBackupAttributes.ModifyBackupAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMv2.ModifyBackupAttributes.ModifyBackupAttributes
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.ModifyBackupAttributes.ModifyBackupAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.ModifyBackupAttributes.ModifyBackupAttributes
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.ModifyBackupAttributes.ModifyBackupAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMv2.ModifyBackupAttributes.ModifyBackupAttributes
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.ModifyBackupAttributes.ModifyBackupAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMv2.ModifyBackupAttributes.ModifyBackupAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.ModifyBackupAttributes.ModifyBackupAttributes
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.ModifyBackupAttributes.ModifyBackupAttributes
+instance GHC.Show.Show Network.AWS.CloudHSMV2.ModifyBackupAttributes.ModifyBackupAttributes
+instance GHC.Read.Read Network.AWS.CloudHSMV2.ModifyBackupAttributes.ModifyBackupAttributes
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.ModifyBackupAttributes.ModifyBackupAttributes
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.ModifyBackupAttributes.ModifyBackupAttributesResponse
+instance GHC.Show.Show Network.AWS.CloudHSMV2.ModifyBackupAttributes.ModifyBackupAttributesResponse
+instance GHC.Read.Read Network.AWS.CloudHSMV2.ModifyBackupAttributes.ModifyBackupAttributesResponse
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.ModifyBackupAttributes.ModifyBackupAttributesResponse
+instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMV2.ModifyBackupAttributes.ModifyBackupAttributes
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.ModifyBackupAttributes.ModifyBackupAttributesResponse
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.ModifyBackupAttributes.ModifyBackupAttributes
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.ModifyBackupAttributes.ModifyBackupAttributes
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMV2.ModifyBackupAttributes.ModifyBackupAttributes
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.ModifyBackupAttributes.ModifyBackupAttributes
+instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMV2.ModifyBackupAttributes.ModifyBackupAttributes
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.ModifyBackupAttributes.ModifyBackupAttributes
 
 
 -- | Gets a list of tags for the specified AWS CloudHSM cluster.
@@ -1832,7 +1832,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.ModifyBackupAttri
 --   value), that means there are no more tags to get.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CloudHSMv2.ListTags
+module Network.AWS.CloudHSMV2.ListTags
 
 -- | <i>See:</i> <a>newListTags</a> smart constructor.
 data ListTags
@@ -1932,23 +1932,23 @@ listTagsResponse_httpStatus :: Lens' ListTagsResponse Int
 
 -- | A list of tags.
 listTagsResponse_tagList :: Lens' ListTagsResponse [Tag]
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.ListTags.ListTags
-instance GHC.Show.Show Network.AWS.CloudHSMv2.ListTags.ListTags
-instance GHC.Read.Read Network.AWS.CloudHSMv2.ListTags.ListTags
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.ListTags.ListTags
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.ListTags.ListTagsResponse
-instance GHC.Show.Show Network.AWS.CloudHSMv2.ListTags.ListTagsResponse
-instance GHC.Read.Read Network.AWS.CloudHSMv2.ListTags.ListTagsResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.ListTags.ListTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMv2.ListTags.ListTags
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.ListTags.ListTagsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CloudHSMv2.ListTags.ListTags
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.ListTags.ListTags
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.ListTags.ListTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMv2.ListTags.ListTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.ListTags.ListTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMv2.ListTags.ListTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.ListTags.ListTags
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.ListTags.ListTags
+instance GHC.Show.Show Network.AWS.CloudHSMV2.ListTags.ListTags
+instance GHC.Read.Read Network.AWS.CloudHSMV2.ListTags.ListTags
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.ListTags.ListTags
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.ListTags.ListTagsResponse
+instance GHC.Show.Show Network.AWS.CloudHSMV2.ListTags.ListTagsResponse
+instance GHC.Read.Read Network.AWS.CloudHSMV2.ListTags.ListTagsResponse
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.ListTags.ListTagsResponse
+instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMV2.ListTags.ListTags
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.ListTags.ListTagsResponse
+instance Network.AWS.Pager.AWSPager Network.AWS.CloudHSMV2.ListTags.ListTags
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.ListTags.ListTags
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.ListTags.ListTags
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMV2.ListTags.ListTags
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.ListTags.ListTags
+instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMV2.ListTags.ListTags
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.ListTags.ListTags
 
 
 -- | Claims an AWS CloudHSM cluster by submitting the cluster certificate
@@ -1956,7 +1956,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.ListTags.ListTags
 --   certificate. Before you can claim a cluster, you must sign the
 --   cluster's certificate signing request (CSR) with your issuing CA. To
 --   get the cluster's CSR, use DescribeClusters.
-module Network.AWS.CloudHSMv2.InitializeCluster
+module Network.AWS.CloudHSMV2.InitializeCluster
 
 -- | <i>See:</i> <a>newInitializeCluster</a> smart constructor.
 data InitializeCluster
@@ -2064,22 +2064,22 @@ initializeClusterResponse_state :: Lens' InitializeClusterResponse (Maybe Cluste
 
 -- | The response's http status code.
 initializeClusterResponse_httpStatus :: Lens' InitializeClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.InitializeCluster.InitializeCluster
-instance GHC.Show.Show Network.AWS.CloudHSMv2.InitializeCluster.InitializeCluster
-instance GHC.Read.Read Network.AWS.CloudHSMv2.InitializeCluster.InitializeCluster
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.InitializeCluster.InitializeCluster
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.InitializeCluster.InitializeClusterResponse
-instance GHC.Show.Show Network.AWS.CloudHSMv2.InitializeCluster.InitializeClusterResponse
-instance GHC.Read.Read Network.AWS.CloudHSMv2.InitializeCluster.InitializeClusterResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.InitializeCluster.InitializeClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMv2.InitializeCluster.InitializeCluster
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.InitializeCluster.InitializeClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.InitializeCluster.InitializeCluster
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.InitializeCluster.InitializeCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMv2.InitializeCluster.InitializeCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.InitializeCluster.InitializeCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMv2.InitializeCluster.InitializeCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.InitializeCluster.InitializeCluster
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.InitializeCluster.InitializeCluster
+instance GHC.Show.Show Network.AWS.CloudHSMV2.InitializeCluster.InitializeCluster
+instance GHC.Read.Read Network.AWS.CloudHSMV2.InitializeCluster.InitializeCluster
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.InitializeCluster.InitializeCluster
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.InitializeCluster.InitializeClusterResponse
+instance GHC.Show.Show Network.AWS.CloudHSMV2.InitializeCluster.InitializeClusterResponse
+instance GHC.Read.Read Network.AWS.CloudHSMV2.InitializeCluster.InitializeClusterResponse
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.InitializeCluster.InitializeClusterResponse
+instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMV2.InitializeCluster.InitializeCluster
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.InitializeCluster.InitializeClusterResponse
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.InitializeCluster.InitializeCluster
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.InitializeCluster.InitializeCluster
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMV2.InitializeCluster.InitializeCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.InitializeCluster.InitializeCluster
+instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMV2.InitializeCluster.InitializeCluster
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.InitializeCluster.InitializeCluster
 
 
 -- | Gets information about AWS CloudHSM clusters.
@@ -2093,7 +2093,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.InitializeCluster
 --   get.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CloudHSMv2.DescribeClusters
+module Network.AWS.CloudHSMV2.DescribeClusters
 
 -- | <i>See:</i> <a>newDescribeClusters</a> smart constructor.
 data DescribeClusters
@@ -2224,23 +2224,23 @@ describeClustersResponse_clusters :: Lens' DescribeClustersResponse (Maybe [Clus
 
 -- | The response's http status code.
 describeClustersResponse_httpStatus :: Lens' DescribeClustersResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.DescribeClusters.DescribeClusters
-instance GHC.Show.Show Network.AWS.CloudHSMv2.DescribeClusters.DescribeClusters
-instance GHC.Read.Read Network.AWS.CloudHSMv2.DescribeClusters.DescribeClusters
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.DescribeClusters.DescribeClusters
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.DescribeClusters.DescribeClustersResponse
-instance GHC.Show.Show Network.AWS.CloudHSMv2.DescribeClusters.DescribeClustersResponse
-instance GHC.Read.Read Network.AWS.CloudHSMv2.DescribeClusters.DescribeClustersResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.DescribeClusters.DescribeClustersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMv2.DescribeClusters.DescribeClusters
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.DescribeClusters.DescribeClustersResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CloudHSMv2.DescribeClusters.DescribeClusters
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.DescribeClusters.DescribeClusters
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.DescribeClusters.DescribeClusters
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMv2.DescribeClusters.DescribeClusters
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.DescribeClusters.DescribeClusters
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMv2.DescribeClusters.DescribeClusters
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.DescribeClusters.DescribeClusters
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.DescribeClusters.DescribeClusters
+instance GHC.Show.Show Network.AWS.CloudHSMV2.DescribeClusters.DescribeClusters
+instance GHC.Read.Read Network.AWS.CloudHSMV2.DescribeClusters.DescribeClusters
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.DescribeClusters.DescribeClusters
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.DescribeClusters.DescribeClustersResponse
+instance GHC.Show.Show Network.AWS.CloudHSMV2.DescribeClusters.DescribeClustersResponse
+instance GHC.Read.Read Network.AWS.CloudHSMV2.DescribeClusters.DescribeClustersResponse
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.DescribeClusters.DescribeClustersResponse
+instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMV2.DescribeClusters.DescribeClusters
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.DescribeClusters.DescribeClustersResponse
+instance Network.AWS.Pager.AWSPager Network.AWS.CloudHSMV2.DescribeClusters.DescribeClusters
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.DescribeClusters.DescribeClusters
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.DescribeClusters.DescribeClusters
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMV2.DescribeClusters.DescribeClusters
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.DescribeClusters.DescribeClusters
+instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMV2.DescribeClusters.DescribeClusters
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.DescribeClusters.DescribeClusters
 
 
 -- | Gets information about backups of AWS CloudHSM clusters.
@@ -2254,7 +2254,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.DescribeClusters.
 --   get.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CloudHSMv2.DescribeBackups
+module Network.AWS.CloudHSMV2.DescribeBackups
 
 -- | <i>See:</i> <a>newDescribeBackups</a> smart constructor.
 data DescribeBackups
@@ -2425,30 +2425,30 @@ describeBackupsResponse_nextToken :: Lens' DescribeBackupsResponse (Maybe Text)
 
 -- | The response's http status code.
 describeBackupsResponse_httpStatus :: Lens' DescribeBackupsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackups
-instance GHC.Show.Show Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackups
-instance GHC.Read.Read Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackups
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackups
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackupsResponse
-instance GHC.Show.Show Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackupsResponse
-instance GHC.Read.Read Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackupsResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackups
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackupsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackups
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackups
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackups
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackups
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.DescribeBackups.DescribeBackups
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackups
+instance GHC.Show.Show Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackups
+instance GHC.Read.Read Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackups
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackups
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackupsResponse
+instance GHC.Show.Show Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackupsResponse
+instance GHC.Read.Read Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackupsResponse
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackupsResponse
+instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackups
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackupsResponse
+instance Network.AWS.Pager.AWSPager Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackups
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackups
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackups
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackups
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackups
+instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackups
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.DescribeBackups.DescribeBackups
 
 
 -- | Deletes the specified HSM. To specify an HSM, you can use its
 --   identifier (ID), the IP address of the HSM's elastic network interface
 --   (ENI), or the ID of the HSM's ENI. You need to specify only one of
 --   these values. To find these values, use DescribeClusters.
-module Network.AWS.CloudHSMv2.DeleteHsm
+module Network.AWS.CloudHSMV2.DeleteHsm
 
 -- | <i>See:</i> <a>newDeleteHsm</a> smart constructor.
 data DeleteHsm
@@ -2539,29 +2539,29 @@ deleteHsmResponse_hsmId :: Lens' DeleteHsmResponse (Maybe Text)
 
 -- | The response's http status code.
 deleteHsmResponse_httpStatus :: Lens' DeleteHsmResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.DeleteHsm.DeleteHsm
-instance GHC.Show.Show Network.AWS.CloudHSMv2.DeleteHsm.DeleteHsm
-instance GHC.Read.Read Network.AWS.CloudHSMv2.DeleteHsm.DeleteHsm
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.DeleteHsm.DeleteHsm
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.DeleteHsm.DeleteHsmResponse
-instance GHC.Show.Show Network.AWS.CloudHSMv2.DeleteHsm.DeleteHsmResponse
-instance GHC.Read.Read Network.AWS.CloudHSMv2.DeleteHsm.DeleteHsmResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.DeleteHsm.DeleteHsmResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMv2.DeleteHsm.DeleteHsm
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.DeleteHsm.DeleteHsmResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.DeleteHsm.DeleteHsm
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.DeleteHsm.DeleteHsm
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMv2.DeleteHsm.DeleteHsm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.DeleteHsm.DeleteHsm
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMv2.DeleteHsm.DeleteHsm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.DeleteHsm.DeleteHsm
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.DeleteHsm.DeleteHsm
+instance GHC.Show.Show Network.AWS.CloudHSMV2.DeleteHsm.DeleteHsm
+instance GHC.Read.Read Network.AWS.CloudHSMV2.DeleteHsm.DeleteHsm
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.DeleteHsm.DeleteHsm
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.DeleteHsm.DeleteHsmResponse
+instance GHC.Show.Show Network.AWS.CloudHSMV2.DeleteHsm.DeleteHsmResponse
+instance GHC.Read.Read Network.AWS.CloudHSMV2.DeleteHsm.DeleteHsmResponse
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.DeleteHsm.DeleteHsmResponse
+instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMV2.DeleteHsm.DeleteHsm
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.DeleteHsm.DeleteHsmResponse
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.DeleteHsm.DeleteHsm
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.DeleteHsm.DeleteHsm
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMV2.DeleteHsm.DeleteHsm
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.DeleteHsm.DeleteHsm
+instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMV2.DeleteHsm.DeleteHsm
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.DeleteHsm.DeleteHsm
 
 
 -- | Deletes the specified AWS CloudHSM cluster. Before you can delete a
 --   cluster, you must delete all HSMs in the cluster. To see if the
 --   cluster contains any HSMs, use DescribeClusters. To delete an HSM, use
 --   DeleteHsm.
-module Network.AWS.CloudHSMv2.DeleteCluster
+module Network.AWS.CloudHSMV2.DeleteCluster
 
 -- | <i>See:</i> <a>newDeleteCluster</a> smart constructor.
 data DeleteCluster
@@ -2622,28 +2622,28 @@ deleteClusterResponse_cluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 
 -- | The response's http status code.
 deleteClusterResponse_httpStatus :: Lens' DeleteClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.DeleteCluster.DeleteCluster
-instance GHC.Show.Show Network.AWS.CloudHSMv2.DeleteCluster.DeleteCluster
-instance GHC.Read.Read Network.AWS.CloudHSMv2.DeleteCluster.DeleteCluster
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.DeleteCluster.DeleteCluster
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.DeleteCluster.DeleteClusterResponse
-instance GHC.Show.Show Network.AWS.CloudHSMv2.DeleteCluster.DeleteClusterResponse
-instance GHC.Read.Read Network.AWS.CloudHSMv2.DeleteCluster.DeleteClusterResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.DeleteCluster.DeleteClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMv2.DeleteCluster.DeleteCluster
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.DeleteCluster.DeleteClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.DeleteCluster.DeleteCluster
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.DeleteCluster.DeleteCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMv2.DeleteCluster.DeleteCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.DeleteCluster.DeleteCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMv2.DeleteCluster.DeleteCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.DeleteCluster.DeleteCluster
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.DeleteCluster.DeleteCluster
+instance GHC.Show.Show Network.AWS.CloudHSMV2.DeleteCluster.DeleteCluster
+instance GHC.Read.Read Network.AWS.CloudHSMV2.DeleteCluster.DeleteCluster
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.DeleteCluster.DeleteCluster
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.DeleteCluster.DeleteClusterResponse
+instance GHC.Show.Show Network.AWS.CloudHSMV2.DeleteCluster.DeleteClusterResponse
+instance GHC.Read.Read Network.AWS.CloudHSMV2.DeleteCluster.DeleteClusterResponse
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.DeleteCluster.DeleteClusterResponse
+instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMV2.DeleteCluster.DeleteCluster
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.DeleteCluster.DeleteClusterResponse
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.DeleteCluster.DeleteCluster
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.DeleteCluster.DeleteCluster
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMV2.DeleteCluster.DeleteCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.DeleteCluster.DeleteCluster
+instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMV2.DeleteCluster.DeleteCluster
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.DeleteCluster.DeleteCluster
 
 
 -- | Deletes a specified AWS CloudHSM backup. A backup can be restored up
 --   to 7 days after the DeleteBackup request is made. For more information
 --   on restoring a backup, see RestoreBackup.
-module Network.AWS.CloudHSMv2.DeleteBackup
+module Network.AWS.CloudHSMV2.DeleteBackup
 
 -- | <i>See:</i> <a>newDeleteBackup</a> smart constructor.
 data DeleteBackup
@@ -2704,27 +2704,27 @@ deleteBackupResponse_backup :: Lens' DeleteBackupResponse (Maybe Backup)
 
 -- | The response's http status code.
 deleteBackupResponse_httpStatus :: Lens' DeleteBackupResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.DeleteBackup.DeleteBackup
-instance GHC.Show.Show Network.AWS.CloudHSMv2.DeleteBackup.DeleteBackup
-instance GHC.Read.Read Network.AWS.CloudHSMv2.DeleteBackup.DeleteBackup
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.DeleteBackup.DeleteBackup
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.DeleteBackup.DeleteBackupResponse
-instance GHC.Show.Show Network.AWS.CloudHSMv2.DeleteBackup.DeleteBackupResponse
-instance GHC.Read.Read Network.AWS.CloudHSMv2.DeleteBackup.DeleteBackupResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.DeleteBackup.DeleteBackupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMv2.DeleteBackup.DeleteBackup
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.DeleteBackup.DeleteBackupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.DeleteBackup.DeleteBackup
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.DeleteBackup.DeleteBackup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMv2.DeleteBackup.DeleteBackup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.DeleteBackup.DeleteBackup
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMv2.DeleteBackup.DeleteBackup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.DeleteBackup.DeleteBackup
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.DeleteBackup.DeleteBackup
+instance GHC.Show.Show Network.AWS.CloudHSMV2.DeleteBackup.DeleteBackup
+instance GHC.Read.Read Network.AWS.CloudHSMV2.DeleteBackup.DeleteBackup
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.DeleteBackup.DeleteBackup
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.DeleteBackup.DeleteBackupResponse
+instance GHC.Show.Show Network.AWS.CloudHSMV2.DeleteBackup.DeleteBackupResponse
+instance GHC.Read.Read Network.AWS.CloudHSMV2.DeleteBackup.DeleteBackupResponse
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.DeleteBackup.DeleteBackupResponse
+instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMV2.DeleteBackup.DeleteBackup
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.DeleteBackup.DeleteBackupResponse
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.DeleteBackup.DeleteBackup
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.DeleteBackup.DeleteBackup
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMV2.DeleteBackup.DeleteBackup
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.DeleteBackup.DeleteBackup
+instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMV2.DeleteBackup.DeleteBackup
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.DeleteBackup.DeleteBackup
 
 
 -- | Creates a new hardware security module (HSM) in the specified AWS
 --   CloudHSM cluster.
-module Network.AWS.CloudHSMv2.CreateHsm
+module Network.AWS.CloudHSMV2.CreateHsm
 
 -- | <i>See:</i> <a>newCreateHsm</a> smart constructor.
 data CreateHsm
@@ -2813,26 +2813,26 @@ createHsmResponse_hsm :: Lens' CreateHsmResponse (Maybe Hsm)
 
 -- | The response's http status code.
 createHsmResponse_httpStatus :: Lens' CreateHsmResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.CreateHsm.CreateHsm
-instance GHC.Show.Show Network.AWS.CloudHSMv2.CreateHsm.CreateHsm
-instance GHC.Read.Read Network.AWS.CloudHSMv2.CreateHsm.CreateHsm
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.CreateHsm.CreateHsm
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.CreateHsm.CreateHsmResponse
-instance GHC.Show.Show Network.AWS.CloudHSMv2.CreateHsm.CreateHsmResponse
-instance GHC.Read.Read Network.AWS.CloudHSMv2.CreateHsm.CreateHsmResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.CreateHsm.CreateHsmResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMv2.CreateHsm.CreateHsm
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.CreateHsm.CreateHsmResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.CreateHsm.CreateHsm
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.CreateHsm.CreateHsm
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMv2.CreateHsm.CreateHsm
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.CreateHsm.CreateHsm
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMv2.CreateHsm.CreateHsm
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.CreateHsm.CreateHsm
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.CreateHsm.CreateHsm
+instance GHC.Show.Show Network.AWS.CloudHSMV2.CreateHsm.CreateHsm
+instance GHC.Read.Read Network.AWS.CloudHSMV2.CreateHsm.CreateHsm
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.CreateHsm.CreateHsm
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.CreateHsm.CreateHsmResponse
+instance GHC.Show.Show Network.AWS.CloudHSMV2.CreateHsm.CreateHsmResponse
+instance GHC.Read.Read Network.AWS.CloudHSMV2.CreateHsm.CreateHsmResponse
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.CreateHsm.CreateHsmResponse
+instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMV2.CreateHsm.CreateHsm
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.CreateHsm.CreateHsmResponse
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.CreateHsm.CreateHsm
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.CreateHsm.CreateHsm
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMV2.CreateHsm.CreateHsm
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.CreateHsm.CreateHsm
+instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMV2.CreateHsm.CreateHsm
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.CreateHsm.CreateHsm
 
 
 -- | Creates a new AWS CloudHSM cluster.
-module Network.AWS.CloudHSMv2.CreateCluster
+module Network.AWS.CloudHSMV2.CreateCluster
 
 -- | <i>See:</i> <a>newCreateCluster</a> smart constructor.
 data CreateCluster
@@ -2958,26 +2958,26 @@ createClusterResponse_cluster :: Lens' CreateClusterResponse (Maybe Cluster)
 
 -- | The response's http status code.
 createClusterResponse_httpStatus :: Lens' CreateClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.CreateCluster.CreateCluster
-instance GHC.Show.Show Network.AWS.CloudHSMv2.CreateCluster.CreateCluster
-instance GHC.Read.Read Network.AWS.CloudHSMv2.CreateCluster.CreateCluster
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.CreateCluster.CreateCluster
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.CreateCluster.CreateClusterResponse
-instance GHC.Show.Show Network.AWS.CloudHSMv2.CreateCluster.CreateClusterResponse
-instance GHC.Read.Read Network.AWS.CloudHSMv2.CreateCluster.CreateClusterResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.CreateCluster.CreateClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMv2.CreateCluster.CreateCluster
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.CreateCluster.CreateClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.CreateCluster.CreateCluster
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.CreateCluster.CreateCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMv2.CreateCluster.CreateCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.CreateCluster.CreateCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMv2.CreateCluster.CreateCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.CreateCluster.CreateCluster
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.CreateCluster.CreateCluster
+instance GHC.Show.Show Network.AWS.CloudHSMV2.CreateCluster.CreateCluster
+instance GHC.Read.Read Network.AWS.CloudHSMV2.CreateCluster.CreateCluster
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.CreateCluster.CreateCluster
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.CreateCluster.CreateClusterResponse
+instance GHC.Show.Show Network.AWS.CloudHSMV2.CreateCluster.CreateClusterResponse
+instance GHC.Read.Read Network.AWS.CloudHSMV2.CreateCluster.CreateClusterResponse
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.CreateCluster.CreateClusterResponse
+instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMV2.CreateCluster.CreateCluster
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.CreateCluster.CreateClusterResponse
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.CreateCluster.CreateCluster
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.CreateCluster.CreateCluster
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMV2.CreateCluster.CreateCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.CreateCluster.CreateCluster
+instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMV2.CreateCluster.CreateCluster
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.CreateCluster.CreateCluster
 
 
 -- | Copy an AWS CloudHSM cluster backup to a different region.
-module Network.AWS.CloudHSMv2.CopyBackupToRegion
+module Network.AWS.CloudHSMV2.CopyBackupToRegion
 
 -- | <i>See:</i> <a>newCopyBackupToRegion</a> smart constructor.
 data CopyBackupToRegion
@@ -3085,27 +3085,27 @@ copyBackupToRegionResponse_destinationBackup :: Lens' CopyBackupToRegionResponse
 
 -- | The response's http status code.
 copyBackupToRegionResponse_httpStatus :: Lens' CopyBackupToRegionResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.CopyBackupToRegion.CopyBackupToRegion
-instance GHC.Show.Show Network.AWS.CloudHSMv2.CopyBackupToRegion.CopyBackupToRegion
-instance GHC.Read.Read Network.AWS.CloudHSMv2.CopyBackupToRegion.CopyBackupToRegion
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.CopyBackupToRegion.CopyBackupToRegion
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.CopyBackupToRegion.CopyBackupToRegionResponse
-instance GHC.Show.Show Network.AWS.CloudHSMv2.CopyBackupToRegion.CopyBackupToRegionResponse
-instance GHC.Read.Read Network.AWS.CloudHSMv2.CopyBackupToRegion.CopyBackupToRegionResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.CopyBackupToRegion.CopyBackupToRegionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMv2.CopyBackupToRegion.CopyBackupToRegion
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.CopyBackupToRegion.CopyBackupToRegionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.CopyBackupToRegion.CopyBackupToRegion
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.CopyBackupToRegion.CopyBackupToRegion
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMv2.CopyBackupToRegion.CopyBackupToRegion
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.CopyBackupToRegion.CopyBackupToRegion
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMv2.CopyBackupToRegion.CopyBackupToRegion
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.CopyBackupToRegion.CopyBackupToRegion
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.CopyBackupToRegion.CopyBackupToRegion
+instance GHC.Show.Show Network.AWS.CloudHSMV2.CopyBackupToRegion.CopyBackupToRegion
+instance GHC.Read.Read Network.AWS.CloudHSMV2.CopyBackupToRegion.CopyBackupToRegion
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.CopyBackupToRegion.CopyBackupToRegion
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.CopyBackupToRegion.CopyBackupToRegionResponse
+instance GHC.Show.Show Network.AWS.CloudHSMV2.CopyBackupToRegion.CopyBackupToRegionResponse
+instance GHC.Read.Read Network.AWS.CloudHSMV2.CopyBackupToRegion.CopyBackupToRegionResponse
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.CopyBackupToRegion.CopyBackupToRegionResponse
+instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMV2.CopyBackupToRegion.CopyBackupToRegion
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.CopyBackupToRegion.CopyBackupToRegionResponse
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.CopyBackupToRegion.CopyBackupToRegion
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.CopyBackupToRegion.CopyBackupToRegion
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMV2.CopyBackupToRegion.CopyBackupToRegion
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.CopyBackupToRegion.CopyBackupToRegion
+instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMV2.CopyBackupToRegion.CopyBackupToRegion
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.CopyBackupToRegion.CopyBackupToRegion
 
 
 -- | Removes the specified tag or tags from the specified AWS CloudHSM
 --   cluster.
-module Network.AWS.CloudHSMv2.UntagResource
+module Network.AWS.CloudHSMV2.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -3168,25 +3168,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.CloudHSMv2.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.CloudHSMv2.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.CloudHSMv2.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.CloudHSMv2.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.CloudHSMv2.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.CloudHSMv2.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMv2.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMv2.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.CloudHSMv2.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMv2.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMv2.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMv2.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.UntagResource.UntagResource
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.UntagResource.UntagResource
+instance GHC.Show.Show Network.AWS.CloudHSMV2.UntagResource.UntagResource
+instance GHC.Read.Read Network.AWS.CloudHSMV2.UntagResource.UntagResource
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.UntagResource.UntagResource
+instance GHC.Generics.Generic Network.AWS.CloudHSMV2.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Network.AWS.CloudHSMV2.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Network.AWS.CloudHSMV2.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Network.AWS.CloudHSMV2.UntagResource.UntagResourceResponse
+instance Network.AWS.Types.AWSRequest Network.AWS.CloudHSMV2.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Network.AWS.CloudHSMV2.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Network.AWS.CloudHSMV2.UntagResource.UntagResource
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudHSMV2.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudHSMV2.UntagResource.UntagResource
+instance Network.AWS.Data.Path.ToPath Network.AWS.CloudHSMV2.UntagResource.UntagResource
+instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMV2.UntagResource.UntagResource
 
 
-module Network.AWS.CloudHSMv2.Lens
+module Network.AWS.CloudHSMV2.Lens
 
 -- | One or more filters to limit the items returned in the response.
 --   
@@ -3653,7 +3653,7 @@ tag_key :: Lens' Tag Text
 tag_value :: Lens' Tag Text
 
 
-module Network.AWS.CloudHSMv2.Waiters
+module Network.AWS.CloudHSMV2.Waiters
 
 
 -- | Derived from API version <tt>2017-04-28</tt> of the AWS service
@@ -3661,7 +3661,7 @@ module Network.AWS.CloudHSMv2.Waiters
 --   
 --   For more information about AWS CloudHSM, see <a>AWS CloudHSM</a> and
 --   the <a>AWS CloudHSM User Guide</a>.
-module Network.AWS.CloudHSMv2
+module Network.AWS.CloudHSMV2
 
 -- | API version <tt>2017-04-28</tt> of the Amazon CloudHSM V2 SDK
 --   configuration.

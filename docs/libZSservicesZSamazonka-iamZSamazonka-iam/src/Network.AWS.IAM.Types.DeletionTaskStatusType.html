@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679424724"><span id="local-6989586621679424725"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeletionTaskStatusType"><span class="annot"><a href="Network.AWS.IAM.Types.DeletionTaskStatusType.html#DeletionTaskStatusType"><span class="hs-identifier hs-var">DeletionTaskStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletionTaskStatusType%27"><span class="annot"><a href="Network.AWS.IAM.Types.DeletionTaskStatusType.html#DeletionTaskStatusType%27"><span class="hs-identifier hs-var">DeletionTaskStatusType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679424733"><span id="local-6989586621679424734"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeletionTaskStatusType"><span class="annot"><a href="Network.AWS.IAM.Types.DeletionTaskStatusType.html#DeletionTaskStatusType"><span class="hs-identifier hs-var">DeletionTaskStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletionTaskStatusType%27"><span class="annot"><a href="Network.AWS.IAM.Types.DeletionTaskStatusType.html#DeletionTaskStatusType%27"><span class="hs-identifier hs-var">DeletionTaskStatusType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeletionTaskStatusType"><span class="annot"><span class="annottext">DeletionTaskStatusType -&gt; Text
 </span><a href="Network.AWS.IAM.Types.DeletionTaskStatusType.html#fromDeletionTaskStatusType"><span class="hs-identifier hs-var hs-var">fromDeletionTaskStatusType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424716"><span id="local-6989586621679424718"><span id="local-6989586621679424720"><span class="annot"><span class="annottext">Int -&gt; DeletionTaskStatusType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424725"><span id="local-6989586621679424727"><span id="local-6989586621679424729"><span class="annot"><span class="annottext">Int -&gt; DeletionTaskStatusType -&gt; ShowS
 [DeletionTaskStatusType] -&gt; ShowS
 DeletionTaskStatusType -&gt; String
 (Int -&gt; DeletionTaskStatusType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: DeletionTaskStatusType -&gt; String
 showsPrec :: Int -&gt; DeletionTaskStatusType -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeletionTaskStatusType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679424707"><span id="local-6989586621679424709"><span id="local-6989586621679424711"><span id="local-6989586621679424713"><span class="annot"><span class="annottext">ReadPrec [DeletionTaskStatusType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679424716"><span id="local-6989586621679424718"><span id="local-6989586621679424720"><span id="local-6989586621679424722"><span class="annot"><span class="annottext">ReadPrec [DeletionTaskStatusType]
 ReadPrec DeletionTaskStatusType
 Int -&gt; ReadS DeletionTaskStatusType
 ReadS [DeletionTaskStatusType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [DeletionTaskStatusType]
 readsPrec :: Int -&gt; ReadS DeletionTaskStatusType
 $creadsPrec :: Int -&gt; ReadS DeletionTaskStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679424702"><span id="local-6989586621679424704"><span class="annot"><span class="annottext">DeletionTaskStatusType -&gt; DeletionTaskStatusType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679424711"><span id="local-6989586621679424713"><span class="annot"><span class="annottext">DeletionTaskStatusType -&gt; DeletionTaskStatusType -&gt; Bool
 (DeletionTaskStatusType -&gt; DeletionTaskStatusType -&gt; Bool)
 -&gt; (DeletionTaskStatusType -&gt; DeletionTaskStatusType -&gt; Bool)
 -&gt; Eq DeletionTaskStatusType
@@ -84,7 +84,7 @@ $c/= :: DeletionTaskStatusType -&gt; DeletionTaskStatusType -&gt; Bool
 == :: DeletionTaskStatusType -&gt; DeletionTaskStatusType -&gt; Bool
 $c== :: DeletionTaskStatusType -&gt; DeletionTaskStatusType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679424686"><span id="local-6989586621679424688"><span id="local-6989586621679424690"><span id="local-6989586621679424692"><span id="local-6989586621679424694"><span id="local-6989586621679424696"><span id="local-6989586621679424698"><span class="annot"><span class="annottext">Eq DeletionTaskStatusType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679424695"><span id="local-6989586621679424697"><span id="local-6989586621679424699"><span id="local-6989586621679424701"><span id="local-6989586621679424703"><span id="local-6989586621679424705"><span id="local-6989586621679424707"><span class="annot"><span class="annottext">Eq DeletionTaskStatusType
 Eq DeletionTaskStatusType
 -&gt; (DeletionTaskStatusType -&gt; DeletionTaskStatusType -&gt; Ordering)
 -&gt; (DeletionTaskStatusType -&gt; DeletionTaskStatusType -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. DeletionTaskStatusType -&gt; Rep DeletionTaskStatusType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424678"><span id="local-6989586621679424680"><span class="annot"><span class="annottext">Int -&gt; DeletionTaskStatusType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424687"><span id="local-6989586621679424689"><span class="annot"><span class="annottext">Int -&gt; DeletionTaskStatusType -&gt; Int
 DeletionTaskStatusType -&gt; Int
 (Int -&gt; DeletionTaskStatusType -&gt; Int)
 -&gt; (DeletionTaskStatusType -&gt; Int)
@@ -154,54 +154,54 @@ $chash :: DeletionTaskStatusType -&gt; Int
 hashWithSalt :: Int -&gt; DeletionTaskStatusType -&gt; Int
 $chashWithSalt :: Int -&gt; DeletionTaskStatusType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679424675"><span class="annot"><span class="annottext">DeletionTaskStatusType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679424684"><span class="annot"><span class="annottext">DeletionTaskStatusType -&gt; ()
 (DeletionTaskStatusType -&gt; ()) -&gt; NFData DeletionTaskStatusType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeletionTaskStatusType -&gt; ()
 $crnf :: DeletionTaskStatusType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679424672"><span class="annot"><span class="annottext">Text -&gt; Either String DeletionTaskStatusType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679424681"><span class="annot"><span class="annottext">Text -&gt; Either String DeletionTaskStatusType
 (Text -&gt; Either String DeletionTaskStatusType)
 -&gt; FromText DeletionTaskStatusType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeletionTaskStatusType
 $cfromText :: Text -&gt; Either String DeletionTaskStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679424669"><span class="annot"><span class="annottext">DeletionTaskStatusType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679424678"><span class="annot"><span class="annottext">DeletionTaskStatusType -&gt; Text
 (DeletionTaskStatusType -&gt; Text) -&gt; ToText DeletionTaskStatusType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeletionTaskStatusType -&gt; Text
 $ctoText :: DeletionTaskStatusType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679424666"><span class="annot"><span class="annottext">DeletionTaskStatusType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679424675"><span class="annot"><span class="annottext">DeletionTaskStatusType -&gt; ByteString
 (DeletionTaskStatusType -&gt; ByteString)
 -&gt; ToByteString DeletionTaskStatusType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeletionTaskStatusType -&gt; ByteString
 $ctoBS :: DeletionTaskStatusType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679424663"><span class="annot"><span class="annottext">DeletionTaskStatusType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679424672"><span class="annot"><span class="annottext">DeletionTaskStatusType -&gt; ByteStringBuilder
 (DeletionTaskStatusType -&gt; ByteStringBuilder)
 -&gt; ToLog DeletionTaskStatusType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeletionTaskStatusType -&gt; ByteStringBuilder
 $cbuild :: DeletionTaskStatusType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679424660"><span class="annot"><span class="annottext">HeaderName -&gt; DeletionTaskStatusType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679424669"><span class="annot"><span class="annottext">HeaderName -&gt; DeletionTaskStatusType -&gt; [Header]
 (HeaderName -&gt; DeletionTaskStatusType -&gt; [Header])
 -&gt; ToHeader DeletionTaskStatusType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeletionTaskStatusType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeletionTaskStatusType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679424657"><span class="annot"><span class="annottext">DeletionTaskStatusType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679424666"><span class="annot"><span class="annottext">DeletionTaskStatusType -&gt; QueryString
 (DeletionTaskStatusType -&gt; QueryString)
 -&gt; ToQuery DeletionTaskStatusType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeletionTaskStatusType -&gt; QueryString
 $ctoQuery :: DeletionTaskStatusType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679424652"><span id="local-6989586621679424654"><span class="annot"><span class="annottext">Value -&gt; Parser [DeletionTaskStatusType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679424661"><span id="local-6989586621679424663"><span class="annot"><span class="annottext">Value -&gt; Parser [DeletionTaskStatusType]
 Value -&gt; Parser DeletionTaskStatusType
 (Value -&gt; Parser DeletionTaskStatusType)
 -&gt; (Value -&gt; Parser [DeletionTaskStatusType])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [DeletionTaskStatusType]
 parseJSON :: Value -&gt; Parser DeletionTaskStatusType
 $cparseJSON :: Value -&gt; Parser DeletionTaskStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679424647"><span id="local-6989586621679424649"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeletionTaskStatusType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679424656"><span id="local-6989586621679424658"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeletionTaskStatusType]
 FromJSONKeyFunction DeletionTaskStatusType
 FromJSONKeyFunction DeletionTaskStatusType
 -&gt; FromJSONKeyFunction [DeletionTaskStatusType]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeletionTaskStatusType]
 fromJSONKey :: FromJSONKeyFunction DeletionTaskStatusType
 $cfromJSONKey :: FromJSONKeyFunction DeletionTaskStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679424638"><span id="local-6989586621679424640"><span id="local-6989586621679424642"><span id="local-6989586621679424644"><span class="annot"><span class="annottext">[DeletionTaskStatusType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679424647"><span id="local-6989586621679424649"><span id="local-6989586621679424651"><span id="local-6989586621679424653"><span class="annot"><span class="annottext">[DeletionTaskStatusType] -&gt; Encoding
 [DeletionTaskStatusType] -&gt; Value
 DeletionTaskStatusType -&gt; Encoding
 DeletionTaskStatusType -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: DeletionTaskStatusType -&gt; Encoding
 toJSON :: DeletionTaskStatusType -&gt; Value
 $ctoJSON :: DeletionTaskStatusType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679424633"><span id="local-6989586621679424635"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeletionTaskStatusType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679424642"><span id="local-6989586621679424644"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeletionTaskStatusType]
 ToJSONKeyFunction DeletionTaskStatusType
 ToJSONKeyFunction DeletionTaskStatusType
 -&gt; ToJSONKeyFunction [DeletionTaskStatusType]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeletionTaskStatusType]
 toJSONKey :: ToJSONKeyFunction DeletionTaskStatusType
 $ctoJSONKey :: ToJSONKeyFunction DeletionTaskStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679424630"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeletionTaskStatusType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679424639"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeletionTaskStatusType
 ([Node] -&gt; Either String DeletionTaskStatusType)
 -&gt; FromXML DeletionTaskStatusType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeletionTaskStatusType
 $cparseXML :: [Node] -&gt; Either String DeletionTaskStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679424627"><span class="annot"><span class="annottext">DeletionTaskStatusType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679424636"><span class="annot"><span class="annottext">DeletionTaskStatusType -&gt; XML
 (DeletionTaskStatusType -&gt; XML) -&gt; ToXML DeletionTaskStatusType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeletionTaskStatusType -&gt; XML

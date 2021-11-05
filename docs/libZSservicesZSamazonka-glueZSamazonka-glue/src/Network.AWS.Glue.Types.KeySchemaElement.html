@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A partition key pair consisting of a name and a type.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newKeySchemaElement' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679689074"><span id="local-6989586621679689075"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeySchemaElement"><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-var">KeySchemaElement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeySchemaElement%27"><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-var">KeySchemaElement'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679689083"><span id="local-6989586621679689084"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeySchemaElement"><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-var">KeySchemaElement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeySchemaElement%27"><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-var">KeySchemaElement'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a partition key.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3AKeySchemaElement%27"><span class="annot"><span class="annottext">KeySchemaElement -&gt; Text
 </span><a href="Network.AWS.Glue.Types.KeySchemaElement.html#%24sel%3Aname%3AKeySchemaElement%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Atype%27%3AKeySchemaElement%27"><span class="annot"><span class="annottext">KeySchemaElement -&gt; Text
 </span><a href="Network.AWS.Glue.Types.KeySchemaElement.html#%24sel%3Atype%27%3AKeySchemaElement%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679689067"><span id="local-6989586621679689069"><span class="annot"><span class="annottext">KeySchemaElement -&gt; KeySchemaElement -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679689076"><span id="local-6989586621679689078"><span class="annot"><span class="annottext">KeySchemaElement -&gt; KeySchemaElement -&gt; Bool
 (KeySchemaElement -&gt; KeySchemaElement -&gt; Bool)
 -&gt; (KeySchemaElement -&gt; KeySchemaElement -&gt; Bool)
 -&gt; Eq KeySchemaElement
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KeySchemaElement -&gt; KeySchemaElement -&gt; Bool
 == :: KeySchemaElement -&gt; KeySchemaElement -&gt; Bool
 $c== :: KeySchemaElement -&gt; KeySchemaElement -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679689058"><span id="local-6989586621679689060"><span id="local-6989586621679689062"><span id="local-6989586621679689064"><span class="annot"><span class="annottext">ReadPrec [KeySchemaElement]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679689067"><span id="local-6989586621679689069"><span id="local-6989586621679689071"><span id="local-6989586621679689073"><span class="annot"><span class="annottext">ReadPrec [KeySchemaElement]
 ReadPrec KeySchemaElement
 Int -&gt; ReadS KeySchemaElement
 ReadS [KeySchemaElement]
@@ -63,7 +63,7 @@ readList :: ReadS [KeySchemaElement]
 $creadList :: ReadS [KeySchemaElement]
 readsPrec :: Int -&gt; ReadS KeySchemaElement
 $creadsPrec :: Int -&gt; ReadS KeySchemaElement
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679689051"><span id="local-6989586621679689053"><span id="local-6989586621679689055"><span class="annot"><span class="annottext">Int -&gt; KeySchemaElement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679689060"><span id="local-6989586621679689062"><span id="local-6989586621679689064"><span class="annot"><span class="annottext">Int -&gt; KeySchemaElement -&gt; ShowS
 [KeySchemaElement] -&gt; ShowS
 KeySchemaElement -&gt; String
 (Int -&gt; KeySchemaElement -&gt; ShowS)
@@ -107,15 +107,15 @@ $cfrom :: forall x. KeySchemaElement -&gt; Rep KeySchemaElement x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span>
 </span><span id="line-54"></span><span id="newKeySchemaElement"><span class="annot"><span class="annottext">newKeySchemaElement :: Text -&gt; Text -&gt; KeySchemaElement
-</span><a href="Network.AWS.Glue.Types.KeySchemaElement.html#newKeySchemaElement"><span class="hs-identifier hs-var hs-var">newKeySchemaElement</span></a></span></span><span> </span><span id="local-6989586621679689045"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679689045"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679689044"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679689044"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.Types.KeySchemaElement.html#newKeySchemaElement"><span class="hs-identifier hs-var hs-var">newKeySchemaElement</span></a></span></span><span> </span><span id="local-6989586621679689054"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679689054"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679689053"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679689053"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">KeySchemaElement' :: Text -&gt; Text -&gt; KeySchemaElement
 </span><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:KeySchemaElement' :: Text
 </span><a href="Network.AWS.Glue.Types.KeySchemaElement.html#%24sel%3Aname%3AKeySchemaElement%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679689045"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:type':KeySchemaElement' :: Text
+</span><a href="#local-6989586621679689054"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:type':KeySchemaElement' :: Text
 </span><a href="Network.AWS.Glue.Types.KeySchemaElement.html#%24sel%3Atype%27%3AKeySchemaElement%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679689044"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679689053"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | The name of a partition key.</span><span>
 </span><span id="line-58"></span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#keySchemaElement_name"><span class="hs-identifier hs-type">keySchemaElement_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -124,16 +124,16 @@ $cfrom :: forall x. KeySchemaElement -&gt; Rep KeySchemaElement x
 -&gt; (KeySchemaElement -&gt; Text -&gt; KeySchemaElement)
 -&gt; Lens KeySchemaElement KeySchemaElement Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689040"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689049"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:KeySchemaElement' :: KeySchemaElement -&gt; Text
-</span><a href="#local-6989586621679689040"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679689040"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689039"><span class="annot"><span class="annottext">s :: KeySchemaElement
-</span><a href="#local-6989586621679689039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689038"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679689038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeySchemaElement
-</span><a href="#local-6989586621679689039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:KeySchemaElement' :: Text
+</span><a href="#local-6989586621679689049"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679689049"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689048"><span class="annot"><span class="annottext">s :: KeySchemaElement
+</span><a href="#local-6989586621679689048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689047"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679689047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeySchemaElement
+</span><a href="#local-6989586621679689048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:KeySchemaElement' :: Text
 </span><a href="Network.AWS.Glue.Types.KeySchemaElement.html#%24sel%3Aname%3AKeySchemaElement%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679689038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679689047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The type of a partition key.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#keySchemaElement_type"><span class="hs-identifier hs-type">keySchemaElement_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -142,19 +142,19 @@ $sel:name:KeySchemaElement' :: KeySchemaElement -&gt; Text
 -&gt; (KeySchemaElement -&gt; Text -&gt; KeySchemaElement)
 -&gt; Lens KeySchemaElement KeySchemaElement Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689036"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679689045"><span class="annot"><span class="annottext">Text
 type' :: Text
 $sel:type':KeySchemaElement' :: KeySchemaElement -&gt; Text
-</span><a href="#local-6989586621679689036"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679689036"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689035"><span class="annot"><span class="annottext">s :: KeySchemaElement
-</span><a href="#local-6989586621679689035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689034"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679689034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeySchemaElement
-</span><a href="#local-6989586621679689035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':KeySchemaElement' :: Text
+</span><a href="#local-6989586621679689045"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679689045"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679689044"><span class="annot"><span class="annottext">s :: KeySchemaElement
+</span><a href="#local-6989586621679689044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-type">KeySchemaElement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679689043"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679689043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeySchemaElement
+</span><a href="#local-6989586621679689044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':KeySchemaElement' :: Text
 </span><a href="Network.AWS.Glue.Types.KeySchemaElement.html#%24sel%3Atype%27%3AKeySchemaElement%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679689034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679689043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689031"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679689029"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KeySchemaElement
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689040"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679689038"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KeySchemaElement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KeySchemaElement)
@@ -164,28 +164,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KeySchemaElement&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679689026"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679689026"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679689035"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679689035"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; KeySchemaElement
 </span><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier hs-var">KeySchemaElement'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; KeySchemaElement)
 -&gt; Parser Text -&gt; Parser (Text -&gt; KeySchemaElement)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679689026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679689035"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; KeySchemaElement)
 -&gt; Parser Text -&gt; Parser KeySchemaElement
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679689026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679689035"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689020"><span id="local-6989586621679689022"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689029"><span id="local-6989586621679689031"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679689026"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier hs-type">KeySchemaElement</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

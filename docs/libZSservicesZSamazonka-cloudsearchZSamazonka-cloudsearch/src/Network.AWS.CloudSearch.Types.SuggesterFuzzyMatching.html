@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679209839"><span id="local-6989586621679209840"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SuggesterFuzzyMatching"><span class="annot"><a href="Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.html#SuggesterFuzzyMatching"><span class="hs-identifier hs-var">SuggesterFuzzyMatching</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SuggesterFuzzyMatching%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.html#SuggesterFuzzyMatching%27"><span class="hs-identifier hs-var">SuggesterFuzzyMatching'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679209848"><span id="local-6989586621679209849"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SuggesterFuzzyMatching"><span class="annot"><a href="Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.html#SuggesterFuzzyMatching"><span class="hs-identifier hs-var">SuggesterFuzzyMatching</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SuggesterFuzzyMatching%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.html#SuggesterFuzzyMatching%27"><span class="hs-identifier hs-var">SuggesterFuzzyMatching'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSuggesterFuzzyMatching"><span class="annot"><span class="annottext">SuggesterFuzzyMatching -&gt; Text
 </span><a href="Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.html#fromSuggesterFuzzyMatching"><span class="hs-identifier hs-var hs-var">fromSuggesterFuzzyMatching</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209831"><span id="local-6989586621679209833"><span id="local-6989586621679209835"><span class="annot"><span class="annottext">Int -&gt; SuggesterFuzzyMatching -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209840"><span id="local-6989586621679209842"><span id="local-6989586621679209844"><span class="annot"><span class="annottext">Int -&gt; SuggesterFuzzyMatching -&gt; ShowS
 [SuggesterFuzzyMatching] -&gt; ShowS
 SuggesterFuzzyMatching -&gt; String
 (Int -&gt; SuggesterFuzzyMatching -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: SuggesterFuzzyMatching -&gt; String
 showsPrec :: Int -&gt; SuggesterFuzzyMatching -&gt; ShowS
 $cshowsPrec :: Int -&gt; SuggesterFuzzyMatching -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679209822"><span id="local-6989586621679209824"><span id="local-6989586621679209826"><span id="local-6989586621679209828"><span class="annot"><span class="annottext">ReadPrec [SuggesterFuzzyMatching]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679209831"><span id="local-6989586621679209833"><span id="local-6989586621679209835"><span id="local-6989586621679209837"><span class="annot"><span class="annottext">ReadPrec [SuggesterFuzzyMatching]
 ReadPrec SuggesterFuzzyMatching
 Int -&gt; ReadS SuggesterFuzzyMatching
 ReadS [SuggesterFuzzyMatching]
@@ -73,7 +73,7 @@ $creadList :: ReadS [SuggesterFuzzyMatching]
 readsPrec :: Int -&gt; ReadS SuggesterFuzzyMatching
 $creadsPrec :: Int -&gt; ReadS SuggesterFuzzyMatching
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679209817"><span id="local-6989586621679209819"><span class="annot"><span class="annottext">SuggesterFuzzyMatching -&gt; SuggesterFuzzyMatching -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679209826"><span id="local-6989586621679209828"><span class="annot"><span class="annottext">SuggesterFuzzyMatching -&gt; SuggesterFuzzyMatching -&gt; Bool
 (SuggesterFuzzyMatching -&gt; SuggesterFuzzyMatching -&gt; Bool)
 -&gt; (SuggesterFuzzyMatching -&gt; SuggesterFuzzyMatching -&gt; Bool)
 -&gt; Eq SuggesterFuzzyMatching
@@ -83,7 +83,7 @@ $c/= :: SuggesterFuzzyMatching -&gt; SuggesterFuzzyMatching -&gt; Bool
 == :: SuggesterFuzzyMatching -&gt; SuggesterFuzzyMatching -&gt; Bool
 $c== :: SuggesterFuzzyMatching -&gt; SuggesterFuzzyMatching -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679209801"><span id="local-6989586621679209803"><span id="local-6989586621679209805"><span id="local-6989586621679209807"><span id="local-6989586621679209809"><span id="local-6989586621679209811"><span id="local-6989586621679209813"><span class="annot"><span class="annottext">Eq SuggesterFuzzyMatching
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679209810"><span id="local-6989586621679209812"><span id="local-6989586621679209814"><span id="local-6989586621679209816"><span id="local-6989586621679209818"><span id="local-6989586621679209820"><span id="local-6989586621679209822"><span class="annot"><span class="annottext">Eq SuggesterFuzzyMatching
 Eq SuggesterFuzzyMatching
 -&gt; (SuggesterFuzzyMatching -&gt; SuggesterFuzzyMatching -&gt; Ordering)
 -&gt; (SuggesterFuzzyMatching -&gt; SuggesterFuzzyMatching -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. SuggesterFuzzyMatching -&gt; Rep SuggesterFuzzyMatching x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209793"><span id="local-6989586621679209795"><span class="annot"><span class="annottext">Int -&gt; SuggesterFuzzyMatching -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209802"><span id="local-6989586621679209804"><span class="annot"><span class="annottext">Int -&gt; SuggesterFuzzyMatching -&gt; Int
 SuggesterFuzzyMatching -&gt; Int
 (Int -&gt; SuggesterFuzzyMatching -&gt; Int)
 -&gt; (SuggesterFuzzyMatching -&gt; Int)
@@ -153,54 +153,54 @@ $chash :: SuggesterFuzzyMatching -&gt; Int
 hashWithSalt :: Int -&gt; SuggesterFuzzyMatching -&gt; Int
 $chashWithSalt :: Int -&gt; SuggesterFuzzyMatching -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679209790"><span class="annot"><span class="annottext">SuggesterFuzzyMatching -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679209799"><span class="annot"><span class="annottext">SuggesterFuzzyMatching -&gt; ()
 (SuggesterFuzzyMatching -&gt; ()) -&gt; NFData SuggesterFuzzyMatching
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SuggesterFuzzyMatching -&gt; ()
 $crnf :: SuggesterFuzzyMatching -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679209787"><span class="annot"><span class="annottext">Text -&gt; Either String SuggesterFuzzyMatching
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679209796"><span class="annot"><span class="annottext">Text -&gt; Either String SuggesterFuzzyMatching
 (Text -&gt; Either String SuggesterFuzzyMatching)
 -&gt; FromText SuggesterFuzzyMatching
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SuggesterFuzzyMatching
 $cfromText :: Text -&gt; Either String SuggesterFuzzyMatching
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679209784"><span class="annot"><span class="annottext">SuggesterFuzzyMatching -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679209793"><span class="annot"><span class="annottext">SuggesterFuzzyMatching -&gt; Text
 (SuggesterFuzzyMatching -&gt; Text) -&gt; ToText SuggesterFuzzyMatching
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SuggesterFuzzyMatching -&gt; Text
 $ctoText :: SuggesterFuzzyMatching -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679209781"><span class="annot"><span class="annottext">SuggesterFuzzyMatching -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679209790"><span class="annot"><span class="annottext">SuggesterFuzzyMatching -&gt; ByteString
 (SuggesterFuzzyMatching -&gt; ByteString)
 -&gt; ToByteString SuggesterFuzzyMatching
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SuggesterFuzzyMatching -&gt; ByteString
 $ctoBS :: SuggesterFuzzyMatching -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679209778"><span class="annot"><span class="annottext">SuggesterFuzzyMatching -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679209787"><span class="annot"><span class="annottext">SuggesterFuzzyMatching -&gt; ByteStringBuilder
 (SuggesterFuzzyMatching -&gt; ByteStringBuilder)
 -&gt; ToLog SuggesterFuzzyMatching
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SuggesterFuzzyMatching -&gt; ByteStringBuilder
 $cbuild :: SuggesterFuzzyMatching -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679209775"><span class="annot"><span class="annottext">HeaderName -&gt; SuggesterFuzzyMatching -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679209784"><span class="annot"><span class="annottext">HeaderName -&gt; SuggesterFuzzyMatching -&gt; [Header]
 (HeaderName -&gt; SuggesterFuzzyMatching -&gt; [Header])
 -&gt; ToHeader SuggesterFuzzyMatching
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SuggesterFuzzyMatching -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SuggesterFuzzyMatching -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679209772"><span class="annot"><span class="annottext">SuggesterFuzzyMatching -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679209781"><span class="annot"><span class="annottext">SuggesterFuzzyMatching -&gt; QueryString
 (SuggesterFuzzyMatching -&gt; QueryString)
 -&gt; ToQuery SuggesterFuzzyMatching
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SuggesterFuzzyMatching -&gt; QueryString
 $ctoQuery :: SuggesterFuzzyMatching -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679209767"><span id="local-6989586621679209769"><span class="annot"><span class="annottext">Value -&gt; Parser [SuggesterFuzzyMatching]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679209776"><span id="local-6989586621679209778"><span class="annot"><span class="annottext">Value -&gt; Parser [SuggesterFuzzyMatching]
 Value -&gt; Parser SuggesterFuzzyMatching
 (Value -&gt; Parser SuggesterFuzzyMatching)
 -&gt; (Value -&gt; Parser [SuggesterFuzzyMatching])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [SuggesterFuzzyMatching]
 parseJSON :: Value -&gt; Parser SuggesterFuzzyMatching
 $cparseJSON :: Value -&gt; Parser SuggesterFuzzyMatching
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679209762"><span id="local-6989586621679209764"><span class="annot"><span class="annottext">FromJSONKeyFunction [SuggesterFuzzyMatching]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679209771"><span id="local-6989586621679209773"><span class="annot"><span class="annottext">FromJSONKeyFunction [SuggesterFuzzyMatching]
 FromJSONKeyFunction SuggesterFuzzyMatching
 FromJSONKeyFunction SuggesterFuzzyMatching
 -&gt; FromJSONKeyFunction [SuggesterFuzzyMatching]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SuggesterFuzzyMatching]
 fromJSONKey :: FromJSONKeyFunction SuggesterFuzzyMatching
 $cfromJSONKey :: FromJSONKeyFunction SuggesterFuzzyMatching
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679209753"><span id="local-6989586621679209755"><span id="local-6989586621679209757"><span id="local-6989586621679209759"><span class="annot"><span class="annottext">[SuggesterFuzzyMatching] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679209762"><span id="local-6989586621679209764"><span id="local-6989586621679209766"><span id="local-6989586621679209768"><span class="annot"><span class="annottext">[SuggesterFuzzyMatching] -&gt; Encoding
 [SuggesterFuzzyMatching] -&gt; Value
 SuggesterFuzzyMatching -&gt; Encoding
 SuggesterFuzzyMatching -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: SuggesterFuzzyMatching -&gt; Encoding
 toJSON :: SuggesterFuzzyMatching -&gt; Value
 $ctoJSON :: SuggesterFuzzyMatching -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679209748"><span id="local-6989586621679209750"><span class="annot"><span class="annottext">ToJSONKeyFunction [SuggesterFuzzyMatching]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679209757"><span id="local-6989586621679209759"><span class="annot"><span class="annottext">ToJSONKeyFunction [SuggesterFuzzyMatching]
 ToJSONKeyFunction SuggesterFuzzyMatching
 ToJSONKeyFunction SuggesterFuzzyMatching
 -&gt; ToJSONKeyFunction [SuggesterFuzzyMatching]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SuggesterFuzzyMatching]
 toJSONKey :: ToJSONKeyFunction SuggesterFuzzyMatching
 $ctoJSONKey :: ToJSONKeyFunction SuggesterFuzzyMatching
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679209745"><span class="annot"><span class="annottext">[Node] -&gt; Either String SuggesterFuzzyMatching
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679209754"><span class="annot"><span class="annottext">[Node] -&gt; Either String SuggesterFuzzyMatching
 ([Node] -&gt; Either String SuggesterFuzzyMatching)
 -&gt; FromXML SuggesterFuzzyMatching
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SuggesterFuzzyMatching
 $cparseXML :: [Node] -&gt; Either String SuggesterFuzzyMatching
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679209742"><span class="annot"><span class="annottext">SuggesterFuzzyMatching -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679209751"><span class="annot"><span class="annottext">SuggesterFuzzyMatching -&gt; XML
 (SuggesterFuzzyMatching -&gt; XML) -&gt; ToXML SuggesterFuzzyMatching
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SuggesterFuzzyMatching -&gt; XML

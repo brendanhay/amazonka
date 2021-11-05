@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Multiplex Program settings configuration.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newMultiplexProgramSettings' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679911390"><span id="local-6989586621679911391"></span></span><span class="hs-keyword">data</span><span> </span><span id="MultiplexProgramSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-var">MultiplexProgramSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MultiplexProgramSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-var">MultiplexProgramSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679911399"><span id="local-6989586621679911400"></span></span><span class="hs-keyword">data</span><span> </span><span id="MultiplexProgramSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-var">MultiplexProgramSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MultiplexProgramSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-var">MultiplexProgramSettings'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates which pipeline is preferred by the multiplex for program</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- ingest.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3ApreferredChannelPipeline%3AMultiplexProgramSettings%27"><span class="annot"><span class="annottext">MultiplexProgramSettings -&gt; Maybe PreferredChannelPipeline
@@ -45,7 +45,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AprogramNumber%3AMultiplexProgramSettings%27"><span class="annot"><span class="annottext">MultiplexProgramSettings -&gt; Natural
 </span><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#%24sel%3AprogramNumber%3AMultiplexProgramSettings%27"><span class="hs-identifier hs-var hs-var">programNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679911381"><span id="local-6989586621679911383"><span class="annot"><span class="annottext">MultiplexProgramSettings -&gt; MultiplexProgramSettings -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679911390"><span id="local-6989586621679911392"><span class="annot"><span class="annottext">MultiplexProgramSettings -&gt; MultiplexProgramSettings -&gt; Bool
 (MultiplexProgramSettings -&gt; MultiplexProgramSettings -&gt; Bool)
 -&gt; (MultiplexProgramSettings -&gt; MultiplexProgramSettings -&gt; Bool)
 -&gt; Eq MultiplexProgramSettings
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MultiplexProgramSettings -&gt; MultiplexProgramSettings -&gt; Bool
 == :: MultiplexProgramSettings -&gt; MultiplexProgramSettings -&gt; Bool
 $c== :: MultiplexProgramSettings -&gt; MultiplexProgramSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911372"><span id="local-6989586621679911374"><span id="local-6989586621679911376"><span id="local-6989586621679911378"><span class="annot"><span class="annottext">ReadPrec [MultiplexProgramSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911381"><span id="local-6989586621679911383"><span id="local-6989586621679911385"><span id="local-6989586621679911387"><span class="annot"><span class="annottext">ReadPrec [MultiplexProgramSettings]
 ReadPrec MultiplexProgramSettings
 Int -&gt; ReadS MultiplexProgramSettings
 ReadS [MultiplexProgramSettings]
@@ -74,7 +74,7 @@ readList :: ReadS [MultiplexProgramSettings]
 $creadList :: ReadS [MultiplexProgramSettings]
 readsPrec :: Int -&gt; ReadS MultiplexProgramSettings
 $creadsPrec :: Int -&gt; ReadS MultiplexProgramSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911365"><span id="local-6989586621679911367"><span id="local-6989586621679911369"><span class="annot"><span class="annottext">Int -&gt; MultiplexProgramSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911374"><span id="local-6989586621679911376"><span id="local-6989586621679911378"><span class="annot"><span class="annottext">Int -&gt; MultiplexProgramSettings -&gt; ShowS
 [MultiplexProgramSettings] -&gt; ShowS
 MultiplexProgramSettings -&gt; String
 (Int -&gt; MultiplexProgramSettings -&gt; ShowS)
@@ -128,8 +128,8 @@ MultiplexProgramSettings -&gt; Rep MultiplexProgramSettings x
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span><span>
 </span><span id="line-67"></span><span id="newMultiplexProgramSettings"><span class="annot"><span class="annottext">newMultiplexProgramSettings :: Natural -&gt; MultiplexProgramSettings
-</span><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#newMultiplexProgramSettings"><span class="hs-identifier hs-var hs-var">newMultiplexProgramSettings</span></a></span></span><span> </span><span id="local-6989586621679911359"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679911359"><span class="hs-identifier hs-var">pProgramNumber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#newMultiplexProgramSettings"><span class="hs-identifier hs-var hs-var">newMultiplexProgramSettings</span></a></span></span><span> </span><span id="local-6989586621679911368"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679911368"><span class="hs-identifier hs-var">pProgramNumber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">MultiplexProgramSettings' :: Maybe PreferredChannelPipeline
 -&gt; Maybe MultiplexVideoSettings
 -&gt; Maybe MultiplexProgramServiceDescriptor
@@ -151,7 +151,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:programNumber:MultiplexProgramSettings' :: Natural
 </span><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#%24sel%3AprogramNumber%3AMultiplexProgramSettings%27"><span class="hs-identifier hs-var">programNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679911359"><span class="hs-identifier hs-var">pProgramNumber_</span></a></span><span>
+</span><a href="#local-6989586621679911368"><span class="hs-identifier hs-var">pProgramNumber_</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | Indicates which pipeline is preferred by the multiplex for program</span><span>
@@ -169,16 +169,16 @@ forall a. Maybe a
      (Maybe PreferredChannelPipeline)
      (Maybe PreferredChannelPipeline)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911355"><span class="annot"><span class="annottext">Maybe PreferredChannelPipeline
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911364"><span class="annot"><span class="annottext">Maybe PreferredChannelPipeline
 preferredChannelPipeline :: Maybe PreferredChannelPipeline
 $sel:preferredChannelPipeline:MultiplexProgramSettings' :: MultiplexProgramSettings -&gt; Maybe PreferredChannelPipeline
-</span><a href="#local-6989586621679911355"><span class="hs-identifier hs-var hs-var">preferredChannelPipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PreferredChannelPipeline
-</span><a href="#local-6989586621679911355"><span class="hs-identifier hs-var">preferredChannelPipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911354"><span class="annot"><span class="annottext">s :: MultiplexProgramSettings
-</span><a href="#local-6989586621679911354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911353"><span class="annot"><span class="annottext">Maybe PreferredChannelPipeline
-</span><a href="#local-6989586621679911353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexProgramSettings
-</span><a href="#local-6989586621679911354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preferredChannelPipeline:MultiplexProgramSettings' :: Maybe PreferredChannelPipeline
+</span><a href="#local-6989586621679911364"><span class="hs-identifier hs-var hs-var">preferredChannelPipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PreferredChannelPipeline
+</span><a href="#local-6989586621679911364"><span class="hs-identifier hs-var">preferredChannelPipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911363"><span class="annot"><span class="annottext">s :: MultiplexProgramSettings
+</span><a href="#local-6989586621679911363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911362"><span class="annot"><span class="annottext">Maybe PreferredChannelPipeline
+</span><a href="#local-6989586621679911362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexProgramSettings
+</span><a href="#local-6989586621679911363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preferredChannelPipeline:MultiplexProgramSettings' :: Maybe PreferredChannelPipeline
 </span><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#%24sel%3ApreferredChannelPipeline%3AMultiplexProgramSettings%27"><span class="hs-identifier hs-var">preferredChannelPipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PreferredChannelPipeline
-</span><a href="#local-6989586621679911353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679911362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | Program video settings configuration.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#multiplexProgramSettings_videoSettings"><span class="hs-identifier hs-type">multiplexProgramSettings_videoSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span><span class="hs-special">)</span><span>
@@ -193,16 +193,16 @@ $sel:preferredChannelPipeline:MultiplexProgramSettings' :: MultiplexProgramSetti
      (Maybe MultiplexVideoSettings)
      (Maybe MultiplexVideoSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911351"><span class="annot"><span class="annottext">Maybe MultiplexVideoSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911360"><span class="annot"><span class="annottext">Maybe MultiplexVideoSettings
 videoSettings :: Maybe MultiplexVideoSettings
 $sel:videoSettings:MultiplexProgramSettings' :: MultiplexProgramSettings -&gt; Maybe MultiplexVideoSettings
-</span><a href="#local-6989586621679911351"><span class="hs-identifier hs-var hs-var">videoSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexVideoSettings
-</span><a href="#local-6989586621679911351"><span class="hs-identifier hs-var">videoSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911350"><span class="annot"><span class="annottext">s :: MultiplexProgramSettings
-</span><a href="#local-6989586621679911350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911349"><span class="annot"><span class="annottext">Maybe MultiplexVideoSettings
-</span><a href="#local-6989586621679911349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexProgramSettings
-</span><a href="#local-6989586621679911350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoSettings:MultiplexProgramSettings' :: Maybe MultiplexVideoSettings
+</span><a href="#local-6989586621679911360"><span class="hs-identifier hs-var hs-var">videoSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexVideoSettings
+</span><a href="#local-6989586621679911360"><span class="hs-identifier hs-var">videoSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911359"><span class="annot"><span class="annottext">s :: MultiplexProgramSettings
+</span><a href="#local-6989586621679911359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911358"><span class="annot"><span class="annottext">Maybe MultiplexVideoSettings
+</span><a href="#local-6989586621679911358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexProgramSettings
+</span><a href="#local-6989586621679911359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoSettings:MultiplexProgramSettings' :: Maybe MultiplexVideoSettings
 </span><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#%24sel%3AvideoSettings%3AMultiplexProgramSettings%27"><span class="hs-identifier hs-var">videoSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexVideoSettings
-</span><a href="#local-6989586621679911349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679911358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Transport stream service descriptor configuration for the Multiplex</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- program.</span><span>
@@ -221,16 +221,16 @@ $sel:videoSettings:MultiplexProgramSettings' :: MultiplexProgramSettings -&gt; M
      (Maybe MultiplexProgramServiceDescriptor)
      (Maybe MultiplexProgramServiceDescriptor)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911347"><span class="annot"><span class="annottext">Maybe MultiplexProgramServiceDescriptor
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911356"><span class="annot"><span class="annottext">Maybe MultiplexProgramServiceDescriptor
 serviceDescriptor :: Maybe MultiplexProgramServiceDescriptor
 $sel:serviceDescriptor:MultiplexProgramSettings' :: MultiplexProgramSettings -&gt; Maybe MultiplexProgramServiceDescriptor
-</span><a href="#local-6989586621679911347"><span class="hs-identifier hs-var hs-var">serviceDescriptor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexProgramServiceDescriptor
-</span><a href="#local-6989586621679911347"><span class="hs-identifier hs-var">serviceDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911346"><span class="annot"><span class="annottext">s :: MultiplexProgramSettings
-</span><a href="#local-6989586621679911346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911345"><span class="annot"><span class="annottext">Maybe MultiplexProgramServiceDescriptor
-</span><a href="#local-6989586621679911345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexProgramSettings
-</span><a href="#local-6989586621679911346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceDescriptor:MultiplexProgramSettings' :: Maybe MultiplexProgramServiceDescriptor
+</span><a href="#local-6989586621679911356"><span class="hs-identifier hs-var hs-var">serviceDescriptor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexProgramServiceDescriptor
+</span><a href="#local-6989586621679911356"><span class="hs-identifier hs-var">serviceDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911355"><span class="annot"><span class="annottext">s :: MultiplexProgramSettings
+</span><a href="#local-6989586621679911355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911354"><span class="annot"><span class="annottext">Maybe MultiplexProgramServiceDescriptor
+</span><a href="#local-6989586621679911354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexProgramSettings
+</span><a href="#local-6989586621679911355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceDescriptor:MultiplexProgramSettings' :: Maybe MultiplexProgramServiceDescriptor
 </span><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#%24sel%3AserviceDescriptor%3AMultiplexProgramSettings%27"><span class="hs-identifier hs-var">serviceDescriptor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexProgramServiceDescriptor
-</span><a href="#local-6989586621679911345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679911354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | Unique program number.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#multiplexProgramSettings_programNumber"><span class="hs-identifier hs-type">multiplexProgramSettings_programNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -242,19 +242,19 @@ $sel:serviceDescriptor:MultiplexProgramSettings' :: MultiplexProgramSettings -&g
 -&gt; Lens
      MultiplexProgramSettings MultiplexProgramSettings Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911343"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911352"><span class="annot"><span class="annottext">Natural
 programNumber :: Natural
 $sel:programNumber:MultiplexProgramSettings' :: MultiplexProgramSettings -&gt; Natural
-</span><a href="#local-6989586621679911343"><span class="hs-identifier hs-var hs-var">programNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679911343"><span class="hs-identifier hs-var">programNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911342"><span class="annot"><span class="annottext">s :: MultiplexProgramSettings
-</span><a href="#local-6989586621679911342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911341"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679911341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexProgramSettings
-</span><a href="#local-6989586621679911342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:programNumber:MultiplexProgramSettings' :: Natural
+</span><a href="#local-6989586621679911352"><span class="hs-identifier hs-var hs-var">programNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679911352"><span class="hs-identifier hs-var">programNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911351"><span class="annot"><span class="annottext">s :: MultiplexProgramSettings
+</span><a href="#local-6989586621679911351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911350"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679911350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexProgramSettings
+</span><a href="#local-6989586621679911351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:programNumber:MultiplexProgramSettings' :: Natural
 </span><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#%24sel%3AprogramNumber%3AMultiplexProgramSettings%27"><span class="hs-identifier hs-var">programNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679911341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679911350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911338"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679911336"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MultiplexProgramSettings
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911347"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679911345"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MultiplexProgramSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MultiplexProgramSettings)
@@ -264,8 +264,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MultiplexProgramSettings&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679911333"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679911333"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679911342"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679911342"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe PreferredChannelPipeline
 -&gt; Maybe MultiplexVideoSettings
 -&gt; Maybe MultiplexProgramServiceDescriptor
@@ -285,7 +285,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; MultiplexProgramSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679911333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PreferredChannelPipeline)
+</span><a href="#local-6989586621679911342"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PreferredChannelPipeline)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;preferredChannelPipeline&quot;</span></span><span class="hs-special">)</span><span>
@@ -300,7 +300,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Natural -&gt; MultiplexProgramSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679911333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MultiplexVideoSettings)
+</span><a href="#local-6989586621679911342"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MultiplexVideoSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;videoSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -311,7 +311,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Natural -&gt; MultiplexProgramSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679911333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MultiplexProgramServiceDescriptor)
+</span><a href="#local-6989586621679911342"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MultiplexProgramServiceDescriptor)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serviceDescriptor&quot;</span></span><span class="hs-special">)</span><span>
@@ -319,19 +319,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Natural -&gt; Parser MultiplexProgramSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679911333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679911342"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;programNumber&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911326"><span id="local-6989586621679911328"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911335"><span id="local-6989586621679911337"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911323"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911332"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911315"><span id="local-6989586621679911317"><span id="local-6989586621679911319"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679911313"><span class="annot"><span class="annottext">toJSON :: MultiplexProgramSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911308"><span id="local-6989586621679911309"><span id="local-6989586621679911310"><span id="local-6989586621679911311"><span class="annot"><span class="annottext">Natural
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911324"><span id="local-6989586621679911326"><span id="local-6989586621679911328"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings"><span class="hs-identifier hs-type">MultiplexProgramSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679911322"><span class="annot"><span class="annottext">toJSON :: MultiplexProgramSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexProgramSettings.html#MultiplexProgramSettings%27"><span class="hs-identifier hs-type">MultiplexProgramSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911317"><span id="local-6989586621679911318"><span id="local-6989586621679911319"><span id="local-6989586621679911320"><span class="annot"><span class="annottext">Natural
 Maybe MultiplexProgramServiceDescriptor
 Maybe MultiplexVideoSettings
 Maybe PreferredChannelPipeline
@@ -343,7 +343,7 @@ $sel:programNumber:MultiplexProgramSettings' :: MultiplexProgramSettings -&gt; N
 $sel:serviceDescriptor:MultiplexProgramSettings' :: MultiplexProgramSettings -&gt; Maybe MultiplexProgramServiceDescriptor
 $sel:videoSettings:MultiplexProgramSettings' :: MultiplexProgramSettings -&gt; Maybe MultiplexVideoSettings
 $sel:preferredChannelPipeline:MultiplexProgramSettings' :: MultiplexProgramSettings -&gt; Maybe PreferredChannelPipeline
-</span><a href="#local-6989586621679911308"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679911317"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -357,7 +357,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe PreferredChannelPipeline -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PreferredChannelPipeline
-</span><a href="#local-6989586621679911311"><span class="hs-identifier hs-var">preferredChannelPipeline</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679911320"><span class="hs-identifier hs-var">preferredChannelPipeline</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;videoSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MultiplexVideoSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -365,7 +365,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MultiplexVideoSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexVideoSettings
-</span><a href="#local-6989586621679911310"><span class="hs-identifier hs-var">videoSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679911319"><span class="hs-identifier hs-var">videoSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serviceDescriptor&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MultiplexProgramServiceDescriptor -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -374,7 +374,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MultiplexProgramServiceDescriptor -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexProgramServiceDescriptor
-</span><a href="#local-6989586621679911309"><span class="hs-identifier hs-var">serviceDescriptor</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679911318"><span class="hs-identifier hs-var">serviceDescriptor</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -382,7 +382,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;programNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679911308"><span class="hs-identifier hs-var">programNumber</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679911317"><span class="hs-identifier hs-var">programNumber</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span></pre></body></html>

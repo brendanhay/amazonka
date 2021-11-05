@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679591342"><span id="local-6989586621679591343"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Alignment"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Alignment.html#Alignment"><span class="hs-identifier hs-var">Alignment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Alignment%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Alignment.html#Alignment%27"><span class="hs-identifier hs-var">Alignment'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679591351"><span id="local-6989586621679591352"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Alignment"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Alignment.html#Alignment"><span class="hs-identifier hs-var">Alignment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Alignment%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Alignment.html#Alignment%27"><span class="hs-identifier hs-var">Alignment'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAlignment"><span class="annot"><span class="annottext">Alignment -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.Alignment.html#fromAlignment"><span class="hs-identifier hs-var hs-var">fromAlignment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679591334"><span id="local-6989586621679591336"><span id="local-6989586621679591338"><span class="annot"><span class="annottext">Int -&gt; Alignment -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679591343"><span id="local-6989586621679591345"><span id="local-6989586621679591347"><span class="annot"><span class="annottext">Int -&gt; Alignment -&gt; ShowS
 [Alignment] -&gt; ShowS
 Alignment -&gt; String
 (Int -&gt; Alignment -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: Alignment -&gt; String
 showsPrec :: Int -&gt; Alignment -&gt; ShowS
 $cshowsPrec :: Int -&gt; Alignment -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679591325"><span id="local-6989586621679591327"><span id="local-6989586621679591329"><span id="local-6989586621679591331"><span class="annot"><span class="annottext">ReadPrec [Alignment]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679591334"><span id="local-6989586621679591336"><span id="local-6989586621679591338"><span id="local-6989586621679591340"><span class="annot"><span class="annottext">ReadPrec [Alignment]
 ReadPrec Alignment
 Int -&gt; ReadS Alignment
 ReadS [Alignment]
@@ -73,7 +73,7 @@ $creadList :: ReadS [Alignment]
 readsPrec :: Int -&gt; ReadS Alignment
 $creadsPrec :: Int -&gt; ReadS Alignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679591320"><span id="local-6989586621679591322"><span class="annot"><span class="annottext">Alignment -&gt; Alignment -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679591329"><span id="local-6989586621679591331"><span class="annot"><span class="annottext">Alignment -&gt; Alignment -&gt; Bool
 (Alignment -&gt; Alignment -&gt; Bool)
 -&gt; (Alignment -&gt; Alignment -&gt; Bool) -&gt; Eq Alignment
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: Alignment -&gt; Alignment -&gt; Bool
 == :: Alignment -&gt; Alignment -&gt; Bool
 $c== :: Alignment -&gt; Alignment -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679591304"><span id="local-6989586621679591306"><span id="local-6989586621679591308"><span id="local-6989586621679591310"><span id="local-6989586621679591312"><span id="local-6989586621679591314"><span id="local-6989586621679591316"><span class="annot"><span class="annottext">Eq Alignment
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679591313"><span id="local-6989586621679591315"><span id="local-6989586621679591317"><span id="local-6989586621679591319"><span id="local-6989586621679591321"><span id="local-6989586621679591323"><span id="local-6989586621679591325"><span class="annot"><span class="annottext">Eq Alignment
 Eq Alignment
 -&gt; (Alignment -&gt; Alignment -&gt; Ordering)
 -&gt; (Alignment -&gt; Alignment -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. Alignment -&gt; Rep Alignment x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679591296"><span id="local-6989586621679591298"><span class="annot"><span class="annottext">Int -&gt; Alignment -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679591305"><span id="local-6989586621679591307"><span class="annot"><span class="annottext">Int -&gt; Alignment -&gt; Int
 Alignment -&gt; Int
 (Int -&gt; Alignment -&gt; Int)
 -&gt; (Alignment -&gt; Int) -&gt; Hashable Alignment
@@ -142,49 +142,49 @@ $chash :: Alignment -&gt; Int
 hashWithSalt :: Int -&gt; Alignment -&gt; Int
 $chashWithSalt :: Int -&gt; Alignment -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679591293"><span class="annot"><span class="annottext">Alignment -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679591302"><span class="annot"><span class="annottext">Alignment -&gt; ()
 (Alignment -&gt; ()) -&gt; NFData Alignment
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Alignment -&gt; ()
 $crnf :: Alignment -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679591290"><span class="annot"><span class="annottext">Text -&gt; Either String Alignment
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679591299"><span class="annot"><span class="annottext">Text -&gt; Either String Alignment
 (Text -&gt; Either String Alignment) -&gt; FromText Alignment
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Alignment
 $cfromText :: Text -&gt; Either String Alignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679591287"><span class="annot"><span class="annottext">Alignment -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679591296"><span class="annot"><span class="annottext">Alignment -&gt; Text
 (Alignment -&gt; Text) -&gt; ToText Alignment
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Alignment -&gt; Text
 $ctoText :: Alignment -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679591284"><span class="annot"><span class="annottext">Alignment -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679591293"><span class="annot"><span class="annottext">Alignment -&gt; ByteString
 (Alignment -&gt; ByteString) -&gt; ToByteString Alignment
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Alignment -&gt; ByteString
 $ctoBS :: Alignment -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679591281"><span class="annot"><span class="annottext">Alignment -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679591290"><span class="annot"><span class="annottext">Alignment -&gt; ByteStringBuilder
 (Alignment -&gt; ByteStringBuilder) -&gt; ToLog Alignment
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Alignment -&gt; ByteStringBuilder
 $cbuild :: Alignment -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679591278"><span class="annot"><span class="annottext">HeaderName -&gt; Alignment -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679591287"><span class="annot"><span class="annottext">HeaderName -&gt; Alignment -&gt; [Header]
 (HeaderName -&gt; Alignment -&gt; [Header]) -&gt; ToHeader Alignment
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Alignment -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Alignment -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679591275"><span class="annot"><span class="annottext">Alignment -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679591284"><span class="annot"><span class="annottext">Alignment -&gt; QueryString
 (Alignment -&gt; QueryString) -&gt; ToQuery Alignment
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Alignment -&gt; QueryString
 $ctoQuery :: Alignment -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679591270"><span id="local-6989586621679591272"><span class="annot"><span class="annottext">Value -&gt; Parser [Alignment]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679591279"><span id="local-6989586621679591281"><span class="annot"><span class="annottext">Value -&gt; Parser [Alignment]
 Value -&gt; Parser Alignment
 (Value -&gt; Parser Alignment)
 -&gt; (Value -&gt; Parser [Alignment]) -&gt; FromJSON Alignment
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [Alignment]
 parseJSON :: Value -&gt; Parser Alignment
 $cparseJSON :: Value -&gt; Parser Alignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679591265"><span id="local-6989586621679591267"><span class="annot"><span class="annottext">FromJSONKeyFunction [Alignment]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679591274"><span id="local-6989586621679591276"><span class="annot"><span class="annottext">FromJSONKeyFunction [Alignment]
 FromJSONKeyFunction Alignment
 FromJSONKeyFunction Alignment
 -&gt; FromJSONKeyFunction [Alignment] -&gt; FromJSONKey Alignment
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Alignment]
 fromJSONKey :: FromJSONKeyFunction Alignment
 $cfromJSONKey :: FromJSONKeyFunction Alignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679591256"><span id="local-6989586621679591258"><span id="local-6989586621679591260"><span id="local-6989586621679591262"><span class="annot"><span class="annottext">[Alignment] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679591265"><span id="local-6989586621679591267"><span id="local-6989586621679591269"><span id="local-6989586621679591271"><span class="annot"><span class="annottext">[Alignment] -&gt; Encoding
 [Alignment] -&gt; Value
 Alignment -&gt; Encoding
 Alignment -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: Alignment -&gt; Encoding
 toJSON :: Alignment -&gt; Value
 $ctoJSON :: Alignment -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679591251"><span id="local-6989586621679591253"><span class="annot"><span class="annottext">ToJSONKeyFunction [Alignment]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679591260"><span id="local-6989586621679591262"><span class="annot"><span class="annottext">ToJSONKeyFunction [Alignment]
 ToJSONKeyFunction Alignment
 ToJSONKeyFunction Alignment
 -&gt; ToJSONKeyFunction [Alignment] -&gt; ToJSONKey Alignment
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Alignment]
 toJSONKey :: ToJSONKeyFunction Alignment
 $ctoJSONKey :: ToJSONKeyFunction Alignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679591248"><span class="annot"><span class="annottext">[Node] -&gt; Either String Alignment
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679591257"><span class="annot"><span class="annottext">[Node] -&gt; Either String Alignment
 ([Node] -&gt; Either String Alignment) -&gt; FromXML Alignment
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Alignment
 $cparseXML :: [Node] -&gt; Either String Alignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679591245"><span class="annot"><span class="annottext">Alignment -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679591254"><span class="annot"><span class="annottext">Alignment -&gt; XML
 (Alignment -&gt; XML) -&gt; ToXML Alignment
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Alignment -&gt; XML

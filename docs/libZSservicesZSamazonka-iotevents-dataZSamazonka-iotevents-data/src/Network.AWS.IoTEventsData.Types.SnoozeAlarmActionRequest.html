@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information needed to snooze the alarm.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSnoozeAlarmActionRequest' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679183286"><span id="local-6989586621679183287"></span></span><span class="hs-keyword">data</span><span> </span><span id="SnoozeAlarmActionRequest"><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest"><span class="hs-identifier hs-var">SnoozeAlarmActionRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SnoozeAlarmActionRequest%27"><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest%27"><span class="hs-identifier hs-var">SnoozeAlarmActionRequest'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the key used as a filter to select only the alarms</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- associated with the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key key&gt;.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AkeyValue%3ASnoozeAlarmActionRequest%27"><span class="annot"><span class="annottext">SnoozeAlarmActionRequest -&gt; Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#%24sel%3AkeyValue%3ASnoozeAlarmActionRequest%27"><span class="hs-identifier hs-var hs-var">keyValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The note that you can leave when you snooze the alarm.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Anote%3ASnoozeAlarmActionRequest%27"><span class="annot"><span class="annottext">SnoozeAlarmActionRequest -&gt; Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#%24sel%3Anote%3ASnoozeAlarmActionRequest%27"><span class="hs-identifier hs-var hs-var">note</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The request ID. Each ID must be unique within each batch.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3ArequestId%3ASnoozeAlarmActionRequest%27"><span class="annot"><span class="annottext">SnoozeAlarmActionRequest -&gt; Text
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#%24sel%3ArequestId%3ASnoozeAlarmActionRequest%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the alarm model.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AalarmModelName%3ASnoozeAlarmActionRequest%27"><span class="annot"><span class="annottext">SnoozeAlarmActionRequest -&gt; Text
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#%24sel%3AalarmModelName%3ASnoozeAlarmActionRequest%27"><span class="hs-identifier hs-var hs-var">alarmModelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The snooze time in seconds. The alarm automatically changes to the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @NORMAL@ state after this duration.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsnoozeDuration%3ASnoozeAlarmActionRequest%27"><span class="annot"><span class="annottext">SnoozeAlarmActionRequest -&gt; Int
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#%24sel%3AsnoozeDuration%3ASnoozeAlarmActionRequest%27"><span class="hs-identifier hs-var hs-var">snoozeDuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183276"><span id="local-6989586621679183278"><span class="annot"><span class="annottext">SnoozeAlarmActionRequest -&gt; SnoozeAlarmActionRequest -&gt; Bool
+(SnoozeAlarmActionRequest -&gt; SnoozeAlarmActionRequest -&gt; Bool)
+-&gt; (SnoozeAlarmActionRequest -&gt; SnoozeAlarmActionRequest -&gt; Bool)
+-&gt; Eq SnoozeAlarmActionRequest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SnoozeAlarmActionRequest -&gt; SnoozeAlarmActionRequest -&gt; Bool
+$c/= :: SnoozeAlarmActionRequest -&gt; SnoozeAlarmActionRequest -&gt; Bool
+== :: SnoozeAlarmActionRequest -&gt; SnoozeAlarmActionRequest -&gt; Bool
+$c== :: SnoozeAlarmActionRequest -&gt; SnoozeAlarmActionRequest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183267"><span id="local-6989586621679183269"><span id="local-6989586621679183271"><span id="local-6989586621679183273"><span class="annot"><span class="annottext">ReadPrec [SnoozeAlarmActionRequest]
+ReadPrec SnoozeAlarmActionRequest
+Int -&gt; ReadS SnoozeAlarmActionRequest
+ReadS [SnoozeAlarmActionRequest]
+(Int -&gt; ReadS SnoozeAlarmActionRequest)
+-&gt; ReadS [SnoozeAlarmActionRequest]
+-&gt; ReadPrec SnoozeAlarmActionRequest
+-&gt; ReadPrec [SnoozeAlarmActionRequest]
+-&gt; Read SnoozeAlarmActionRequest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SnoozeAlarmActionRequest]
+$creadListPrec :: ReadPrec [SnoozeAlarmActionRequest]
+readPrec :: ReadPrec SnoozeAlarmActionRequest
+$creadPrec :: ReadPrec SnoozeAlarmActionRequest
+readList :: ReadS [SnoozeAlarmActionRequest]
+$creadList :: ReadS [SnoozeAlarmActionRequest]
+readsPrec :: Int -&gt; ReadS SnoozeAlarmActionRequest
+$creadsPrec :: Int -&gt; ReadS SnoozeAlarmActionRequest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183260"><span id="local-6989586621679183262"><span id="local-6989586621679183264"><span class="annot"><span class="annottext">Int -&gt; SnoozeAlarmActionRequest -&gt; ShowS
+[SnoozeAlarmActionRequest] -&gt; ShowS
+SnoozeAlarmActionRequest -&gt; String
+(Int -&gt; SnoozeAlarmActionRequest -&gt; ShowS)
+-&gt; (SnoozeAlarmActionRequest -&gt; String)
+-&gt; ([SnoozeAlarmActionRequest] -&gt; ShowS)
+-&gt; Show SnoozeAlarmActionRequest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SnoozeAlarmActionRequest] -&gt; ShowS
+$cshowList :: [SnoozeAlarmActionRequest] -&gt; ShowS
+show :: SnoozeAlarmActionRequest -&gt; String
+$cshow :: SnoozeAlarmActionRequest -&gt; String
+showsPrec :: Int -&gt; SnoozeAlarmActionRequest -&gt; ShowS
+$cshowsPrec :: Int -&gt; SnoozeAlarmActionRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SnoozeAlarmActionRequest -&gt; Rep SnoozeAlarmActionRequest x)
+-&gt; (forall x.
+    Rep SnoozeAlarmActionRequest x -&gt; SnoozeAlarmActionRequest)
+-&gt; Generic SnoozeAlarmActionRequest
+forall x.
+Rep SnoozeAlarmActionRequest x -&gt; SnoozeAlarmActionRequest
+forall x.
+SnoozeAlarmActionRequest -&gt; Rep SnoozeAlarmActionRequest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SnoozeAlarmActionRequest x -&gt; SnoozeAlarmActionRequest
+$cfrom :: forall x.
+SnoozeAlarmActionRequest -&gt; Rep SnoozeAlarmActionRequest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'SnoozeAlarmActionRequest' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'keyValue', 'snoozeAlarmActionRequest_keyValue' - The value of the key used as a filter to select only the alarms</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- associated with the</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key key&gt;.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'note', 'snoozeAlarmActionRequest_note' - The note that you can leave when you snooze the alarm.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'requestId', 'snoozeAlarmActionRequest_requestId' - The request ID. Each ID must be unique within each batch.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'alarmModelName', 'snoozeAlarmActionRequest_alarmModelName' - The name of the alarm model.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'snoozeDuration', 'snoozeAlarmActionRequest_snoozeDuration' - The snooze time in seconds. The alarm automatically changes to the</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- @NORMAL@ state after this duration.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#newSnoozeAlarmActionRequest"><span class="hs-identifier hs-type">newSnoozeAlarmActionRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'requestId'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'alarmModelName'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'snoozeDuration'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest</span></a></span><span>
+</span><span id="line-74"></span><span id="newSnoozeAlarmActionRequest"><span class="annot"><span class="annottext">newSnoozeAlarmActionRequest :: Text -&gt; Text -&gt; Int -&gt; SnoozeAlarmActionRequest
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#newSnoozeAlarmActionRequest"><span class="hs-identifier hs-var hs-var">newSnoozeAlarmActionRequest</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679183254"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183254"><span class="hs-identifier hs-var">pRequestId_</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679183253"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183253"><span class="hs-identifier hs-var">pAlarmModelName_</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679183252"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183252"><span class="hs-identifier hs-var">pSnoozeDuration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">SnoozeAlarmActionRequest' :: Maybe Text
+-&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Int -&gt; SnoozeAlarmActionRequest
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest%27"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest'</span></a></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyValue:SnoozeAlarmActionRequest' :: Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#%24sel%3AkeyValue%3ASnoozeAlarmActionRequest%27"><span class="hs-identifier hs-var">keyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:note:SnoozeAlarmActionRequest' :: Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#%24sel%3Anote%3ASnoozeAlarmActionRequest%27"><span class="hs-identifier hs-var">note</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:requestId:SnoozeAlarmActionRequest' :: Text
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#%24sel%3ArequestId%3ASnoozeAlarmActionRequest%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183254"><span class="hs-identifier hs-var">pRequestId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:alarmModelName:SnoozeAlarmActionRequest' :: Text
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#%24sel%3AalarmModelName%3ASnoozeAlarmActionRequest%27"><span class="hs-identifier hs-var">alarmModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183253"><span class="hs-identifier hs-var">pAlarmModelName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:snoozeDuration:SnoozeAlarmActionRequest' :: Int
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#%24sel%3AsnoozeDuration%3ASnoozeAlarmActionRequest%27"><span class="hs-identifier hs-var">snoozeDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183252"><span class="hs-identifier hs-var">pSnoozeDuration_</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The value of the key used as a filter to select only the alarms</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- associated with the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key key&gt;.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#snoozeAlarmActionRequest_keyValue"><span class="hs-identifier hs-type">snoozeAlarmActionRequest_keyValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="snoozeAlarmActionRequest_keyValue"><span class="annot"><span class="annottext">snoozeAlarmActionRequest_keyValue :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SnoozeAlarmActionRequest -&gt; f SnoozeAlarmActionRequest
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#snoozeAlarmActionRequest_keyValue"><span class="hs-identifier hs-var hs-var">snoozeAlarmActionRequest_keyValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SnoozeAlarmActionRequest -&gt; Maybe Text)
+-&gt; (SnoozeAlarmActionRequest
+    -&gt; Maybe Text -&gt; SnoozeAlarmActionRequest)
+-&gt; Lens
+     SnoozeAlarmActionRequest
+     SnoozeAlarmActionRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest%27"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183248"><span class="annot"><span class="annottext">Maybe Text
+keyValue :: Maybe Text
+$sel:keyValue:SnoozeAlarmActionRequest' :: SnoozeAlarmActionRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679183248"><span class="hs-identifier hs-var hs-var">keyValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183248"><span class="hs-identifier hs-var">keyValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183247"><span class="annot"><span class="annottext">s :: SnoozeAlarmActionRequest
+</span><a href="#local-6989586621679183247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest%27"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183246"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnoozeAlarmActionRequest
+</span><a href="#local-6989586621679183247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyValue:SnoozeAlarmActionRequest' :: Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#%24sel%3AkeyValue%3ASnoozeAlarmActionRequest%27"><span class="hs-identifier hs-var">keyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The note that you can leave when you snooze the alarm.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#snoozeAlarmActionRequest_note"><span class="hs-identifier hs-type">snoozeAlarmActionRequest_note</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="snoozeAlarmActionRequest_note"><span class="annot"><span class="annottext">snoozeAlarmActionRequest_note :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SnoozeAlarmActionRequest -&gt; f SnoozeAlarmActionRequest
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#snoozeAlarmActionRequest_note"><span class="hs-identifier hs-var hs-var">snoozeAlarmActionRequest_note</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SnoozeAlarmActionRequest -&gt; Maybe Text)
+-&gt; (SnoozeAlarmActionRequest
+    -&gt; Maybe Text -&gt; SnoozeAlarmActionRequest)
+-&gt; Lens
+     SnoozeAlarmActionRequest
+     SnoozeAlarmActionRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest%27"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183244"><span class="annot"><span class="annottext">Maybe Text
+note :: Maybe Text
+$sel:note:SnoozeAlarmActionRequest' :: SnoozeAlarmActionRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679183244"><span class="hs-identifier hs-var hs-var">note</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183244"><span class="hs-identifier hs-var">note</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183243"><span class="annot"><span class="annottext">s :: SnoozeAlarmActionRequest
+</span><a href="#local-6989586621679183243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest%27"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183242"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnoozeAlarmActionRequest
+</span><a href="#local-6989586621679183243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:note:SnoozeAlarmActionRequest' :: Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#%24sel%3Anote%3ASnoozeAlarmActionRequest%27"><span class="hs-identifier hs-var">note</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The request ID. Each ID must be unique within each batch.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#snoozeAlarmActionRequest_requestId"><span class="hs-identifier hs-type">snoozeAlarmActionRequest_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="snoozeAlarmActionRequest_requestId"><span class="annot"><span class="annottext">snoozeAlarmActionRequest_requestId :: (Text -&gt; f Text)
+-&gt; SnoozeAlarmActionRequest -&gt; f SnoozeAlarmActionRequest
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#snoozeAlarmActionRequest_requestId"><span class="hs-identifier hs-var hs-var">snoozeAlarmActionRequest_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SnoozeAlarmActionRequest -&gt; Text)
+-&gt; (SnoozeAlarmActionRequest -&gt; Text -&gt; SnoozeAlarmActionRequest)
+-&gt; Lens SnoozeAlarmActionRequest SnoozeAlarmActionRequest Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest%27"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183240"><span class="annot"><span class="annottext">Text
+requestId :: Text
+$sel:requestId:SnoozeAlarmActionRequest' :: SnoozeAlarmActionRequest -&gt; Text
+</span><a href="#local-6989586621679183240"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183240"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183239"><span class="annot"><span class="annottext">s :: SnoozeAlarmActionRequest
+</span><a href="#local-6989586621679183239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest%27"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183238"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnoozeAlarmActionRequest
+</span><a href="#local-6989586621679183239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:SnoozeAlarmActionRequest' :: Text
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#%24sel%3ArequestId%3ASnoozeAlarmActionRequest%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The name of the alarm model.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#snoozeAlarmActionRequest_alarmModelName"><span class="hs-identifier hs-type">snoozeAlarmActionRequest_alarmModelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="snoozeAlarmActionRequest_alarmModelName"><span class="annot"><span class="annottext">snoozeAlarmActionRequest_alarmModelName :: (Text -&gt; f Text)
+-&gt; SnoozeAlarmActionRequest -&gt; f SnoozeAlarmActionRequest
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#snoozeAlarmActionRequest_alarmModelName"><span class="hs-identifier hs-var hs-var">snoozeAlarmActionRequest_alarmModelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SnoozeAlarmActionRequest -&gt; Text)
+-&gt; (SnoozeAlarmActionRequest -&gt; Text -&gt; SnoozeAlarmActionRequest)
+-&gt; Lens SnoozeAlarmActionRequest SnoozeAlarmActionRequest Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest%27"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183236"><span class="annot"><span class="annottext">Text
+alarmModelName :: Text
+$sel:alarmModelName:SnoozeAlarmActionRequest' :: SnoozeAlarmActionRequest -&gt; Text
+</span><a href="#local-6989586621679183236"><span class="hs-identifier hs-var hs-var">alarmModelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183236"><span class="hs-identifier hs-var">alarmModelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183235"><span class="annot"><span class="annottext">s :: SnoozeAlarmActionRequest
+</span><a href="#local-6989586621679183235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest%27"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183234"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnoozeAlarmActionRequest
+</span><a href="#local-6989586621679183235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmModelName:SnoozeAlarmActionRequest' :: Text
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#%24sel%3AalarmModelName%3ASnoozeAlarmActionRequest%27"><span class="hs-identifier hs-var">alarmModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The snooze time in seconds. The alarm automatically changes to the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- @NORMAL@ state after this duration.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#snoozeAlarmActionRequest_snoozeDuration"><span class="hs-identifier hs-type">snoozeAlarmActionRequest_snoozeDuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-108"></span><span id="snoozeAlarmActionRequest_snoozeDuration"><span class="annot"><span class="annottext">snoozeAlarmActionRequest_snoozeDuration :: (Int -&gt; f Int)
+-&gt; SnoozeAlarmActionRequest -&gt; f SnoozeAlarmActionRequest
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#snoozeAlarmActionRequest_snoozeDuration"><span class="hs-identifier hs-var hs-var">snoozeAlarmActionRequest_snoozeDuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SnoozeAlarmActionRequest -&gt; Int)
+-&gt; (SnoozeAlarmActionRequest -&gt; Int -&gt; SnoozeAlarmActionRequest)
+-&gt; Lens SnoozeAlarmActionRequest SnoozeAlarmActionRequest Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest%27"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183232"><span class="annot"><span class="annottext">Int
+snoozeDuration :: Int
+$sel:snoozeDuration:SnoozeAlarmActionRequest' :: SnoozeAlarmActionRequest -&gt; Int
+</span><a href="#local-6989586621679183232"><span class="hs-identifier hs-var hs-var">snoozeDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183232"><span class="hs-identifier hs-var">snoozeDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183231"><span class="annot"><span class="annottext">s :: SnoozeAlarmActionRequest
+</span><a href="#local-6989586621679183231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest%27"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183230"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnoozeAlarmActionRequest
+</span><a href="#local-6989586621679183231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snoozeDuration:SnoozeAlarmActionRequest' :: Int
+</span><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#%24sel%3AsnoozeDuration%3ASnoozeAlarmActionRequest%27"><span class="hs-identifier hs-var">snoozeDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183226"><span id="local-6989586621679183228"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183223"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183215"><span id="local-6989586621679183217"><span id="local-6989586621679183219"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679183213"><span class="annot"><span class="annottext">toJSON :: SnoozeAlarmActionRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest%27"><span class="hs-identifier hs-type">SnoozeAlarmActionRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183207"><span id="local-6989586621679183208"><span id="local-6989586621679183209"><span id="local-6989586621679183210"><span id="local-6989586621679183211"><span class="annot"><span class="annottext">Int
+Maybe Text
+Text
+snoozeDuration :: Int
+alarmModelName :: Text
+requestId :: Text
+note :: Maybe Text
+keyValue :: Maybe Text
+$sel:snoozeDuration:SnoozeAlarmActionRequest' :: SnoozeAlarmActionRequest -&gt; Int
+$sel:alarmModelName:SnoozeAlarmActionRequest' :: SnoozeAlarmActionRequest -&gt; Text
+$sel:requestId:SnoozeAlarmActionRequest' :: SnoozeAlarmActionRequest -&gt; Text
+$sel:note:SnoozeAlarmActionRequest' :: SnoozeAlarmActionRequest -&gt; Maybe Text
+$sel:keyValue:SnoozeAlarmActionRequest' :: SnoozeAlarmActionRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679183207"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183211"><span class="hs-identifier hs-var">keyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;note&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679183210"><span class="hs-identifier hs-var">note</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;requestId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183209"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;alarmModelName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183208"><span class="hs-identifier hs-var">alarmModelName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-124"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;snoozeDuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183207"><span class="hs-identifier hs-var">snoozeDuration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span></pre></body></html>

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679274864"><span id="local-6989586621679274865"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProcessorType"><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessorType.html#ProcessorType"><span class="hs-identifier hs-var">ProcessorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessorType%27"><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessorType.html#ProcessorType%27"><span class="hs-identifier hs-var">ProcessorType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679274873"><span id="local-6989586621679274874"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProcessorType"><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessorType.html#ProcessorType"><span class="hs-identifier hs-var">ProcessorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessorType%27"><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessorType.html#ProcessorType%27"><span class="hs-identifier hs-var">ProcessorType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProcessorType"><span class="annot"><span class="annottext">ProcessorType -&gt; Text
 </span><a href="Network.AWS.Firehose.Types.ProcessorType.html#fromProcessorType"><span class="hs-identifier hs-var hs-var">fromProcessorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274856"><span id="local-6989586621679274858"><span id="local-6989586621679274860"><span class="annot"><span class="annottext">Int -&gt; ProcessorType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274865"><span id="local-6989586621679274867"><span id="local-6989586621679274869"><span class="annot"><span class="annottext">Int -&gt; ProcessorType -&gt; ShowS
 [ProcessorType] -&gt; ShowS
 ProcessorType -&gt; String
 (Int -&gt; ProcessorType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ProcessorType -&gt; String
 showsPrec :: Int -&gt; ProcessorType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProcessorType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679274847"><span id="local-6989586621679274849"><span id="local-6989586621679274851"><span id="local-6989586621679274853"><span class="annot"><span class="annottext">ReadPrec [ProcessorType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679274856"><span id="local-6989586621679274858"><span id="local-6989586621679274860"><span id="local-6989586621679274862"><span class="annot"><span class="annottext">ReadPrec [ProcessorType]
 ReadPrec ProcessorType
 Int -&gt; ReadS ProcessorType
 ReadS [ProcessorType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ProcessorType]
 readsPrec :: Int -&gt; ReadS ProcessorType
 $creadsPrec :: Int -&gt; ReadS ProcessorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679274842"><span id="local-6989586621679274844"><span class="annot"><span class="annottext">ProcessorType -&gt; ProcessorType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679274851"><span id="local-6989586621679274853"><span class="annot"><span class="annottext">ProcessorType -&gt; ProcessorType -&gt; Bool
 (ProcessorType -&gt; ProcessorType -&gt; Bool)
 -&gt; (ProcessorType -&gt; ProcessorType -&gt; Bool) -&gt; Eq ProcessorType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: ProcessorType -&gt; ProcessorType -&gt; Bool
 == :: ProcessorType -&gt; ProcessorType -&gt; Bool
 $c== :: ProcessorType -&gt; ProcessorType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679274826"><span id="local-6989586621679274828"><span id="local-6989586621679274830"><span id="local-6989586621679274832"><span id="local-6989586621679274834"><span id="local-6989586621679274836"><span id="local-6989586621679274838"><span class="annot"><span class="annottext">Eq ProcessorType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679274835"><span id="local-6989586621679274837"><span id="local-6989586621679274839"><span id="local-6989586621679274841"><span id="local-6989586621679274843"><span id="local-6989586621679274845"><span id="local-6989586621679274847"><span class="annot"><span class="annottext">Eq ProcessorType
 Eq ProcessorType
 -&gt; (ProcessorType -&gt; ProcessorType -&gt; Ordering)
 -&gt; (ProcessorType -&gt; ProcessorType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ProcessorType -&gt; Rep ProcessorType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274818"><span id="local-6989586621679274820"><span class="annot"><span class="annottext">Int -&gt; ProcessorType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274827"><span id="local-6989586621679274829"><span class="annot"><span class="annottext">Int -&gt; ProcessorType -&gt; Int
 ProcessorType -&gt; Int
 (Int -&gt; ProcessorType -&gt; Int)
 -&gt; (ProcessorType -&gt; Int) -&gt; Hashable ProcessorType
@@ -144,49 +144,49 @@ $chash :: ProcessorType -&gt; Int
 hashWithSalt :: Int -&gt; ProcessorType -&gt; Int
 $chashWithSalt :: Int -&gt; ProcessorType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679274815"><span class="annot"><span class="annottext">ProcessorType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679274824"><span class="annot"><span class="annottext">ProcessorType -&gt; ()
 (ProcessorType -&gt; ()) -&gt; NFData ProcessorType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProcessorType -&gt; ()
 $crnf :: ProcessorType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679274812"><span class="annot"><span class="annottext">Text -&gt; Either String ProcessorType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679274821"><span class="annot"><span class="annottext">Text -&gt; Either String ProcessorType
 (Text -&gt; Either String ProcessorType) -&gt; FromText ProcessorType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProcessorType
 $cfromText :: Text -&gt; Either String ProcessorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679274809"><span class="annot"><span class="annottext">ProcessorType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679274818"><span class="annot"><span class="annottext">ProcessorType -&gt; Text
 (ProcessorType -&gt; Text) -&gt; ToText ProcessorType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProcessorType -&gt; Text
 $ctoText :: ProcessorType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679274806"><span class="annot"><span class="annottext">ProcessorType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679274815"><span class="annot"><span class="annottext">ProcessorType -&gt; ByteString
 (ProcessorType -&gt; ByteString) -&gt; ToByteString ProcessorType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProcessorType -&gt; ByteString
 $ctoBS :: ProcessorType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679274803"><span class="annot"><span class="annottext">ProcessorType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679274812"><span class="annot"><span class="annottext">ProcessorType -&gt; ByteStringBuilder
 (ProcessorType -&gt; ByteStringBuilder) -&gt; ToLog ProcessorType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProcessorType -&gt; ByteStringBuilder
 $cbuild :: ProcessorType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679274800"><span class="annot"><span class="annottext">HeaderName -&gt; ProcessorType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679274809"><span class="annot"><span class="annottext">HeaderName -&gt; ProcessorType -&gt; [Header]
 (HeaderName -&gt; ProcessorType -&gt; [Header]) -&gt; ToHeader ProcessorType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProcessorType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProcessorType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679274797"><span class="annot"><span class="annottext">ProcessorType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679274806"><span class="annot"><span class="annottext">ProcessorType -&gt; QueryString
 (ProcessorType -&gt; QueryString) -&gt; ToQuery ProcessorType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProcessorType -&gt; QueryString
 $ctoQuery :: ProcessorType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679274792"><span id="local-6989586621679274794"><span class="annot"><span class="annottext">Value -&gt; Parser [ProcessorType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679274801"><span id="local-6989586621679274803"><span class="annot"><span class="annottext">Value -&gt; Parser [ProcessorType]
 Value -&gt; Parser ProcessorType
 (Value -&gt; Parser ProcessorType)
 -&gt; (Value -&gt; Parser [ProcessorType]) -&gt; FromJSON ProcessorType
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [ProcessorType]
 parseJSON :: Value -&gt; Parser ProcessorType
 $cparseJSON :: Value -&gt; Parser ProcessorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679274787"><span id="local-6989586621679274789"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProcessorType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679274796"><span id="local-6989586621679274798"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProcessorType]
 FromJSONKeyFunction ProcessorType
 FromJSONKeyFunction ProcessorType
 -&gt; FromJSONKeyFunction [ProcessorType] -&gt; FromJSONKey ProcessorType
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProcessorType]
 fromJSONKey :: FromJSONKeyFunction ProcessorType
 $cfromJSONKey :: FromJSONKeyFunction ProcessorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679274778"><span id="local-6989586621679274780"><span id="local-6989586621679274782"><span id="local-6989586621679274784"><span class="annot"><span class="annottext">[ProcessorType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679274787"><span id="local-6989586621679274789"><span id="local-6989586621679274791"><span id="local-6989586621679274793"><span class="annot"><span class="annottext">[ProcessorType] -&gt; Encoding
 [ProcessorType] -&gt; Value
 ProcessorType -&gt; Encoding
 ProcessorType -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: ProcessorType -&gt; Encoding
 toJSON :: ProcessorType -&gt; Value
 $ctoJSON :: ProcessorType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679274773"><span id="local-6989586621679274775"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProcessorType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679274782"><span id="local-6989586621679274784"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProcessorType]
 ToJSONKeyFunction ProcessorType
 ToJSONKeyFunction ProcessorType
 -&gt; ToJSONKeyFunction [ProcessorType] -&gt; ToJSONKey ProcessorType
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProcessorType]
 toJSONKey :: ToJSONKeyFunction ProcessorType
 $ctoJSONKey :: ToJSONKeyFunction ProcessorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679274770"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProcessorType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679274779"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProcessorType
 ([Node] -&gt; Either String ProcessorType) -&gt; FromXML ProcessorType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProcessorType
 $cparseXML :: [Node] -&gt; Either String ProcessorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679274767"><span class="annot"><span class="annottext">ProcessorType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679274776"><span class="annot"><span class="annottext">ProcessorType -&gt; XML
 (ProcessorType -&gt; XML) -&gt; ToXML ProcessorType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ProcessorType -&gt; XML

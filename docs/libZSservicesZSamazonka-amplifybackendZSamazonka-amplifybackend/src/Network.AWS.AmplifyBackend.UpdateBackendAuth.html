@@ -1,0 +1,841 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AmplifyBackend.UpdateBackendAuth</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates an existing backend authentication resource.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AmplifyBackend.UpdateBackendAuth</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier">UpdateBackendAuth</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#newUpdateBackendAuth"><span class="hs-identifier">newUpdateBackendAuth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuth_appId"><span class="hs-identifier">updateBackendAuth_appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuth_backendEnvironmentName"><span class="hs-identifier">updateBackendAuth_backendEnvironmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuth_resourceName"><span class="hs-identifier">updateBackendAuth_resourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuth_resourceConfig"><span class="hs-identifier">updateBackendAuth_resourceConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier">UpdateBackendAuthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#newUpdateBackendAuthResponse"><span class="hs-identifier">newUpdateBackendAuthResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_status"><span class="hs-identifier">updateBackendAuthResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_jobId"><span class="hs-identifier">updateBackendAuthResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_operation"><span class="hs-identifier">updateBackendAuthResponse_operation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_error"><span class="hs-identifier">updateBackendAuthResponse_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_appId"><span class="hs-identifier">updateBackendAuthResponse_appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_backendEnvironmentName"><span class="hs-identifier">updateBackendAuthResponse_backendEnvironmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_httpStatus"><span class="hs-identifier">updateBackendAuthResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.html"><span class="hs-identifier">Network.AWS.AmplifyBackend.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The request body for UpdateBackendAuth.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newUpdateBackendAuth' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679240909"><span id="local-6989586621679240910"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateBackendAuth"><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-var">UpdateBackendAuth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateBackendAuth%27"><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth%27"><span class="hs-identifier hs-var">UpdateBackendAuth'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The app ID.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AappId%3AUpdateBackendAuth%27"><span class="annot"><span class="annottext">UpdateBackendAuth -&gt; Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AappId%3AUpdateBackendAuth%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The name of the backend environment.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AbackendEnvironmentName%3AUpdateBackendAuth%27"><span class="annot"><span class="annottext">UpdateBackendAuth -&gt; Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AbackendEnvironmentName%3AUpdateBackendAuth%27"><span class="hs-identifier hs-var hs-var">backendEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The name of this resource.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AresourceName%3AUpdateBackendAuth%27"><span class="annot"><span class="annottext">UpdateBackendAuth -&gt; Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AresourceName%3AUpdateBackendAuth%27"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The resource configuration for this request object.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AresourceConfig%3AUpdateBackendAuth%27"><span class="annot"><span class="annottext">UpdateBackendAuth -&gt; UpdateBackendAuthResourceConfig
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AresourceConfig%3AUpdateBackendAuth%27"><span class="hs-identifier hs-var hs-var">resourceConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.UpdateBackendAuthResourceConfig.html#UpdateBackendAuthResourceConfig"><span class="hs-identifier hs-type">UpdateBackendAuthResourceConfig</span></a></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679240900"><span id="local-6989586621679240902"><span class="annot"><span class="annottext">UpdateBackendAuth -&gt; UpdateBackendAuth -&gt; Bool
+(UpdateBackendAuth -&gt; UpdateBackendAuth -&gt; Bool)
+-&gt; (UpdateBackendAuth -&gt; UpdateBackendAuth -&gt; Bool)
+-&gt; Eq UpdateBackendAuth
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateBackendAuth -&gt; UpdateBackendAuth -&gt; Bool
+$c/= :: UpdateBackendAuth -&gt; UpdateBackendAuth -&gt; Bool
+== :: UpdateBackendAuth -&gt; UpdateBackendAuth -&gt; Bool
+$c== :: UpdateBackendAuth -&gt; UpdateBackendAuth -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240891"><span id="local-6989586621679240893"><span id="local-6989586621679240895"><span id="local-6989586621679240897"><span class="annot"><span class="annottext">ReadPrec [UpdateBackendAuth]
+ReadPrec UpdateBackendAuth
+Int -&gt; ReadS UpdateBackendAuth
+ReadS [UpdateBackendAuth]
+(Int -&gt; ReadS UpdateBackendAuth)
+-&gt; ReadS [UpdateBackendAuth]
+-&gt; ReadPrec UpdateBackendAuth
+-&gt; ReadPrec [UpdateBackendAuth]
+-&gt; Read UpdateBackendAuth
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateBackendAuth]
+$creadListPrec :: ReadPrec [UpdateBackendAuth]
+readPrec :: ReadPrec UpdateBackendAuth
+$creadPrec :: ReadPrec UpdateBackendAuth
+readList :: ReadS [UpdateBackendAuth]
+$creadList :: ReadS [UpdateBackendAuth]
+readsPrec :: Int -&gt; ReadS UpdateBackendAuth
+$creadsPrec :: Int -&gt; ReadS UpdateBackendAuth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240884"><span id="local-6989586621679240886"><span id="local-6989586621679240888"><span class="annot"><span class="annottext">Int -&gt; UpdateBackendAuth -&gt; ShowS
+[UpdateBackendAuth] -&gt; ShowS
+UpdateBackendAuth -&gt; String
+(Int -&gt; UpdateBackendAuth -&gt; ShowS)
+-&gt; (UpdateBackendAuth -&gt; String)
+-&gt; ([UpdateBackendAuth] -&gt; ShowS)
+-&gt; Show UpdateBackendAuth
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateBackendAuth] -&gt; ShowS
+$cshowList :: [UpdateBackendAuth] -&gt; ShowS
+show :: UpdateBackendAuth -&gt; String
+$cshow :: UpdateBackendAuth -&gt; String
+showsPrec :: Int -&gt; UpdateBackendAuth -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateBackendAuth -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateBackendAuth -&gt; Rep UpdateBackendAuth x)
+-&gt; (forall x. Rep UpdateBackendAuth x -&gt; UpdateBackendAuth)
+-&gt; Generic UpdateBackendAuth
+forall x. Rep UpdateBackendAuth x -&gt; UpdateBackendAuth
+forall x. UpdateBackendAuth -&gt; Rep UpdateBackendAuth x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateBackendAuth x -&gt; UpdateBackendAuth
+$cfrom :: forall x. UpdateBackendAuth -&gt; Rep UpdateBackendAuth x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'UpdateBackendAuth' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'appId', 'updateBackendAuth_appId' - The app ID.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'backendEnvironmentName', 'updateBackendAuth_backendEnvironmentName' - The name of the backend environment.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'resourceName', 'updateBackendAuth_resourceName' - The name of this resource.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'resourceConfig', 'updateBackendAuth_resourceConfig' - The resource configuration for this request object.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#newUpdateBackendAuth"><span class="hs-identifier hs-type">newUpdateBackendAuth</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'appId'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'backendEnvironmentName'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'resourceName'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'resourceConfig'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.UpdateBackendAuthResourceConfig.html#UpdateBackendAuthResourceConfig"><span class="hs-identifier hs-type">UpdateBackendAuthResourceConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span><span>
+</span><span id="line-97"></span><span id="newUpdateBackendAuth"><span class="annot"><span class="annottext">newUpdateBackendAuth :: Text
+-&gt; Text
+-&gt; Text
+-&gt; UpdateBackendAuthResourceConfig
+-&gt; UpdateBackendAuth
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#newUpdateBackendAuth"><span class="hs-identifier hs-var hs-var">newUpdateBackendAuth</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679240879"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240879"><span class="hs-identifier hs-var">pAppId_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679240878"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240878"><span class="hs-identifier hs-var">pBackendEnvironmentName_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679240877"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240877"><span class="hs-identifier hs-var">pResourceName_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679240876"><span class="annot"><span class="annottext">UpdateBackendAuthResourceConfig
+</span><a href="#local-6989586621679240876"><span class="hs-identifier hs-var">pResourceConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">UpdateBackendAuth' :: Text
+-&gt; Text
+-&gt; Text
+-&gt; UpdateBackendAuthResourceConfig
+-&gt; UpdateBackendAuth
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth%27"><span class="hs-identifier hs-type">UpdateBackendAuth'</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appId:UpdateBackendAuth' :: Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AappId%3AUpdateBackendAuth%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240879"><span class="hs-identifier hs-var">pAppId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:backendEnvironmentName:UpdateBackendAuth' :: Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AbackendEnvironmentName%3AUpdateBackendAuth%27"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240878"><span class="hs-identifier hs-var">pBackendEnvironmentName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceName:UpdateBackendAuth' :: Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AresourceName%3AUpdateBackendAuth%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240877"><span class="hs-identifier hs-var">pResourceName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceConfig:UpdateBackendAuth' :: UpdateBackendAuthResourceConfig
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AresourceConfig%3AUpdateBackendAuth%27"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateBackendAuthResourceConfig
+</span><a href="#local-6989586621679240876"><span class="hs-identifier hs-var">pResourceConfig_</span></a></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The app ID.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuth_appId"><span class="hs-identifier hs-type">updateBackendAuth_appId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span id="updateBackendAuth_appId"><span class="annot"><span class="annottext">updateBackendAuth_appId :: (Text -&gt; f Text) -&gt; UpdateBackendAuth -&gt; f UpdateBackendAuth
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuth_appId"><span class="hs-identifier hs-var hs-var">updateBackendAuth_appId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBackendAuth -&gt; Text)
+-&gt; (UpdateBackendAuth -&gt; Text -&gt; UpdateBackendAuth)
+-&gt; Lens UpdateBackendAuth UpdateBackendAuth Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth%27"><span class="hs-identifier hs-type">UpdateBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240873"><span class="annot"><span class="annottext">Text
+appId :: Text
+$sel:appId:UpdateBackendAuth' :: UpdateBackendAuth -&gt; Text
+</span><a href="#local-6989586621679240873"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240873"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240872"><span class="annot"><span class="annottext">s :: UpdateBackendAuth
+</span><a href="#local-6989586621679240872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth%27"><span class="hs-identifier hs-type">UpdateBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240871"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBackendAuth
+</span><a href="#local-6989586621679240872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:UpdateBackendAuth' :: Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AappId%3AUpdateBackendAuth%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The name of the backend environment.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuth_backendEnvironmentName"><span class="hs-identifier hs-type">updateBackendAuth_backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="updateBackendAuth_backendEnvironmentName"><span class="annot"><span class="annottext">updateBackendAuth_backendEnvironmentName :: (Text -&gt; f Text) -&gt; UpdateBackendAuth -&gt; f UpdateBackendAuth
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuth_backendEnvironmentName"><span class="hs-identifier hs-var hs-var">updateBackendAuth_backendEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBackendAuth -&gt; Text)
+-&gt; (UpdateBackendAuth -&gt; Text -&gt; UpdateBackendAuth)
+-&gt; Lens UpdateBackendAuth UpdateBackendAuth Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth%27"><span class="hs-identifier hs-type">UpdateBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240870"><span class="annot"><span class="annottext">Text
+backendEnvironmentName :: Text
+$sel:backendEnvironmentName:UpdateBackendAuth' :: UpdateBackendAuth -&gt; Text
+</span><a href="#local-6989586621679240870"><span class="hs-identifier hs-var hs-var">backendEnvironmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240870"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240869"><span class="annot"><span class="annottext">s :: UpdateBackendAuth
+</span><a href="#local-6989586621679240869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth%27"><span class="hs-identifier hs-type">UpdateBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240868"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBackendAuth
+</span><a href="#local-6989586621679240869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backendEnvironmentName:UpdateBackendAuth' :: Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AbackendEnvironmentName%3AUpdateBackendAuth%27"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The name of this resource.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuth_resourceName"><span class="hs-identifier hs-type">updateBackendAuth_resourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-119"></span><span id="updateBackendAuth_resourceName"><span class="annot"><span class="annottext">updateBackendAuth_resourceName :: (Text -&gt; f Text) -&gt; UpdateBackendAuth -&gt; f UpdateBackendAuth
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuth_resourceName"><span class="hs-identifier hs-var hs-var">updateBackendAuth_resourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBackendAuth -&gt; Text)
+-&gt; (UpdateBackendAuth -&gt; Text -&gt; UpdateBackendAuth)
+-&gt; Lens UpdateBackendAuth UpdateBackendAuth Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth%27"><span class="hs-identifier hs-type">UpdateBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240867"><span class="annot"><span class="annottext">Text
+resourceName :: Text
+$sel:resourceName:UpdateBackendAuth' :: UpdateBackendAuth -&gt; Text
+</span><a href="#local-6989586621679240867"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240867"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240866"><span class="annot"><span class="annottext">s :: UpdateBackendAuth
+</span><a href="#local-6989586621679240866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth%27"><span class="hs-identifier hs-type">UpdateBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240865"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBackendAuth
+</span><a href="#local-6989586621679240866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:UpdateBackendAuth' :: Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AresourceName%3AUpdateBackendAuth%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The resource configuration for this request object.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuth_resourceConfig"><span class="hs-identifier hs-type">updateBackendAuth_resourceConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.UpdateBackendAuthResourceConfig.html#UpdateBackendAuthResourceConfig"><span class="hs-identifier hs-type">UpdateBackendAuthResourceConfig</span></a></span><span>
+</span><span id="line-123"></span><span id="updateBackendAuth_resourceConfig"><span class="annot"><span class="annottext">updateBackendAuth_resourceConfig :: (UpdateBackendAuthResourceConfig
+ -&gt; f UpdateBackendAuthResourceConfig)
+-&gt; UpdateBackendAuth -&gt; f UpdateBackendAuth
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuth_resourceConfig"><span class="hs-identifier hs-var hs-var">updateBackendAuth_resourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBackendAuth -&gt; UpdateBackendAuthResourceConfig)
+-&gt; (UpdateBackendAuth
+    -&gt; UpdateBackendAuthResourceConfig -&gt; UpdateBackendAuth)
+-&gt; Lens
+     UpdateBackendAuth
+     UpdateBackendAuth
+     UpdateBackendAuthResourceConfig
+     UpdateBackendAuthResourceConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth%27"><span class="hs-identifier hs-type">UpdateBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240864"><span class="annot"><span class="annottext">UpdateBackendAuthResourceConfig
+resourceConfig :: UpdateBackendAuthResourceConfig
+$sel:resourceConfig:UpdateBackendAuth' :: UpdateBackendAuth -&gt; UpdateBackendAuthResourceConfig
+</span><a href="#local-6989586621679240864"><span class="hs-identifier hs-var hs-var">resourceConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBackendAuthResourceConfig
+</span><a href="#local-6989586621679240864"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240863"><span class="annot"><span class="annottext">s :: UpdateBackendAuth
+</span><a href="#local-6989586621679240863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth%27"><span class="hs-identifier hs-type">UpdateBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240862"><span class="annot"><span class="annottext">UpdateBackendAuthResourceConfig
+</span><a href="#local-6989586621679240862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBackendAuth
+</span><a href="#local-6989586621679240863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceConfig:UpdateBackendAuth' :: UpdateBackendAuthResourceConfig
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AresourceConfig%3AUpdateBackendAuth%27"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateBackendAuthResourceConfig
+</span><a href="#local-6989586621679240862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-127"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679240858"><span class="annot"><span class="annottext">request :: UpdateBackendAuth -&gt; Request UpdateBackendAuth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateBackendAuth -&gt; Request UpdateBackendAuth
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AmplifyBackend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679240854"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateBackendAuth
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateBackendAuth)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateBackendAuth))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateBackendAuth
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateBackendAuth)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679240851"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240851"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679240850"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679240850"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679240849"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240849"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateBackendAuthResponse
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-var">UpdateBackendAuthResponse'</span></a></span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; UpdateBackendAuthResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateBackendAuthResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateBackendAuthResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateBackendAuthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateBackendAuthResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateBackendAuthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateBackendAuthResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateBackendAuthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;error&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateBackendAuthResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; UpdateBackendAuthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;appId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; UpdateBackendAuthResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateBackendAuthResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;backendEnvironmentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateBackendAuthResponse)
+-&gt; Either String Int -&gt; Either String UpdateBackendAuthResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240851"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240841"><span id="local-6989586621679240843"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240838"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679240834"><span class="annot"><span class="annottext">toHeaders :: UpdateBackendAuth -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateBackendAuth -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-154"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240824"><span id="local-6989586621679240826"><span id="local-6989586621679240828"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679240822"><span class="annot"><span class="annottext">toJSON :: UpdateBackendAuth -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth%27"><span class="hs-identifier hs-type">UpdateBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240817"><span id="local-6989586621679240818"><span id="local-6989586621679240819"><span id="local-6989586621679240820"><span class="annot"><span class="annottext">Text
+UpdateBackendAuthResourceConfig
+resourceConfig :: UpdateBackendAuthResourceConfig
+resourceName :: Text
+backendEnvironmentName :: Text
+appId :: Text
+$sel:resourceConfig:UpdateBackendAuth' :: UpdateBackendAuth -&gt; UpdateBackendAuthResourceConfig
+$sel:resourceName:UpdateBackendAuth' :: UpdateBackendAuth -&gt; Text
+$sel:backendEnvironmentName:UpdateBackendAuth' :: UpdateBackendAuth -&gt; Text
+$sel:appId:UpdateBackendAuth' :: UpdateBackendAuth -&gt; Text
+</span><a href="#local-6989586621679240817"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-162"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240818"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-164"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UpdateBackendAuthResourceConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">UpdateBackendAuthResourceConfig
+</span><a href="#local-6989586621679240817"><span class="hs-identifier hs-var">resourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679240811"><span class="annot"><span class="annottext">toPath :: UpdateBackendAuth -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth%27"><span class="hs-identifier hs-type">UpdateBackendAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240806"><span id="local-6989586621679240807"><span id="local-6989586621679240808"><span id="local-6989586621679240809"><span class="annot"><span class="annottext">Text
+UpdateBackendAuthResourceConfig
+resourceConfig :: UpdateBackendAuthResourceConfig
+resourceName :: Text
+backendEnvironmentName :: Text
+appId :: Text
+$sel:resourceConfig:UpdateBackendAuth' :: UpdateBackendAuth -&gt; UpdateBackendAuthResourceConfig
+$sel:resourceName:UpdateBackendAuth' :: UpdateBackendAuth -&gt; Text
+$sel:backendEnvironmentName:UpdateBackendAuth' :: UpdateBackendAuth -&gt; Text
+$sel:appId:UpdateBackendAuth' :: UpdateBackendAuth -&gt; Text
+</span><a href="#local-6989586621679240806"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/backend/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240809"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/auth/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240808"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuth"><span class="hs-identifier hs-type">UpdateBackendAuth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679240802"><span class="annot"><span class="annottext">toQuery :: UpdateBackendAuth -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateBackendAuth -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | /See:/ 'newUpdateBackendAuthResponse' smart constructor.</span><span>
+</span><span id="line-181"></span><span id="local-6989586621679240799"><span id="local-6989586621679240800"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateBackendAuthResponse"><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-var">UpdateBackendAuthResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateBackendAuthResponse%27"><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-var">UpdateBackendAuthResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the request.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3Astatus%3AUpdateBackendAuthResponse%27"><span class="annot"><span class="annottext">UpdateBackendAuthResponse -&gt; Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3Astatus%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | The ID for the job.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AjobId%3AUpdateBackendAuthResponse%27"><span class="annot"><span class="annottext">UpdateBackendAuthResponse -&gt; Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AjobId%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The name of the operation.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3Aoperation%3AUpdateBackendAuthResponse%27"><span class="annot"><span class="annottext">UpdateBackendAuthResponse -&gt; Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3Aoperation%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | If the request fails, this error is returned.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3Aerror%3AUpdateBackendAuthResponse%27"><span class="annot"><span class="annottext">UpdateBackendAuthResponse -&gt; Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3Aerror%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- | The app ID.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AappId%3AUpdateBackendAuthResponse%27"><span class="annot"><span class="annottext">UpdateBackendAuthResponse -&gt; Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AappId%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The name of the backend environment.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AbackendEnvironmentName%3AUpdateBackendAuthResponse%27"><span class="annot"><span class="annottext">UpdateBackendAuthResponse -&gt; Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AbackendEnvironmentName%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var hs-var">backendEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateBackendAuthResponse%27"><span class="annot"><span class="annottext">UpdateBackendAuthResponse -&gt; Int
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AhttpStatus%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679240788"><span id="local-6989586621679240790"><span class="annot"><span class="annottext">UpdateBackendAuthResponse -&gt; UpdateBackendAuthResponse -&gt; Bool
+(UpdateBackendAuthResponse -&gt; UpdateBackendAuthResponse -&gt; Bool)
+-&gt; (UpdateBackendAuthResponse -&gt; UpdateBackendAuthResponse -&gt; Bool)
+-&gt; Eq UpdateBackendAuthResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateBackendAuthResponse -&gt; UpdateBackendAuthResponse -&gt; Bool
+$c/= :: UpdateBackendAuthResponse -&gt; UpdateBackendAuthResponse -&gt; Bool
+== :: UpdateBackendAuthResponse -&gt; UpdateBackendAuthResponse -&gt; Bool
+$c== :: UpdateBackendAuthResponse -&gt; UpdateBackendAuthResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240780"><span id="local-6989586621679240782"><span id="local-6989586621679240784"><span id="local-6989586621679240786"><span class="annot"><span class="annottext">ReadPrec [UpdateBackendAuthResponse]
+ReadPrec UpdateBackendAuthResponse
+Int -&gt; ReadS UpdateBackendAuthResponse
+ReadS [UpdateBackendAuthResponse]
+(Int -&gt; ReadS UpdateBackendAuthResponse)
+-&gt; ReadS [UpdateBackendAuthResponse]
+-&gt; ReadPrec UpdateBackendAuthResponse
+-&gt; ReadPrec [UpdateBackendAuthResponse]
+-&gt; Read UpdateBackendAuthResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateBackendAuthResponse]
+$creadListPrec :: ReadPrec [UpdateBackendAuthResponse]
+readPrec :: ReadPrec UpdateBackendAuthResponse
+$creadPrec :: ReadPrec UpdateBackendAuthResponse
+readList :: ReadS [UpdateBackendAuthResponse]
+$creadList :: ReadS [UpdateBackendAuthResponse]
+readsPrec :: Int -&gt; ReadS UpdateBackendAuthResponse
+$creadsPrec :: Int -&gt; ReadS UpdateBackendAuthResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240774"><span id="local-6989586621679240776"><span id="local-6989586621679240778"><span class="annot"><span class="annottext">Int -&gt; UpdateBackendAuthResponse -&gt; ShowS
+[UpdateBackendAuthResponse] -&gt; ShowS
+UpdateBackendAuthResponse -&gt; String
+(Int -&gt; UpdateBackendAuthResponse -&gt; ShowS)
+-&gt; (UpdateBackendAuthResponse -&gt; String)
+-&gt; ([UpdateBackendAuthResponse] -&gt; ShowS)
+-&gt; Show UpdateBackendAuthResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateBackendAuthResponse] -&gt; ShowS
+$cshowList :: [UpdateBackendAuthResponse] -&gt; ShowS
+show :: UpdateBackendAuthResponse -&gt; String
+$cshow :: UpdateBackendAuthResponse -&gt; String
+showsPrec :: Int -&gt; UpdateBackendAuthResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateBackendAuthResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateBackendAuthResponse -&gt; Rep UpdateBackendAuthResponse x)
+-&gt; (forall x.
+    Rep UpdateBackendAuthResponse x -&gt; UpdateBackendAuthResponse)
+-&gt; Generic UpdateBackendAuthResponse
+forall x.
+Rep UpdateBackendAuthResponse x -&gt; UpdateBackendAuthResponse
+forall x.
+UpdateBackendAuthResponse -&gt; Rep UpdateBackendAuthResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateBackendAuthResponse x -&gt; UpdateBackendAuthResponse
+$cfrom :: forall x.
+UpdateBackendAuthResponse -&gt; Rep UpdateBackendAuthResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Create a value of 'UpdateBackendAuthResponse' with all optional fields omitted.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'status', 'updateBackendAuthResponse_status' - The current status of the request.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'jobId', 'updateBackendAuthResponse_jobId' - The ID for the job.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'operation', 'updateBackendAuthResponse_operation' - The name of the operation.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'error', 'updateBackendAuthResponse_error' - If the request fails, this error is returned.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'appId', 'updateBackendAuthResponse_appId' - The app ID.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'backendEnvironmentName', 'updateBackendAuthResponse_backendEnvironmentName' - The name of the backend environment.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'httpStatus', 'updateBackendAuthResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#newUpdateBackendAuthResponse"><span class="hs-identifier hs-type">newUpdateBackendAuthResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span><span>
+</span><span id="line-224"></span><span id="newUpdateBackendAuthResponse"><span class="annot"><span class="annottext">newUpdateBackendAuthResponse :: Int -&gt; UpdateBackendAuthResponse
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#newUpdateBackendAuthResponse"><span class="hs-identifier hs-var hs-var">newUpdateBackendAuthResponse</span></a></span></span><span> </span><span id="local-6989586621679240771"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240771"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="annottext">UpdateBackendAuthResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateBackendAuthResponse
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-type">UpdateBackendAuthResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:UpdateBackendAuthResponse' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3Astatus%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:UpdateBackendAuthResponse' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AjobId%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:operation:UpdateBackendAuthResponse' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3Aoperation%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:error:UpdateBackendAuthResponse' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3Aerror%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:appId:UpdateBackendAuthResponse' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AappId%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:backendEnvironmentName:UpdateBackendAuthResponse' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AbackendEnvironmentName%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateBackendAuthResponse' :: Int
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AhttpStatus%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240771"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The current status of the request.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_status"><span class="hs-identifier hs-type">updateBackendAuthResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="updateBackendAuthResponse_status"><span class="annot"><span class="annottext">updateBackendAuthResponse_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateBackendAuthResponse -&gt; f UpdateBackendAuthResponse
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_status"><span class="hs-identifier hs-var hs-var">updateBackendAuthResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBackendAuthResponse -&gt; Maybe Text)
+-&gt; (UpdateBackendAuthResponse
+    -&gt; Maybe Text -&gt; UpdateBackendAuthResponse)
+-&gt; Lens
+     UpdateBackendAuthResponse
+     UpdateBackendAuthResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-type">UpdateBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240770"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:UpdateBackendAuthResponse' :: UpdateBackendAuthResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679240770"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240770"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240769"><span class="annot"><span class="annottext">s :: UpdateBackendAuthResponse
+</span><a href="#local-6989586621679240769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-type">UpdateBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240768"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBackendAuthResponse
+</span><a href="#local-6989586621679240769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdateBackendAuthResponse' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3Astatus%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The ID for the job.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_jobId"><span class="hs-identifier hs-type">updateBackendAuthResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="updateBackendAuthResponse_jobId"><span class="annot"><span class="annottext">updateBackendAuthResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateBackendAuthResponse -&gt; f UpdateBackendAuthResponse
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_jobId"><span class="hs-identifier hs-var hs-var">updateBackendAuthResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBackendAuthResponse -&gt; Maybe Text)
+-&gt; (UpdateBackendAuthResponse
+    -&gt; Maybe Text -&gt; UpdateBackendAuthResponse)
+-&gt; Lens
+     UpdateBackendAuthResponse
+     UpdateBackendAuthResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-type">UpdateBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240767"><span class="annot"><span class="annottext">Maybe Text
+jobId :: Maybe Text
+$sel:jobId:UpdateBackendAuthResponse' :: UpdateBackendAuthResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679240767"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240767"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240766"><span class="annot"><span class="annottext">s :: UpdateBackendAuthResponse
+</span><a href="#local-6989586621679240766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-type">UpdateBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240765"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBackendAuthResponse
+</span><a href="#local-6989586621679240766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:UpdateBackendAuthResponse' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AjobId%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The name of the operation.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_operation"><span class="hs-identifier hs-type">updateBackendAuthResponse_operation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="updateBackendAuthResponse_operation"><span class="annot"><span class="annottext">updateBackendAuthResponse_operation :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateBackendAuthResponse -&gt; f UpdateBackendAuthResponse
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_operation"><span class="hs-identifier hs-var hs-var">updateBackendAuthResponse_operation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBackendAuthResponse -&gt; Maybe Text)
+-&gt; (UpdateBackendAuthResponse
+    -&gt; Maybe Text -&gt; UpdateBackendAuthResponse)
+-&gt; Lens
+     UpdateBackendAuthResponse
+     UpdateBackendAuthResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-type">UpdateBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240764"><span class="annot"><span class="annottext">Maybe Text
+operation :: Maybe Text
+$sel:operation:UpdateBackendAuthResponse' :: UpdateBackendAuthResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679240764"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240764"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240763"><span class="annot"><span class="annottext">s :: UpdateBackendAuthResponse
+</span><a href="#local-6989586621679240763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-type">UpdateBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240762"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBackendAuthResponse
+</span><a href="#local-6989586621679240763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:UpdateBackendAuthResponse' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3Aoperation%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | If the request fails, this error is returned.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_error"><span class="hs-identifier hs-type">updateBackendAuthResponse_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="updateBackendAuthResponse_error"><span class="annot"><span class="annottext">updateBackendAuthResponse_error :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateBackendAuthResponse -&gt; f UpdateBackendAuthResponse
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_error"><span class="hs-identifier hs-var hs-var">updateBackendAuthResponse_error</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBackendAuthResponse -&gt; Maybe Text)
+-&gt; (UpdateBackendAuthResponse
+    -&gt; Maybe Text -&gt; UpdateBackendAuthResponse)
+-&gt; Lens
+     UpdateBackendAuthResponse
+     UpdateBackendAuthResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-type">UpdateBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240761"><span class="annot"><span class="annottext">Maybe Text
+error :: Maybe Text
+$sel:error:UpdateBackendAuthResponse' :: UpdateBackendAuthResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679240761"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240761"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240760"><span class="annot"><span class="annottext">s :: UpdateBackendAuthResponse
+</span><a href="#local-6989586621679240760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-type">UpdateBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240759"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBackendAuthResponse
+</span><a href="#local-6989586621679240760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:UpdateBackendAuthResponse' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3Aerror%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The app ID.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_appId"><span class="hs-identifier hs-type">updateBackendAuthResponse_appId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="updateBackendAuthResponse_appId"><span class="annot"><span class="annottext">updateBackendAuthResponse_appId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateBackendAuthResponse -&gt; f UpdateBackendAuthResponse
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_appId"><span class="hs-identifier hs-var hs-var">updateBackendAuthResponse_appId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBackendAuthResponse -&gt; Maybe Text)
+-&gt; (UpdateBackendAuthResponse
+    -&gt; Maybe Text -&gt; UpdateBackendAuthResponse)
+-&gt; Lens
+     UpdateBackendAuthResponse
+     UpdateBackendAuthResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-type">UpdateBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240758"><span class="annot"><span class="annottext">Maybe Text
+appId :: Maybe Text
+$sel:appId:UpdateBackendAuthResponse' :: UpdateBackendAuthResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679240758"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240758"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240757"><span class="annot"><span class="annottext">s :: UpdateBackendAuthResponse
+</span><a href="#local-6989586621679240757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-type">UpdateBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240756"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBackendAuthResponse
+</span><a href="#local-6989586621679240757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:UpdateBackendAuthResponse' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AappId%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The name of the backend environment.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_backendEnvironmentName"><span class="hs-identifier hs-type">updateBackendAuthResponse_backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="updateBackendAuthResponse_backendEnvironmentName"><span class="annot"><span class="annottext">updateBackendAuthResponse_backendEnvironmentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateBackendAuthResponse -&gt; f UpdateBackendAuthResponse
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_backendEnvironmentName"><span class="hs-identifier hs-var hs-var">updateBackendAuthResponse_backendEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBackendAuthResponse -&gt; Maybe Text)
+-&gt; (UpdateBackendAuthResponse
+    -&gt; Maybe Text -&gt; UpdateBackendAuthResponse)
+-&gt; Lens
+     UpdateBackendAuthResponse
+     UpdateBackendAuthResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-type">UpdateBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240755"><span class="annot"><span class="annottext">Maybe Text
+backendEnvironmentName :: Maybe Text
+$sel:backendEnvironmentName:UpdateBackendAuthResponse' :: UpdateBackendAuthResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679240755"><span class="hs-identifier hs-var hs-var">backendEnvironmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240755"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240754"><span class="annot"><span class="annottext">s :: UpdateBackendAuthResponse
+</span><a href="#local-6989586621679240754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-type">UpdateBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240753"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBackendAuthResponse
+</span><a href="#local-6989586621679240754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backendEnvironmentName:UpdateBackendAuthResponse' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AbackendEnvironmentName%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_httpStatus"><span class="hs-identifier hs-type">updateBackendAuthResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-262"></span><span id="updateBackendAuthResponse_httpStatus"><span class="annot"><span class="annottext">updateBackendAuthResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateBackendAuthResponse -&gt; f UpdateBackendAuthResponse
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#updateBackendAuthResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateBackendAuthResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateBackendAuthResponse -&gt; Int)
+-&gt; (UpdateBackendAuthResponse -&gt; Int -&gt; UpdateBackendAuthResponse)
+-&gt; Lens UpdateBackendAuthResponse UpdateBackendAuthResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-type">UpdateBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240752"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateBackendAuthResponse' :: UpdateBackendAuthResponse -&gt; Int
+</span><a href="#local-6989586621679240752"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240752"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240751"><span class="annot"><span class="annottext">s :: UpdateBackendAuthResponse
+</span><a href="#local-6989586621679240751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse%27"><span class="hs-identifier hs-type">UpdateBackendAuthResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240750"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBackendAuthResponse
+</span><a href="#local-6989586621679240751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateBackendAuthResponse' :: Int
+</span><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#%24sel%3AhttpStatus%3AUpdateBackendAuthResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679240750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240748"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.UpdateBackendAuth.html#UpdateBackendAuthResponse"><span class="hs-identifier hs-type">UpdateBackendAuthResponse</span></a></span></span><span>
+</span><span id="line-265"></span></pre></body></html>

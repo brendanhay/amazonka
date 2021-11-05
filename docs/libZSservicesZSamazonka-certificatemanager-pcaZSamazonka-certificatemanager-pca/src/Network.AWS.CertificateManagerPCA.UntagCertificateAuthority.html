@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUntagCertificateAuthority' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679218478"><span id="local-6989586621679218479"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagCertificateAuthority"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-var">UntagCertificateAuthority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagCertificateAuthority%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority%27"><span class="hs-identifier hs-var">UntagCertificateAuthority'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679218487"><span id="local-6989586621679218488"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagCertificateAuthority"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-var">UntagCertificateAuthority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagCertificateAuthority%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority%27"><span class="hs-identifier hs-var">UntagCertificateAuthority'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that was returned when you called</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority&gt;.</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- This must be of the form:</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3Atags%3AUntagCertificateAuthority%27"><span class="annot"><span class="annottext">UntagCertificateAuthority -&gt; NonEmpty Tag
 </span><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#%24sel%3Atags%3AUntagCertificateAuthority%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218471"><span id="local-6989586621679218473"><span class="annot"><span class="annottext">UntagCertificateAuthority -&gt; UntagCertificateAuthority -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218480"><span id="local-6989586621679218482"><span class="annot"><span class="annottext">UntagCertificateAuthority -&gt; UntagCertificateAuthority -&gt; Bool
 (UntagCertificateAuthority -&gt; UntagCertificateAuthority -&gt; Bool)
 -&gt; (UntagCertificateAuthority -&gt; UntagCertificateAuthority -&gt; Bool)
 -&gt; Eq UntagCertificateAuthority
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UntagCertificateAuthority -&gt; UntagCertificateAuthority -&gt; Bool
 == :: UntagCertificateAuthority -&gt; UntagCertificateAuthority -&gt; Bool
 $c== :: UntagCertificateAuthority -&gt; UntagCertificateAuthority -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218462"><span id="local-6989586621679218464"><span id="local-6989586621679218466"><span id="local-6989586621679218468"><span class="annot"><span class="annottext">ReadPrec [UntagCertificateAuthority]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218471"><span id="local-6989586621679218473"><span id="local-6989586621679218475"><span id="local-6989586621679218477"><span class="annot"><span class="annottext">ReadPrec [UntagCertificateAuthority]
 ReadPrec UntagCertificateAuthority
 Int -&gt; ReadS UntagCertificateAuthority
 ReadS [UntagCertificateAuthority]
@@ -93,7 +93,7 @@ readList :: ReadS [UntagCertificateAuthority]
 $creadList :: ReadS [UntagCertificateAuthority]
 readsPrec :: Int -&gt; ReadS UntagCertificateAuthority
 $creadsPrec :: Int -&gt; ReadS UntagCertificateAuthority
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218455"><span id="local-6989586621679218457"><span id="local-6989586621679218459"><span class="annot"><span class="annottext">Int -&gt; UntagCertificateAuthority -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218464"><span id="local-6989586621679218466"><span id="local-6989586621679218468"><span class="annot"><span class="annottext">Int -&gt; UntagCertificateAuthority -&gt; ShowS
 [UntagCertificateAuthority] -&gt; ShowS
 UntagCertificateAuthority -&gt; String
 (Int -&gt; UntagCertificateAuthority -&gt; ShowS)
@@ -148,16 +148,16 @@ UntagCertificateAuthority -&gt; Rep UntagCertificateAuthority x
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-type">UntagCertificateAuthority</span></a></span><span>
 </span><span id="line-88"></span><span id="newUntagCertificateAuthority"><span class="annot"><span class="annottext">newUntagCertificateAuthority :: Text -&gt; NonEmpty Tag -&gt; UntagCertificateAuthority
 </span><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#newUntagCertificateAuthority"><span class="hs-identifier hs-var hs-var">newUntagCertificateAuthority</span></a></span></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679218450"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679218450"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679218449"><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679218449"><span class="hs-identifier hs-var">pTags_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679218459"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679218459"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679218458"><span class="annot"><span class="annottext">NonEmpty Tag
+</span><a href="#local-6989586621679218458"><span class="hs-identifier hs-var">pTags_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">UntagCertificateAuthority' :: Text -&gt; NonEmpty Tag -&gt; UntagCertificateAuthority
 </span><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority%27"><span class="hs-identifier hs-type">UntagCertificateAuthority'</span></a></span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:UntagCertificateAuthority' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#%24sel%3AcertificateAuthorityArn%3AUntagCertificateAuthority%27"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679218450"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679218459"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:UntagCertificateAuthority' :: NonEmpty Tag
 </span><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#%24sel%3Atags%3AUntagCertificateAuthority%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Tag) (Identity (NonEmpty Tag))
 -&gt; Tagged (NonEmpty Tag) (Identity (NonEmpty Tag))
@@ -167,7 +167,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Tag -&gt; NonEmpty Tag
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679218449"><span class="hs-identifier hs-var">pTags_</span></a></span><span>
+</span><a href="#local-6989586621679218458"><span class="hs-identifier hs-var">pTags_</span></a></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that was returned when you called</span><span>
@@ -183,16 +183,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      UntagCertificateAuthority UntagCertificateAuthority Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority%27"><span class="hs-identifier hs-type">UntagCertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218444"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority%27"><span class="hs-identifier hs-type">UntagCertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218453"><span class="annot"><span class="annottext">Text
 certificateAuthorityArn :: Text
 $sel:certificateAuthorityArn:UntagCertificateAuthority' :: UntagCertificateAuthority -&gt; Text
-</span><a href="#local-6989586621679218444"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679218444"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218443"><span class="annot"><span class="annottext">s :: UntagCertificateAuthority
-</span><a href="#local-6989586621679218443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority%27"><span class="hs-identifier hs-type">UntagCertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218442"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679218442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagCertificateAuthority
-</span><a href="#local-6989586621679218443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:UntagCertificateAuthority' :: Text
+</span><a href="#local-6989586621679218453"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679218453"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218452"><span class="annot"><span class="annottext">s :: UntagCertificateAuthority
+</span><a href="#local-6989586621679218452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority%27"><span class="hs-identifier hs-type">UntagCertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218451"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679218451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagCertificateAuthority
+</span><a href="#local-6989586621679218452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:UntagCertificateAuthority' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#%24sel%3AcertificateAuthorityArn%3AUntagCertificateAuthority%27"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679218442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-type">UntagCertificateAuthority</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679218451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-type">UntagCertificateAuthority</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | List of tags to be removed from the CA.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#untagCertificateAuthority_tags"><span class="hs-identifier hs-type">untagCertificateAuthority_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-type">UntagCertificateAuthority</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
@@ -207,16 +207,16 @@ $sel:certificateAuthorityArn:UntagCertificateAuthority' :: UntagCertificateAutho
      (NonEmpty Tag)
      (NonEmpty Tag)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority%27"><span class="hs-identifier hs-type">UntagCertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218441"><span class="annot"><span class="annottext">NonEmpty Tag
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority%27"><span class="hs-identifier hs-type">UntagCertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218450"><span class="annot"><span class="annottext">NonEmpty Tag
 tags :: NonEmpty Tag
 $sel:tags:UntagCertificateAuthority' :: UntagCertificateAuthority -&gt; NonEmpty Tag
-</span><a href="#local-6989586621679218441"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679218441"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218440"><span class="annot"><span class="annottext">s :: UntagCertificateAuthority
-</span><a href="#local-6989586621679218440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority%27"><span class="hs-identifier hs-type">UntagCertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218439"><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679218439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagCertificateAuthority
-</span><a href="#local-6989586621679218440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:UntagCertificateAuthority' :: NonEmpty Tag
+</span><a href="#local-6989586621679218450"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
+</span><a href="#local-6989586621679218450"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218449"><span class="annot"><span class="annottext">s :: UntagCertificateAuthority
+</span><a href="#local-6989586621679218449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority%27"><span class="hs-identifier hs-type">UntagCertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218448"><span class="annot"><span class="annottext">NonEmpty Tag
+</span><a href="#local-6989586621679218448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagCertificateAuthority
+</span><a href="#local-6989586621679218449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:UntagCertificateAuthority' :: NonEmpty Tag
 </span><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#%24sel%3Atags%3AUntagCertificateAuthority%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679218439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-type">UntagCertificateAuthority</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Tag -&gt; f (NonEmpty Tag))
+</span><a href="#local-6989586621679218448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-type">UntagCertificateAuthority</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Tag -&gt; f (NonEmpty Tag))
  -&gt; UntagCertificateAuthority -&gt; f UntagCertificateAuthority)
 -&gt; ((NonEmpty Tag -&gt; f (NonEmpty Tag))
     -&gt; NonEmpty Tag -&gt; f (NonEmpty Tag))
@@ -233,13 +233,13 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-type">UntagCertificateAuthority</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthorityResponse"><span class="hs-identifier hs-type">UntagCertificateAuthorityResponse</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679218434"><span class="annot"><span class="annottext">request :: UntagCertificateAuthority -&gt; Request UntagCertificateAuthority
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679218443"><span class="annot"><span class="annottext">request :: UntagCertificateAuthority -&gt; Request UntagCertificateAuthority
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; UntagCertificateAuthority -&gt; Request UntagCertificateAuthority
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CertificateManagerPCA.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679218430"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679218439"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UntagCertificateAuthority
 -&gt; ClientResponse ClientBody
@@ -266,12 +266,12 @@ AWSResponse a
 UntagCertificateAuthorityResponse
 </span><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthorityResponse%27"><span class="hs-identifier hs-var">UntagCertificateAuthorityResponse'</span></a></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218423"><span id="local-6989586621679218425"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-type">UntagCertificateAuthority</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218432"><span id="local-6989586621679218434"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-type">UntagCertificateAuthority</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218420"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-type">UntagCertificateAuthority</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218429"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-type">UntagCertificateAuthority</span></a></span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-type">UntagCertificateAuthority</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679218416"><span class="annot"><span class="annottext">toHeaders :: UntagCertificateAuthority -&gt; [Header]
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679218425"><span class="annot"><span class="annottext">toHeaders :: UntagCertificateAuthority -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UntagCertificateAuthority -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -298,15 +298,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218406"><span id="local-6989586621679218408"><span id="local-6989586621679218410"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-type">UntagCertificateAuthority</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679218404"><span class="annot"><span class="annottext">toJSON :: UntagCertificateAuthority -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority%27"><span class="hs-identifier hs-type">UntagCertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218401"><span id="local-6989586621679218402"><span class="annot"><span class="annottext">NonEmpty Tag
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218415"><span id="local-6989586621679218417"><span id="local-6989586621679218419"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-type">UntagCertificateAuthority</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679218413"><span class="annot"><span class="annottext">toJSON :: UntagCertificateAuthority -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority%27"><span class="hs-identifier hs-type">UntagCertificateAuthority'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218410"><span id="local-6989586621679218411"><span class="annot"><span class="annottext">NonEmpty Tag
 Text
 tags :: NonEmpty Tag
 certificateAuthorityArn :: Text
 $sel:tags:UntagCertificateAuthority' :: UntagCertificateAuthority -&gt; NonEmpty Tag
 $sel:certificateAuthorityArn:UntagCertificateAuthority' :: UntagCertificateAuthority -&gt; Text
-</span><a href="#local-6989586621679218401"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679218410"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -320,7 +320,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-143"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679218402"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span>
+</span><a href="#local-6989586621679218411"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span>
 </span><span id="line-144"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -328,19 +328,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Tag -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Tag
-</span><a href="#local-6989586621679218401"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679218410"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-type">UntagCertificateAuthority</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679218395"><span class="annot"><span class="annottext">toPath :: UntagCertificateAuthority -&gt; ByteString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679218404"><span class="annot"><span class="annottext">toPath :: UntagCertificateAuthority -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UntagCertificateAuthority -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthority"><span class="hs-identifier hs-type">UntagCertificateAuthority</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679218391"><span class="annot"><span class="annottext">toQuery :: UntagCertificateAuthority -&gt; QueryString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679218400"><span class="annot"><span class="annottext">toQuery :: UntagCertificateAuthority -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UntagCertificateAuthority -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -348,10 +348,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | /See:/ 'newUntagCertificateAuthorityResponse' smart constructor.</span><span>
-</span><span id="line-156"></span><span id="local-6989586621679218388"><span id="local-6989586621679218389"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagCertificateAuthorityResponse"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthorityResponse"><span class="hs-identifier hs-var">UntagCertificateAuthorityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagCertificateAuthorityResponse%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthorityResponse%27"><span class="hs-identifier hs-var">UntagCertificateAuthorityResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span id="local-6989586621679218397"><span id="local-6989586621679218398"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagCertificateAuthorityResponse"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthorityResponse"><span class="hs-identifier hs-var">UntagCertificateAuthorityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagCertificateAuthorityResponse%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthorityResponse%27"><span class="hs-identifier hs-var">UntagCertificateAuthorityResponse'</span></a></span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218384"><span id="local-6989586621679218386"><span class="annot"><span class="annottext">UntagCertificateAuthorityResponse
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218393"><span id="local-6989586621679218395"><span class="annot"><span class="annottext">UntagCertificateAuthorityResponse
 -&gt; UntagCertificateAuthorityResponse -&gt; Bool
 (UntagCertificateAuthorityResponse
  -&gt; UntagCertificateAuthorityResponse -&gt; Bool)
@@ -367,7 +367,7 @@ $c/= :: UntagCertificateAuthorityResponse
 -&gt; UntagCertificateAuthorityResponse -&gt; Bool
 $c== :: UntagCertificateAuthorityResponse
 -&gt; UntagCertificateAuthorityResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218376"><span id="local-6989586621679218378"><span id="local-6989586621679218380"><span id="local-6989586621679218382"><span class="annot"><span class="annottext">ReadPrec [UntagCertificateAuthorityResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218385"><span id="local-6989586621679218387"><span id="local-6989586621679218389"><span id="local-6989586621679218391"><span class="annot"><span class="annottext">ReadPrec [UntagCertificateAuthorityResponse]
 ReadPrec UntagCertificateAuthorityResponse
 Int -&gt; ReadS UntagCertificateAuthorityResponse
 ReadS [UntagCertificateAuthorityResponse]
@@ -387,7 +387,7 @@ readList :: ReadS [UntagCertificateAuthorityResponse]
 $creadList :: ReadS [UntagCertificateAuthorityResponse]
 readsPrec :: Int -&gt; ReadS UntagCertificateAuthorityResponse
 $creadsPrec :: Int -&gt; ReadS UntagCertificateAuthorityResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218370"><span id="local-6989586621679218372"><span id="local-6989586621679218374"><span class="annot"><span class="annottext">Int -&gt; UntagCertificateAuthorityResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218379"><span id="local-6989586621679218381"><span id="local-6989586621679218383"><span class="annot"><span class="annottext">Int -&gt; UntagCertificateAuthorityResponse -&gt; ShowS
 [UntagCertificateAuthorityResponse] -&gt; ShowS
 UntagCertificateAuthorityResponse -&gt; String
 (Int -&gt; UntagCertificateAuthorityResponse -&gt; ShowS)
@@ -437,6 +437,6 @@ UntagCertificateAuthorityResponse
 </span><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthorityResponse%27"><span class="hs-identifier hs-var">UntagCertificateAuthorityResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679218366"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679218375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.UntagCertificateAuthority.html#UntagCertificateAuthorityResponse"><span class="hs-identifier hs-type">UntagCertificateAuthorityResponse</span></a></span></span><span>
 </span><span id="line-173"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- waits for the job to finish or fail.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newHadoopJarStepConfig' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679371971"><span id="local-6989586621679371972"></span></span><span class="hs-keyword">data</span><span> </span><span id="HadoopJarStepConfig"><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-var">HadoopJarStepConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HadoopJarStepConfig%27"><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-var">HadoopJarStepConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679371980"><span id="local-6989586621679371981"></span></span><span class="hs-keyword">data</span><span> </span><span id="HadoopJarStepConfig"><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-var">HadoopJarStepConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HadoopJarStepConfig%27"><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-var">HadoopJarStepConfig'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of command line arguments passed to the JAR file\'s main function</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- when executed.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aargs%3AHadoopJarStepConfig%27"><span class="annot"><span class="annottext">HadoopJarStepConfig -&gt; Maybe [Text]
@@ -46,7 +46,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Ajar%3AHadoopJarStepConfig%27"><span class="annot"><span class="annottext">HadoopJarStepConfig -&gt; Text
 </span><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#%24sel%3Ajar%3AHadoopJarStepConfig%27"><span class="hs-identifier hs-var hs-var">jar</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371962"><span id="local-6989586621679371964"><span class="annot"><span class="annottext">HadoopJarStepConfig -&gt; HadoopJarStepConfig -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371971"><span id="local-6989586621679371973"><span class="annot"><span class="annottext">HadoopJarStepConfig -&gt; HadoopJarStepConfig -&gt; Bool
 (HadoopJarStepConfig -&gt; HadoopJarStepConfig -&gt; Bool)
 -&gt; (HadoopJarStepConfig -&gt; HadoopJarStepConfig -&gt; Bool)
 -&gt; Eq HadoopJarStepConfig
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HadoopJarStepConfig -&gt; HadoopJarStepConfig -&gt; Bool
 == :: HadoopJarStepConfig -&gt; HadoopJarStepConfig -&gt; Bool
 $c== :: HadoopJarStepConfig -&gt; HadoopJarStepConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371953"><span id="local-6989586621679371955"><span id="local-6989586621679371957"><span id="local-6989586621679371959"><span class="annot"><span class="annottext">ReadPrec [HadoopJarStepConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371962"><span id="local-6989586621679371964"><span id="local-6989586621679371966"><span id="local-6989586621679371968"><span class="annot"><span class="annottext">ReadPrec [HadoopJarStepConfig]
 ReadPrec HadoopJarStepConfig
 Int -&gt; ReadS HadoopJarStepConfig
 ReadS [HadoopJarStepConfig]
@@ -75,7 +75,7 @@ readList :: ReadS [HadoopJarStepConfig]
 $creadList :: ReadS [HadoopJarStepConfig]
 readsPrec :: Int -&gt; ReadS HadoopJarStepConfig
 $creadsPrec :: Int -&gt; ReadS HadoopJarStepConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371946"><span id="local-6989586621679371948"><span id="local-6989586621679371950"><span class="annot"><span class="annottext">Int -&gt; HadoopJarStepConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371955"><span id="local-6989586621679371957"><span id="local-6989586621679371959"><span class="annot"><span class="annottext">Int -&gt; HadoopJarStepConfig -&gt; ShowS
 [HadoopJarStepConfig] -&gt; ShowS
 HadoopJarStepConfig -&gt; String
 (Int -&gt; HadoopJarStepConfig -&gt; ShowS)
@@ -124,8 +124,8 @@ $cfrom :: forall x. HadoopJarStepConfig -&gt; Rep HadoopJarStepConfig x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span><span>
 </span><span id="line-69"></span><span id="newHadoopJarStepConfig"><span class="annot"><span class="annottext">newHadoopJarStepConfig :: Text -&gt; HadoopJarStepConfig
-</span><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#newHadoopJarStepConfig"><span class="hs-identifier hs-var hs-var">newHadoopJarStepConfig</span></a></span></span><span> </span><span id="local-6989586621679371940"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371940"><span class="hs-identifier hs-var">pJar_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#newHadoopJarStepConfig"><span class="hs-identifier hs-var hs-var">newHadoopJarStepConfig</span></a></span></span><span> </span><span id="local-6989586621679371949"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371949"><span class="hs-identifier hs-var">pJar_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">HadoopJarStepConfig' :: Maybe [Text]
 -&gt; Maybe Text -&gt; Maybe [KeyValue] -&gt; Text -&gt; HadoopJarStepConfig
 </span><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span>
@@ -143,7 +143,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:jar:HadoopJarStepConfig' :: Text
 </span><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#%24sel%3Ajar%3AHadoopJarStepConfig%27"><span class="hs-identifier hs-var">jar</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371940"><span class="hs-identifier hs-var">pJar_</span></a></span><span>
+</span><a href="#local-6989586621679371949"><span class="hs-identifier hs-var">pJar_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | A list of command line arguments passed to the JAR file\'s main function</span><span>
@@ -159,16 +159,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371936"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371945"><span class="annot"><span class="annottext">Maybe [Text]
 args :: Maybe [Text]
 $sel:args:HadoopJarStepConfig' :: HadoopJarStepConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679371936"><span class="hs-identifier hs-var hs-var">args</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679371936"><span class="hs-identifier hs-var">args</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371935"><span class="annot"><span class="annottext">s :: HadoopJarStepConfig
-</span><a href="#local-6989586621679371935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371934"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679371934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopJarStepConfig
-</span><a href="#local-6989586621679371935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:args:HadoopJarStepConfig' :: Maybe [Text]
+</span><a href="#local-6989586621679371945"><span class="hs-identifier hs-var hs-var">args</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679371945"><span class="hs-identifier hs-var">args</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371944"><span class="annot"><span class="annottext">s :: HadoopJarStepConfig
+</span><a href="#local-6989586621679371944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371943"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679371943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopJarStepConfig
+</span><a href="#local-6989586621679371944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:args:HadoopJarStepConfig' :: Maybe [Text]
 </span><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#%24sel%3Aargs%3AHadoopJarStepConfig%27"><span class="hs-identifier hs-var">args</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679371934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679371943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; HadoopJarStepConfig -&gt; f HadoopJarStepConfig)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -195,16 +195,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      HadoopJarStepConfig HadoopJarStepConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371929"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371938"><span class="annot"><span class="annottext">Maybe Text
 mainClass :: Maybe Text
 $sel:mainClass:HadoopJarStepConfig' :: HadoopJarStepConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679371929"><span class="hs-identifier hs-var hs-var">mainClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371929"><span class="hs-identifier hs-var">mainClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371928"><span class="annot"><span class="annottext">s :: HadoopJarStepConfig
-</span><a href="#local-6989586621679371928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371927"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopJarStepConfig
-</span><a href="#local-6989586621679371928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mainClass:HadoopJarStepConfig' :: Maybe Text
+</span><a href="#local-6989586621679371938"><span class="hs-identifier hs-var hs-var">mainClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371938"><span class="hs-identifier hs-var">mainClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371937"><span class="annot"><span class="annottext">s :: HadoopJarStepConfig
+</span><a href="#local-6989586621679371937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371936"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopJarStepConfig
+</span><a href="#local-6989586621679371937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mainClass:HadoopJarStepConfig' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#%24sel%3AmainClass%3AHadoopJarStepConfig%27"><span class="hs-identifier hs-var">mainClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | A list of Java properties that are set when the step runs. You can use</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- these properties to pass key-value pairs to your main function.</span><span>
@@ -219,16 +219,16 @@ $sel:mainClass:HadoopJarStepConfig' :: HadoopJarStepConfig -&gt; Maybe Text
      (Maybe [KeyValue])
      (Maybe [KeyValue])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371925"><span class="annot"><span class="annottext">Maybe [KeyValue]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371934"><span class="annot"><span class="annottext">Maybe [KeyValue]
 properties :: Maybe [KeyValue]
 $sel:properties:HadoopJarStepConfig' :: HadoopJarStepConfig -&gt; Maybe [KeyValue]
-</span><a href="#local-6989586621679371925"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValue]
-</span><a href="#local-6989586621679371925"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371924"><span class="annot"><span class="annottext">s :: HadoopJarStepConfig
-</span><a href="#local-6989586621679371924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371923"><span class="annot"><span class="annottext">Maybe [KeyValue]
-</span><a href="#local-6989586621679371923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopJarStepConfig
-</span><a href="#local-6989586621679371924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:properties:HadoopJarStepConfig' :: Maybe [KeyValue]
+</span><a href="#local-6989586621679371934"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValue]
+</span><a href="#local-6989586621679371934"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371933"><span class="annot"><span class="annottext">s :: HadoopJarStepConfig
+</span><a href="#local-6989586621679371933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371932"><span class="annot"><span class="annottext">Maybe [KeyValue]
+</span><a href="#local-6989586621679371932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopJarStepConfig
+</span><a href="#local-6989586621679371933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:properties:HadoopJarStepConfig' :: Maybe [KeyValue]
 </span><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#%24sel%3Aproperties%3AHadoopJarStepConfig%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValue]
-</span><a href="#local-6989586621679371923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [KeyValue] -&gt; f (Maybe [KeyValue]))
+</span><a href="#local-6989586621679371932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [KeyValue] -&gt; f (Maybe [KeyValue]))
  -&gt; HadoopJarStepConfig -&gt; f HadoopJarStepConfig)
 -&gt; ((Maybe [KeyValue] -&gt; f (Maybe [KeyValue]))
     -&gt; Maybe [KeyValue] -&gt; f (Maybe [KeyValue]))
@@ -256,24 +256,24 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (HadoopJarStepConfig -&gt; Text -&gt; HadoopJarStepConfig)
 -&gt; Lens HadoopJarStepConfig HadoopJarStepConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371921"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371930"><span class="annot"><span class="annottext">Text
 jar :: Text
 $sel:jar:HadoopJarStepConfig' :: HadoopJarStepConfig -&gt; Text
-</span><a href="#local-6989586621679371921"><span class="hs-identifier hs-var hs-var">jar</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371921"><span class="hs-identifier hs-var">jar</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371920"><span class="annot"><span class="annottext">s :: HadoopJarStepConfig
-</span><a href="#local-6989586621679371920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371919"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopJarStepConfig
-</span><a href="#local-6989586621679371920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jar:HadoopJarStepConfig' :: Text
+</span><a href="#local-6989586621679371930"><span class="hs-identifier hs-var hs-var">jar</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371930"><span class="hs-identifier hs-var">jar</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371929"><span class="annot"><span class="annottext">s :: HadoopJarStepConfig
+</span><a href="#local-6989586621679371929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371928"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopJarStepConfig
+</span><a href="#local-6989586621679371929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jar:HadoopJarStepConfig' :: Text
 </span><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#%24sel%3Ajar%3AHadoopJarStepConfig%27"><span class="hs-identifier hs-var">jar</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371915"><span id="local-6989586621679371917"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371924"><span id="local-6989586621679371926"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371912"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371921"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371904"><span id="local-6989586621679371906"><span id="local-6989586621679371908"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679371902"><span class="annot"><span class="annottext">toJSON :: HadoopJarStepConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371897"><span id="local-6989586621679371898"><span id="local-6989586621679371899"><span id="local-6989586621679371900"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371913"><span id="local-6989586621679371915"><span id="local-6989586621679371917"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679371911"><span class="annot"><span class="annottext">toJSON :: HadoopJarStepConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig%27"><span class="hs-identifier hs-type">HadoopJarStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371906"><span id="local-6989586621679371907"><span id="local-6989586621679371908"><span id="local-6989586621679371909"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe [KeyValue]
 Maybe Text
 Text
@@ -285,7 +285,7 @@ $sel:jar:HadoopJarStepConfig' :: HadoopJarStepConfig -&gt; Text
 $sel:properties:HadoopJarStepConfig' :: HadoopJarStepConfig -&gt; Maybe [KeyValue]
 $sel:mainClass:HadoopJarStepConfig' :: HadoopJarStepConfig -&gt; Maybe Text
 $sel:args:HadoopJarStepConfig' :: HadoopJarStepConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679371897"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679371906"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -297,28 +297,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679371900"><span class="hs-identifier hs-var">args</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679371909"><span class="hs-identifier hs-var">args</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MainClass&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371899"><span class="hs-identifier hs-var">mainClass</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679371908"><span class="hs-identifier hs-var">mainClass</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Properties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [KeyValue] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([KeyValue] -&gt; Pair) -&gt; Maybe [KeyValue] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [KeyValue]
-</span><a href="#local-6989586621679371898"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679371907"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Jar&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371897"><span class="hs-identifier hs-var">jar</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371906"><span class="hs-identifier hs-var">jar</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span></pre></body></html>

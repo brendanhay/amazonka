@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The metric you want to retain. Dimensions are optional.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMetricToRetain' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679790322"><span id="local-6989586621679790323"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricToRetain"><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain"><span class="hs-identifier hs-var">MetricToRetain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricToRetain%27"><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain%27"><span class="hs-identifier hs-var">MetricToRetain'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679790331"><span id="local-6989586621679790332"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricToRetain"><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain"><span class="hs-identifier hs-var">MetricToRetain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricToRetain%27"><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain%27"><span class="hs-identifier hs-var">MetricToRetain'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The dimension of a metric. This can\'t be used with custom metrics.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AmetricDimension%3AMetricToRetain%27"><span class="annot"><span class="annottext">MetricToRetain -&gt; Maybe MetricDimension
 </span><a href="Network.AWS.IoT.Types.MetricToRetain.html#%24sel%3AmetricDimension%3AMetricToRetain%27"><span class="hs-identifier hs-var hs-var">metricDimension</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier hs-type">MetricDimension</span></a></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Ametric%3AMetricToRetain%27"><span class="annot"><span class="annottext">MetricToRetain -&gt; Text
 </span><a href="Network.AWS.IoT.Types.MetricToRetain.html#%24sel%3Ametric%3AMetricToRetain%27"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679790315"><span id="local-6989586621679790317"><span class="annot"><span class="annottext">MetricToRetain -&gt; MetricToRetain -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679790324"><span id="local-6989586621679790326"><span class="annot"><span class="annottext">MetricToRetain -&gt; MetricToRetain -&gt; Bool
 (MetricToRetain -&gt; MetricToRetain -&gt; Bool)
 -&gt; (MetricToRetain -&gt; MetricToRetain -&gt; Bool) -&gt; Eq MetricToRetain
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetricToRetain -&gt; MetricToRetain -&gt; Bool
 == :: MetricToRetain -&gt; MetricToRetain -&gt; Bool
 $c== :: MetricToRetain -&gt; MetricToRetain -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790306"><span id="local-6989586621679790308"><span id="local-6989586621679790310"><span id="local-6989586621679790312"><span class="annot"><span class="annottext">ReadPrec [MetricToRetain]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790315"><span id="local-6989586621679790317"><span id="local-6989586621679790319"><span id="local-6989586621679790321"><span class="annot"><span class="annottext">ReadPrec [MetricToRetain]
 ReadPrec MetricToRetain
 Int -&gt; ReadS MetricToRetain
 ReadS [MetricToRetain]
@@ -63,7 +63,7 @@ readList :: ReadS [MetricToRetain]
 $creadList :: ReadS [MetricToRetain]
 readsPrec :: Int -&gt; ReadS MetricToRetain
 $creadsPrec :: Int -&gt; ReadS MetricToRetain
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790299"><span id="local-6989586621679790301"><span id="local-6989586621679790303"><span class="annot"><span class="annottext">Int -&gt; MetricToRetain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790308"><span id="local-6989586621679790310"><span id="local-6989586621679790312"><span class="annot"><span class="annottext">Int -&gt; MetricToRetain -&gt; ShowS
 [MetricToRetain] -&gt; ShowS
 MetricToRetain -&gt; String
 (Int -&gt; MetricToRetain -&gt; ShowS)
@@ -105,8 +105,8 @@ $cfrom :: forall x. MetricToRetain -&gt; Rep MetricToRetain x
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain"><span class="hs-identifier hs-type">MetricToRetain</span></a></span><span>
 </span><span id="line-53"></span><span id="newMetricToRetain"><span class="annot"><span class="annottext">newMetricToRetain :: Text -&gt; MetricToRetain
-</span><a href="Network.AWS.IoT.Types.MetricToRetain.html#newMetricToRetain"><span class="hs-identifier hs-var hs-var">newMetricToRetain</span></a></span></span><span> </span><span id="local-6989586621679790293"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790293"><span class="hs-identifier hs-var">pMetric_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.MetricToRetain.html#newMetricToRetain"><span class="hs-identifier hs-var hs-var">newMetricToRetain</span></a></span></span><span> </span><span id="local-6989586621679790302"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679790302"><span class="hs-identifier hs-var">pMetric_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">MetricToRetain' :: Maybe MetricDimension -&gt; Text -&gt; MetricToRetain
 </span><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain%27"><span class="hs-identifier hs-type">MetricToRetain'</span></a></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricDimension:MetricToRetain' :: Maybe MetricDimension
@@ -115,7 +115,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:metric:MetricToRetain' :: Text
 </span><a href="Network.AWS.IoT.Types.MetricToRetain.html#%24sel%3Ametric%3AMetricToRetain%27"><span class="hs-identifier hs-var">metric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790293"><span class="hs-identifier hs-var">pMetric_</span></a></span><span>
+</span><a href="#local-6989586621679790302"><span class="hs-identifier hs-var">pMetric_</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | The dimension of a metric. This can\'t be used with custom metrics.</span><span>
@@ -130,16 +130,16 @@ forall a. Maybe a
      (Maybe MetricDimension)
      (Maybe MetricDimension)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain%27"><span class="hs-identifier hs-type">MetricToRetain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790289"><span class="annot"><span class="annottext">Maybe MetricDimension
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain%27"><span class="hs-identifier hs-type">MetricToRetain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790298"><span class="annot"><span class="annottext">Maybe MetricDimension
 metricDimension :: Maybe MetricDimension
 $sel:metricDimension:MetricToRetain' :: MetricToRetain -&gt; Maybe MetricDimension
-</span><a href="#local-6989586621679790289"><span class="hs-identifier hs-var hs-var">metricDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricDimension
-</span><a href="#local-6989586621679790289"><span class="hs-identifier hs-var">metricDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790288"><span class="annot"><span class="annottext">s :: MetricToRetain
-</span><a href="#local-6989586621679790288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain%27"><span class="hs-identifier hs-type">MetricToRetain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790287"><span class="annot"><span class="annottext">Maybe MetricDimension
-</span><a href="#local-6989586621679790287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricToRetain
-</span><a href="#local-6989586621679790288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricDimension:MetricToRetain' :: Maybe MetricDimension
+</span><a href="#local-6989586621679790298"><span class="hs-identifier hs-var hs-var">metricDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricDimension
+</span><a href="#local-6989586621679790298"><span class="hs-identifier hs-var">metricDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790297"><span class="annot"><span class="annottext">s :: MetricToRetain
+</span><a href="#local-6989586621679790297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain%27"><span class="hs-identifier hs-type">MetricToRetain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790296"><span class="annot"><span class="annottext">Maybe MetricDimension
+</span><a href="#local-6989586621679790296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricToRetain
+</span><a href="#local-6989586621679790297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricDimension:MetricToRetain' :: Maybe MetricDimension
 </span><a href="Network.AWS.IoT.Types.MetricToRetain.html#%24sel%3AmetricDimension%3AMetricToRetain%27"><span class="hs-identifier hs-var">metricDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricDimension
-</span><a href="#local-6989586621679790287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain"><span class="hs-identifier hs-type">MetricToRetain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679790296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain"><span class="hs-identifier hs-type">MetricToRetain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | What is measured by the behavior.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#metricToRetain_metric"><span class="hs-identifier hs-type">metricToRetain_metric</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain"><span class="hs-identifier hs-type">MetricToRetain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -148,19 +148,19 @@ $sel:metricDimension:MetricToRetain' :: MetricToRetain -&gt; Maybe MetricDimensi
 -&gt; (MetricToRetain -&gt; Text -&gt; MetricToRetain)
 -&gt; Lens MetricToRetain MetricToRetain Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain%27"><span class="hs-identifier hs-type">MetricToRetain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790285"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain%27"><span class="hs-identifier hs-type">MetricToRetain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790294"><span class="annot"><span class="annottext">Text
 metric :: Text
 $sel:metric:MetricToRetain' :: MetricToRetain -&gt; Text
-</span><a href="#local-6989586621679790285"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790285"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790284"><span class="annot"><span class="annottext">s :: MetricToRetain
-</span><a href="#local-6989586621679790284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain%27"><span class="hs-identifier hs-type">MetricToRetain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790283"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricToRetain
-</span><a href="#local-6989586621679790284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metric:MetricToRetain' :: Text
+</span><a href="#local-6989586621679790294"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679790294"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790293"><span class="annot"><span class="annottext">s :: MetricToRetain
+</span><a href="#local-6989586621679790293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain%27"><span class="hs-identifier hs-type">MetricToRetain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790292"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679790292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricToRetain
+</span><a href="#local-6989586621679790293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metric:MetricToRetain' :: Text
 </span><a href="Network.AWS.IoT.Types.MetricToRetain.html#%24sel%3Ametric%3AMetricToRetain%27"><span class="hs-identifier hs-var">metric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain"><span class="hs-identifier hs-type">MetricToRetain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679790292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain"><span class="hs-identifier hs-type">MetricToRetain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790280"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain"><span class="hs-identifier hs-type">MetricToRetain</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679790278"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricToRetain
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790289"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain"><span class="hs-identifier hs-type">MetricToRetain</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679790287"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricToRetain
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MetricToRetain)
@@ -170,8 +170,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MetricToRetain&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679790275"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790275"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679790284"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790284"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe MetricDimension -&gt; Text -&gt; MetricToRetain
 </span><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain%27"><span class="hs-identifier hs-var">MetricToRetain'</span></a></span><span>
 </span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MetricDimension -&gt; Text -&gt; MetricToRetain)
@@ -179,7 +179,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; MetricToRetain)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricDimension)
+</span><a href="#local-6989586621679790284"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricDimension)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricDimension&quot;</span></span><span class="hs-special">)</span><span>
@@ -187,25 +187,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser MetricToRetain
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679790275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679790284"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metric&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790268"><span id="local-6989586621679790270"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain"><span class="hs-identifier hs-type">MetricToRetain</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790277"><span id="local-6989586621679790279"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain"><span class="hs-identifier hs-type">MetricToRetain</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790265"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain"><span class="hs-identifier hs-type">MetricToRetain</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790274"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain"><span class="hs-identifier hs-type">MetricToRetain</span></a></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790257"><span id="local-6989586621679790259"><span id="local-6989586621679790261"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain"><span class="hs-identifier hs-type">MetricToRetain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679790255"><span class="annot"><span class="annottext">toJSON :: MetricToRetain -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain%27"><span class="hs-identifier hs-type">MetricToRetain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790252"><span id="local-6989586621679790253"><span class="annot"><span class="annottext">Maybe MetricDimension
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790266"><span id="local-6989586621679790268"><span id="local-6989586621679790270"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain"><span class="hs-identifier hs-type">MetricToRetain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679790264"><span class="annot"><span class="annottext">toJSON :: MetricToRetain -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricToRetain.html#MetricToRetain%27"><span class="hs-identifier hs-type">MetricToRetain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790261"><span id="local-6989586621679790262"><span class="annot"><span class="annottext">Maybe MetricDimension
 Text
 metric :: Text
 metricDimension :: Maybe MetricDimension
 $sel:metric:MetricToRetain' :: MetricToRetain -&gt; Text
 $sel:metricDimension:MetricToRetain' :: MetricToRetain -&gt; Maybe MetricDimension
-</span><a href="#local-6989586621679790252"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679790261"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -218,14 +218,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-86"></span><span>              </span><span class="annot"><span class="annottext">(MetricDimension -&gt; Pair) -&gt; Maybe MetricDimension -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MetricDimension
-</span><a href="#local-6989586621679790253"><span class="hs-identifier hs-var">metricDimension</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679790262"><span class="hs-identifier hs-var">metricDimension</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metric&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679790252"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679790261"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

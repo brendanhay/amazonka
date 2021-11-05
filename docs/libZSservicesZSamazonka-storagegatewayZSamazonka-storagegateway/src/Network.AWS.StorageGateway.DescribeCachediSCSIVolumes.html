@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.html"><span class="hs-identifier">Network.AWS.StorageGateway.Types</span></a></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDescribeCachediSCSIVolumes' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679387213"><span id="local-6989586621679387214"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCachediSCSIVolumes"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes"><span class="hs-identifier hs-var">DescribeCachediSCSIVolumes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCachediSCSIVolumes%27"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes%27"><span class="hs-identifier hs-var">DescribeCachediSCSIVolumes'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679387222"><span id="local-6989586621679387223"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCachediSCSIVolumes"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes"><span class="hs-identifier hs-var">DescribeCachediSCSIVolumes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCachediSCSIVolumes%27"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes%27"><span class="hs-identifier hs-var">DescribeCachediSCSIVolumes'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of strings where each string represents the Amazon Resource</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Name (ARN) of a cached volume. All of the specified cached volumes must</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- be from the same gateway. Use ListVolumes to get volume ARNs for a</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AvolumeARNs%3ADescribeCachediSCSIVolumes%27"><span class="annot"><span class="annottext">DescribeCachediSCSIVolumes -&gt; [Text]
 </span><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#%24sel%3AvolumeARNs%3ADescribeCachediSCSIVolumes%27"><span class="hs-identifier hs-var hs-var">volumeARNs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387207"><span id="local-6989586621679387209"><span class="annot"><span class="annottext">DescribeCachediSCSIVolumes -&gt; DescribeCachediSCSIVolumes -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387216"><span id="local-6989586621679387218"><span class="annot"><span class="annottext">DescribeCachediSCSIVolumes -&gt; DescribeCachediSCSIVolumes -&gt; Bool
 (DescribeCachediSCSIVolumes -&gt; DescribeCachediSCSIVolumes -&gt; Bool)
 -&gt; (DescribeCachediSCSIVolumes
     -&gt; DescribeCachediSCSIVolumes -&gt; Bool)
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeCachediSCSIVolumes -&gt; DescribeCachediSCSIVolumes -&gt; Bool
 == :: DescribeCachediSCSIVolumes -&gt; DescribeCachediSCSIVolumes -&gt; Bool
 $c== :: DescribeCachediSCSIVolumes -&gt; DescribeCachediSCSIVolumes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387198"><span id="local-6989586621679387200"><span id="local-6989586621679387202"><span id="local-6989586621679387204"><span class="annot"><span class="annottext">ReadPrec [DescribeCachediSCSIVolumes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387207"><span id="local-6989586621679387209"><span id="local-6989586621679387211"><span id="local-6989586621679387213"><span class="annot"><span class="annottext">ReadPrec [DescribeCachediSCSIVolumes]
 ReadPrec DescribeCachediSCSIVolumes
 Int -&gt; ReadS DescribeCachediSCSIVolumes
 ReadS [DescribeCachediSCSIVolumes]
@@ -90,7 +90,7 @@ readList :: ReadS [DescribeCachediSCSIVolumes]
 $creadList :: ReadS [DescribeCachediSCSIVolumes]
 readsPrec :: Int -&gt; ReadS DescribeCachediSCSIVolumes
 $creadsPrec :: Int -&gt; ReadS DescribeCachediSCSIVolumes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387191"><span id="local-6989586621679387193"><span id="local-6989586621679387195"><span class="annot"><span class="annottext">Int -&gt; DescribeCachediSCSIVolumes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387200"><span id="local-6989586621679387202"><span id="local-6989586621679387204"><span class="annot"><span class="annottext">Int -&gt; DescribeCachediSCSIVolumes -&gt; ShowS
 [DescribeCachediSCSIVolumes] -&gt; ShowS
 DescribeCachediSCSIVolumes -&gt; String
 (Int -&gt; DescribeCachediSCSIVolumes -&gt; ShowS)
@@ -160,16 +160,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      DescribeCachediSCSIVolumes DescribeCachediSCSIVolumes [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes%27"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387184"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes%27"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387193"><span class="annot"><span class="annottext">[Text]
 volumeARNs :: [Text]
 $sel:volumeARNs:DescribeCachediSCSIVolumes' :: DescribeCachediSCSIVolumes -&gt; [Text]
-</span><a href="#local-6989586621679387184"><span class="hs-identifier hs-var hs-var">volumeARNs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679387184"><span class="hs-identifier hs-var">volumeARNs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387183"><span class="annot"><span class="annottext">s :: DescribeCachediSCSIVolumes
-</span><a href="#local-6989586621679387183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes%27"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387182"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679387182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCachediSCSIVolumes
-</span><a href="#local-6989586621679387183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARNs:DescribeCachediSCSIVolumes' :: [Text]
+</span><a href="#local-6989586621679387193"><span class="hs-identifier hs-var hs-var">volumeARNs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679387193"><span class="hs-identifier hs-var">volumeARNs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387192"><span class="annot"><span class="annottext">s :: DescribeCachediSCSIVolumes
+</span><a href="#local-6989586621679387192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes%27"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387191"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679387191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCachediSCSIVolumes
+</span><a href="#local-6989586621679387192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeARNs:DescribeCachediSCSIVolumes' :: [Text]
 </span><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#%24sel%3AvolumeARNs%3ADescribeCachediSCSIVolumes%27"><span class="hs-identifier hs-var">volumeARNs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679387182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679387191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; DescribeCachediSCSIVolumes -&gt; f DescribeCachediSCSIVolumes)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -184,13 +184,13 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumesResponse</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679387176"><span class="annot"><span class="annottext">request :: DescribeCachediSCSIVolumes -&gt; Request DescribeCachediSCSIVolumes
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679387185"><span class="annot"><span class="annottext">request :: DescribeCachediSCSIVolumes -&gt; Request DescribeCachediSCSIVolumes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeCachediSCSIVolumes -&gt; Request DescribeCachediSCSIVolumes
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679387172"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679387181"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeCachediSCSIVolumes
 -&gt; ClientResponse ClientBody
@@ -216,10 +216,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387169"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387169"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387168"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679387168"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387167"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387167"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387178"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387178"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387177"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679387177"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387176"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387176"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CachediSCSIVolume]
 -&gt; Int -&gt; DescribeCachediSCSIVolumesResponse
 </span><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse%27"><span class="hs-identifier hs-var">DescribeCachediSCSIVolumesResponse'</span></a></span><span>
@@ -229,7 +229,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeCachediSCSIVolumesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387167"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CachediSCSIVolume]))
+</span><a href="#local-6989586621679387176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [CachediSCSIVolume]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CachediSCSIVolumes&quot;</span></span><span>
@@ -250,15 +250,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387169"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387178"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387158"><span id="local-6989586621679387160"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387167"><span id="local-6989586621679387169"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387155"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387164"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679387151"><span class="annot"><span class="annottext">toHeaders :: DescribeCachediSCSIVolumes -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679387160"><span class="annot"><span class="annottext">toHeaders :: DescribeCachediSCSIVolumes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeCachediSCSIVolumes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -285,12 +285,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387141"><span id="local-6989586621679387143"><span id="local-6989586621679387145"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679387139"><span class="annot"><span class="annottext">toJSON :: DescribeCachediSCSIVolumes -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes%27"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387137"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387150"><span id="local-6989586621679387152"><span id="local-6989586621679387154"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679387148"><span class="annot"><span class="annottext">toJSON :: DescribeCachediSCSIVolumes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes%27"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387146"><span class="annot"><span class="annottext">[Text]
 volumeARNs :: [Text]
 $sel:volumeARNs:DescribeCachediSCSIVolumes' :: DescribeCachediSCSIVolumes -&gt; [Text]
-</span><a href="#local-6989586621679387137"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679387146"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -302,18 +302,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;VolumeARNs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679387137"><span class="hs-identifier hs-var">volumeARNs</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679387146"><span class="hs-identifier hs-var">volumeARNs</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679387131"><span class="annot"><span class="annottext">toPath :: DescribeCachediSCSIVolumes -&gt; ByteString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679387140"><span class="annot"><span class="annottext">toPath :: DescribeCachediSCSIVolumes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeCachediSCSIVolumes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumes"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679387127"><span class="annot"><span class="annottext">toQuery :: DescribeCachediSCSIVolumes -&gt; QueryString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679387136"><span class="annot"><span class="annottext">toQuery :: DescribeCachediSCSIVolumes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeCachediSCSIVolumes -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -323,7 +323,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-138"></span><span class="hs-comment">-- | A JSON object containing the following fields:</span><span>
 </span><span id="line-139"></span><span class="hs-comment">--</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- /See:/ 'newDescribeCachediSCSIVolumesResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679387124"><span id="local-6989586621679387125"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCachediSCSIVolumesResponse"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse"><span class="hs-identifier hs-var">DescribeCachediSCSIVolumesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCachediSCSIVolumesResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse%27"><span class="hs-identifier hs-var">DescribeCachediSCSIVolumesResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679387133"><span id="local-6989586621679387134"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCachediSCSIVolumesResponse"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse"><span class="hs-identifier hs-var">DescribeCachediSCSIVolumesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCachediSCSIVolumesResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse%27"><span class="hs-identifier hs-var">DescribeCachediSCSIVolumesResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects where each object contains metadata about one cached</span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-comment">-- volume.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AcachediSCSIVolumes%3ADescribeCachediSCSIVolumesResponse%27"><span class="annot"><span class="annottext">DescribeCachediSCSIVolumesResponse -&gt; Maybe [CachediSCSIVolume]
@@ -332,7 +332,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeCachediSCSIVolumesResponse%27"><span class="annot"><span class="annottext">DescribeCachediSCSIVolumesResponse -&gt; Int
 </span><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#%24sel%3AhttpStatus%3ADescribeCachediSCSIVolumesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387118"><span id="local-6989586621679387120"><span class="annot"><span class="annottext">DescribeCachediSCSIVolumesResponse
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387127"><span id="local-6989586621679387129"><span class="annot"><span class="annottext">DescribeCachediSCSIVolumesResponse
 -&gt; DescribeCachediSCSIVolumesResponse -&gt; Bool
 (DescribeCachediSCSIVolumesResponse
  -&gt; DescribeCachediSCSIVolumesResponse -&gt; Bool)
@@ -348,7 +348,7 @@ $c/= :: DescribeCachediSCSIVolumesResponse
 -&gt; DescribeCachediSCSIVolumesResponse -&gt; Bool
 $c== :: DescribeCachediSCSIVolumesResponse
 -&gt; DescribeCachediSCSIVolumesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387110"><span id="local-6989586621679387112"><span id="local-6989586621679387114"><span id="local-6989586621679387116"><span class="annot"><span class="annottext">ReadPrec [DescribeCachediSCSIVolumesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387119"><span id="local-6989586621679387121"><span id="local-6989586621679387123"><span id="local-6989586621679387125"><span class="annot"><span class="annottext">ReadPrec [DescribeCachediSCSIVolumesResponse]
 ReadPrec DescribeCachediSCSIVolumesResponse
 Int -&gt; ReadS DescribeCachediSCSIVolumesResponse
 ReadS [DescribeCachediSCSIVolumesResponse]
@@ -368,7 +368,7 @@ readList :: ReadS [DescribeCachediSCSIVolumesResponse]
 $creadList :: ReadS [DescribeCachediSCSIVolumesResponse]
 readsPrec :: Int -&gt; ReadS DescribeCachediSCSIVolumesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeCachediSCSIVolumesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387104"><span id="local-6989586621679387106"><span id="local-6989586621679387108"><span class="annot"><span class="annottext">Int -&gt; DescribeCachediSCSIVolumesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387113"><span id="local-6989586621679387115"><span id="local-6989586621679387117"><span class="annot"><span class="annottext">Int -&gt; DescribeCachediSCSIVolumesResponse -&gt; ShowS
 [DescribeCachediSCSIVolumesResponse] -&gt; ShowS
 DescribeCachediSCSIVolumesResponse -&gt; String
 (Int -&gt; DescribeCachediSCSIVolumesResponse -&gt; ShowS)
@@ -423,8 +423,8 @@ DescribeCachediSCSIVolumesResponse
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumesResponse</span></a></span><span>
 </span><span id="line-166"></span><span id="newDescribeCachediSCSIVolumesResponse"><span class="annot"><span class="annottext">newDescribeCachediSCSIVolumesResponse :: Int -&gt; DescribeCachediSCSIVolumesResponse
-</span><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#newDescribeCachediSCSIVolumesResponse"><span class="hs-identifier hs-var hs-var">newDescribeCachediSCSIVolumesResponse</span></a></span></span><span> </span><span id="local-6989586621679387101"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387101"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#newDescribeCachediSCSIVolumesResponse"><span class="hs-identifier hs-var hs-var">newDescribeCachediSCSIVolumesResponse</span></a></span></span><span> </span><span id="local-6989586621679387110"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387110"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">DescribeCachediSCSIVolumesResponse' :: Maybe [CachediSCSIVolume]
 -&gt; Int -&gt; DescribeCachediSCSIVolumesResponse
 </span><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse%27"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumesResponse'</span></a></span><span>
@@ -435,7 +435,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCachediSCSIVolumesResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#%24sel%3AhttpStatus%3ADescribeCachediSCSIVolumesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387101"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679387110"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | An array of objects where each object contains metadata about one cached</span><span>
@@ -453,16 +453,16 @@ forall a. Maybe a
      (Maybe [CachediSCSIVolume])
      (Maybe [CachediSCSIVolume])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse%27"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387100"><span class="annot"><span class="annottext">Maybe [CachediSCSIVolume]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse%27"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387109"><span class="annot"><span class="annottext">Maybe [CachediSCSIVolume]
 cachediSCSIVolumes :: Maybe [CachediSCSIVolume]
 $sel:cachediSCSIVolumes:DescribeCachediSCSIVolumesResponse' :: DescribeCachediSCSIVolumesResponse -&gt; Maybe [CachediSCSIVolume]
-</span><a href="#local-6989586621679387100"><span class="hs-identifier hs-var hs-var">cachediSCSIVolumes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CachediSCSIVolume]
-</span><a href="#local-6989586621679387100"><span class="hs-identifier hs-var">cachediSCSIVolumes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387099"><span class="annot"><span class="annottext">s :: DescribeCachediSCSIVolumesResponse
-</span><a href="#local-6989586621679387099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse%27"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387098"><span class="annot"><span class="annottext">Maybe [CachediSCSIVolume]
-</span><a href="#local-6989586621679387098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCachediSCSIVolumesResponse
-</span><a href="#local-6989586621679387099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cachediSCSIVolumes:DescribeCachediSCSIVolumesResponse' :: Maybe [CachediSCSIVolume]
+</span><a href="#local-6989586621679387109"><span class="hs-identifier hs-var hs-var">cachediSCSIVolumes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CachediSCSIVolume]
+</span><a href="#local-6989586621679387109"><span class="hs-identifier hs-var">cachediSCSIVolumes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387108"><span class="annot"><span class="annottext">s :: DescribeCachediSCSIVolumesResponse
+</span><a href="#local-6989586621679387108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse%27"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387107"><span class="annot"><span class="annottext">Maybe [CachediSCSIVolume]
+</span><a href="#local-6989586621679387107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCachediSCSIVolumesResponse
+</span><a href="#local-6989586621679387108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cachediSCSIVolumes:DescribeCachediSCSIVolumesResponse' :: Maybe [CachediSCSIVolume]
 </span><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#%24sel%3AcachediSCSIVolumes%3ADescribeCachediSCSIVolumesResponse%27"><span class="hs-identifier hs-var">cachediSCSIVolumes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CachediSCSIVolume]
-</span><a href="#local-6989586621679387098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CachediSCSIVolume] -&gt; f (Maybe [CachediSCSIVolume]))
+</span><a href="#local-6989586621679387107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CachediSCSIVolume] -&gt; f (Maybe [CachediSCSIVolume]))
  -&gt; DescribeCachediSCSIVolumesResponse
  -&gt; f DescribeCachediSCSIVolumesResponse)
 -&gt; ((Maybe [CachediSCSIVolume] -&gt; f (Maybe [CachediSCSIVolume]))
@@ -506,18 +506,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse%27"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387096"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse%27"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387105"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeCachediSCSIVolumesResponse' :: DescribeCachediSCSIVolumesResponse -&gt; Int
-</span><a href="#local-6989586621679387096"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387096"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387095"><span class="annot"><span class="annottext">s :: DescribeCachediSCSIVolumesResponse
-</span><a href="#local-6989586621679387095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse%27"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387094"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCachediSCSIVolumesResponse
-</span><a href="#local-6989586621679387095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCachediSCSIVolumesResponse' :: Int
+</span><a href="#local-6989586621679387105"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387105"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387104"><span class="annot"><span class="annottext">s :: DescribeCachediSCSIVolumesResponse
+</span><a href="#local-6989586621679387104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse%27"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387103"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCachediSCSIVolumesResponse
+</span><a href="#local-6989586621679387104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCachediSCSIVolumesResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#%24sel%3AhttpStatus%3ADescribeCachediSCSIVolumesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679387092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679387101"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeCachediSCSIVolumes.html#DescribeCachediSCSIVolumesResponse"><span class="hs-identifier hs-type">DescribeCachediSCSIVolumesResponse</span></a></span></span><span>
 </span><span id="line-185"></span></pre></body></html>

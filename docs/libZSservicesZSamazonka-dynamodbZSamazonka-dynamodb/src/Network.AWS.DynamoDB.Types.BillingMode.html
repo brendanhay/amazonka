@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679369897"><span id="local-6989586621679369898"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BillingMode"><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingMode.html#BillingMode"><span class="hs-identifier hs-var">BillingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BillingMode%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingMode.html#BillingMode%27"><span class="hs-identifier hs-var">BillingMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679369906"><span id="local-6989586621679369907"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BillingMode"><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingMode.html#BillingMode"><span class="hs-identifier hs-var">BillingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BillingMode%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingMode.html#BillingMode%27"><span class="hs-identifier hs-var">BillingMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBillingMode"><span class="annot"><span class="annottext">BillingMode -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.BillingMode.html#fromBillingMode"><span class="hs-identifier hs-var hs-var">fromBillingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369889"><span id="local-6989586621679369891"><span id="local-6989586621679369893"><span class="annot"><span class="annottext">Int -&gt; BillingMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369898"><span id="local-6989586621679369900"><span id="local-6989586621679369902"><span class="annot"><span class="annottext">Int -&gt; BillingMode -&gt; ShowS
 [BillingMode] -&gt; ShowS
 BillingMode -&gt; String
 (Int -&gt; BillingMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: BillingMode -&gt; String
 showsPrec :: Int -&gt; BillingMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; BillingMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679369880"><span id="local-6989586621679369882"><span id="local-6989586621679369884"><span id="local-6989586621679369886"><span class="annot"><span class="annottext">ReadPrec [BillingMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679369889"><span id="local-6989586621679369891"><span id="local-6989586621679369893"><span id="local-6989586621679369895"><span class="annot"><span class="annottext">ReadPrec [BillingMode]
 ReadPrec BillingMode
 Int -&gt; ReadS BillingMode
 ReadS [BillingMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [BillingMode]
 readsPrec :: Int -&gt; ReadS BillingMode
 $creadsPrec :: Int -&gt; ReadS BillingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679369875"><span id="local-6989586621679369877"><span class="annot"><span class="annottext">BillingMode -&gt; BillingMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679369884"><span id="local-6989586621679369886"><span class="annot"><span class="annottext">BillingMode -&gt; BillingMode -&gt; Bool
 (BillingMode -&gt; BillingMode -&gt; Bool)
 -&gt; (BillingMode -&gt; BillingMode -&gt; Bool) -&gt; Eq BillingMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: BillingMode -&gt; BillingMode -&gt; Bool
 == :: BillingMode -&gt; BillingMode -&gt; Bool
 $c== :: BillingMode -&gt; BillingMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679369859"><span id="local-6989586621679369861"><span id="local-6989586621679369863"><span id="local-6989586621679369865"><span id="local-6989586621679369867"><span id="local-6989586621679369869"><span id="local-6989586621679369871"><span class="annot"><span class="annottext">Eq BillingMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679369868"><span id="local-6989586621679369870"><span id="local-6989586621679369872"><span id="local-6989586621679369874"><span id="local-6989586621679369876"><span id="local-6989586621679369878"><span id="local-6989586621679369880"><span class="annot"><span class="annottext">Eq BillingMode
 Eq BillingMode
 -&gt; (BillingMode -&gt; BillingMode -&gt; Ordering)
 -&gt; (BillingMode -&gt; BillingMode -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. BillingMode -&gt; Rep BillingMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369851"><span id="local-6989586621679369853"><span class="annot"><span class="annottext">Int -&gt; BillingMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369860"><span id="local-6989586621679369862"><span class="annot"><span class="annottext">Int -&gt; BillingMode -&gt; Int
 BillingMode -&gt; Int
 (Int -&gt; BillingMode -&gt; Int)
 -&gt; (BillingMode -&gt; Int) -&gt; Hashable BillingMode
@@ -142,49 +142,49 @@ $chash :: BillingMode -&gt; Int
 hashWithSalt :: Int -&gt; BillingMode -&gt; Int
 $chashWithSalt :: Int -&gt; BillingMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679369848"><span class="annot"><span class="annottext">BillingMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679369857"><span class="annot"><span class="annottext">BillingMode -&gt; ()
 (BillingMode -&gt; ()) -&gt; NFData BillingMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BillingMode -&gt; ()
 $crnf :: BillingMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679369845"><span class="annot"><span class="annottext">Text -&gt; Either String BillingMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679369854"><span class="annot"><span class="annottext">Text -&gt; Either String BillingMode
 (Text -&gt; Either String BillingMode) -&gt; FromText BillingMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BillingMode
 $cfromText :: Text -&gt; Either String BillingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679369842"><span class="annot"><span class="annottext">BillingMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679369851"><span class="annot"><span class="annottext">BillingMode -&gt; Text
 (BillingMode -&gt; Text) -&gt; ToText BillingMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BillingMode -&gt; Text
 $ctoText :: BillingMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679369839"><span class="annot"><span class="annottext">BillingMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679369848"><span class="annot"><span class="annottext">BillingMode -&gt; ByteString
 (BillingMode -&gt; ByteString) -&gt; ToByteString BillingMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BillingMode -&gt; ByteString
 $ctoBS :: BillingMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679369836"><span class="annot"><span class="annottext">BillingMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679369845"><span class="annot"><span class="annottext">BillingMode -&gt; ByteStringBuilder
 (BillingMode -&gt; ByteStringBuilder) -&gt; ToLog BillingMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BillingMode -&gt; ByteStringBuilder
 $cbuild :: BillingMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679369833"><span class="annot"><span class="annottext">HeaderName -&gt; BillingMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679369842"><span class="annot"><span class="annottext">HeaderName -&gt; BillingMode -&gt; [Header]
 (HeaderName -&gt; BillingMode -&gt; [Header]) -&gt; ToHeader BillingMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BillingMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BillingMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679369830"><span class="annot"><span class="annottext">BillingMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679369839"><span class="annot"><span class="annottext">BillingMode -&gt; QueryString
 (BillingMode -&gt; QueryString) -&gt; ToQuery BillingMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BillingMode -&gt; QueryString
 $ctoQuery :: BillingMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679369825"><span id="local-6989586621679369827"><span class="annot"><span class="annottext">Value -&gt; Parser [BillingMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679369834"><span id="local-6989586621679369836"><span class="annot"><span class="annottext">Value -&gt; Parser [BillingMode]
 Value -&gt; Parser BillingMode
 (Value -&gt; Parser BillingMode)
 -&gt; (Value -&gt; Parser [BillingMode]) -&gt; FromJSON BillingMode
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [BillingMode]
 parseJSON :: Value -&gt; Parser BillingMode
 $cparseJSON :: Value -&gt; Parser BillingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679369820"><span id="local-6989586621679369822"><span class="annot"><span class="annottext">FromJSONKeyFunction [BillingMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679369829"><span id="local-6989586621679369831"><span class="annot"><span class="annottext">FromJSONKeyFunction [BillingMode]
 FromJSONKeyFunction BillingMode
 FromJSONKeyFunction BillingMode
 -&gt; FromJSONKeyFunction [BillingMode] -&gt; FromJSONKey BillingMode
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BillingMode]
 fromJSONKey :: FromJSONKeyFunction BillingMode
 $cfromJSONKey :: FromJSONKeyFunction BillingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679369811"><span id="local-6989586621679369813"><span id="local-6989586621679369815"><span id="local-6989586621679369817"><span class="annot"><span class="annottext">[BillingMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679369820"><span id="local-6989586621679369822"><span id="local-6989586621679369824"><span id="local-6989586621679369826"><span class="annot"><span class="annottext">[BillingMode] -&gt; Encoding
 [BillingMode] -&gt; Value
 BillingMode -&gt; Encoding
 BillingMode -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: BillingMode -&gt; Encoding
 toJSON :: BillingMode -&gt; Value
 $ctoJSON :: BillingMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679369806"><span id="local-6989586621679369808"><span class="annot"><span class="annottext">ToJSONKeyFunction [BillingMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679369815"><span id="local-6989586621679369817"><span class="annot"><span class="annottext">ToJSONKeyFunction [BillingMode]
 ToJSONKeyFunction BillingMode
 ToJSONKeyFunction BillingMode
 -&gt; ToJSONKeyFunction [BillingMode] -&gt; ToJSONKey BillingMode
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BillingMode]
 toJSONKey :: ToJSONKeyFunction BillingMode
 $ctoJSONKey :: ToJSONKeyFunction BillingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679369803"><span class="annot"><span class="annottext">[Node] -&gt; Either String BillingMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679369812"><span class="annot"><span class="annottext">[Node] -&gt; Either String BillingMode
 ([Node] -&gt; Either String BillingMode) -&gt; FromXML BillingMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BillingMode
 $cparseXML :: [Node] -&gt; Either String BillingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679369800"><span class="annot"><span class="annottext">BillingMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679369809"><span class="annot"><span class="annottext">BillingMode -&gt; XML
 (BillingMode -&gt; XML) -&gt; ToXML BillingMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BillingMode -&gt; XML

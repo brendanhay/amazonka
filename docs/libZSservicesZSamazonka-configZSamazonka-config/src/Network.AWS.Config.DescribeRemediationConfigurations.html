@@ -47,13 +47,13 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDescribeRemediationConfigurations' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679423585"><span id="local-6989586621679423586"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRemediationConfigurations"><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations"><span class="hs-identifier hs-var">DescribeRemediationConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRemediationConfigurations%27"><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations%27"><span class="hs-identifier hs-var">DescribeRemediationConfigurations'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679423594"><span id="local-6989586621679423595"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRemediationConfigurations"><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations"><span class="hs-identifier hs-var">DescribeRemediationConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRemediationConfigurations%27"><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations%27"><span class="hs-identifier hs-var">DescribeRemediationConfigurations'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of Config rule names of remediation configurations for which you</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- want details.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AconfigRuleNames%3ADescribeRemediationConfigurations%27"><span class="annot"><span class="annottext">DescribeRemediationConfigurations -&gt; [Text]
 </span><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#%24sel%3AconfigRuleNames%3ADescribeRemediationConfigurations%27"><span class="hs-identifier hs-var hs-var">configRuleNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423579"><span id="local-6989586621679423581"><span class="annot"><span class="annottext">DescribeRemediationConfigurations
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423588"><span id="local-6989586621679423590"><span class="annot"><span class="annottext">DescribeRemediationConfigurations
 -&gt; DescribeRemediationConfigurations -&gt; Bool
 (DescribeRemediationConfigurations
  -&gt; DescribeRemediationConfigurations -&gt; Bool)
@@ -69,7 +69,7 @@ $c/= :: DescribeRemediationConfigurations
 -&gt; DescribeRemediationConfigurations -&gt; Bool
 $c== :: DescribeRemediationConfigurations
 -&gt; DescribeRemediationConfigurations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423570"><span id="local-6989586621679423572"><span id="local-6989586621679423574"><span id="local-6989586621679423576"><span class="annot"><span class="annottext">ReadPrec [DescribeRemediationConfigurations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423579"><span id="local-6989586621679423581"><span id="local-6989586621679423583"><span id="local-6989586621679423585"><span class="annot"><span class="annottext">ReadPrec [DescribeRemediationConfigurations]
 ReadPrec DescribeRemediationConfigurations
 Int -&gt; ReadS DescribeRemediationConfigurations
 ReadS [DescribeRemediationConfigurations]
@@ -89,7 +89,7 @@ readList :: ReadS [DescribeRemediationConfigurations]
 $creadList :: ReadS [DescribeRemediationConfigurations]
 readsPrec :: Int -&gt; ReadS DescribeRemediationConfigurations
 $creadsPrec :: Int -&gt; ReadS DescribeRemediationConfigurations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423563"><span id="local-6989586621679423565"><span id="local-6989586621679423567"><span class="annot"><span class="annottext">Int -&gt; DescribeRemediationConfigurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423572"><span id="local-6989586621679423574"><span id="local-6989586621679423576"><span class="annot"><span class="annottext">Int -&gt; DescribeRemediationConfigurations -&gt; ShowS
 [DescribeRemediationConfigurations] -&gt; ShowS
 DescribeRemediationConfigurations -&gt; String
 (Int -&gt; DescribeRemediationConfigurations -&gt; ShowS)
@@ -165,16 +165,16 @@ forall a. Monoid a =&gt; a
      [Text]
      [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations%27"><span class="hs-identifier hs-type">DescribeRemediationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423556"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations%27"><span class="hs-identifier hs-type">DescribeRemediationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423565"><span class="annot"><span class="annottext">[Text]
 configRuleNames :: [Text]
 $sel:configRuleNames:DescribeRemediationConfigurations' :: DescribeRemediationConfigurations -&gt; [Text]
-</span><a href="#local-6989586621679423556"><span class="hs-identifier hs-var hs-var">configRuleNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679423556"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423555"><span class="annot"><span class="annottext">s :: DescribeRemediationConfigurations
-</span><a href="#local-6989586621679423555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations%27"><span class="hs-identifier hs-type">DescribeRemediationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423554"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679423554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationConfigurations
-</span><a href="#local-6989586621679423555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRuleNames:DescribeRemediationConfigurations' :: [Text]
+</span><a href="#local-6989586621679423565"><span class="hs-identifier hs-var hs-var">configRuleNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679423565"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423564"><span class="annot"><span class="annottext">s :: DescribeRemediationConfigurations
+</span><a href="#local-6989586621679423564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations%27"><span class="hs-identifier hs-type">DescribeRemediationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423563"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679423563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationConfigurations
+</span><a href="#local-6989586621679423564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRuleNames:DescribeRemediationConfigurations' :: [Text]
 </span><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#%24sel%3AconfigRuleNames%3ADescribeRemediationConfigurations%27"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679423554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations"><span class="hs-identifier hs-type">DescribeRemediationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679423563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations"><span class="hs-identifier hs-type">DescribeRemediationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; DescribeRemediationConfigurations
  -&gt; f DescribeRemediationConfigurations)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
@@ -193,7 +193,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations"><span class="hs-identifier hs-type">DescribeRemediationConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeRemediationConfigurationsResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679423548"><span class="annot"><span class="annottext">request :: DescribeRemediationConfigurations
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679423557"><span class="annot"><span class="annottext">request :: DescribeRemediationConfigurations
 -&gt; Request DescribeRemediationConfigurations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeRemediationConfigurations
@@ -201,7 +201,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679423544"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679423553"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeRemediationConfigurations
 -&gt; ClientResponse ClientBody
@@ -229,10 +229,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679423541"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679423541"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679423540"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679423540"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679423539"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679423539"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679423550"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423550"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679423549"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679423549"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679423548"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679423548"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RemediationConfiguration]
 -&gt; Int -&gt; DescribeRemediationConfigurationsResponse
 </span><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse%27"><span class="hs-identifier hs-var">DescribeRemediationConfigurationsResponse'</span></a></span><span>
@@ -242,7 +242,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeRemediationConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679423539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679423548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [RemediationConfiguration]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -264,22 +264,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679423541"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423550"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679423530"><span id="local-6989586621679423532"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679423539"><span id="local-6989586621679423541"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations"><span class="hs-identifier hs-type">DescribeRemediationConfigurations</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679423527"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679423536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations"><span class="hs-identifier hs-type">DescribeRemediationConfigurations</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations"><span class="hs-identifier hs-type">DescribeRemediationConfigurations</span></a></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679423523"><span class="annot"><span class="annottext">toHeaders :: DescribeRemediationConfigurations -&gt; ResponseHeaders
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679423532"><span class="annot"><span class="annottext">toHeaders :: DescribeRemediationConfigurations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeRemediationConfigurations -&gt; ResponseHeaders
@@ -308,14 +308,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679423513"><span id="local-6989586621679423515"><span id="local-6989586621679423517"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679423522"><span id="local-6989586621679423524"><span id="local-6989586621679423526"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations"><span class="hs-identifier hs-type">DescribeRemediationConfigurations</span></a></span></span></span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679423511"><span class="annot"><span class="annottext">toJSON :: DescribeRemediationConfigurations -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations%27"><span class="hs-identifier hs-type">DescribeRemediationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423509"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679423520"><span class="annot"><span class="annottext">toJSON :: DescribeRemediationConfigurations -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations%27"><span class="hs-identifier hs-type">DescribeRemediationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423518"><span class="annot"><span class="annottext">[Text]
 configRuleNames :: [Text]
 $sel:configRuleNames:DescribeRemediationConfigurations' :: DescribeRemediationConfigurations -&gt; [Text]
-</span><a href="#local-6989586621679423509"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679423518"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -328,7 +328,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ConfigRuleNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679423509"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423518"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
@@ -336,7 +336,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations"><span class="hs-identifier hs-type">DescribeRemediationConfigurations</span></a></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679423503"><span class="annot"><span class="annottext">toPath :: DescribeRemediationConfigurations -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679423512"><span class="annot"><span class="annottext">toPath :: DescribeRemediationConfigurations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeRemediationConfigurations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -346,7 +346,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurations"><span class="hs-identifier hs-type">DescribeRemediationConfigurations</span></a></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679423499"><span class="annot"><span class="annottext">toQuery :: DescribeRemediationConfigurations -&gt; QueryString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679423508"><span class="annot"><span class="annottext">toQuery :: DescribeRemediationConfigurations -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeRemediationConfigurations -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -354,7 +354,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newDescribeRemediationConfigurationsResponse' smart constructor.</span><span>
-</span><span id="line-149"></span><span id="local-6989586621679423496"><span id="local-6989586621679423497"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRemediationConfigurationsResponse"><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse"><span class="hs-identifier hs-var">DescribeRemediationConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRemediationConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse%27"><span class="hs-identifier hs-var">DescribeRemediationConfigurationsResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span id="local-6989586621679423505"><span id="local-6989586621679423506"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeRemediationConfigurationsResponse"><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse"><span class="hs-identifier hs-var">DescribeRemediationConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeRemediationConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse%27"><span class="hs-identifier hs-var">DescribeRemediationConfigurationsResponse'</span></a></span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns a remediation configuration object.</span><span>
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AremediationConfigurations%3ADescribeRemediationConfigurationsResponse%27"><span class="annot"><span class="annottext">DescribeRemediationConfigurationsResponse
 -&gt; Maybe [RemediationConfiguration]
@@ -363,7 +363,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeRemediationConfigurationsResponse%27"><span class="annot"><span class="annottext">DescribeRemediationConfigurationsResponse -&gt; Int
 </span><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#%24sel%3AhttpStatus%3ADescribeRemediationConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423490"><span id="local-6989586621679423492"><span class="annot"><span class="annottext">DescribeRemediationConfigurationsResponse
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423499"><span id="local-6989586621679423501"><span class="annot"><span class="annottext">DescribeRemediationConfigurationsResponse
 -&gt; DescribeRemediationConfigurationsResponse -&gt; Bool
 (DescribeRemediationConfigurationsResponse
  -&gt; DescribeRemediationConfigurationsResponse -&gt; Bool)
@@ -379,7 +379,7 @@ $c/= :: DescribeRemediationConfigurationsResponse
 -&gt; DescribeRemediationConfigurationsResponse -&gt; Bool
 $c== :: DescribeRemediationConfigurationsResponse
 -&gt; DescribeRemediationConfigurationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423482"><span id="local-6989586621679423484"><span id="local-6989586621679423486"><span id="local-6989586621679423488"><span class="annot"><span class="annottext">ReadPrec [DescribeRemediationConfigurationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423491"><span id="local-6989586621679423493"><span id="local-6989586621679423495"><span id="local-6989586621679423497"><span class="annot"><span class="annottext">ReadPrec [DescribeRemediationConfigurationsResponse]
 ReadPrec DescribeRemediationConfigurationsResponse
 Int -&gt; ReadS DescribeRemediationConfigurationsResponse
 ReadS [DescribeRemediationConfigurationsResponse]
@@ -399,7 +399,7 @@ readList :: ReadS [DescribeRemediationConfigurationsResponse]
 $creadList :: ReadS [DescribeRemediationConfigurationsResponse]
 readsPrec :: Int -&gt; ReadS DescribeRemediationConfigurationsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeRemediationConfigurationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423476"><span id="local-6989586621679423478"><span id="local-6989586621679423480"><span class="annot"><span class="annottext">Int -&gt; DescribeRemediationConfigurationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423485"><span id="local-6989586621679423487"><span id="local-6989586621679423489"><span class="annot"><span class="annottext">Int -&gt; DescribeRemediationConfigurationsResponse -&gt; ShowS
 [DescribeRemediationConfigurationsResponse] -&gt; ShowS
 DescribeRemediationConfigurationsResponse -&gt; String
 (Int -&gt; DescribeRemediationConfigurationsResponse -&gt; ShowS)
@@ -454,8 +454,8 @@ DescribeRemediationConfigurationsResponse
 </span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeRemediationConfigurationsResponse</span></a></span><span>
 </span><span id="line-172"></span><span id="newDescribeRemediationConfigurationsResponse"><span class="annot"><span class="annottext">newDescribeRemediationConfigurationsResponse :: Int -&gt; DescribeRemediationConfigurationsResponse
 </span><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#newDescribeRemediationConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeRemediationConfigurationsResponse</span></a></span></span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679423473"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679423473"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679423482"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423482"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">DescribeRemediationConfigurationsResponse' :: Maybe [RemediationConfiguration]
 -&gt; Int -&gt; DescribeRemediationConfigurationsResponse
 </span><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeRemediationConfigurationsResponse'</span></a></span><span>
@@ -466,7 +466,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRemediationConfigurationsResponse' :: Int
 </span><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#%24sel%3AhttpStatus%3ADescribeRemediationConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679423473"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679423482"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | Returns a remediation configuration object.</span><span>
@@ -486,17 +486,17 @@ forall a. Maybe a
      (Maybe [RemediationConfiguration])
      (Maybe [RemediationConfiguration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeRemediationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423472"><span class="annot"><span class="annottext">Maybe [RemediationConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeRemediationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423481"><span class="annot"><span class="annottext">Maybe [RemediationConfiguration]
 remediationConfigurations :: Maybe [RemediationConfiguration]
 $sel:remediationConfigurations:DescribeRemediationConfigurationsResponse' :: DescribeRemediationConfigurationsResponse
 -&gt; Maybe [RemediationConfiguration]
-</span><a href="#local-6989586621679423472"><span class="hs-identifier hs-var hs-var">remediationConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RemediationConfiguration]
-</span><a href="#local-6989586621679423472"><span class="hs-identifier hs-var">remediationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423471"><span class="annot"><span class="annottext">s :: DescribeRemediationConfigurationsResponse
-</span><a href="#local-6989586621679423471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeRemediationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423470"><span class="annot"><span class="annottext">Maybe [RemediationConfiguration]
-</span><a href="#local-6989586621679423470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationConfigurationsResponse
-</span><a href="#local-6989586621679423471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remediationConfigurations:DescribeRemediationConfigurationsResponse' :: Maybe [RemediationConfiguration]
+</span><a href="#local-6989586621679423481"><span class="hs-identifier hs-var hs-var">remediationConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RemediationConfiguration]
+</span><a href="#local-6989586621679423481"><span class="hs-identifier hs-var">remediationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423480"><span class="annot"><span class="annottext">s :: DescribeRemediationConfigurationsResponse
+</span><a href="#local-6989586621679423480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeRemediationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423479"><span class="annot"><span class="annottext">Maybe [RemediationConfiguration]
+</span><a href="#local-6989586621679423479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationConfigurationsResponse
+</span><a href="#local-6989586621679423480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remediationConfigurations:DescribeRemediationConfigurationsResponse' :: Maybe [RemediationConfiguration]
 </span><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#%24sel%3AremediationConfigurations%3ADescribeRemediationConfigurationsResponse%27"><span class="hs-identifier hs-var">remediationConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RemediationConfiguration]
-</span><a href="#local-6989586621679423470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeRemediationConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RemediationConfiguration]
+</span><a href="#local-6989586621679423479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeRemediationConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RemediationConfiguration]
   -&gt; f (Maybe [RemediationConfiguration]))
  -&gt; DescribeRemediationConfigurationsResponse
  -&gt; f DescribeRemediationConfigurationsResponse)
@@ -544,18 +544,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeRemediationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423468"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeRemediationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423477"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeRemediationConfigurationsResponse' :: DescribeRemediationConfigurationsResponse -&gt; Int
-</span><a href="#local-6989586621679423468"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679423468"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423467"><span class="annot"><span class="annottext">s :: DescribeRemediationConfigurationsResponse
-</span><a href="#local-6989586621679423467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeRemediationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423466"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679423466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationConfigurationsResponse
-</span><a href="#local-6989586621679423467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRemediationConfigurationsResponse' :: Int
+</span><a href="#local-6989586621679423477"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423477"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423476"><span class="annot"><span class="annottext">s :: DescribeRemediationConfigurationsResponse
+</span><a href="#local-6989586621679423476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeRemediationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423475"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeRemediationConfigurationsResponse
+</span><a href="#local-6989586621679423476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeRemediationConfigurationsResponse' :: Int
 </span><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#%24sel%3AhttpStatus%3ADescribeRemediationConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679423466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeRemediationConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeRemediationConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679423464"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679423473"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-190"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeRemediationConfigurations.html#DescribeRemediationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeRemediationConfigurationsResponse</span></a></span></span><span>
 </span><span id="line-191"></span></pre></body></html>

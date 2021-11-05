@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679186964"><span id="local-6989586621679186965"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EventScopeCode"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventScopeCode.html#EventScopeCode"><span class="hs-identifier hs-var">EventScopeCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventScopeCode%27"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventScopeCode.html#EventScopeCode%27"><span class="hs-identifier hs-var">EventScopeCode'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679186973"><span id="local-6989586621679186974"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EventScopeCode"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventScopeCode.html#EventScopeCode"><span class="hs-identifier hs-var">EventScopeCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventScopeCode%27"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventScopeCode.html#EventScopeCode%27"><span class="hs-identifier hs-var">EventScopeCode'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEventScopeCode"><span class="annot"><span class="annottext">EventScopeCode -&gt; Text
 </span><a href="Network.AWS.AWSHealth.Types.EventScopeCode.html#fromEventScopeCode"><span class="hs-identifier hs-var hs-var">fromEventScopeCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186956"><span id="local-6989586621679186958"><span id="local-6989586621679186960"><span class="annot"><span class="annottext">Int -&gt; EventScopeCode -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186965"><span id="local-6989586621679186967"><span id="local-6989586621679186969"><span class="annot"><span class="annottext">Int -&gt; EventScopeCode -&gt; ShowS
 [EventScopeCode] -&gt; ShowS
 EventScopeCode -&gt; String
 (Int -&gt; EventScopeCode -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: EventScopeCode -&gt; String
 showsPrec :: Int -&gt; EventScopeCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; EventScopeCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679186947"><span id="local-6989586621679186949"><span id="local-6989586621679186951"><span id="local-6989586621679186953"><span class="annot"><span class="annottext">ReadPrec [EventScopeCode]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679186956"><span id="local-6989586621679186958"><span id="local-6989586621679186960"><span id="local-6989586621679186962"><span class="annot"><span class="annottext">ReadPrec [EventScopeCode]
 ReadPrec EventScopeCode
 Int -&gt; ReadS EventScopeCode
 ReadS [EventScopeCode]
@@ -73,7 +73,7 @@ $creadList :: ReadS [EventScopeCode]
 readsPrec :: Int -&gt; ReadS EventScopeCode
 $creadsPrec :: Int -&gt; ReadS EventScopeCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679186942"><span id="local-6989586621679186944"><span class="annot"><span class="annottext">EventScopeCode -&gt; EventScopeCode -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679186951"><span id="local-6989586621679186953"><span class="annot"><span class="annottext">EventScopeCode -&gt; EventScopeCode -&gt; Bool
 (EventScopeCode -&gt; EventScopeCode -&gt; Bool)
 -&gt; (EventScopeCode -&gt; EventScopeCode -&gt; Bool) -&gt; Eq EventScopeCode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: EventScopeCode -&gt; EventScopeCode -&gt; Bool
 == :: EventScopeCode -&gt; EventScopeCode -&gt; Bool
 $c== :: EventScopeCode -&gt; EventScopeCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679186926"><span id="local-6989586621679186928"><span id="local-6989586621679186930"><span id="local-6989586621679186932"><span id="local-6989586621679186934"><span id="local-6989586621679186936"><span id="local-6989586621679186938"><span class="annot"><span class="annottext">Eq EventScopeCode
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679186935"><span id="local-6989586621679186937"><span id="local-6989586621679186939"><span id="local-6989586621679186941"><span id="local-6989586621679186943"><span id="local-6989586621679186945"><span id="local-6989586621679186947"><span class="annot"><span class="annottext">Eq EventScopeCode
 Eq EventScopeCode
 -&gt; (EventScopeCode -&gt; EventScopeCode -&gt; Ordering)
 -&gt; (EventScopeCode -&gt; EventScopeCode -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. EventScopeCode -&gt; Rep EventScopeCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186918"><span id="local-6989586621679186920"><span class="annot"><span class="annottext">Int -&gt; EventScopeCode -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186927"><span id="local-6989586621679186929"><span class="annot"><span class="annottext">Int -&gt; EventScopeCode -&gt; Int
 EventScopeCode -&gt; Int
 (Int -&gt; EventScopeCode -&gt; Int)
 -&gt; (EventScopeCode -&gt; Int) -&gt; Hashable EventScopeCode
@@ -143,50 +143,50 @@ $chash :: EventScopeCode -&gt; Int
 hashWithSalt :: Int -&gt; EventScopeCode -&gt; Int
 $chashWithSalt :: Int -&gt; EventScopeCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679186915"><span class="annot"><span class="annottext">EventScopeCode -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679186924"><span class="annot"><span class="annottext">EventScopeCode -&gt; ()
 (EventScopeCode -&gt; ()) -&gt; NFData EventScopeCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EventScopeCode -&gt; ()
 $crnf :: EventScopeCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679186912"><span class="annot"><span class="annottext">Text -&gt; Either String EventScopeCode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679186921"><span class="annot"><span class="annottext">Text -&gt; Either String EventScopeCode
 (Text -&gt; Either String EventScopeCode) -&gt; FromText EventScopeCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EventScopeCode
 $cfromText :: Text -&gt; Either String EventScopeCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679186909"><span class="annot"><span class="annottext">EventScopeCode -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679186918"><span class="annot"><span class="annottext">EventScopeCode -&gt; Text
 (EventScopeCode -&gt; Text) -&gt; ToText EventScopeCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EventScopeCode -&gt; Text
 $ctoText :: EventScopeCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679186906"><span class="annot"><span class="annottext">EventScopeCode -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679186915"><span class="annot"><span class="annottext">EventScopeCode -&gt; ByteString
 (EventScopeCode -&gt; ByteString) -&gt; ToByteString EventScopeCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EventScopeCode -&gt; ByteString
 $ctoBS :: EventScopeCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679186903"><span class="annot"><span class="annottext">EventScopeCode -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679186912"><span class="annot"><span class="annottext">EventScopeCode -&gt; ByteStringBuilder
 (EventScopeCode -&gt; ByteStringBuilder) -&gt; ToLog EventScopeCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EventScopeCode -&gt; ByteStringBuilder
 $cbuild :: EventScopeCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679186900"><span class="annot"><span class="annottext">HeaderName -&gt; EventScopeCode -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679186909"><span class="annot"><span class="annottext">HeaderName -&gt; EventScopeCode -&gt; [Header]
 (HeaderName -&gt; EventScopeCode -&gt; [Header])
 -&gt; ToHeader EventScopeCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EventScopeCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EventScopeCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679186897"><span class="annot"><span class="annottext">EventScopeCode -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679186906"><span class="annot"><span class="annottext">EventScopeCode -&gt; QueryString
 (EventScopeCode -&gt; QueryString) -&gt; ToQuery EventScopeCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EventScopeCode -&gt; QueryString
 $ctoQuery :: EventScopeCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679186892"><span id="local-6989586621679186894"><span class="annot"><span class="annottext">Value -&gt; Parser [EventScopeCode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679186901"><span id="local-6989586621679186903"><span class="annot"><span class="annottext">Value -&gt; Parser [EventScopeCode]
 Value -&gt; Parser EventScopeCode
 (Value -&gt; Parser EventScopeCode)
 -&gt; (Value -&gt; Parser [EventScopeCode]) -&gt; FromJSON EventScopeCode
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [EventScopeCode]
 parseJSON :: Value -&gt; Parser EventScopeCode
 $cparseJSON :: Value -&gt; Parser EventScopeCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679186887"><span id="local-6989586621679186889"><span class="annot"><span class="annottext">FromJSONKeyFunction [EventScopeCode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679186896"><span id="local-6989586621679186898"><span class="annot"><span class="annottext">FromJSONKeyFunction [EventScopeCode]
 FromJSONKeyFunction EventScopeCode
 FromJSONKeyFunction EventScopeCode
 -&gt; FromJSONKeyFunction [EventScopeCode]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EventScopeCode]
 fromJSONKey :: FromJSONKeyFunction EventScopeCode
 $cfromJSONKey :: FromJSONKeyFunction EventScopeCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679186878"><span id="local-6989586621679186880"><span id="local-6989586621679186882"><span id="local-6989586621679186884"><span class="annot"><span class="annottext">[EventScopeCode] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679186887"><span id="local-6989586621679186889"><span id="local-6989586621679186891"><span id="local-6989586621679186893"><span class="annot"><span class="annottext">[EventScopeCode] -&gt; Encoding
 [EventScopeCode] -&gt; Value
 EventScopeCode -&gt; Encoding
 EventScopeCode -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: EventScopeCode -&gt; Encoding
 toJSON :: EventScopeCode -&gt; Value
 $ctoJSON :: EventScopeCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679186873"><span id="local-6989586621679186875"><span class="annot"><span class="annottext">ToJSONKeyFunction [EventScopeCode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679186882"><span id="local-6989586621679186884"><span class="annot"><span class="annottext">ToJSONKeyFunction [EventScopeCode]
 ToJSONKeyFunction EventScopeCode
 ToJSONKeyFunction EventScopeCode
 -&gt; ToJSONKeyFunction [EventScopeCode] -&gt; ToJSONKey EventScopeCode
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EventScopeCode]
 toJSONKey :: ToJSONKeyFunction EventScopeCode
 $ctoJSONKey :: ToJSONKeyFunction EventScopeCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679186870"><span class="annot"><span class="annottext">[Node] -&gt; Either String EventScopeCode
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679186879"><span class="annot"><span class="annottext">[Node] -&gt; Either String EventScopeCode
 ([Node] -&gt; Either String EventScopeCode) -&gt; FromXML EventScopeCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EventScopeCode
 $cparseXML :: [Node] -&gt; Either String EventScopeCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679186867"><span class="annot"><span class="annottext">EventScopeCode -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679186876"><span class="annot"><span class="annottext">EventScopeCode -&gt; XML
 (EventScopeCode -&gt; XML) -&gt; ToXML EventScopeCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EventScopeCode -&gt; XML

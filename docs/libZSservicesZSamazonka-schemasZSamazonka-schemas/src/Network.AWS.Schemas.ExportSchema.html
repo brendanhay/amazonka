@@ -1,0 +1,702 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Schemas.ExportSchema</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- -- | Undocumented operation.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Schemas.ExportSchema</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier">ExportSchema</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#newExportSchema"><span class="hs-identifier">newExportSchema</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchema_schemaVersion"><span class="hs-identifier">exportSchema_schemaVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchema_registryName"><span class="hs-identifier">exportSchema_registryName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchema_schemaName"><span class="hs-identifier">exportSchema_schemaName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchema_type"><span class="hs-identifier">exportSchema_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier">ExportSchemaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#newExportSchemaResponse"><span class="hs-identifier">newExportSchemaResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_schemaVersion"><span class="hs-identifier">exportSchemaResponse_schemaVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_schemaName"><span class="hs-identifier">exportSchemaResponse_schemaName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_content"><span class="hs-identifier">exportSchemaResponse_content</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_schemaArn"><span class="hs-identifier">exportSchemaResponse_schemaArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_type"><span class="hs-identifier">exportSchemaResponse_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_httpStatus"><span class="hs-identifier">exportSchemaResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.Types.html"><span class="hs-identifier">Network.AWS.Schemas.Types</span></a></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newExportSchema' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679203368"><span id="local-6989586621679203369"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportSchema"><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-var">ExportSchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportSchema%27"><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema%27"><span class="hs-identifier hs-var">ExportSchema'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifying this limits the results to only this schema version.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AschemaVersion%3AExportSchema%27"><span class="annot"><span class="annottext">ExportSchema -&gt; Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AschemaVersion%3AExportSchema%27"><span class="hs-identifier hs-var hs-var">schemaVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the registry.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AregistryName%3AExportSchema%27"><span class="annot"><span class="annottext">ExportSchema -&gt; Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AregistryName%3AExportSchema%27"><span class="hs-identifier hs-var hs-var">registryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The name of the schema.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AschemaName%3AExportSchema%27"><span class="annot"><span class="annottext">ExportSchema -&gt; Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AschemaName%3AExportSchema%27"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Atype%27%3AExportSchema%27"><span class="annot"><span class="annottext">ExportSchema -&gt; Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3Atype%27%3AExportSchema%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203359"><span id="local-6989586621679203361"><span class="annot"><span class="annottext">ExportSchema -&gt; ExportSchema -&gt; Bool
+(ExportSchema -&gt; ExportSchema -&gt; Bool)
+-&gt; (ExportSchema -&gt; ExportSchema -&gt; Bool) -&gt; Eq ExportSchema
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExportSchema -&gt; ExportSchema -&gt; Bool
+$c/= :: ExportSchema -&gt; ExportSchema -&gt; Bool
+== :: ExportSchema -&gt; ExportSchema -&gt; Bool
+$c== :: ExportSchema -&gt; ExportSchema -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203350"><span id="local-6989586621679203352"><span id="local-6989586621679203354"><span id="local-6989586621679203356"><span class="annot"><span class="annottext">ReadPrec [ExportSchema]
+ReadPrec ExportSchema
+Int -&gt; ReadS ExportSchema
+ReadS [ExportSchema]
+(Int -&gt; ReadS ExportSchema)
+-&gt; ReadS [ExportSchema]
+-&gt; ReadPrec ExportSchema
+-&gt; ReadPrec [ExportSchema]
+-&gt; Read ExportSchema
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExportSchema]
+$creadListPrec :: ReadPrec [ExportSchema]
+readPrec :: ReadPrec ExportSchema
+$creadPrec :: ReadPrec ExportSchema
+readList :: ReadS [ExportSchema]
+$creadList :: ReadS [ExportSchema]
+readsPrec :: Int -&gt; ReadS ExportSchema
+$creadsPrec :: Int -&gt; ReadS ExportSchema
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203343"><span id="local-6989586621679203345"><span id="local-6989586621679203347"><span class="annot"><span class="annottext">Int -&gt; ExportSchema -&gt; ShowS
+[ExportSchema] -&gt; ShowS
+ExportSchema -&gt; String
+(Int -&gt; ExportSchema -&gt; ShowS)
+-&gt; (ExportSchema -&gt; String)
+-&gt; ([ExportSchema] -&gt; ShowS)
+-&gt; Show ExportSchema
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExportSchema] -&gt; ShowS
+$cshowList :: [ExportSchema] -&gt; ShowS
+show :: ExportSchema -&gt; String
+$cshow :: ExportSchema -&gt; String
+showsPrec :: Int -&gt; ExportSchema -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExportSchema -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ExportSchema -&gt; Rep ExportSchema x)
+-&gt; (forall x. Rep ExportSchema x -&gt; ExportSchema)
+-&gt; Generic ExportSchema
+forall x. Rep ExportSchema x -&gt; ExportSchema
+forall x. ExportSchema -&gt; Rep ExportSchema x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExportSchema x -&gt; ExportSchema
+$cfrom :: forall x. ExportSchema -&gt; Rep ExportSchema x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ExportSchema' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'schemaVersion', 'exportSchema_schemaVersion' - Specifying this limits the results to only this schema version.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'registryName', 'exportSchema_registryName' - The name of the registry.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'schemaName', 'exportSchema_schemaName' - The name of the schema.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'type'', 'exportSchema_type' - Undocumented member.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#newExportSchema"><span class="hs-identifier hs-type">newExportSchema</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'registryName'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'schemaName'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-type">ExportSchema</span></a></span><span>
+</span><span id="line-91"></span><span id="newExportSchema"><span class="annot"><span class="annottext">newExportSchema :: Text -&gt; Text -&gt; Text -&gt; ExportSchema
+</span><a href="Network.AWS.Schemas.ExportSchema.html#newExportSchema"><span class="hs-identifier hs-var hs-var">newExportSchema</span></a></span></span><span> </span><span id="local-6989586621679203338"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203338"><span class="hs-identifier hs-var">pRegistryName_</span></a></span></span><span> </span><span id="local-6989586621679203337"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203337"><span class="hs-identifier hs-var">pSchemaName_</span></a></span></span><span> </span><span id="local-6989586621679203336"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203336"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">ExportSchema' :: Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; ExportSchema
+</span><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema%27"><span class="hs-identifier hs-type">ExportSchema'</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schemaVersion:ExportSchema' :: Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AschemaVersion%3AExportSchema%27"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:registryName:ExportSchema' :: Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AregistryName%3AExportSchema%27"><span class="hs-identifier hs-var">registryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203338"><span class="hs-identifier hs-var">pRegistryName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaName:ExportSchema' :: Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AschemaName%3AExportSchema%27"><span class="hs-identifier hs-var">schemaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203337"><span class="hs-identifier hs-var">pSchemaName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ExportSchema' :: Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3Atype%27%3AExportSchema%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203336"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | Specifying this limits the results to only this schema version.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchema_schemaVersion"><span class="hs-identifier hs-type">exportSchema_schemaVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-type">ExportSchema</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="exportSchema_schemaVersion"><span class="annot"><span class="annottext">exportSchema_schemaVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ExportSchema -&gt; f ExportSchema
+</span><a href="Network.AWS.Schemas.ExportSchema.html#exportSchema_schemaVersion"><span class="hs-identifier hs-var hs-var">exportSchema_schemaVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportSchema -&gt; Maybe Text)
+-&gt; (ExportSchema -&gt; Maybe Text -&gt; ExportSchema)
+-&gt; Lens ExportSchema ExportSchema (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema%27"><span class="hs-identifier hs-type">ExportSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203333"><span class="annot"><span class="annottext">Maybe Text
+schemaVersion :: Maybe Text
+$sel:schemaVersion:ExportSchema' :: ExportSchema -&gt; Maybe Text
+</span><a href="#local-6989586621679203333"><span class="hs-identifier hs-var hs-var">schemaVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203333"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203332"><span class="annot"><span class="annottext">s :: ExportSchema
+</span><a href="#local-6989586621679203332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema%27"><span class="hs-identifier hs-type">ExportSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203331"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportSchema
+</span><a href="#local-6989586621679203332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersion:ExportSchema' :: Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AschemaVersion%3AExportSchema%27"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-type">ExportSchema</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The name of the registry.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchema_registryName"><span class="hs-identifier hs-type">exportSchema_registryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-type">ExportSchema</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="exportSchema_registryName"><span class="annot"><span class="annottext">exportSchema_registryName :: (Text -&gt; f Text) -&gt; ExportSchema -&gt; f ExportSchema
+</span><a href="Network.AWS.Schemas.ExportSchema.html#exportSchema_registryName"><span class="hs-identifier hs-var hs-var">exportSchema_registryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportSchema -&gt; Text)
+-&gt; (ExportSchema -&gt; Text -&gt; ExportSchema)
+-&gt; Lens ExportSchema ExportSchema Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema%27"><span class="hs-identifier hs-type">ExportSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203330"><span class="annot"><span class="annottext">Text
+registryName :: Text
+$sel:registryName:ExportSchema' :: ExportSchema -&gt; Text
+</span><a href="#local-6989586621679203330"><span class="hs-identifier hs-var hs-var">registryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203330"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203329"><span class="annot"><span class="annottext">s :: ExportSchema
+</span><a href="#local-6989586621679203329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema%27"><span class="hs-identifier hs-type">ExportSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203328"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportSchema
+</span><a href="#local-6989586621679203329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryName:ExportSchema' :: Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AregistryName%3AExportSchema%27"><span class="hs-identifier hs-var">registryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-type">ExportSchema</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The name of the schema.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchema_schemaName"><span class="hs-identifier hs-type">exportSchema_schemaName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-type">ExportSchema</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="exportSchema_schemaName"><span class="annot"><span class="annottext">exportSchema_schemaName :: (Text -&gt; f Text) -&gt; ExportSchema -&gt; f ExportSchema
+</span><a href="Network.AWS.Schemas.ExportSchema.html#exportSchema_schemaName"><span class="hs-identifier hs-var hs-var">exportSchema_schemaName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportSchema -&gt; Text)
+-&gt; (ExportSchema -&gt; Text -&gt; ExportSchema)
+-&gt; Lens ExportSchema ExportSchema Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema%27"><span class="hs-identifier hs-type">ExportSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203327"><span class="annot"><span class="annottext">Text
+schemaName :: Text
+$sel:schemaName:ExportSchema' :: ExportSchema -&gt; Text
+</span><a href="#local-6989586621679203327"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203327"><span class="hs-identifier hs-var">schemaName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203326"><span class="annot"><span class="annottext">s :: ExportSchema
+</span><a href="#local-6989586621679203326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema%27"><span class="hs-identifier hs-type">ExportSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203325"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportSchema
+</span><a href="#local-6989586621679203326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaName:ExportSchema' :: Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AschemaName%3AExportSchema%27"><span class="hs-identifier hs-var">schemaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-type">ExportSchema</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchema_type"><span class="hs-identifier hs-type">exportSchema_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-type">ExportSchema</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="exportSchema_type"><span class="annot"><span class="annottext">exportSchema_type :: (Text -&gt; f Text) -&gt; ExportSchema -&gt; f ExportSchema
+</span><a href="Network.AWS.Schemas.ExportSchema.html#exportSchema_type"><span class="hs-identifier hs-var hs-var">exportSchema_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportSchema -&gt; Text)
+-&gt; (ExportSchema -&gt; Text -&gt; ExportSchema)
+-&gt; Lens ExportSchema ExportSchema Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema%27"><span class="hs-identifier hs-type">ExportSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203324"><span class="annot"><span class="annottext">Text
+type' :: Text
+$sel:type':ExportSchema' :: ExportSchema -&gt; Text
+</span><a href="#local-6989586621679203324"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203324"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203323"><span class="annot"><span class="annottext">s :: ExportSchema
+</span><a href="#local-6989586621679203323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema%27"><span class="hs-identifier hs-type">ExportSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203322"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportSchema
+</span><a href="#local-6989586621679203323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ExportSchema' :: Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3Atype%27%3AExportSchema%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-type">ExportSchema</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-type">ExportSchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-type">ExportSchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier hs-type">ExportSchemaResponse</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679203318"><span class="annot"><span class="annottext">request :: ExportSchema -&gt; Request ExportSchema
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ExportSchema -&gt; Request ExportSchema
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Schemas.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679203314"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ExportSchema
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ExportSchema)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ExportSchema))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ExportSchema
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ExportSchema)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203311"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203311"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679203310"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679203310"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679203309"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203309"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ExportSchemaResponse
+</span><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse%27"><span class="hs-identifier hs-var">ExportSchemaResponse'</span></a></span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; ExportSchemaResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; ExportSchemaResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; ExportSchemaResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ExportSchemaResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ExportSchemaResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ExportSchemaResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Content&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ExportSchemaResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ExportSchemaResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ExportSchemaResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ExportSchemaResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ExportSchemaResponse)
+-&gt; Either String Int -&gt; Either String ExportSchemaResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203311"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203301"><span id="local-6989586621679203303"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-type">ExportSchema</span></a></span></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203298"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-type">ExportSchema</span></a></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-type">ExportSchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679203294"><span class="annot"><span class="annottext">toHeaders :: ExportSchema -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ExportSchema -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-140"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-141"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-type">ExportSchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679203288"><span class="annot"><span class="annottext">toPath :: ExportSchema -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema%27"><span class="hs-identifier hs-type">ExportSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203283"><span id="local-6989586621679203284"><span id="local-6989586621679203285"><span id="local-6989586621679203286"><span class="annot"><span class="annottext">Maybe Text
+Text
+type' :: Text
+schemaName :: Text
+registryName :: Text
+schemaVersion :: Maybe Text
+$sel:type':ExportSchema' :: ExportSchema -&gt; Text
+$sel:schemaName:ExportSchema' :: ExportSchema -&gt; Text
+$sel:registryName:ExportSchema' :: ExportSchema -&gt; Text
+$sel:schemaVersion:ExportSchema' :: ExportSchema -&gt; Maybe Text
+</span><a href="#local-6989586621679203283"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/registries/name/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203285"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/schemas/name/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203284"><span class="hs-identifier hs-var">schemaName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/export&quot;</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema"><span class="hs-identifier hs-type">ExportSchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679203279"><span class="annot"><span class="annottext">toQuery :: ExportSchema -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchema%27"><span class="hs-identifier hs-type">ExportSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203274"><span id="local-6989586621679203275"><span id="local-6989586621679203276"><span id="local-6989586621679203277"><span class="annot"><span class="annottext">Maybe Text
+Text
+type' :: Text
+schemaName :: Text
+registryName :: Text
+schemaVersion :: Maybe Text
+$sel:type':ExportSchema' :: ExportSchema -&gt; Text
+$sel:schemaName:ExportSchema' :: ExportSchema -&gt; Text
+$sel:registryName:ExportSchema' :: ExportSchema -&gt; Text
+$sel:schemaVersion:ExportSchema' :: ExportSchema -&gt; Maybe Text
+</span><a href="#local-6989586621679203274"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;schemaVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203277"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203274"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | /See:/ 'newExportSchemaResponse' smart constructor.</span><span>
+</span><span id="line-163"></span><span id="local-6989586621679203271"><span id="local-6989586621679203272"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportSchemaResponse"><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier hs-var">ExportSchemaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportSchemaResponse%27"><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse%27"><span class="hs-identifier hs-var">ExportSchemaResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AschemaVersion%3AExportSchemaResponse%27"><span class="annot"><span class="annottext">ExportSchemaResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AschemaVersion%3AExportSchemaResponse%27"><span class="hs-identifier hs-var hs-var">schemaVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AschemaName%3AExportSchemaResponse%27"><span class="annot"><span class="annottext">ExportSchemaResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AschemaName%3AExportSchemaResponse%27"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3Acontent%3AExportSchemaResponse%27"><span class="annot"><span class="annottext">ExportSchemaResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3Acontent%3AExportSchemaResponse%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AschemaArn%3AExportSchemaResponse%27"><span class="annot"><span class="annottext">ExportSchemaResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AschemaArn%3AExportSchemaResponse%27"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3Atype%27%3AExportSchemaResponse%27"><span class="annot"><span class="annottext">ExportSchemaResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3Atype%27%3AExportSchemaResponse%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3AExportSchemaResponse%27"><span class="annot"><span class="annottext">ExportSchemaResponse -&gt; Int
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AhttpStatus%3AExportSchemaResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203261"><span id="local-6989586621679203263"><span class="annot"><span class="annottext">ExportSchemaResponse -&gt; ExportSchemaResponse -&gt; Bool
+(ExportSchemaResponse -&gt; ExportSchemaResponse -&gt; Bool)
+-&gt; (ExportSchemaResponse -&gt; ExportSchemaResponse -&gt; Bool)
+-&gt; Eq ExportSchemaResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExportSchemaResponse -&gt; ExportSchemaResponse -&gt; Bool
+$c/= :: ExportSchemaResponse -&gt; ExportSchemaResponse -&gt; Bool
+== :: ExportSchemaResponse -&gt; ExportSchemaResponse -&gt; Bool
+$c== :: ExportSchemaResponse -&gt; ExportSchemaResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203253"><span id="local-6989586621679203255"><span id="local-6989586621679203257"><span id="local-6989586621679203259"><span class="annot"><span class="annottext">ReadPrec [ExportSchemaResponse]
+ReadPrec ExportSchemaResponse
+Int -&gt; ReadS ExportSchemaResponse
+ReadS [ExportSchemaResponse]
+(Int -&gt; ReadS ExportSchemaResponse)
+-&gt; ReadS [ExportSchemaResponse]
+-&gt; ReadPrec ExportSchemaResponse
+-&gt; ReadPrec [ExportSchemaResponse]
+-&gt; Read ExportSchemaResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExportSchemaResponse]
+$creadListPrec :: ReadPrec [ExportSchemaResponse]
+readPrec :: ReadPrec ExportSchemaResponse
+$creadPrec :: ReadPrec ExportSchemaResponse
+readList :: ReadS [ExportSchemaResponse]
+$creadList :: ReadS [ExportSchemaResponse]
+readsPrec :: Int -&gt; ReadS ExportSchemaResponse
+$creadsPrec :: Int -&gt; ReadS ExportSchemaResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203247"><span id="local-6989586621679203249"><span id="local-6989586621679203251"><span class="annot"><span class="annottext">Int -&gt; ExportSchemaResponse -&gt; ShowS
+[ExportSchemaResponse] -&gt; ShowS
+ExportSchemaResponse -&gt; String
+(Int -&gt; ExportSchemaResponse -&gt; ShowS)
+-&gt; (ExportSchemaResponse -&gt; String)
+-&gt; ([ExportSchemaResponse] -&gt; ShowS)
+-&gt; Show ExportSchemaResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExportSchemaResponse] -&gt; ShowS
+$cshowList :: [ExportSchemaResponse] -&gt; ShowS
+show :: ExportSchemaResponse -&gt; String
+$cshow :: ExportSchemaResponse -&gt; String
+showsPrec :: Int -&gt; ExportSchemaResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExportSchemaResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ExportSchemaResponse -&gt; Rep ExportSchemaResponse x)
+-&gt; (forall x. Rep ExportSchemaResponse x -&gt; ExportSchemaResponse)
+-&gt; Generic ExportSchemaResponse
+forall x. Rep ExportSchemaResponse x -&gt; ExportSchemaResponse
+forall x. ExportSchemaResponse -&gt; Rep ExportSchemaResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExportSchemaResponse x -&gt; ExportSchemaResponse
+$cfrom :: forall x. ExportSchemaResponse -&gt; Rep ExportSchemaResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Create a value of 'ExportSchemaResponse' with all optional fields omitted.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'schemaVersion', 'exportSchemaResponse_schemaVersion' - Undocumented member.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'schemaName', 'exportSchemaResponse_schemaName' - Undocumented member.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'content', 'exportSchemaResponse_content' - Undocumented member.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'schemaArn', 'exportSchemaResponse_schemaArn' - Undocumented member.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'type'', 'exportSchemaResponse_type' - Undocumented member.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'httpStatus', 'exportSchemaResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#newExportSchemaResponse"><span class="hs-identifier hs-type">newExportSchemaResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier hs-type">ExportSchemaResponse</span></a></span><span>
+</span><span id="line-197"></span><span id="newExportSchemaResponse"><span class="annot"><span class="annottext">newExportSchemaResponse :: Int -&gt; ExportSchemaResponse
+</span><a href="Network.AWS.Schemas.ExportSchema.html#newExportSchemaResponse"><span class="hs-identifier hs-var hs-var">newExportSchemaResponse</span></a></span></span><span> </span><span id="local-6989586621679203244"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203244"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="annottext">ExportSchemaResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ExportSchemaResponse
+</span><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse%27"><span class="hs-identifier hs-type">ExportSchemaResponse'</span></a></span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schemaVersion:ExportSchemaResponse' :: Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AschemaVersion%3AExportSchemaResponse%27"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaName:ExportSchemaResponse' :: Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AschemaName%3AExportSchemaResponse%27"><span class="hs-identifier hs-var">schemaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:content:ExportSchemaResponse' :: Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3Acontent%3AExportSchemaResponse%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaArn:ExportSchemaResponse' :: Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AschemaArn%3AExportSchemaResponse%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ExportSchemaResponse' :: Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3Atype%27%3AExportSchemaResponse%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ExportSchemaResponse' :: Int
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AhttpStatus%3AExportSchemaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203244"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_schemaVersion"><span class="hs-identifier hs-type">exportSchemaResponse_schemaVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier hs-type">ExportSchemaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="exportSchemaResponse_schemaVersion"><span class="annot"><span class="annottext">exportSchemaResponse_schemaVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExportSchemaResponse -&gt; f ExportSchemaResponse
+</span><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_schemaVersion"><span class="hs-identifier hs-var hs-var">exportSchemaResponse_schemaVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportSchemaResponse -&gt; Maybe Text)
+-&gt; (ExportSchemaResponse -&gt; Maybe Text -&gt; ExportSchemaResponse)
+-&gt; Lens
+     ExportSchemaResponse ExportSchemaResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse%27"><span class="hs-identifier hs-type">ExportSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203243"><span class="annot"><span class="annottext">Maybe Text
+schemaVersion :: Maybe Text
+$sel:schemaVersion:ExportSchemaResponse' :: ExportSchemaResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679203243"><span class="hs-identifier hs-var hs-var">schemaVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203243"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203242"><span class="annot"><span class="annottext">s :: ExportSchemaResponse
+</span><a href="#local-6989586621679203242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse%27"><span class="hs-identifier hs-type">ExportSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203241"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportSchemaResponse
+</span><a href="#local-6989586621679203242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersion:ExportSchemaResponse' :: Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AschemaVersion%3AExportSchemaResponse%27"><span class="hs-identifier hs-var">schemaVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier hs-type">ExportSchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_schemaName"><span class="hs-identifier hs-type">exportSchemaResponse_schemaName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier hs-type">ExportSchemaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="exportSchemaResponse_schemaName"><span class="annot"><span class="annottext">exportSchemaResponse_schemaName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExportSchemaResponse -&gt; f ExportSchemaResponse
+</span><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_schemaName"><span class="hs-identifier hs-var hs-var">exportSchemaResponse_schemaName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportSchemaResponse -&gt; Maybe Text)
+-&gt; (ExportSchemaResponse -&gt; Maybe Text -&gt; ExportSchemaResponse)
+-&gt; Lens
+     ExportSchemaResponse ExportSchemaResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse%27"><span class="hs-identifier hs-type">ExportSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203240"><span class="annot"><span class="annottext">Maybe Text
+schemaName :: Maybe Text
+$sel:schemaName:ExportSchemaResponse' :: ExportSchemaResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679203240"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203240"><span class="hs-identifier hs-var">schemaName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203239"><span class="annot"><span class="annottext">s :: ExportSchemaResponse
+</span><a href="#local-6989586621679203239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse%27"><span class="hs-identifier hs-type">ExportSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203238"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportSchemaResponse
+</span><a href="#local-6989586621679203239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaName:ExportSchemaResponse' :: Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AschemaName%3AExportSchemaResponse%27"><span class="hs-identifier hs-var">schemaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier hs-type">ExportSchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_content"><span class="hs-identifier hs-type">exportSchemaResponse_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier hs-type">ExportSchemaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="exportSchemaResponse_content"><span class="annot"><span class="annottext">exportSchemaResponse_content :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExportSchemaResponse -&gt; f ExportSchemaResponse
+</span><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_content"><span class="hs-identifier hs-var hs-var">exportSchemaResponse_content</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportSchemaResponse -&gt; Maybe Text)
+-&gt; (ExportSchemaResponse -&gt; Maybe Text -&gt; ExportSchemaResponse)
+-&gt; Lens
+     ExportSchemaResponse ExportSchemaResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse%27"><span class="hs-identifier hs-type">ExportSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203237"><span class="annot"><span class="annottext">Maybe Text
+content :: Maybe Text
+$sel:content:ExportSchemaResponse' :: ExportSchemaResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679203237"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203237"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203236"><span class="annot"><span class="annottext">s :: ExportSchemaResponse
+</span><a href="#local-6989586621679203236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse%27"><span class="hs-identifier hs-type">ExportSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203235"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportSchemaResponse
+</span><a href="#local-6989586621679203236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:ExportSchemaResponse' :: Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3Acontent%3AExportSchemaResponse%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier hs-type">ExportSchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_schemaArn"><span class="hs-identifier hs-type">exportSchemaResponse_schemaArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier hs-type">ExportSchemaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="exportSchemaResponse_schemaArn"><span class="annot"><span class="annottext">exportSchemaResponse_schemaArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExportSchemaResponse -&gt; f ExportSchemaResponse
+</span><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_schemaArn"><span class="hs-identifier hs-var hs-var">exportSchemaResponse_schemaArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportSchemaResponse -&gt; Maybe Text)
+-&gt; (ExportSchemaResponse -&gt; Maybe Text -&gt; ExportSchemaResponse)
+-&gt; Lens
+     ExportSchemaResponse ExportSchemaResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse%27"><span class="hs-identifier hs-type">ExportSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203234"><span class="annot"><span class="annottext">Maybe Text
+schemaArn :: Maybe Text
+$sel:schemaArn:ExportSchemaResponse' :: ExportSchemaResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679203234"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203234"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203233"><span class="annot"><span class="annottext">s :: ExportSchemaResponse
+</span><a href="#local-6989586621679203233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse%27"><span class="hs-identifier hs-type">ExportSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203232"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportSchemaResponse
+</span><a href="#local-6989586621679203233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:ExportSchemaResponse' :: Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AschemaArn%3AExportSchemaResponse%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier hs-type">ExportSchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_type"><span class="hs-identifier hs-type">exportSchemaResponse_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier hs-type">ExportSchemaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="exportSchemaResponse_type"><span class="annot"><span class="annottext">exportSchemaResponse_type :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExportSchemaResponse -&gt; f ExportSchemaResponse
+</span><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_type"><span class="hs-identifier hs-var hs-var">exportSchemaResponse_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportSchemaResponse -&gt; Maybe Text)
+-&gt; (ExportSchemaResponse -&gt; Maybe Text -&gt; ExportSchemaResponse)
+-&gt; Lens
+     ExportSchemaResponse ExportSchemaResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse%27"><span class="hs-identifier hs-type">ExportSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203231"><span class="annot"><span class="annottext">Maybe Text
+type' :: Maybe Text
+$sel:type':ExportSchemaResponse' :: ExportSchemaResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679203231"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203231"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203230"><span class="annot"><span class="annottext">s :: ExportSchemaResponse
+</span><a href="#local-6989586621679203230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse%27"><span class="hs-identifier hs-type">ExportSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203229"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportSchemaResponse
+</span><a href="#local-6989586621679203230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ExportSchemaResponse' :: Maybe Text
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3Atype%27%3AExportSchemaResponse%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier hs-type">ExportSchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_httpStatus"><span class="hs-identifier hs-type">exportSchemaResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier hs-type">ExportSchemaResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-230"></span><span id="exportSchemaResponse_httpStatus"><span class="annot"><span class="annottext">exportSchemaResponse_httpStatus :: (Int -&gt; f Int) -&gt; ExportSchemaResponse -&gt; f ExportSchemaResponse
+</span><a href="Network.AWS.Schemas.ExportSchema.html#exportSchemaResponse_httpStatus"><span class="hs-identifier hs-var hs-var">exportSchemaResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportSchemaResponse -&gt; Int)
+-&gt; (ExportSchemaResponse -&gt; Int -&gt; ExportSchemaResponse)
+-&gt; Lens ExportSchemaResponse ExportSchemaResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse%27"><span class="hs-identifier hs-type">ExportSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203228"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ExportSchemaResponse' :: ExportSchemaResponse -&gt; Int
+</span><a href="#local-6989586621679203228"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203228"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203227"><span class="annot"><span class="annottext">s :: ExportSchemaResponse
+</span><a href="#local-6989586621679203227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse%27"><span class="hs-identifier hs-type">ExportSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203226"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportSchemaResponse
+</span><a href="#local-6989586621679203227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ExportSchemaResponse' :: Int
+</span><a href="Network.AWS.Schemas.ExportSchema.html#%24sel%3AhttpStatus%3AExportSchemaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier hs-type">ExportSchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203224"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Schemas.ExportSchema.html#ExportSchemaResponse"><span class="hs-identifier hs-type">ExportSchemaResponse</span></a></span></span><span>
+</span><span id="line-233"></span></pre></body></html>

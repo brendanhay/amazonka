@@ -127,7 +127,7 @@
 </span><span id="line-127"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newCreateFileSystem' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679192943"><span id="local-6989586621679192944"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateFileSystem"><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-var">CreateFileSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateFileSystem%27"><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-var">CreateFileSystem'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679192952"><span id="local-6989586621679192953"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateFileSystem"><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-var">CreateFileSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateFileSystem%27"><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-var">CreateFileSystem'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The throughput, measured in MiB\/s, that you want to provision for a</span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-comment">-- file system that you\'re creating. Valid values are 1-1024. Required if</span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-comment">-- @ThroughputMode@ is set to @provisioned@. The upper limit for throughput</span><span>
@@ -231,7 +231,7 @@
 </span><span id="line-223"></span><span>    </span><span id="%24sel%3AcreationToken%3ACreateFileSystem%27"><span class="annot"><span class="annottext">CreateFileSystem -&gt; Text
 </span><a href="Network.AWS.EFS.CreateFileSystem.html#%24sel%3AcreationToken%3ACreateFileSystem%27"><span class="hs-identifier hs-var hs-var">creationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-224"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192929"><span id="local-6989586621679192931"><span class="annot"><span class="annottext">CreateFileSystem -&gt; CreateFileSystem -&gt; Bool
+</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192938"><span id="local-6989586621679192940"><span class="annot"><span class="annottext">CreateFileSystem -&gt; CreateFileSystem -&gt; Bool
 (CreateFileSystem -&gt; CreateFileSystem -&gt; Bool)
 -&gt; (CreateFileSystem -&gt; CreateFileSystem -&gt; Bool)
 -&gt; Eq CreateFileSystem
@@ -240,7 +240,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateFileSystem -&gt; CreateFileSystem -&gt; Bool
 == :: CreateFileSystem -&gt; CreateFileSystem -&gt; Bool
 $c== :: CreateFileSystem -&gt; CreateFileSystem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192920"><span id="local-6989586621679192922"><span id="local-6989586621679192924"><span id="local-6989586621679192926"><span class="annot"><span class="annottext">ReadPrec [CreateFileSystem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192929"><span id="local-6989586621679192931"><span id="local-6989586621679192933"><span id="local-6989586621679192935"><span class="annot"><span class="annottext">ReadPrec [CreateFileSystem]
 ReadPrec CreateFileSystem
 Int -&gt; ReadS CreateFileSystem
 ReadS [CreateFileSystem]
@@ -260,7 +260,7 @@ readList :: ReadS [CreateFileSystem]
 $creadList :: ReadS [CreateFileSystem]
 readsPrec :: Int -&gt; ReadS CreateFileSystem
 $creadsPrec :: Int -&gt; ReadS CreateFileSystem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192913"><span id="local-6989586621679192915"><span id="local-6989586621679192917"><span class="annot"><span class="annottext">Int -&gt; CreateFileSystem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192922"><span id="local-6989586621679192924"><span id="local-6989586621679192926"><span class="annot"><span class="annottext">Int -&gt; CreateFileSystem -&gt; ShowS
 [CreateFileSystem] -&gt; ShowS
 CreateFileSystem -&gt; String
 (Int -&gt; CreateFileSystem -&gt; ShowS)
@@ -391,8 +391,8 @@ $cfrom :: forall x. CreateFileSystem -&gt; Rep CreateFileSystem x
 </span><span id="line-329"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-330"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span>
 </span><span id="line-331"></span><span id="newCreateFileSystem"><span class="annot"><span class="annottext">newCreateFileSystem :: Text -&gt; CreateFileSystem
-</span><a href="Network.AWS.EFS.CreateFileSystem.html#newCreateFileSystem"><span class="hs-identifier hs-var hs-var">newCreateFileSystem</span></a></span></span><span> </span><span id="local-6989586621679192908"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192908"><span class="hs-identifier hs-var">pCreationToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EFS.CreateFileSystem.html#newCreateFileSystem"><span class="hs-identifier hs-var hs-var">newCreateFileSystem</span></a></span></span><span> </span><span id="local-6989586621679192917"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192917"><span class="hs-identifier hs-var">pCreationToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-332"></span><span>  </span><span class="annot"><span class="annottext">CreateFileSystem' :: Maybe Double
 -&gt; Maybe Text
 -&gt; Maybe PerformanceMode
@@ -439,7 +439,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-342"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationToken:CreateFileSystem' :: Text
 </span><a href="Network.AWS.EFS.CreateFileSystem.html#%24sel%3AcreationToken%3ACreateFileSystem%27"><span class="hs-identifier hs-var">creationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192908"><span class="hs-identifier hs-var">pCreationToken_</span></a></span><span>
+</span><a href="#local-6989586621679192917"><span class="hs-identifier hs-var">pCreationToken_</span></a></span><span>
 </span><span id="line-343"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-344"></span><span>
 </span><span id="line-345"></span><span class="hs-comment">-- | The throughput, measured in MiB\/s, that you want to provision for a</span><span>
@@ -457,16 +457,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateFileSystem CreateFileSystem (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192905"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192914"><span class="annot"><span class="annottext">Maybe Double
 provisionedThroughputInMibps :: Maybe Double
 $sel:provisionedThroughputInMibps:CreateFileSystem' :: CreateFileSystem -&gt; Maybe Double
-</span><a href="#local-6989586621679192905"><span class="hs-identifier hs-var hs-var">provisionedThroughputInMibps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679192905"><span class="hs-identifier hs-var">provisionedThroughputInMibps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192904"><span class="annot"><span class="annottext">s :: CreateFileSystem
-</span><a href="#local-6989586621679192904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192903"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679192903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
-</span><a href="#local-6989586621679192904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedThroughputInMibps:CreateFileSystem' :: Maybe Double
+</span><a href="#local-6989586621679192914"><span class="hs-identifier hs-var hs-var">provisionedThroughputInMibps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679192914"><span class="hs-identifier hs-var">provisionedThroughputInMibps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192913"><span class="annot"><span class="annottext">s :: CreateFileSystem
+</span><a href="#local-6989586621679192913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192912"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679192912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
+</span><a href="#local-6989586621679192913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedThroughputInMibps:CreateFileSystem' :: Maybe Double
 </span><a href="Network.AWS.EFS.CreateFileSystem.html#%24sel%3AprovisionedThroughputInMibps%3ACreateFileSystem%27"><span class="hs-identifier hs-var">provisionedThroughputInMibps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679192903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679192912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-354"></span><span>
 </span><span id="line-355"></span><span class="hs-comment">-- | Used to create a file system that uses One Zone storage classes. It</span><span>
 </span><span id="line-356"></span><span class="hs-comment">-- specifies the Amazon Web Services Availability Zone in which to create</span><span>
@@ -484,16 +484,16 @@ $sel:provisionedThroughputInMibps:CreateFileSystem' :: CreateFileSystem -&gt; Ma
 -&gt; (CreateFileSystem -&gt; Maybe Text -&gt; CreateFileSystem)
 -&gt; Lens CreateFileSystem CreateFileSystem (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192902"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192911"><span class="annot"><span class="annottext">Maybe Text
 availabilityZoneName :: Maybe Text
 $sel:availabilityZoneName:CreateFileSystem' :: CreateFileSystem -&gt; Maybe Text
-</span><a href="#local-6989586621679192902"><span class="hs-identifier hs-var hs-var">availabilityZoneName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679192902"><span class="hs-identifier hs-var">availabilityZoneName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192901"><span class="annot"><span class="annottext">s :: CreateFileSystem
-</span><a href="#local-6989586621679192901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192900"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679192900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
-</span><a href="#local-6989586621679192901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZoneName:CreateFileSystem' :: Maybe Text
+</span><a href="#local-6989586621679192911"><span class="hs-identifier hs-var hs-var">availabilityZoneName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679192911"><span class="hs-identifier hs-var">availabilityZoneName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192910"><span class="annot"><span class="annottext">s :: CreateFileSystem
+</span><a href="#local-6989586621679192910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192909"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679192909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
+</span><a href="#local-6989586621679192910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZoneName:CreateFileSystem' :: Maybe Text
 </span><a href="Network.AWS.EFS.CreateFileSystem.html#%24sel%3AavailabilityZoneName%3ACreateFileSystem%27"><span class="hs-identifier hs-var">availabilityZoneName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679192900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679192909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-366"></span><span>
 </span><span id="line-367"></span><span class="hs-comment">-- | The performance mode of the file system. We recommend @generalPurpose@</span><span>
 </span><span id="line-368"></span><span class="hs-comment">-- performance mode for most file systems. File systems using the @maxIO@</span><span>
@@ -515,16 +515,16 @@ $sel:availabilityZoneName:CreateFileSystem' :: CreateFileSystem -&gt; Maybe Text
      (Maybe PerformanceMode)
      (Maybe PerformanceMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192899"><span class="annot"><span class="annottext">Maybe PerformanceMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192908"><span class="annot"><span class="annottext">Maybe PerformanceMode
 performanceMode :: Maybe PerformanceMode
 $sel:performanceMode:CreateFileSystem' :: CreateFileSystem -&gt; Maybe PerformanceMode
-</span><a href="#local-6989586621679192899"><span class="hs-identifier hs-var hs-var">performanceMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PerformanceMode
-</span><a href="#local-6989586621679192899"><span class="hs-identifier hs-var">performanceMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192898"><span class="annot"><span class="annottext">s :: CreateFileSystem
-</span><a href="#local-6989586621679192898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192897"><span class="annot"><span class="annottext">Maybe PerformanceMode
-</span><a href="#local-6989586621679192897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
-</span><a href="#local-6989586621679192898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:performanceMode:CreateFileSystem' :: Maybe PerformanceMode
+</span><a href="#local-6989586621679192908"><span class="hs-identifier hs-var hs-var">performanceMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PerformanceMode
+</span><a href="#local-6989586621679192908"><span class="hs-identifier hs-var">performanceMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192907"><span class="annot"><span class="annottext">s :: CreateFileSystem
+</span><a href="#local-6989586621679192907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192906"><span class="annot"><span class="annottext">Maybe PerformanceMode
+</span><a href="#local-6989586621679192906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
+</span><a href="#local-6989586621679192907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:performanceMode:CreateFileSystem' :: Maybe PerformanceMode
 </span><a href="Network.AWS.EFS.CreateFileSystem.html#%24sel%3AperformanceMode%3ACreateFileSystem%27"><span class="hs-identifier hs-var">performanceMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PerformanceMode
-</span><a href="#local-6989586621679192897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679192906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-378"></span><span>
 </span><span id="line-379"></span><span class="hs-comment">-- | Specifies whether automatic backups are enabled on the file system that</span><span>
 </span><span id="line-380"></span><span class="hs-comment">-- you are creating. Set the value to @true@ to enable automatic backups.</span><span>
@@ -545,16 +545,16 @@ $sel:performanceMode:CreateFileSystem' :: CreateFileSystem -&gt; Maybe Performan
 -&gt; (CreateFileSystem -&gt; Maybe Bool -&gt; CreateFileSystem)
 -&gt; Lens CreateFileSystem CreateFileSystem (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192896"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192905"><span class="annot"><span class="annottext">Maybe Bool
 backup :: Maybe Bool
 $sel:backup:CreateFileSystem' :: CreateFileSystem -&gt; Maybe Bool
-</span><a href="#local-6989586621679192896"><span class="hs-identifier hs-var hs-var">backup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679192896"><span class="hs-identifier hs-var">backup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192895"><span class="annot"><span class="annottext">s :: CreateFileSystem
-</span><a href="#local-6989586621679192895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192894"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679192894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
-</span><a href="#local-6989586621679192895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backup:CreateFileSystem' :: Maybe Bool
+</span><a href="#local-6989586621679192905"><span class="hs-identifier hs-var hs-var">backup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679192905"><span class="hs-identifier hs-var">backup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192904"><span class="annot"><span class="annottext">s :: CreateFileSystem
+</span><a href="#local-6989586621679192904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192903"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679192903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
+</span><a href="#local-6989586621679192904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backup:CreateFileSystem' :: Maybe Bool
 </span><a href="Network.AWS.EFS.CreateFileSystem.html#%24sel%3Abackup%3ACreateFileSystem%27"><span class="hs-identifier hs-var">backup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679192894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679192903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-393"></span><span>
 </span><span id="line-394"></span><span class="hs-comment">-- | A Boolean value that, if true, creates an encrypted file system. When</span><span>
 </span><span id="line-395"></span><span class="hs-comment">-- creating an encrypted file system, you have the option of specifying</span><span>
@@ -569,16 +569,16 @@ $sel:backup:CreateFileSystem' :: CreateFileSystem -&gt; Maybe Bool
 -&gt; (CreateFileSystem -&gt; Maybe Bool -&gt; CreateFileSystem)
 -&gt; Lens CreateFileSystem CreateFileSystem (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192893"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192902"><span class="annot"><span class="annottext">Maybe Bool
 encrypted :: Maybe Bool
 $sel:encrypted:CreateFileSystem' :: CreateFileSystem -&gt; Maybe Bool
-</span><a href="#local-6989586621679192893"><span class="hs-identifier hs-var hs-var">encrypted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679192893"><span class="hs-identifier hs-var">encrypted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192892"><span class="annot"><span class="annottext">s :: CreateFileSystem
-</span><a href="#local-6989586621679192892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192891"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679192891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
-</span><a href="#local-6989586621679192892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encrypted:CreateFileSystem' :: Maybe Bool
+</span><a href="#local-6989586621679192902"><span class="hs-identifier hs-var hs-var">encrypted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679192902"><span class="hs-identifier hs-var">encrypted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192901"><span class="annot"><span class="annottext">s :: CreateFileSystem
+</span><a href="#local-6989586621679192901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192900"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679192900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
+</span><a href="#local-6989586621679192901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encrypted:CreateFileSystem' :: Maybe Bool
 </span><a href="Network.AWS.EFS.CreateFileSystem.html#%24sel%3Aencrypted%3ACreateFileSystem%27"><span class="hs-identifier hs-var">encrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679192891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679192900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-402"></span><span>
 </span><span id="line-403"></span><span class="hs-comment">-- | Specifies the throughput mode for the file system, either @bursting@ or</span><span>
 </span><span id="line-404"></span><span class="hs-comment">-- @provisioned@. If you set @ThroughputMode@ to @provisioned@, you must</span><span>
@@ -602,16 +602,16 @@ $sel:encrypted:CreateFileSystem' :: CreateFileSystem -&gt; Maybe Bool
      (Maybe ThroughputMode)
      (Maybe ThroughputMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192890"><span class="annot"><span class="annottext">Maybe ThroughputMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192899"><span class="annot"><span class="annottext">Maybe ThroughputMode
 throughputMode :: Maybe ThroughputMode
 $sel:throughputMode:CreateFileSystem' :: CreateFileSystem -&gt; Maybe ThroughputMode
-</span><a href="#local-6989586621679192890"><span class="hs-identifier hs-var hs-var">throughputMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThroughputMode
-</span><a href="#local-6989586621679192890"><span class="hs-identifier hs-var">throughputMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192889"><span class="annot"><span class="annottext">s :: CreateFileSystem
-</span><a href="#local-6989586621679192889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192888"><span class="annot"><span class="annottext">Maybe ThroughputMode
-</span><a href="#local-6989586621679192888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
-</span><a href="#local-6989586621679192889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:throughputMode:CreateFileSystem' :: Maybe ThroughputMode
+</span><a href="#local-6989586621679192899"><span class="hs-identifier hs-var hs-var">throughputMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThroughputMode
+</span><a href="#local-6989586621679192899"><span class="hs-identifier hs-var">throughputMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192898"><span class="annot"><span class="annottext">s :: CreateFileSystem
+</span><a href="#local-6989586621679192898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192897"><span class="annot"><span class="annottext">Maybe ThroughputMode
+</span><a href="#local-6989586621679192897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
+</span><a href="#local-6989586621679192898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:throughputMode:CreateFileSystem' :: Maybe ThroughputMode
 </span><a href="Network.AWS.EFS.CreateFileSystem.html#%24sel%3AthroughputMode%3ACreateFileSystem%27"><span class="hs-identifier hs-var">throughputMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThroughputMode
-</span><a href="#local-6989586621679192888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679192897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-416"></span><span>
 </span><span id="line-417"></span><span class="hs-comment">-- | The ID of the KMS CMK that you want to use to protect the encrypted file</span><span>
 </span><span id="line-418"></span><span class="hs-comment">-- system. This parameter is only required if you want to use a non-default</span><span>
@@ -642,16 +642,16 @@ $sel:throughputMode:CreateFileSystem' :: CreateFileSystem -&gt; Maybe Throughput
 -&gt; (CreateFileSystem -&gt; Maybe Text -&gt; CreateFileSystem)
 -&gt; Lens CreateFileSystem CreateFileSystem (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192887"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192896"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyId :: Maybe Text
 $sel:kmsKeyId:CreateFileSystem' :: CreateFileSystem -&gt; Maybe Text
-</span><a href="#local-6989586621679192887"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679192887"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192886"><span class="annot"><span class="annottext">s :: CreateFileSystem
-</span><a href="#local-6989586621679192886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192885"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679192885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
-</span><a href="#local-6989586621679192886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:CreateFileSystem' :: Maybe Text
+</span><a href="#local-6989586621679192896"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679192896"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192895"><span class="annot"><span class="annottext">s :: CreateFileSystem
+</span><a href="#local-6989586621679192895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192894"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679192894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
+</span><a href="#local-6989586621679192895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:CreateFileSystem' :: Maybe Text
 </span><a href="Network.AWS.EFS.CreateFileSystem.html#%24sel%3AkmsKeyId%3ACreateFileSystem%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679192885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679192894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-441"></span><span>
 </span><span id="line-442"></span><span class="hs-comment">-- | Use to create one or more tags associated with the file system. Each tag</span><span>
 </span><span id="line-443"></span><span class="hs-comment">-- is a user-defined key-value pair. Name your file system on creation by</span><span>
@@ -667,16 +667,16 @@ $sel:kmsKeyId:CreateFileSystem' :: CreateFileSystem -&gt; Maybe Text
 -&gt; Lens
      CreateFileSystem CreateFileSystem (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192884"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192893"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateFileSystem' :: CreateFileSystem -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679192884"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679192884"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192883"><span class="annot"><span class="annottext">s :: CreateFileSystem
-</span><a href="#local-6989586621679192883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192882"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679192882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
-</span><a href="#local-6989586621679192883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateFileSystem' :: Maybe [Tag]
+</span><a href="#local-6989586621679192893"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679192893"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192892"><span class="annot"><span class="annottext">s :: CreateFileSystem
+</span><a href="#local-6989586621679192892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192891"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679192891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
+</span><a href="#local-6989586621679192892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateFileSystem' :: Maybe [Tag]
 </span><a href="Network.AWS.EFS.CreateFileSystem.html#%24sel%3Atags%3ACreateFileSystem%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679192882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679192891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateFileSystem -&gt; f CreateFileSystem)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -701,27 +701,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateFileSystem -&gt; Text -&gt; CreateFileSystem)
 -&gt; Lens CreateFileSystem CreateFileSystem Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192878"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192887"><span class="annot"><span class="annottext">Text
 creationToken :: Text
 $sel:creationToken:CreateFileSystem' :: CreateFileSystem -&gt; Text
-</span><a href="#local-6989586621679192878"><span class="hs-identifier hs-var hs-var">creationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192878"><span class="hs-identifier hs-var">creationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192877"><span class="annot"><span class="annottext">s :: CreateFileSystem
-</span><a href="#local-6989586621679192877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192876"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
-</span><a href="#local-6989586621679192877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationToken:CreateFileSystem' :: Text
+</span><a href="#local-6989586621679192887"><span class="hs-identifier hs-var hs-var">creationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192887"><span class="hs-identifier hs-var">creationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192886"><span class="annot"><span class="annottext">s :: CreateFileSystem
+</span><a href="#local-6989586621679192886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192885"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFileSystem
+</span><a href="#local-6989586621679192886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationToken:CreateFileSystem' :: Text
 </span><a href="Network.AWS.EFS.CreateFileSystem.html#%24sel%3AcreationToken%3ACreateFileSystem%27"><span class="hs-identifier hs-var">creationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679192885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-455"></span><span>
 </span><span id="line-456"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-457"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-458"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-459"></span><span>      </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemDescription.html#FileSystemDescription"><span class="hs-identifier hs-type">FileSystemDescription</span></a></span><span>
-</span><span id="line-460"></span><span>  </span><span id="local-6989586621679192872"><span class="annot"><span class="annottext">request :: CreateFileSystem -&gt; Request CreateFileSystem
+</span><span id="line-460"></span><span>  </span><span id="local-6989586621679192881"><span class="annot"><span class="annottext">request :: CreateFileSystem -&gt; Request CreateFileSystem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateFileSystem -&gt; Request CreateFileSystem
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EFS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-461"></span><span>  </span><span id="local-6989586621679192868"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-461"></span><span>  </span><span id="local-6989586621679192877"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateFileSystem
 -&gt; ClientResponse ClientBody
@@ -745,29 +745,29 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-463"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192865"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679192865"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679192864"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679192864"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679192863"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679192863"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String FileSystemDescription
+</span><span id="line-463"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192874"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679192874"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679192873"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679192873"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679192872"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679192872"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String FileSystemDescription
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679192863"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679192872"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-464"></span><span>
-</span><span id="line-465"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192858"><span id="local-6989586621679192860"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span></span></span><span>
+</span><span id="line-465"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192867"><span id="local-6989586621679192869"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span></span></span><span>
 </span><span id="line-466"></span><span>
-</span><span id="line-467"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192855"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span></span><span>
+</span><span id="line-467"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192864"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span></span><span>
 </span><span id="line-468"></span><span>
 </span><span id="line-469"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-470"></span><span>  </span><span id="local-6989586621679192851"><span class="annot"><span class="annottext">toHeaders :: CreateFileSystem -&gt; ResponseHeaders
+</span><span id="line-470"></span><span>  </span><span id="local-6989586621679192860"><span class="annot"><span class="annottext">toHeaders :: CreateFileSystem -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateFileSystem -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-471"></span><span>
-</span><span id="line-472"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192842"><span id="local-6989586621679192844"><span id="local-6989586621679192846"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-473"></span><span>  </span><span id="local-6989586621679192840"><span class="annot"><span class="annottext">toJSON :: CreateFileSystem -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192830"><span id="local-6989586621679192831"><span id="local-6989586621679192832"><span id="local-6989586621679192833"><span id="local-6989586621679192834"><span id="local-6989586621679192835"><span id="local-6989586621679192836"><span id="local-6989586621679192837"><span id="local-6989586621679192838"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-472"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192851"><span id="local-6989586621679192853"><span id="local-6989586621679192855"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-473"></span><span>  </span><span id="local-6989586621679192849"><span class="annot"><span class="annottext">toJSON :: CreateFileSystem -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem%27"><span class="hs-identifier hs-type">CreateFileSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192839"><span id="local-6989586621679192840"><span id="local-6989586621679192841"><span id="local-6989586621679192842"><span id="local-6989586621679192843"><span id="local-6989586621679192844"><span id="local-6989586621679192845"><span id="local-6989586621679192846"><span id="local-6989586621679192847"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Double
 Maybe [Tag]
 Maybe Text
@@ -792,7 +792,7 @@ $sel:backup:CreateFileSystem' :: CreateFileSystem -&gt; Maybe Bool
 $sel:performanceMode:CreateFileSystem' :: CreateFileSystem -&gt; Maybe PerformanceMode
 $sel:availabilityZoneName:CreateFileSystem' :: CreateFileSystem -&gt; Maybe Text
 $sel:provisionedThroughputInMibps:CreateFileSystem' :: CreateFileSystem -&gt; Maybe Double
-</span><a href="#local-6989586621679192830"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679192839"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-474"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-475"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -805,7 +805,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-477"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679192838"><span class="hs-identifier hs-var">provisionedThroughputInMibps</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679192847"><span class="hs-identifier hs-var">provisionedThroughputInMibps</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-478"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AvailabilityZoneName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -813,7 +813,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-479"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679192837"><span class="hs-identifier hs-var">availabilityZoneName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679192846"><span class="hs-identifier hs-var">availabilityZoneName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-480"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PerformanceMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PerformanceMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -821,21 +821,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-481"></span><span>              </span><span class="annot"><span class="annottext">(PerformanceMode -&gt; Pair) -&gt; Maybe PerformanceMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PerformanceMode
-</span><a href="#local-6989586621679192836"><span class="hs-identifier hs-var">performanceMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679192845"><span class="hs-identifier hs-var">performanceMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-482"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Backup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679192835"><span class="hs-identifier hs-var">backup</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679192844"><span class="hs-identifier hs-var">backup</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-483"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Encrypted&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679192834"><span class="hs-identifier hs-var">encrypted</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679192843"><span class="hs-identifier hs-var">encrypted</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-484"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ThroughputMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ThroughputMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -843,21 +843,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-485"></span><span>              </span><span class="annot"><span class="annottext">(ThroughputMode -&gt; Pair) -&gt; Maybe ThroughputMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ThroughputMode
-</span><a href="#local-6989586621679192833"><span class="hs-identifier hs-var">throughputMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679192842"><span class="hs-identifier hs-var">throughputMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-486"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679192832"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679192841"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-487"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679192831"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679192840"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-488"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -865,19 +865,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;CreationToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192830"><span class="hs-identifier hs-var">creationToken</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679192839"><span class="hs-identifier hs-var">creationToken</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-490"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-491"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-492"></span><span>
 </span><span id="line-493"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-494"></span><span>  </span><span id="local-6989586621679192823"><span class="annot"><span class="annottext">toPath :: CreateFileSystem -&gt; ByteString
+</span><span id="line-494"></span><span>  </span><span id="local-6989586621679192832"><span class="annot"><span class="annottext">toPath :: CreateFileSystem -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateFileSystem -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/2015-02-01/file-systems&quot;</span></span><span>
 </span><span id="line-495"></span><span>
 </span><span id="line-496"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.CreateFileSystem.html#CreateFileSystem"><span class="hs-identifier hs-type">CreateFileSystem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-497"></span><span>  </span><span id="local-6989586621679192819"><span class="annot"><span class="annottext">toQuery :: CreateFileSystem -&gt; QueryString
+</span><span id="line-497"></span><span>  </span><span id="local-6989586621679192828"><span class="annot"><span class="annottext">toQuery :: CreateFileSystem -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateFileSystem -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Grafana.Types.UserType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Grafana.Types.UserType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.UserType.html#UserType"><span class="hs-identifier">UserType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Grafana.Types.UserType.html#UserType_SSO_GROUP"><span class="hs-identifier">UserType_SSO_GROUP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Grafana.Types.UserType.html#UserType_SSO_USER"><span class="hs-identifier">UserType_SSO_USER</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679186219"><span id="local-6989586621679186220"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UserType"><span class="annot"><a href="Network.AWS.Grafana.Types.UserType.html#UserType"><span class="hs-identifier hs-var">UserType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserType%27"><span class="annot"><a href="Network.AWS.Grafana.Types.UserType.html#UserType%27"><span class="hs-identifier hs-var">UserType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUserType"><span class="annot"><span class="annottext">UserType -&gt; Text
+</span><a href="Network.AWS.Grafana.Types.UserType.html#fromUserType"><span class="hs-identifier hs-var hs-var">fromUserType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186211"><span id="local-6989586621679186213"><span id="local-6989586621679186215"><span class="annot"><span class="annottext">Int -&gt; UserType -&gt; ShowS
+[UserType] -&gt; ShowS
+UserType -&gt; String
+(Int -&gt; UserType -&gt; ShowS)
+-&gt; (UserType -&gt; String) -&gt; ([UserType] -&gt; ShowS) -&gt; Show UserType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UserType] -&gt; ShowS
+$cshowList :: [UserType] -&gt; ShowS
+show :: UserType -&gt; String
+$cshow :: UserType -&gt; String
+showsPrec :: Int -&gt; UserType -&gt; ShowS
+$cshowsPrec :: Int -&gt; UserType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679186202"><span id="local-6989586621679186204"><span id="local-6989586621679186206"><span id="local-6989586621679186208"><span class="annot"><span class="annottext">ReadPrec [UserType]
+ReadPrec UserType
+Int -&gt; ReadS UserType
+ReadS [UserType]
+(Int -&gt; ReadS UserType)
+-&gt; ReadS [UserType]
+-&gt; ReadPrec UserType
+-&gt; ReadPrec [UserType]
+-&gt; Read UserType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UserType]
+$creadListPrec :: ReadPrec [UserType]
+readPrec :: ReadPrec UserType
+$creadPrec :: ReadPrec UserType
+readList :: ReadS [UserType]
+$creadList :: ReadS [UserType]
+readsPrec :: Int -&gt; ReadS UserType
+$creadsPrec :: Int -&gt; ReadS UserType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679186197"><span id="local-6989586621679186199"><span class="annot"><span class="annottext">UserType -&gt; UserType -&gt; Bool
+(UserType -&gt; UserType -&gt; Bool)
+-&gt; (UserType -&gt; UserType -&gt; Bool) -&gt; Eq UserType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UserType -&gt; UserType -&gt; Bool
+$c/= :: UserType -&gt; UserType -&gt; Bool
+== :: UserType -&gt; UserType -&gt; Bool
+$c== :: UserType -&gt; UserType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679186181"><span id="local-6989586621679186183"><span id="local-6989586621679186185"><span id="local-6989586621679186187"><span id="local-6989586621679186189"><span id="local-6989586621679186191"><span id="local-6989586621679186193"><span class="annot"><span class="annottext">Eq UserType
+Eq UserType
+-&gt; (UserType -&gt; UserType -&gt; Ordering)
+-&gt; (UserType -&gt; UserType -&gt; Bool)
+-&gt; (UserType -&gt; UserType -&gt; Bool)
+-&gt; (UserType -&gt; UserType -&gt; Bool)
+-&gt; (UserType -&gt; UserType -&gt; Bool)
+-&gt; (UserType -&gt; UserType -&gt; UserType)
+-&gt; (UserType -&gt; UserType -&gt; UserType)
+-&gt; Ord UserType
+UserType -&gt; UserType -&gt; Bool
+UserType -&gt; UserType -&gt; Ordering
+UserType -&gt; UserType -&gt; UserType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: UserType -&gt; UserType -&gt; UserType
+$cmin :: UserType -&gt; UserType -&gt; UserType
+max :: UserType -&gt; UserType -&gt; UserType
+$cmax :: UserType -&gt; UserType -&gt; UserType
+&gt;= :: UserType -&gt; UserType -&gt; Bool
+$c&gt;= :: UserType -&gt; UserType -&gt; Bool
+&gt; :: UserType -&gt; UserType -&gt; Bool
+$c&gt; :: UserType -&gt; UserType -&gt; Bool
+&lt;= :: UserType -&gt; UserType -&gt; Bool
+$c&lt;= :: UserType -&gt; UserType -&gt; Bool
+&lt; :: UserType -&gt; UserType -&gt; Bool
+$c&lt; :: UserType -&gt; UserType -&gt; Bool
+compare :: UserType -&gt; UserType -&gt; Ordering
+$ccompare :: UserType -&gt; UserType -&gt; Ordering
+$cp1Ord :: Eq UserType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. UserType -&gt; Rep UserType x)
+-&gt; (forall x. Rep UserType x -&gt; UserType) -&gt; Generic UserType
+forall x. Rep UserType x -&gt; UserType
+forall x. UserType -&gt; Rep UserType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UserType x -&gt; UserType
+$cfrom :: forall x. UserType -&gt; Rep UserType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186173"><span id="local-6989586621679186175"><span class="annot"><span class="annottext">Int -&gt; UserType -&gt; Int
+UserType -&gt; Int
+(Int -&gt; UserType -&gt; Int) -&gt; (UserType -&gt; Int) -&gt; Hashable UserType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: UserType -&gt; Int
+$chash :: UserType -&gt; Int
+hashWithSalt :: Int -&gt; UserType -&gt; Int
+$chashWithSalt :: Int -&gt; UserType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679186170"><span class="annot"><span class="annottext">UserType -&gt; ()
+(UserType -&gt; ()) -&gt; NFData UserType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: UserType -&gt; ()
+$crnf :: UserType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679186167"><span class="annot"><span class="annottext">Text -&gt; Either String UserType
+(Text -&gt; Either String UserType) -&gt; FromText UserType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String UserType
+$cfromText :: Text -&gt; Either String UserType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679186164"><span class="annot"><span class="annottext">UserType -&gt; Text
+(UserType -&gt; Text) -&gt; ToText UserType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: UserType -&gt; Text
+$ctoText :: UserType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679186161"><span class="annot"><span class="annottext">UserType -&gt; ByteString
+(UserType -&gt; ByteString) -&gt; ToByteString UserType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: UserType -&gt; ByteString
+$ctoBS :: UserType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679186158"><span class="annot"><span class="annottext">UserType -&gt; ByteStringBuilder
+(UserType -&gt; ByteStringBuilder) -&gt; ToLog UserType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: UserType -&gt; ByteStringBuilder
+$cbuild :: UserType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679186155"><span class="annot"><span class="annottext">HeaderName -&gt; UserType -&gt; [Header]
+(HeaderName -&gt; UserType -&gt; [Header]) -&gt; ToHeader UserType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; UserType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; UserType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679186152"><span class="annot"><span class="annottext">UserType -&gt; QueryString
+(UserType -&gt; QueryString) -&gt; ToQuery UserType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: UserType -&gt; QueryString
+$ctoQuery :: UserType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679186147"><span id="local-6989586621679186149"><span class="annot"><span class="annottext">Value -&gt; Parser [UserType]
+Value -&gt; Parser UserType
+(Value -&gt; Parser UserType)
+-&gt; (Value -&gt; Parser [UserType]) -&gt; FromJSON UserType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [UserType]
+$cparseJSONList :: Value -&gt; Parser [UserType]
+parseJSON :: Value -&gt; Parser UserType
+$cparseJSON :: Value -&gt; Parser UserType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679186142"><span id="local-6989586621679186144"><span class="annot"><span class="annottext">FromJSONKeyFunction [UserType]
+FromJSONKeyFunction UserType
+FromJSONKeyFunction UserType
+-&gt; FromJSONKeyFunction [UserType] -&gt; FromJSONKey UserType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [UserType]
+$cfromJSONKeyList :: FromJSONKeyFunction [UserType]
+fromJSONKey :: FromJSONKeyFunction UserType
+$cfromJSONKey :: FromJSONKeyFunction UserType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679186133"><span id="local-6989586621679186135"><span id="local-6989586621679186137"><span id="local-6989586621679186139"><span class="annot"><span class="annottext">[UserType] -&gt; Encoding
+[UserType] -&gt; Value
+UserType -&gt; Encoding
+UserType -&gt; Value
+(UserType -&gt; Value)
+-&gt; (UserType -&gt; Encoding)
+-&gt; ([UserType] -&gt; Value)
+-&gt; ([UserType] -&gt; Encoding)
+-&gt; ToJSON UserType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [UserType] -&gt; Encoding
+$ctoEncodingList :: [UserType] -&gt; Encoding
+toJSONList :: [UserType] -&gt; Value
+$ctoJSONList :: [UserType] -&gt; Value
+toEncoding :: UserType -&gt; Encoding
+$ctoEncoding :: UserType -&gt; Encoding
+toJSON :: UserType -&gt; Value
+$ctoJSON :: UserType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679186128"><span id="local-6989586621679186130"><span class="annot"><span class="annottext">ToJSONKeyFunction [UserType]
+ToJSONKeyFunction UserType
+ToJSONKeyFunction UserType
+-&gt; ToJSONKeyFunction [UserType] -&gt; ToJSONKey UserType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [UserType]
+$ctoJSONKeyList :: ToJSONKeyFunction [UserType]
+toJSONKey :: ToJSONKeyFunction UserType
+$ctoJSONKey :: ToJSONKeyFunction UserType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679186125"><span class="annot"><span class="annottext">[Node] -&gt; Either String UserType
+([Node] -&gt; Either String UserType) -&gt; FromXML UserType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String UserType
+$cparseXML :: [Node] -&gt; Either String UserType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679186122"><span class="annot"><span class="annottext">UserType -&gt; XML
+(UserType -&gt; XML) -&gt; ToXML UserType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: UserType -&gt; XML
+$ctoXML :: UserType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.UserType.html#UserType_SSO_GROUP"><span class="hs-identifier hs-type">UserType_SSO_GROUP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.UserType.html#UserType"><span class="hs-identifier hs-type">UserType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserType_SSO_GROUP"><span id="%24mUserType_SSO_GROUP"><span id="UserType_SSO_GROUP"><span class="annot"><span class="annottext">$bUserType_SSO_GROUP :: UserType
+$mUserType_SSO_GROUP :: forall r. UserType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Grafana.Types.UserType.html#%24bUserType_SSO_GROUP"><span class="hs-identifier hs-var hs-var hs-var">UserType_SSO_GROUP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.UserType.html#UserType%27"><span class="hs-identifier hs-type">UserType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SSO_GROUP&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.UserType.html#UserType_SSO_USER"><span class="hs-identifier hs-type">UserType_SSO_USER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.UserType.html#UserType"><span class="hs-identifier hs-type">UserType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bUserType_SSO_USER"><span id="%24mUserType_SSO_USER"><span id="UserType_SSO_USER"><span class="annot"><span class="annottext">$bUserType_SSO_USER :: UserType
+$mUserType_SSO_USER :: forall r. UserType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Grafana.Types.UserType.html#%24bUserType_SSO_USER"><span class="hs-identifier hs-var hs-var hs-var">UserType_SSO_USER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.UserType.html#UserType%27"><span class="hs-identifier hs-type">UserType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SSO_USER&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Grafana.Types.UserType.html#UserType_SSO_GROUP"><span class="hs-pragma hs-type">UserType_SSO_GROUP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Grafana.Types.UserType.html#UserType_SSO_USER"><span class="hs-pragma hs-type">UserType_SSO_USER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Grafana.Types.UserType.html#UserType%27"><span class="hs-pragma hs-type">UserType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

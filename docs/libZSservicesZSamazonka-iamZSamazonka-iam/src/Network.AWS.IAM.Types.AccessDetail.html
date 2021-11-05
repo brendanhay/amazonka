@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- operation.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newAccessDetail' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679423872"><span id="local-6989586621679423873"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessDetail"><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-var">AccessDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessDetail%27"><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-var">AccessDetail'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679423881"><span id="local-6989586621679423882"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessDetail"><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-var">AccessDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessDetail%27"><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-var">AccessDetail'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path of the Organizations entity (root, organizational unit, or</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- account) from which an authenticated principal last attempted to access</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the service. Amazon Web Services does not report unauthenticated</span><span>
@@ -82,7 +82,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AserviceNamespace%3AAccessDetail%27"><span class="annot"><span class="annottext">AccessDetail -&gt; Text
 </span><a href="Network.AWS.IAM.Types.AccessDetail.html#%24sel%3AserviceNamespace%3AAccessDetail%27"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423861"><span id="local-6989586621679423863"><span class="annot"><span class="annottext">AccessDetail -&gt; AccessDetail -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423870"><span id="local-6989586621679423872"><span class="annot"><span class="annottext">AccessDetail -&gt; AccessDetail -&gt; Bool
 (AccessDetail -&gt; AccessDetail -&gt; Bool)
 -&gt; (AccessDetail -&gt; AccessDetail -&gt; Bool) -&gt; Eq AccessDetail
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccessDetail -&gt; AccessDetail -&gt; Bool
 == :: AccessDetail -&gt; AccessDetail -&gt; Bool
 $c== :: AccessDetail -&gt; AccessDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423852"><span id="local-6989586621679423854"><span id="local-6989586621679423856"><span id="local-6989586621679423858"><span class="annot"><span class="annottext">ReadPrec [AccessDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423861"><span id="local-6989586621679423863"><span id="local-6989586621679423865"><span id="local-6989586621679423867"><span class="annot"><span class="annottext">ReadPrec [AccessDetail]
 ReadPrec AccessDetail
 Int -&gt; ReadS AccessDetail
 ReadS [AccessDetail]
@@ -110,7 +110,7 @@ readList :: ReadS [AccessDetail]
 $creadList :: ReadS [AccessDetail]
 readsPrec :: Int -&gt; ReadS AccessDetail
 $creadsPrec :: Int -&gt; ReadS AccessDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423845"><span id="local-6989586621679423847"><span id="local-6989586621679423849"><span class="annot"><span class="annottext">Int -&gt; AccessDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423854"><span id="local-6989586621679423856"><span id="local-6989586621679423858"><span class="annot"><span class="annottext">Int -&gt; AccessDetail -&gt; ShowS
 [AccessDetail] -&gt; ShowS
 AccessDetail -&gt; String
 (Int -&gt; AccessDetail -&gt; ShowS)
@@ -192,9 +192,9 @@ $cfrom :: forall x. AccessDetail -&gt; Rep AccessDetail x
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span>
 </span><span id="line-136"></span><span id="newAccessDetail"><span class="annot"><span class="annottext">newAccessDetail :: Text -&gt; Text -&gt; AccessDetail
-</span><a href="Network.AWS.IAM.Types.AccessDetail.html#newAccessDetail"><span class="hs-identifier hs-var hs-var">newAccessDetail</span></a></span></span><span> </span><span id="local-6989586621679423839"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423839"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span> </span><span id="local-6989586621679423838"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423838"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.Types.AccessDetail.html#newAccessDetail"><span class="hs-identifier hs-var hs-var">newAccessDetail</span></a></span></span><span> </span><span id="local-6989586621679423848"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423848"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span> </span><span id="local-6989586621679423847"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423847"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">AccessDetail' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ISO8601
@@ -221,10 +221,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceName:AccessDetail' :: Text
 </span><a href="Network.AWS.IAM.Types.AccessDetail.html#%24sel%3AserviceName%3AAccessDetail%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423839"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679423848"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceNamespace:AccessDetail' :: Text
 </span><a href="Network.AWS.IAM.Types.AccessDetail.html#%24sel%3AserviceNamespace%3AAccessDetail%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423838"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span>
+</span><a href="#local-6989586621679423847"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The path of the Organizations entity (root, organizational unit, or</span><span>
@@ -242,16 +242,16 @@ forall a. Maybe a
 -&gt; (AccessDetail -&gt; Maybe Text -&gt; AccessDetail)
 -&gt; Lens AccessDetail AccessDetail (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423834"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423843"><span class="annot"><span class="annottext">Maybe Text
 entityPath :: Maybe Text
 $sel:entityPath:AccessDetail' :: AccessDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679423834"><span class="hs-identifier hs-var hs-var">entityPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423834"><span class="hs-identifier hs-var">entityPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423833"><span class="annot"><span class="annottext">s :: AccessDetail
-</span><a href="#local-6989586621679423833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423832"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessDetail
-</span><a href="#local-6989586621679423833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityPath:AccessDetail' :: Maybe Text
+</span><a href="#local-6989586621679423843"><span class="hs-identifier hs-var hs-var">entityPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423843"><span class="hs-identifier hs-var">entityPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423842"><span class="annot"><span class="annottext">s :: AccessDetail
+</span><a href="#local-6989586621679423842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423841"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessDetail
+</span><a href="#local-6989586621679423842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityPath:AccessDetail' :: Maybe Text
 </span><a href="Network.AWS.IAM.Types.AccessDetail.html#%24sel%3AentityPath%3AAccessDetail%27"><span class="hs-identifier hs-var">entityPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | The Region where the last service access attempt occurred.</span><span>
 </span><span id="line-159"></span><span class="hs-comment">--</span><span>
@@ -264,16 +264,16 @@ $sel:entityPath:AccessDetail' :: AccessDetail -&gt; Maybe Text
 -&gt; (AccessDetail -&gt; Maybe Text -&gt; AccessDetail)
 -&gt; Lens AccessDetail AccessDetail (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423830"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423839"><span class="annot"><span class="annottext">Maybe Text
 region :: Maybe Text
 $sel:region:AccessDetail' :: AccessDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679423830"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423830"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423829"><span class="annot"><span class="annottext">s :: AccessDetail
-</span><a href="#local-6989586621679423829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423828"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessDetail
-</span><a href="#local-6989586621679423829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:AccessDetail' :: Maybe Text
+</span><a href="#local-6989586621679423839"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423839"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423838"><span class="annot"><span class="annottext">s :: AccessDetail
+</span><a href="#local-6989586621679423838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423837"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessDetail
+</span><a href="#local-6989586621679423838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:AccessDetail' :: Maybe Text
 </span><a href="Network.AWS.IAM.Types.AccessDetail.html#%24sel%3Aregion%3AAccessDetail%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The date and time,</span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- in&#160;&lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when an</span><span>
@@ -290,16 +290,16 @@ $sel:region:AccessDetail' :: AccessDetail -&gt; Maybe Text
 -&gt; (AccessDetail -&gt; Maybe ISO8601 -&gt; AccessDetail)
 -&gt; Lens AccessDetail AccessDetail (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423826"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423835"><span class="annot"><span class="annottext">Maybe ISO8601
 lastAuthenticatedTime :: Maybe ISO8601
 $sel:lastAuthenticatedTime:AccessDetail' :: AccessDetail -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679423826"><span class="hs-identifier hs-var hs-var">lastAuthenticatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679423826"><span class="hs-identifier hs-var">lastAuthenticatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423825"><span class="annot"><span class="annottext">s :: AccessDetail
-</span><a href="#local-6989586621679423825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423824"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679423824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessDetail
-</span><a href="#local-6989586621679423825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAuthenticatedTime:AccessDetail' :: Maybe ISO8601
+</span><a href="#local-6989586621679423835"><span class="hs-identifier hs-var hs-var">lastAuthenticatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679423835"><span class="hs-identifier hs-var">lastAuthenticatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423834"><span class="annot"><span class="annottext">s :: AccessDetail
+</span><a href="#local-6989586621679423834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423833"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679423833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessDetail
+</span><a href="#local-6989586621679423834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAuthenticatedTime:AccessDetail' :: Maybe ISO8601
 </span><a href="Network.AWS.IAM.Types.AccessDetail.html#%24sel%3AlastAuthenticatedTime%3AAccessDetail%27"><span class="hs-identifier hs-var">lastAuthenticatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679423824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679423833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; AccessDetail -&gt; f AccessDetail)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -326,16 +326,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (AccessDetail -&gt; Maybe Int -&gt; AccessDetail)
 -&gt; Lens AccessDetail AccessDetail (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423819"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423828"><span class="annot"><span class="annottext">Maybe Int
 totalAuthenticatedEntities :: Maybe Int
 $sel:totalAuthenticatedEntities:AccessDetail' :: AccessDetail -&gt; Maybe Int
-</span><a href="#local-6989586621679423819"><span class="hs-identifier hs-var hs-var">totalAuthenticatedEntities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679423819"><span class="hs-identifier hs-var">totalAuthenticatedEntities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423818"><span class="annot"><span class="annottext">s :: AccessDetail
-</span><a href="#local-6989586621679423818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423817"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679423817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessDetail
-</span><a href="#local-6989586621679423818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalAuthenticatedEntities:AccessDetail' :: Maybe Int
+</span><a href="#local-6989586621679423828"><span class="hs-identifier hs-var hs-var">totalAuthenticatedEntities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679423828"><span class="hs-identifier hs-var">totalAuthenticatedEntities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423827"><span class="annot"><span class="annottext">s :: AccessDetail
+</span><a href="#local-6989586621679423827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423826"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679423826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessDetail
+</span><a href="#local-6989586621679423827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalAuthenticatedEntities:AccessDetail' :: Maybe Int
 </span><a href="Network.AWS.IAM.Types.AccessDetail.html#%24sel%3AtotalAuthenticatedEntities%3AAccessDetail%27"><span class="hs-identifier hs-var">totalAuthenticatedEntities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679423817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The name of the service in which access was attempted.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#accessDetail_serviceName"><span class="hs-identifier hs-type">accessDetail_serviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -344,16 +344,16 @@ $sel:totalAuthenticatedEntities:AccessDetail' :: AccessDetail -&gt; Maybe Int
 -&gt; (AccessDetail -&gt; Text -&gt; AccessDetail)
 -&gt; Lens AccessDetail AccessDetail Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423815"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423824"><span class="annot"><span class="annottext">Text
 serviceName :: Text
 $sel:serviceName:AccessDetail' :: AccessDetail -&gt; Text
-</span><a href="#local-6989586621679423815"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423815"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423814"><span class="annot"><span class="annottext">s :: AccessDetail
-</span><a href="#local-6989586621679423814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423813"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessDetail
-</span><a href="#local-6989586621679423814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:AccessDetail' :: Text
+</span><a href="#local-6989586621679423824"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423824"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423823"><span class="annot"><span class="annottext">s :: AccessDetail
+</span><a href="#local-6989586621679423823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423822"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessDetail
+</span><a href="#local-6989586621679423823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:AccessDetail' :: Text
 </span><a href="Network.AWS.IAM.Types.AccessDetail.html#%24sel%3AserviceName%3AAccessDetail%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The namespace of the service in which access was attempted.</span><span>
 </span><span id="line-188"></span><span class="hs-comment">--</span><span>
@@ -371,21 +371,21 @@ $sel:serviceName:AccessDetail' :: AccessDetail -&gt; Text
 -&gt; (AccessDetail -&gt; Text -&gt; AccessDetail)
 -&gt; Lens AccessDetail AccessDetail Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423811"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423820"><span class="annot"><span class="annottext">Text
 serviceNamespace :: Text
 $sel:serviceNamespace:AccessDetail' :: AccessDetail -&gt; Text
-</span><a href="#local-6989586621679423811"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423811"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423810"><span class="annot"><span class="annottext">s :: AccessDetail
-</span><a href="#local-6989586621679423810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423809"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessDetail
-</span><a href="#local-6989586621679423810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:AccessDetail' :: Text
+</span><a href="#local-6989586621679423820"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423820"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423819"><span class="annot"><span class="annottext">s :: AccessDetail
+</span><a href="#local-6989586621679423819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail%27"><span class="hs-identifier hs-type">AccessDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423818"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessDetail
+</span><a href="#local-6989586621679423819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:AccessDetail' :: Text
 </span><a href="Network.AWS.IAM.Types.AccessDetail.html#%24sel%3AserviceNamespace%3AAccessDetail%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621679423806"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AccessDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679423804"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423804"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679423815"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AccessDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679423813"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423813"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ISO8601
@@ -408,7 +408,7 @@ $sel:serviceNamespace:AccessDetail' :: AccessDetail -&gt; Text
       -&gt; Maybe ISO8601 -&gt; Maybe Int -&gt; Text -&gt; Text -&gt; AccessDetail)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679423813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EntityPath&quot;</span></span><span class="hs-special">)</span><span>
@@ -421,7 +421,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe ISO8601 -&gt; Maybe Int -&gt; Text -&gt; Text -&gt; AccessDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679423813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span>
@@ -431,7 +431,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Int -&gt; Text -&gt; Text -&gt; AccessDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679423813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastAuthenticatedTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -440,7 +440,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Text -&gt; Text -&gt; AccessDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679423813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TotalAuthenticatedEntities&quot;</span></span><span class="hs-special">)</span><span>
@@ -448,7 +448,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Text -&gt; Either String (Text -&gt; AccessDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679423813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceName&quot;</span></span><span class="hs-special">)</span><span>
@@ -456,12 +456,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String AccessDetail
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679423813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceNamespace&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423797"><span id="local-6989586621679423799"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span></span></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423806"><span id="local-6989586621679423808"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span></span></span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423794"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423803"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessDetail.html#AccessDetail"><span class="hs-identifier hs-type">AccessDetail</span></a></span></span><span>
 </span><span id="line-213"></span></pre></body></html>

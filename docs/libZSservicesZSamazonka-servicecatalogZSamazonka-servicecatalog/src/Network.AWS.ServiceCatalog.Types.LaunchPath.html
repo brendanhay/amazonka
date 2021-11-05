@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A launch path object.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLaunchPath' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679399298"><span id="local-6989586621679399299"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchPath"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath"><span class="hs-identifier hs-var">LaunchPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchPath%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath%27"><span class="hs-identifier hs-var">LaunchPath'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679399307"><span id="local-6989586621679399308"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchPath"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath"><span class="hs-identifier hs-var">LaunchPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchPath%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath%27"><span class="hs-identifier hs-var">LaunchPath'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the launch path.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3ALaunchPath%27"><span class="annot"><span class="annottext">LaunchPath -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#%24sel%3Aname%3ALaunchPath%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aid%3ALaunchPath%27"><span class="annot"><span class="annottext">LaunchPath -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#%24sel%3Aid%3ALaunchPath%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399291"><span id="local-6989586621679399293"><span class="annot"><span class="annottext">LaunchPath -&gt; LaunchPath -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399300"><span id="local-6989586621679399302"><span class="annot"><span class="annottext">LaunchPath -&gt; LaunchPath -&gt; Bool
 (LaunchPath -&gt; LaunchPath -&gt; Bool)
 -&gt; (LaunchPath -&gt; LaunchPath -&gt; Bool) -&gt; Eq LaunchPath
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LaunchPath -&gt; LaunchPath -&gt; Bool
 == :: LaunchPath -&gt; LaunchPath -&gt; Bool
 $c== :: LaunchPath -&gt; LaunchPath -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399282"><span id="local-6989586621679399284"><span id="local-6989586621679399286"><span id="local-6989586621679399288"><span class="annot"><span class="annottext">ReadPrec [LaunchPath]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399291"><span id="local-6989586621679399293"><span id="local-6989586621679399295"><span id="local-6989586621679399297"><span class="annot"><span class="annottext">ReadPrec [LaunchPath]
 ReadPrec LaunchPath
 Int -&gt; ReadS LaunchPath
 ReadS [LaunchPath]
@@ -62,7 +62,7 @@ readList :: ReadS [LaunchPath]
 $creadList :: ReadS [LaunchPath]
 readsPrec :: Int -&gt; ReadS LaunchPath
 $creadsPrec :: Int -&gt; ReadS LaunchPath
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399275"><span id="local-6989586621679399277"><span id="local-6989586621679399279"><span class="annot"><span class="annottext">Int -&gt; LaunchPath -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399284"><span id="local-6989586621679399286"><span id="local-6989586621679399288"><span class="annot"><span class="annottext">Int -&gt; LaunchPath -&gt; ShowS
 [LaunchPath] -&gt; ShowS
 LaunchPath -&gt; String
 (Int -&gt; LaunchPath -&gt; ShowS)
@@ -121,16 +121,16 @@ forall a. Maybe a
 -&gt; (LaunchPath -&gt; Maybe Text -&gt; LaunchPath)
 -&gt; Lens LaunchPath LaunchPath (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath%27"><span class="hs-identifier hs-type">LaunchPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399266"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath%27"><span class="hs-identifier hs-type">LaunchPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399275"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:LaunchPath' :: LaunchPath -&gt; Maybe Text
-</span><a href="#local-6989586621679399266"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399266"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399265"><span class="annot"><span class="annottext">s :: LaunchPath
-</span><a href="#local-6989586621679399265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath%27"><span class="hs-identifier hs-type">LaunchPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399264"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchPath
-</span><a href="#local-6989586621679399265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LaunchPath' :: Maybe Text
+</span><a href="#local-6989586621679399275"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399275"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399274"><span class="annot"><span class="annottext">s :: LaunchPath
+</span><a href="#local-6989586621679399274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath%27"><span class="hs-identifier hs-type">LaunchPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399273"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchPath
+</span><a href="#local-6989586621679399274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LaunchPath' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#%24sel%3Aname%3ALaunchPath%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath"><span class="hs-identifier hs-type">LaunchPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath"><span class="hs-identifier hs-type">LaunchPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The identifier of the launch path.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#launchPath_id"><span class="hs-identifier hs-type">launchPath_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath"><span class="hs-identifier hs-type">LaunchPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -139,19 +139,19 @@ $sel:name:LaunchPath' :: LaunchPath -&gt; Maybe Text
 -&gt; (LaunchPath -&gt; Maybe Text -&gt; LaunchPath)
 -&gt; Lens LaunchPath LaunchPath (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath%27"><span class="hs-identifier hs-type">LaunchPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399262"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath%27"><span class="hs-identifier hs-type">LaunchPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399271"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:LaunchPath' :: LaunchPath -&gt; Maybe Text
-</span><a href="#local-6989586621679399262"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399262"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399261"><span class="annot"><span class="annottext">s :: LaunchPath
-</span><a href="#local-6989586621679399261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath%27"><span class="hs-identifier hs-type">LaunchPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399260"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchPath
-</span><a href="#local-6989586621679399261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:LaunchPath' :: Maybe Text
+</span><a href="#local-6989586621679399271"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399271"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399270"><span class="annot"><span class="annottext">s :: LaunchPath
+</span><a href="#local-6989586621679399270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath%27"><span class="hs-identifier hs-type">LaunchPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399269"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchPath
+</span><a href="#local-6989586621679399270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:LaunchPath' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#%24sel%3Aid%3ALaunchPath%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath"><span class="hs-identifier hs-type">LaunchPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath"><span class="hs-identifier hs-type">LaunchPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399257"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath"><span class="hs-identifier hs-type">LaunchPath</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679399255"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LaunchPath
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399266"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath"><span class="hs-identifier hs-type">LaunchPath</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679399264"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LaunchPath
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LaunchPath) -&gt; Value -&gt; Parser LaunchPath
@@ -159,28 +159,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LaunchPath&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399252"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399252"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399261"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399261"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; LaunchPath
 </span><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath%27"><span class="hs-identifier hs-var">LaunchPath'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; LaunchPath)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; LaunchPath)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399252"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679399261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; LaunchPath)
 -&gt; Parser (Maybe Text) -&gt; Parser LaunchPath
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399252"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679399261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399246"><span id="local-6989586621679399248"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath"><span class="hs-identifier hs-type">LaunchPath</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399255"><span id="local-6989586621679399257"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath"><span class="hs-identifier hs-type">LaunchPath</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath"><span class="hs-identifier hs-type">LaunchPath</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.LaunchPath.html#LaunchPath"><span class="hs-identifier hs-type">LaunchPath</span></a></span></span><span>
 </span><span id="line-76"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679219156"><span id="local-6989586621679219157"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FilterCondition"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.FilterCondition.html#FilterCondition"><span class="hs-identifier hs-var">FilterCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FilterCondition%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.FilterCondition.html#FilterCondition%27"><span class="hs-identifier hs-var">FilterCondition'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679219165"><span id="local-6989586621679219166"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FilterCondition"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.FilterCondition.html#FilterCondition"><span class="hs-identifier hs-var">FilterCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FilterCondition%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.FilterCondition.html#FilterCondition%27"><span class="hs-identifier hs-var">FilterCondition'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFilterCondition"><span class="annot"><span class="annottext">FilterCondition -&gt; Text
 </span><a href="Network.AWS.Route53AutoNaming.Types.FilterCondition.html#fromFilterCondition"><span class="hs-identifier hs-var hs-var">fromFilterCondition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219148"><span id="local-6989586621679219150"><span id="local-6989586621679219152"><span class="annot"><span class="annottext">Int -&gt; FilterCondition -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219157"><span id="local-6989586621679219159"><span id="local-6989586621679219161"><span class="annot"><span class="annottext">Int -&gt; FilterCondition -&gt; ShowS
 [FilterCondition] -&gt; ShowS
 FilterCondition -&gt; String
 (Int -&gt; FilterCondition -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: FilterCondition -&gt; String
 showsPrec :: Int -&gt; FilterCondition -&gt; ShowS
 $cshowsPrec :: Int -&gt; FilterCondition -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679219139"><span id="local-6989586621679219141"><span id="local-6989586621679219143"><span id="local-6989586621679219145"><span class="annot"><span class="annottext">ReadPrec [FilterCondition]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679219148"><span id="local-6989586621679219150"><span id="local-6989586621679219152"><span id="local-6989586621679219154"><span class="annot"><span class="annottext">ReadPrec [FilterCondition]
 ReadPrec FilterCondition
 Int -&gt; ReadS FilterCondition
 ReadS [FilterCondition]
@@ -73,7 +73,7 @@ $creadList :: ReadS [FilterCondition]
 readsPrec :: Int -&gt; ReadS FilterCondition
 $creadsPrec :: Int -&gt; ReadS FilterCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679219134"><span id="local-6989586621679219136"><span class="annot"><span class="annottext">FilterCondition -&gt; FilterCondition -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679219143"><span id="local-6989586621679219145"><span class="annot"><span class="annottext">FilterCondition -&gt; FilterCondition -&gt; Bool
 (FilterCondition -&gt; FilterCondition -&gt; Bool)
 -&gt; (FilterCondition -&gt; FilterCondition -&gt; Bool)
 -&gt; Eq FilterCondition
@@ -83,7 +83,7 @@ $c/= :: FilterCondition -&gt; FilterCondition -&gt; Bool
 == :: FilterCondition -&gt; FilterCondition -&gt; Bool
 $c== :: FilterCondition -&gt; FilterCondition -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679219118"><span id="local-6989586621679219120"><span id="local-6989586621679219122"><span id="local-6989586621679219124"><span id="local-6989586621679219126"><span id="local-6989586621679219128"><span id="local-6989586621679219130"><span class="annot"><span class="annottext">Eq FilterCondition
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679219127"><span id="local-6989586621679219129"><span id="local-6989586621679219131"><span id="local-6989586621679219133"><span id="local-6989586621679219135"><span id="local-6989586621679219137"><span id="local-6989586621679219139"><span class="annot"><span class="annottext">Eq FilterCondition
 Eq FilterCondition
 -&gt; (FilterCondition -&gt; FilterCondition -&gt; Ordering)
 -&gt; (FilterCondition -&gt; FilterCondition -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. FilterCondition -&gt; Rep FilterCondition x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219110"><span id="local-6989586621679219112"><span class="annot"><span class="annottext">Int -&gt; FilterCondition -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219119"><span id="local-6989586621679219121"><span class="annot"><span class="annottext">Int -&gt; FilterCondition -&gt; Int
 FilterCondition -&gt; Int
 (Int -&gt; FilterCondition -&gt; Int)
 -&gt; (FilterCondition -&gt; Int) -&gt; Hashable FilterCondition
@@ -144,50 +144,50 @@ $chash :: FilterCondition -&gt; Int
 hashWithSalt :: Int -&gt; FilterCondition -&gt; Int
 $chashWithSalt :: Int -&gt; FilterCondition -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679219107"><span class="annot"><span class="annottext">FilterCondition -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679219116"><span class="annot"><span class="annottext">FilterCondition -&gt; ()
 (FilterCondition -&gt; ()) -&gt; NFData FilterCondition
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FilterCondition -&gt; ()
 $crnf :: FilterCondition -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679219104"><span class="annot"><span class="annottext">Text -&gt; Either String FilterCondition
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679219113"><span class="annot"><span class="annottext">Text -&gt; Either String FilterCondition
 (Text -&gt; Either String FilterCondition) -&gt; FromText FilterCondition
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FilterCondition
 $cfromText :: Text -&gt; Either String FilterCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679219101"><span class="annot"><span class="annottext">FilterCondition -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679219110"><span class="annot"><span class="annottext">FilterCondition -&gt; Text
 (FilterCondition -&gt; Text) -&gt; ToText FilterCondition
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FilterCondition -&gt; Text
 $ctoText :: FilterCondition -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679219098"><span class="annot"><span class="annottext">FilterCondition -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679219107"><span class="annot"><span class="annottext">FilterCondition -&gt; ByteString
 (FilterCondition -&gt; ByteString) -&gt; ToByteString FilterCondition
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FilterCondition -&gt; ByteString
 $ctoBS :: FilterCondition -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679219095"><span class="annot"><span class="annottext">FilterCondition -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679219104"><span class="annot"><span class="annottext">FilterCondition -&gt; ByteStringBuilder
 (FilterCondition -&gt; ByteStringBuilder) -&gt; ToLog FilterCondition
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FilterCondition -&gt; ByteStringBuilder
 $cbuild :: FilterCondition -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679219092"><span class="annot"><span class="annottext">HeaderName -&gt; FilterCondition -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679219101"><span class="annot"><span class="annottext">HeaderName -&gt; FilterCondition -&gt; [Header]
 (HeaderName -&gt; FilterCondition -&gt; [Header])
 -&gt; ToHeader FilterCondition
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FilterCondition -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FilterCondition -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679219089"><span class="annot"><span class="annottext">FilterCondition -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679219098"><span class="annot"><span class="annottext">FilterCondition -&gt; QueryString
 (FilterCondition -&gt; QueryString) -&gt; ToQuery FilterCondition
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FilterCondition -&gt; QueryString
 $ctoQuery :: FilterCondition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679219084"><span id="local-6989586621679219086"><span class="annot"><span class="annottext">Value -&gt; Parser [FilterCondition]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679219093"><span id="local-6989586621679219095"><span class="annot"><span class="annottext">Value -&gt; Parser [FilterCondition]
 Value -&gt; Parser FilterCondition
 (Value -&gt; Parser FilterCondition)
 -&gt; (Value -&gt; Parser [FilterCondition]) -&gt; FromJSON FilterCondition
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [FilterCondition]
 parseJSON :: Value -&gt; Parser FilterCondition
 $cparseJSON :: Value -&gt; Parser FilterCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679219079"><span id="local-6989586621679219081"><span class="annot"><span class="annottext">FromJSONKeyFunction [FilterCondition]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679219088"><span id="local-6989586621679219090"><span class="annot"><span class="annottext">FromJSONKeyFunction [FilterCondition]
 FromJSONKeyFunction FilterCondition
 FromJSONKeyFunction FilterCondition
 -&gt; FromJSONKeyFunction [FilterCondition]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FilterCondition]
 fromJSONKey :: FromJSONKeyFunction FilterCondition
 $cfromJSONKey :: FromJSONKeyFunction FilterCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679219070"><span id="local-6989586621679219072"><span id="local-6989586621679219074"><span id="local-6989586621679219076"><span class="annot"><span class="annottext">[FilterCondition] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679219079"><span id="local-6989586621679219081"><span id="local-6989586621679219083"><span id="local-6989586621679219085"><span class="annot"><span class="annottext">[FilterCondition] -&gt; Encoding
 [FilterCondition] -&gt; Value
 FilterCondition -&gt; Encoding
 FilterCondition -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: FilterCondition -&gt; Encoding
 toJSON :: FilterCondition -&gt; Value
 $ctoJSON :: FilterCondition -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679219065"><span id="local-6989586621679219067"><span class="annot"><span class="annottext">ToJSONKeyFunction [FilterCondition]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679219074"><span id="local-6989586621679219076"><span class="annot"><span class="annottext">ToJSONKeyFunction [FilterCondition]
 ToJSONKeyFunction FilterCondition
 ToJSONKeyFunction FilterCondition
 -&gt; ToJSONKeyFunction [FilterCondition] -&gt; ToJSONKey FilterCondition
@@ -245,14 +245,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FilterCondition]
 toJSONKey :: ToJSONKeyFunction FilterCondition
 $ctoJSONKey :: ToJSONKeyFunction FilterCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679219062"><span class="annot"><span class="annottext">[Node] -&gt; Either String FilterCondition
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679219071"><span class="annot"><span class="annottext">[Node] -&gt; Either String FilterCondition
 ([Node] -&gt; Either String FilterCondition)
 -&gt; FromXML FilterCondition
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FilterCondition
 $cparseXML :: [Node] -&gt; Either String FilterCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679219059"><span class="annot"><span class="annottext">FilterCondition -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679219068"><span class="annot"><span class="annottext">FilterCondition -&gt; XML
 (FilterCondition -&gt; XML) -&gt; ToXML FilterCondition
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FilterCondition -&gt; XML

@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDecreaseReplicationFactor' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679200425"><span id="local-6989586621679200426"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecreaseReplicationFactor"><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-var">DecreaseReplicationFactor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecreaseReplicationFactor%27"><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-var">DecreaseReplicationFactor'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679200434"><span id="local-6989586621679200435"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecreaseReplicationFactor"><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-var">DecreaseReplicationFactor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecreaseReplicationFactor%27"><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-var">DecreaseReplicationFactor'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifiers of the nodes to be removed from the cluster.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AnodeIdsToRemove%3ADecreaseReplicationFactor%27"><span class="annot"><span class="annottext">DecreaseReplicationFactor -&gt; Maybe [Text]
 </span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#%24sel%3AnodeIdsToRemove%3ADecreaseReplicationFactor%27"><span class="hs-identifier hs-var hs-var">nodeIdsToRemove</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AnewReplicationFactor%27%3ADecreaseReplicationFactor%27"><span class="annot"><span class="annottext">DecreaseReplicationFactor -&gt; Int
 </span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#%24sel%3AnewReplicationFactor%27%3ADecreaseReplicationFactor%27"><span class="hs-identifier hs-var hs-var">newReplicationFactor'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200416"><span id="local-6989586621679200418"><span class="annot"><span class="annottext">DecreaseReplicationFactor -&gt; DecreaseReplicationFactor -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200425"><span id="local-6989586621679200427"><span class="annot"><span class="annottext">DecreaseReplicationFactor -&gt; DecreaseReplicationFactor -&gt; Bool
 (DecreaseReplicationFactor -&gt; DecreaseReplicationFactor -&gt; Bool)
 -&gt; (DecreaseReplicationFactor -&gt; DecreaseReplicationFactor -&gt; Bool)
 -&gt; Eq DecreaseReplicationFactor
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DecreaseReplicationFactor -&gt; DecreaseReplicationFactor -&gt; Bool
 == :: DecreaseReplicationFactor -&gt; DecreaseReplicationFactor -&gt; Bool
 $c== :: DecreaseReplicationFactor -&gt; DecreaseReplicationFactor -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200407"><span id="local-6989586621679200409"><span id="local-6989586621679200411"><span id="local-6989586621679200413"><span class="annot"><span class="annottext">ReadPrec [DecreaseReplicationFactor]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200416"><span id="local-6989586621679200418"><span id="local-6989586621679200420"><span id="local-6989586621679200422"><span class="annot"><span class="annottext">ReadPrec [DecreaseReplicationFactor]
 ReadPrec DecreaseReplicationFactor
 Int -&gt; ReadS DecreaseReplicationFactor
 ReadS [DecreaseReplicationFactor]
@@ -96,7 +96,7 @@ readList :: ReadS [DecreaseReplicationFactor]
 $creadList :: ReadS [DecreaseReplicationFactor]
 readsPrec :: Int -&gt; ReadS DecreaseReplicationFactor
 $creadsPrec :: Int -&gt; ReadS DecreaseReplicationFactor
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200400"><span id="local-6989586621679200402"><span id="local-6989586621679200404"><span class="annot"><span class="annottext">Int -&gt; DecreaseReplicationFactor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200409"><span id="local-6989586621679200411"><span id="local-6989586621679200413"><span class="annot"><span class="annottext">Int -&gt; DecreaseReplicationFactor -&gt; ShowS
 [DecreaseReplicationFactor] -&gt; ShowS
 DecreaseReplicationFactor -&gt; String
 (Int -&gt; DecreaseReplicationFactor -&gt; ShowS)
@@ -151,10 +151,10 @@ DecreaseReplicationFactor -&gt; Rep DecreaseReplicationFactor x
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span><span>
 </span><span id="line-89"></span><span id="newDecreaseReplicationFactor"><span class="annot"><span class="annottext">newDecreaseReplicationFactor :: Text -&gt; Int -&gt; DecreaseReplicationFactor
 </span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#newDecreaseReplicationFactor"><span class="hs-identifier hs-var hs-var">newDecreaseReplicationFactor</span></a></span></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679200395"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200395"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679200394"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200394"><span class="hs-identifier hs-var">pNewReplicationFactor_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679200404"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200404"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679200403"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200403"><span class="hs-identifier hs-var">pNewReplicationFactor_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">DecreaseReplicationFactor' :: Maybe [Text]
 -&gt; Maybe [Text] -&gt; Text -&gt; Int -&gt; DecreaseReplicationFactor
 </span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span>
@@ -169,10 +169,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:clusterName:DecreaseReplicationFactor' :: Text
 </span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#%24sel%3AclusterName%3ADecreaseReplicationFactor%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200395"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679200404"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:newReplicationFactor':DecreaseReplicationFactor' :: Int
 </span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#%24sel%3AnewReplicationFactor%27%3ADecreaseReplicationFactor%27"><span class="hs-identifier hs-var">newReplicationFactor'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200394"><span class="hs-identifier hs-var">pNewReplicationFactor_</span></a></span><span>
+</span><a href="#local-6989586621679200403"><span class="hs-identifier hs-var">pNewReplicationFactor_</span></a></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The unique identifiers of the nodes to be removed from the cluster.</span><span>
@@ -188,16 +188,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200391"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200400"><span class="annot"><span class="annottext">Maybe [Text]
 nodeIdsToRemove :: Maybe [Text]
 $sel:nodeIdsToRemove:DecreaseReplicationFactor' :: DecreaseReplicationFactor -&gt; Maybe [Text]
-</span><a href="#local-6989586621679200391"><span class="hs-identifier hs-var hs-var">nodeIdsToRemove</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679200391"><span class="hs-identifier hs-var">nodeIdsToRemove</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200390"><span class="annot"><span class="annottext">s :: DecreaseReplicationFactor
-</span><a href="#local-6989586621679200390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200389"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679200389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicationFactor
-</span><a href="#local-6989586621679200390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeIdsToRemove:DecreaseReplicationFactor' :: Maybe [Text]
+</span><a href="#local-6989586621679200400"><span class="hs-identifier hs-var hs-var">nodeIdsToRemove</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679200400"><span class="hs-identifier hs-var">nodeIdsToRemove</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200399"><span class="annot"><span class="annottext">s :: DecreaseReplicationFactor
+</span><a href="#local-6989586621679200399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200398"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679200398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicationFactor
+</span><a href="#local-6989586621679200399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeIdsToRemove:DecreaseReplicationFactor' :: Maybe [Text]
 </span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#%24sel%3AnodeIdsToRemove%3ADecreaseReplicationFactor%27"><span class="hs-identifier hs-var">nodeIdsToRemove</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679200389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679200398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DecreaseReplicationFactor -&gt; f DecreaseReplicationFactor)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -227,16 +227,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200385"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200394"><span class="annot"><span class="annottext">Maybe [Text]
 availabilityZones :: Maybe [Text]
 $sel:availabilityZones:DecreaseReplicationFactor' :: DecreaseReplicationFactor -&gt; Maybe [Text]
-</span><a href="#local-6989586621679200385"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679200385"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200384"><span class="annot"><span class="annottext">s :: DecreaseReplicationFactor
-</span><a href="#local-6989586621679200384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200383"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679200383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicationFactor
-</span><a href="#local-6989586621679200384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZones:DecreaseReplicationFactor' :: Maybe [Text]
+</span><a href="#local-6989586621679200394"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679200394"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200393"><span class="annot"><span class="annottext">s :: DecreaseReplicationFactor
+</span><a href="#local-6989586621679200393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200392"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679200392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicationFactor
+</span><a href="#local-6989586621679200393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZones:DecreaseReplicationFactor' :: Maybe [Text]
 </span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#%24sel%3AavailabilityZones%3ADecreaseReplicationFactor%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679200383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679200392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DecreaseReplicationFactor -&gt; f DecreaseReplicationFactor)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -262,16 +262,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DecreaseReplicationFactor DecreaseReplicationFactor Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200382"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200391"><span class="annot"><span class="annottext">Text
 clusterName :: Text
 $sel:clusterName:DecreaseReplicationFactor' :: DecreaseReplicationFactor -&gt; Text
-</span><a href="#local-6989586621679200382"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200382"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200381"><span class="annot"><span class="annottext">s :: DecreaseReplicationFactor
-</span><a href="#local-6989586621679200381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200380"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicationFactor
-</span><a href="#local-6989586621679200381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:DecreaseReplicationFactor' :: Text
+</span><a href="#local-6989586621679200391"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200391"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200390"><span class="annot"><span class="annottext">s :: DecreaseReplicationFactor
+</span><a href="#local-6989586621679200390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200389"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicationFactor
+</span><a href="#local-6989586621679200390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:DecreaseReplicationFactor' :: Text
 </span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#%24sel%3AclusterName%3ADecreaseReplicationFactor%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The new number of nodes for the DAX cluster.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#decreaseReplicationFactor_newReplicationFactor"><span class="hs-identifier hs-type">decreaseReplicationFactor_newReplicationFactor</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -281,28 +281,28 @@ $sel:clusterName:DecreaseReplicationFactor' :: DecreaseReplicationFactor -&gt; T
 -&gt; (DecreaseReplicationFactor -&gt; Int -&gt; DecreaseReplicationFactor)
 -&gt; Lens DecreaseReplicationFactor DecreaseReplicationFactor Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200379"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200388"><span class="annot"><span class="annottext">Int
 newReplicationFactor' :: Int
 $sel:newReplicationFactor':DecreaseReplicationFactor' :: DecreaseReplicationFactor -&gt; Int
-</span><a href="#local-6989586621679200379"><span class="hs-identifier hs-var hs-var">newReplicationFactor'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200379"><span class="hs-identifier hs-var">newReplicationFactor'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200378"><span class="annot"><span class="annottext">s :: DecreaseReplicationFactor
-</span><a href="#local-6989586621679200378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200377"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicationFactor
-</span><a href="#local-6989586621679200378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newReplicationFactor':DecreaseReplicationFactor' :: Int
+</span><a href="#local-6989586621679200388"><span class="hs-identifier hs-var hs-var">newReplicationFactor'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200388"><span class="hs-identifier hs-var">newReplicationFactor'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200387"><span class="annot"><span class="annottext">s :: DecreaseReplicationFactor
+</span><a href="#local-6989586621679200387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200386"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicationFactor
+</span><a href="#local-6989586621679200387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newReplicationFactor':DecreaseReplicationFactor' :: Int
 </span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#%24sel%3AnewReplicationFactor%27%3ADecreaseReplicationFactor%27"><span class="hs-identifier hs-var">newReplicationFactor'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-118"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679200373"><span class="annot"><span class="annottext">request :: DecreaseReplicationFactor -&gt; Request DecreaseReplicationFactor
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679200382"><span class="annot"><span class="annottext">request :: DecreaseReplicationFactor -&gt; Request DecreaseReplicationFactor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DecreaseReplicationFactor -&gt; Request DecreaseReplicationFactor
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DAX.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679200369"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679200378"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DecreaseReplicationFactor
 -&gt; ClientResponse ClientBody
@@ -328,10 +328,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200366"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200366"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200365"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679200365"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200364"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679200364"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200375"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200375"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200374"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679200374"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200373"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200373"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; DecreaseReplicationFactorResponse
 </span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse%27"><span class="hs-identifier hs-var">DecreaseReplicationFactorResponse'</span></a></span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; DecreaseReplicationFactorResponse)
@@ -339,7 +339,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DecreaseReplicationFactorResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679200364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
+</span><a href="#local-6989586621679200373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -352,15 +352,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200366"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200375"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200356"><span id="local-6989586621679200358"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200365"><span id="local-6989586621679200367"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679200349"><span class="annot"><span class="annottext">toHeaders :: DecreaseReplicationFactor -&gt; ResponseHeaders
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679200358"><span class="annot"><span class="annottext">toHeaders :: DecreaseReplicationFactor -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DecreaseReplicationFactor -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -387,9 +387,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200339"><span id="local-6989586621679200341"><span id="local-6989586621679200343"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679200337"><span class="annot"><span class="annottext">toJSON :: DecreaseReplicationFactor -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200332"><span id="local-6989586621679200333"><span id="local-6989586621679200334"><span id="local-6989586621679200335"><span class="annot"><span class="annottext">Int
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200348"><span id="local-6989586621679200350"><span id="local-6989586621679200352"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679200346"><span class="annot"><span class="annottext">toJSON :: DecreaseReplicationFactor -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor%27"><span class="hs-identifier hs-type">DecreaseReplicationFactor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200341"><span id="local-6989586621679200342"><span id="local-6989586621679200343"><span id="local-6989586621679200344"><span class="annot"><span class="annottext">Int
 Maybe [Text]
 Text
 newReplicationFactor' :: Int
@@ -400,7 +400,7 @@ $sel:newReplicationFactor':DecreaseReplicationFactor' :: DecreaseReplicationFact
 $sel:clusterName:DecreaseReplicationFactor' :: DecreaseReplicationFactor -&gt; Text
 $sel:availabilityZones:DecreaseReplicationFactor' :: DecreaseReplicationFactor -&gt; Maybe [Text]
 $sel:nodeIdsToRemove:DecreaseReplicationFactor' :: DecreaseReplicationFactor -&gt; Maybe [Text]
-</span><a href="#local-6989586621679200332"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679200341"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -413,7 +413,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679200335"><span class="hs-identifier hs-var">nodeIdsToRemove</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679200344"><span class="hs-identifier hs-var">nodeIdsToRemove</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AvailabilityZones&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -421,14 +421,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679200334"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679200343"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClusterName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200333"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679200342"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -437,20 +437,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-159"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200332"><span class="hs-identifier hs-var">newReplicationFactor'</span></a></span><span>
+</span><a href="#local-6989586621679200341"><span class="hs-identifier hs-var">newReplicationFactor'</span></a></span><span>
 </span><span id="line-160"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679200326"><span class="annot"><span class="annottext">toPath :: DecreaseReplicationFactor -&gt; ByteString
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679200335"><span class="annot"><span class="annottext">toPath :: DecreaseReplicationFactor -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DecreaseReplicationFactor -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactor"><span class="hs-identifier hs-type">DecreaseReplicationFactor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679200322"><span class="annot"><span class="annottext">toQuery :: DecreaseReplicationFactor -&gt; QueryString
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679200331"><span class="annot"><span class="annottext">toQuery :: DecreaseReplicationFactor -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DecreaseReplicationFactor -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -458,7 +458,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | /See:/ 'newDecreaseReplicationFactorResponse' smart constructor.</span><span>
-</span><span id="line-171"></span><span id="local-6989586621679200319"><span id="local-6989586621679200320"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecreaseReplicationFactorResponse"><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse"><span class="hs-identifier hs-var">DecreaseReplicationFactorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecreaseReplicationFactorResponse%27"><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse%27"><span class="hs-identifier hs-var">DecreaseReplicationFactorResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span id="local-6989586621679200328"><span id="local-6989586621679200329"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecreaseReplicationFactorResponse"><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse"><span class="hs-identifier hs-var">DecreaseReplicationFactorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecreaseReplicationFactorResponse%27"><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse%27"><span class="hs-identifier hs-var">DecreaseReplicationFactorResponse'</span></a></span></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the DAX cluster, after you have decreased its</span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-comment">-- replication factor.</span><span>
 </span><span id="line-174"></span><span>    </span><span id="%24sel%3Acluster%3ADecreaseReplicationFactorResponse%27"><span class="annot"><span class="annottext">DecreaseReplicationFactorResponse -&gt; Maybe Cluster
@@ -467,7 +467,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADecreaseReplicationFactorResponse%27"><span class="annot"><span class="annottext">DecreaseReplicationFactorResponse -&gt; Int
 </span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#%24sel%3AhttpStatus%3ADecreaseReplicationFactorResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200313"><span id="local-6989586621679200315"><span class="annot"><span class="annottext">DecreaseReplicationFactorResponse
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200322"><span id="local-6989586621679200324"><span class="annot"><span class="annottext">DecreaseReplicationFactorResponse
 -&gt; DecreaseReplicationFactorResponse -&gt; Bool
 (DecreaseReplicationFactorResponse
  -&gt; DecreaseReplicationFactorResponse -&gt; Bool)
@@ -483,7 +483,7 @@ $c/= :: DecreaseReplicationFactorResponse
 -&gt; DecreaseReplicationFactorResponse -&gt; Bool
 $c== :: DecreaseReplicationFactorResponse
 -&gt; DecreaseReplicationFactorResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200305"><span id="local-6989586621679200307"><span id="local-6989586621679200309"><span id="local-6989586621679200311"><span class="annot"><span class="annottext">ReadPrec [DecreaseReplicationFactorResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200314"><span id="local-6989586621679200316"><span id="local-6989586621679200318"><span id="local-6989586621679200320"><span class="annot"><span class="annottext">ReadPrec [DecreaseReplicationFactorResponse]
 ReadPrec DecreaseReplicationFactorResponse
 Int -&gt; ReadS DecreaseReplicationFactorResponse
 ReadS [DecreaseReplicationFactorResponse]
@@ -503,7 +503,7 @@ readList :: ReadS [DecreaseReplicationFactorResponse]
 $creadList :: ReadS [DecreaseReplicationFactorResponse]
 readsPrec :: Int -&gt; ReadS DecreaseReplicationFactorResponse
 $creadsPrec :: Int -&gt; ReadS DecreaseReplicationFactorResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200299"><span id="local-6989586621679200301"><span id="local-6989586621679200303"><span class="annot"><span class="annottext">Int -&gt; DecreaseReplicationFactorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200308"><span id="local-6989586621679200310"><span id="local-6989586621679200312"><span class="annot"><span class="annottext">Int -&gt; DecreaseReplicationFactorResponse -&gt; ShowS
 [DecreaseReplicationFactorResponse] -&gt; ShowS
 DecreaseReplicationFactorResponse -&gt; String
 (Int -&gt; DecreaseReplicationFactorResponse -&gt; ShowS)
@@ -558,8 +558,8 @@ DecreaseReplicationFactorResponse
 </span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse</span></a></span><span>
 </span><span id="line-196"></span><span id="newDecreaseReplicationFactorResponse"><span class="annot"><span class="annottext">newDecreaseReplicationFactorResponse :: Int -&gt; DecreaseReplicationFactorResponse
-</span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#newDecreaseReplicationFactorResponse"><span class="hs-identifier hs-var hs-var">newDecreaseReplicationFactorResponse</span></a></span></span><span> </span><span id="local-6989586621679200296"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200296"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#newDecreaseReplicationFactorResponse"><span class="hs-identifier hs-var hs-var">newDecreaseReplicationFactorResponse</span></a></span></span><span> </span><span id="local-6989586621679200305"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200305"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>  </span><span class="annot"><span class="annottext">DecreaseReplicationFactorResponse' :: Maybe Cluster -&gt; Int -&gt; DecreaseReplicationFactorResponse
 </span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse%27"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse'</span></a></span><span>
 </span><span id="line-198"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:DecreaseReplicationFactorResponse' :: Maybe Cluster
@@ -569,7 +569,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DecreaseReplicationFactorResponse' :: Int
 </span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#%24sel%3AhttpStatus%3ADecreaseReplicationFactorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200296"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679200305"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-201"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | A description of the DAX cluster, after you have decreased its</span><span>
@@ -587,16 +587,16 @@ forall a. Maybe a
      (Maybe Cluster)
      (Maybe Cluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse%27"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200295"><span class="annot"><span class="annottext">Maybe Cluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse%27"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200304"><span class="annot"><span class="annottext">Maybe Cluster
 cluster :: Maybe Cluster
 $sel:cluster:DecreaseReplicationFactorResponse' :: DecreaseReplicationFactorResponse -&gt; Maybe Cluster
-</span><a href="#local-6989586621679200295"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679200295"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200294"><span class="annot"><span class="annottext">s :: DecreaseReplicationFactorResponse
-</span><a href="#local-6989586621679200294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse%27"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200293"><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679200293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicationFactorResponse
-</span><a href="#local-6989586621679200294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:DecreaseReplicationFactorResponse' :: Maybe Cluster
+</span><a href="#local-6989586621679200304"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679200304"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200303"><span class="annot"><span class="annottext">s :: DecreaseReplicationFactorResponse
+</span><a href="#local-6989586621679200303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse%27"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200302"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679200302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicationFactorResponse
+</span><a href="#local-6989586621679200303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:DecreaseReplicationFactorResponse' :: Maybe Cluster
 </span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#%24sel%3Acluster%3ADecreaseReplicationFactorResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679200293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-209"></span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#decreaseReplicationFactorResponse_httpStatus"><span class="hs-identifier hs-type">decreaseReplicationFactorResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -612,18 +612,18 @@ $sel:cluster:DecreaseReplicationFactorResponse' :: DecreaseReplicationFactorResp
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse%27"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200292"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse%27"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200301"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DecreaseReplicationFactorResponse' :: DecreaseReplicationFactorResponse -&gt; Int
-</span><a href="#local-6989586621679200292"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200292"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200291"><span class="annot"><span class="annottext">s :: DecreaseReplicationFactorResponse
-</span><a href="#local-6989586621679200291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse%27"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200290"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicationFactorResponse
-</span><a href="#local-6989586621679200291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DecreaseReplicationFactorResponse' :: Int
+</span><a href="#local-6989586621679200301"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200301"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200300"><span class="annot"><span class="annottext">s :: DecreaseReplicationFactorResponse
+</span><a href="#local-6989586621679200300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse%27"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200299"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecreaseReplicationFactorResponse
+</span><a href="#local-6989586621679200300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DecreaseReplicationFactorResponse' :: Int
 </span><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#%24sel%3AhttpStatus%3ADecreaseReplicationFactorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679200288"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679200297"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><a href="Network.AWS.DAX.DecreaseReplicationFactor.html#DecreaseReplicationFactorResponse"><span class="hs-identifier hs-type">DecreaseReplicationFactorResponse</span></a></span></span><span>
 </span><span id="line-215"></span></pre></body></html>

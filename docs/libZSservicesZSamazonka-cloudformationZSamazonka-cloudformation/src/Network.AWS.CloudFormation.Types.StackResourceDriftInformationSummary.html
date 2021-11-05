@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- configuration.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newStackResourceDriftInformationSummary' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679423347"><span id="local-6989586621679423348"></span></span><span class="hs-keyword">data</span><span> </span><span id="StackResourceDriftInformationSummary"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary"><span class="hs-identifier hs-var">StackResourceDriftInformationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackResourceDriftInformationSummary%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary%27"><span class="hs-identifier hs-var">StackResourceDriftInformationSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679423356"><span id="local-6989586621679423357"></span></span><span class="hs-keyword">data</span><span> </span><span id="StackResourceDriftInformationSummary"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary"><span class="hs-identifier hs-var">StackResourceDriftInformationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackResourceDriftInformationSummary%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary%27"><span class="hs-identifier hs-var">StackResourceDriftInformationSummary'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When CloudFormation last checked if the resource had drifted from its</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- expected configuration.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AlastCheckTimestamp%3AStackResourceDriftInformationSummary%27"><span class="annot"><span class="annottext">StackResourceDriftInformationSummary -&gt; Maybe ISO8601
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AstackResourceDriftStatus%3AStackResourceDriftInformationSummary%27"><span class="annot"><span class="annottext">StackResourceDriftInformationSummary -&gt; StackResourceDriftStatus
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#%24sel%3AstackResourceDriftStatus%3AStackResourceDriftInformationSummary%27"><span class="hs-identifier hs-var hs-var">stackResourceDriftStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftStatus.html#StackResourceDriftStatus"><span class="hs-identifier hs-type">StackResourceDriftStatus</span></a></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423340"><span id="local-6989586621679423342"><span class="annot"><span class="annottext">StackResourceDriftInformationSummary
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423349"><span id="local-6989586621679423351"><span class="annot"><span class="annottext">StackResourceDriftInformationSummary
 -&gt; StackResourceDriftInformationSummary -&gt; Bool
 (StackResourceDriftInformationSummary
  -&gt; StackResourceDriftInformationSummary -&gt; Bool)
@@ -76,7 +76,7 @@ $c/= :: StackResourceDriftInformationSummary
 -&gt; StackResourceDriftInformationSummary -&gt; Bool
 $c== :: StackResourceDriftInformationSummary
 -&gt; StackResourceDriftInformationSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423331"><span id="local-6989586621679423333"><span id="local-6989586621679423335"><span id="local-6989586621679423337"><span class="annot"><span class="annottext">ReadPrec [StackResourceDriftInformationSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423340"><span id="local-6989586621679423342"><span id="local-6989586621679423344"><span id="local-6989586621679423346"><span class="annot"><span class="annottext">ReadPrec [StackResourceDriftInformationSummary]
 ReadPrec StackResourceDriftInformationSummary
 Int -&gt; ReadS StackResourceDriftInformationSummary
 ReadS [StackResourceDriftInformationSummary]
@@ -96,7 +96,7 @@ readList :: ReadS [StackResourceDriftInformationSummary]
 $creadList :: ReadS [StackResourceDriftInformationSummary]
 readsPrec :: Int -&gt; ReadS StackResourceDriftInformationSummary
 $creadsPrec :: Int -&gt; ReadS StackResourceDriftInformationSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423324"><span id="local-6989586621679423326"><span id="local-6989586621679423328"><span class="annot"><span class="annottext">Int -&gt; StackResourceDriftInformationSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423333"><span id="local-6989586621679423335"><span id="local-6989586621679423337"><span class="annot"><span class="annottext">Int -&gt; StackResourceDriftInformationSummary -&gt; ShowS
 [StackResourceDriftInformationSummary] -&gt; ShowS
 StackResourceDriftInformationSummary -&gt; String
 (Int -&gt; StackResourceDriftInformationSummary -&gt; ShowS)
@@ -174,8 +174,8 @@ StackResourceDriftInformationSummary
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary</span></a></span><span>
 </span><span id="line-101"></span><span id="newStackResourceDriftInformationSummary"><span class="annot"><span class="annottext">newStackResourceDriftInformationSummary :: StackResourceDriftStatus -&gt; StackResourceDriftInformationSummary
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#newStackResourceDriftInformationSummary"><span class="hs-identifier hs-var hs-var">newStackResourceDriftInformationSummary</span></a></span></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679423318"><span class="annot"><span class="annottext">StackResourceDriftStatus
-</span><a href="#local-6989586621679423318"><span class="hs-identifier hs-var">pStackResourceDriftStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679423327"><span class="annot"><span class="annottext">StackResourceDriftStatus
+</span><a href="#local-6989586621679423327"><span class="hs-identifier hs-var">pStackResourceDriftStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">StackResourceDriftInformationSummary' :: Maybe ISO8601
 -&gt; StackResourceDriftStatus -&gt; StackResourceDriftInformationSummary
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary%27"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary'</span></a></span><span>
@@ -187,7 +187,7 @@ forall a. Maybe a
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackResourceDriftStatus:StackResourceDriftInformationSummary' :: StackResourceDriftStatus
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#%24sel%3AstackResourceDriftStatus%3AStackResourceDriftInformationSummary%27"><span class="hs-identifier hs-var">stackResourceDriftStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">StackResourceDriftStatus
-</span><a href="#local-6989586621679423318"><span class="hs-identifier hs-var">pStackResourceDriftStatus_</span></a></span><span>
+</span><a href="#local-6989586621679423327"><span class="hs-identifier hs-var">pStackResourceDriftStatus_</span></a></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | When CloudFormation last checked if the resource had drifted from its</span><span>
@@ -205,16 +205,16 @@ forall a. Maybe a
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary%27"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423314"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary%27"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423323"><span class="annot"><span class="annottext">Maybe ISO8601
 lastCheckTimestamp :: Maybe ISO8601
 $sel:lastCheckTimestamp:StackResourceDriftInformationSummary' :: StackResourceDriftInformationSummary -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679423314"><span class="hs-identifier hs-var hs-var">lastCheckTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679423314"><span class="hs-identifier hs-var">lastCheckTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423313"><span class="annot"><span class="annottext">s :: StackResourceDriftInformationSummary
-</span><a href="#local-6989586621679423313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary%27"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423312"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679423312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDriftInformationSummary
-</span><a href="#local-6989586621679423313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastCheckTimestamp:StackResourceDriftInformationSummary' :: Maybe ISO8601
+</span><a href="#local-6989586621679423323"><span class="hs-identifier hs-var hs-var">lastCheckTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679423323"><span class="hs-identifier hs-var">lastCheckTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423322"><span class="annot"><span class="annottext">s :: StackResourceDriftInformationSummary
+</span><a href="#local-6989586621679423322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary%27"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423321"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679423321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDriftInformationSummary
+</span><a href="#local-6989586621679423322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastCheckTimestamp:StackResourceDriftInformationSummary' :: Maybe ISO8601
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#%24sel%3AlastCheckTimestamp%3AStackResourceDriftInformationSummary%27"><span class="hs-identifier hs-var">lastCheckTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679423312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679423321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; StackResourceDriftInformationSummary
  -&gt; f StackResourceDriftInformationSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -270,24 +270,24 @@ forall (a :: Format). Iso' (Time a) UTCTime
      StackResourceDriftStatus
      StackResourceDriftStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary%27"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423307"><span class="annot"><span class="annottext">StackResourceDriftStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary%27"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423316"><span class="annot"><span class="annottext">StackResourceDriftStatus
 stackResourceDriftStatus :: StackResourceDriftStatus
 $sel:stackResourceDriftStatus:StackResourceDriftInformationSummary' :: StackResourceDriftInformationSummary -&gt; StackResourceDriftStatus
-</span><a href="#local-6989586621679423307"><span class="hs-identifier hs-var hs-var">stackResourceDriftStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDriftStatus
-</span><a href="#local-6989586621679423307"><span class="hs-identifier hs-var">stackResourceDriftStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423306"><span class="annot"><span class="annottext">s :: StackResourceDriftInformationSummary
-</span><a href="#local-6989586621679423306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary%27"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423305"><span class="annot"><span class="annottext">StackResourceDriftStatus
-</span><a href="#local-6989586621679423305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDriftInformationSummary
-</span><a href="#local-6989586621679423306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackResourceDriftStatus:StackResourceDriftInformationSummary' :: StackResourceDriftStatus
+</span><a href="#local-6989586621679423316"><span class="hs-identifier hs-var hs-var">stackResourceDriftStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDriftStatus
+</span><a href="#local-6989586621679423316"><span class="hs-identifier hs-var">stackResourceDriftStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423315"><span class="annot"><span class="annottext">s :: StackResourceDriftInformationSummary
+</span><a href="#local-6989586621679423315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary%27"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423314"><span class="annot"><span class="annottext">StackResourceDriftStatus
+</span><a href="#local-6989586621679423314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDriftInformationSummary
+</span><a href="#local-6989586621679423315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackResourceDriftStatus:StackResourceDriftInformationSummary' :: StackResourceDriftStatus
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#%24sel%3AstackResourceDriftStatus%3AStackResourceDriftInformationSummary%27"><span class="hs-identifier hs-var">stackResourceDriftStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StackResourceDriftStatus
-</span><a href="#local-6989586621679423305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary</span></a></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679423302"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StackResourceDriftInformationSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679423300"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423300"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679423311"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StackResourceDriftInformationSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679423309"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423309"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
 -&gt; StackResourceDriftStatus -&gt; StackResourceDriftInformationSummary
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary%27"><span class="hs-identifier hs-var">StackResourceDriftInformationSummary'</span></a></span><span>
@@ -300,7 +300,7 @@ $sel:stackResourceDriftStatus:StackResourceDriftInformationSummary' :: StackReso
      (StackResourceDriftStatus -&gt; StackResourceDriftInformationSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679423309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastCheckTimestamp&quot;</span></span><span class="hs-special">)</span><span>
@@ -311,16 +311,16 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String StackResourceDriftInformationSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String StackResourceDriftStatus
+</span><a href="#local-6989586621679423309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String StackResourceDriftStatus
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackResourceDriftStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679423293"><span id="local-6989586621679423295"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679423302"><span id="local-6989586621679423304"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary</span></a></span></span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679423290"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679423299"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary.html#StackResourceDriftInformationSummary"><span class="hs-identifier hs-type">StackResourceDriftInformationSummary</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

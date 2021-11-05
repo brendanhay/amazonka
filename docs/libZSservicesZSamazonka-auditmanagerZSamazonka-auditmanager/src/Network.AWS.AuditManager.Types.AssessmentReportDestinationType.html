@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AuditManager.Types.AssessmentReportDestinationType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AuditManager.Types.AssessmentReportDestinationType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportDestinationType.html#AssessmentReportDestinationType"><span class="hs-identifier">AssessmentReportDestinationType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportDestinationType.html#AssessmentReportDestinationType_S3"><span class="hs-identifier">AssessmentReportDestinationType_S3</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679289998"><span id="local-6989586621679289999"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssessmentReportDestinationType"><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportDestinationType.html#AssessmentReportDestinationType"><span class="hs-identifier hs-var">AssessmentReportDestinationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentReportDestinationType%27"><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportDestinationType.html#AssessmentReportDestinationType%27"><span class="hs-identifier hs-var">AssessmentReportDestinationType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssessmentReportDestinationType"><span class="annot"><span class="annottext">AssessmentReportDestinationType -&gt; Text
+</span><a href="Network.AWS.AuditManager.Types.AssessmentReportDestinationType.html#fromAssessmentReportDestinationType"><span class="hs-identifier hs-var hs-var">fromAssessmentReportDestinationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679289990"><span id="local-6989586621679289992"><span id="local-6989586621679289994"><span class="annot"><span class="annottext">Int -&gt; AssessmentReportDestinationType -&gt; ShowS
+[AssessmentReportDestinationType] -&gt; ShowS
+AssessmentReportDestinationType -&gt; String
+(Int -&gt; AssessmentReportDestinationType -&gt; ShowS)
+-&gt; (AssessmentReportDestinationType -&gt; String)
+-&gt; ([AssessmentReportDestinationType] -&gt; ShowS)
+-&gt; Show AssessmentReportDestinationType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssessmentReportDestinationType] -&gt; ShowS
+$cshowList :: [AssessmentReportDestinationType] -&gt; ShowS
+show :: AssessmentReportDestinationType -&gt; String
+$cshow :: AssessmentReportDestinationType -&gt; String
+showsPrec :: Int -&gt; AssessmentReportDestinationType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssessmentReportDestinationType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679289981"><span id="local-6989586621679289983"><span id="local-6989586621679289985"><span id="local-6989586621679289987"><span class="annot"><span class="annottext">ReadPrec [AssessmentReportDestinationType]
+ReadPrec AssessmentReportDestinationType
+Int -&gt; ReadS AssessmentReportDestinationType
+ReadS [AssessmentReportDestinationType]
+(Int -&gt; ReadS AssessmentReportDestinationType)
+-&gt; ReadS [AssessmentReportDestinationType]
+-&gt; ReadPrec AssessmentReportDestinationType
+-&gt; ReadPrec [AssessmentReportDestinationType]
+-&gt; Read AssessmentReportDestinationType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssessmentReportDestinationType]
+$creadListPrec :: ReadPrec [AssessmentReportDestinationType]
+readPrec :: ReadPrec AssessmentReportDestinationType
+$creadPrec :: ReadPrec AssessmentReportDestinationType
+readList :: ReadS [AssessmentReportDestinationType]
+$creadList :: ReadS [AssessmentReportDestinationType]
+readsPrec :: Int -&gt; ReadS AssessmentReportDestinationType
+$creadsPrec :: Int -&gt; ReadS AssessmentReportDestinationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679289976"><span id="local-6989586621679289978"><span class="annot"><span class="annottext">AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Bool
+(AssessmentReportDestinationType
+ -&gt; AssessmentReportDestinationType -&gt; Bool)
+-&gt; (AssessmentReportDestinationType
+    -&gt; AssessmentReportDestinationType -&gt; Bool)
+-&gt; Eq AssessmentReportDestinationType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Bool
+$c/= :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Bool
+== :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Bool
+$c== :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679289960"><span id="local-6989586621679289962"><span id="local-6989586621679289964"><span id="local-6989586621679289966"><span id="local-6989586621679289968"><span id="local-6989586621679289970"><span id="local-6989586621679289972"><span class="annot"><span class="annottext">Eq AssessmentReportDestinationType
+Eq AssessmentReportDestinationType
+-&gt; (AssessmentReportDestinationType
+    -&gt; AssessmentReportDestinationType -&gt; Ordering)
+-&gt; (AssessmentReportDestinationType
+    -&gt; AssessmentReportDestinationType -&gt; Bool)
+-&gt; (AssessmentReportDestinationType
+    -&gt; AssessmentReportDestinationType -&gt; Bool)
+-&gt; (AssessmentReportDestinationType
+    -&gt; AssessmentReportDestinationType -&gt; Bool)
+-&gt; (AssessmentReportDestinationType
+    -&gt; AssessmentReportDestinationType -&gt; Bool)
+-&gt; (AssessmentReportDestinationType
+    -&gt; AssessmentReportDestinationType
+    -&gt; AssessmentReportDestinationType)
+-&gt; (AssessmentReportDestinationType
+    -&gt; AssessmentReportDestinationType
+    -&gt; AssessmentReportDestinationType)
+-&gt; Ord AssessmentReportDestinationType
+AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Bool
+AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Ordering
+AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType
+$cmin :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType
+max :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType
+$cmax :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType
+&gt;= :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Bool
+$c&gt;= :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Bool
+&gt; :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Bool
+$c&gt; :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Bool
+&lt;= :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Bool
+$c&lt;= :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Bool
+&lt; :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Bool
+$c&lt; :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Bool
+compare :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Ordering
+$ccompare :: AssessmentReportDestinationType
+-&gt; AssessmentReportDestinationType -&gt; Ordering
+$cp1Ord :: Eq AssessmentReportDestinationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AssessmentReportDestinationType
+ -&gt; Rep AssessmentReportDestinationType x)
+-&gt; (forall x.
+    Rep AssessmentReportDestinationType x
+    -&gt; AssessmentReportDestinationType)
+-&gt; Generic AssessmentReportDestinationType
+forall x.
+Rep AssessmentReportDestinationType x
+-&gt; AssessmentReportDestinationType
+forall x.
+AssessmentReportDestinationType
+-&gt; Rep AssessmentReportDestinationType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssessmentReportDestinationType x
+-&gt; AssessmentReportDestinationType
+$cfrom :: forall x.
+AssessmentReportDestinationType
+-&gt; Rep AssessmentReportDestinationType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679289952"><span id="local-6989586621679289954"><span class="annot"><span class="annottext">Int -&gt; AssessmentReportDestinationType -&gt; Int
+AssessmentReportDestinationType -&gt; Int
+(Int -&gt; AssessmentReportDestinationType -&gt; Int)
+-&gt; (AssessmentReportDestinationType -&gt; Int)
+-&gt; Hashable AssessmentReportDestinationType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AssessmentReportDestinationType -&gt; Int
+$chash :: AssessmentReportDestinationType -&gt; Int
+hashWithSalt :: Int -&gt; AssessmentReportDestinationType -&gt; Int
+$chashWithSalt :: Int -&gt; AssessmentReportDestinationType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679289949"><span class="annot"><span class="annottext">AssessmentReportDestinationType -&gt; ()
+(AssessmentReportDestinationType -&gt; ())
+-&gt; NFData AssessmentReportDestinationType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AssessmentReportDestinationType -&gt; ()
+$crnf :: AssessmentReportDestinationType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679289946"><span class="annot"><span class="annottext">Text -&gt; Either String AssessmentReportDestinationType
+(Text -&gt; Either String AssessmentReportDestinationType)
+-&gt; FromText AssessmentReportDestinationType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AssessmentReportDestinationType
+$cfromText :: Text -&gt; Either String AssessmentReportDestinationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679289943"><span class="annot"><span class="annottext">AssessmentReportDestinationType -&gt; Text
+(AssessmentReportDestinationType -&gt; Text)
+-&gt; ToText AssessmentReportDestinationType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AssessmentReportDestinationType -&gt; Text
+$ctoText :: AssessmentReportDestinationType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679289940"><span class="annot"><span class="annottext">AssessmentReportDestinationType -&gt; ByteString
+(AssessmentReportDestinationType -&gt; ByteString)
+-&gt; ToByteString AssessmentReportDestinationType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AssessmentReportDestinationType -&gt; ByteString
+$ctoBS :: AssessmentReportDestinationType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679289937"><span class="annot"><span class="annottext">AssessmentReportDestinationType -&gt; ByteStringBuilder
+(AssessmentReportDestinationType -&gt; ByteStringBuilder)
+-&gt; ToLog AssessmentReportDestinationType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AssessmentReportDestinationType -&gt; ByteStringBuilder
+$cbuild :: AssessmentReportDestinationType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679289934"><span class="annot"><span class="annottext">HeaderName -&gt; AssessmentReportDestinationType -&gt; [Header]
+(HeaderName -&gt; AssessmentReportDestinationType -&gt; [Header])
+-&gt; ToHeader AssessmentReportDestinationType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AssessmentReportDestinationType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AssessmentReportDestinationType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679289931"><span class="annot"><span class="annottext">AssessmentReportDestinationType -&gt; QueryString
+(AssessmentReportDestinationType -&gt; QueryString)
+-&gt; ToQuery AssessmentReportDestinationType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AssessmentReportDestinationType -&gt; QueryString
+$ctoQuery :: AssessmentReportDestinationType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679289926"><span id="local-6989586621679289928"><span class="annot"><span class="annottext">Value -&gt; Parser [AssessmentReportDestinationType]
+Value -&gt; Parser AssessmentReportDestinationType
+(Value -&gt; Parser AssessmentReportDestinationType)
+-&gt; (Value -&gt; Parser [AssessmentReportDestinationType])
+-&gt; FromJSON AssessmentReportDestinationType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AssessmentReportDestinationType]
+$cparseJSONList :: Value -&gt; Parser [AssessmentReportDestinationType]
+parseJSON :: Value -&gt; Parser AssessmentReportDestinationType
+$cparseJSON :: Value -&gt; Parser AssessmentReportDestinationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679289921"><span id="local-6989586621679289923"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssessmentReportDestinationType]
+FromJSONKeyFunction AssessmentReportDestinationType
+FromJSONKeyFunction AssessmentReportDestinationType
+-&gt; FromJSONKeyFunction [AssessmentReportDestinationType]
+-&gt; FromJSONKey AssessmentReportDestinationType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AssessmentReportDestinationType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AssessmentReportDestinationType]
+fromJSONKey :: FromJSONKeyFunction AssessmentReportDestinationType
+$cfromJSONKey :: FromJSONKeyFunction AssessmentReportDestinationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679289912"><span id="local-6989586621679289914"><span id="local-6989586621679289916"><span id="local-6989586621679289918"><span class="annot"><span class="annottext">[AssessmentReportDestinationType] -&gt; Encoding
+[AssessmentReportDestinationType] -&gt; Value
+AssessmentReportDestinationType -&gt; Encoding
+AssessmentReportDestinationType -&gt; Value
+(AssessmentReportDestinationType -&gt; Value)
+-&gt; (AssessmentReportDestinationType -&gt; Encoding)
+-&gt; ([AssessmentReportDestinationType] -&gt; Value)
+-&gt; ([AssessmentReportDestinationType] -&gt; Encoding)
+-&gt; ToJSON AssessmentReportDestinationType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AssessmentReportDestinationType] -&gt; Encoding
+$ctoEncodingList :: [AssessmentReportDestinationType] -&gt; Encoding
+toJSONList :: [AssessmentReportDestinationType] -&gt; Value
+$ctoJSONList :: [AssessmentReportDestinationType] -&gt; Value
+toEncoding :: AssessmentReportDestinationType -&gt; Encoding
+$ctoEncoding :: AssessmentReportDestinationType -&gt; Encoding
+toJSON :: AssessmentReportDestinationType -&gt; Value
+$ctoJSON :: AssessmentReportDestinationType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679289907"><span id="local-6989586621679289909"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssessmentReportDestinationType]
+ToJSONKeyFunction AssessmentReportDestinationType
+ToJSONKeyFunction AssessmentReportDestinationType
+-&gt; ToJSONKeyFunction [AssessmentReportDestinationType]
+-&gt; ToJSONKey AssessmentReportDestinationType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AssessmentReportDestinationType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AssessmentReportDestinationType]
+toJSONKey :: ToJSONKeyFunction AssessmentReportDestinationType
+$ctoJSONKey :: ToJSONKeyFunction AssessmentReportDestinationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679289904"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssessmentReportDestinationType
+([Node] -&gt; Either String AssessmentReportDestinationType)
+-&gt; FromXML AssessmentReportDestinationType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AssessmentReportDestinationType
+$cparseXML :: [Node] -&gt; Either String AssessmentReportDestinationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679289901"><span class="annot"><span class="annottext">AssessmentReportDestinationType -&gt; XML
+(AssessmentReportDestinationType -&gt; XML)
+-&gt; ToXML AssessmentReportDestinationType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AssessmentReportDestinationType -&gt; XML
+$ctoXML :: AssessmentReportDestinationType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportDestinationType.html#AssessmentReportDestinationType_S3"><span class="hs-identifier hs-type">AssessmentReportDestinationType_S3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportDestinationType.html#AssessmentReportDestinationType"><span class="hs-identifier hs-type">AssessmentReportDestinationType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssessmentReportDestinationType_S3"><span id="%24mAssessmentReportDestinationType_S3"><span id="AssessmentReportDestinationType_S3"><span class="annot"><span class="annottext">$bAssessmentReportDestinationType_S3 :: AssessmentReportDestinationType
+$mAssessmentReportDestinationType_S3 :: forall r.
+AssessmentReportDestinationType
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.AssessmentReportDestinationType.html#%24bAssessmentReportDestinationType_S3"><span class="hs-identifier hs-var hs-var hs-var">AssessmentReportDestinationType_S3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportDestinationType.html#AssessmentReportDestinationType%27"><span class="hs-identifier hs-type">AssessmentReportDestinationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;S3&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportDestinationType.html#AssessmentReportDestinationType_S3"><span class="hs-pragma hs-type">AssessmentReportDestinationType_S3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.AssessmentReportDestinationType.html#AssessmentReportDestinationType%27"><span class="hs-pragma hs-type">AssessmentReportDestinationType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

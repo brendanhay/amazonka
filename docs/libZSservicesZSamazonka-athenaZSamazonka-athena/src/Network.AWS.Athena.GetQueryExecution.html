@@ -50,12 +50,12 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetQueryExecution' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679224457"><span id="local-6989586621679224458"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetQueryExecution"><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution"><span class="hs-identifier hs-var">GetQueryExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetQueryExecution%27"><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution%27"><span class="hs-identifier hs-var">GetQueryExecution'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679224466"><span id="local-6989586621679224467"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetQueryExecution"><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution"><span class="hs-identifier hs-var">GetQueryExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetQueryExecution%27"><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution%27"><span class="hs-identifier hs-var">GetQueryExecution'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the query execution.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AqueryExecutionId%3AGetQueryExecution%27"><span class="annot"><span class="annottext">GetQueryExecution -&gt; Text
 </span><a href="Network.AWS.Athena.GetQueryExecution.html#%24sel%3AqueryExecutionId%3AGetQueryExecution%27"><span class="hs-identifier hs-var hs-var">queryExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224451"><span id="local-6989586621679224453"><span class="annot"><span class="annottext">GetQueryExecution -&gt; GetQueryExecution -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224460"><span id="local-6989586621679224462"><span class="annot"><span class="annottext">GetQueryExecution -&gt; GetQueryExecution -&gt; Bool
 (GetQueryExecution -&gt; GetQueryExecution -&gt; Bool)
 -&gt; (GetQueryExecution -&gt; GetQueryExecution -&gt; Bool)
 -&gt; Eq GetQueryExecution
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetQueryExecution -&gt; GetQueryExecution -&gt; Bool
 == :: GetQueryExecution -&gt; GetQueryExecution -&gt; Bool
 $c== :: GetQueryExecution -&gt; GetQueryExecution -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224442"><span id="local-6989586621679224444"><span id="local-6989586621679224446"><span id="local-6989586621679224448"><span class="annot"><span class="annottext">ReadPrec [GetQueryExecution]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224451"><span id="local-6989586621679224453"><span id="local-6989586621679224455"><span id="local-6989586621679224457"><span class="annot"><span class="annottext">ReadPrec [GetQueryExecution]
 ReadPrec GetQueryExecution
 Int -&gt; ReadS GetQueryExecution
 ReadS [GetQueryExecution]
@@ -84,7 +84,7 @@ readList :: ReadS [GetQueryExecution]
 $creadList :: ReadS [GetQueryExecution]
 readsPrec :: Int -&gt; ReadS GetQueryExecution
 $creadsPrec :: Int -&gt; ReadS GetQueryExecution
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224435"><span id="local-6989586621679224437"><span id="local-6989586621679224439"><span class="annot"><span class="annottext">Int -&gt; GetQueryExecution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224444"><span id="local-6989586621679224446"><span id="local-6989586621679224448"><span class="annot"><span class="annottext">Int -&gt; GetQueryExecution -&gt; ShowS
 [GetQueryExecution] -&gt; ShowS
 GetQueryExecution -&gt; String
 (Int -&gt; GetQueryExecution -&gt; ShowS)
@@ -124,14 +124,14 @@ $cfrom :: forall x. GetQueryExecution -&gt; Rep GetQueryExecution x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution"><span class="hs-identifier hs-type">GetQueryExecution</span></a></span><span>
 </span><span id="line-72"></span><span id="newGetQueryExecution"><span class="annot"><span class="annottext">newGetQueryExecution :: Text -&gt; GetQueryExecution
-</span><a href="Network.AWS.Athena.GetQueryExecution.html#newGetQueryExecution"><span class="hs-identifier hs-var hs-var">newGetQueryExecution</span></a></span></span><span> </span><span id="local-6989586621679224430"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224430"><span class="hs-identifier hs-var">pQueryExecutionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.GetQueryExecution.html#newGetQueryExecution"><span class="hs-identifier hs-var hs-var">newGetQueryExecution</span></a></span></span><span> </span><span id="local-6989586621679224439"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224439"><span class="hs-identifier hs-var">pQueryExecutionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">GetQueryExecution' :: Text -&gt; GetQueryExecution
 </span><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution%27"><span class="hs-identifier hs-type">GetQueryExecution'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryExecutionId:GetQueryExecution' :: Text
 </span><a href="Network.AWS.Athena.GetQueryExecution.html#%24sel%3AqueryExecutionId%3AGetQueryExecution%27"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224430"><span class="hs-identifier hs-var">pQueryExecutionId_</span></a></span><span>
+</span><a href="#local-6989586621679224439"><span class="hs-identifier hs-var">pQueryExecutionId_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The unique ID of the query execution.</span><span>
@@ -141,27 +141,27 @@ $cfrom :: forall x. GetQueryExecution -&gt; Rep GetQueryExecution x
 -&gt; (GetQueryExecution -&gt; Text -&gt; GetQueryExecution)
 -&gt; Lens GetQueryExecution GetQueryExecution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution%27"><span class="hs-identifier hs-type">GetQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224427"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution%27"><span class="hs-identifier hs-type">GetQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224436"><span class="annot"><span class="annottext">Text
 queryExecutionId :: Text
 $sel:queryExecutionId:GetQueryExecution' :: GetQueryExecution -&gt; Text
-</span><a href="#local-6989586621679224427"><span class="hs-identifier hs-var hs-var">queryExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224427"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224426"><span class="annot"><span class="annottext">s :: GetQueryExecution
-</span><a href="#local-6989586621679224426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution%27"><span class="hs-identifier hs-type">GetQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224425"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryExecution
-</span><a href="#local-6989586621679224426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryExecutionId:GetQueryExecution' :: Text
+</span><a href="#local-6989586621679224436"><span class="hs-identifier hs-var hs-var">queryExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224436"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224435"><span class="annot"><span class="annottext">s :: GetQueryExecution
+</span><a href="#local-6989586621679224435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution%27"><span class="hs-identifier hs-type">GetQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224434"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryExecution
+</span><a href="#local-6989586621679224435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryExecutionId:GetQueryExecution' :: Text
 </span><a href="Network.AWS.Athena.GetQueryExecution.html#%24sel%3AqueryExecutionId%3AGetQueryExecution%27"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution"><span class="hs-identifier hs-type">GetQueryExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution"><span class="hs-identifier hs-type">GetQueryExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution"><span class="hs-identifier hs-type">GetQueryExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution"><span class="hs-identifier hs-type">GetQueryExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse"><span class="hs-identifier hs-type">GetQueryExecutionResponse</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679224421"><span class="annot"><span class="annottext">request :: GetQueryExecution -&gt; Request GetQueryExecution
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679224430"><span class="annot"><span class="annottext">request :: GetQueryExecution -&gt; Request GetQueryExecution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetQueryExecution -&gt; Request GetQueryExecution
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Athena.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679224417"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679224426"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetQueryExecution
 -&gt; ClientResponse ClientBody
@@ -187,10 +187,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224414"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224414"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679224413"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679224413"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679224412"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224412"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224423"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224423"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679224422"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679224422"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679224421"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224421"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe QueryExecution -&gt; Int -&gt; GetQueryExecutionResponse
 </span><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse%27"><span class="hs-identifier hs-var">GetQueryExecutionResponse'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe QueryExecution -&gt; Int -&gt; GetQueryExecutionResponse)
@@ -198,7 +198,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetQueryExecutionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe QueryExecution)
+</span><a href="#local-6989586621679224421"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe QueryExecution)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QueryExecution&quot;</span></span><span class="hs-special">)</span><span>
@@ -210,15 +210,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224414"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224423"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224404"><span id="local-6989586621679224406"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution"><span class="hs-identifier hs-type">GetQueryExecution</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224413"><span id="local-6989586621679224415"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution"><span class="hs-identifier hs-type">GetQueryExecution</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224401"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution"><span class="hs-identifier hs-type">GetQueryExecution</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224410"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution"><span class="hs-identifier hs-type">GetQueryExecution</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution"><span class="hs-identifier hs-type">GetQueryExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679224397"><span class="annot"><span class="annottext">toHeaders :: GetQueryExecution -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679224406"><span class="annot"><span class="annottext">toHeaders :: GetQueryExecution -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetQueryExecution -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -245,12 +245,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224387"><span id="local-6989586621679224389"><span id="local-6989586621679224391"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution"><span class="hs-identifier hs-type">GetQueryExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679224385"><span class="annot"><span class="annottext">toJSON :: GetQueryExecution -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution%27"><span class="hs-identifier hs-type">GetQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224383"><span class="annot"><span class="annottext">Text
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224396"><span id="local-6989586621679224398"><span id="local-6989586621679224400"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution"><span class="hs-identifier hs-type">GetQueryExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679224394"><span class="annot"><span class="annottext">toJSON :: GetQueryExecution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution%27"><span class="hs-identifier hs-type">GetQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224392"><span class="annot"><span class="annottext">Text
 queryExecutionId :: Text
 $sel:queryExecutionId:GetQueryExecution' :: GetQueryExecution -&gt; Text
-</span><a href="#local-6989586621679224383"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679224392"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -263,19 +263,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;QueryExecutionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224383"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224392"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution"><span class="hs-identifier hs-type">GetQueryExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679224377"><span class="annot"><span class="annottext">toPath :: GetQueryExecution -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679224386"><span class="annot"><span class="annottext">toPath :: GetQueryExecution -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetQueryExecution -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecution"><span class="hs-identifier hs-type">GetQueryExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679224373"><span class="annot"><span class="annottext">toQuery :: GetQueryExecution -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679224382"><span class="annot"><span class="annottext">toQuery :: GetQueryExecution -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetQueryExecution -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -283,7 +283,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newGetQueryExecutionResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679224370"><span id="local-6989586621679224371"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetQueryExecutionResponse"><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse"><span class="hs-identifier hs-var">GetQueryExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetQueryExecutionResponse%27"><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse%27"><span class="hs-identifier hs-var">GetQueryExecutionResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679224379"><span id="local-6989586621679224380"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetQueryExecutionResponse"><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse"><span class="hs-identifier hs-var">GetQueryExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetQueryExecutionResponse%27"><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse%27"><span class="hs-identifier hs-var">GetQueryExecutionResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the query execution.</span><span>
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AqueryExecution%3AGetQueryExecutionResponse%27"><span class="annot"><span class="annottext">GetQueryExecutionResponse -&gt; Maybe QueryExecution
 </span><a href="Network.AWS.Athena.GetQueryExecution.html#%24sel%3AqueryExecution%3AGetQueryExecutionResponse%27"><span class="hs-identifier hs-var hs-var">queryExecution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.QueryExecution.html#QueryExecution"><span class="hs-identifier hs-type">QueryExecution</span></a></span><span class="hs-special">,</span><span>
@@ -291,7 +291,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetQueryExecutionResponse%27"><span class="annot"><span class="annottext">GetQueryExecutionResponse -&gt; Int
 </span><a href="Network.AWS.Athena.GetQueryExecution.html#%24sel%3AhttpStatus%3AGetQueryExecutionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224364"><span id="local-6989586621679224366"><span class="annot"><span class="annottext">GetQueryExecutionResponse -&gt; GetQueryExecutionResponse -&gt; Bool
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224373"><span id="local-6989586621679224375"><span class="annot"><span class="annottext">GetQueryExecutionResponse -&gt; GetQueryExecutionResponse -&gt; Bool
 (GetQueryExecutionResponse -&gt; GetQueryExecutionResponse -&gt; Bool)
 -&gt; (GetQueryExecutionResponse -&gt; GetQueryExecutionResponse -&gt; Bool)
 -&gt; Eq GetQueryExecutionResponse
@@ -300,7 +300,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetQueryExecutionResponse -&gt; GetQueryExecutionResponse -&gt; Bool
 == :: GetQueryExecutionResponse -&gt; GetQueryExecutionResponse -&gt; Bool
 $c== :: GetQueryExecutionResponse -&gt; GetQueryExecutionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224356"><span id="local-6989586621679224358"><span id="local-6989586621679224360"><span id="local-6989586621679224362"><span class="annot"><span class="annottext">ReadPrec [GetQueryExecutionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224365"><span id="local-6989586621679224367"><span id="local-6989586621679224369"><span id="local-6989586621679224371"><span class="annot"><span class="annottext">ReadPrec [GetQueryExecutionResponse]
 ReadPrec GetQueryExecutionResponse
 Int -&gt; ReadS GetQueryExecutionResponse
 ReadS [GetQueryExecutionResponse]
@@ -320,7 +320,7 @@ readList :: ReadS [GetQueryExecutionResponse]
 $creadList :: ReadS [GetQueryExecutionResponse]
 readsPrec :: Int -&gt; ReadS GetQueryExecutionResponse
 $creadsPrec :: Int -&gt; ReadS GetQueryExecutionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224350"><span id="local-6989586621679224352"><span id="local-6989586621679224354"><span class="annot"><span class="annottext">Int -&gt; GetQueryExecutionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224359"><span id="local-6989586621679224361"><span id="local-6989586621679224363"><span class="annot"><span class="annottext">Int -&gt; GetQueryExecutionResponse -&gt; ShowS
 [GetQueryExecutionResponse] -&gt; ShowS
 GetQueryExecutionResponse -&gt; String
 (Int -&gt; GetQueryExecutionResponse -&gt; ShowS)
@@ -368,8 +368,8 @@ GetQueryExecutionResponse -&gt; Rep GetQueryExecutionResponse x
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse"><span class="hs-identifier hs-type">GetQueryExecutionResponse</span></a></span><span>
 </span><span id="line-153"></span><span id="newGetQueryExecutionResponse"><span class="annot"><span class="annottext">newGetQueryExecutionResponse :: Int -&gt; GetQueryExecutionResponse
-</span><a href="Network.AWS.Athena.GetQueryExecution.html#newGetQueryExecutionResponse"><span class="hs-identifier hs-var hs-var">newGetQueryExecutionResponse</span></a></span></span><span> </span><span id="local-6989586621679224347"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224347"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.GetQueryExecution.html#newGetQueryExecutionResponse"><span class="hs-identifier hs-var hs-var">newGetQueryExecutionResponse</span></a></span></span><span> </span><span id="local-6989586621679224356"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224356"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">GetQueryExecutionResponse' :: Maybe QueryExecution -&gt; Int -&gt; GetQueryExecutionResponse
 </span><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse%27"><span class="hs-identifier hs-type">GetQueryExecutionResponse'</span></a></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryExecution:GetQueryExecutionResponse' :: Maybe QueryExecution
@@ -379,7 +379,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetQueryExecutionResponse' :: Int
 </span><a href="Network.AWS.Athena.GetQueryExecution.html#%24sel%3AhttpStatus%3AGetQueryExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224347"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679224356"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | Information about the query execution.</span><span>
@@ -395,16 +395,16 @@ forall a. Maybe a
      (Maybe QueryExecution)
      (Maybe QueryExecution)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse%27"><span class="hs-identifier hs-type">GetQueryExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224346"><span class="annot"><span class="annottext">Maybe QueryExecution
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse%27"><span class="hs-identifier hs-type">GetQueryExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224355"><span class="annot"><span class="annottext">Maybe QueryExecution
 queryExecution :: Maybe QueryExecution
 $sel:queryExecution:GetQueryExecutionResponse' :: GetQueryExecutionResponse -&gt; Maybe QueryExecution
-</span><a href="#local-6989586621679224346"><span class="hs-identifier hs-var hs-var">queryExecution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryExecution
-</span><a href="#local-6989586621679224346"><span class="hs-identifier hs-var">queryExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224345"><span class="annot"><span class="annottext">s :: GetQueryExecutionResponse
-</span><a href="#local-6989586621679224345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse%27"><span class="hs-identifier hs-type">GetQueryExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224344"><span class="annot"><span class="annottext">Maybe QueryExecution
-</span><a href="#local-6989586621679224344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryExecutionResponse
-</span><a href="#local-6989586621679224345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryExecution:GetQueryExecutionResponse' :: Maybe QueryExecution
+</span><a href="#local-6989586621679224355"><span class="hs-identifier hs-var hs-var">queryExecution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueryExecution
+</span><a href="#local-6989586621679224355"><span class="hs-identifier hs-var">queryExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224354"><span class="annot"><span class="annottext">s :: GetQueryExecutionResponse
+</span><a href="#local-6989586621679224354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse%27"><span class="hs-identifier hs-type">GetQueryExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224353"><span class="annot"><span class="annottext">Maybe QueryExecution
+</span><a href="#local-6989586621679224353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryExecutionResponse
+</span><a href="#local-6989586621679224354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryExecution:GetQueryExecutionResponse' :: Maybe QueryExecution
 </span><a href="Network.AWS.Athena.GetQueryExecution.html#%24sel%3AqueryExecution%3AGetQueryExecutionResponse%27"><span class="hs-identifier hs-var">queryExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueryExecution
-</span><a href="#local-6989586621679224344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse"><span class="hs-identifier hs-type">GetQueryExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse"><span class="hs-identifier hs-type">GetQueryExecutionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#getQueryExecutionResponse_httpStatus"><span class="hs-identifier hs-type">getQueryExecutionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse"><span class="hs-identifier hs-type">GetQueryExecutionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -414,16 +414,16 @@ $sel:queryExecution:GetQueryExecutionResponse' :: GetQueryExecutionResponse -&gt
 -&gt; (GetQueryExecutionResponse -&gt; Int -&gt; GetQueryExecutionResponse)
 -&gt; Lens GetQueryExecutionResponse GetQueryExecutionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse%27"><span class="hs-identifier hs-type">GetQueryExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224343"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse%27"><span class="hs-identifier hs-type">GetQueryExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224352"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetQueryExecutionResponse' :: GetQueryExecutionResponse -&gt; Int
-</span><a href="#local-6989586621679224343"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224343"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224342"><span class="annot"><span class="annottext">s :: GetQueryExecutionResponse
-</span><a href="#local-6989586621679224342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse%27"><span class="hs-identifier hs-type">GetQueryExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224341"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryExecutionResponse
-</span><a href="#local-6989586621679224342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetQueryExecutionResponse' :: Int
+</span><a href="#local-6989586621679224352"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224352"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224351"><span class="annot"><span class="annottext">s :: GetQueryExecutionResponse
+</span><a href="#local-6989586621679224351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse%27"><span class="hs-identifier hs-type">GetQueryExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224350"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetQueryExecutionResponse
+</span><a href="#local-6989586621679224351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetQueryExecutionResponse' :: Int
 </span><a href="Network.AWS.Athena.GetQueryExecution.html#%24sel%3AhttpStatus%3AGetQueryExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse"><span class="hs-identifier hs-type">GetQueryExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse"><span class="hs-identifier hs-type">GetQueryExecutionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224339"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse"><span class="hs-identifier hs-type">GetQueryExecutionResponse</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224348"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetQueryExecution.html#GetQueryExecutionResponse"><span class="hs-identifier hs-type">GetQueryExecutionResponse</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

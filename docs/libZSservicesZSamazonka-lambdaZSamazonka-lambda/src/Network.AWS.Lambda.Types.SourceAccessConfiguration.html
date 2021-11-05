@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- authentication protocol, VPC components, or virtual host.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSourceAccessConfiguration' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679299202"><span id="local-6989586621679299203"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceAccessConfiguration"><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration"><span class="hs-identifier hs-var">SourceAccessConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceAccessConfiguration%27"><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration%27"><span class="hs-identifier hs-var">SourceAccessConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679299211"><span id="local-6989586621679299212"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceAccessConfiguration"><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration"><span class="hs-identifier hs-var">SourceAccessConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceAccessConfiguration%27"><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration%27"><span class="hs-identifier hs-var">SourceAccessConfiguration'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value for your chosen configuration in @Type@. For example:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @\&quot;URI\&quot;: \&quot;arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName\&quot;@.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Auri%3ASourceAccessConfiguration%27"><span class="annot"><span class="annottext">SourceAccessConfiguration -&gt; Maybe Text
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3Atype%27%3ASourceAccessConfiguration%27"><span class="annot"><span class="annottext">SourceAccessConfiguration -&gt; Maybe SourceAccessType
 </span><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#%24sel%3Atype%27%3ASourceAccessConfiguration%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessType.html#SourceAccessType"><span class="hs-identifier hs-type">SourceAccessType</span></a></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299195"><span id="local-6989586621679299197"><span class="annot"><span class="annottext">SourceAccessConfiguration -&gt; SourceAccessConfiguration -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299204"><span id="local-6989586621679299206"><span class="annot"><span class="annottext">SourceAccessConfiguration -&gt; SourceAccessConfiguration -&gt; Bool
 (SourceAccessConfiguration -&gt; SourceAccessConfiguration -&gt; Bool)
 -&gt; (SourceAccessConfiguration -&gt; SourceAccessConfiguration -&gt; Bool)
 -&gt; Eq SourceAccessConfiguration
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SourceAccessConfiguration -&gt; SourceAccessConfiguration -&gt; Bool
 == :: SourceAccessConfiguration -&gt; SourceAccessConfiguration -&gt; Bool
 $c== :: SourceAccessConfiguration -&gt; SourceAccessConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299186"><span id="local-6989586621679299188"><span id="local-6989586621679299190"><span id="local-6989586621679299192"><span class="annot"><span class="annottext">ReadPrec [SourceAccessConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299195"><span id="local-6989586621679299197"><span id="local-6989586621679299199"><span id="local-6989586621679299201"><span class="annot"><span class="annottext">ReadPrec [SourceAccessConfiguration]
 ReadPrec SourceAccessConfiguration
 Int -&gt; ReadS SourceAccessConfiguration
 ReadS [SourceAccessConfiguration]
@@ -92,7 +92,7 @@ readList :: ReadS [SourceAccessConfiguration]
 $creadList :: ReadS [SourceAccessConfiguration]
 readsPrec :: Int -&gt; ReadS SourceAccessConfiguration
 $creadsPrec :: Int -&gt; ReadS SourceAccessConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299179"><span id="local-6989586621679299181"><span id="local-6989586621679299183"><span class="annot"><span class="annottext">Int -&gt; SourceAccessConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299188"><span id="local-6989586621679299190"><span id="local-6989586621679299192"><span class="annot"><span class="annottext">Int -&gt; SourceAccessConfiguration -&gt; ShowS
 [SourceAccessConfiguration] -&gt; ShowS
 SourceAccessConfiguration -&gt; String
 (Int -&gt; SourceAccessConfiguration -&gt; ShowS)
@@ -192,16 +192,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration%27"><span class="hs-identifier hs-type">SourceAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299170"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration%27"><span class="hs-identifier hs-type">SourceAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299179"><span class="annot"><span class="annottext">Maybe Text
 uri :: Maybe Text
 $sel:uri:SourceAccessConfiguration' :: SourceAccessConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679299170"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299170"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299169"><span class="annot"><span class="annottext">s :: SourceAccessConfiguration
-</span><a href="#local-6989586621679299169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration%27"><span class="hs-identifier hs-type">SourceAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299168"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceAccessConfiguration
-</span><a href="#local-6989586621679299169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uri:SourceAccessConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679299179"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299179"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299178"><span class="annot"><span class="annottext">s :: SourceAccessConfiguration
+</span><a href="#local-6989586621679299178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration%27"><span class="hs-identifier hs-type">SourceAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299177"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceAccessConfiguration
+</span><a href="#local-6989586621679299178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uri:SourceAccessConfiguration' :: Maybe Text
 </span><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#%24sel%3Auri%3ASourceAccessConfiguration%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration"><span class="hs-identifier hs-type">SourceAccessConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration"><span class="hs-identifier hs-type">SourceAccessConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The type of authentication protocol, VPC components, or virtual host for</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- your event source. For example: @\&quot;Type\&quot;:\&quot;SASL_SCRAM_512_AUTH\&quot;@.</span><span>
@@ -242,19 +242,19 @@ $sel:uri:SourceAccessConfiguration' :: SourceAccessConfiguration -&gt; Maybe Tex
      (Maybe SourceAccessType)
      (Maybe SourceAccessType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration%27"><span class="hs-identifier hs-type">SourceAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299166"><span class="annot"><span class="annottext">Maybe SourceAccessType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration%27"><span class="hs-identifier hs-type">SourceAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299175"><span class="annot"><span class="annottext">Maybe SourceAccessType
 type' :: Maybe SourceAccessType
 $sel:type':SourceAccessConfiguration' :: SourceAccessConfiguration -&gt; Maybe SourceAccessType
-</span><a href="#local-6989586621679299166"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceAccessType
-</span><a href="#local-6989586621679299166"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299165"><span class="annot"><span class="annottext">s :: SourceAccessConfiguration
-</span><a href="#local-6989586621679299165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration%27"><span class="hs-identifier hs-type">SourceAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299164"><span class="annot"><span class="annottext">Maybe SourceAccessType
-</span><a href="#local-6989586621679299164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceAccessConfiguration
-</span><a href="#local-6989586621679299165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':SourceAccessConfiguration' :: Maybe SourceAccessType
+</span><a href="#local-6989586621679299175"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceAccessType
+</span><a href="#local-6989586621679299175"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299174"><span class="annot"><span class="annottext">s :: SourceAccessConfiguration
+</span><a href="#local-6989586621679299174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration%27"><span class="hs-identifier hs-type">SourceAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299173"><span class="annot"><span class="annottext">Maybe SourceAccessType
+</span><a href="#local-6989586621679299173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceAccessConfiguration
+</span><a href="#local-6989586621679299174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':SourceAccessConfiguration' :: Maybe SourceAccessType
 </span><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#%24sel%3Atype%27%3ASourceAccessConfiguration%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceAccessType
-</span><a href="#local-6989586621679299164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration"><span class="hs-identifier hs-type">SourceAccessConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration"><span class="hs-identifier hs-type">SourceAccessConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299161"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration"><span class="hs-identifier hs-type">SourceAccessConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679299159"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SourceAccessConfiguration
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299170"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration"><span class="hs-identifier hs-type">SourceAccessConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679299168"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SourceAccessConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SourceAccessConfiguration)
@@ -264,8 +264,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SourceAccessConfiguration&quot;</span></span><span>
-</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299156"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299156"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299165"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299165"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe SourceAccessType -&gt; SourceAccessConfiguration
 </span><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration%27"><span class="hs-identifier hs-var">SourceAccessConfiguration'</span></a></span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe SourceAccessType -&gt; SourceAccessConfiguration)
@@ -273,7 +273,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe SourceAccessType -&gt; SourceAccessConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679299165"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;URI&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe SourceAccessType -&gt; SourceAccessConfiguration)
@@ -281,25 +281,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser SourceAccessConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceAccessType)
+</span><a href="#local-6989586621679299165"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceAccessType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299150"><span id="local-6989586621679299152"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration"><span class="hs-identifier hs-type">SourceAccessConfiguration</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299159"><span id="local-6989586621679299161"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration"><span class="hs-identifier hs-type">SourceAccessConfiguration</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299147"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration"><span class="hs-identifier hs-type">SourceAccessConfiguration</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299156"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration"><span class="hs-identifier hs-type">SourceAccessConfiguration</span></a></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299139"><span id="local-6989586621679299141"><span id="local-6989586621679299143"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration"><span class="hs-identifier hs-type">SourceAccessConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679299137"><span class="annot"><span class="annottext">toJSON :: SourceAccessConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration%27"><span class="hs-identifier hs-type">SourceAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299134"><span id="local-6989586621679299135"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299148"><span id="local-6989586621679299150"><span id="local-6989586621679299152"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration"><span class="hs-identifier hs-type">SourceAccessConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679299146"><span class="annot"><span class="annottext">toJSON :: SourceAccessConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SourceAccessConfiguration.html#SourceAccessConfiguration%27"><span class="hs-identifier hs-type">SourceAccessConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299143"><span id="local-6989586621679299144"><span class="annot"><span class="annottext">Maybe Text
 Maybe SourceAccessType
 type' :: Maybe SourceAccessType
 uri :: Maybe Text
 $sel:type':SourceAccessConfiguration' :: SourceAccessConfiguration -&gt; Maybe SourceAccessType
 $sel:uri:SourceAccessConfiguration' :: SourceAccessConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679299134"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679299143"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -311,14 +311,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299135"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299144"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SourceAccessType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SourceAccessType -&gt; Pair) -&gt; Maybe SourceAccessType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SourceAccessType
-</span><a href="#local-6989586621679299134"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621679299143"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span></pre></body></html>

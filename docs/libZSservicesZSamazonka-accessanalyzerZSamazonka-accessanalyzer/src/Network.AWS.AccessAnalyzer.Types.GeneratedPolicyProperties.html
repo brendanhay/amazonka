@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.CloudTrailProperties.html"><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.CloudTrailProperties</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains the generated policy details.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGeneratedPolicyProperties' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679251319"><span id="local-6989586621679251320"></span></span><span class="hs-keyword">data</span><span> </span><span id="GeneratedPolicyProperties"><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties"><span class="hs-identifier hs-var">GeneratedPolicyProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GeneratedPolicyProperties%27"><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties%27"><span class="hs-identifier hs-var">GeneratedPolicyProperties'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This value is set to @true@ if the generated policy contains all</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- possible actions for a service that IAM Access Analyzer identified from</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the CloudTrail trail that you specified, and @false@ otherwise.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AisComplete%3AGeneratedPolicyProperties%27"><span class="annot"><span class="annottext">GeneratedPolicyProperties -&gt; Maybe Bool
+</span><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#%24sel%3AisComplete%3AGeneratedPolicyProperties%27"><span class="hs-identifier hs-var hs-var">isComplete</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Lists details about the @Trail@ used to generated policy.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcloudTrailProperties%3AGeneratedPolicyProperties%27"><span class="annot"><span class="annottext">GeneratedPolicyProperties -&gt; Maybe CloudTrailProperties
+</span><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#%24sel%3AcloudTrailProperties%3AGeneratedPolicyProperties%27"><span class="hs-identifier hs-var hs-var">cloudTrailProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.CloudTrailProperties.html#CloudTrailProperties"><span class="hs-identifier hs-type">CloudTrailProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ARN of the IAM entity (user or role) for which you are generating a</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- policy.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AprincipalArn%3AGeneratedPolicyProperties%27"><span class="annot"><span class="annottext">GeneratedPolicyProperties -&gt; Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#%24sel%3AprincipalArn%3AGeneratedPolicyProperties%27"><span class="hs-identifier hs-var hs-var">principalArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251311"><span id="local-6989586621679251313"><span class="annot"><span class="annottext">GeneratedPolicyProperties -&gt; GeneratedPolicyProperties -&gt; Bool
+(GeneratedPolicyProperties -&gt; GeneratedPolicyProperties -&gt; Bool)
+-&gt; (GeneratedPolicyProperties -&gt; GeneratedPolicyProperties -&gt; Bool)
+-&gt; Eq GeneratedPolicyProperties
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GeneratedPolicyProperties -&gt; GeneratedPolicyProperties -&gt; Bool
+$c/= :: GeneratedPolicyProperties -&gt; GeneratedPolicyProperties -&gt; Bool
+== :: GeneratedPolicyProperties -&gt; GeneratedPolicyProperties -&gt; Bool
+$c== :: GeneratedPolicyProperties -&gt; GeneratedPolicyProperties -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251302"><span id="local-6989586621679251304"><span id="local-6989586621679251306"><span id="local-6989586621679251308"><span class="annot"><span class="annottext">ReadPrec [GeneratedPolicyProperties]
+ReadPrec GeneratedPolicyProperties
+Int -&gt; ReadS GeneratedPolicyProperties
+ReadS [GeneratedPolicyProperties]
+(Int -&gt; ReadS GeneratedPolicyProperties)
+-&gt; ReadS [GeneratedPolicyProperties]
+-&gt; ReadPrec GeneratedPolicyProperties
+-&gt; ReadPrec [GeneratedPolicyProperties]
+-&gt; Read GeneratedPolicyProperties
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GeneratedPolicyProperties]
+$creadListPrec :: ReadPrec [GeneratedPolicyProperties]
+readPrec :: ReadPrec GeneratedPolicyProperties
+$creadPrec :: ReadPrec GeneratedPolicyProperties
+readList :: ReadS [GeneratedPolicyProperties]
+$creadList :: ReadS [GeneratedPolicyProperties]
+readsPrec :: Int -&gt; ReadS GeneratedPolicyProperties
+$creadsPrec :: Int -&gt; ReadS GeneratedPolicyProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251295"><span id="local-6989586621679251297"><span id="local-6989586621679251299"><span class="annot"><span class="annottext">Int -&gt; GeneratedPolicyProperties -&gt; ShowS
+[GeneratedPolicyProperties] -&gt; ShowS
+GeneratedPolicyProperties -&gt; String
+(Int -&gt; GeneratedPolicyProperties -&gt; ShowS)
+-&gt; (GeneratedPolicyProperties -&gt; String)
+-&gt; ([GeneratedPolicyProperties] -&gt; ShowS)
+-&gt; Show GeneratedPolicyProperties
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GeneratedPolicyProperties] -&gt; ShowS
+$cshowList :: [GeneratedPolicyProperties] -&gt; ShowS
+show :: GeneratedPolicyProperties -&gt; String
+$cshow :: GeneratedPolicyProperties -&gt; String
+showsPrec :: Int -&gt; GeneratedPolicyProperties -&gt; ShowS
+$cshowsPrec :: Int -&gt; GeneratedPolicyProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GeneratedPolicyProperties -&gt; Rep GeneratedPolicyProperties x)
+-&gt; (forall x.
+    Rep GeneratedPolicyProperties x -&gt; GeneratedPolicyProperties)
+-&gt; Generic GeneratedPolicyProperties
+forall x.
+Rep GeneratedPolicyProperties x -&gt; GeneratedPolicyProperties
+forall x.
+GeneratedPolicyProperties -&gt; Rep GeneratedPolicyProperties x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GeneratedPolicyProperties x -&gt; GeneratedPolicyProperties
+$cfrom :: forall x.
+GeneratedPolicyProperties -&gt; Rep GeneratedPolicyProperties x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'GeneratedPolicyProperties' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'isComplete', 'generatedPolicyProperties_isComplete' - This value is set to @true@ if the generated policy contains all</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- possible actions for a service that IAM Access Analyzer identified from</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- the CloudTrail trail that you specified, and @false@ otherwise.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'cloudTrailProperties', 'generatedPolicyProperties_cloudTrailProperties' - Lists details about the @Trail@ used to generated policy.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'principalArn', 'generatedPolicyProperties_principalArn' - The ARN of the IAM entity (user or role) for which you are generating a</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- policy.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#newGeneratedPolicyProperties"><span class="hs-identifier hs-type">newGeneratedPolicyProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-comment">-- | 'principalArn'</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties"><span class="hs-identifier hs-type">GeneratedPolicyProperties</span></a></span><span>
+</span><span id="line-63"></span><span id="newGeneratedPolicyProperties"><span class="annot"><span class="annottext">newGeneratedPolicyProperties :: Text -&gt; GeneratedPolicyProperties
+</span><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#newGeneratedPolicyProperties"><span class="hs-identifier hs-var hs-var">newGeneratedPolicyProperties</span></a></span></span><span> </span><span id="local-6989586621679251289"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251289"><span class="hs-identifier hs-var">pPrincipalArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">GeneratedPolicyProperties' :: Maybe Bool
+-&gt; Maybe CloudTrailProperties -&gt; Text -&gt; GeneratedPolicyProperties
+</span><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties%27"><span class="hs-identifier hs-type">GeneratedPolicyProperties'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:isComplete:GeneratedPolicyProperties' :: Maybe Bool
+</span><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#%24sel%3AisComplete%3AGeneratedPolicyProperties%27"><span class="hs-identifier hs-var">isComplete</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudTrailProperties:GeneratedPolicyProperties' :: Maybe CloudTrailProperties
+</span><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#%24sel%3AcloudTrailProperties%3AGeneratedPolicyProperties%27"><span class="hs-identifier hs-var">cloudTrailProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudTrailProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:principalArn:GeneratedPolicyProperties' :: Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#%24sel%3AprincipalArn%3AGeneratedPolicyProperties%27"><span class="hs-identifier hs-var">principalArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251289"><span class="hs-identifier hs-var">pPrincipalArn_</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | This value is set to @true@ if the generated policy contains all</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- possible actions for a service that IAM Access Analyzer identified from</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- the CloudTrail trail that you specified, and @false@ otherwise.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#generatedPolicyProperties_isComplete"><span class="hs-identifier hs-type">generatedPolicyProperties_isComplete</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties"><span class="hs-identifier hs-type">GeneratedPolicyProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="generatedPolicyProperties_isComplete"><span class="annot"><span class="annottext">generatedPolicyProperties_isComplete :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GeneratedPolicyProperties -&gt; f GeneratedPolicyProperties
+</span><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#generatedPolicyProperties_isComplete"><span class="hs-identifier hs-var hs-var">generatedPolicyProperties_isComplete</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GeneratedPolicyProperties -&gt; Maybe Bool)
+-&gt; (GeneratedPolicyProperties
+    -&gt; Maybe Bool -&gt; GeneratedPolicyProperties)
+-&gt; Lens
+     GeneratedPolicyProperties
+     GeneratedPolicyProperties
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties%27"><span class="hs-identifier hs-type">GeneratedPolicyProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251285"><span class="annot"><span class="annottext">Maybe Bool
+isComplete :: Maybe Bool
+$sel:isComplete:GeneratedPolicyProperties' :: GeneratedPolicyProperties -&gt; Maybe Bool
+</span><a href="#local-6989586621679251285"><span class="hs-identifier hs-var hs-var">isComplete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679251285"><span class="hs-identifier hs-var">isComplete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251284"><span class="annot"><span class="annottext">s :: GeneratedPolicyProperties
+</span><a href="#local-6989586621679251284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties%27"><span class="hs-identifier hs-type">GeneratedPolicyProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251283"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679251283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneratedPolicyProperties
+</span><a href="#local-6989586621679251284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isComplete:GeneratedPolicyProperties' :: Maybe Bool
+</span><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#%24sel%3AisComplete%3AGeneratedPolicyProperties%27"><span class="hs-identifier hs-var">isComplete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679251283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties"><span class="hs-identifier hs-type">GeneratedPolicyProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Lists details about the @Trail@ used to generated policy.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#generatedPolicyProperties_cloudTrailProperties"><span class="hs-identifier hs-type">generatedPolicyProperties_cloudTrailProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties"><span class="hs-identifier hs-type">GeneratedPolicyProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.CloudTrailProperties.html#CloudTrailProperties"><span class="hs-identifier hs-type">CloudTrailProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="generatedPolicyProperties_cloudTrailProperties"><span class="annot"><span class="annottext">generatedPolicyProperties_cloudTrailProperties :: (Maybe CloudTrailProperties -&gt; f (Maybe CloudTrailProperties))
+-&gt; GeneratedPolicyProperties -&gt; f GeneratedPolicyProperties
+</span><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#generatedPolicyProperties_cloudTrailProperties"><span class="hs-identifier hs-var hs-var">generatedPolicyProperties_cloudTrailProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GeneratedPolicyProperties -&gt; Maybe CloudTrailProperties)
+-&gt; (GeneratedPolicyProperties
+    -&gt; Maybe CloudTrailProperties -&gt; GeneratedPolicyProperties)
+-&gt; Lens
+     GeneratedPolicyProperties
+     GeneratedPolicyProperties
+     (Maybe CloudTrailProperties)
+     (Maybe CloudTrailProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties%27"><span class="hs-identifier hs-type">GeneratedPolicyProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251281"><span class="annot"><span class="annottext">Maybe CloudTrailProperties
+cloudTrailProperties :: Maybe CloudTrailProperties
+$sel:cloudTrailProperties:GeneratedPolicyProperties' :: GeneratedPolicyProperties -&gt; Maybe CloudTrailProperties
+</span><a href="#local-6989586621679251281"><span class="hs-identifier hs-var hs-var">cloudTrailProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudTrailProperties
+</span><a href="#local-6989586621679251281"><span class="hs-identifier hs-var">cloudTrailProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251280"><span class="annot"><span class="annottext">s :: GeneratedPolicyProperties
+</span><a href="#local-6989586621679251280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties%27"><span class="hs-identifier hs-type">GeneratedPolicyProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251279"><span class="annot"><span class="annottext">Maybe CloudTrailProperties
+</span><a href="#local-6989586621679251279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneratedPolicyProperties
+</span><a href="#local-6989586621679251280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudTrailProperties:GeneratedPolicyProperties' :: Maybe CloudTrailProperties
+</span><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#%24sel%3AcloudTrailProperties%3AGeneratedPolicyProperties%27"><span class="hs-identifier hs-var">cloudTrailProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudTrailProperties
+</span><a href="#local-6989586621679251279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties"><span class="hs-identifier hs-type">GeneratedPolicyProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The ARN of the IAM entity (user or role) for which you are generating a</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- policy.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#generatedPolicyProperties_principalArn"><span class="hs-identifier hs-type">generatedPolicyProperties_principalArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties"><span class="hs-identifier hs-type">GeneratedPolicyProperties</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="generatedPolicyProperties_principalArn"><span class="annot"><span class="annottext">generatedPolicyProperties_principalArn :: (Text -&gt; f Text)
+-&gt; GeneratedPolicyProperties -&gt; f GeneratedPolicyProperties
+</span><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#generatedPolicyProperties_principalArn"><span class="hs-identifier hs-var hs-var">generatedPolicyProperties_principalArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GeneratedPolicyProperties -&gt; Text)
+-&gt; (GeneratedPolicyProperties -&gt; Text -&gt; GeneratedPolicyProperties)
+-&gt; Lens
+     GeneratedPolicyProperties GeneratedPolicyProperties Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties%27"><span class="hs-identifier hs-type">GeneratedPolicyProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251277"><span class="annot"><span class="annottext">Text
+principalArn :: Text
+$sel:principalArn:GeneratedPolicyProperties' :: GeneratedPolicyProperties -&gt; Text
+</span><a href="#local-6989586621679251277"><span class="hs-identifier hs-var hs-var">principalArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251277"><span class="hs-identifier hs-var">principalArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251276"><span class="annot"><span class="annottext">s :: GeneratedPolicyProperties
+</span><a href="#local-6989586621679251276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties%27"><span class="hs-identifier hs-type">GeneratedPolicyProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251275"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneratedPolicyProperties
+</span><a href="#local-6989586621679251276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalArn:GeneratedPolicyProperties' :: Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#%24sel%3AprincipalArn%3AGeneratedPolicyProperties%27"><span class="hs-identifier hs-var">principalArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties"><span class="hs-identifier hs-type">GeneratedPolicyProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251272"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties"><span class="hs-identifier hs-type">GeneratedPolicyProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679251270"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GeneratedPolicyProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser GeneratedPolicyProperties)
+-&gt; Value
+-&gt; Parser GeneratedPolicyProperties
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;GeneratedPolicyProperties&quot;</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251267"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251267"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe CloudTrailProperties -&gt; Text -&gt; GeneratedPolicyProperties
+</span><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties%27"><span class="hs-identifier hs-var">GeneratedPolicyProperties'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe CloudTrailProperties -&gt; Text -&gt; GeneratedPolicyProperties)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe CloudTrailProperties -&gt; Text -&gt; GeneratedPolicyProperties)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251267"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isComplete&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CloudTrailProperties -&gt; Text -&gt; GeneratedPolicyProperties)
+-&gt; Parser (Maybe CloudTrailProperties)
+-&gt; Parser (Text -&gt; GeneratedPolicyProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251267"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudTrailProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cloudTrailProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; GeneratedPolicyProperties)
+-&gt; Parser Text -&gt; Parser GeneratedPolicyProperties
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251267"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;principalArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251260"><span id="local-6989586621679251262"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties"><span class="hs-identifier hs-type">GeneratedPolicyProperties</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251257"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.GeneratedPolicyProperties.html#GeneratedPolicyProperties"><span class="hs-identifier hs-type">GeneratedPolicyProperties</span></a></span></span><span>
+</span><span id="line-100"></span></pre></body></html>

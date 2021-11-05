@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679341326"><span id="local-6989586621679341327"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentReadMode"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReadMode.html#DocumentReadMode"><span class="hs-identifier hs-var">DocumentReadMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentReadMode%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReadMode.html#DocumentReadMode%27"><span class="hs-identifier hs-var">DocumentReadMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679341335"><span id="local-6989586621679341336"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentReadMode"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReadMode.html#DocumentReadMode"><span class="hs-identifier hs-var">DocumentReadMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentReadMode%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReadMode.html#DocumentReadMode%27"><span class="hs-identifier hs-var">DocumentReadMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDocumentReadMode"><span class="annot"><span class="annottext">DocumentReadMode -&gt; Text
 </span><a href="Network.AWS.Comprehend.Types.DocumentReadMode.html#fromDocumentReadMode"><span class="hs-identifier hs-var hs-var">fromDocumentReadMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679341318"><span id="local-6989586621679341320"><span id="local-6989586621679341322"><span class="annot"><span class="annottext">Int -&gt; DocumentReadMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679341327"><span id="local-6989586621679341329"><span id="local-6989586621679341331"><span class="annot"><span class="annottext">Int -&gt; DocumentReadMode -&gt; ShowS
 [DocumentReadMode] -&gt; ShowS
 DocumentReadMode -&gt; String
 (Int -&gt; DocumentReadMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DocumentReadMode -&gt; String
 showsPrec :: Int -&gt; DocumentReadMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; DocumentReadMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679341309"><span id="local-6989586621679341311"><span id="local-6989586621679341313"><span id="local-6989586621679341315"><span class="annot"><span class="annottext">ReadPrec [DocumentReadMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679341318"><span id="local-6989586621679341320"><span id="local-6989586621679341322"><span id="local-6989586621679341324"><span class="annot"><span class="annottext">ReadPrec [DocumentReadMode]
 ReadPrec DocumentReadMode
 Int -&gt; ReadS DocumentReadMode
 ReadS [DocumentReadMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DocumentReadMode]
 readsPrec :: Int -&gt; ReadS DocumentReadMode
 $creadsPrec :: Int -&gt; ReadS DocumentReadMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679341304"><span id="local-6989586621679341306"><span class="annot"><span class="annottext">DocumentReadMode -&gt; DocumentReadMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679341313"><span id="local-6989586621679341315"><span class="annot"><span class="annottext">DocumentReadMode -&gt; DocumentReadMode -&gt; Bool
 (DocumentReadMode -&gt; DocumentReadMode -&gt; Bool)
 -&gt; (DocumentReadMode -&gt; DocumentReadMode -&gt; Bool)
 -&gt; Eq DocumentReadMode
@@ -82,7 +82,7 @@ $c/= :: DocumentReadMode -&gt; DocumentReadMode -&gt; Bool
 == :: DocumentReadMode -&gt; DocumentReadMode -&gt; Bool
 $c== :: DocumentReadMode -&gt; DocumentReadMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679341288"><span id="local-6989586621679341290"><span id="local-6989586621679341292"><span id="local-6989586621679341294"><span id="local-6989586621679341296"><span id="local-6989586621679341298"><span id="local-6989586621679341300"><span class="annot"><span class="annottext">Eq DocumentReadMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679341297"><span id="local-6989586621679341299"><span id="local-6989586621679341301"><span id="local-6989586621679341303"><span id="local-6989586621679341305"><span id="local-6989586621679341307"><span id="local-6989586621679341309"><span class="annot"><span class="annottext">Eq DocumentReadMode
 Eq DocumentReadMode
 -&gt; (DocumentReadMode -&gt; DocumentReadMode -&gt; Ordering)
 -&gt; (DocumentReadMode -&gt; DocumentReadMode -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. DocumentReadMode -&gt; Rep DocumentReadMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679341280"><span id="local-6989586621679341282"><span class="annot"><span class="annottext">Int -&gt; DocumentReadMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679341289"><span id="local-6989586621679341291"><span class="annot"><span class="annottext">Int -&gt; DocumentReadMode -&gt; Int
 DocumentReadMode -&gt; Int
 (Int -&gt; DocumentReadMode -&gt; Int)
 -&gt; (DocumentReadMode -&gt; Int) -&gt; Hashable DocumentReadMode
@@ -143,51 +143,51 @@ $chash :: DocumentReadMode -&gt; Int
 hashWithSalt :: Int -&gt; DocumentReadMode -&gt; Int
 $chashWithSalt :: Int -&gt; DocumentReadMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679341277"><span class="annot"><span class="annottext">DocumentReadMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679341286"><span class="annot"><span class="annottext">DocumentReadMode -&gt; ()
 (DocumentReadMode -&gt; ()) -&gt; NFData DocumentReadMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DocumentReadMode -&gt; ()
 $crnf :: DocumentReadMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679341274"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentReadMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679341283"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentReadMode
 (Text -&gt; Either String DocumentReadMode)
 -&gt; FromText DocumentReadMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DocumentReadMode
 $cfromText :: Text -&gt; Either String DocumentReadMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679341271"><span class="annot"><span class="annottext">DocumentReadMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679341280"><span class="annot"><span class="annottext">DocumentReadMode -&gt; Text
 (DocumentReadMode -&gt; Text) -&gt; ToText DocumentReadMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DocumentReadMode -&gt; Text
 $ctoText :: DocumentReadMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679341268"><span class="annot"><span class="annottext">DocumentReadMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679341277"><span class="annot"><span class="annottext">DocumentReadMode -&gt; ByteString
 (DocumentReadMode -&gt; ByteString) -&gt; ToByteString DocumentReadMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DocumentReadMode -&gt; ByteString
 $ctoBS :: DocumentReadMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679341265"><span class="annot"><span class="annottext">DocumentReadMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679341274"><span class="annot"><span class="annottext">DocumentReadMode -&gt; ByteStringBuilder
 (DocumentReadMode -&gt; ByteStringBuilder) -&gt; ToLog DocumentReadMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DocumentReadMode -&gt; ByteStringBuilder
 $cbuild :: DocumentReadMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679341262"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentReadMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679341271"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentReadMode -&gt; [Header]
 (HeaderName -&gt; DocumentReadMode -&gt; [Header])
 -&gt; ToHeader DocumentReadMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DocumentReadMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DocumentReadMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679341259"><span class="annot"><span class="annottext">DocumentReadMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679341268"><span class="annot"><span class="annottext">DocumentReadMode -&gt; QueryString
 (DocumentReadMode -&gt; QueryString) -&gt; ToQuery DocumentReadMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DocumentReadMode -&gt; QueryString
 $ctoQuery :: DocumentReadMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679341254"><span id="local-6989586621679341256"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentReadMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679341263"><span id="local-6989586621679341265"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentReadMode]
 Value -&gt; Parser DocumentReadMode
 (Value -&gt; Parser DocumentReadMode)
 -&gt; (Value -&gt; Parser [DocumentReadMode])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [DocumentReadMode]
 parseJSON :: Value -&gt; Parser DocumentReadMode
 $cparseJSON :: Value -&gt; Parser DocumentReadMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679341249"><span id="local-6989586621679341251"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentReadMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679341258"><span id="local-6989586621679341260"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentReadMode]
 FromJSONKeyFunction DocumentReadMode
 FromJSONKeyFunction DocumentReadMode
 -&gt; FromJSONKeyFunction [DocumentReadMode]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DocumentReadMode]
 fromJSONKey :: FromJSONKeyFunction DocumentReadMode
 $cfromJSONKey :: FromJSONKeyFunction DocumentReadMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679341240"><span id="local-6989586621679341242"><span id="local-6989586621679341244"><span id="local-6989586621679341246"><span class="annot"><span class="annottext">[DocumentReadMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679341249"><span id="local-6989586621679341251"><span id="local-6989586621679341253"><span id="local-6989586621679341255"><span class="annot"><span class="annottext">[DocumentReadMode] -&gt; Encoding
 [DocumentReadMode] -&gt; Value
 DocumentReadMode -&gt; Encoding
 DocumentReadMode -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: DocumentReadMode -&gt; Encoding
 toJSON :: DocumentReadMode -&gt; Value
 $ctoJSON :: DocumentReadMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679341235"><span id="local-6989586621679341237"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentReadMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679341244"><span id="local-6989586621679341246"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentReadMode]
 ToJSONKeyFunction DocumentReadMode
 ToJSONKeyFunction DocumentReadMode
 -&gt; ToJSONKeyFunction [DocumentReadMode]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DocumentReadMode]
 toJSONKey :: ToJSONKeyFunction DocumentReadMode
 $ctoJSONKey :: ToJSONKeyFunction DocumentReadMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679341232"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentReadMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679341241"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentReadMode
 ([Node] -&gt; Either String DocumentReadMode)
 -&gt; FromXML DocumentReadMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DocumentReadMode
 $cparseXML :: [Node] -&gt; Either String DocumentReadMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679341229"><span class="annot"><span class="annottext">DocumentReadMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679341238"><span class="annot"><span class="annottext">DocumentReadMode -&gt; XML
 (DocumentReadMode -&gt; XML) -&gt; ToXML DocumentReadMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DocumentReadMode -&gt; XML

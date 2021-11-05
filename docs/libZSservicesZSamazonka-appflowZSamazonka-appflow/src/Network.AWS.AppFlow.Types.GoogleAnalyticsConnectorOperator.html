@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#GoogleAnalyticsConnectorOperator"><span class="hs-identifier">GoogleAnalyticsConnectorOperator</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#GoogleAnalyticsConnectorOperator_BETWEEN"><span class="hs-identifier">GoogleAnalyticsConnectorOperator_BETWEEN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#GoogleAnalyticsConnectorOperator_PROJECTION"><span class="hs-identifier">GoogleAnalyticsConnectorOperator_PROJECTION</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679316111"><span id="local-6989586621679316112"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GoogleAnalyticsConnectorOperator"><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#GoogleAnalyticsConnectorOperator"><span class="hs-identifier hs-var">GoogleAnalyticsConnectorOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GoogleAnalyticsConnectorOperator%27"><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#GoogleAnalyticsConnectorOperator%27"><span class="hs-identifier hs-var">GoogleAnalyticsConnectorOperator'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGoogleAnalyticsConnectorOperator"><span class="annot"><span class="annottext">GoogleAnalyticsConnectorOperator -&gt; Text
+</span><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#fromGoogleAnalyticsConnectorOperator"><span class="hs-identifier hs-var hs-var">fromGoogleAnalyticsConnectorOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679316103"><span id="local-6989586621679316105"><span id="local-6989586621679316107"><span class="annot"><span class="annottext">Int -&gt; GoogleAnalyticsConnectorOperator -&gt; ShowS
+[GoogleAnalyticsConnectorOperator] -&gt; ShowS
+GoogleAnalyticsConnectorOperator -&gt; String
+(Int -&gt; GoogleAnalyticsConnectorOperator -&gt; ShowS)
+-&gt; (GoogleAnalyticsConnectorOperator -&gt; String)
+-&gt; ([GoogleAnalyticsConnectorOperator] -&gt; ShowS)
+-&gt; Show GoogleAnalyticsConnectorOperator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GoogleAnalyticsConnectorOperator] -&gt; ShowS
+$cshowList :: [GoogleAnalyticsConnectorOperator] -&gt; ShowS
+show :: GoogleAnalyticsConnectorOperator -&gt; String
+$cshow :: GoogleAnalyticsConnectorOperator -&gt; String
+showsPrec :: Int -&gt; GoogleAnalyticsConnectorOperator -&gt; ShowS
+$cshowsPrec :: Int -&gt; GoogleAnalyticsConnectorOperator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679316094"><span id="local-6989586621679316096"><span id="local-6989586621679316098"><span id="local-6989586621679316100"><span class="annot"><span class="annottext">ReadPrec [GoogleAnalyticsConnectorOperator]
+ReadPrec GoogleAnalyticsConnectorOperator
+Int -&gt; ReadS GoogleAnalyticsConnectorOperator
+ReadS [GoogleAnalyticsConnectorOperator]
+(Int -&gt; ReadS GoogleAnalyticsConnectorOperator)
+-&gt; ReadS [GoogleAnalyticsConnectorOperator]
+-&gt; ReadPrec GoogleAnalyticsConnectorOperator
+-&gt; ReadPrec [GoogleAnalyticsConnectorOperator]
+-&gt; Read GoogleAnalyticsConnectorOperator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GoogleAnalyticsConnectorOperator]
+$creadListPrec :: ReadPrec [GoogleAnalyticsConnectorOperator]
+readPrec :: ReadPrec GoogleAnalyticsConnectorOperator
+$creadPrec :: ReadPrec GoogleAnalyticsConnectorOperator
+readList :: ReadS [GoogleAnalyticsConnectorOperator]
+$creadList :: ReadS [GoogleAnalyticsConnectorOperator]
+readsPrec :: Int -&gt; ReadS GoogleAnalyticsConnectorOperator
+$creadsPrec :: Int -&gt; ReadS GoogleAnalyticsConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679316089"><span id="local-6989586621679316091"><span class="annot"><span class="annottext">GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Bool
+(GoogleAnalyticsConnectorOperator
+ -&gt; GoogleAnalyticsConnectorOperator -&gt; Bool)
+-&gt; (GoogleAnalyticsConnectorOperator
+    -&gt; GoogleAnalyticsConnectorOperator -&gt; Bool)
+-&gt; Eq GoogleAnalyticsConnectorOperator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Bool
+$c/= :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Bool
+== :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Bool
+$c== :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679316073"><span id="local-6989586621679316075"><span id="local-6989586621679316077"><span id="local-6989586621679316079"><span id="local-6989586621679316081"><span id="local-6989586621679316083"><span id="local-6989586621679316085"><span class="annot"><span class="annottext">Eq GoogleAnalyticsConnectorOperator
+Eq GoogleAnalyticsConnectorOperator
+-&gt; (GoogleAnalyticsConnectorOperator
+    -&gt; GoogleAnalyticsConnectorOperator -&gt; Ordering)
+-&gt; (GoogleAnalyticsConnectorOperator
+    -&gt; GoogleAnalyticsConnectorOperator -&gt; Bool)
+-&gt; (GoogleAnalyticsConnectorOperator
+    -&gt; GoogleAnalyticsConnectorOperator -&gt; Bool)
+-&gt; (GoogleAnalyticsConnectorOperator
+    -&gt; GoogleAnalyticsConnectorOperator -&gt; Bool)
+-&gt; (GoogleAnalyticsConnectorOperator
+    -&gt; GoogleAnalyticsConnectorOperator -&gt; Bool)
+-&gt; (GoogleAnalyticsConnectorOperator
+    -&gt; GoogleAnalyticsConnectorOperator
+    -&gt; GoogleAnalyticsConnectorOperator)
+-&gt; (GoogleAnalyticsConnectorOperator
+    -&gt; GoogleAnalyticsConnectorOperator
+    -&gt; GoogleAnalyticsConnectorOperator)
+-&gt; Ord GoogleAnalyticsConnectorOperator
+GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Bool
+GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Ordering
+GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator
+$cmin :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator
+max :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator
+$cmax :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator
+&gt;= :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Bool
+$c&gt;= :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Bool
+&gt; :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Bool
+$c&gt; :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Bool
+&lt;= :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Bool
+$c&lt;= :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Bool
+&lt; :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Bool
+$c&lt; :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Bool
+compare :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Ordering
+$ccompare :: GoogleAnalyticsConnectorOperator
+-&gt; GoogleAnalyticsConnectorOperator -&gt; Ordering
+$cp1Ord :: Eq GoogleAnalyticsConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ GoogleAnalyticsConnectorOperator
+ -&gt; Rep GoogleAnalyticsConnectorOperator x)
+-&gt; (forall x.
+    Rep GoogleAnalyticsConnectorOperator x
+    -&gt; GoogleAnalyticsConnectorOperator)
+-&gt; Generic GoogleAnalyticsConnectorOperator
+forall x.
+Rep GoogleAnalyticsConnectorOperator x
+-&gt; GoogleAnalyticsConnectorOperator
+forall x.
+GoogleAnalyticsConnectorOperator
+-&gt; Rep GoogleAnalyticsConnectorOperator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GoogleAnalyticsConnectorOperator x
+-&gt; GoogleAnalyticsConnectorOperator
+$cfrom :: forall x.
+GoogleAnalyticsConnectorOperator
+-&gt; Rep GoogleAnalyticsConnectorOperator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679316065"><span id="local-6989586621679316067"><span class="annot"><span class="annottext">Int -&gt; GoogleAnalyticsConnectorOperator -&gt; Int
+GoogleAnalyticsConnectorOperator -&gt; Int
+(Int -&gt; GoogleAnalyticsConnectorOperator -&gt; Int)
+-&gt; (GoogleAnalyticsConnectorOperator -&gt; Int)
+-&gt; Hashable GoogleAnalyticsConnectorOperator
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: GoogleAnalyticsConnectorOperator -&gt; Int
+$chash :: GoogleAnalyticsConnectorOperator -&gt; Int
+hashWithSalt :: Int -&gt; GoogleAnalyticsConnectorOperator -&gt; Int
+$chashWithSalt :: Int -&gt; GoogleAnalyticsConnectorOperator -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679316062"><span class="annot"><span class="annottext">GoogleAnalyticsConnectorOperator -&gt; ()
+(GoogleAnalyticsConnectorOperator -&gt; ())
+-&gt; NFData GoogleAnalyticsConnectorOperator
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: GoogleAnalyticsConnectorOperator -&gt; ()
+$crnf :: GoogleAnalyticsConnectorOperator -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679316059"><span class="annot"><span class="annottext">Text -&gt; Either String GoogleAnalyticsConnectorOperator
+(Text -&gt; Either String GoogleAnalyticsConnectorOperator)
+-&gt; FromText GoogleAnalyticsConnectorOperator
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String GoogleAnalyticsConnectorOperator
+$cfromText :: Text -&gt; Either String GoogleAnalyticsConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679316056"><span class="annot"><span class="annottext">GoogleAnalyticsConnectorOperator -&gt; Text
+(GoogleAnalyticsConnectorOperator -&gt; Text)
+-&gt; ToText GoogleAnalyticsConnectorOperator
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: GoogleAnalyticsConnectorOperator -&gt; Text
+$ctoText :: GoogleAnalyticsConnectorOperator -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679316053"><span class="annot"><span class="annottext">GoogleAnalyticsConnectorOperator -&gt; ByteString
+(GoogleAnalyticsConnectorOperator -&gt; ByteString)
+-&gt; ToByteString GoogleAnalyticsConnectorOperator
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: GoogleAnalyticsConnectorOperator -&gt; ByteString
+$ctoBS :: GoogleAnalyticsConnectorOperator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679316050"><span class="annot"><span class="annottext">GoogleAnalyticsConnectorOperator -&gt; ByteStringBuilder
+(GoogleAnalyticsConnectorOperator -&gt; ByteStringBuilder)
+-&gt; ToLog GoogleAnalyticsConnectorOperator
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: GoogleAnalyticsConnectorOperator -&gt; ByteStringBuilder
+$cbuild :: GoogleAnalyticsConnectorOperator -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679316047"><span class="annot"><span class="annottext">HeaderName -&gt; GoogleAnalyticsConnectorOperator -&gt; [Header]
+(HeaderName -&gt; GoogleAnalyticsConnectorOperator -&gt; [Header])
+-&gt; ToHeader GoogleAnalyticsConnectorOperator
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; GoogleAnalyticsConnectorOperator -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; GoogleAnalyticsConnectorOperator -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679316044"><span class="annot"><span class="annottext">GoogleAnalyticsConnectorOperator -&gt; QueryString
+(GoogleAnalyticsConnectorOperator -&gt; QueryString)
+-&gt; ToQuery GoogleAnalyticsConnectorOperator
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: GoogleAnalyticsConnectorOperator -&gt; QueryString
+$ctoQuery :: GoogleAnalyticsConnectorOperator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679316039"><span id="local-6989586621679316041"><span class="annot"><span class="annottext">Value -&gt; Parser [GoogleAnalyticsConnectorOperator]
+Value -&gt; Parser GoogleAnalyticsConnectorOperator
+(Value -&gt; Parser GoogleAnalyticsConnectorOperator)
+-&gt; (Value -&gt; Parser [GoogleAnalyticsConnectorOperator])
+-&gt; FromJSON GoogleAnalyticsConnectorOperator
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [GoogleAnalyticsConnectorOperator]
+$cparseJSONList :: Value -&gt; Parser [GoogleAnalyticsConnectorOperator]
+parseJSON :: Value -&gt; Parser GoogleAnalyticsConnectorOperator
+$cparseJSON :: Value -&gt; Parser GoogleAnalyticsConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679316034"><span id="local-6989586621679316036"><span class="annot"><span class="annottext">FromJSONKeyFunction [GoogleAnalyticsConnectorOperator]
+FromJSONKeyFunction GoogleAnalyticsConnectorOperator
+FromJSONKeyFunction GoogleAnalyticsConnectorOperator
+-&gt; FromJSONKeyFunction [GoogleAnalyticsConnectorOperator]
+-&gt; FromJSONKey GoogleAnalyticsConnectorOperator
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [GoogleAnalyticsConnectorOperator]
+$cfromJSONKeyList :: FromJSONKeyFunction [GoogleAnalyticsConnectorOperator]
+fromJSONKey :: FromJSONKeyFunction GoogleAnalyticsConnectorOperator
+$cfromJSONKey :: FromJSONKeyFunction GoogleAnalyticsConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679316025"><span id="local-6989586621679316027"><span id="local-6989586621679316029"><span id="local-6989586621679316031"><span class="annot"><span class="annottext">[GoogleAnalyticsConnectorOperator] -&gt; Encoding
+[GoogleAnalyticsConnectorOperator] -&gt; Value
+GoogleAnalyticsConnectorOperator -&gt; Encoding
+GoogleAnalyticsConnectorOperator -&gt; Value
+(GoogleAnalyticsConnectorOperator -&gt; Value)
+-&gt; (GoogleAnalyticsConnectorOperator -&gt; Encoding)
+-&gt; ([GoogleAnalyticsConnectorOperator] -&gt; Value)
+-&gt; ([GoogleAnalyticsConnectorOperator] -&gt; Encoding)
+-&gt; ToJSON GoogleAnalyticsConnectorOperator
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [GoogleAnalyticsConnectorOperator] -&gt; Encoding
+$ctoEncodingList :: [GoogleAnalyticsConnectorOperator] -&gt; Encoding
+toJSONList :: [GoogleAnalyticsConnectorOperator] -&gt; Value
+$ctoJSONList :: [GoogleAnalyticsConnectorOperator] -&gt; Value
+toEncoding :: GoogleAnalyticsConnectorOperator -&gt; Encoding
+$ctoEncoding :: GoogleAnalyticsConnectorOperator -&gt; Encoding
+toJSON :: GoogleAnalyticsConnectorOperator -&gt; Value
+$ctoJSON :: GoogleAnalyticsConnectorOperator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679316020"><span id="local-6989586621679316022"><span class="annot"><span class="annottext">ToJSONKeyFunction [GoogleAnalyticsConnectorOperator]
+ToJSONKeyFunction GoogleAnalyticsConnectorOperator
+ToJSONKeyFunction GoogleAnalyticsConnectorOperator
+-&gt; ToJSONKeyFunction [GoogleAnalyticsConnectorOperator]
+-&gt; ToJSONKey GoogleAnalyticsConnectorOperator
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [GoogleAnalyticsConnectorOperator]
+$ctoJSONKeyList :: ToJSONKeyFunction [GoogleAnalyticsConnectorOperator]
+toJSONKey :: ToJSONKeyFunction GoogleAnalyticsConnectorOperator
+$ctoJSONKey :: ToJSONKeyFunction GoogleAnalyticsConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679316017"><span class="annot"><span class="annottext">[Node] -&gt; Either String GoogleAnalyticsConnectorOperator
+([Node] -&gt; Either String GoogleAnalyticsConnectorOperator)
+-&gt; FromXML GoogleAnalyticsConnectorOperator
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String GoogleAnalyticsConnectorOperator
+$cparseXML :: [Node] -&gt; Either String GoogleAnalyticsConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679316014"><span class="annot"><span class="annottext">GoogleAnalyticsConnectorOperator -&gt; XML
+(GoogleAnalyticsConnectorOperator -&gt; XML)
+-&gt; ToXML GoogleAnalyticsConnectorOperator
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: GoogleAnalyticsConnectorOperator -&gt; XML
+$ctoXML :: GoogleAnalyticsConnectorOperator -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#GoogleAnalyticsConnectorOperator_BETWEEN"><span class="hs-identifier hs-type">GoogleAnalyticsConnectorOperator_BETWEEN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#GoogleAnalyticsConnectorOperator"><span class="hs-identifier hs-type">GoogleAnalyticsConnectorOperator</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGoogleAnalyticsConnectorOperator_BETWEEN"><span id="%24mGoogleAnalyticsConnectorOperator_BETWEEN"><span id="GoogleAnalyticsConnectorOperator_BETWEEN"><span class="annot"><span class="annottext">$bGoogleAnalyticsConnectorOperator_BETWEEN :: GoogleAnalyticsConnectorOperator
+$mGoogleAnalyticsConnectorOperator_BETWEEN :: forall r.
+GoogleAnalyticsConnectorOperator
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#%24bGoogleAnalyticsConnectorOperator_BETWEEN"><span class="hs-identifier hs-var hs-var hs-var">GoogleAnalyticsConnectorOperator_BETWEEN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#GoogleAnalyticsConnectorOperator%27"><span class="hs-identifier hs-type">GoogleAnalyticsConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BETWEEN&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#GoogleAnalyticsConnectorOperator_PROJECTION"><span class="hs-identifier hs-type">GoogleAnalyticsConnectorOperator_PROJECTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#GoogleAnalyticsConnectorOperator"><span class="hs-identifier hs-type">GoogleAnalyticsConnectorOperator</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGoogleAnalyticsConnectorOperator_PROJECTION"><span id="%24mGoogleAnalyticsConnectorOperator_PROJECTION"><span id="GoogleAnalyticsConnectorOperator_PROJECTION"><span class="annot"><span class="annottext">$bGoogleAnalyticsConnectorOperator_PROJECTION :: GoogleAnalyticsConnectorOperator
+$mGoogleAnalyticsConnectorOperator_PROJECTION :: forall r.
+GoogleAnalyticsConnectorOperator
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#%24bGoogleAnalyticsConnectorOperator_PROJECTION"><span class="hs-identifier hs-var hs-var hs-var">GoogleAnalyticsConnectorOperator_PROJECTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#GoogleAnalyticsConnectorOperator%27"><span class="hs-identifier hs-type">GoogleAnalyticsConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROJECTION&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#GoogleAnalyticsConnectorOperator_BETWEEN"><span class="hs-pragma hs-type">GoogleAnalyticsConnectorOperator_BETWEEN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#GoogleAnalyticsConnectorOperator_PROJECTION"><span class="hs-pragma hs-type">GoogleAnalyticsConnectorOperator_PROJECTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.GoogleAnalyticsConnectorOperator.html#GoogleAnalyticsConnectorOperator%27"><span class="hs-pragma hs-type">GoogleAnalyticsConnectorOperator'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Elemental MediaStore container.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newContainer' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679163565"><span id="local-6989586621679163566"></span></span><span class="hs-keyword">data</span><span> </span><span id="Container"><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-var">Container</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Container%27"><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-var">Container'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679163574"><span id="local-6989586621679163575"></span></span><span class="hs-keyword">data</span><span> </span><span id="Container"><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-var">Container</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Container%27"><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-var">Container'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unix timestamp.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AcreationTime%3AContainer%27"><span class="annot"><span class="annottext">Container -&gt; Maybe POSIX
 </span><a href="Network.AWS.MediaStore.Types.Container.html#%24sel%3AcreationTime%3AContainer%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Aendpoint%3AContainer%27"><span class="annot"><span class="annottext">Container -&gt; Maybe Text
 </span><a href="Network.AWS.MediaStore.Types.Container.html#%24sel%3Aendpoint%3AContainer%27"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679163554"><span id="local-6989586621679163556"><span class="annot"><span class="annottext">Container -&gt; Container -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679163563"><span id="local-6989586621679163565"><span class="annot"><span class="annottext">Container -&gt; Container -&gt; Bool
 (Container -&gt; Container -&gt; Bool)
 -&gt; (Container -&gt; Container -&gt; Bool) -&gt; Eq Container
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Container -&gt; Container -&gt; Bool
 == :: Container -&gt; Container -&gt; Bool
 $c== :: Container -&gt; Container -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163545"><span id="local-6989586621679163547"><span id="local-6989586621679163549"><span id="local-6989586621679163551"><span class="annot"><span class="annottext">ReadPrec [Container]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163554"><span id="local-6989586621679163556"><span id="local-6989586621679163558"><span id="local-6989586621679163560"><span class="annot"><span class="annottext">ReadPrec [Container]
 ReadPrec Container
 Int -&gt; ReadS Container
 ReadS [Container]
@@ -93,7 +93,7 @@ readList :: ReadS [Container]
 $creadList :: ReadS [Container]
 readsPrec :: Int -&gt; ReadS Container
 $creadsPrec :: Int -&gt; ReadS Container
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163538"><span id="local-6989586621679163540"><span id="local-6989586621679163542"><span class="annot"><span class="annottext">Int -&gt; Container -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163547"><span id="local-6989586621679163549"><span id="local-6989586621679163551"><span class="annot"><span class="annottext">Int -&gt; Container -&gt; ShowS
 [Container] -&gt; ShowS
 Container -&gt; String
 (Int -&gt; Container -&gt; ShowS)
@@ -199,16 +199,16 @@ forall a. Maybe a
 -&gt; (Container -&gt; Maybe POSIX -&gt; Container)
 -&gt; Lens Container Container (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163529"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163538"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:Container' :: Container -&gt; Maybe POSIX
-</span><a href="#local-6989586621679163529"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679163529"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163528"><span class="annot"><span class="annottext">s :: Container
-</span><a href="#local-6989586621679163528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163527"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679163527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
-</span><a href="#local-6989586621679163528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Container' :: Maybe POSIX
+</span><a href="#local-6989586621679163538"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679163538"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163537"><span class="annot"><span class="annottext">s :: Container
+</span><a href="#local-6989586621679163537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163536"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679163536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679163537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Container' :: Maybe POSIX
 </span><a href="Network.AWS.MediaStore.Types.Container.html#%24sel%3AcreationTime%3AContainer%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679163527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Container -&gt; f Container)
+</span><a href="#local-6989586621679163536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Container -&gt; f Container)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -236,16 +236,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      Container Container (Maybe ContainerStatus) (Maybe ContainerStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163522"><span class="annot"><span class="annottext">Maybe ContainerStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163531"><span class="annot"><span class="annottext">Maybe ContainerStatus
 status :: Maybe ContainerStatus
 $sel:status:Container' :: Container -&gt; Maybe ContainerStatus
-</span><a href="#local-6989586621679163522"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerStatus
-</span><a href="#local-6989586621679163522"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163521"><span class="annot"><span class="annottext">s :: Container
-</span><a href="#local-6989586621679163521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163520"><span class="annot"><span class="annottext">Maybe ContainerStatus
-</span><a href="#local-6989586621679163520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
-</span><a href="#local-6989586621679163521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Container' :: Maybe ContainerStatus
+</span><a href="#local-6989586621679163531"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerStatus
+</span><a href="#local-6989586621679163531"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163530"><span class="annot"><span class="annottext">s :: Container
+</span><a href="#local-6989586621679163530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163529"><span class="annot"><span class="annottext">Maybe ContainerStatus
+</span><a href="#local-6989586621679163529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679163530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Container' :: Maybe ContainerStatus
 </span><a href="Network.AWS.MediaStore.Types.Container.html#%24sel%3Astatus%3AContainer%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerStatus
-</span><a href="#local-6989586621679163520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679163529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The state of access logging on the container. This value is @false@ by</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- default, indicating that AWS Elemental MediaStore does not send access</span><span>
@@ -259,16 +259,16 @@ $sel:status:Container' :: Container -&gt; Maybe ContainerStatus
 -&gt; (Container -&gt; Maybe Bool -&gt; Container)
 -&gt; Lens Container Container (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163518"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163527"><span class="annot"><span class="annottext">Maybe Bool
 accessLoggingEnabled :: Maybe Bool
 $sel:accessLoggingEnabled:Container' :: Container -&gt; Maybe Bool
-</span><a href="#local-6989586621679163518"><span class="hs-identifier hs-var hs-var">accessLoggingEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679163518"><span class="hs-identifier hs-var">accessLoggingEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163517"><span class="annot"><span class="annottext">s :: Container
-</span><a href="#local-6989586621679163517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163516"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679163516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
-</span><a href="#local-6989586621679163517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessLoggingEnabled:Container' :: Maybe Bool
+</span><a href="#local-6989586621679163527"><span class="hs-identifier hs-var hs-var">accessLoggingEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679163527"><span class="hs-identifier hs-var">accessLoggingEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163526"><span class="annot"><span class="annottext">s :: Container
+</span><a href="#local-6989586621679163526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163525"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679163525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679163526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessLoggingEnabled:Container' :: Maybe Bool
 </span><a href="Network.AWS.MediaStore.Types.Container.html#%24sel%3AaccessLoggingEnabled%3AContainer%27"><span class="hs-identifier hs-var">accessLoggingEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679163516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679163525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the container. The ARN has the</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- following format:</span><span>
@@ -283,16 +283,16 @@ $sel:accessLoggingEnabled:Container' :: Container -&gt; Maybe Bool
 -&gt; (Container -&gt; Maybe Text -&gt; Container)
 -&gt; Lens Container Container (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163514"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163523"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:Container' :: Container -&gt; Maybe Text
-</span><a href="#local-6989586621679163514"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679163514"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163513"><span class="annot"><span class="annottext">s :: Container
-</span><a href="#local-6989586621679163513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163512"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679163512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
-</span><a href="#local-6989586621679163513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Container' :: Maybe Text
+</span><a href="#local-6989586621679163523"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163523"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163522"><span class="annot"><span class="annottext">s :: Container
+</span><a href="#local-6989586621679163522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163521"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679163522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Container' :: Maybe Text
 </span><a href="Network.AWS.MediaStore.Types.Container.html#%24sel%3Aarn%3AContainer%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679163512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679163521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The name of the container.</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#container_name"><span class="hs-identifier hs-type">container_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -301,16 +301,16 @@ $sel:arn:Container' :: Container -&gt; Maybe Text
 -&gt; (Container -&gt; Maybe Text -&gt; Container)
 -&gt; Lens Container Container (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163510"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163519"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Container' :: Container -&gt; Maybe Text
-</span><a href="#local-6989586621679163510"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679163510"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163509"><span class="annot"><span class="annottext">s :: Container
-</span><a href="#local-6989586621679163509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163508"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679163508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
-</span><a href="#local-6989586621679163509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Container' :: Maybe Text
+</span><a href="#local-6989586621679163519"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163519"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163518"><span class="annot"><span class="annottext">s :: Container
+</span><a href="#local-6989586621679163518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163517"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679163518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Container' :: Maybe Text
 </span><a href="Network.AWS.MediaStore.Types.Container.html#%24sel%3Aname%3AContainer%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679163508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679163517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The DNS endpoint of the container. Use the endpoint to identify the</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- specific container when sending requests to the data plane. The service</span><span>
@@ -322,27 +322,27 @@ $sel:name:Container' :: Container -&gt; Maybe Text
 -&gt; (Container -&gt; Maybe Text -&gt; Container)
 -&gt; Lens Container Container (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163506"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163515"><span class="annot"><span class="annottext">Maybe Text
 endpoint :: Maybe Text
 $sel:endpoint:Container' :: Container -&gt; Maybe Text
-</span><a href="#local-6989586621679163506"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679163506"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163505"><span class="annot"><span class="annottext">s :: Container
-</span><a href="#local-6989586621679163505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163504"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679163504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
-</span><a href="#local-6989586621679163505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:Container' :: Maybe Text
+</span><a href="#local-6989586621679163515"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163515"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163514"><span class="annot"><span class="annottext">s :: Container
+</span><a href="#local-6989586621679163514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163513"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679163514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:Container' :: Maybe Text
 </span><a href="Network.AWS.MediaStore.Types.Container.html#%24sel%3Aendpoint%3AContainer%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679163504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679163513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163501"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679163499"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Container
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163510"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679163508"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Container
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Container) -&gt; Value -&gt; Parser Container
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Container&quot;</span></span><span>
-</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679163496"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679163496"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679163505"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163505"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe ContainerStatus
 -&gt; Maybe Bool
@@ -368,7 +368,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Container)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679163496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679163505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -384,7 +384,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Container)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679163496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerStatus)
+</span><a href="#local-6989586621679163505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -394,7 +394,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Container)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679163496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679163505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccessLoggingEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -403,7 +403,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Container)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679163496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679163505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -411,7 +411,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Container)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679163496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679163505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -419,13 +419,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Container
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679163496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679163505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Endpoint&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163490"><span id="local-6989586621679163492"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163499"><span id="local-6989586621679163501"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span></span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163487"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163496"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span><span>
 </span><span id="line-170"></span></pre></body></html>

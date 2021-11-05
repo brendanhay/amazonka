@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#KafkaClusterClientAuthenticationType"><span class="hs-identifier">KafkaClusterClientAuthenticationType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#KafkaClusterClientAuthenticationType_IAM"><span class="hs-identifier">KafkaClusterClientAuthenticationType_IAM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#KafkaClusterClientAuthenticationType_NONE"><span class="hs-identifier">KafkaClusterClientAuthenticationType_NONE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679201841"><span id="local-6989586621679201842"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="KafkaClusterClientAuthenticationType"><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#KafkaClusterClientAuthenticationType"><span class="hs-identifier hs-var">KafkaClusterClientAuthenticationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KafkaClusterClientAuthenticationType%27"><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#KafkaClusterClientAuthenticationType%27"><span class="hs-identifier hs-var">KafkaClusterClientAuthenticationType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromKafkaClusterClientAuthenticationType"><span class="annot"><span class="annottext">KafkaClusterClientAuthenticationType -&gt; Text
+</span><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#fromKafkaClusterClientAuthenticationType"><span class="hs-identifier hs-var hs-var">fromKafkaClusterClientAuthenticationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201833"><span id="local-6989586621679201835"><span id="local-6989586621679201837"><span class="annot"><span class="annottext">Int -&gt; KafkaClusterClientAuthenticationType -&gt; ShowS
+[KafkaClusterClientAuthenticationType] -&gt; ShowS
+KafkaClusterClientAuthenticationType -&gt; String
+(Int -&gt; KafkaClusterClientAuthenticationType -&gt; ShowS)
+-&gt; (KafkaClusterClientAuthenticationType -&gt; String)
+-&gt; ([KafkaClusterClientAuthenticationType] -&gt; ShowS)
+-&gt; Show KafkaClusterClientAuthenticationType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [KafkaClusterClientAuthenticationType] -&gt; ShowS
+$cshowList :: [KafkaClusterClientAuthenticationType] -&gt; ShowS
+show :: KafkaClusterClientAuthenticationType -&gt; String
+$cshow :: KafkaClusterClientAuthenticationType -&gt; String
+showsPrec :: Int -&gt; KafkaClusterClientAuthenticationType -&gt; ShowS
+$cshowsPrec :: Int -&gt; KafkaClusterClientAuthenticationType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679201824"><span id="local-6989586621679201826"><span id="local-6989586621679201828"><span id="local-6989586621679201830"><span class="annot"><span class="annottext">ReadPrec [KafkaClusterClientAuthenticationType]
+ReadPrec KafkaClusterClientAuthenticationType
+Int -&gt; ReadS KafkaClusterClientAuthenticationType
+ReadS [KafkaClusterClientAuthenticationType]
+(Int -&gt; ReadS KafkaClusterClientAuthenticationType)
+-&gt; ReadS [KafkaClusterClientAuthenticationType]
+-&gt; ReadPrec KafkaClusterClientAuthenticationType
+-&gt; ReadPrec [KafkaClusterClientAuthenticationType]
+-&gt; Read KafkaClusterClientAuthenticationType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [KafkaClusterClientAuthenticationType]
+$creadListPrec :: ReadPrec [KafkaClusterClientAuthenticationType]
+readPrec :: ReadPrec KafkaClusterClientAuthenticationType
+$creadPrec :: ReadPrec KafkaClusterClientAuthenticationType
+readList :: ReadS [KafkaClusterClientAuthenticationType]
+$creadList :: ReadS [KafkaClusterClientAuthenticationType]
+readsPrec :: Int -&gt; ReadS KafkaClusterClientAuthenticationType
+$creadsPrec :: Int -&gt; ReadS KafkaClusterClientAuthenticationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679201819"><span id="local-6989586621679201821"><span class="annot"><span class="annottext">KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Bool
+(KafkaClusterClientAuthenticationType
+ -&gt; KafkaClusterClientAuthenticationType -&gt; Bool)
+-&gt; (KafkaClusterClientAuthenticationType
+    -&gt; KafkaClusterClientAuthenticationType -&gt; Bool)
+-&gt; Eq KafkaClusterClientAuthenticationType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Bool
+$c/= :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Bool
+== :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Bool
+$c== :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679201803"><span id="local-6989586621679201805"><span id="local-6989586621679201807"><span id="local-6989586621679201809"><span id="local-6989586621679201811"><span id="local-6989586621679201813"><span id="local-6989586621679201815"><span class="annot"><span class="annottext">Eq KafkaClusterClientAuthenticationType
+Eq KafkaClusterClientAuthenticationType
+-&gt; (KafkaClusterClientAuthenticationType
+    -&gt; KafkaClusterClientAuthenticationType -&gt; Ordering)
+-&gt; (KafkaClusterClientAuthenticationType
+    -&gt; KafkaClusterClientAuthenticationType -&gt; Bool)
+-&gt; (KafkaClusterClientAuthenticationType
+    -&gt; KafkaClusterClientAuthenticationType -&gt; Bool)
+-&gt; (KafkaClusterClientAuthenticationType
+    -&gt; KafkaClusterClientAuthenticationType -&gt; Bool)
+-&gt; (KafkaClusterClientAuthenticationType
+    -&gt; KafkaClusterClientAuthenticationType -&gt; Bool)
+-&gt; (KafkaClusterClientAuthenticationType
+    -&gt; KafkaClusterClientAuthenticationType
+    -&gt; KafkaClusterClientAuthenticationType)
+-&gt; (KafkaClusterClientAuthenticationType
+    -&gt; KafkaClusterClientAuthenticationType
+    -&gt; KafkaClusterClientAuthenticationType)
+-&gt; Ord KafkaClusterClientAuthenticationType
+KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Bool
+KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Ordering
+KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType
+$cmin :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType
+max :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType
+$cmax :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType
+&gt;= :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Bool
+$c&gt;= :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Bool
+&gt; :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Bool
+$c&gt; :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Bool
+&lt;= :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Bool
+$c&lt;= :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Bool
+&lt; :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Bool
+$c&lt; :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Bool
+compare :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Ordering
+$ccompare :: KafkaClusterClientAuthenticationType
+-&gt; KafkaClusterClientAuthenticationType -&gt; Ordering
+$cp1Ord :: Eq KafkaClusterClientAuthenticationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ KafkaClusterClientAuthenticationType
+ -&gt; Rep KafkaClusterClientAuthenticationType x)
+-&gt; (forall x.
+    Rep KafkaClusterClientAuthenticationType x
+    -&gt; KafkaClusterClientAuthenticationType)
+-&gt; Generic KafkaClusterClientAuthenticationType
+forall x.
+Rep KafkaClusterClientAuthenticationType x
+-&gt; KafkaClusterClientAuthenticationType
+forall x.
+KafkaClusterClientAuthenticationType
+-&gt; Rep KafkaClusterClientAuthenticationType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep KafkaClusterClientAuthenticationType x
+-&gt; KafkaClusterClientAuthenticationType
+$cfrom :: forall x.
+KafkaClusterClientAuthenticationType
+-&gt; Rep KafkaClusterClientAuthenticationType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679201795"><span id="local-6989586621679201797"><span class="annot"><span class="annottext">Int -&gt; KafkaClusterClientAuthenticationType -&gt; Int
+KafkaClusterClientAuthenticationType -&gt; Int
+(Int -&gt; KafkaClusterClientAuthenticationType -&gt; Int)
+-&gt; (KafkaClusterClientAuthenticationType -&gt; Int)
+-&gt; Hashable KafkaClusterClientAuthenticationType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: KafkaClusterClientAuthenticationType -&gt; Int
+$chash :: KafkaClusterClientAuthenticationType -&gt; Int
+hashWithSalt :: Int -&gt; KafkaClusterClientAuthenticationType -&gt; Int
+$chashWithSalt :: Int -&gt; KafkaClusterClientAuthenticationType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679201792"><span class="annot"><span class="annottext">KafkaClusterClientAuthenticationType -&gt; ()
+(KafkaClusterClientAuthenticationType -&gt; ())
+-&gt; NFData KafkaClusterClientAuthenticationType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: KafkaClusterClientAuthenticationType -&gt; ()
+$crnf :: KafkaClusterClientAuthenticationType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679201789"><span class="annot"><span class="annottext">Text -&gt; Either String KafkaClusterClientAuthenticationType
+(Text -&gt; Either String KafkaClusterClientAuthenticationType)
+-&gt; FromText KafkaClusterClientAuthenticationType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String KafkaClusterClientAuthenticationType
+$cfromText :: Text -&gt; Either String KafkaClusterClientAuthenticationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679201786"><span class="annot"><span class="annottext">KafkaClusterClientAuthenticationType -&gt; Text
+(KafkaClusterClientAuthenticationType -&gt; Text)
+-&gt; ToText KafkaClusterClientAuthenticationType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: KafkaClusterClientAuthenticationType -&gt; Text
+$ctoText :: KafkaClusterClientAuthenticationType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679201783"><span class="annot"><span class="annottext">KafkaClusterClientAuthenticationType -&gt; ByteString
+(KafkaClusterClientAuthenticationType -&gt; ByteString)
+-&gt; ToByteString KafkaClusterClientAuthenticationType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: KafkaClusterClientAuthenticationType -&gt; ByteString
+$ctoBS :: KafkaClusterClientAuthenticationType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679201780"><span class="annot"><span class="annottext">KafkaClusterClientAuthenticationType -&gt; ByteStringBuilder
+(KafkaClusterClientAuthenticationType -&gt; ByteStringBuilder)
+-&gt; ToLog KafkaClusterClientAuthenticationType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: KafkaClusterClientAuthenticationType -&gt; ByteStringBuilder
+$cbuild :: KafkaClusterClientAuthenticationType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679201777"><span class="annot"><span class="annottext">HeaderName -&gt; KafkaClusterClientAuthenticationType -&gt; [Header]
+(HeaderName -&gt; KafkaClusterClientAuthenticationType -&gt; [Header])
+-&gt; ToHeader KafkaClusterClientAuthenticationType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; KafkaClusterClientAuthenticationType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; KafkaClusterClientAuthenticationType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679201774"><span class="annot"><span class="annottext">KafkaClusterClientAuthenticationType -&gt; QueryString
+(KafkaClusterClientAuthenticationType -&gt; QueryString)
+-&gt; ToQuery KafkaClusterClientAuthenticationType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: KafkaClusterClientAuthenticationType -&gt; QueryString
+$ctoQuery :: KafkaClusterClientAuthenticationType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679201769"><span id="local-6989586621679201771"><span class="annot"><span class="annottext">Value -&gt; Parser [KafkaClusterClientAuthenticationType]
+Value -&gt; Parser KafkaClusterClientAuthenticationType
+(Value -&gt; Parser KafkaClusterClientAuthenticationType)
+-&gt; (Value -&gt; Parser [KafkaClusterClientAuthenticationType])
+-&gt; FromJSON KafkaClusterClientAuthenticationType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [KafkaClusterClientAuthenticationType]
+$cparseJSONList :: Value -&gt; Parser [KafkaClusterClientAuthenticationType]
+parseJSON :: Value -&gt; Parser KafkaClusterClientAuthenticationType
+$cparseJSON :: Value -&gt; Parser KafkaClusterClientAuthenticationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679201764"><span id="local-6989586621679201766"><span class="annot"><span class="annottext">FromJSONKeyFunction [KafkaClusterClientAuthenticationType]
+FromJSONKeyFunction KafkaClusterClientAuthenticationType
+FromJSONKeyFunction KafkaClusterClientAuthenticationType
+-&gt; FromJSONKeyFunction [KafkaClusterClientAuthenticationType]
+-&gt; FromJSONKey KafkaClusterClientAuthenticationType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [KafkaClusterClientAuthenticationType]
+$cfromJSONKeyList :: FromJSONKeyFunction [KafkaClusterClientAuthenticationType]
+fromJSONKey :: FromJSONKeyFunction KafkaClusterClientAuthenticationType
+$cfromJSONKey :: FromJSONKeyFunction KafkaClusterClientAuthenticationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679201755"><span id="local-6989586621679201757"><span id="local-6989586621679201759"><span id="local-6989586621679201761"><span class="annot"><span class="annottext">[KafkaClusterClientAuthenticationType] -&gt; Encoding
+[KafkaClusterClientAuthenticationType] -&gt; Value
+KafkaClusterClientAuthenticationType -&gt; Encoding
+KafkaClusterClientAuthenticationType -&gt; Value
+(KafkaClusterClientAuthenticationType -&gt; Value)
+-&gt; (KafkaClusterClientAuthenticationType -&gt; Encoding)
+-&gt; ([KafkaClusterClientAuthenticationType] -&gt; Value)
+-&gt; ([KafkaClusterClientAuthenticationType] -&gt; Encoding)
+-&gt; ToJSON KafkaClusterClientAuthenticationType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [KafkaClusterClientAuthenticationType] -&gt; Encoding
+$ctoEncodingList :: [KafkaClusterClientAuthenticationType] -&gt; Encoding
+toJSONList :: [KafkaClusterClientAuthenticationType] -&gt; Value
+$ctoJSONList :: [KafkaClusterClientAuthenticationType] -&gt; Value
+toEncoding :: KafkaClusterClientAuthenticationType -&gt; Encoding
+$ctoEncoding :: KafkaClusterClientAuthenticationType -&gt; Encoding
+toJSON :: KafkaClusterClientAuthenticationType -&gt; Value
+$ctoJSON :: KafkaClusterClientAuthenticationType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679201750"><span id="local-6989586621679201752"><span class="annot"><span class="annottext">ToJSONKeyFunction [KafkaClusterClientAuthenticationType]
+ToJSONKeyFunction KafkaClusterClientAuthenticationType
+ToJSONKeyFunction KafkaClusterClientAuthenticationType
+-&gt; ToJSONKeyFunction [KafkaClusterClientAuthenticationType]
+-&gt; ToJSONKey KafkaClusterClientAuthenticationType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [KafkaClusterClientAuthenticationType]
+$ctoJSONKeyList :: ToJSONKeyFunction [KafkaClusterClientAuthenticationType]
+toJSONKey :: ToJSONKeyFunction KafkaClusterClientAuthenticationType
+$ctoJSONKey :: ToJSONKeyFunction KafkaClusterClientAuthenticationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679201747"><span class="annot"><span class="annottext">[Node] -&gt; Either String KafkaClusterClientAuthenticationType
+([Node] -&gt; Either String KafkaClusterClientAuthenticationType)
+-&gt; FromXML KafkaClusterClientAuthenticationType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String KafkaClusterClientAuthenticationType
+$cparseXML :: [Node] -&gt; Either String KafkaClusterClientAuthenticationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679201744"><span class="annot"><span class="annottext">KafkaClusterClientAuthenticationType -&gt; XML
+(KafkaClusterClientAuthenticationType -&gt; XML)
+-&gt; ToXML KafkaClusterClientAuthenticationType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: KafkaClusterClientAuthenticationType -&gt; XML
+$ctoXML :: KafkaClusterClientAuthenticationType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#KafkaClusterClientAuthenticationType_IAM"><span class="hs-identifier hs-type">KafkaClusterClientAuthenticationType_IAM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#KafkaClusterClientAuthenticationType"><span class="hs-identifier hs-type">KafkaClusterClientAuthenticationType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKafkaClusterClientAuthenticationType_IAM"><span id="%24mKafkaClusterClientAuthenticationType_IAM"><span id="KafkaClusterClientAuthenticationType_IAM"><span class="annot"><span class="annottext">$bKafkaClusterClientAuthenticationType_IAM :: KafkaClusterClientAuthenticationType
+$mKafkaClusterClientAuthenticationType_IAM :: forall r.
+KafkaClusterClientAuthenticationType
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#%24bKafkaClusterClientAuthenticationType_IAM"><span class="hs-identifier hs-var hs-var hs-var">KafkaClusterClientAuthenticationType_IAM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#KafkaClusterClientAuthenticationType%27"><span class="hs-identifier hs-type">KafkaClusterClientAuthenticationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IAM&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#KafkaClusterClientAuthenticationType_NONE"><span class="hs-identifier hs-type">KafkaClusterClientAuthenticationType_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#KafkaClusterClientAuthenticationType"><span class="hs-identifier hs-type">KafkaClusterClientAuthenticationType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bKafkaClusterClientAuthenticationType_NONE"><span id="%24mKafkaClusterClientAuthenticationType_NONE"><span id="KafkaClusterClientAuthenticationType_NONE"><span class="annot"><span class="annottext">$bKafkaClusterClientAuthenticationType_NONE :: KafkaClusterClientAuthenticationType
+$mKafkaClusterClientAuthenticationType_NONE :: forall r.
+KafkaClusterClientAuthenticationType
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#%24bKafkaClusterClientAuthenticationType_NONE"><span class="hs-identifier hs-var hs-var hs-var">KafkaClusterClientAuthenticationType_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#KafkaClusterClientAuthenticationType%27"><span class="hs-identifier hs-type">KafkaClusterClientAuthenticationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#KafkaClusterClientAuthenticationType_IAM"><span class="hs-pragma hs-type">KafkaClusterClientAuthenticationType_IAM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#KafkaClusterClientAuthenticationType_NONE"><span class="hs-pragma hs-type">KafkaClusterClientAuthenticationType_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType.html#KafkaClusterClientAuthenticationType%27"><span class="hs-pragma hs-type">KafkaClusterClientAuthenticationType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

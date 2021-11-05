@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains configuration for a Multiplex event</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMultiplexSettings' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679907290"><span id="local-6989586621679907291"></span></span><span class="hs-keyword">data</span><span> </span><span id="MultiplexSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-var">MultiplexSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MultiplexSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-var">MultiplexSettings'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679907299"><span id="local-6989586621679907300"></span></span><span class="hs-keyword">data</span><span> </span><span id="MultiplexSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-var">MultiplexSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MultiplexSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-var">MultiplexSettings'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Maximum video buffer delay in milliseconds.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AmaximumVideoBufferDelayMilliseconds%3AMultiplexSettings%27"><span class="annot"><span class="annottext">MultiplexSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#%24sel%3AmaximumVideoBufferDelayMilliseconds%3AMultiplexSettings%27"><span class="hs-identifier hs-var hs-var">maximumVideoBufferDelayMilliseconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AtransportStreamId%3AMultiplexSettings%27"><span class="annot"><span class="annottext">MultiplexSettings -&gt; Natural
 </span><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#%24sel%3AtransportStreamId%3AMultiplexSettings%27"><span class="hs-identifier hs-var hs-var">transportStreamId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679907281"><span id="local-6989586621679907283"><span class="annot"><span class="annottext">MultiplexSettings -&gt; MultiplexSettings -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679907290"><span id="local-6989586621679907292"><span class="annot"><span class="annottext">MultiplexSettings -&gt; MultiplexSettings -&gt; Bool
 (MultiplexSettings -&gt; MultiplexSettings -&gt; Bool)
 -&gt; (MultiplexSettings -&gt; MultiplexSettings -&gt; Bool)
 -&gt; Eq MultiplexSettings
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MultiplexSettings -&gt; MultiplexSettings -&gt; Bool
 == :: MultiplexSettings -&gt; MultiplexSettings -&gt; Bool
 $c== :: MultiplexSettings -&gt; MultiplexSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679907272"><span id="local-6989586621679907274"><span id="local-6989586621679907276"><span id="local-6989586621679907278"><span class="annot"><span class="annottext">ReadPrec [MultiplexSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679907281"><span id="local-6989586621679907283"><span id="local-6989586621679907285"><span id="local-6989586621679907287"><span class="annot"><span class="annottext">ReadPrec [MultiplexSettings]
 ReadPrec MultiplexSettings
 Int -&gt; ReadS MultiplexSettings
 ReadS [MultiplexSettings]
@@ -69,7 +69,7 @@ readList :: ReadS [MultiplexSettings]
 $creadList :: ReadS [MultiplexSettings]
 readsPrec :: Int -&gt; ReadS MultiplexSettings
 $creadsPrec :: Int -&gt; ReadS MultiplexSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679907265"><span id="local-6989586621679907267"><span id="local-6989586621679907269"><span class="annot"><span class="annottext">Int -&gt; MultiplexSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679907274"><span id="local-6989586621679907276"><span id="local-6989586621679907278"><span class="annot"><span class="annottext">Int -&gt; MultiplexSettings -&gt; ShowS
 [MultiplexSettings] -&gt; ShowS
 MultiplexSettings -&gt; String
 (Int -&gt; MultiplexSettings -&gt; ShowS)
@@ -118,10 +118,10 @@ $cfrom :: forall x. MultiplexSettings -&gt; Rep MultiplexSettings x
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span><span>
 </span><span id="line-62"></span><span id="newMultiplexSettings"><span class="annot"><span class="annottext">newMultiplexSettings :: Natural -&gt; Natural -&gt; MultiplexSettings
 </span><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#newMultiplexSettings"><span class="hs-identifier hs-var hs-var">newMultiplexSettings</span></a></span></span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679907259"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679907259"><span class="hs-identifier hs-var">pTransportStreamBitrate_</span></a></span></span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679907258"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679907258"><span class="hs-identifier hs-var">pTransportStreamId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679907268"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679907268"><span class="hs-identifier hs-var">pTransportStreamBitrate_</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679907267"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679907267"><span class="hs-identifier hs-var">pTransportStreamId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">MultiplexSettings' :: Maybe Natural
 -&gt; Maybe Natural -&gt; Natural -&gt; Natural -&gt; MultiplexSettings
 </span><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span>
@@ -136,10 +136,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">$sel:transportStreamBitrate:MultiplexSettings' :: Natural
 </span><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#%24sel%3AtransportStreamBitrate%3AMultiplexSettings%27"><span class="hs-identifier hs-var">transportStreamBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679907259"><span class="hs-identifier hs-var">pTransportStreamBitrate_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679907268"><span class="hs-identifier hs-var">pTransportStreamBitrate_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">$sel:transportStreamId:MultiplexSettings' :: Natural
 </span><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#%24sel%3AtransportStreamId%3AMultiplexSettings%27"><span class="hs-identifier hs-var">transportStreamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679907258"><span class="hs-identifier hs-var">pTransportStreamId_</span></a></span><span>
+</span><a href="#local-6989586621679907267"><span class="hs-identifier hs-var">pTransportStreamId_</span></a></span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | Maximum video buffer delay in milliseconds.</span><span>
@@ -151,16 +151,16 @@ forall a. Maybe a
 -&gt; Lens
      MultiplexSettings MultiplexSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679907254"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679907263"><span class="annot"><span class="annottext">Maybe Natural
 maximumVideoBufferDelayMilliseconds :: Maybe Natural
 $sel:maximumVideoBufferDelayMilliseconds:MultiplexSettings' :: MultiplexSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679907254"><span class="hs-identifier hs-var hs-var">maximumVideoBufferDelayMilliseconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679907254"><span class="hs-identifier hs-var">maximumVideoBufferDelayMilliseconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679907253"><span class="annot"><span class="annottext">s :: MultiplexSettings
-</span><a href="#local-6989586621679907253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679907252"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679907252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexSettings
-</span><a href="#local-6989586621679907253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumVideoBufferDelayMilliseconds:MultiplexSettings' :: Maybe Natural
+</span><a href="#local-6989586621679907263"><span class="hs-identifier hs-var hs-var">maximumVideoBufferDelayMilliseconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679907263"><span class="hs-identifier hs-var">maximumVideoBufferDelayMilliseconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679907262"><span class="annot"><span class="annottext">s :: MultiplexSettings
+</span><a href="#local-6989586621679907262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679907261"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679907261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexSettings
+</span><a href="#local-6989586621679907262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumVideoBufferDelayMilliseconds:MultiplexSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#%24sel%3AmaximumVideoBufferDelayMilliseconds%3AMultiplexSettings%27"><span class="hs-identifier hs-var">maximumVideoBufferDelayMilliseconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679907252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679907261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | Transport stream reserved bit rate.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#multiplexSettings_transportStreamReservedBitrate"><span class="hs-identifier hs-type">multiplexSettings_transportStreamReservedBitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -171,16 +171,16 @@ $sel:maximumVideoBufferDelayMilliseconds:MultiplexSettings' :: MultiplexSettings
 -&gt; Lens
      MultiplexSettings MultiplexSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679907250"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679907259"><span class="annot"><span class="annottext">Maybe Natural
 transportStreamReservedBitrate :: Maybe Natural
 $sel:transportStreamReservedBitrate:MultiplexSettings' :: MultiplexSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679907250"><span class="hs-identifier hs-var hs-var">transportStreamReservedBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679907250"><span class="hs-identifier hs-var">transportStreamReservedBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679907249"><span class="annot"><span class="annottext">s :: MultiplexSettings
-</span><a href="#local-6989586621679907249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679907248"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679907248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexSettings
-</span><a href="#local-6989586621679907249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transportStreamReservedBitrate:MultiplexSettings' :: Maybe Natural
+</span><a href="#local-6989586621679907259"><span class="hs-identifier hs-var hs-var">transportStreamReservedBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679907259"><span class="hs-identifier hs-var">transportStreamReservedBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679907258"><span class="annot"><span class="annottext">s :: MultiplexSettings
+</span><a href="#local-6989586621679907258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679907257"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679907257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexSettings
+</span><a href="#local-6989586621679907258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transportStreamReservedBitrate:MultiplexSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#%24sel%3AtransportStreamReservedBitrate%3AMultiplexSettings%27"><span class="hs-identifier hs-var">transportStreamReservedBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679907248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679907257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | Transport stream bit rate.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#multiplexSettings_transportStreamBitrate"><span class="hs-identifier hs-type">multiplexSettings_transportStreamBitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -189,16 +189,16 @@ $sel:transportStreamReservedBitrate:MultiplexSettings' :: MultiplexSettings -&gt
 -&gt; (MultiplexSettings -&gt; Natural -&gt; MultiplexSettings)
 -&gt; Lens MultiplexSettings MultiplexSettings Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679907246"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679907255"><span class="annot"><span class="annottext">Natural
 transportStreamBitrate :: Natural
 $sel:transportStreamBitrate:MultiplexSettings' :: MultiplexSettings -&gt; Natural
-</span><a href="#local-6989586621679907246"><span class="hs-identifier hs-var hs-var">transportStreamBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679907246"><span class="hs-identifier hs-var">transportStreamBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679907245"><span class="annot"><span class="annottext">s :: MultiplexSettings
-</span><a href="#local-6989586621679907245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679907244"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679907244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexSettings
-</span><a href="#local-6989586621679907245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transportStreamBitrate:MultiplexSettings' :: Natural
+</span><a href="#local-6989586621679907255"><span class="hs-identifier hs-var hs-var">transportStreamBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679907255"><span class="hs-identifier hs-var">transportStreamBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679907254"><span class="annot"><span class="annottext">s :: MultiplexSettings
+</span><a href="#local-6989586621679907254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679907253"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679907253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexSettings
+</span><a href="#local-6989586621679907254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transportStreamBitrate:MultiplexSettings' :: Natural
 </span><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#%24sel%3AtransportStreamBitrate%3AMultiplexSettings%27"><span class="hs-identifier hs-var">transportStreamBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679907244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679907253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Transport stream ID.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#multiplexSettings_transportStreamId"><span class="hs-identifier hs-type">multiplexSettings_transportStreamId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -207,19 +207,19 @@ $sel:transportStreamBitrate:MultiplexSettings' :: MultiplexSettings -&gt; Natura
 -&gt; (MultiplexSettings -&gt; Natural -&gt; MultiplexSettings)
 -&gt; Lens MultiplexSettings MultiplexSettings Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679907242"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679907251"><span class="annot"><span class="annottext">Natural
 transportStreamId :: Natural
 $sel:transportStreamId:MultiplexSettings' :: MultiplexSettings -&gt; Natural
-</span><a href="#local-6989586621679907242"><span class="hs-identifier hs-var hs-var">transportStreamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679907242"><span class="hs-identifier hs-var">transportStreamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679907241"><span class="annot"><span class="annottext">s :: MultiplexSettings
-</span><a href="#local-6989586621679907241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679907240"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679907240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexSettings
-</span><a href="#local-6989586621679907241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transportStreamId:MultiplexSettings' :: Natural
+</span><a href="#local-6989586621679907251"><span class="hs-identifier hs-var hs-var">transportStreamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679907251"><span class="hs-identifier hs-var">transportStreamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679907250"><span class="annot"><span class="annottext">s :: MultiplexSettings
+</span><a href="#local-6989586621679907250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679907249"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679907249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexSettings
+</span><a href="#local-6989586621679907250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transportStreamId:MultiplexSettings' :: Natural
 </span><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#%24sel%3AtransportStreamId%3AMultiplexSettings%27"><span class="hs-identifier hs-var">transportStreamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679907240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679907249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679907237"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679907235"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MultiplexSettings
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679907246"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679907244"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MultiplexSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MultiplexSettings)
@@ -229,8 +229,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MultiplexSettings&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679907232"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679907232"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679907241"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679907241"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Natural -&gt; Natural -&gt; Natural -&gt; MultiplexSettings
 </span><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-var">MultiplexSettings'</span></a></span><span>
@@ -241,7 +241,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Natural -&gt; Natural -&gt; Natural -&gt; MultiplexSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679907232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679907241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maximumVideoBufferDelayMilliseconds&quot;</span></span><span class="hs-special">)</span><span>
@@ -250,7 +250,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Natural -&gt; Natural -&gt; MultiplexSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679907232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679907241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transportStreamReservedBitrate&quot;</span></span><span class="hs-special">)</span><span>
@@ -258,7 +258,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Natural -&gt; Parser (Natural -&gt; MultiplexSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679907232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679907241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transportStreamBitrate&quot;</span></span><span class="hs-special">)</span><span>
@@ -266,19 +266,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser MultiplexSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679907232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679907241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transportStreamId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679907225"><span id="local-6989586621679907227"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679907234"><span id="local-6989586621679907236"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679907222"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679907231"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679907214"><span id="local-6989586621679907216"><span id="local-6989586621679907218"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679907212"><span class="annot"><span class="annottext">toJSON :: MultiplexSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679907207"><span id="local-6989586621679907208"><span id="local-6989586621679907209"><span id="local-6989586621679907210"><span class="annot"><span class="annottext">Natural
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679907223"><span id="local-6989586621679907225"><span id="local-6989586621679907227"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings"><span class="hs-identifier hs-type">MultiplexSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679907221"><span class="annot"><span class="annottext">toJSON :: MultiplexSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexSettings.html#MultiplexSettings%27"><span class="hs-identifier hs-type">MultiplexSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679907216"><span id="local-6989586621679907217"><span id="local-6989586621679907218"><span id="local-6989586621679907219"><span class="annot"><span class="annottext">Natural
 Maybe Natural
 transportStreamId :: Natural
 transportStreamBitrate :: Natural
@@ -288,7 +288,7 @@ $sel:transportStreamId:MultiplexSettings' :: MultiplexSettings -&gt; Natural
 $sel:transportStreamBitrate:MultiplexSettings' :: MultiplexSettings -&gt; Natural
 $sel:transportStreamReservedBitrate:MultiplexSettings' :: MultiplexSettings -&gt; Maybe Natural
 $sel:maximumVideoBufferDelayMilliseconds:MultiplexSettings' :: MultiplexSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679907207"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679907216"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -301,7 +301,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679907210"><span class="hs-identifier hs-var">maximumVideoBufferDelayMilliseconds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679907219"><span class="hs-identifier hs-var">maximumVideoBufferDelayMilliseconds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transportStreamReservedBitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -309,7 +309,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679907209"><span class="hs-identifier hs-var">transportStreamReservedBitrate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679907218"><span class="hs-identifier hs-var">transportStreamReservedBitrate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -318,7 +318,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-115"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679907208"><span class="hs-identifier hs-var">transportStreamBitrate</span></a></span><span>
+</span><a href="#local-6989586621679907217"><span class="hs-identifier hs-var">transportStreamBitrate</span></a></span><span>
 </span><span id="line-116"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -327,7 +327,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;transportStreamId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679907207"><span class="hs-identifier hs-var">transportStreamId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679907216"><span class="hs-identifier hs-var">transportStreamId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span></pre></body></html>

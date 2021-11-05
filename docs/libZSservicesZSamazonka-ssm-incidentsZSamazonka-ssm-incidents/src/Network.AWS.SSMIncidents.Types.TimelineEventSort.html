@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSMIncidents.Types.TimelineEventSort</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSMIncidents.Types.TimelineEventSort</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.TimelineEventSort.html#TimelineEventSort"><span class="hs-identifier">TimelineEventSort</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.TimelineEventSort.html#TimelineEventSort_EVENT_TIME"><span class="hs-identifier">TimelineEventSort_EVENT_TIME</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679216852"><span id="local-6989586621679216853"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TimelineEventSort"><span class="annot"><a href="Network.AWS.SSMIncidents.Types.TimelineEventSort.html#TimelineEventSort"><span class="hs-identifier hs-var">TimelineEventSort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimelineEventSort%27"><span class="annot"><a href="Network.AWS.SSMIncidents.Types.TimelineEventSort.html#TimelineEventSort%27"><span class="hs-identifier hs-var">TimelineEventSort'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTimelineEventSort"><span class="annot"><span class="annottext">TimelineEventSort -&gt; Text
+</span><a href="Network.AWS.SSMIncidents.Types.TimelineEventSort.html#fromTimelineEventSort"><span class="hs-identifier hs-var hs-var">fromTimelineEventSort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679216844"><span id="local-6989586621679216846"><span id="local-6989586621679216848"><span class="annot"><span class="annottext">Int -&gt; TimelineEventSort -&gt; ShowS
+[TimelineEventSort] -&gt; ShowS
+TimelineEventSort -&gt; String
+(Int -&gt; TimelineEventSort -&gt; ShowS)
+-&gt; (TimelineEventSort -&gt; String)
+-&gt; ([TimelineEventSort] -&gt; ShowS)
+-&gt; Show TimelineEventSort
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TimelineEventSort] -&gt; ShowS
+$cshowList :: [TimelineEventSort] -&gt; ShowS
+show :: TimelineEventSort -&gt; String
+$cshow :: TimelineEventSort -&gt; String
+showsPrec :: Int -&gt; TimelineEventSort -&gt; ShowS
+$cshowsPrec :: Int -&gt; TimelineEventSort -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679216835"><span id="local-6989586621679216837"><span id="local-6989586621679216839"><span id="local-6989586621679216841"><span class="annot"><span class="annottext">ReadPrec [TimelineEventSort]
+ReadPrec TimelineEventSort
+Int -&gt; ReadS TimelineEventSort
+ReadS [TimelineEventSort]
+(Int -&gt; ReadS TimelineEventSort)
+-&gt; ReadS [TimelineEventSort]
+-&gt; ReadPrec TimelineEventSort
+-&gt; ReadPrec [TimelineEventSort]
+-&gt; Read TimelineEventSort
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TimelineEventSort]
+$creadListPrec :: ReadPrec [TimelineEventSort]
+readPrec :: ReadPrec TimelineEventSort
+$creadPrec :: ReadPrec TimelineEventSort
+readList :: ReadS [TimelineEventSort]
+$creadList :: ReadS [TimelineEventSort]
+readsPrec :: Int -&gt; ReadS TimelineEventSort
+$creadsPrec :: Int -&gt; ReadS TimelineEventSort
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679216830"><span id="local-6989586621679216832"><span class="annot"><span class="annottext">TimelineEventSort -&gt; TimelineEventSort -&gt; Bool
+(TimelineEventSort -&gt; TimelineEventSort -&gt; Bool)
+-&gt; (TimelineEventSort -&gt; TimelineEventSort -&gt; Bool)
+-&gt; Eq TimelineEventSort
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TimelineEventSort -&gt; TimelineEventSort -&gt; Bool
+$c/= :: TimelineEventSort -&gt; TimelineEventSort -&gt; Bool
+== :: TimelineEventSort -&gt; TimelineEventSort -&gt; Bool
+$c== :: TimelineEventSort -&gt; TimelineEventSort -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679216814"><span id="local-6989586621679216816"><span id="local-6989586621679216818"><span id="local-6989586621679216820"><span id="local-6989586621679216822"><span id="local-6989586621679216824"><span id="local-6989586621679216826"><span class="annot"><span class="annottext">Eq TimelineEventSort
+Eq TimelineEventSort
+-&gt; (TimelineEventSort -&gt; TimelineEventSort -&gt; Ordering)
+-&gt; (TimelineEventSort -&gt; TimelineEventSort -&gt; Bool)
+-&gt; (TimelineEventSort -&gt; TimelineEventSort -&gt; Bool)
+-&gt; (TimelineEventSort -&gt; TimelineEventSort -&gt; Bool)
+-&gt; (TimelineEventSort -&gt; TimelineEventSort -&gt; Bool)
+-&gt; (TimelineEventSort -&gt; TimelineEventSort -&gt; TimelineEventSort)
+-&gt; (TimelineEventSort -&gt; TimelineEventSort -&gt; TimelineEventSort)
+-&gt; Ord TimelineEventSort
+TimelineEventSort -&gt; TimelineEventSort -&gt; Bool
+TimelineEventSort -&gt; TimelineEventSort -&gt; Ordering
+TimelineEventSort -&gt; TimelineEventSort -&gt; TimelineEventSort
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TimelineEventSort -&gt; TimelineEventSort -&gt; TimelineEventSort
+$cmin :: TimelineEventSort -&gt; TimelineEventSort -&gt; TimelineEventSort
+max :: TimelineEventSort -&gt; TimelineEventSort -&gt; TimelineEventSort
+$cmax :: TimelineEventSort -&gt; TimelineEventSort -&gt; TimelineEventSort
+&gt;= :: TimelineEventSort -&gt; TimelineEventSort -&gt; Bool
+$c&gt;= :: TimelineEventSort -&gt; TimelineEventSort -&gt; Bool
+&gt; :: TimelineEventSort -&gt; TimelineEventSort -&gt; Bool
+$c&gt; :: TimelineEventSort -&gt; TimelineEventSort -&gt; Bool
+&lt;= :: TimelineEventSort -&gt; TimelineEventSort -&gt; Bool
+$c&lt;= :: TimelineEventSort -&gt; TimelineEventSort -&gt; Bool
+&lt; :: TimelineEventSort -&gt; TimelineEventSort -&gt; Bool
+$c&lt; :: TimelineEventSort -&gt; TimelineEventSort -&gt; Bool
+compare :: TimelineEventSort -&gt; TimelineEventSort -&gt; Ordering
+$ccompare :: TimelineEventSort -&gt; TimelineEventSort -&gt; Ordering
+$cp1Ord :: Eq TimelineEventSort
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TimelineEventSort -&gt; Rep TimelineEventSort x)
+-&gt; (forall x. Rep TimelineEventSort x -&gt; TimelineEventSort)
+-&gt; Generic TimelineEventSort
+forall x. Rep TimelineEventSort x -&gt; TimelineEventSort
+forall x. TimelineEventSort -&gt; Rep TimelineEventSort x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TimelineEventSort x -&gt; TimelineEventSort
+$cfrom :: forall x. TimelineEventSort -&gt; Rep TimelineEventSort x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679216806"><span id="local-6989586621679216808"><span class="annot"><span class="annottext">Int -&gt; TimelineEventSort -&gt; Int
+TimelineEventSort -&gt; Int
+(Int -&gt; TimelineEventSort -&gt; Int)
+-&gt; (TimelineEventSort -&gt; Int) -&gt; Hashable TimelineEventSort
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TimelineEventSort -&gt; Int
+$chash :: TimelineEventSort -&gt; Int
+hashWithSalt :: Int -&gt; TimelineEventSort -&gt; Int
+$chashWithSalt :: Int -&gt; TimelineEventSort -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679216803"><span class="annot"><span class="annottext">TimelineEventSort -&gt; ()
+(TimelineEventSort -&gt; ()) -&gt; NFData TimelineEventSort
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TimelineEventSort -&gt; ()
+$crnf :: TimelineEventSort -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679216800"><span class="annot"><span class="annottext">Text -&gt; Either String TimelineEventSort
+(Text -&gt; Either String TimelineEventSort)
+-&gt; FromText TimelineEventSort
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TimelineEventSort
+$cfromText :: Text -&gt; Either String TimelineEventSort
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679216797"><span class="annot"><span class="annottext">TimelineEventSort -&gt; Text
+(TimelineEventSort -&gt; Text) -&gt; ToText TimelineEventSort
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TimelineEventSort -&gt; Text
+$ctoText :: TimelineEventSort -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679216794"><span class="annot"><span class="annottext">TimelineEventSort -&gt; ByteString
+(TimelineEventSort -&gt; ByteString) -&gt; ToByteString TimelineEventSort
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TimelineEventSort -&gt; ByteString
+$ctoBS :: TimelineEventSort -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679216791"><span class="annot"><span class="annottext">TimelineEventSort -&gt; ByteStringBuilder
+(TimelineEventSort -&gt; ByteStringBuilder) -&gt; ToLog TimelineEventSort
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TimelineEventSort -&gt; ByteStringBuilder
+$cbuild :: TimelineEventSort -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679216788"><span class="annot"><span class="annottext">HeaderName -&gt; TimelineEventSort -&gt; [Header]
+(HeaderName -&gt; TimelineEventSort -&gt; [Header])
+-&gt; ToHeader TimelineEventSort
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TimelineEventSort -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TimelineEventSort -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679216785"><span class="annot"><span class="annottext">TimelineEventSort -&gt; QueryString
+(TimelineEventSort -&gt; QueryString) -&gt; ToQuery TimelineEventSort
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TimelineEventSort -&gt; QueryString
+$ctoQuery :: TimelineEventSort -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679216780"><span id="local-6989586621679216782"><span class="annot"><span class="annottext">Value -&gt; Parser [TimelineEventSort]
+Value -&gt; Parser TimelineEventSort
+(Value -&gt; Parser TimelineEventSort)
+-&gt; (Value -&gt; Parser [TimelineEventSort])
+-&gt; FromJSON TimelineEventSort
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TimelineEventSort]
+$cparseJSONList :: Value -&gt; Parser [TimelineEventSort]
+parseJSON :: Value -&gt; Parser TimelineEventSort
+$cparseJSON :: Value -&gt; Parser TimelineEventSort
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679216775"><span id="local-6989586621679216777"><span class="annot"><span class="annottext">FromJSONKeyFunction [TimelineEventSort]
+FromJSONKeyFunction TimelineEventSort
+FromJSONKeyFunction TimelineEventSort
+-&gt; FromJSONKeyFunction [TimelineEventSort]
+-&gt; FromJSONKey TimelineEventSort
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TimelineEventSort]
+$cfromJSONKeyList :: FromJSONKeyFunction [TimelineEventSort]
+fromJSONKey :: FromJSONKeyFunction TimelineEventSort
+$cfromJSONKey :: FromJSONKeyFunction TimelineEventSort
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679216766"><span id="local-6989586621679216768"><span id="local-6989586621679216770"><span id="local-6989586621679216772"><span class="annot"><span class="annottext">[TimelineEventSort] -&gt; Encoding
+[TimelineEventSort] -&gt; Value
+TimelineEventSort -&gt; Encoding
+TimelineEventSort -&gt; Value
+(TimelineEventSort -&gt; Value)
+-&gt; (TimelineEventSort -&gt; Encoding)
+-&gt; ([TimelineEventSort] -&gt; Value)
+-&gt; ([TimelineEventSort] -&gt; Encoding)
+-&gt; ToJSON TimelineEventSort
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TimelineEventSort] -&gt; Encoding
+$ctoEncodingList :: [TimelineEventSort] -&gt; Encoding
+toJSONList :: [TimelineEventSort] -&gt; Value
+$ctoJSONList :: [TimelineEventSort] -&gt; Value
+toEncoding :: TimelineEventSort -&gt; Encoding
+$ctoEncoding :: TimelineEventSort -&gt; Encoding
+toJSON :: TimelineEventSort -&gt; Value
+$ctoJSON :: TimelineEventSort -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679216761"><span id="local-6989586621679216763"><span class="annot"><span class="annottext">ToJSONKeyFunction [TimelineEventSort]
+ToJSONKeyFunction TimelineEventSort
+ToJSONKeyFunction TimelineEventSort
+-&gt; ToJSONKeyFunction [TimelineEventSort]
+-&gt; ToJSONKey TimelineEventSort
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TimelineEventSort]
+$ctoJSONKeyList :: ToJSONKeyFunction [TimelineEventSort]
+toJSONKey :: ToJSONKeyFunction TimelineEventSort
+$ctoJSONKey :: ToJSONKeyFunction TimelineEventSort
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679216758"><span class="annot"><span class="annottext">[Node] -&gt; Either String TimelineEventSort
+([Node] -&gt; Either String TimelineEventSort)
+-&gt; FromXML TimelineEventSort
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TimelineEventSort
+$cparseXML :: [Node] -&gt; Either String TimelineEventSort
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679216755"><span class="annot"><span class="annottext">TimelineEventSort -&gt; XML
+(TimelineEventSort -&gt; XML) -&gt; ToXML TimelineEventSort
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TimelineEventSort -&gt; XML
+$ctoXML :: TimelineEventSort -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.TimelineEventSort.html#TimelineEventSort_EVENT_TIME"><span class="hs-identifier hs-type">TimelineEventSort_EVENT_TIME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.TimelineEventSort.html#TimelineEventSort"><span class="hs-identifier hs-type">TimelineEventSort</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTimelineEventSort_EVENT_TIME"><span id="%24mTimelineEventSort_EVENT_TIME"><span id="TimelineEventSort_EVENT_TIME"><span class="annot"><span class="annottext">$bTimelineEventSort_EVENT_TIME :: TimelineEventSort
+$mTimelineEventSort_EVENT_TIME :: forall r. TimelineEventSort -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SSMIncidents.Types.TimelineEventSort.html#%24bTimelineEventSort_EVENT_TIME"><span class="hs-identifier hs-var hs-var hs-var">TimelineEventSort_EVENT_TIME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.TimelineEventSort.html#TimelineEventSort%27"><span class="hs-identifier hs-type">TimelineEventSort'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EVENT_TIME&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.TimelineEventSort.html#TimelineEventSort_EVENT_TIME"><span class="hs-pragma hs-type">TimelineEventSort_EVENT_TIME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMIncidents.Types.TimelineEventSort.html#TimelineEventSort%27"><span class="hs-pragma hs-type">TimelineEventSort'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

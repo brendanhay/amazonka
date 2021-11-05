@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newCreatePolicy' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679249893"><span id="local-6989586621679249894"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePolicy"><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-var">CreatePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePolicy%27"><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-var">CreatePolicy'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679249902"><span id="local-6989586621679249903"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePolicy"><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-var">CreatePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePolicy%27"><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-var">CreatePolicy'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of tags that you want to attach to the newly created policy. For</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- each tag in the list, you must specify both a tag key and a value. You</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- can set the value to an empty string, but you can\'t set it to @null@.</span><span>
@@ -102,7 +102,7 @@
 </span><span id="line-98"></span><span>    </span><span id="%24sel%3Atype%27%3ACreatePolicy%27"><span class="annot"><span class="annottext">CreatePolicy -&gt; PolicyType
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#%24sel%3Atype%27%3ACreatePolicy%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.PolicyType.html#PolicyType"><span class="hs-identifier hs-type">PolicyType</span></a></span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249883"><span id="local-6989586621679249885"><span class="annot"><span class="annottext">CreatePolicy -&gt; CreatePolicy -&gt; Bool
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249892"><span id="local-6989586621679249894"><span class="annot"><span class="annottext">CreatePolicy -&gt; CreatePolicy -&gt; Bool
 (CreatePolicy -&gt; CreatePolicy -&gt; Bool)
 -&gt; (CreatePolicy -&gt; CreatePolicy -&gt; Bool) -&gt; Eq CreatePolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -110,7 +110,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreatePolicy -&gt; CreatePolicy -&gt; Bool
 == :: CreatePolicy -&gt; CreatePolicy -&gt; Bool
 $c== :: CreatePolicy -&gt; CreatePolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249874"><span id="local-6989586621679249876"><span id="local-6989586621679249878"><span id="local-6989586621679249880"><span class="annot"><span class="annottext">ReadPrec [CreatePolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249883"><span id="local-6989586621679249885"><span id="local-6989586621679249887"><span id="local-6989586621679249889"><span class="annot"><span class="annottext">ReadPrec [CreatePolicy]
 ReadPrec CreatePolicy
 Int -&gt; ReadS CreatePolicy
 ReadS [CreatePolicy]
@@ -130,7 +130,7 @@ readList :: ReadS [CreatePolicy]
 $creadList :: ReadS [CreatePolicy]
 readsPrec :: Int -&gt; ReadS CreatePolicy
 $creadsPrec :: Int -&gt; ReadS CreatePolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249867"><span id="local-6989586621679249869"><span id="local-6989586621679249871"><span class="annot"><span class="annottext">Int -&gt; CreatePolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249876"><span id="local-6989586621679249878"><span id="local-6989586621679249880"><span class="annot"><span class="annottext">Int -&gt; CreatePolicy -&gt; ShowS
 [CreatePolicy] -&gt; ShowS
 CreatePolicy -&gt; String
 (Int -&gt; CreatePolicy -&gt; ShowS)
@@ -208,11 +208,11 @@ $cfrom :: forall x. CreatePolicy -&gt; Rep CreatePolicy x
 </span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.PolicyType.html#PolicyType"><span class="hs-identifier hs-type">PolicyType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span>
 </span><span id="line-153"></span><span id="newCreatePolicy"><span class="annot"><span class="annottext">newCreatePolicy :: Text -&gt; Text -&gt; Text -&gt; PolicyType -&gt; CreatePolicy
-</span><a href="Network.AWS.Organizations.CreatePolicy.html#newCreatePolicy"><span class="hs-identifier hs-var hs-var">newCreatePolicy</span></a></span></span><span> </span><span id="local-6989586621679249862"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249862"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span id="local-6989586621679249861"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249861"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span> </span><span id="local-6989586621679249860"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249860"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679249859"><span class="annot"><span class="annottext">PolicyType
-</span><a href="#local-6989586621679249859"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.CreatePolicy.html#newCreatePolicy"><span class="hs-identifier hs-var hs-var">newCreatePolicy</span></a></span></span><span> </span><span id="local-6989586621679249871"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249871"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span id="local-6989586621679249870"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249870"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span> </span><span id="local-6989586621679249869"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249869"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679249868"><span class="annot"><span class="annottext">PolicyType
+</span><a href="#local-6989586621679249868"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">CreatePolicy' :: Maybe [Tag] -&gt; Text -&gt; Text -&gt; Text -&gt; PolicyType -&gt; CreatePolicy
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreatePolicy' :: Maybe [Tag]
@@ -221,16 +221,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:content:CreatePolicy' :: Text
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#%24sel%3Acontent%3ACreatePolicy%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249862"><span class="hs-identifier hs-var">pContent_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249871"><span class="hs-identifier hs-var">pContent_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreatePolicy' :: Text
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#%24sel%3Adescription%3ACreatePolicy%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249861"><span class="hs-identifier hs-var">pDescription_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249870"><span class="hs-identifier hs-var">pDescription_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreatePolicy' :: Text
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#%24sel%3Aname%3ACreatePolicy%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249860"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249869"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':CreatePolicy' :: PolicyType
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#%24sel%3Atype%27%3ACreatePolicy%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PolicyType
-</span><a href="#local-6989586621679249859"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679249868"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | A list of tags that you want to attach to the newly created policy. For</span><span>
@@ -249,16 +249,16 @@ forall a. Maybe a
 -&gt; (CreatePolicy -&gt; Maybe [Tag] -&gt; CreatePolicy)
 -&gt; Lens CreatePolicy CreatePolicy (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249856"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249865"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreatePolicy' :: CreatePolicy -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679249856"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679249856"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249855"><span class="annot"><span class="annottext">s :: CreatePolicy
-</span><a href="#local-6989586621679249855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249854"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679249854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicy
-</span><a href="#local-6989586621679249855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreatePolicy' :: Maybe [Tag]
+</span><a href="#local-6989586621679249865"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679249865"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249864"><span class="annot"><span class="annottext">s :: CreatePolicy
+</span><a href="#local-6989586621679249864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249863"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679249863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicy
+</span><a href="#local-6989586621679249864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreatePolicy' :: Maybe [Tag]
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#%24sel%3Atags%3ACreatePolicy%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679249854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679249863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreatePolicy -&gt; f CreatePolicy)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -284,16 +284,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreatePolicy -&gt; Text -&gt; CreatePolicy)
 -&gt; Lens CreatePolicy CreatePolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249850"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249859"><span class="annot"><span class="annottext">Text
 content :: Text
 $sel:content:CreatePolicy' :: CreatePolicy -&gt; Text
-</span><a href="#local-6989586621679249850"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249850"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249849"><span class="annot"><span class="annottext">s :: CreatePolicy
-</span><a href="#local-6989586621679249849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249848"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicy
-</span><a href="#local-6989586621679249849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:CreatePolicy' :: Text
+</span><a href="#local-6989586621679249859"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249859"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249858"><span class="annot"><span class="annottext">s :: CreatePolicy
+</span><a href="#local-6989586621679249858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249857"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicy
+</span><a href="#local-6989586621679249858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:CreatePolicy' :: Text
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#%24sel%3Acontent%3ACreatePolicy%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | An optional description to assign to the policy.</span><span>
 </span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#createPolicy_description"><span class="hs-identifier hs-type">createPolicy_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -302,16 +302,16 @@ $sel:content:CreatePolicy' :: CreatePolicy -&gt; Text
 -&gt; (CreatePolicy -&gt; Text -&gt; CreatePolicy)
 -&gt; Lens CreatePolicy CreatePolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249847"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249856"><span class="annot"><span class="annottext">Text
 description :: Text
 $sel:description:CreatePolicy' :: CreatePolicy -&gt; Text
-</span><a href="#local-6989586621679249847"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249847"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249846"><span class="annot"><span class="annottext">s :: CreatePolicy
-</span><a href="#local-6989586621679249846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249845"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicy
-</span><a href="#local-6989586621679249846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreatePolicy' :: Text
+</span><a href="#local-6989586621679249856"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249856"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249855"><span class="annot"><span class="annottext">s :: CreatePolicy
+</span><a href="#local-6989586621679249855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249854"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicy
+</span><a href="#local-6989586621679249855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreatePolicy' :: Text
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#%24sel%3Adescription%3ACreatePolicy%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The friendly name to assign to the policy.</span><span>
 </span><span id="line-186"></span><span class="hs-comment">--</span><span>
@@ -324,16 +324,16 @@ $sel:description:CreatePolicy' :: CreatePolicy -&gt; Text
 -&gt; (CreatePolicy -&gt; Text -&gt; CreatePolicy)
 -&gt; Lens CreatePolicy CreatePolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249844"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249853"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreatePolicy' :: CreatePolicy -&gt; Text
-</span><a href="#local-6989586621679249844"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249844"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249843"><span class="annot"><span class="annottext">s :: CreatePolicy
-</span><a href="#local-6989586621679249843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249842"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicy
-</span><a href="#local-6989586621679249843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreatePolicy' :: Text
+</span><a href="#local-6989586621679249853"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249853"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249852"><span class="annot"><span class="annottext">s :: CreatePolicy
+</span><a href="#local-6989586621679249852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249851"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicy
+</span><a href="#local-6989586621679249852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreatePolicy' :: Text
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#%24sel%3Aname%3ACreatePolicy%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The type of policy to create. You can specify one of the following</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- values:</span><span>
@@ -351,25 +351,25 @@ $sel:name:CreatePolicy' :: CreatePolicy -&gt; Text
 -&gt; (CreatePolicy -&gt; PolicyType -&gt; CreatePolicy)
 -&gt; Lens CreatePolicy CreatePolicy PolicyType PolicyType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249841"><span class="annot"><span class="annottext">PolicyType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249850"><span class="annot"><span class="annottext">PolicyType
 type' :: PolicyType
 $sel:type':CreatePolicy' :: CreatePolicy -&gt; PolicyType
-</span><a href="#local-6989586621679249841"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyType
-</span><a href="#local-6989586621679249841"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249840"><span class="annot"><span class="annottext">s :: CreatePolicy
-</span><a href="#local-6989586621679249840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249839"><span class="annot"><span class="annottext">PolicyType
-</span><a href="#local-6989586621679249839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicy
-</span><a href="#local-6989586621679249840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CreatePolicy' :: PolicyType
+</span><a href="#local-6989586621679249850"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyType
+</span><a href="#local-6989586621679249850"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249849"><span class="annot"><span class="annottext">s :: CreatePolicy
+</span><a href="#local-6989586621679249849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249848"><span class="annot"><span class="annottext">PolicyType
+</span><a href="#local-6989586621679249848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicy
+</span><a href="#local-6989586621679249849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CreatePolicy' :: PolicyType
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#%24sel%3Atype%27%3ACreatePolicy%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PolicyType
-</span><a href="#local-6989586621679249839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-207"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse"><span class="hs-identifier hs-type">CreatePolicyResponse</span></a></span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679249835"><span class="annot"><span class="annottext">request :: CreatePolicy -&gt; Request CreatePolicy
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679249844"><span class="annot"><span class="annottext">request :: CreatePolicy -&gt; Request CreatePolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreatePolicy -&gt; Request CreatePolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Organizations.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621679249831"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679249840"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreatePolicy
 -&gt; ClientResponse ClientBody
@@ -393,10 +393,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-211"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249828"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249828"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679249827"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679249827"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679249826"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249826"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249837"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249837"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679249836"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679249836"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679249835"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249835"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-212"></span><span>          </span><span class="annot"><span class="annottext">Maybe Policy -&gt; Int -&gt; CreatePolicyResponse
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse%27"><span class="hs-identifier hs-var">CreatePolicyResponse'</span></a></span><span>
 </span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Policy -&gt; Int -&gt; CreatePolicyResponse)
@@ -404,7 +404,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreatePolicyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Policy)
+</span><a href="#local-6989586621679249835"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Policy)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Policy&quot;</span></span><span class="hs-special">)</span><span>
@@ -416,15 +416,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249828"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249837"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249818"><span id="local-6989586621679249820"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span></span></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249827"><span id="local-6989586621679249829"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span></span></span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249815"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249824"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span></span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-222"></span><span>  </span><span id="local-6989586621679249811"><span class="annot"><span class="annottext">toHeaders :: CreatePolicy -&gt; ResponseHeaders
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679249820"><span class="annot"><span class="annottext">toHeaders :: CreatePolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreatePolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -451,9 +451,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-233"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-234"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249801"><span id="local-6989586621679249803"><span id="local-6989586621679249805"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-237"></span><span>  </span><span id="local-6989586621679249799"><span class="annot"><span class="annottext">toJSON :: CreatePolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249793"><span id="local-6989586621679249794"><span id="local-6989586621679249795"><span id="local-6989586621679249796"><span id="local-6989586621679249797"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249810"><span id="local-6989586621679249812"><span id="local-6989586621679249814"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679249808"><span class="annot"><span class="annottext">toJSON :: CreatePolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy%27"><span class="hs-identifier hs-type">CreatePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249802"><span id="local-6989586621679249803"><span id="local-6989586621679249804"><span id="local-6989586621679249805"><span id="local-6989586621679249806"><span class="annot"><span class="annottext">Maybe [Tag]
 Text
 PolicyType
 type' :: PolicyType
@@ -466,7 +466,7 @@ $sel:name:CreatePolicy' :: CreatePolicy -&gt; Text
 $sel:description:CreatePolicy' :: CreatePolicy -&gt; Text
 $sel:content:CreatePolicy' :: CreatePolicy -&gt; Text
 $sel:tags:CreatePolicy' :: CreatePolicy -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679249793"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679249802"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-239"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -478,47 +478,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679249797"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249806"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Content&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249796"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249805"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249795"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249804"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249794"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249803"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PolicyType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PolicyType
-</span><a href="#local-6989586621679249793"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249802"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-246"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-249"></span><span>  </span><span id="local-6989586621679249787"><span class="annot"><span class="annottext">toPath :: CreatePolicy -&gt; ByteString
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679249796"><span class="annot"><span class="annottext">toPath :: CreatePolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreatePolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicy"><span class="hs-identifier hs-type">CreatePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-252"></span><span>  </span><span id="local-6989586621679249783"><span class="annot"><span class="annottext">toQuery :: CreatePolicy -&gt; QueryString
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679249792"><span class="annot"><span class="annottext">toQuery :: CreatePolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreatePolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -526,7 +526,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- | /See:/ 'newCreatePolicyResponse' smart constructor.</span><span>
-</span><span id="line-255"></span><span id="local-6989586621679249780"><span id="local-6989586621679249781"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePolicyResponse"><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse"><span class="hs-identifier hs-var">CreatePolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePolicyResponse%27"><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse%27"><span class="hs-identifier hs-var">CreatePolicyResponse'</span></a></span></span><span>
+</span><span id="line-255"></span><span id="local-6989586621679249789"><span id="local-6989586621679249790"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePolicyResponse"><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse"><span class="hs-identifier hs-var">CreatePolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePolicyResponse%27"><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse%27"><span class="hs-identifier hs-var">CreatePolicyResponse'</span></a></span></span><span>
 </span><span id="line-256"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure that contains details about the newly created policy.</span><span>
 </span><span id="line-257"></span><span>    </span><span id="%24sel%3Apolicy%3ACreatePolicyResponse%27"><span class="annot"><span class="annottext">CreatePolicyResponse -&gt; Maybe Policy
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#%24sel%3Apolicy%3ACreatePolicyResponse%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">,</span><span>
@@ -534,7 +534,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-259"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreatePolicyResponse%27"><span class="annot"><span class="annottext">CreatePolicyResponse -&gt; Int
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#%24sel%3AhttpStatus%3ACreatePolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-260"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-261"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249774"><span id="local-6989586621679249776"><span class="annot"><span class="annottext">CreatePolicyResponse -&gt; CreatePolicyResponse -&gt; Bool
+</span><span id="line-261"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249783"><span id="local-6989586621679249785"><span class="annot"><span class="annottext">CreatePolicyResponse -&gt; CreatePolicyResponse -&gt; Bool
 (CreatePolicyResponse -&gt; CreatePolicyResponse -&gt; Bool)
 -&gt; (CreatePolicyResponse -&gt; CreatePolicyResponse -&gt; Bool)
 -&gt; Eq CreatePolicyResponse
@@ -543,7 +543,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreatePolicyResponse -&gt; CreatePolicyResponse -&gt; Bool
 == :: CreatePolicyResponse -&gt; CreatePolicyResponse -&gt; Bool
 $c== :: CreatePolicyResponse -&gt; CreatePolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249766"><span id="local-6989586621679249768"><span id="local-6989586621679249770"><span id="local-6989586621679249772"><span class="annot"><span class="annottext">ReadPrec [CreatePolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249775"><span id="local-6989586621679249777"><span id="local-6989586621679249779"><span id="local-6989586621679249781"><span class="annot"><span class="annottext">ReadPrec [CreatePolicyResponse]
 ReadPrec CreatePolicyResponse
 Int -&gt; ReadS CreatePolicyResponse
 ReadS [CreatePolicyResponse]
@@ -563,7 +563,7 @@ readList :: ReadS [CreatePolicyResponse]
 $creadList :: ReadS [CreatePolicyResponse]
 readsPrec :: Int -&gt; ReadS CreatePolicyResponse
 $creadsPrec :: Int -&gt; ReadS CreatePolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249760"><span id="local-6989586621679249762"><span id="local-6989586621679249764"><span class="annot"><span class="annottext">Int -&gt; CreatePolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249769"><span id="local-6989586621679249771"><span id="local-6989586621679249773"><span class="annot"><span class="annottext">Int -&gt; CreatePolicyResponse -&gt; ShowS
 [CreatePolicyResponse] -&gt; ShowS
 CreatePolicyResponse -&gt; String
 (Int -&gt; CreatePolicyResponse -&gt; ShowS)
@@ -605,8 +605,8 @@ $cfrom :: forall x. CreatePolicyResponse -&gt; Rep CreatePolicyResponse x
 </span><span id="line-276"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-277"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse"><span class="hs-identifier hs-type">CreatePolicyResponse</span></a></span><span>
 </span><span id="line-278"></span><span id="newCreatePolicyResponse"><span class="annot"><span class="annottext">newCreatePolicyResponse :: Int -&gt; CreatePolicyResponse
-</span><a href="Network.AWS.Organizations.CreatePolicy.html#newCreatePolicyResponse"><span class="hs-identifier hs-var hs-var">newCreatePolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679249757"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249757"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.CreatePolicy.html#newCreatePolicyResponse"><span class="hs-identifier hs-var hs-var">newCreatePolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679249766"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249766"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-279"></span><span>  </span><span class="annot"><span class="annottext">CreatePolicyResponse' :: Maybe Policy -&gt; Int -&gt; CreatePolicyResponse
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse%27"><span class="hs-identifier hs-type">CreatePolicyResponse'</span></a></span><span>
 </span><span id="line-280"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policy:CreatePolicyResponse' :: Maybe Policy
@@ -615,7 +615,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePolicyResponse' :: Int
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#%24sel%3AhttpStatus%3ACreatePolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249757"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679249766"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-282"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-comment">-- | A structure that contains details about the newly created policy.</span><span>
@@ -630,16 +630,16 @@ forall a. Maybe a
      (Maybe Policy)
      (Maybe Policy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse%27"><span class="hs-identifier hs-type">CreatePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249756"><span class="annot"><span class="annottext">Maybe Policy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse%27"><span class="hs-identifier hs-type">CreatePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249765"><span class="annot"><span class="annottext">Maybe Policy
 policy :: Maybe Policy
 $sel:policy:CreatePolicyResponse' :: CreatePolicyResponse -&gt; Maybe Policy
-</span><a href="#local-6989586621679249756"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Policy
-</span><a href="#local-6989586621679249756"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249755"><span class="annot"><span class="annottext">s :: CreatePolicyResponse
-</span><a href="#local-6989586621679249755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse%27"><span class="hs-identifier hs-type">CreatePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249754"><span class="annot"><span class="annottext">Maybe Policy
-</span><a href="#local-6989586621679249754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicyResponse
-</span><a href="#local-6989586621679249755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:CreatePolicyResponse' :: Maybe Policy
+</span><a href="#local-6989586621679249765"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Policy
+</span><a href="#local-6989586621679249765"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249764"><span class="annot"><span class="annottext">s :: CreatePolicyResponse
+</span><a href="#local-6989586621679249764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse%27"><span class="hs-identifier hs-type">CreatePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249763"><span class="annot"><span class="annottext">Maybe Policy
+</span><a href="#local-6989586621679249763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicyResponse
+</span><a href="#local-6989586621679249764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:CreatePolicyResponse' :: Maybe Policy
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#%24sel%3Apolicy%3ACreatePolicyResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Policy
-</span><a href="#local-6989586621679249754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse"><span class="hs-identifier hs-type">CreatePolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse"><span class="hs-identifier hs-type">CreatePolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-287"></span><span>
 </span><span id="line-288"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-289"></span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#createPolicyResponse_httpStatus"><span class="hs-identifier hs-type">createPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse"><span class="hs-identifier hs-type">CreatePolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -648,16 +648,16 @@ $sel:policy:CreatePolicyResponse' :: CreatePolicyResponse -&gt; Maybe Policy
 -&gt; (CreatePolicyResponse -&gt; Int -&gt; CreatePolicyResponse)
 -&gt; Lens CreatePolicyResponse CreatePolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse%27"><span class="hs-identifier hs-type">CreatePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249753"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse%27"><span class="hs-identifier hs-type">CreatePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249762"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreatePolicyResponse' :: CreatePolicyResponse -&gt; Int
-</span><a href="#local-6989586621679249753"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249753"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249752"><span class="annot"><span class="annottext">s :: CreatePolicyResponse
-</span><a href="#local-6989586621679249752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse%27"><span class="hs-identifier hs-type">CreatePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249751"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicyResponse
-</span><a href="#local-6989586621679249752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePolicyResponse' :: Int
+</span><a href="#local-6989586621679249762"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249762"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249761"><span class="annot"><span class="annottext">s :: CreatePolicyResponse
+</span><a href="#local-6989586621679249761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse%27"><span class="hs-identifier hs-type">CreatePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249760"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePolicyResponse
+</span><a href="#local-6989586621679249761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePolicyResponse' :: Int
 </span><a href="Network.AWS.Organizations.CreatePolicy.html#%24sel%3AhttpStatus%3ACreatePolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse"><span class="hs-identifier hs-type">CreatePolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse"><span class="hs-identifier hs-type">CreatePolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-291"></span><span>
-</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse"><span class="hs-identifier hs-type">CreatePolicyResponse</span></a></span></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CreatePolicy.html#CreatePolicyResponse"><span class="hs-identifier hs-type">CreatePolicyResponse</span></a></span></span><span>
 </span><span id="line-293"></span></pre></body></html>

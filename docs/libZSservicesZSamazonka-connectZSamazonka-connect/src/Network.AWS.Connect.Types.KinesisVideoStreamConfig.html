@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Configuration information of a Kinesis video stream.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newKinesisVideoStreamConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679399624"><span id="local-6989586621679399625"></span></span><span class="hs-keyword">data</span><span> </span><span id="KinesisVideoStreamConfig"><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-var">KinesisVideoStreamConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KinesisVideoStreamConfig%27"><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-var">KinesisVideoStreamConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679399633"><span id="local-6989586621679399634"></span></span><span class="hs-keyword">data</span><span> </span><span id="KinesisVideoStreamConfig"><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-var">KinesisVideoStreamConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KinesisVideoStreamConfig%27"><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-var">KinesisVideoStreamConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The prefix of the video stream.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aprefix%3AKinesisVideoStreamConfig%27"><span class="annot"><span class="annottext">KinesisVideoStreamConfig -&gt; Text
 </span><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#%24sel%3Aprefix%3AKinesisVideoStreamConfig%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AencryptionConfig%3AKinesisVideoStreamConfig%27"><span class="annot"><span class="annottext">KinesisVideoStreamConfig -&gt; EncryptionConfig
 </span><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#%24sel%3AencryptionConfig%3AKinesisVideoStreamConfig%27"><span class="hs-identifier hs-var hs-var">encryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399616"><span id="local-6989586621679399618"><span class="annot"><span class="annottext">KinesisVideoStreamConfig -&gt; KinesisVideoStreamConfig -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399625"><span id="local-6989586621679399627"><span class="annot"><span class="annottext">KinesisVideoStreamConfig -&gt; KinesisVideoStreamConfig -&gt; Bool
 (KinesisVideoStreamConfig -&gt; KinesisVideoStreamConfig -&gt; Bool)
 -&gt; (KinesisVideoStreamConfig -&gt; KinesisVideoStreamConfig -&gt; Bool)
 -&gt; Eq KinesisVideoStreamConfig
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KinesisVideoStreamConfig -&gt; KinesisVideoStreamConfig -&gt; Bool
 == :: KinesisVideoStreamConfig -&gt; KinesisVideoStreamConfig -&gt; Bool
 $c== :: KinesisVideoStreamConfig -&gt; KinesisVideoStreamConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399607"><span id="local-6989586621679399609"><span id="local-6989586621679399611"><span id="local-6989586621679399613"><span class="annot"><span class="annottext">ReadPrec [KinesisVideoStreamConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399616"><span id="local-6989586621679399618"><span id="local-6989586621679399620"><span id="local-6989586621679399622"><span class="annot"><span class="annottext">ReadPrec [KinesisVideoStreamConfig]
 ReadPrec KinesisVideoStreamConfig
 Int -&gt; ReadS KinesisVideoStreamConfig
 ReadS [KinesisVideoStreamConfig]
@@ -72,7 +72,7 @@ readList :: ReadS [KinesisVideoStreamConfig]
 $creadList :: ReadS [KinesisVideoStreamConfig]
 readsPrec :: Int -&gt; ReadS KinesisVideoStreamConfig
 $creadsPrec :: Int -&gt; ReadS KinesisVideoStreamConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399600"><span id="local-6989586621679399602"><span id="local-6989586621679399604"><span class="annot"><span class="annottext">Int -&gt; KinesisVideoStreamConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399609"><span id="local-6989586621679399611"><span id="local-6989586621679399613"><span class="annot"><span class="annottext">Int -&gt; KinesisVideoStreamConfig -&gt; ShowS
 [KinesisVideoStreamConfig] -&gt; ShowS
 KinesisVideoStreamConfig -&gt; String
 (Int -&gt; KinesisVideoStreamConfig -&gt; ShowS)
@@ -132,23 +132,23 @@ KinesisVideoStreamConfig -&gt; Rep KinesisVideoStreamConfig x
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-type">KinesisVideoStreamConfig</span></a></span><span>
 </span><span id="line-71"></span><span id="newKinesisVideoStreamConfig"><span class="annot"><span class="annottext">newKinesisVideoStreamConfig :: Text -&gt; Natural -&gt; EncryptionConfig -&gt; KinesisVideoStreamConfig
 </span><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#newKinesisVideoStreamConfig"><span class="hs-identifier hs-var hs-var">newKinesisVideoStreamConfig</span></a></span></span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679399594"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399594"><span class="hs-identifier hs-var">pPrefix_</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679399593"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679399593"><span class="hs-identifier hs-var">pRetentionPeriodHours_</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679399592"><span class="annot"><span class="annottext">EncryptionConfig
-</span><a href="#local-6989586621679399592"><span class="hs-identifier hs-var">pEncryptionConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679399603"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399603"><span class="hs-identifier hs-var">pPrefix_</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679399602"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679399602"><span class="hs-identifier hs-var">pRetentionPeriodHours_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679399601"><span class="annot"><span class="annottext">EncryptionConfig
+</span><a href="#local-6989586621679399601"><span class="hs-identifier hs-var">pEncryptionConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">KinesisVideoStreamConfig' :: Text -&gt; Natural -&gt; EncryptionConfig -&gt; KinesisVideoStreamConfig
 </span><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-type">KinesisVideoStreamConfig'</span></a></span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:prefix:KinesisVideoStreamConfig' :: Text
 </span><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#%24sel%3Aprefix%3AKinesisVideoStreamConfig%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399594"><span class="hs-identifier hs-var">pPrefix_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679399603"><span class="hs-identifier hs-var">pPrefix_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">$sel:retentionPeriodHours:KinesisVideoStreamConfig' :: Natural
 </span><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#%24sel%3AretentionPeriodHours%3AKinesisVideoStreamConfig%27"><span class="hs-identifier hs-var">retentionPeriodHours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679399593"><span class="hs-identifier hs-var">pRetentionPeriodHours_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679399602"><span class="hs-identifier hs-var">pRetentionPeriodHours_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:encryptionConfig:KinesisVideoStreamConfig' :: EncryptionConfig
 </span><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#%24sel%3AencryptionConfig%3AKinesisVideoStreamConfig%27"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
-</span><a href="#local-6989586621679399592"><span class="hs-identifier hs-var">pEncryptionConfig_</span></a></span><span>
+</span><a href="#local-6989586621679399601"><span class="hs-identifier hs-var">pEncryptionConfig_</span></a></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The prefix of the video stream.</span><span>
@@ -159,16 +159,16 @@ KinesisVideoStreamConfig -&gt; Rep KinesisVideoStreamConfig x
 -&gt; (KinesisVideoStreamConfig -&gt; Text -&gt; KinesisVideoStreamConfig)
 -&gt; Lens KinesisVideoStreamConfig KinesisVideoStreamConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-type">KinesisVideoStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399588"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-type">KinesisVideoStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399597"><span class="annot"><span class="annottext">Text
 prefix :: Text
 $sel:prefix:KinesisVideoStreamConfig' :: KinesisVideoStreamConfig -&gt; Text
-</span><a href="#local-6989586621679399588"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399588"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399587"><span class="annot"><span class="annottext">s :: KinesisVideoStreamConfig
-</span><a href="#local-6989586621679399587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-type">KinesisVideoStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399586"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisVideoStreamConfig
-</span><a href="#local-6989586621679399587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:KinesisVideoStreamConfig' :: Text
+</span><a href="#local-6989586621679399597"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399597"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399596"><span class="annot"><span class="annottext">s :: KinesisVideoStreamConfig
+</span><a href="#local-6989586621679399596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-type">KinesisVideoStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399595"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisVideoStreamConfig
+</span><a href="#local-6989586621679399596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:KinesisVideoStreamConfig' :: Text
 </span><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#%24sel%3Aprefix%3AKinesisVideoStreamConfig%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-type">KinesisVideoStreamConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-type">KinesisVideoStreamConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The number of hours data is retained in the stream. Kinesis Video</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- Streams retains the data in a data store that is associated with the</span><span>
@@ -185,16 +185,16 @@ $sel:prefix:KinesisVideoStreamConfig' :: KinesisVideoStreamConfig -&gt; Text
 -&gt; Lens
      KinesisVideoStreamConfig KinesisVideoStreamConfig Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-type">KinesisVideoStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399584"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-type">KinesisVideoStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399593"><span class="annot"><span class="annottext">Natural
 retentionPeriodHours :: Natural
 $sel:retentionPeriodHours:KinesisVideoStreamConfig' :: KinesisVideoStreamConfig -&gt; Natural
-</span><a href="#local-6989586621679399584"><span class="hs-identifier hs-var hs-var">retentionPeriodHours</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679399584"><span class="hs-identifier hs-var">retentionPeriodHours</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399583"><span class="annot"><span class="annottext">s :: KinesisVideoStreamConfig
-</span><a href="#local-6989586621679399583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-type">KinesisVideoStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399582"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679399582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisVideoStreamConfig
-</span><a href="#local-6989586621679399583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionPeriodHours:KinesisVideoStreamConfig' :: Natural
+</span><a href="#local-6989586621679399593"><span class="hs-identifier hs-var hs-var">retentionPeriodHours</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679399593"><span class="hs-identifier hs-var">retentionPeriodHours</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399592"><span class="annot"><span class="annottext">s :: KinesisVideoStreamConfig
+</span><a href="#local-6989586621679399592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-type">KinesisVideoStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399591"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679399591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisVideoStreamConfig
+</span><a href="#local-6989586621679399592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionPeriodHours:KinesisVideoStreamConfig' :: Natural
 </span><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#%24sel%3AretentionPeriodHours%3AKinesisVideoStreamConfig%27"><span class="hs-identifier hs-var">retentionPeriodHours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679399582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-type">KinesisVideoStreamConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-type">KinesisVideoStreamConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The encryption configuration.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#kinesisVideoStreamConfig_encryptionConfig"><span class="hs-identifier hs-type">kinesisVideoStreamConfig_encryptionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-type">KinesisVideoStreamConfig</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span>
@@ -209,19 +209,19 @@ $sel:retentionPeriodHours:KinesisVideoStreamConfig' :: KinesisVideoStreamConfig 
      EncryptionConfig
      EncryptionConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-type">KinesisVideoStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399580"><span class="annot"><span class="annottext">EncryptionConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-type">KinesisVideoStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399589"><span class="annot"><span class="annottext">EncryptionConfig
 encryptionConfig :: EncryptionConfig
 $sel:encryptionConfig:KinesisVideoStreamConfig' :: KinesisVideoStreamConfig -&gt; EncryptionConfig
-</span><a href="#local-6989586621679399580"><span class="hs-identifier hs-var hs-var">encryptionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
-</span><a href="#local-6989586621679399580"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399579"><span class="annot"><span class="annottext">s :: KinesisVideoStreamConfig
-</span><a href="#local-6989586621679399579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-type">KinesisVideoStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399578"><span class="annot"><span class="annottext">EncryptionConfig
-</span><a href="#local-6989586621679399578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisVideoStreamConfig
-</span><a href="#local-6989586621679399579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfig:KinesisVideoStreamConfig' :: EncryptionConfig
+</span><a href="#local-6989586621679399589"><span class="hs-identifier hs-var hs-var">encryptionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
+</span><a href="#local-6989586621679399589"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399588"><span class="annot"><span class="annottext">s :: KinesisVideoStreamConfig
+</span><a href="#local-6989586621679399588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-type">KinesisVideoStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399587"><span class="annot"><span class="annottext">EncryptionConfig
+</span><a href="#local-6989586621679399587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisVideoStreamConfig
+</span><a href="#local-6989586621679399588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfig:KinesisVideoStreamConfig' :: EncryptionConfig
 </span><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#%24sel%3AencryptionConfig%3AKinesisVideoStreamConfig%27"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
-</span><a href="#local-6989586621679399578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-type">KinesisVideoStreamConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-type">KinesisVideoStreamConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399575"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-type">KinesisVideoStreamConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679399573"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KinesisVideoStreamConfig
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399584"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-type">KinesisVideoStreamConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679399582"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KinesisVideoStreamConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KinesisVideoStreamConfig)
@@ -231,8 +231,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KinesisVideoStreamConfig&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399570"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399570"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399579"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399579"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; EncryptionConfig -&gt; KinesisVideoStreamConfig
 </span><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-var">KinesisVideoStreamConfig'</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Natural -&gt; EncryptionConfig -&gt; KinesisVideoStreamConfig)
@@ -240,7 +240,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Natural -&gt; EncryptionConfig -&gt; KinesisVideoStreamConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679399579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Prefix&quot;</span></span><span class="hs-special">)</span><span>
@@ -249,7 +249,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (EncryptionConfig -&gt; KinesisVideoStreamConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679399579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RetentionPeriodHours&quot;</span></span><span class="hs-special">)</span><span>
@@ -257,19 +257,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser EncryptionConfig -&gt; Parser KinesisVideoStreamConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EncryptionConfig
+</span><a href="#local-6989586621679399579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EncryptionConfig
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncryptionConfig&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399564"><span id="local-6989586621679399566"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-type">KinesisVideoStreamConfig</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399573"><span id="local-6989586621679399575"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-type">KinesisVideoStreamConfig</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399561"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-type">KinesisVideoStreamConfig</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-type">KinesisVideoStreamConfig</span></a></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399553"><span id="local-6989586621679399555"><span id="local-6989586621679399557"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-type">KinesisVideoStreamConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679399551"><span class="annot"><span class="annottext">toJSON :: KinesisVideoStreamConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-type">KinesisVideoStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399547"><span id="local-6989586621679399548"><span id="local-6989586621679399549"><span class="annot"><span class="annottext">Natural
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399562"><span id="local-6989586621679399564"><span id="local-6989586621679399566"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig"><span class="hs-identifier hs-type">KinesisVideoStreamConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679399560"><span class="annot"><span class="annottext">toJSON :: KinesisVideoStreamConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisVideoStreamConfig.html#KinesisVideoStreamConfig%27"><span class="hs-identifier hs-type">KinesisVideoStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399556"><span id="local-6989586621679399557"><span id="local-6989586621679399558"><span class="annot"><span class="annottext">Natural
 Text
 EncryptionConfig
 encryptionConfig :: EncryptionConfig
@@ -278,7 +278,7 @@ prefix :: Text
 $sel:encryptionConfig:KinesisVideoStreamConfig' :: KinesisVideoStreamConfig -&gt; EncryptionConfig
 $sel:retentionPeriodHours:KinesisVideoStreamConfig' :: KinesisVideoStreamConfig -&gt; Natural
 $sel:prefix:KinesisVideoStreamConfig' :: KinesisVideoStreamConfig -&gt; Text
-</span><a href="#local-6989586621679399547"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679399556"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -290,7 +290,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399549"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679399558"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -299,7 +299,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-120"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679399548"><span class="hs-identifier hs-var">retentionPeriodHours</span></a></span><span>
+</span><a href="#local-6989586621679399557"><span class="hs-identifier hs-var">retentionPeriodHours</span></a></span><span>
 </span><span id="line-121"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -308,7 +308,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;EncryptionConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
-</span><a href="#local-6989586621679399547"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399556"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span></pre></body></html>

@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681131849"><span id="local-6989586621681131850"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PartitionLoadFrequency"><span class="annot"><a href="Network.AWS.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency"><span class="hs-identifier hs-var">PartitionLoadFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartitionLoadFrequency%27"><span class="annot"><a href="Network.AWS.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency%27"><span class="hs-identifier hs-var">PartitionLoadFrequency'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681131858"><span id="local-6989586621681131859"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PartitionLoadFrequency"><span class="annot"><a href="Network.AWS.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency"><span class="hs-identifier hs-var">PartitionLoadFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartitionLoadFrequency%27"><span class="annot"><a href="Network.AWS.EC2.Types.PartitionLoadFrequency.html#PartitionLoadFrequency%27"><span class="hs-identifier hs-var">PartitionLoadFrequency'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPartitionLoadFrequency"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; Text
 </span><a href="Network.AWS.EC2.Types.PartitionLoadFrequency.html#fromPartitionLoadFrequency"><span class="hs-identifier hs-var hs-var">fromPartitionLoadFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681131841"><span id="local-6989586621681131843"><span id="local-6989586621681131845"><span class="annot"><span class="annottext">Int -&gt; PartitionLoadFrequency -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681131850"><span id="local-6989586621681131852"><span id="local-6989586621681131854"><span class="annot"><span class="annottext">Int -&gt; PartitionLoadFrequency -&gt; ShowS
 [PartitionLoadFrequency] -&gt; ShowS
 PartitionLoadFrequency -&gt; String
 (Int -&gt; PartitionLoadFrequency -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: PartitionLoadFrequency -&gt; String
 showsPrec :: Int -&gt; PartitionLoadFrequency -&gt; ShowS
 $cshowsPrec :: Int -&gt; PartitionLoadFrequency -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681131832"><span id="local-6989586621681131834"><span id="local-6989586621681131836"><span id="local-6989586621681131838"><span class="annot"><span class="annottext">ReadPrec [PartitionLoadFrequency]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681131841"><span id="local-6989586621681131843"><span id="local-6989586621681131845"><span id="local-6989586621681131847"><span class="annot"><span class="annottext">ReadPrec [PartitionLoadFrequency]
 ReadPrec PartitionLoadFrequency
 Int -&gt; ReadS PartitionLoadFrequency
 ReadS [PartitionLoadFrequency]
@@ -75,7 +75,7 @@ $creadList :: ReadS [PartitionLoadFrequency]
 readsPrec :: Int -&gt; ReadS PartitionLoadFrequency
 $creadsPrec :: Int -&gt; ReadS PartitionLoadFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681131827"><span id="local-6989586621681131829"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681131836"><span id="local-6989586621681131838"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
 (PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool)
 -&gt; (PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool)
 -&gt; Eq PartitionLoadFrequency
@@ -85,7 +85,7 @@ $c/= :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
 == :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
 $c== :: PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681131811"><span id="local-6989586621681131813"><span id="local-6989586621681131815"><span id="local-6989586621681131817"><span id="local-6989586621681131819"><span id="local-6989586621681131821"><span id="local-6989586621681131823"><span class="annot"><span class="annottext">Eq PartitionLoadFrequency
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681131820"><span id="local-6989586621681131822"><span id="local-6989586621681131824"><span id="local-6989586621681131826"><span id="local-6989586621681131828"><span id="local-6989586621681131830"><span id="local-6989586621681131832"><span class="annot"><span class="annottext">Eq PartitionLoadFrequency
 Eq PartitionLoadFrequency
 -&gt; (PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Ordering)
 -&gt; (PartitionLoadFrequency -&gt; PartitionLoadFrequency -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. PartitionLoadFrequency -&gt; Rep PartitionLoadFrequency x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681131803"><span id="local-6989586621681131805"><span class="annot"><span class="annottext">Int -&gt; PartitionLoadFrequency -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681131812"><span id="local-6989586621681131814"><span class="annot"><span class="annottext">Int -&gt; PartitionLoadFrequency -&gt; Int
 PartitionLoadFrequency -&gt; Int
 (Int -&gt; PartitionLoadFrequency -&gt; Int)
 -&gt; (PartitionLoadFrequency -&gt; Int)
@@ -155,54 +155,54 @@ $chash :: PartitionLoadFrequency -&gt; Int
 hashWithSalt :: Int -&gt; PartitionLoadFrequency -&gt; Int
 $chashWithSalt :: Int -&gt; PartitionLoadFrequency -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681131800"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681131809"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; ()
 (PartitionLoadFrequency -&gt; ()) -&gt; NFData PartitionLoadFrequency
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PartitionLoadFrequency -&gt; ()
 $crnf :: PartitionLoadFrequency -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681131797"><span class="annot"><span class="annottext">Text -&gt; Either String PartitionLoadFrequency
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681131806"><span class="annot"><span class="annottext">Text -&gt; Either String PartitionLoadFrequency
 (Text -&gt; Either String PartitionLoadFrequency)
 -&gt; FromText PartitionLoadFrequency
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PartitionLoadFrequency
 $cfromText :: Text -&gt; Either String PartitionLoadFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681131794"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681131803"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; Text
 (PartitionLoadFrequency -&gt; Text) -&gt; ToText PartitionLoadFrequency
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PartitionLoadFrequency -&gt; Text
 $ctoText :: PartitionLoadFrequency -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681131791"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681131800"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; ByteString
 (PartitionLoadFrequency -&gt; ByteString)
 -&gt; ToByteString PartitionLoadFrequency
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PartitionLoadFrequency -&gt; ByteString
 $ctoBS :: PartitionLoadFrequency -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681131788"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681131797"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; ByteStringBuilder
 (PartitionLoadFrequency -&gt; ByteStringBuilder)
 -&gt; ToLog PartitionLoadFrequency
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PartitionLoadFrequency -&gt; ByteStringBuilder
 $cbuild :: PartitionLoadFrequency -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681131785"><span class="annot"><span class="annottext">HeaderName -&gt; PartitionLoadFrequency -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681131794"><span class="annot"><span class="annottext">HeaderName -&gt; PartitionLoadFrequency -&gt; [Header]
 (HeaderName -&gt; PartitionLoadFrequency -&gt; [Header])
 -&gt; ToHeader PartitionLoadFrequency
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PartitionLoadFrequency -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PartitionLoadFrequency -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681131782"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681131791"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; QueryString
 (PartitionLoadFrequency -&gt; QueryString)
 -&gt; ToQuery PartitionLoadFrequency
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PartitionLoadFrequency -&gt; QueryString
 $ctoQuery :: PartitionLoadFrequency -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681131777"><span id="local-6989586621681131779"><span class="annot"><span class="annottext">Value -&gt; Parser [PartitionLoadFrequency]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681131786"><span id="local-6989586621681131788"><span class="annot"><span class="annottext">Value -&gt; Parser [PartitionLoadFrequency]
 Value -&gt; Parser PartitionLoadFrequency
 (Value -&gt; Parser PartitionLoadFrequency)
 -&gt; (Value -&gt; Parser [PartitionLoadFrequency])
@@ -214,7 +214,7 @@ $cparseJSONList :: Value -&gt; Parser [PartitionLoadFrequency]
 parseJSON :: Value -&gt; Parser PartitionLoadFrequency
 $cparseJSON :: Value -&gt; Parser PartitionLoadFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681131772"><span id="local-6989586621681131774"><span class="annot"><span class="annottext">FromJSONKeyFunction [PartitionLoadFrequency]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681131781"><span id="local-6989586621681131783"><span class="annot"><span class="annottext">FromJSONKeyFunction [PartitionLoadFrequency]
 FromJSONKeyFunction PartitionLoadFrequency
 FromJSONKeyFunction PartitionLoadFrequency
 -&gt; FromJSONKeyFunction [PartitionLoadFrequency]
@@ -226,7 +226,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PartitionLoadFrequency]
 fromJSONKey :: FromJSONKeyFunction PartitionLoadFrequency
 $cfromJSONKey :: FromJSONKeyFunction PartitionLoadFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681131763"><span id="local-6989586621681131765"><span id="local-6989586621681131767"><span id="local-6989586621681131769"><span class="annot"><span class="annottext">[PartitionLoadFrequency] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681131772"><span id="local-6989586621681131774"><span id="local-6989586621681131776"><span id="local-6989586621681131778"><span class="annot"><span class="annottext">[PartitionLoadFrequency] -&gt; Encoding
 [PartitionLoadFrequency] -&gt; Value
 PartitionLoadFrequency -&gt; Encoding
 PartitionLoadFrequency -&gt; Value
@@ -250,7 +250,7 @@ $ctoEncoding :: PartitionLoadFrequency -&gt; Encoding
 toJSON :: PartitionLoadFrequency -&gt; Value
 $ctoJSON :: PartitionLoadFrequency -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681131758"><span id="local-6989586621681131760"><span class="annot"><span class="annottext">ToJSONKeyFunction [PartitionLoadFrequency]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681131767"><span id="local-6989586621681131769"><span class="annot"><span class="annottext">ToJSONKeyFunction [PartitionLoadFrequency]
 ToJSONKeyFunction PartitionLoadFrequency
 ToJSONKeyFunction PartitionLoadFrequency
 -&gt; ToJSONKeyFunction [PartitionLoadFrequency]
@@ -262,14 +262,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PartitionLoadFrequency]
 toJSONKey :: ToJSONKeyFunction PartitionLoadFrequency
 $ctoJSONKey :: ToJSONKeyFunction PartitionLoadFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681131755"><span class="annot"><span class="annottext">[Node] -&gt; Either String PartitionLoadFrequency
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681131764"><span class="annot"><span class="annottext">[Node] -&gt; Either String PartitionLoadFrequency
 ([Node] -&gt; Either String PartitionLoadFrequency)
 -&gt; FromXML PartitionLoadFrequency
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PartitionLoadFrequency
 $cparseXML :: [Node] -&gt; Either String PartitionLoadFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681131752"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681131761"><span class="annot"><span class="annottext">PartitionLoadFrequency -&gt; XML
 (PartitionLoadFrequency -&gt; XML) -&gt; ToXML PartitionLoadFrequency
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PartitionLoadFrequency -&gt; XML

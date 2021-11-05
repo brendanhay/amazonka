@@ -66,7 +66,7 @@
 </span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newListAttachedRolePolicies' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679446487"><span id="local-6989586621679446488"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAttachedRolePolicies"><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-var">ListAttachedRolePolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAttachedRolePolicies%27"><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-var">ListAttachedRolePolicies'</span></a></span></span><span>
+</span><span id="line-69"></span><span id="local-6989586621679446496"><span id="local-6989586621679446497"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAttachedRolePolicies"><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-var">ListAttachedRolePolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAttachedRolePolicies%27"><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-var">ListAttachedRolePolicies'</span></a></span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path prefix for filtering the results. This parameter is optional.</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- If it is not included, it defaults to a slash (\/), listing all</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">-- policies.</span><span>
@@ -107,7 +107,7 @@
 </span><span id="line-104"></span><span>    </span><span id="%24sel%3AroleName%3AListAttachedRolePolicies%27"><span class="annot"><span class="annottext">ListAttachedRolePolicies -&gt; Text
 </span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#%24sel%3AroleName%3AListAttachedRolePolicies%27"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446478"><span id="local-6989586621679446480"><span class="annot"><span class="annottext">ListAttachedRolePolicies -&gt; ListAttachedRolePolicies -&gt; Bool
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446487"><span id="local-6989586621679446489"><span class="annot"><span class="annottext">ListAttachedRolePolicies -&gt; ListAttachedRolePolicies -&gt; Bool
 (ListAttachedRolePolicies -&gt; ListAttachedRolePolicies -&gt; Bool)
 -&gt; (ListAttachedRolePolicies -&gt; ListAttachedRolePolicies -&gt; Bool)
 -&gt; Eq ListAttachedRolePolicies
@@ -116,7 +116,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListAttachedRolePolicies -&gt; ListAttachedRolePolicies -&gt; Bool
 == :: ListAttachedRolePolicies -&gt; ListAttachedRolePolicies -&gt; Bool
 $c== :: ListAttachedRolePolicies -&gt; ListAttachedRolePolicies -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446469"><span id="local-6989586621679446471"><span id="local-6989586621679446473"><span id="local-6989586621679446475"><span class="annot"><span class="annottext">ReadPrec [ListAttachedRolePolicies]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446478"><span id="local-6989586621679446480"><span id="local-6989586621679446482"><span id="local-6989586621679446484"><span class="annot"><span class="annottext">ReadPrec [ListAttachedRolePolicies]
 ReadPrec ListAttachedRolePolicies
 Int -&gt; ReadS ListAttachedRolePolicies
 ReadS [ListAttachedRolePolicies]
@@ -136,7 +136,7 @@ readList :: ReadS [ListAttachedRolePolicies]
 $creadList :: ReadS [ListAttachedRolePolicies]
 readsPrec :: Int -&gt; ReadS ListAttachedRolePolicies
 $creadsPrec :: Int -&gt; ReadS ListAttachedRolePolicies
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446462"><span id="local-6989586621679446464"><span id="local-6989586621679446466"><span class="annot"><span class="annottext">Int -&gt; ListAttachedRolePolicies -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446471"><span id="local-6989586621679446473"><span id="local-6989586621679446475"><span class="annot"><span class="annottext">Int -&gt; ListAttachedRolePolicies -&gt; ShowS
 [ListAttachedRolePolicies] -&gt; ShowS
 ListAttachedRolePolicies -&gt; String
 (Int -&gt; ListAttachedRolePolicies -&gt; ShowS)
@@ -215,8 +215,8 @@ ListAttachedRolePolicies -&gt; Rep ListAttachedRolePolicies x
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span><span>
 </span><span id="line-154"></span><span id="newListAttachedRolePolicies"><span class="annot"><span class="annottext">newListAttachedRolePolicies :: Text -&gt; ListAttachedRolePolicies
-</span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#newListAttachedRolePolicies"><span class="hs-identifier hs-var hs-var">newListAttachedRolePolicies</span></a></span></span><span> </span><span id="local-6989586621679446457"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446457"><span class="hs-identifier hs-var">pRoleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#newListAttachedRolePolicies"><span class="hs-identifier hs-var hs-var">newListAttachedRolePolicies</span></a></span></span><span> </span><span id="local-6989586621679446466"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446466"><span class="hs-identifier hs-var">pRoleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">ListAttachedRolePolicies' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListAttachedRolePolicies
 </span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span>
@@ -235,7 +235,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleName:ListAttachedRolePolicies' :: Text
 </span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#%24sel%3AroleName%3AListAttachedRolePolicies%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446457"><span class="hs-identifier hs-var">pRoleName_</span></a></span><span>
+</span><a href="#local-6989586621679446466"><span class="hs-identifier hs-var">pRoleName_</span></a></span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | The path prefix for filtering the results. This parameter is optional.</span><span>
@@ -261,16 +261,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446455"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446464"><span class="annot"><span class="annottext">Maybe Text
 pathPrefix :: Maybe Text
 $sel:pathPrefix:ListAttachedRolePolicies' :: ListAttachedRolePolicies -&gt; Maybe Text
-</span><a href="#local-6989586621679446455"><span class="hs-identifier hs-var hs-var">pathPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446455"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446454"><span class="annot"><span class="annottext">s :: ListAttachedRolePolicies
-</span><a href="#local-6989586621679446454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446453"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedRolePolicies
-</span><a href="#local-6989586621679446454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathPrefix:ListAttachedRolePolicies' :: Maybe Text
+</span><a href="#local-6989586621679446464"><span class="hs-identifier hs-var hs-var">pathPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446464"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446463"><span class="annot"><span class="annottext">s :: ListAttachedRolePolicies
+</span><a href="#local-6989586621679446463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446462"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedRolePolicies
+</span><a href="#local-6989586621679446463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathPrefix:ListAttachedRolePolicies' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#%24sel%3ApathPrefix%3AListAttachedRolePolicies%27"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
@@ -288,16 +288,16 @@ $sel:pathPrefix:ListAttachedRolePolicies' :: ListAttachedRolePolicies -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446452"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446461"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListAttachedRolePolicies' :: ListAttachedRolePolicies -&gt; Maybe Text
-</span><a href="#local-6989586621679446452"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446452"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446451"><span class="annot"><span class="annottext">s :: ListAttachedRolePolicies
-</span><a href="#local-6989586621679446451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446450"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedRolePolicies
-</span><a href="#local-6989586621679446451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListAttachedRolePolicies' :: Maybe Text
+</span><a href="#local-6989586621679446461"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446461"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446460"><span class="annot"><span class="annottext">s :: ListAttachedRolePolicies
+</span><a href="#local-6989586621679446460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446459"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedRolePolicies
+</span><a href="#local-6989586621679446460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListAttachedRolePolicies' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#%24sel%3Amarker%3AListAttachedRolePolicies%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
@@ -320,16 +320,16 @@ $sel:marker:ListAttachedRolePolicies' :: ListAttachedRolePolicies -&gt; Maybe Te
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446449"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446458"><span class="annot"><span class="annottext">Maybe Natural
 maxItems :: Maybe Natural
 $sel:maxItems:ListAttachedRolePolicies' :: ListAttachedRolePolicies -&gt; Maybe Natural
-</span><a href="#local-6989586621679446449"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679446449"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446448"><span class="annot"><span class="annottext">s :: ListAttachedRolePolicies
-</span><a href="#local-6989586621679446448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446447"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679446447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedRolePolicies
-</span><a href="#local-6989586621679446448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListAttachedRolePolicies' :: Maybe Natural
+</span><a href="#local-6989586621679446458"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679446458"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446457"><span class="annot"><span class="annottext">s :: ListAttachedRolePolicies
+</span><a href="#local-6989586621679446457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446456"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679446456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedRolePolicies
+</span><a href="#local-6989586621679446457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListAttachedRolePolicies' :: Maybe Natural
 </span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#%24sel%3AmaxItems%3AListAttachedRolePolicies%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679446447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The name (friendly name, not ARN) of the role to list attached policies</span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- for.</span><span>
@@ -345,30 +345,30 @@ $sel:maxItems:ListAttachedRolePolicies' :: ListAttachedRolePolicies -&gt; Maybe 
 -&gt; (ListAttachedRolePolicies -&gt; Text -&gt; ListAttachedRolePolicies)
 -&gt; Lens ListAttachedRolePolicies ListAttachedRolePolicies Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446446"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446455"><span class="annot"><span class="annottext">Text
 roleName :: Text
 $sel:roleName:ListAttachedRolePolicies' :: ListAttachedRolePolicies -&gt; Text
-</span><a href="#local-6989586621679446446"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446446"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446445"><span class="annot"><span class="annottext">s :: ListAttachedRolePolicies
-</span><a href="#local-6989586621679446445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446444"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedRolePolicies
-</span><a href="#local-6989586621679446445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:ListAttachedRolePolicies' :: Text
+</span><a href="#local-6989586621679446455"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446455"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446454"><span class="annot"><span class="annottext">s :: ListAttachedRolePolicies
+</span><a href="#local-6989586621679446454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446453"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedRolePolicies
+</span><a href="#local-6989586621679446454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:ListAttachedRolePolicies' :: Text
 </span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#%24sel%3AroleName%3AListAttachedRolePolicies%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621679446440"><span class="annot"><span class="annottext">page :: ListAttachedRolePolicies
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679446449"><span class="annot"><span class="annottext">page :: ListAttachedRolePolicies
 -&gt; AWSResponse ListAttachedRolePolicies
 -&gt; Maybe ListAttachedRolePolicies
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679446438"><span class="annot"><span class="annottext">ListAttachedRolePolicies
-</span><a href="#local-6989586621679446438"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679446437"><span class="annot"><span class="annottext">AWSResponse ListAttachedRolePolicies
-</span><a href="#local-6989586621679446437"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679446447"><span class="annot"><span class="annottext">ListAttachedRolePolicies
+</span><a href="#local-6989586621679446447"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679446446"><span class="annot"><span class="annottext">AWSResponse ListAttachedRolePolicies
+</span><a href="#local-6989586621679446446"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-208"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-209"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAttachedRolePolicies
 ListAttachedRolePoliciesResponse
-</span><a href="#local-6989586621679446437"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679446446"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">ListAttachedRolePoliciesResponse
 -&gt; Getting (First Bool) ListAttachedRolePoliciesResponse Bool
 -&gt; Maybe Bool
@@ -398,7 +398,7 @@ forall a. Maybe a -&gt; Bool
 </span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
 </span><span id="line-215"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAttachedRolePolicies
 ListAttachedRolePoliciesResponse
-</span><a href="#local-6989586621679446437"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679446446"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">ListAttachedRolePoliciesResponse
 -&gt; Getting (First Text) ListAttachedRolePoliciesResponse Text
 -&gt; Maybe Text
@@ -432,7 +432,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">ListAttachedRolePolicies
-</span><a href="#local-6989586621679446438"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679446447"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">ListAttachedRolePolicies
 -&gt; (ListAttachedRolePolicies -&gt; ListAttachedRolePolicies)
 -&gt; ListAttachedRolePolicies
@@ -453,7 +453,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAttachedRolePolicies
 ListAttachedRolePoliciesResponse
-</span><a href="#local-6989586621679446437"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679446446"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">ListAttachedRolePoliciesResponse
 -&gt; Getting (First Text) ListAttachedRolePoliciesResponse Text
 -&gt; Maybe Text
@@ -479,13 +479,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-229"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-230"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-231"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse</span></a></span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679446426"><span class="annot"><span class="annottext">request :: ListAttachedRolePolicies -&gt; Request ListAttachedRolePolicies
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679446435"><span class="annot"><span class="annottext">request :: ListAttachedRolePolicies -&gt; Request ListAttachedRolePolicies
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListAttachedRolePolicies -&gt; Request ListAttachedRolePolicies
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-233"></span><span>  </span><span id="local-6989586621679446422"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679446431"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListAttachedRolePolicies
 -&gt; ClientResponse ClientBody
@@ -516,10 +516,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ListAttachedRolePoliciesResult&quot;</span></span><span>
-</span><span id="line-236"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679446419"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446419"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679446418"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679446418"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679446417"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679446417"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679446428"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446428"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679446427"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679446427"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679446426"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679446426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
 -&gt; Maybe Text
 -&gt; Maybe Bool
@@ -538,7 +538,7 @@ Text
       -&gt; Maybe Bool -&gt; Int -&gt; ListAttachedRolePoliciesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679446417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679446426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttachedPolicies&quot;</span></span><span>
@@ -570,7 +570,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
      String (Maybe Bool -&gt; Int -&gt; ListAttachedRolePoliciesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679446417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679446426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -580,7 +580,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListAttachedRolePoliciesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679446417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679446426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
@@ -593,15 +593,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446419"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446428"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>
-</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446406"><span id="local-6989586621679446408"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span></span></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446415"><span id="local-6989586621679446417"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span></span></span><span>
 </span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446412"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span></span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-252"></span><span>  </span><span id="local-6989586621679446399"><span class="annot"><span class="annottext">toHeaders :: ListAttachedRolePolicies -&gt; ResponseHeaders
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679446408"><span class="annot"><span class="annottext">toHeaders :: ListAttachedRolePolicies -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAttachedRolePolicies -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -609,15 +609,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-255"></span><span>  </span><span id="local-6989586621679446394"><span class="annot"><span class="annottext">toPath :: ListAttachedRolePolicies -&gt; ByteString
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679446403"><span class="annot"><span class="annottext">toPath :: ListAttachedRolePolicies -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAttachedRolePolicies -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies"><span class="hs-identifier hs-type">ListAttachedRolePolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-258"></span><span>  </span><span id="local-6989586621679446390"><span class="annot"><span class="annottext">toQuery :: ListAttachedRolePolicies -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446385"><span id="local-6989586621679446386"><span id="local-6989586621679446387"><span id="local-6989586621679446388"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679446399"><span class="annot"><span class="annottext">toQuery :: ListAttachedRolePolicies -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePolicies%27"><span class="hs-identifier hs-type">ListAttachedRolePolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446394"><span id="local-6989586621679446395"><span id="local-6989586621679446396"><span id="local-6989586621679446397"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 roleName :: Text
@@ -628,7 +628,7 @@ $sel:roleName:ListAttachedRolePolicies' :: ListAttachedRolePolicies -&gt; Text
 $sel:maxItems:ListAttachedRolePolicies' :: ListAttachedRolePolicies -&gt; Maybe Natural
 $sel:marker:ListAttachedRolePolicies' :: ListAttachedRolePolicies -&gt; Maybe Text
 $sel:pathPrefix:ListAttachedRolePolicies' :: ListAttachedRolePolicies -&gt; Maybe Text
-</span><a href="#local-6989586621679446385"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679446394"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-259"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -648,28 +648,28 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;PathPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446388"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446397"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446387"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446396"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679446386"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446395"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;RoleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446385"><span class="hs-identifier hs-var">roleName</span></a></span><span>
+</span><a href="#local-6989586621679446394"><span class="hs-identifier hs-var">roleName</span></a></span><span>
 </span><span id="line-268"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | Contains the response to a successful ListAttachedRolePolicies request.</span><span>
 </span><span id="line-271"></span><span class="hs-comment">--</span><span>
 </span><span id="line-272"></span><span class="hs-comment">-- /See:/ 'newListAttachedRolePoliciesResponse' smart constructor.</span><span>
-</span><span id="line-273"></span><span id="local-6989586621679446382"><span id="local-6989586621679446383"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAttachedRolePoliciesResponse"><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse"><span class="hs-identifier hs-var">ListAttachedRolePoliciesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAttachedRolePoliciesResponse%27"><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-var">ListAttachedRolePoliciesResponse'</span></a></span></span><span>
+</span><span id="line-273"></span><span id="local-6989586621679446391"><span id="local-6989586621679446392"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAttachedRolePoliciesResponse"><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse"><span class="hs-identifier hs-var">ListAttachedRolePoliciesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAttachedRolePoliciesResponse%27"><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-var">ListAttachedRolePoliciesResponse'</span></a></span></span><span>
 </span><span id="line-274"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the attached policies.</span><span>
 </span><span id="line-275"></span><span>    </span><span id="%24sel%3AattachedPolicies%3AListAttachedRolePoliciesResponse%27"><span class="annot"><span class="annottext">ListAttachedRolePoliciesResponse -&gt; Maybe [AttachedPolicy]
 </span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#%24sel%3AattachedPolicies%3AListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-var hs-var">attachedPolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.AttachedPolicy.html#AttachedPolicy"><span class="hs-identifier hs-type">AttachedPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -691,7 +691,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-289"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAttachedRolePoliciesResponse%27"><span class="annot"><span class="annottext">ListAttachedRolePoliciesResponse -&gt; Int
 </span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#%24sel%3AhttpStatus%3AListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-290"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-291"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446374"><span id="local-6989586621679446376"><span class="annot"><span class="annottext">ListAttachedRolePoliciesResponse
+</span><span id="line-291"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446383"><span id="local-6989586621679446385"><span class="annot"><span class="annottext">ListAttachedRolePoliciesResponse
 -&gt; ListAttachedRolePoliciesResponse -&gt; Bool
 (ListAttachedRolePoliciesResponse
  -&gt; ListAttachedRolePoliciesResponse -&gt; Bool)
@@ -707,7 +707,7 @@ $c/= :: ListAttachedRolePoliciesResponse
 -&gt; ListAttachedRolePoliciesResponse -&gt; Bool
 $c== :: ListAttachedRolePoliciesResponse
 -&gt; ListAttachedRolePoliciesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446366"><span id="local-6989586621679446368"><span id="local-6989586621679446370"><span id="local-6989586621679446372"><span class="annot"><span class="annottext">ReadPrec [ListAttachedRolePoliciesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446375"><span id="local-6989586621679446377"><span id="local-6989586621679446379"><span id="local-6989586621679446381"><span class="annot"><span class="annottext">ReadPrec [ListAttachedRolePoliciesResponse]
 ReadPrec ListAttachedRolePoliciesResponse
 Int -&gt; ReadS ListAttachedRolePoliciesResponse
 ReadS [ListAttachedRolePoliciesResponse]
@@ -727,7 +727,7 @@ readList :: ReadS [ListAttachedRolePoliciesResponse]
 $creadList :: ReadS [ListAttachedRolePoliciesResponse]
 readsPrec :: Int -&gt; ReadS ListAttachedRolePoliciesResponse
 $creadsPrec :: Int -&gt; ReadS ListAttachedRolePoliciesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446360"><span id="local-6989586621679446362"><span id="local-6989586621679446364"><span class="annot"><span class="annottext">Int -&gt; ListAttachedRolePoliciesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446369"><span id="local-6989586621679446371"><span id="local-6989586621679446373"><span class="annot"><span class="annottext">Int -&gt; ListAttachedRolePoliciesResponse -&gt; ShowS
 [ListAttachedRolePoliciesResponse] -&gt; ShowS
 ListAttachedRolePoliciesResponse -&gt; String
 (Int -&gt; ListAttachedRolePoliciesResponse -&gt; ShowS)
@@ -793,8 +793,8 @@ ListAttachedRolePoliciesResponse
 </span><span id="line-318"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-319"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse</span></a></span><span>
 </span><span id="line-320"></span><span id="newListAttachedRolePoliciesResponse"><span class="annot"><span class="annottext">newListAttachedRolePoliciesResponse :: Int -&gt; ListAttachedRolePoliciesResponse
-</span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#newListAttachedRolePoliciesResponse"><span class="hs-identifier hs-var hs-var">newListAttachedRolePoliciesResponse</span></a></span></span><span> </span><span id="local-6989586621679446357"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446357"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#newListAttachedRolePoliciesResponse"><span class="hs-identifier hs-var hs-var">newListAttachedRolePoliciesResponse</span></a></span></span><span> </span><span id="local-6989586621679446366"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446366"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-321"></span><span>  </span><span class="annot"><span class="annottext">ListAttachedRolePoliciesResponse' :: Maybe [AttachedPolicy]
 -&gt; Maybe Text
 -&gt; Maybe Bool
@@ -816,7 +816,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-326"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAttachedRolePoliciesResponse' :: Int
 </span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#%24sel%3AhttpStatus%3AListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446357"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679446366"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-327"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-328"></span><span>
 </span><span id="line-329"></span><span class="hs-comment">-- | A list of the attached policies.</span><span>
@@ -833,16 +833,16 @@ forall a. Maybe a
      (Maybe [AttachedPolicy])
      (Maybe [AttachedPolicy])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446356"><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446365"><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
 attachedPolicies :: Maybe [AttachedPolicy]
 $sel:attachedPolicies:ListAttachedRolePoliciesResponse' :: ListAttachedRolePoliciesResponse -&gt; Maybe [AttachedPolicy]
-</span><a href="#local-6989586621679446356"><span class="hs-identifier hs-var hs-var">attachedPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
-</span><a href="#local-6989586621679446356"><span class="hs-identifier hs-var">attachedPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446355"><span class="annot"><span class="annottext">s :: ListAttachedRolePoliciesResponse
-</span><a href="#local-6989586621679446355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446354"><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
-</span><a href="#local-6989586621679446354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedRolePoliciesResponse
-</span><a href="#local-6989586621679446355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachedPolicies:ListAttachedRolePoliciesResponse' :: Maybe [AttachedPolicy]
+</span><a href="#local-6989586621679446365"><span class="hs-identifier hs-var hs-var">attachedPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
+</span><a href="#local-6989586621679446365"><span class="hs-identifier hs-var">attachedPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446364"><span class="annot"><span class="annottext">s :: ListAttachedRolePoliciesResponse
+</span><a href="#local-6989586621679446364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446363"><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
+</span><a href="#local-6989586621679446363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedRolePoliciesResponse
+</span><a href="#local-6989586621679446364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachedPolicies:ListAttachedRolePoliciesResponse' :: Maybe [AttachedPolicy]
 </span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#%24sel%3AattachedPolicies%3AListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-var">attachedPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
-</span><a href="#local-6989586621679446354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttachedPolicy] -&gt; f (Maybe [AttachedPolicy]))
+</span><a href="#local-6989586621679446363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttachedPolicy] -&gt; f (Maybe [AttachedPolicy]))
  -&gt; ListAttachedRolePoliciesResponse
  -&gt; f ListAttachedRolePoliciesResponse)
 -&gt; ((Maybe [AttachedPolicy] -&gt; f (Maybe [AttachedPolicy]))
@@ -878,16 +878,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListAttachedRolePoliciesResponse)
 -&gt; Lens' ListAttachedRolePoliciesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446351"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446360"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListAttachedRolePoliciesResponse' :: ListAttachedRolePoliciesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679446351"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446351"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446350"><span class="annot"><span class="annottext">s :: ListAttachedRolePoliciesResponse
-</span><a href="#local-6989586621679446350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446349"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedRolePoliciesResponse
-</span><a href="#local-6989586621679446350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListAttachedRolePoliciesResponse' :: Maybe Text
+</span><a href="#local-6989586621679446360"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446360"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446359"><span class="annot"><span class="annottext">s :: ListAttachedRolePoliciesResponse
+</span><a href="#local-6989586621679446359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446358"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedRolePoliciesResponse
+</span><a href="#local-6989586621679446359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListAttachedRolePoliciesResponse' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#%24sel%3Amarker%3AListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-338"></span><span>
 </span><span id="line-339"></span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
 </span><span id="line-340"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
@@ -905,16 +905,16 @@ $sel:marker:ListAttachedRolePoliciesResponse' :: ListAttachedRolePoliciesRespons
     -&gt; Maybe Bool -&gt; ListAttachedRolePoliciesResponse)
 -&gt; Lens' ListAttachedRolePoliciesResponse (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446348"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446357"><span class="annot"><span class="annottext">Maybe Bool
 isTruncated :: Maybe Bool
 $sel:isTruncated:ListAttachedRolePoliciesResponse' :: ListAttachedRolePoliciesResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679446348"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679446348"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446347"><span class="annot"><span class="annottext">s :: ListAttachedRolePoliciesResponse
-</span><a href="#local-6989586621679446347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446346"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679446346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedRolePoliciesResponse
-</span><a href="#local-6989586621679446347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListAttachedRolePoliciesResponse' :: Maybe Bool
+</span><a href="#local-6989586621679446357"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679446357"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446356"><span class="annot"><span class="annottext">s :: ListAttachedRolePoliciesResponse
+</span><a href="#local-6989586621679446356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446355"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679446355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedRolePoliciesResponse
+</span><a href="#local-6989586621679446356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListAttachedRolePoliciesResponse' :: Maybe Bool
 </span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#%24sel%3AisTruncated%3AListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679446346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-348"></span><span>
 </span><span id="line-349"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-350"></span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#listAttachedRolePoliciesResponse_httpStatus"><span class="hs-identifier hs-type">listAttachedRolePoliciesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -930,18 +930,18 @@ $sel:isTruncated:ListAttachedRolePoliciesResponse' :: ListAttachedRolePoliciesRe
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446345"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446354"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListAttachedRolePoliciesResponse' :: ListAttachedRolePoliciesResponse -&gt; Int
-</span><a href="#local-6989586621679446345"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446345"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446344"><span class="annot"><span class="annottext">s :: ListAttachedRolePoliciesResponse
-</span><a href="#local-6989586621679446344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446343"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedRolePoliciesResponse
-</span><a href="#local-6989586621679446344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAttachedRolePoliciesResponse' :: Int
+</span><a href="#local-6989586621679446354"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446354"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446353"><span class="annot"><span class="annottext">s :: ListAttachedRolePoliciesResponse
+</span><a href="#local-6989586621679446353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446352"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedRolePoliciesResponse
+</span><a href="#local-6989586621679446353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAttachedRolePoliciesResponse' :: Int
 </span><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#%24sel%3AhttpStatus%3AListAttachedRolePoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-352"></span><span>
 </span><span id="line-353"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-354"></span><span>  </span><span id="local-6989586621679446341"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-354"></span><span>  </span><span id="local-6989586621679446350"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-355"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedRolePolicies.html#ListAttachedRolePoliciesResponse"><span class="hs-identifier hs-type">ListAttachedRolePoliciesResponse</span></a></span></span><span>
 </span><span id="line-356"></span></pre></body></html>

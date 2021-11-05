@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-39"></span><span>
-</span><span id="line-40"></span><span id="local-6989586621679372722"><span id="local-6989586621679372723"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NotebookExecutionStatus"><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionStatus.html#NotebookExecutionStatus"><span class="hs-identifier hs-var">NotebookExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotebookExecutionStatus%27"><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionStatus.html#NotebookExecutionStatus%27"><span class="hs-identifier hs-var">NotebookExecutionStatus'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679372731"><span id="local-6989586621679372732"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NotebookExecutionStatus"><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionStatus.html#NotebookExecutionStatus"><span class="hs-identifier hs-var">NotebookExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotebookExecutionStatus%27"><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionStatus.html#NotebookExecutionStatus%27"><span class="hs-identifier hs-var">NotebookExecutionStatus'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNotebookExecutionStatus"><span class="annot"><span class="annottext">NotebookExecutionStatus -&gt; Text
 </span><a href="Network.AWS.EMR.Types.NotebookExecutionStatus.html#fromNotebookExecutionStatus"><span class="hs-identifier hs-var hs-var">fromNotebookExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372714"><span id="local-6989586621679372716"><span id="local-6989586621679372718"><span class="annot"><span class="annottext">Int -&gt; NotebookExecutionStatus -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372723"><span id="local-6989586621679372725"><span id="local-6989586621679372727"><span class="annot"><span class="annottext">Int -&gt; NotebookExecutionStatus -&gt; ShowS
 [NotebookExecutionStatus] -&gt; ShowS
 NotebookExecutionStatus -&gt; String
 (Int -&gt; NotebookExecutionStatus -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: NotebookExecutionStatus -&gt; String
 showsPrec :: Int -&gt; NotebookExecutionStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; NotebookExecutionStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679372705"><span id="local-6989586621679372707"><span id="local-6989586621679372709"><span id="local-6989586621679372711"><span class="annot"><span class="annottext">ReadPrec [NotebookExecutionStatus]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679372714"><span id="local-6989586621679372716"><span id="local-6989586621679372718"><span id="local-6989586621679372720"><span class="annot"><span class="annottext">ReadPrec [NotebookExecutionStatus]
 ReadPrec NotebookExecutionStatus
 Int -&gt; ReadS NotebookExecutionStatus
 ReadS [NotebookExecutionStatus]
@@ -80,7 +80,7 @@ $creadList :: ReadS [NotebookExecutionStatus]
 readsPrec :: Int -&gt; ReadS NotebookExecutionStatus
 $creadsPrec :: Int -&gt; ReadS NotebookExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679372700"><span id="local-6989586621679372702"><span class="annot"><span class="annottext">NotebookExecutionStatus -&gt; NotebookExecutionStatus -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679372709"><span id="local-6989586621679372711"><span class="annot"><span class="annottext">NotebookExecutionStatus -&gt; NotebookExecutionStatus -&gt; Bool
 (NotebookExecutionStatus -&gt; NotebookExecutionStatus -&gt; Bool)
 -&gt; (NotebookExecutionStatus -&gt; NotebookExecutionStatus -&gt; Bool)
 -&gt; Eq NotebookExecutionStatus
@@ -90,7 +90,7 @@ $c/= :: NotebookExecutionStatus -&gt; NotebookExecutionStatus -&gt; Bool
 == :: NotebookExecutionStatus -&gt; NotebookExecutionStatus -&gt; Bool
 $c== :: NotebookExecutionStatus -&gt; NotebookExecutionStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679372684"><span id="local-6989586621679372686"><span id="local-6989586621679372688"><span id="local-6989586621679372690"><span id="local-6989586621679372692"><span id="local-6989586621679372694"><span id="local-6989586621679372696"><span class="annot"><span class="annottext">Eq NotebookExecutionStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679372693"><span id="local-6989586621679372695"><span id="local-6989586621679372697"><span id="local-6989586621679372699"><span id="local-6989586621679372701"><span id="local-6989586621679372703"><span id="local-6989586621679372705"><span class="annot"><span class="annottext">Eq NotebookExecutionStatus
 Eq NotebookExecutionStatus
 -&gt; (NotebookExecutionStatus -&gt; NotebookExecutionStatus -&gt; Ordering)
 -&gt; (NotebookExecutionStatus -&gt; NotebookExecutionStatus -&gt; Bool)
@@ -150,7 +150,7 @@ $cfrom :: forall x. NotebookExecutionStatus -&gt; Rep NotebookExecutionStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372676"><span id="local-6989586621679372678"><span class="annot"><span class="annottext">Int -&gt; NotebookExecutionStatus -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372685"><span id="local-6989586621679372687"><span class="annot"><span class="annottext">Int -&gt; NotebookExecutionStatus -&gt; Int
 NotebookExecutionStatus -&gt; Int
 (Int -&gt; NotebookExecutionStatus -&gt; Int)
 -&gt; (NotebookExecutionStatus -&gt; Int)
@@ -161,54 +161,54 @@ $chash :: NotebookExecutionStatus -&gt; Int
 hashWithSalt :: Int -&gt; NotebookExecutionStatus -&gt; Int
 $chashWithSalt :: Int -&gt; NotebookExecutionStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679372673"><span class="annot"><span class="annottext">NotebookExecutionStatus -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679372682"><span class="annot"><span class="annottext">NotebookExecutionStatus -&gt; ()
 (NotebookExecutionStatus -&gt; ()) -&gt; NFData NotebookExecutionStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NotebookExecutionStatus -&gt; ()
 $crnf :: NotebookExecutionStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679372670"><span class="annot"><span class="annottext">Text -&gt; Either String NotebookExecutionStatus
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679372679"><span class="annot"><span class="annottext">Text -&gt; Either String NotebookExecutionStatus
 (Text -&gt; Either String NotebookExecutionStatus)
 -&gt; FromText NotebookExecutionStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NotebookExecutionStatus
 $cfromText :: Text -&gt; Either String NotebookExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679372667"><span class="annot"><span class="annottext">NotebookExecutionStatus -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679372676"><span class="annot"><span class="annottext">NotebookExecutionStatus -&gt; Text
 (NotebookExecutionStatus -&gt; Text) -&gt; ToText NotebookExecutionStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NotebookExecutionStatus -&gt; Text
 $ctoText :: NotebookExecutionStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679372664"><span class="annot"><span class="annottext">NotebookExecutionStatus -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679372673"><span class="annot"><span class="annottext">NotebookExecutionStatus -&gt; ByteString
 (NotebookExecutionStatus -&gt; ByteString)
 -&gt; ToByteString NotebookExecutionStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NotebookExecutionStatus -&gt; ByteString
 $ctoBS :: NotebookExecutionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679372661"><span class="annot"><span class="annottext">NotebookExecutionStatus -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679372670"><span class="annot"><span class="annottext">NotebookExecutionStatus -&gt; ByteStringBuilder
 (NotebookExecutionStatus -&gt; ByteStringBuilder)
 -&gt; ToLog NotebookExecutionStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NotebookExecutionStatus -&gt; ByteStringBuilder
 $cbuild :: NotebookExecutionStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679372658"><span class="annot"><span class="annottext">HeaderName -&gt; NotebookExecutionStatus -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679372667"><span class="annot"><span class="annottext">HeaderName -&gt; NotebookExecutionStatus -&gt; [Header]
 (HeaderName -&gt; NotebookExecutionStatus -&gt; [Header])
 -&gt; ToHeader NotebookExecutionStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NotebookExecutionStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NotebookExecutionStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679372655"><span class="annot"><span class="annottext">NotebookExecutionStatus -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679372664"><span class="annot"><span class="annottext">NotebookExecutionStatus -&gt; QueryString
 (NotebookExecutionStatus -&gt; QueryString)
 -&gt; ToQuery NotebookExecutionStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NotebookExecutionStatus -&gt; QueryString
 $ctoQuery :: NotebookExecutionStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679372650"><span id="local-6989586621679372652"><span class="annot"><span class="annottext">Value -&gt; Parser [NotebookExecutionStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679372659"><span id="local-6989586621679372661"><span class="annot"><span class="annottext">Value -&gt; Parser [NotebookExecutionStatus]
 Value -&gt; Parser NotebookExecutionStatus
 (Value -&gt; Parser NotebookExecutionStatus)
 -&gt; (Value -&gt; Parser [NotebookExecutionStatus])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [NotebookExecutionStatus]
 parseJSON :: Value -&gt; Parser NotebookExecutionStatus
 $cparseJSON :: Value -&gt; Parser NotebookExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679372645"><span id="local-6989586621679372647"><span class="annot"><span class="annottext">FromJSONKeyFunction [NotebookExecutionStatus]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679372654"><span id="local-6989586621679372656"><span class="annot"><span class="annottext">FromJSONKeyFunction [NotebookExecutionStatus]
 FromJSONKeyFunction NotebookExecutionStatus
 FromJSONKeyFunction NotebookExecutionStatus
 -&gt; FromJSONKeyFunction [NotebookExecutionStatus]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NotebookExecutionStatus]
 fromJSONKey :: FromJSONKeyFunction NotebookExecutionStatus
 $cfromJSONKey :: FromJSONKeyFunction NotebookExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679372636"><span id="local-6989586621679372638"><span id="local-6989586621679372640"><span id="local-6989586621679372642"><span class="annot"><span class="annottext">[NotebookExecutionStatus] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679372645"><span id="local-6989586621679372647"><span id="local-6989586621679372649"><span id="local-6989586621679372651"><span class="annot"><span class="annottext">[NotebookExecutionStatus] -&gt; Encoding
 [NotebookExecutionStatus] -&gt; Value
 NotebookExecutionStatus -&gt; Encoding
 NotebookExecutionStatus -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: NotebookExecutionStatus -&gt; Encoding
 toJSON :: NotebookExecutionStatus -&gt; Value
 $ctoJSON :: NotebookExecutionStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679372631"><span id="local-6989586621679372633"><span class="annot"><span class="annottext">ToJSONKeyFunction [NotebookExecutionStatus]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679372640"><span id="local-6989586621679372642"><span class="annot"><span class="annottext">ToJSONKeyFunction [NotebookExecutionStatus]
 ToJSONKeyFunction NotebookExecutionStatus
 ToJSONKeyFunction NotebookExecutionStatus
 -&gt; ToJSONKeyFunction [NotebookExecutionStatus]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NotebookExecutionStatus]
 toJSONKey :: ToJSONKeyFunction NotebookExecutionStatus
 $ctoJSONKey :: ToJSONKeyFunction NotebookExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679372628"><span class="annot"><span class="annottext">[Node] -&gt; Either String NotebookExecutionStatus
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679372637"><span class="annot"><span class="annottext">[Node] -&gt; Either String NotebookExecutionStatus
 ([Node] -&gt; Either String NotebookExecutionStatus)
 -&gt; FromXML NotebookExecutionStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NotebookExecutionStatus
 $cparseXML :: [Node] -&gt; Either String NotebookExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679372625"><span class="annot"><span class="annottext">NotebookExecutionStatus -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679372634"><span class="annot"><span class="annottext">NotebookExecutionStatus -&gt; XML
 (NotebookExecutionStatus -&gt; XML) -&gt; ToXML NotebookExecutionStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NotebookExecutionStatus -&gt; XML

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes Spot Instance placement.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSpotPlacement' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681166101"><span id="local-6989586621681166102"></span></span><span class="hs-keyword">data</span><span> </span><span id="SpotPlacement"><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement"><span class="hs-identifier hs-var">SpotPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SpotPlacement%27"><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-var">SpotPlacement'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681166110"><span id="local-6989586621681166111"></span></span><span class="hs-keyword">data</span><span> </span><span id="SpotPlacement"><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement"><span class="hs-identifier hs-var">SpotPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SpotPlacement%27"><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-var">SpotPlacement'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Availability Zone.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- [Spot Fleet only] To specify multiple Availability Zones, separate them</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AgroupName%3ASpotPlacement%27"><span class="annot"><span class="annottext">SpotPlacement -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.SpotPlacement.html#%24sel%3AgroupName%3ASpotPlacement%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681166093"><span id="local-6989586621681166095"><span class="annot"><span class="annottext">SpotPlacement -&gt; SpotPlacement -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681166102"><span id="local-6989586621681166104"><span class="annot"><span class="annottext">SpotPlacement -&gt; SpotPlacement -&gt; Bool
 (SpotPlacement -&gt; SpotPlacement -&gt; Bool)
 -&gt; (SpotPlacement -&gt; SpotPlacement -&gt; Bool) -&gt; Eq SpotPlacement
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SpotPlacement -&gt; SpotPlacement -&gt; Bool
 == :: SpotPlacement -&gt; SpotPlacement -&gt; Bool
 $c== :: SpotPlacement -&gt; SpotPlacement -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681166084"><span id="local-6989586621681166086"><span id="local-6989586621681166088"><span id="local-6989586621681166090"><span class="annot"><span class="annottext">ReadPrec [SpotPlacement]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681166093"><span id="local-6989586621681166095"><span id="local-6989586621681166097"><span id="local-6989586621681166099"><span class="annot"><span class="annottext">ReadPrec [SpotPlacement]
 ReadPrec SpotPlacement
 Int -&gt; ReadS SpotPlacement
 ReadS [SpotPlacement]
@@ -72,7 +72,7 @@ readList :: ReadS [SpotPlacement]
 $creadList :: ReadS [SpotPlacement]
 readsPrec :: Int -&gt; ReadS SpotPlacement
 $creadsPrec :: Int -&gt; ReadS SpotPlacement
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681166077"><span id="local-6989586621681166079"><span id="local-6989586621681166081"><span class="annot"><span class="annottext">Int -&gt; SpotPlacement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681166086"><span id="local-6989586621681166088"><span id="local-6989586621681166090"><span class="annot"><span class="annottext">Int -&gt; SpotPlacement -&gt; ShowS
 [SpotPlacement] -&gt; ShowS
 SpotPlacement -&gt; String
 (Int -&gt; SpotPlacement -&gt; ShowS)
@@ -146,16 +146,16 @@ forall a. Maybe a
 -&gt; (SpotPlacement -&gt; Maybe Text -&gt; SpotPlacement)
 -&gt; Lens SpotPlacement SpotPlacement (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-type">SpotPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681166068"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-type">SpotPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681166077"><span class="annot"><span class="annottext">Maybe Text
 availabilityZone :: Maybe Text
 $sel:availabilityZone:SpotPlacement' :: SpotPlacement -&gt; Maybe Text
-</span><a href="#local-6989586621681166068"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681166068"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681166067"><span class="annot"><span class="annottext">s :: SpotPlacement
-</span><a href="#local-6989586621681166067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-type">SpotPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681166066"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681166066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotPlacement
-</span><a href="#local-6989586621681166067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:SpotPlacement' :: Maybe Text
+</span><a href="#local-6989586621681166077"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681166077"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681166076"><span class="annot"><span class="annottext">s :: SpotPlacement
+</span><a href="#local-6989586621681166076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-type">SpotPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681166075"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681166075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotPlacement
+</span><a href="#local-6989586621681166076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:SpotPlacement' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.SpotPlacement.html#%24sel%3AavailabilityZone%3ASpotPlacement%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681166066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement"><span class="hs-identifier hs-type">SpotPlacement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681166075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement"><span class="hs-identifier hs-type">SpotPlacement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The tenancy of the instance (if the instance is running in a VPC). An</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- instance with a tenancy of @dedicated@ runs on single-tenant hardware.</span><span>
@@ -167,16 +167,16 @@ $sel:availabilityZone:SpotPlacement' :: SpotPlacement -&gt; Maybe Text
 -&gt; (SpotPlacement -&gt; Maybe Tenancy -&gt; SpotPlacement)
 -&gt; Lens SpotPlacement SpotPlacement (Maybe Tenancy) (Maybe Tenancy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-type">SpotPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681166064"><span class="annot"><span class="annottext">Maybe Tenancy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-type">SpotPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681166073"><span class="annot"><span class="annottext">Maybe Tenancy
 tenancy :: Maybe Tenancy
 $sel:tenancy:SpotPlacement' :: SpotPlacement -&gt; Maybe Tenancy
-</span><a href="#local-6989586621681166064"><span class="hs-identifier hs-var hs-var">tenancy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
-</span><a href="#local-6989586621681166064"><span class="hs-identifier hs-var">tenancy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681166063"><span class="annot"><span class="annottext">s :: SpotPlacement
-</span><a href="#local-6989586621681166063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-type">SpotPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681166062"><span class="annot"><span class="annottext">Maybe Tenancy
-</span><a href="#local-6989586621681166062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotPlacement
-</span><a href="#local-6989586621681166063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tenancy:SpotPlacement' :: Maybe Tenancy
+</span><a href="#local-6989586621681166073"><span class="hs-identifier hs-var hs-var">tenancy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
+</span><a href="#local-6989586621681166073"><span class="hs-identifier hs-var">tenancy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681166072"><span class="annot"><span class="annottext">s :: SpotPlacement
+</span><a href="#local-6989586621681166072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-type">SpotPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681166071"><span class="annot"><span class="annottext">Maybe Tenancy
+</span><a href="#local-6989586621681166071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotPlacement
+</span><a href="#local-6989586621681166072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tenancy:SpotPlacement' :: Maybe Tenancy
 </span><a href="Network.AWS.EC2.Types.SpotPlacement.html#%24sel%3Atenancy%3ASpotPlacement%27"><span class="hs-identifier hs-var">tenancy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
-</span><a href="#local-6989586621681166062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement"><span class="hs-identifier hs-type">SpotPlacement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681166071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement"><span class="hs-identifier hs-type">SpotPlacement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The name of the placement group.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#spotPlacement_groupName"><span class="hs-identifier hs-type">spotPlacement_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement"><span class="hs-identifier hs-type">SpotPlacement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -185,21 +185,21 @@ $sel:tenancy:SpotPlacement' :: SpotPlacement -&gt; Maybe Tenancy
 -&gt; (SpotPlacement -&gt; Maybe Text -&gt; SpotPlacement)
 -&gt; Lens SpotPlacement SpotPlacement (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-type">SpotPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681166060"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-type">SpotPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681166069"><span class="annot"><span class="annottext">Maybe Text
 groupName :: Maybe Text
 $sel:groupName:SpotPlacement' :: SpotPlacement -&gt; Maybe Text
-</span><a href="#local-6989586621681166060"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681166060"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681166059"><span class="annot"><span class="annottext">s :: SpotPlacement
-</span><a href="#local-6989586621681166059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-type">SpotPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681166058"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681166058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotPlacement
-</span><a href="#local-6989586621681166059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:SpotPlacement' :: Maybe Text
+</span><a href="#local-6989586621681166069"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681166069"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681166068"><span class="annot"><span class="annottext">s :: SpotPlacement
+</span><a href="#local-6989586621681166068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-type">SpotPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681166067"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681166067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SpotPlacement
+</span><a href="#local-6989586621681166068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:SpotPlacement' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.SpotPlacement.html#%24sel%3AgroupName%3ASpotPlacement%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681166058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement"><span class="hs-identifier hs-type">SpotPlacement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681166067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement"><span class="hs-identifier hs-type">SpotPlacement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement"><span class="hs-identifier hs-type">SpotPlacement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621681166055"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SpotPlacement
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681166053"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681166053"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621681166064"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SpotPlacement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681166062"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681166062"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Tenancy -&gt; Maybe Text -&gt; SpotPlacement
 </span><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-var">SpotPlacement'</span></a></span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Tenancy -&gt; Maybe Text -&gt; SpotPlacement)
@@ -207,7 +207,7 @@ $sel:groupName:SpotPlacement' :: SpotPlacement -&gt; Maybe Text
 -&gt; Either String (Maybe Tenancy -&gt; Maybe Text -&gt; SpotPlacement)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681166053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681166062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;availabilityZone&quot;</span></span><span class="hs-special">)</span><span>
@@ -216,7 +216,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; SpotPlacement)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681166053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Tenancy)
+</span><a href="#local-6989586621681166062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Tenancy)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tenancy&quot;</span></span><span class="hs-special">)</span><span>
@@ -224,18 +224,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String SpotPlacement
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681166053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681166062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;groupName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681166047"><span id="local-6989586621681166049"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement"><span class="hs-identifier hs-type">SpotPlacement</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681166056"><span id="local-6989586621681166058"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement"><span class="hs-identifier hs-type">SpotPlacement</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681166044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement"><span class="hs-identifier hs-type">SpotPlacement</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681166053"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement"><span class="hs-identifier hs-type">SpotPlacement</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement"><span class="hs-identifier hs-type">SpotPlacement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621681166040"><span class="annot"><span class="annottext">toQuery :: SpotPlacement -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-type">SpotPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681166036"><span id="local-6989586621681166037"><span id="local-6989586621681166038"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621681166049"><span class="annot"><span class="annottext">toQuery :: SpotPlacement -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SpotPlacement.html#SpotPlacement%27"><span class="hs-identifier hs-type">SpotPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681166045"><span id="local-6989586621681166046"><span id="local-6989586621681166047"><span class="annot"><span class="annottext">Maybe Text
 Maybe Tenancy
 groupName :: Maybe Text
 tenancy :: Maybe Tenancy
@@ -243,7 +243,7 @@ availabilityZone :: Maybe Text
 $sel:groupName:SpotPlacement' :: SpotPlacement -&gt; Maybe Text
 $sel:tenancy:SpotPlacement' :: SpotPlacement -&gt; Maybe Tenancy
 $sel:availabilityZone:SpotPlacement' :: SpotPlacement -&gt; Maybe Text
-</span><a href="#local-6989586621681166036"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681166045"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -251,16 +251,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681166038"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681166047"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Tenancy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Tenancy -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
-</span><a href="#local-6989586621681166037"><span class="hs-identifier hs-var">tenancy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681166046"><span class="hs-identifier hs-var">tenancy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681166036"><span class="hs-identifier hs-var">groupName</span></a></span><span>
+</span><a href="#local-6989586621681166045"><span class="hs-identifier hs-var">groupName</span></a></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span></pre></body></html>

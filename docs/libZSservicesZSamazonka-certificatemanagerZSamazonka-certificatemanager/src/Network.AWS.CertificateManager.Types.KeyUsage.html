@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- contained in the certificate.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newKeyUsage' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679188803"><span id="local-6989586621679188804"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyUsage"><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-var">KeyUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyUsage%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-var">KeyUsage'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679188812"><span id="local-6989586621679188813"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyUsage"><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-var">KeyUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyUsage%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-var">KeyUsage'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string value that contains a Key Usage extension name.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3AKeyUsage%27"><span class="annot"><span class="annottext">KeyUsage -&gt; Maybe KeyUsageName
 </span><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#%24sel%3Aname%3AKeyUsage%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsageName.html#KeyUsageName"><span class="hs-identifier hs-type">KeyUsageName</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188797"><span id="local-6989586621679188799"><span class="annot"><span class="annottext">KeyUsage -&gt; KeyUsage -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188806"><span id="local-6989586621679188808"><span class="annot"><span class="annottext">KeyUsage -&gt; KeyUsage -&gt; Bool
 (KeyUsage -&gt; KeyUsage -&gt; Bool)
 -&gt; (KeyUsage -&gt; KeyUsage -&gt; Bool) -&gt; Eq KeyUsage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KeyUsage -&gt; KeyUsage -&gt; Bool
 == :: KeyUsage -&gt; KeyUsage -&gt; Bool
 $c== :: KeyUsage -&gt; KeyUsage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188788"><span id="local-6989586621679188790"><span id="local-6989586621679188792"><span id="local-6989586621679188794"><span class="annot"><span class="annottext">ReadPrec [KeyUsage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188797"><span id="local-6989586621679188799"><span id="local-6989586621679188801"><span id="local-6989586621679188803"><span class="annot"><span class="annottext">ReadPrec [KeyUsage]
 ReadPrec KeyUsage
 Int -&gt; ReadS KeyUsage
 ReadS [KeyUsage]
@@ -61,7 +61,7 @@ readList :: ReadS [KeyUsage]
 $creadList :: ReadS [KeyUsage]
 readsPrec :: Int -&gt; ReadS KeyUsage
 $creadsPrec :: Int -&gt; ReadS KeyUsage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188781"><span id="local-6989586621679188783"><span id="local-6989586621679188785"><span class="annot"><span class="annottext">Int -&gt; KeyUsage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188790"><span id="local-6989586621679188792"><span id="local-6989586621679188794"><span class="annot"><span class="annottext">Int -&gt; KeyUsage -&gt; ShowS
 [KeyUsage] -&gt; ShowS
 KeyUsage -&gt; String
 (Int -&gt; KeyUsage -&gt; ShowS)
@@ -110,37 +110,37 @@ forall a. Maybe a
 -&gt; (KeyUsage -&gt; Maybe KeyUsageName -&gt; KeyUsage)
 -&gt; Lens KeyUsage KeyUsage (Maybe KeyUsageName) (Maybe KeyUsageName)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188772"><span class="annot"><span class="annottext">Maybe KeyUsageName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188781"><span class="annot"><span class="annottext">Maybe KeyUsageName
 name :: Maybe KeyUsageName
 $sel:name:KeyUsage' :: KeyUsage -&gt; Maybe KeyUsageName
-</span><a href="#local-6989586621679188772"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsageName
-</span><a href="#local-6989586621679188772"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188771"><span class="annot"><span class="annottext">s :: KeyUsage
-</span><a href="#local-6989586621679188771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188770"><span class="annot"><span class="annottext">Maybe KeyUsageName
-</span><a href="#local-6989586621679188770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
-</span><a href="#local-6989586621679188771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:KeyUsage' :: Maybe KeyUsageName
+</span><a href="#local-6989586621679188781"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsageName
+</span><a href="#local-6989586621679188781"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188780"><span class="annot"><span class="annottext">s :: KeyUsage
+</span><a href="#local-6989586621679188780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-type">KeyUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188779"><span class="annot"><span class="annottext">Maybe KeyUsageName
+</span><a href="#local-6989586621679188779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyUsage
+</span><a href="#local-6989586621679188780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:KeyUsage' :: Maybe KeyUsageName
 </span><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#%24sel%3Aname%3AKeyUsage%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsageName
-</span><a href="#local-6989586621679188770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188767"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679188765"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KeyUsage
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188776"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679188774"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KeyUsage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser KeyUsage) -&gt; Value -&gt; Parser KeyUsage
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KeyUsage&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188762"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188762"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsageName -&gt; KeyUsage
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188771"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188771"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsageName -&gt; KeyUsage
 </span><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage%27"><span class="hs-identifier hs-var">KeyUsage'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe KeyUsageName -&gt; KeyUsage)
 -&gt; Parser (Maybe KeyUsageName) -&gt; Parser KeyUsage
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KeyUsageName)
+</span><a href="#local-6989586621679188771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KeyUsageName)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188756"><span id="local-6989586621679188758"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188765"><span id="local-6989586621679188767"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188753"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188762"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span></span><span>
 </span><span id="line-63"></span></pre></body></html>

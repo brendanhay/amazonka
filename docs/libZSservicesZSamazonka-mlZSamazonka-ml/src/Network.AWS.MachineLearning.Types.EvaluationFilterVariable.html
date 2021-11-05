@@ -57,13 +57,13 @@
 </span><span id="line-57"></span><span class="hs-comment">-- -   @DataUri@ - Sets the search criteria to the data file(s) used in</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--     evaluation. The URL can identify either a file or an Amazon Simple</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--     Storage Service (Amazon S3) bucket or directory.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679250660"><span id="local-6989586621679250661"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EvaluationFilterVariable"><span class="annot"><a href="Network.AWS.MachineLearning.Types.EvaluationFilterVariable.html#EvaluationFilterVariable"><span class="hs-identifier hs-var">EvaluationFilterVariable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EvaluationFilterVariable%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.EvaluationFilterVariable.html#EvaluationFilterVariable%27"><span class="hs-identifier hs-var">EvaluationFilterVariable'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679250669"><span id="local-6989586621679250670"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EvaluationFilterVariable"><span class="annot"><a href="Network.AWS.MachineLearning.Types.EvaluationFilterVariable.html#EvaluationFilterVariable"><span class="hs-identifier hs-var">EvaluationFilterVariable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EvaluationFilterVariable%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.EvaluationFilterVariable.html#EvaluationFilterVariable%27"><span class="hs-identifier hs-var">EvaluationFilterVariable'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEvaluationFilterVariable"><span class="annot"><span class="annottext">EvaluationFilterVariable -&gt; Text
 </span><a href="Network.AWS.MachineLearning.Types.EvaluationFilterVariable.html#fromEvaluationFilterVariable"><span class="hs-identifier hs-var hs-var">fromEvaluationFilterVariable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250652"><span id="local-6989586621679250654"><span id="local-6989586621679250656"><span class="annot"><span class="annottext">Int -&gt; EvaluationFilterVariable -&gt; ShowS
+</span><span id="line-65"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250661"><span id="local-6989586621679250663"><span id="local-6989586621679250665"><span class="annot"><span class="annottext">Int -&gt; EvaluationFilterVariable -&gt; ShowS
 [EvaluationFilterVariable] -&gt; ShowS
 EvaluationFilterVariable -&gt; String
 (Int -&gt; EvaluationFilterVariable -&gt; ShowS)
@@ -79,7 +79,7 @@ $cshow :: EvaluationFilterVariable -&gt; String
 showsPrec :: Int -&gt; EvaluationFilterVariable -&gt; ShowS
 $cshowsPrec :: Int -&gt; EvaluationFilterVariable -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679250643"><span id="local-6989586621679250645"><span id="local-6989586621679250647"><span id="local-6989586621679250649"><span class="annot"><span class="annottext">ReadPrec [EvaluationFilterVariable]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679250652"><span id="local-6989586621679250654"><span id="local-6989586621679250656"><span id="local-6989586621679250658"><span class="annot"><span class="annottext">ReadPrec [EvaluationFilterVariable]
 ReadPrec EvaluationFilterVariable
 Int -&gt; ReadS EvaluationFilterVariable
 ReadS [EvaluationFilterVariable]
@@ -100,7 +100,7 @@ $creadList :: ReadS [EvaluationFilterVariable]
 readsPrec :: Int -&gt; ReadS EvaluationFilterVariable
 $creadsPrec :: Int -&gt; ReadS EvaluationFilterVariable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679250638"><span id="local-6989586621679250640"><span class="annot"><span class="annottext">EvaluationFilterVariable -&gt; EvaluationFilterVariable -&gt; Bool
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679250647"><span id="local-6989586621679250649"><span class="annot"><span class="annottext">EvaluationFilterVariable -&gt; EvaluationFilterVariable -&gt; Bool
 (EvaluationFilterVariable -&gt; EvaluationFilterVariable -&gt; Bool)
 -&gt; (EvaluationFilterVariable -&gt; EvaluationFilterVariable -&gt; Bool)
 -&gt; Eq EvaluationFilterVariable
@@ -110,7 +110,7 @@ $c/= :: EvaluationFilterVariable -&gt; EvaluationFilterVariable -&gt; Bool
 == :: EvaluationFilterVariable -&gt; EvaluationFilterVariable -&gt; Bool
 $c== :: EvaluationFilterVariable -&gt; EvaluationFilterVariable -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679250622"><span id="local-6989586621679250624"><span id="local-6989586621679250626"><span id="local-6989586621679250628"><span id="local-6989586621679250630"><span id="local-6989586621679250632"><span id="local-6989586621679250634"><span class="annot"><span class="annottext">Eq EvaluationFilterVariable
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679250631"><span id="local-6989586621679250633"><span id="local-6989586621679250635"><span id="local-6989586621679250637"><span id="local-6989586621679250639"><span id="local-6989586621679250641"><span id="local-6989586621679250643"><span class="annot"><span class="annottext">Eq EvaluationFilterVariable
 Eq EvaluationFilterVariable
 -&gt; (EvaluationFilterVariable
     -&gt; EvaluationFilterVariable -&gt; Ordering)
@@ -175,7 +175,7 @@ EvaluationFilterVariable -&gt; Rep EvaluationFilterVariable x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250614"><span id="local-6989586621679250616"><span class="annot"><span class="annottext">Int -&gt; EvaluationFilterVariable -&gt; Int
+</span><span id="line-72"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250623"><span id="local-6989586621679250625"><span class="annot"><span class="annottext">Int -&gt; EvaluationFilterVariable -&gt; Int
 EvaluationFilterVariable -&gt; Int
 (Int -&gt; EvaluationFilterVariable -&gt; Int)
 -&gt; (EvaluationFilterVariable -&gt; Int)
@@ -186,55 +186,55 @@ $chash :: EvaluationFilterVariable -&gt; Int
 hashWithSalt :: Int -&gt; EvaluationFilterVariable -&gt; Int
 $chashWithSalt :: Int -&gt; EvaluationFilterVariable -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679250611"><span class="annot"><span class="annottext">EvaluationFilterVariable -&gt; ()
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679250620"><span class="annot"><span class="annottext">EvaluationFilterVariable -&gt; ()
 (EvaluationFilterVariable -&gt; ()) -&gt; NFData EvaluationFilterVariable
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EvaluationFilterVariable -&gt; ()
 $crnf :: EvaluationFilterVariable -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679250608"><span class="annot"><span class="annottext">Text -&gt; Either String EvaluationFilterVariable
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679250617"><span class="annot"><span class="annottext">Text -&gt; Either String EvaluationFilterVariable
 (Text -&gt; Either String EvaluationFilterVariable)
 -&gt; FromText EvaluationFilterVariable
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EvaluationFilterVariable
 $cfromText :: Text -&gt; Either String EvaluationFilterVariable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679250605"><span class="annot"><span class="annottext">EvaluationFilterVariable -&gt; Text
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679250614"><span class="annot"><span class="annottext">EvaluationFilterVariable -&gt; Text
 (EvaluationFilterVariable -&gt; Text)
 -&gt; ToText EvaluationFilterVariable
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EvaluationFilterVariable -&gt; Text
 $ctoText :: EvaluationFilterVariable -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679250602"><span class="annot"><span class="annottext">EvaluationFilterVariable -&gt; ByteString
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679250611"><span class="annot"><span class="annottext">EvaluationFilterVariable -&gt; ByteString
 (EvaluationFilterVariable -&gt; ByteString)
 -&gt; ToByteString EvaluationFilterVariable
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EvaluationFilterVariable -&gt; ByteString
 $ctoBS :: EvaluationFilterVariable -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679250599"><span class="annot"><span class="annottext">EvaluationFilterVariable -&gt; ByteStringBuilder
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679250608"><span class="annot"><span class="annottext">EvaluationFilterVariable -&gt; ByteStringBuilder
 (EvaluationFilterVariable -&gt; ByteStringBuilder)
 -&gt; ToLog EvaluationFilterVariable
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EvaluationFilterVariable -&gt; ByteStringBuilder
 $cbuild :: EvaluationFilterVariable -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679250596"><span class="annot"><span class="annottext">HeaderName -&gt; EvaluationFilterVariable -&gt; [Header]
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679250605"><span class="annot"><span class="annottext">HeaderName -&gt; EvaluationFilterVariable -&gt; [Header]
 (HeaderName -&gt; EvaluationFilterVariable -&gt; [Header])
 -&gt; ToHeader EvaluationFilterVariable
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EvaluationFilterVariable -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EvaluationFilterVariable -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621679250593"><span class="annot"><span class="annottext">EvaluationFilterVariable -&gt; QueryString
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679250602"><span class="annot"><span class="annottext">EvaluationFilterVariable -&gt; QueryString
 (EvaluationFilterVariable -&gt; QueryString)
 -&gt; ToQuery EvaluationFilterVariable
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EvaluationFilterVariable -&gt; QueryString
 $ctoQuery :: EvaluationFilterVariable -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621679250588"><span id="local-6989586621679250590"><span class="annot"><span class="annottext">Value -&gt; Parser [EvaluationFilterVariable]
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679250597"><span id="local-6989586621679250599"><span class="annot"><span class="annottext">Value -&gt; Parser [EvaluationFilterVariable]
 Value -&gt; Parser EvaluationFilterVariable
 (Value -&gt; Parser EvaluationFilterVariable)
 -&gt; (Value -&gt; Parser [EvaluationFilterVariable])
@@ -246,7 +246,7 @@ $cparseJSONList :: Value -&gt; Parser [EvaluationFilterVariable]
 parseJSON :: Value -&gt; Parser EvaluationFilterVariable
 $cparseJSON :: Value -&gt; Parser EvaluationFilterVariable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621679250583"><span id="local-6989586621679250585"><span class="annot"><span class="annottext">FromJSONKeyFunction [EvaluationFilterVariable]
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679250592"><span id="local-6989586621679250594"><span class="annot"><span class="annottext">FromJSONKeyFunction [EvaluationFilterVariable]
 FromJSONKeyFunction EvaluationFilterVariable
 FromJSONKeyFunction EvaluationFilterVariable
 -&gt; FromJSONKeyFunction [EvaluationFilterVariable]
@@ -258,7 +258,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EvaluationFilterVariable]
 fromJSONKey :: FromJSONKeyFunction EvaluationFilterVariable
 $cfromJSONKey :: FromJSONKeyFunction EvaluationFilterVariable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621679250574"><span id="local-6989586621679250576"><span id="local-6989586621679250578"><span id="local-6989586621679250580"><span class="annot"><span class="annottext">[EvaluationFilterVariable] -&gt; Encoding
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679250583"><span id="local-6989586621679250585"><span id="local-6989586621679250587"><span id="local-6989586621679250589"><span class="annot"><span class="annottext">[EvaluationFilterVariable] -&gt; Encoding
 [EvaluationFilterVariable] -&gt; Value
 EvaluationFilterVariable -&gt; Encoding
 EvaluationFilterVariable -&gt; Value
@@ -282,7 +282,7 @@ $ctoEncoding :: EvaluationFilterVariable -&gt; Encoding
 toJSON :: EvaluationFilterVariable -&gt; Value
 $ctoJSON :: EvaluationFilterVariable -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span id="local-6989586621679250569"><span id="local-6989586621679250571"><span class="annot"><span class="annottext">ToJSONKeyFunction [EvaluationFilterVariable]
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621679250578"><span id="local-6989586621679250580"><span class="annot"><span class="annottext">ToJSONKeyFunction [EvaluationFilterVariable]
 ToJSONKeyFunction EvaluationFilterVariable
 ToJSONKeyFunction EvaluationFilterVariable
 -&gt; ToJSONKeyFunction [EvaluationFilterVariable]
@@ -294,14 +294,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EvaluationFilterVariable]
 toJSONKey :: ToJSONKeyFunction EvaluationFilterVariable
 $ctoJSONKey :: ToJSONKeyFunction EvaluationFilterVariable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span id="local-6989586621679250566"><span class="annot"><span class="annottext">[Node] -&gt; Either String EvaluationFilterVariable
+</span><span id="line-84"></span><span>      </span><span id="local-6989586621679250575"><span class="annot"><span class="annottext">[Node] -&gt; Either String EvaluationFilterVariable
 ([Node] -&gt; Either String EvaluationFilterVariable)
 -&gt; FromXML EvaluationFilterVariable
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EvaluationFilterVariable
 $cparseXML :: [Node] -&gt; Either String EvaluationFilterVariable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span id="local-6989586621679250563"><span class="annot"><span class="annottext">EvaluationFilterVariable -&gt; XML
+</span><span id="line-85"></span><span>      </span><span id="local-6989586621679250572"><span class="annot"><span class="annottext">EvaluationFilterVariable -&gt; XML
 (EvaluationFilterVariable -&gt; XML) -&gt; ToXML EvaluationFilterVariable
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EvaluationFilterVariable -&gt; XML

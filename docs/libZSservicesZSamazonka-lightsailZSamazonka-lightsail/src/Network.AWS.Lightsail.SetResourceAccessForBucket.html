@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newSetResourceAccessForBucket' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679631307"><span id="local-6989586621679631308"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetResourceAccessForBucket"><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-var">SetResourceAccessForBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetResourceAccessForBucket%27"><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-var">SetResourceAccessForBucket'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679631316"><span id="local-6989586621679631317"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetResourceAccessForBucket"><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-var">SetResourceAccessForBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetResourceAccessForBucket%27"><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-var">SetResourceAccessForBucket'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Lightsail instance for which to set bucket access. The</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- instance must be in a running or stopped state.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AresourceName%3ASetResourceAccessForBucket%27"><span class="annot"><span class="annottext">SetResourceAccessForBucket -&gt; Text
@@ -73,7 +73,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3Aaccess%3ASetResourceAccessForBucket%27"><span class="annot"><span class="annottext">SetResourceAccessForBucket -&gt; ResourceBucketAccess
 </span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#%24sel%3Aaccess%3ASetResourceAccessForBucket%27"><span class="hs-identifier hs-var hs-var">access</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceBucketAccess.html#ResourceBucketAccess"><span class="hs-identifier hs-type">ResourceBucketAccess</span></a></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679631299"><span id="local-6989586621679631301"><span class="annot"><span class="annottext">SetResourceAccessForBucket -&gt; SetResourceAccessForBucket -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679631308"><span id="local-6989586621679631310"><span class="annot"><span class="annottext">SetResourceAccessForBucket -&gt; SetResourceAccessForBucket -&gt; Bool
 (SetResourceAccessForBucket -&gt; SetResourceAccessForBucket -&gt; Bool)
 -&gt; (SetResourceAccessForBucket
     -&gt; SetResourceAccessForBucket -&gt; Bool)
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetResourceAccessForBucket -&gt; SetResourceAccessForBucket -&gt; Bool
 == :: SetResourceAccessForBucket -&gt; SetResourceAccessForBucket -&gt; Bool
 $c== :: SetResourceAccessForBucket -&gt; SetResourceAccessForBucket -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631290"><span id="local-6989586621679631292"><span id="local-6989586621679631294"><span id="local-6989586621679631296"><span class="annot"><span class="annottext">ReadPrec [SetResourceAccessForBucket]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631299"><span id="local-6989586621679631301"><span id="local-6989586621679631303"><span id="local-6989586621679631305"><span class="annot"><span class="annottext">ReadPrec [SetResourceAccessForBucket]
 ReadPrec SetResourceAccessForBucket
 Int -&gt; ReadS SetResourceAccessForBucket
 ReadS [SetResourceAccessForBucket]
@@ -103,7 +103,7 @@ readList :: ReadS [SetResourceAccessForBucket]
 $creadList :: ReadS [SetResourceAccessForBucket]
 readsPrec :: Int -&gt; ReadS SetResourceAccessForBucket
 $creadsPrec :: Int -&gt; ReadS SetResourceAccessForBucket
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631283"><span id="local-6989586621679631285"><span id="local-6989586621679631287"><span class="annot"><span class="annottext">Int -&gt; SetResourceAccessForBucket -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631292"><span id="local-6989586621679631294"><span id="local-6989586621679631296"><span class="annot"><span class="annottext">Int -&gt; SetResourceAccessForBucket -&gt; ShowS
 [SetResourceAccessForBucket] -&gt; ShowS
 SetResourceAccessForBucket -&gt; String
 (Int -&gt; SetResourceAccessForBucket -&gt; ShowS)
@@ -167,24 +167,24 @@ SetResourceAccessForBucket -&gt; Rep SetResourceAccessForBucket x
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span><span>
 </span><span id="line-105"></span><span id="newSetResourceAccessForBucket"><span class="annot"><span class="annottext">newSetResourceAccessForBucket :: Text -&gt; Text -&gt; ResourceBucketAccess -&gt; SetResourceAccessForBucket
 </span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#newSetResourceAccessForBucket"><span class="hs-identifier hs-var hs-var">newSetResourceAccessForBucket</span></a></span></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679631278"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679631278"><span class="hs-identifier hs-var">pResourceName_</span></a></span></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679631277"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679631277"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679631276"><span class="annot"><span class="annottext">ResourceBucketAccess
-</span><a href="#local-6989586621679631276"><span class="hs-identifier hs-var">pAccess_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679631287"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679631287"><span class="hs-identifier hs-var">pResourceName_</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679631286"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679631286"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679631285"><span class="annot"><span class="annottext">ResourceBucketAccess
+</span><a href="#local-6989586621679631285"><span class="hs-identifier hs-var">pAccess_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">SetResourceAccessForBucket' :: Text -&gt; Text -&gt; ResourceBucketAccess -&gt; SetResourceAccessForBucket
 </span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-type">SetResourceAccessForBucket'</span></a></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceName:SetResourceAccessForBucket' :: Text
 </span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#%24sel%3AresourceName%3ASetResourceAccessForBucket%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679631278"><span class="hs-identifier hs-var">pResourceName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679631287"><span class="hs-identifier hs-var">pResourceName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:bucketName:SetResourceAccessForBucket' :: Text
 </span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#%24sel%3AbucketName%3ASetResourceAccessForBucket%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679631277"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679631286"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:access:SetResourceAccessForBucket' :: ResourceBucketAccess
 </span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#%24sel%3Aaccess%3ASetResourceAccessForBucket%27"><span class="hs-identifier hs-var">access</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceBucketAccess
-</span><a href="#local-6989586621679631276"><span class="hs-identifier hs-var">pAccess_</span></a></span><span>
+</span><a href="#local-6989586621679631285"><span class="hs-identifier hs-var">pAccess_</span></a></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The name of the Lightsail instance for which to set bucket access. The</span><span>
@@ -198,16 +198,16 @@ SetResourceAccessForBucket -&gt; Rep SetResourceAccessForBucket x
 -&gt; Lens
      SetResourceAccessForBucket SetResourceAccessForBucket Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-type">SetResourceAccessForBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631273"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-type">SetResourceAccessForBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631282"><span class="annot"><span class="annottext">Text
 resourceName :: Text
 $sel:resourceName:SetResourceAccessForBucket' :: SetResourceAccessForBucket -&gt; Text
-</span><a href="#local-6989586621679631273"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679631273"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631272"><span class="annot"><span class="annottext">s :: SetResourceAccessForBucket
-</span><a href="#local-6989586621679631272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-type">SetResourceAccessForBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631271"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679631271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetResourceAccessForBucket
-</span><a href="#local-6989586621679631272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:SetResourceAccessForBucket' :: Text
+</span><a href="#local-6989586621679631282"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679631282"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631281"><span class="annot"><span class="annottext">s :: SetResourceAccessForBucket
+</span><a href="#local-6989586621679631281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-type">SetResourceAccessForBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631280"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679631280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetResourceAccessForBucket
+</span><a href="#local-6989586621679631281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:SetResourceAccessForBucket' :: Text
 </span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#%24sel%3AresourceName%3ASetResourceAccessForBucket%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679631271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679631280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The name of the bucket for which to set access to another Lightsail</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- resource.</span><span>
@@ -220,16 +220,16 @@ $sel:resourceName:SetResourceAccessForBucket' :: SetResourceAccessForBucket -&gt
 -&gt; Lens
      SetResourceAccessForBucket SetResourceAccessForBucket Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-type">SetResourceAccessForBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631270"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-type">SetResourceAccessForBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631279"><span class="annot"><span class="annottext">Text
 bucketName :: Text
 $sel:bucketName:SetResourceAccessForBucket' :: SetResourceAccessForBucket -&gt; Text
-</span><a href="#local-6989586621679631270"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679631270"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631269"><span class="annot"><span class="annottext">s :: SetResourceAccessForBucket
-</span><a href="#local-6989586621679631269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-type">SetResourceAccessForBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631268"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679631268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetResourceAccessForBucket
-</span><a href="#local-6989586621679631269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:SetResourceAccessForBucket' :: Text
+</span><a href="#local-6989586621679631279"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679631279"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631278"><span class="annot"><span class="annottext">s :: SetResourceAccessForBucket
+</span><a href="#local-6989586621679631278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-type">SetResourceAccessForBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631277"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679631277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetResourceAccessForBucket
+</span><a href="#local-6989586621679631278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:SetResourceAccessForBucket' :: Text
 </span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#%24sel%3AbucketName%3ASetResourceAccessForBucket%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679631268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679631277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The access setting.</span><span>
 </span><span id="line-127"></span><span class="hs-comment">--</span><span>
@@ -251,28 +251,28 @@ $sel:bucketName:SetResourceAccessForBucket' :: SetResourceAccessForBucket -&gt; 
      ResourceBucketAccess
      ResourceBucketAccess
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-type">SetResourceAccessForBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631267"><span class="annot"><span class="annottext">ResourceBucketAccess
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-type">SetResourceAccessForBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631276"><span class="annot"><span class="annottext">ResourceBucketAccess
 access :: ResourceBucketAccess
 $sel:access:SetResourceAccessForBucket' :: SetResourceAccessForBucket -&gt; ResourceBucketAccess
-</span><a href="#local-6989586621679631267"><span class="hs-identifier hs-var hs-var">access</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceBucketAccess
-</span><a href="#local-6989586621679631267"><span class="hs-identifier hs-var">access</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631266"><span class="annot"><span class="annottext">s :: SetResourceAccessForBucket
-</span><a href="#local-6989586621679631266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-type">SetResourceAccessForBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631265"><span class="annot"><span class="annottext">ResourceBucketAccess
-</span><a href="#local-6989586621679631265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetResourceAccessForBucket
-</span><a href="#local-6989586621679631266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:access:SetResourceAccessForBucket' :: ResourceBucketAccess
+</span><a href="#local-6989586621679631276"><span class="hs-identifier hs-var hs-var">access</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceBucketAccess
+</span><a href="#local-6989586621679631276"><span class="hs-identifier hs-var">access</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631275"><span class="annot"><span class="annottext">s :: SetResourceAccessForBucket
+</span><a href="#local-6989586621679631275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-type">SetResourceAccessForBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631274"><span class="annot"><span class="annottext">ResourceBucketAccess
+</span><a href="#local-6989586621679631274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetResourceAccessForBucket
+</span><a href="#local-6989586621679631275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:access:SetResourceAccessForBucket' :: ResourceBucketAccess
 </span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#%24sel%3Aaccess%3ASetResourceAccessForBucket%27"><span class="hs-identifier hs-var">access</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceBucketAccess
-</span><a href="#local-6989586621679631265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679631274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-139"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse"><span class="hs-identifier hs-type">SetResourceAccessForBucketResponse</span></a></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679631261"><span class="annot"><span class="annottext">request :: SetResourceAccessForBucket -&gt; Request SetResourceAccessForBucket
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679631270"><span class="annot"><span class="annottext">request :: SetResourceAccessForBucket -&gt; Request SetResourceAccessForBucket
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; SetResourceAccessForBucket -&gt; Request SetResourceAccessForBucket
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679631257"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679631266"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetResourceAccessForBucket
 -&gt; ClientResponse ClientBody
@@ -298,10 +298,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679631254"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631254"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679631253"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679631253"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679631252"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679631252"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679631263"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679631263"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679631262"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679631262"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679631261"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679631261"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; SetResourceAccessForBucketResponse
 </span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse%27"><span class="hs-identifier hs-var">SetResourceAccessForBucketResponse'</span></a></span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; SetResourceAccessForBucketResponse)
@@ -309,7 +309,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; SetResourceAccessForBucketResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679631252"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679631261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -327,15 +327,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631254"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679631263"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679631243"><span id="local-6989586621679631245"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679631252"><span id="local-6989586621679631254"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span></span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679631240"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679631249"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679631236"><span class="annot"><span class="annottext">toHeaders :: SetResourceAccessForBucket -&gt; ResponseHeaders
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679631245"><span class="annot"><span class="annottext">toHeaders :: SetResourceAccessForBucket -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SetResourceAccessForBucket -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -362,9 +362,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679631226"><span id="local-6989586621679631228"><span id="local-6989586621679631230"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679631224"><span class="annot"><span class="annottext">toJSON :: SetResourceAccessForBucket -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-type">SetResourceAccessForBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631220"><span id="local-6989586621679631221"><span id="local-6989586621679631222"><span class="annot"><span class="annottext">Text
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679631235"><span id="local-6989586621679631237"><span id="local-6989586621679631239"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679631233"><span class="annot"><span class="annottext">toJSON :: SetResourceAccessForBucket -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket%27"><span class="hs-identifier hs-type">SetResourceAccessForBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631229"><span id="local-6989586621679631230"><span id="local-6989586621679631231"><span class="annot"><span class="annottext">Text
 ResourceBucketAccess
 access :: ResourceBucketAccess
 bucketName :: Text
@@ -372,7 +372,7 @@ resourceName :: Text
 $sel:access:SetResourceAccessForBucket' :: SetResourceAccessForBucket -&gt; ResourceBucketAccess
 $sel:bucketName:SetResourceAccessForBucket' :: SetResourceAccessForBucket -&gt; Text
 $sel:resourceName:SetResourceAccessForBucket' :: SetResourceAccessForBucket -&gt; Text
-</span><a href="#local-6989586621679631220"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679631229"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -384,33 +384,33 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;resourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679631222"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679631231"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679631221"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679631230"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;access&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceBucketAccess -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceBucketAccess
-</span><a href="#local-6989586621679631220"><span class="hs-identifier hs-var">access</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679631229"><span class="hs-identifier hs-var">access</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679631214"><span class="annot"><span class="annottext">toPath :: SetResourceAccessForBucket -&gt; ByteString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679631223"><span class="annot"><span class="annottext">toPath :: SetResourceAccessForBucket -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetResourceAccessForBucket -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucket"><span class="hs-identifier hs-type">SetResourceAccessForBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679631210"><span class="annot"><span class="annottext">toQuery :: SetResourceAccessForBucket -&gt; QueryString
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679631219"><span class="annot"><span class="annottext">toQuery :: SetResourceAccessForBucket -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetResourceAccessForBucket -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -418,7 +418,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | /See:/ 'newSetResourceAccessForBucketResponse' smart constructor.</span><span>
-</span><span id="line-186"></span><span id="local-6989586621679631207"><span id="local-6989586621679631208"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetResourceAccessForBucketResponse"><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse"><span class="hs-identifier hs-var">SetResourceAccessForBucketResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetResourceAccessForBucketResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse%27"><span class="hs-identifier hs-var">SetResourceAccessForBucketResponse'</span></a></span></span><span>
+</span><span id="line-186"></span><span id="local-6989586621679631216"><span id="local-6989586621679631217"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetResourceAccessForBucketResponse"><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse"><span class="hs-identifier hs-var">SetResourceAccessForBucketResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetResourceAccessForBucketResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse%27"><span class="hs-identifier hs-var">SetResourceAccessForBucketResponse'</span></a></span></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -428,7 +428,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-192"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASetResourceAccessForBucketResponse%27"><span class="annot"><span class="annottext">SetResourceAccessForBucketResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#%24sel%3AhttpStatus%3ASetResourceAccessForBucketResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679631201"><span id="local-6989586621679631203"><span class="annot"><span class="annottext">SetResourceAccessForBucketResponse
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679631210"><span id="local-6989586621679631212"><span class="annot"><span class="annottext">SetResourceAccessForBucketResponse
 -&gt; SetResourceAccessForBucketResponse -&gt; Bool
 (SetResourceAccessForBucketResponse
  -&gt; SetResourceAccessForBucketResponse -&gt; Bool)
@@ -444,7 +444,7 @@ $c/= :: SetResourceAccessForBucketResponse
 -&gt; SetResourceAccessForBucketResponse -&gt; Bool
 $c== :: SetResourceAccessForBucketResponse
 -&gt; SetResourceAccessForBucketResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631193"><span id="local-6989586621679631195"><span id="local-6989586621679631197"><span id="local-6989586621679631199"><span class="annot"><span class="annottext">ReadPrec [SetResourceAccessForBucketResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631202"><span id="local-6989586621679631204"><span id="local-6989586621679631206"><span id="local-6989586621679631208"><span class="annot"><span class="annottext">ReadPrec [SetResourceAccessForBucketResponse]
 ReadPrec SetResourceAccessForBucketResponse
 Int -&gt; ReadS SetResourceAccessForBucketResponse
 ReadS [SetResourceAccessForBucketResponse]
@@ -464,7 +464,7 @@ readList :: ReadS [SetResourceAccessForBucketResponse]
 $creadList :: ReadS [SetResourceAccessForBucketResponse]
 readsPrec :: Int -&gt; ReadS SetResourceAccessForBucketResponse
 $creadsPrec :: Int -&gt; ReadS SetResourceAccessForBucketResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631187"><span id="local-6989586621679631189"><span id="local-6989586621679631191"><span class="annot"><span class="annottext">Int -&gt; SetResourceAccessForBucketResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631196"><span id="local-6989586621679631198"><span id="local-6989586621679631200"><span class="annot"><span class="annottext">Int -&gt; SetResourceAccessForBucketResponse -&gt; ShowS
 [SetResourceAccessForBucketResponse] -&gt; ShowS
 SetResourceAccessForBucketResponse -&gt; String
 (Int -&gt; SetResourceAccessForBucketResponse -&gt; ShowS)
@@ -520,8 +520,8 @@ SetResourceAccessForBucketResponse
 </span><span id="line-211"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-212"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse"><span class="hs-identifier hs-type">SetResourceAccessForBucketResponse</span></a></span><span>
 </span><span id="line-213"></span><span id="newSetResourceAccessForBucketResponse"><span class="annot"><span class="annottext">newSetResourceAccessForBucketResponse :: Int -&gt; SetResourceAccessForBucketResponse
-</span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#newSetResourceAccessForBucketResponse"><span class="hs-identifier hs-var hs-var">newSetResourceAccessForBucketResponse</span></a></span></span><span> </span><span id="local-6989586621679631184"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631184"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#newSetResourceAccessForBucketResponse"><span class="hs-identifier hs-var hs-var">newSetResourceAccessForBucketResponse</span></a></span></span><span> </span><span id="local-6989586621679631193"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679631193"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>  </span><span class="annot"><span class="annottext">SetResourceAccessForBucketResponse' :: Maybe [Operation] -&gt; Int -&gt; SetResourceAccessForBucketResponse
 </span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse%27"><span class="hs-identifier hs-type">SetResourceAccessForBucketResponse'</span></a></span><span>
 </span><span id="line-215"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:SetResourceAccessForBucketResponse' :: Maybe [Operation]
@@ -531,7 +531,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SetResourceAccessForBucketResponse' :: Int
 </span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#%24sel%3AhttpStatus%3ASetResourceAccessForBucketResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631184"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679631193"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -550,16 +550,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse%27"><span class="hs-identifier hs-type">SetResourceAccessForBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631183"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse%27"><span class="hs-identifier hs-type">SetResourceAccessForBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631192"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:SetResourceAccessForBucketResponse' :: SetResourceAccessForBucketResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679631183"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679631183"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631182"><span class="annot"><span class="annottext">s :: SetResourceAccessForBucketResponse
-</span><a href="#local-6989586621679631182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse%27"><span class="hs-identifier hs-type">SetResourceAccessForBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631181"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679631181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetResourceAccessForBucketResponse
-</span><a href="#local-6989586621679631182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:SetResourceAccessForBucketResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679631192"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679631192"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631191"><span class="annot"><span class="annottext">s :: SetResourceAccessForBucketResponse
+</span><a href="#local-6989586621679631191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse%27"><span class="hs-identifier hs-type">SetResourceAccessForBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631190"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679631190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetResourceAccessForBucketResponse
+</span><a href="#local-6989586621679631191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:SetResourceAccessForBucketResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#%24sel%3Aoperations%3ASetResourceAccessForBucketResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679631181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse"><span class="hs-identifier hs-type">SetResourceAccessForBucketResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679631190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse"><span class="hs-identifier hs-type">SetResourceAccessForBucketResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; SetResourceAccessForBucketResponse
  -&gt; f SetResourceAccessForBucketResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -595,18 +595,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse%27"><span class="hs-identifier hs-type">SetResourceAccessForBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631177"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse%27"><span class="hs-identifier hs-type">SetResourceAccessForBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631186"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SetResourceAccessForBucketResponse' :: SetResourceAccessForBucketResponse -&gt; Int
-</span><a href="#local-6989586621679631177"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631177"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631176"><span class="annot"><span class="annottext">s :: SetResourceAccessForBucketResponse
-</span><a href="#local-6989586621679631176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse%27"><span class="hs-identifier hs-type">SetResourceAccessForBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631175"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetResourceAccessForBucketResponse
-</span><a href="#local-6989586621679631176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetResourceAccessForBucketResponse' :: Int
+</span><a href="#local-6989586621679631186"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679631186"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631185"><span class="annot"><span class="annottext">s :: SetResourceAccessForBucketResponse
+</span><a href="#local-6989586621679631185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse%27"><span class="hs-identifier hs-type">SetResourceAccessForBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631184"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679631184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetResourceAccessForBucketResponse
+</span><a href="#local-6989586621679631185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetResourceAccessForBucketResponse' :: Int
 </span><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#%24sel%3AhttpStatus%3ASetResourceAccessForBucketResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse"><span class="hs-identifier hs-type">SetResourceAccessForBucketResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679631184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse"><span class="hs-identifier hs-type">SetResourceAccessForBucketResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621679631173"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679631182"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-232"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.SetResourceAccessForBucket.html#SetResourceAccessForBucketResponse"><span class="hs-identifier hs-type">SetResourceAccessForBucketResponse</span></a></span></span><span>
 </span><span id="line-233"></span></pre></body></html>

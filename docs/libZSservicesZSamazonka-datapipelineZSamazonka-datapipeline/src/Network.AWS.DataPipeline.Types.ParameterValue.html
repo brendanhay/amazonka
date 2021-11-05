@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A value or list of parameter values.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newParameterValue' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679175703"><span id="local-6989586621679175704"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParameterValue"><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-var">ParameterValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParameterValue%27"><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue%27"><span class="hs-identifier hs-var">ParameterValue'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679175712"><span id="local-6989586621679175713"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParameterValue"><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-var">ParameterValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParameterValue%27"><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue%27"><span class="hs-identifier hs-var">ParameterValue'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the parameter value.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aid%3AParameterValue%27"><span class="annot"><span class="annottext">ParameterValue -&gt; Text
 </span><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#%24sel%3Aid%3AParameterValue%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AstringValue%3AParameterValue%27"><span class="annot"><span class="annottext">ParameterValue -&gt; Text
 </span><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#%24sel%3AstringValue%3AParameterValue%27"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175696"><span id="local-6989586621679175698"><span class="annot"><span class="annottext">ParameterValue -&gt; ParameterValue -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175705"><span id="local-6989586621679175707"><span class="annot"><span class="annottext">ParameterValue -&gt; ParameterValue -&gt; Bool
 (ParameterValue -&gt; ParameterValue -&gt; Bool)
 -&gt; (ParameterValue -&gt; ParameterValue -&gt; Bool) -&gt; Eq ParameterValue
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ParameterValue -&gt; ParameterValue -&gt; Bool
 == :: ParameterValue -&gt; ParameterValue -&gt; Bool
 $c== :: ParameterValue -&gt; ParameterValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175687"><span id="local-6989586621679175689"><span id="local-6989586621679175691"><span id="local-6989586621679175693"><span class="annot"><span class="annottext">ReadPrec [ParameterValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175696"><span id="local-6989586621679175698"><span id="local-6989586621679175700"><span id="local-6989586621679175702"><span class="annot"><span class="annottext">ReadPrec [ParameterValue]
 ReadPrec ParameterValue
 Int -&gt; ReadS ParameterValue
 ReadS [ParameterValue]
@@ -62,7 +62,7 @@ readList :: ReadS [ParameterValue]
 $creadList :: ReadS [ParameterValue]
 readsPrec :: Int -&gt; ReadS ParameterValue
 $creadsPrec :: Int -&gt; ReadS ParameterValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175680"><span id="local-6989586621679175682"><span id="local-6989586621679175684"><span class="annot"><span class="annottext">Int -&gt; ParameterValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175689"><span id="local-6989586621679175691"><span id="local-6989586621679175693"><span class="annot"><span class="annottext">Int -&gt; ParameterValue -&gt; ShowS
 [ParameterValue] -&gt; ShowS
 ParameterValue -&gt; String
 (Int -&gt; ParameterValue -&gt; ShowS)
@@ -106,17 +106,17 @@ $cfrom :: forall x. ParameterValue -&gt; Rep ParameterValue x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span><span>
 </span><span id="line-54"></span><span id="newParameterValue"><span class="annot"><span class="annottext">newParameterValue :: Text -&gt; Text -&gt; ParameterValue
-</span><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#newParameterValue"><span class="hs-identifier hs-var hs-var">newParameterValue</span></a></span></span><span> </span><span id="local-6989586621679175674"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175674"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679175673"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175673"><span class="hs-identifier hs-var">pStringValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#newParameterValue"><span class="hs-identifier hs-var hs-var">newParameterValue</span></a></span></span><span> </span><span id="local-6989586621679175683"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175683"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679175682"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175682"><span class="hs-identifier hs-var">pStringValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ParameterValue' :: Text -&gt; Text -&gt; ParameterValue
 </span><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue%27"><span class="hs-identifier hs-type">ParameterValue'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:ParameterValue' :: Text
 </span><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#%24sel%3Aid%3AParameterValue%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175674"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175683"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:stringValue:ParameterValue' :: Text
 </span><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#%24sel%3AstringValue%3AParameterValue%27"><span class="hs-identifier hs-var">stringValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175673"><span class="hs-identifier hs-var">pStringValue_</span></a></span><span>
+</span><a href="#local-6989586621679175682"><span class="hs-identifier hs-var">pStringValue_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The ID of the parameter value.</span><span>
@@ -126,16 +126,16 @@ $cfrom :: forall x. ParameterValue -&gt; Rep ParameterValue x
 -&gt; (ParameterValue -&gt; Text -&gt; ParameterValue)
 -&gt; Lens ParameterValue ParameterValue Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue%27"><span class="hs-identifier hs-type">ParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175669"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue%27"><span class="hs-identifier hs-type">ParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175678"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:ParameterValue' :: ParameterValue -&gt; Text
-</span><a href="#local-6989586621679175669"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175669"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175668"><span class="annot"><span class="annottext">s :: ParameterValue
-</span><a href="#local-6989586621679175668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue%27"><span class="hs-identifier hs-type">ParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175667"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterValue
-</span><a href="#local-6989586621679175668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ParameterValue' :: Text
+</span><a href="#local-6989586621679175678"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175678"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175677"><span class="annot"><span class="annottext">s :: ParameterValue
+</span><a href="#local-6989586621679175677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue%27"><span class="hs-identifier hs-type">ParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175676"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterValue
+</span><a href="#local-6989586621679175677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ParameterValue' :: Text
 </span><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#%24sel%3Aid%3AParameterValue%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The field value, expressed as a String.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#parameterValue_stringValue"><span class="hs-identifier hs-type">parameterValue_stringValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -144,19 +144,19 @@ $sel:id:ParameterValue' :: ParameterValue -&gt; Text
 -&gt; (ParameterValue -&gt; Text -&gt; ParameterValue)
 -&gt; Lens ParameterValue ParameterValue Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue%27"><span class="hs-identifier hs-type">ParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175665"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue%27"><span class="hs-identifier hs-type">ParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175674"><span class="annot"><span class="annottext">Text
 stringValue :: Text
 $sel:stringValue:ParameterValue' :: ParameterValue -&gt; Text
-</span><a href="#local-6989586621679175665"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175665"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175664"><span class="annot"><span class="annottext">s :: ParameterValue
-</span><a href="#local-6989586621679175664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue%27"><span class="hs-identifier hs-type">ParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175663"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterValue
-</span><a href="#local-6989586621679175664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringValue:ParameterValue' :: Text
+</span><a href="#local-6989586621679175674"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175674"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175673"><span class="annot"><span class="annottext">s :: ParameterValue
+</span><a href="#local-6989586621679175673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue%27"><span class="hs-identifier hs-type">ParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175672"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterValue
+</span><a href="#local-6989586621679175673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringValue:ParameterValue' :: Text
 </span><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#%24sel%3AstringValue%3AParameterValue%27"><span class="hs-identifier hs-var">stringValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175660"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679175658"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ParameterValue
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175669"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679175667"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ParameterValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ParameterValue)
@@ -166,15 +166,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ParameterValue&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175655"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175655"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175664"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175664"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; ParameterValue
 </span><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue%27"><span class="hs-identifier hs-var">ParameterValue'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; ParameterValue)
 -&gt; Parser Text -&gt; Parser (Text -&gt; ParameterValue)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175655"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679175664"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
@@ -182,24 +182,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser ParameterValue
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175655"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679175664"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stringValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175649"><span id="local-6989586621679175651"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175658"><span id="local-6989586621679175660"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175646"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175655"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175638"><span id="local-6989586621679175640"><span id="local-6989586621679175642"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679175636"><span class="annot"><span class="annottext">toJSON :: ParameterValue -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue%27"><span class="hs-identifier hs-type">ParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175633"><span id="local-6989586621679175634"><span class="annot"><span class="annottext">Text
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175647"><span id="local-6989586621679175649"><span id="local-6989586621679175651"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679175645"><span class="annot"><span class="annottext">toJSON :: ParameterValue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue%27"><span class="hs-identifier hs-type">ParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175642"><span id="local-6989586621679175643"><span class="annot"><span class="annottext">Text
 stringValue :: Text
 id :: Text
 $sel:stringValue:ParameterValue' :: ParameterValue -&gt; Text
 $sel:id:ParameterValue' :: ParameterValue -&gt; Text
-</span><a href="#local-6989586621679175633"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679175642"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -211,14 +211,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175634"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175643"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stringValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175633"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175642"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

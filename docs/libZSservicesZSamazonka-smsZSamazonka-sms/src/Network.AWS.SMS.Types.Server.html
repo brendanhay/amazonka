@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Represents a server.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newServer' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679249577"><span id="local-6989586621679249578"></span></span><span class="hs-keyword">data</span><span> </span><span id="Server"><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-var">Server</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Server%27"><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-var">Server'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679249586"><span id="local-6989586621679249587"></span></span><span class="hs-keyword">data</span><span> </span><span id="Server"><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-var">Server</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Server%27"><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-var">Server'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of server.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AserverType%3AServer%27"><span class="annot"><span class="annottext">Server -&gt; Maybe ServerType
 </span><a href="Network.AWS.SMS.Types.Server.html#%24sel%3AserverType%3AServer%27"><span class="hs-identifier hs-var hs-var">serverType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerType.html#ServerType"><span class="hs-identifier hs-type">ServerType</span></a></span><span class="hs-special">,</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AreplicationJobId%3AServer%27"><span class="annot"><span class="annottext">Server -&gt; Maybe Text
 </span><a href="Network.AWS.SMS.Types.Server.html#%24sel%3AreplicationJobId%3AServer%27"><span class="hs-identifier hs-var hs-var">replicationJobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249567"><span id="local-6989586621679249569"><span class="annot"><span class="annottext">Server -&gt; Server -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249576"><span id="local-6989586621679249578"><span class="annot"><span class="annottext">Server -&gt; Server -&gt; Bool
 (Server -&gt; Server -&gt; Bool)
 -&gt; (Server -&gt; Server -&gt; Bool) -&gt; Eq Server
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Server -&gt; Server -&gt; Bool
 == :: Server -&gt; Server -&gt; Bool
 $c== :: Server -&gt; Server -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249558"><span id="local-6989586621679249560"><span id="local-6989586621679249562"><span id="local-6989586621679249564"><span class="annot"><span class="annottext">ReadPrec [Server]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249567"><span id="local-6989586621679249569"><span id="local-6989586621679249571"><span id="local-6989586621679249573"><span class="annot"><span class="annottext">ReadPrec [Server]
 ReadPrec Server
 Int -&gt; ReadS Server
 ReadS [Server]
@@ -73,7 +73,7 @@ readList :: ReadS [Server]
 $creadList :: ReadS [Server]
 readsPrec :: Int -&gt; ReadS Server
 $creadsPrec :: Int -&gt; ReadS Server
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249551"><span id="local-6989586621679249553"><span id="local-6989586621679249555"><span class="annot"><span class="annottext">Int -&gt; Server -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249560"><span id="local-6989586621679249562"><span id="local-6989586621679249564"><span class="annot"><span class="annottext">Int -&gt; Server -&gt; ShowS
 [Server] -&gt; ShowS
 Server -&gt; String
 (Int -&gt; Server -&gt; ShowS)
@@ -153,16 +153,16 @@ forall a. Maybe a
 -&gt; (Server -&gt; Maybe ServerType -&gt; Server)
 -&gt; Lens Server Server (Maybe ServerType) (Maybe ServerType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249542"><span class="annot"><span class="annottext">Maybe ServerType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249551"><span class="annot"><span class="annottext">Maybe ServerType
 serverType :: Maybe ServerType
 $sel:serverType:Server' :: Server -&gt; Maybe ServerType
-</span><a href="#local-6989586621679249542"><span class="hs-identifier hs-var hs-var">serverType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServerType
-</span><a href="#local-6989586621679249542"><span class="hs-identifier hs-var">serverType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249541"><span class="annot"><span class="annottext">s :: Server
-</span><a href="#local-6989586621679249541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249540"><span class="annot"><span class="annottext">Maybe ServerType
-</span><a href="#local-6989586621679249540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Server
-</span><a href="#local-6989586621679249541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverType:Server' :: Maybe ServerType
+</span><a href="#local-6989586621679249551"><span class="hs-identifier hs-var hs-var">serverType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServerType
+</span><a href="#local-6989586621679249551"><span class="hs-identifier hs-var">serverType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249550"><span class="annot"><span class="annottext">s :: Server
+</span><a href="#local-6989586621679249550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249549"><span class="annot"><span class="annottext">Maybe ServerType
+</span><a href="#local-6989586621679249549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Server
+</span><a href="#local-6989586621679249550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverType:Server' :: Maybe ServerType
 </span><a href="Network.AWS.SMS.Types.Server.html#%24sel%3AserverType%3AServer%27"><span class="hs-identifier hs-var">serverType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServerType
-</span><a href="#local-6989586621679249540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The ID of the server.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#server_serverId"><span class="hs-identifier hs-type">server_serverId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -171,16 +171,16 @@ $sel:serverType:Server' :: Server -&gt; Maybe ServerType
 -&gt; (Server -&gt; Maybe Text -&gt; Server)
 -&gt; Lens Server Server (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249538"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249547"><span class="annot"><span class="annottext">Maybe Text
 serverId :: Maybe Text
 $sel:serverId:Server' :: Server -&gt; Maybe Text
-</span><a href="#local-6989586621679249538"><span class="hs-identifier hs-var hs-var">serverId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249538"><span class="hs-identifier hs-var">serverId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249537"><span class="annot"><span class="annottext">s :: Server
-</span><a href="#local-6989586621679249537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249536"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Server
-</span><a href="#local-6989586621679249537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverId:Server' :: Maybe Text
+</span><a href="#local-6989586621679249547"><span class="hs-identifier hs-var hs-var">serverId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249547"><span class="hs-identifier hs-var">serverId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249546"><span class="annot"><span class="annottext">s :: Server
+</span><a href="#local-6989586621679249546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249545"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Server
+</span><a href="#local-6989586621679249546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverId:Server' :: Maybe Text
 </span><a href="Network.AWS.SMS.Types.Server.html#%24sel%3AserverId%3AServer%27"><span class="hs-identifier hs-var">serverId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | Indicates whether the replication job is deleted or failed.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#server_replicationJobTerminated"><span class="hs-identifier hs-type">server_replicationJobTerminated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -189,16 +189,16 @@ $sel:serverId:Server' :: Server -&gt; Maybe Text
 -&gt; (Server -&gt; Maybe Bool -&gt; Server)
 -&gt; Lens Server Server (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249534"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249543"><span class="annot"><span class="annottext">Maybe Bool
 replicationJobTerminated :: Maybe Bool
 $sel:replicationJobTerminated:Server' :: Server -&gt; Maybe Bool
-</span><a href="#local-6989586621679249534"><span class="hs-identifier hs-var hs-var">replicationJobTerminated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679249534"><span class="hs-identifier hs-var">replicationJobTerminated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249533"><span class="annot"><span class="annottext">s :: Server
-</span><a href="#local-6989586621679249533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249532"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679249532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Server
-</span><a href="#local-6989586621679249533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationJobTerminated:Server' :: Maybe Bool
+</span><a href="#local-6989586621679249543"><span class="hs-identifier hs-var hs-var">replicationJobTerminated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679249543"><span class="hs-identifier hs-var">replicationJobTerminated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249542"><span class="annot"><span class="annottext">s :: Server
+</span><a href="#local-6989586621679249542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249541"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679249541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Server
+</span><a href="#local-6989586621679249542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationJobTerminated:Server' :: Maybe Bool
 </span><a href="Network.AWS.SMS.Types.Server.html#%24sel%3AreplicationJobTerminated%3AServer%27"><span class="hs-identifier hs-var">replicationJobTerminated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679249532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Information about the VM server.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#server_vmServer"><span class="hs-identifier hs-type">server_vmServer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span><span class="hs-special">)</span><span>
@@ -207,16 +207,16 @@ $sel:replicationJobTerminated:Server' :: Server -&gt; Maybe Bool
 -&gt; (Server -&gt; Maybe VmServer -&gt; Server)
 -&gt; Lens Server Server (Maybe VmServer) (Maybe VmServer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249530"><span class="annot"><span class="annottext">Maybe VmServer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249539"><span class="annot"><span class="annottext">Maybe VmServer
 vmServer :: Maybe VmServer
 $sel:vmServer:Server' :: Server -&gt; Maybe VmServer
-</span><a href="#local-6989586621679249530"><span class="hs-identifier hs-var hs-var">vmServer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VmServer
-</span><a href="#local-6989586621679249530"><span class="hs-identifier hs-var">vmServer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249529"><span class="annot"><span class="annottext">s :: Server
-</span><a href="#local-6989586621679249529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249528"><span class="annot"><span class="annottext">Maybe VmServer
-</span><a href="#local-6989586621679249528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Server
-</span><a href="#local-6989586621679249529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmServer:Server' :: Maybe VmServer
+</span><a href="#local-6989586621679249539"><span class="hs-identifier hs-var hs-var">vmServer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VmServer
+</span><a href="#local-6989586621679249539"><span class="hs-identifier hs-var">vmServer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249538"><span class="annot"><span class="annottext">s :: Server
+</span><a href="#local-6989586621679249538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249537"><span class="annot"><span class="annottext">Maybe VmServer
+</span><a href="#local-6989586621679249537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Server
+</span><a href="#local-6989586621679249538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmServer:Server' :: Maybe VmServer
 </span><a href="Network.AWS.SMS.Types.Server.html#%24sel%3AvmServer%3AServer%27"><span class="hs-identifier hs-var">vmServer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VmServer
-</span><a href="#local-6989586621679249528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The ID of the replication job.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#server_replicationJobId"><span class="hs-identifier hs-type">server_replicationJobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -225,27 +225,27 @@ $sel:vmServer:Server' :: Server -&gt; Maybe VmServer
 -&gt; (Server -&gt; Maybe Text -&gt; Server)
 -&gt; Lens Server Server (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249526"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249535"><span class="annot"><span class="annottext">Maybe Text
 replicationJobId :: Maybe Text
 $sel:replicationJobId:Server' :: Server -&gt; Maybe Text
-</span><a href="#local-6989586621679249526"><span class="hs-identifier hs-var hs-var">replicationJobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249526"><span class="hs-identifier hs-var">replicationJobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249525"><span class="annot"><span class="annottext">s :: Server
-</span><a href="#local-6989586621679249525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249524"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Server
-</span><a href="#local-6989586621679249525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationJobId:Server' :: Maybe Text
+</span><a href="#local-6989586621679249535"><span class="hs-identifier hs-var hs-var">replicationJobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249535"><span class="hs-identifier hs-var">replicationJobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249534"><span class="annot"><span class="annottext">s :: Server
+</span><a href="#local-6989586621679249534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249533"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Server
+</span><a href="#local-6989586621679249534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationJobId:Server' :: Maybe Text
 </span><a href="Network.AWS.SMS.Types.Server.html#%24sel%3AreplicationJobId%3AServer%27"><span class="hs-identifier hs-var">replicationJobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249521"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679249519"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Server
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249530"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679249528"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Server
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Server) -&gt; Value -&gt; Parser Server
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Server&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249516"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249516"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249525"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249525"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServerType
 -&gt; Maybe Text
 -&gt; Maybe Bool
@@ -265,7 +265,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Bool -&gt; Maybe VmServer -&gt; Maybe Text -&gt; Server)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249516"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServerType)
+</span><a href="#local-6989586621679249525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServerType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serverType&quot;</span></span><span class="hs-special">)</span><span>
@@ -276,7 +276,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool -&gt; Maybe VmServer -&gt; Maybe Text -&gt; Server)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249516"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679249525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serverId&quot;</span></span><span class="hs-special">)</span><span>
@@ -285,7 +285,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe VmServer -&gt; Maybe Text -&gt; Server)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249516"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679249525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;replicationJobTerminated&quot;</span></span><span class="hs-special">)</span><span>
@@ -293,7 +293,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe VmServer) -&gt; Parser (Maybe Text -&gt; Server)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249516"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VmServer)
+</span><a href="#local-6989586621679249525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VmServer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vmServer&quot;</span></span><span class="hs-special">)</span><span>
@@ -301,19 +301,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Server
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249516"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679249525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;replicationJobId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249510"><span id="local-6989586621679249512"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249519"><span id="local-6989586621679249521"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249507"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249516"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249499"><span id="local-6989586621679249501"><span id="local-6989586621679249503"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679249497"><span class="annot"><span class="annottext">toJSON :: Server -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249491"><span id="local-6989586621679249492"><span id="local-6989586621679249493"><span id="local-6989586621679249494"><span id="local-6989586621679249495"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249508"><span id="local-6989586621679249510"><span id="local-6989586621679249512"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server"><span class="hs-identifier hs-type">Server</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679249506"><span class="annot"><span class="annottext">toJSON :: Server -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Server.html#Server%27"><span class="hs-identifier hs-type">Server'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249500"><span id="local-6989586621679249501"><span id="local-6989586621679249502"><span id="local-6989586621679249503"><span id="local-6989586621679249504"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe ServerType
 Maybe VmServer
@@ -327,7 +327,7 @@ $sel:vmServer:Server' :: Server -&gt; Maybe VmServer
 $sel:replicationJobTerminated:Server' :: Server -&gt; Maybe Bool
 $sel:serverId:Server' :: Server -&gt; Maybe Text
 $sel:serverType:Server' :: Server -&gt; Maybe ServerType
-</span><a href="#local-6989586621679249491"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679249500"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -339,14 +339,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ServerType -&gt; Pair) -&gt; Maybe ServerType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ServerType
-</span><a href="#local-6989586621679249495"><span class="hs-identifier hs-var">serverType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249504"><span class="hs-identifier hs-var">serverType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serverId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249494"><span class="hs-identifier hs-var">serverId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249503"><span class="hs-identifier hs-var">serverId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;replicationJobTerminated&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -354,14 +354,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679249493"><span class="hs-identifier hs-var">replicationJobTerminated</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249502"><span class="hs-identifier hs-var">replicationJobTerminated</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vmServer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VmServer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VmServer -&gt; Pair) -&gt; Maybe VmServer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VmServer
-</span><a href="#local-6989586621679249492"><span class="hs-identifier hs-var">vmServer</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249501"><span class="hs-identifier hs-var">vmServer</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;replicationJobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -369,7 +369,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249491"><span class="hs-identifier hs-var">replicationJobId</span></a></span><span>
+</span><a href="#local-6989586621679249500"><span class="hs-identifier hs-var">replicationJobId</span></a></span><span>
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span></pre></body></html>

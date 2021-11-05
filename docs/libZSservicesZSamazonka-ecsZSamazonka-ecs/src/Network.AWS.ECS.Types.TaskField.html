@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679463490"><span id="local-6989586621679463491"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaskField"><span class="annot"><a href="Network.AWS.ECS.Types.TaskField.html#TaskField"><span class="hs-identifier hs-var">TaskField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskField%27"><span class="annot"><a href="Network.AWS.ECS.Types.TaskField.html#TaskField%27"><span class="hs-identifier hs-var">TaskField'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679463499"><span id="local-6989586621679463500"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaskField"><span class="annot"><a href="Network.AWS.ECS.Types.TaskField.html#TaskField"><span class="hs-identifier hs-var">TaskField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskField%27"><span class="annot"><a href="Network.AWS.ECS.Types.TaskField.html#TaskField%27"><span class="hs-identifier hs-var">TaskField'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTaskField"><span class="annot"><span class="annottext">TaskField -&gt; Text
 </span><a href="Network.AWS.ECS.Types.TaskField.html#fromTaskField"><span class="hs-identifier hs-var hs-var">fromTaskField</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679463482"><span id="local-6989586621679463484"><span id="local-6989586621679463486"><span class="annot"><span class="annottext">Int -&gt; TaskField -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679463491"><span id="local-6989586621679463493"><span id="local-6989586621679463495"><span class="annot"><span class="annottext">Int -&gt; TaskField -&gt; ShowS
 [TaskField] -&gt; ShowS
 TaskField -&gt; String
 (Int -&gt; TaskField -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: TaskField -&gt; String
 showsPrec :: Int -&gt; TaskField -&gt; ShowS
 $cshowsPrec :: Int -&gt; TaskField -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679463473"><span id="local-6989586621679463475"><span id="local-6989586621679463477"><span id="local-6989586621679463479"><span class="annot"><span class="annottext">ReadPrec [TaskField]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679463482"><span id="local-6989586621679463484"><span id="local-6989586621679463486"><span id="local-6989586621679463488"><span class="annot"><span class="annottext">ReadPrec [TaskField]
 ReadPrec TaskField
 Int -&gt; ReadS TaskField
 ReadS [TaskField]
@@ -71,7 +71,7 @@ $creadList :: ReadS [TaskField]
 readsPrec :: Int -&gt; ReadS TaskField
 $creadsPrec :: Int -&gt; ReadS TaskField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679463468"><span id="local-6989586621679463470"><span class="annot"><span class="annottext">TaskField -&gt; TaskField -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679463477"><span id="local-6989586621679463479"><span class="annot"><span class="annottext">TaskField -&gt; TaskField -&gt; Bool
 (TaskField -&gt; TaskField -&gt; Bool)
 -&gt; (TaskField -&gt; TaskField -&gt; Bool) -&gt; Eq TaskField
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: TaskField -&gt; TaskField -&gt; Bool
 == :: TaskField -&gt; TaskField -&gt; Bool
 $c== :: TaskField -&gt; TaskField -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679463452"><span id="local-6989586621679463454"><span id="local-6989586621679463456"><span id="local-6989586621679463458"><span id="local-6989586621679463460"><span id="local-6989586621679463462"><span id="local-6989586621679463464"><span class="annot"><span class="annottext">Eq TaskField
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679463461"><span id="local-6989586621679463463"><span id="local-6989586621679463465"><span id="local-6989586621679463467"><span id="local-6989586621679463469"><span id="local-6989586621679463471"><span id="local-6989586621679463473"><span class="annot"><span class="annottext">Eq TaskField
 Eq TaskField
 -&gt; (TaskField -&gt; TaskField -&gt; Ordering)
 -&gt; (TaskField -&gt; TaskField -&gt; Bool)
@@ -130,7 +130,7 @@ $cfrom :: forall x. TaskField -&gt; Rep TaskField x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679463444"><span id="local-6989586621679463446"><span class="annot"><span class="annottext">Int -&gt; TaskField -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679463453"><span id="local-6989586621679463455"><span class="annot"><span class="annottext">Int -&gt; TaskField -&gt; Int
 TaskField -&gt; Int
 (Int -&gt; TaskField -&gt; Int)
 -&gt; (TaskField -&gt; Int) -&gt; Hashable TaskField
@@ -140,49 +140,49 @@ $chash :: TaskField -&gt; Int
 hashWithSalt :: Int -&gt; TaskField -&gt; Int
 $chashWithSalt :: Int -&gt; TaskField -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679463441"><span class="annot"><span class="annottext">TaskField -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679463450"><span class="annot"><span class="annottext">TaskField -&gt; ()
 (TaskField -&gt; ()) -&gt; NFData TaskField
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TaskField -&gt; ()
 $crnf :: TaskField -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679463438"><span class="annot"><span class="annottext">Text -&gt; Either String TaskField
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679463447"><span class="annot"><span class="annottext">Text -&gt; Either String TaskField
 (Text -&gt; Either String TaskField) -&gt; FromText TaskField
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TaskField
 $cfromText :: Text -&gt; Either String TaskField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679463435"><span class="annot"><span class="annottext">TaskField -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679463444"><span class="annot"><span class="annottext">TaskField -&gt; Text
 (TaskField -&gt; Text) -&gt; ToText TaskField
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TaskField -&gt; Text
 $ctoText :: TaskField -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679463432"><span class="annot"><span class="annottext">TaskField -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679463441"><span class="annot"><span class="annottext">TaskField -&gt; ByteString
 (TaskField -&gt; ByteString) -&gt; ToByteString TaskField
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TaskField -&gt; ByteString
 $ctoBS :: TaskField -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679463429"><span class="annot"><span class="annottext">TaskField -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679463438"><span class="annot"><span class="annottext">TaskField -&gt; ByteStringBuilder
 (TaskField -&gt; ByteStringBuilder) -&gt; ToLog TaskField
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TaskField -&gt; ByteStringBuilder
 $cbuild :: TaskField -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679463426"><span class="annot"><span class="annottext">HeaderName -&gt; TaskField -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679463435"><span class="annot"><span class="annottext">HeaderName -&gt; TaskField -&gt; [Header]
 (HeaderName -&gt; TaskField -&gt; [Header]) -&gt; ToHeader TaskField
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TaskField -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TaskField -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679463423"><span class="annot"><span class="annottext">TaskField -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679463432"><span class="annot"><span class="annottext">TaskField -&gt; QueryString
 (TaskField -&gt; QueryString) -&gt; ToQuery TaskField
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TaskField -&gt; QueryString
 $ctoQuery :: TaskField -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679463418"><span id="local-6989586621679463420"><span class="annot"><span class="annottext">Value -&gt; Parser [TaskField]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679463427"><span id="local-6989586621679463429"><span class="annot"><span class="annottext">Value -&gt; Parser [TaskField]
 Value -&gt; Parser TaskField
 (Value -&gt; Parser TaskField)
 -&gt; (Value -&gt; Parser [TaskField]) -&gt; FromJSON TaskField
@@ -193,7 +193,7 @@ $cparseJSONList :: Value -&gt; Parser [TaskField]
 parseJSON :: Value -&gt; Parser TaskField
 $cparseJSON :: Value -&gt; Parser TaskField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679463413"><span id="local-6989586621679463415"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaskField]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679463422"><span id="local-6989586621679463424"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaskField]
 FromJSONKeyFunction TaskField
 FromJSONKeyFunction TaskField
 -&gt; FromJSONKeyFunction [TaskField] -&gt; FromJSONKey TaskField
@@ -204,7 +204,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TaskField]
 fromJSONKey :: FromJSONKeyFunction TaskField
 $cfromJSONKey :: FromJSONKeyFunction TaskField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679463404"><span id="local-6989586621679463406"><span id="local-6989586621679463408"><span id="local-6989586621679463410"><span class="annot"><span class="annottext">[TaskField] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679463413"><span id="local-6989586621679463415"><span id="local-6989586621679463417"><span id="local-6989586621679463419"><span class="annot"><span class="annottext">[TaskField] -&gt; Encoding
 [TaskField] -&gt; Value
 TaskField -&gt; Encoding
 TaskField -&gt; Value
@@ -228,7 +228,7 @@ $ctoEncoding :: TaskField -&gt; Encoding
 toJSON :: TaskField -&gt; Value
 $ctoJSON :: TaskField -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679463399"><span id="local-6989586621679463401"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaskField]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679463408"><span id="local-6989586621679463410"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaskField]
 ToJSONKeyFunction TaskField
 ToJSONKeyFunction TaskField
 -&gt; ToJSONKeyFunction [TaskField] -&gt; ToJSONKey TaskField
@@ -239,13 +239,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TaskField]
 toJSONKey :: ToJSONKeyFunction TaskField
 $ctoJSONKey :: ToJSONKeyFunction TaskField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679463396"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaskField
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679463405"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaskField
 ([Node] -&gt; Either String TaskField) -&gt; FromXML TaskField
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TaskField
 $cparseXML :: [Node] -&gt; Either String TaskField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679463393"><span class="annot"><span class="annottext">TaskField -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679463402"><span class="annot"><span class="annottext">TaskField -&gt; XML
 (TaskField -&gt; XML) -&gt; ToXML TaskField
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TaskField -&gt; XML

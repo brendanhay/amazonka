@@ -52,13 +52,13 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCancelAuditTask' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679855785"><span id="local-6989586621679855786"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelAuditTask"><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask"><span class="hs-identifier hs-var">CancelAuditTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelAuditTask%27"><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask%27"><span class="hs-identifier hs-var">CancelAuditTask'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679855794"><span id="local-6989586621679855795"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelAuditTask"><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask"><span class="hs-identifier hs-var">CancelAuditTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelAuditTask%27"><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask%27"><span class="hs-identifier hs-var">CancelAuditTask'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the audit you want to cancel. You can only cancel an audit</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- that is \&quot;IN_PROGRESS\&quot;.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AtaskId%3ACancelAuditTask%27"><span class="annot"><span class="annottext">CancelAuditTask -&gt; Text
 </span><a href="Network.AWS.IoT.CancelAuditTask.html#%24sel%3AtaskId%3ACancelAuditTask%27"><span class="hs-identifier hs-var hs-var">taskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679855779"><span id="local-6989586621679855781"><span class="annot"><span class="annottext">CancelAuditTask -&gt; CancelAuditTask -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679855788"><span id="local-6989586621679855790"><span class="annot"><span class="annottext">CancelAuditTask -&gt; CancelAuditTask -&gt; Bool
 (CancelAuditTask -&gt; CancelAuditTask -&gt; Bool)
 -&gt; (CancelAuditTask -&gt; CancelAuditTask -&gt; Bool)
 -&gt; Eq CancelAuditTask
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CancelAuditTask -&gt; CancelAuditTask -&gt; Bool
 == :: CancelAuditTask -&gt; CancelAuditTask -&gt; Bool
 $c== :: CancelAuditTask -&gt; CancelAuditTask -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855770"><span id="local-6989586621679855772"><span id="local-6989586621679855774"><span id="local-6989586621679855776"><span class="annot"><span class="annottext">ReadPrec [CancelAuditTask]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855779"><span id="local-6989586621679855781"><span id="local-6989586621679855783"><span id="local-6989586621679855785"><span class="annot"><span class="annottext">ReadPrec [CancelAuditTask]
 ReadPrec CancelAuditTask
 Int -&gt; ReadS CancelAuditTask
 ReadS [CancelAuditTask]
@@ -87,7 +87,7 @@ readList :: ReadS [CancelAuditTask]
 $creadList :: ReadS [CancelAuditTask]
 readsPrec :: Int -&gt; ReadS CancelAuditTask
 $creadsPrec :: Int -&gt; ReadS CancelAuditTask
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855763"><span id="local-6989586621679855765"><span id="local-6989586621679855767"><span class="annot"><span class="annottext">Int -&gt; CancelAuditTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855772"><span id="local-6989586621679855774"><span id="local-6989586621679855776"><span class="annot"><span class="annottext">Int -&gt; CancelAuditTask -&gt; ShowS
 [CancelAuditTask] -&gt; ShowS
 CancelAuditTask -&gt; String
 (Int -&gt; CancelAuditTask -&gt; ShowS)
@@ -128,12 +128,12 @@ $cfrom :: forall x. CancelAuditTask -&gt; Rep CancelAuditTask x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask"><span class="hs-identifier hs-type">CancelAuditTask</span></a></span><span>
 </span><span id="line-76"></span><span id="newCancelAuditTask"><span class="annot"><span class="annottext">newCancelAuditTask :: Text -&gt; CancelAuditTask
-</span><a href="Network.AWS.IoT.CancelAuditTask.html#newCancelAuditTask"><span class="hs-identifier hs-var hs-var">newCancelAuditTask</span></a></span></span><span> </span><span id="local-6989586621679855758"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855758"><span class="hs-identifier hs-var">pTaskId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.CancelAuditTask.html#newCancelAuditTask"><span class="hs-identifier hs-var hs-var">newCancelAuditTask</span></a></span></span><span> </span><span id="local-6989586621679855767"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679855767"><span class="hs-identifier hs-var">pTaskId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">CancelAuditTask' :: Text -&gt; CancelAuditTask
 </span><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask%27"><span class="hs-identifier hs-type">CancelAuditTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskId:CancelAuditTask' :: Text
 </span><a href="Network.AWS.IoT.CancelAuditTask.html#%24sel%3AtaskId%3ACancelAuditTask%27"><span class="hs-identifier hs-var">taskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855758"><span class="hs-identifier hs-var">pTaskId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679855767"><span class="hs-identifier hs-var">pTaskId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The ID of the audit you want to cancel. You can only cancel an audit</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- that is \&quot;IN_PROGRESS\&quot;.</span><span>
@@ -143,27 +143,27 @@ $cfrom :: forall x. CancelAuditTask -&gt; Rep CancelAuditTask x
 -&gt; (CancelAuditTask -&gt; Text -&gt; CancelAuditTask)
 -&gt; Lens CancelAuditTask CancelAuditTask Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask%27"><span class="hs-identifier hs-type">CancelAuditTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855755"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask%27"><span class="hs-identifier hs-type">CancelAuditTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855764"><span class="annot"><span class="annottext">Text
 taskId :: Text
 $sel:taskId:CancelAuditTask' :: CancelAuditTask -&gt; Text
-</span><a href="#local-6989586621679855755"><span class="hs-identifier hs-var hs-var">taskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855755"><span class="hs-identifier hs-var">taskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855754"><span class="annot"><span class="annottext">s :: CancelAuditTask
-</span><a href="#local-6989586621679855754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask%27"><span class="hs-identifier hs-type">CancelAuditTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855753"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelAuditTask
-</span><a href="#local-6989586621679855754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskId:CancelAuditTask' :: Text
+</span><a href="#local-6989586621679855764"><span class="hs-identifier hs-var hs-var">taskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679855764"><span class="hs-identifier hs-var">taskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855763"><span class="annot"><span class="annottext">s :: CancelAuditTask
+</span><a href="#local-6989586621679855763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask%27"><span class="hs-identifier hs-type">CancelAuditTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855762"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679855762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelAuditTask
+</span><a href="#local-6989586621679855763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskId:CancelAuditTask' :: Text
 </span><a href="Network.AWS.IoT.CancelAuditTask.html#%24sel%3AtaskId%3ACancelAuditTask%27"><span class="hs-identifier hs-var">taskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask"><span class="hs-identifier hs-type">CancelAuditTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679855762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask"><span class="hs-identifier hs-type">CancelAuditTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask"><span class="hs-identifier hs-type">CancelAuditTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask"><span class="hs-identifier hs-type">CancelAuditTask</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse"><span class="hs-identifier hs-type">CancelAuditTaskResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679855749"><span class="annot"><span class="annottext">request :: CancelAuditTask -&gt; Request CancelAuditTask
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679855758"><span class="annot"><span class="annottext">request :: CancelAuditTask -&gt; Request CancelAuditTask
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CancelAuditTask -&gt; Request CancelAuditTask
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679855745"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679855754"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CancelAuditTask
 -&gt; ClientResponse ClientBody
@@ -187,10 +187,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679855742"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679855742"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679855741"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679855741"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679855740"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679855740"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679855751"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679855751"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679855750"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679855750"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679855749"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679855749"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CancelAuditTaskResponse
 </span><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse%27"><span class="hs-identifier hs-var">CancelAuditTaskResponse'</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CancelAuditTaskResponse)
@@ -201,23 +201,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679855742"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679855751"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855733"><span id="local-6989586621679855735"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask"><span class="hs-identifier hs-type">CancelAuditTask</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855742"><span id="local-6989586621679855744"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask"><span class="hs-identifier hs-type">CancelAuditTask</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855730"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask"><span class="hs-identifier hs-type">CancelAuditTask</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855739"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask"><span class="hs-identifier hs-type">CancelAuditTask</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask"><span class="hs-identifier hs-type">CancelAuditTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679855726"><span class="annot"><span class="annottext">toHeaders :: CancelAuditTask -&gt; ResponseHeaders
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679855735"><span class="annot"><span class="annottext">toHeaders :: CancelAuditTask -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CancelAuditTask -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855717"><span id="local-6989586621679855719"><span id="local-6989586621679855721"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask"><span class="hs-identifier hs-type">CancelAuditTask</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679855715"><span class="annot"><span class="annottext">toJSON :: CancelAuditTask -&gt; Value
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855726"><span id="local-6989586621679855728"><span id="local-6989586621679855730"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask"><span class="hs-identifier hs-type">CancelAuditTask</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679855724"><span class="annot"><span class="annottext">toJSON :: CancelAuditTask -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; CancelAuditTask -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -226,11 +226,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask"><span class="hs-identifier hs-type">CancelAuditTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679855710"><span class="annot"><span class="annottext">toPath :: CancelAuditTask -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask%27"><span class="hs-identifier hs-type">CancelAuditTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855708"><span class="annot"><span class="annottext">Text
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679855719"><span class="annot"><span class="annottext">toPath :: CancelAuditTask -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask%27"><span class="hs-identifier hs-type">CancelAuditTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855717"><span class="annot"><span class="annottext">Text
 taskId :: Text
 $sel:taskId:CancelAuditTask' :: CancelAuditTask -&gt; Text
-</span><a href="#local-6989586621679855708"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679855717"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -238,11 +238,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/audit/tasks/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679855708"><span class="hs-identifier hs-var">taskId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679855717"><span class="hs-identifier hs-var">taskId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/cancel&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTask"><span class="hs-identifier hs-type">CancelAuditTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679855704"><span class="annot"><span class="annottext">toQuery :: CancelAuditTask -&gt; QueryString
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679855713"><span class="annot"><span class="annottext">toQuery :: CancelAuditTask -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CancelAuditTask -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -250,12 +250,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | /See:/ 'newCancelAuditTaskResponse' smart constructor.</span><span>
-</span><span id="line-115"></span><span id="local-6989586621679855701"><span id="local-6989586621679855702"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelAuditTaskResponse"><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse"><span class="hs-identifier hs-var">CancelAuditTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelAuditTaskResponse%27"><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse%27"><span class="hs-identifier hs-var">CancelAuditTaskResponse'</span></a></span></span><span>
+</span><span id="line-115"></span><span id="local-6989586621679855710"><span id="local-6989586621679855711"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelAuditTaskResponse"><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse"><span class="hs-identifier hs-var">CancelAuditTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelAuditTaskResponse%27"><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse%27"><span class="hs-identifier hs-var">CancelAuditTaskResponse'</span></a></span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-117"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACancelAuditTaskResponse%27"><span class="annot"><span class="annottext">CancelAuditTaskResponse -&gt; Int
 </span><a href="Network.AWS.IoT.CancelAuditTask.html#%24sel%3AhttpStatus%3ACancelAuditTaskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679855696"><span id="local-6989586621679855698"><span class="annot"><span class="annottext">CancelAuditTaskResponse -&gt; CancelAuditTaskResponse -&gt; Bool
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679855705"><span id="local-6989586621679855707"><span class="annot"><span class="annottext">CancelAuditTaskResponse -&gt; CancelAuditTaskResponse -&gt; Bool
 (CancelAuditTaskResponse -&gt; CancelAuditTaskResponse -&gt; Bool)
 -&gt; (CancelAuditTaskResponse -&gt; CancelAuditTaskResponse -&gt; Bool)
 -&gt; Eq CancelAuditTaskResponse
@@ -264,7 +264,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CancelAuditTaskResponse -&gt; CancelAuditTaskResponse -&gt; Bool
 == :: CancelAuditTaskResponse -&gt; CancelAuditTaskResponse -&gt; Bool
 $c== :: CancelAuditTaskResponse -&gt; CancelAuditTaskResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855688"><span id="local-6989586621679855690"><span id="local-6989586621679855692"><span id="local-6989586621679855694"><span class="annot"><span class="annottext">ReadPrec [CancelAuditTaskResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855697"><span id="local-6989586621679855699"><span id="local-6989586621679855701"><span id="local-6989586621679855703"><span class="annot"><span class="annottext">ReadPrec [CancelAuditTaskResponse]
 ReadPrec CancelAuditTaskResponse
 Int -&gt; ReadS CancelAuditTaskResponse
 ReadS [CancelAuditTaskResponse]
@@ -284,7 +284,7 @@ readList :: ReadS [CancelAuditTaskResponse]
 $creadList :: ReadS [CancelAuditTaskResponse]
 readsPrec :: Int -&gt; ReadS CancelAuditTaskResponse
 $creadsPrec :: Int -&gt; ReadS CancelAuditTaskResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855682"><span id="local-6989586621679855684"><span id="local-6989586621679855686"><span class="annot"><span class="annottext">Int -&gt; CancelAuditTaskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855691"><span id="local-6989586621679855693"><span id="local-6989586621679855695"><span class="annot"><span class="annottext">Int -&gt; CancelAuditTaskResponse -&gt; ShowS
 [CancelAuditTaskResponse] -&gt; ShowS
 CancelAuditTaskResponse -&gt; String
 (Int -&gt; CancelAuditTaskResponse -&gt; ShowS)
@@ -326,12 +326,12 @@ $cfrom :: forall x. CancelAuditTaskResponse -&gt; Rep CancelAuditTaskResponse x
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse"><span class="hs-identifier hs-type">CancelAuditTaskResponse</span></a></span><span>
 </span><span id="line-134"></span><span id="newCancelAuditTaskResponse"><span class="annot"><span class="annottext">newCancelAuditTaskResponse :: Int -&gt; CancelAuditTaskResponse
-</span><a href="Network.AWS.IoT.CancelAuditTask.html#newCancelAuditTaskResponse"><span class="hs-identifier hs-var hs-var">newCancelAuditTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679855679"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679855679"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.CancelAuditTask.html#newCancelAuditTaskResponse"><span class="hs-identifier hs-var hs-var">newCancelAuditTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679855688"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679855688"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">CancelAuditTaskResponse' :: Int -&gt; CancelAuditTaskResponse
 </span><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse%27"><span class="hs-identifier hs-type">CancelAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelAuditTaskResponse' :: Int
 </span><a href="Network.AWS.IoT.CancelAuditTask.html#%24sel%3AhttpStatus%3ACancelAuditTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679855679"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679855688"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-138"></span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#cancelAuditTaskResponse_httpStatus"><span class="hs-identifier hs-type">cancelAuditTaskResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse"><span class="hs-identifier hs-type">CancelAuditTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -341,16 +341,16 @@ $cfrom :: forall x. CancelAuditTaskResponse -&gt; Rep CancelAuditTaskResponse x
 -&gt; (CancelAuditTaskResponse -&gt; Int -&gt; CancelAuditTaskResponse)
 -&gt; Lens CancelAuditTaskResponse CancelAuditTaskResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse%27"><span class="hs-identifier hs-type">CancelAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855678"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse%27"><span class="hs-identifier hs-type">CancelAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855687"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CancelAuditTaskResponse' :: CancelAuditTaskResponse -&gt; Int
-</span><a href="#local-6989586621679855678"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679855678"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855677"><span class="annot"><span class="annottext">s :: CancelAuditTaskResponse
-</span><a href="#local-6989586621679855677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse%27"><span class="hs-identifier hs-type">CancelAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855676"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679855676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelAuditTaskResponse
-</span><a href="#local-6989586621679855677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelAuditTaskResponse' :: Int
+</span><a href="#local-6989586621679855687"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679855687"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855686"><span class="annot"><span class="annottext">s :: CancelAuditTaskResponse
+</span><a href="#local-6989586621679855686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse%27"><span class="hs-identifier hs-type">CancelAuditTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855685"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679855685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelAuditTaskResponse
+</span><a href="#local-6989586621679855686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelAuditTaskResponse' :: Int
 </span><a href="Network.AWS.IoT.CancelAuditTask.html#%24sel%3AhttpStatus%3ACancelAuditTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679855676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse"><span class="hs-identifier hs-type">CancelAuditTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679855685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse"><span class="hs-identifier hs-type">CancelAuditTaskResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855674"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse"><span class="hs-identifier hs-type">CancelAuditTaskResponse</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855683"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelAuditTask.html#CancelAuditTaskResponse"><span class="hs-identifier hs-type">CancelAuditTaskResponse</span></a></span></span><span>
 </span><span id="line-142"></span></pre></body></html>

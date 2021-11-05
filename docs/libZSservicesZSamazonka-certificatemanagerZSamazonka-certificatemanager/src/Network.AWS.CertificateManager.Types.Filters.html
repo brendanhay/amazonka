@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- output of the certificate list.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newFilters' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679188912"><span id="local-6989586621679188913"></span></span><span class="hs-keyword">data</span><span> </span><span id="Filters"><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters"><span class="hs-identifier hs-var">Filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Filters%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters%27"><span class="hs-identifier hs-var">Filters'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679188921"><span id="local-6989586621679188922"></span></span><span class="hs-keyword">data</span><span> </span><span id="Filters"><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters"><span class="hs-identifier hs-var">Filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Filters%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters%27"><span class="hs-identifier hs-var">Filters'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify one or more algorithms that can be used to generate key pairs.</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Default filtering returns only @RSA_1024@ and @RSA_2048@ certificates</span><span>
@@ -47,7 +47,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AextendedKeyUsage%3AFilters%27"><span class="annot"><span class="annottext">Filters -&gt; Maybe [ExtendedKeyUsageName]
 </span><a href="Network.AWS.CertificateManager.Types.Filters.html#%24sel%3AextendedKeyUsage%3AFilters%27"><span class="hs-identifier hs-var hs-var">extendedKeyUsage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.ExtendedKeyUsageName.html#ExtendedKeyUsageName"><span class="hs-identifier hs-type">ExtendedKeyUsageName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188904"><span id="local-6989586621679188906"><span class="annot"><span class="annottext">Filters -&gt; Filters -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188913"><span id="local-6989586621679188915"><span class="annot"><span class="annottext">Filters -&gt; Filters -&gt; Bool
 (Filters -&gt; Filters -&gt; Bool)
 -&gt; (Filters -&gt; Filters -&gt; Bool) -&gt; Eq Filters
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Filters -&gt; Filters -&gt; Bool
 == :: Filters -&gt; Filters -&gt; Bool
 $c== :: Filters -&gt; Filters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188895"><span id="local-6989586621679188897"><span id="local-6989586621679188899"><span id="local-6989586621679188901"><span class="annot"><span class="annottext">ReadPrec [Filters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188904"><span id="local-6989586621679188906"><span id="local-6989586621679188908"><span id="local-6989586621679188910"><span class="annot"><span class="annottext">ReadPrec [Filters]
 ReadPrec Filters
 Int -&gt; ReadS Filters
 ReadS [Filters]
@@ -75,7 +75,7 @@ readList :: ReadS [Filters]
 $creadList :: ReadS [Filters]
 readsPrec :: Int -&gt; ReadS Filters
 $creadsPrec :: Int -&gt; ReadS Filters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188888"><span id="local-6989586621679188890"><span id="local-6989586621679188892"><span class="annot"><span class="annottext">Int -&gt; Filters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188897"><span id="local-6989586621679188899"><span id="local-6989586621679188901"><span class="annot"><span class="annottext">Int -&gt; Filters -&gt; ShowS
 [Filters] -&gt; ShowS
 Filters -&gt; String
 (Int -&gt; Filters -&gt; ShowS)
@@ -153,16 +153,16 @@ forall a. Maybe a
 -&gt; Lens
      Filters Filters (Maybe [KeyAlgorithm]) (Maybe [KeyAlgorithm])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters%27"><span class="hs-identifier hs-type">Filters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188879"><span class="annot"><span class="annottext">Maybe [KeyAlgorithm]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters%27"><span class="hs-identifier hs-type">Filters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188888"><span class="annot"><span class="annottext">Maybe [KeyAlgorithm]
 keyTypes :: Maybe [KeyAlgorithm]
 $sel:keyTypes:Filters' :: Filters -&gt; Maybe [KeyAlgorithm]
-</span><a href="#local-6989586621679188879"><span class="hs-identifier hs-var hs-var">keyTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyAlgorithm]
-</span><a href="#local-6989586621679188879"><span class="hs-identifier hs-var">keyTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188878"><span class="annot"><span class="annottext">s :: Filters
-</span><a href="#local-6989586621679188878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters%27"><span class="hs-identifier hs-type">Filters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188877"><span class="annot"><span class="annottext">Maybe [KeyAlgorithm]
-</span><a href="#local-6989586621679188877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filters
-</span><a href="#local-6989586621679188878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyTypes:Filters' :: Maybe [KeyAlgorithm]
+</span><a href="#local-6989586621679188888"><span class="hs-identifier hs-var hs-var">keyTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyAlgorithm]
+</span><a href="#local-6989586621679188888"><span class="hs-identifier hs-var">keyTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188887"><span class="annot"><span class="annottext">s :: Filters
+</span><a href="#local-6989586621679188887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters%27"><span class="hs-identifier hs-type">Filters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188886"><span class="annot"><span class="annottext">Maybe [KeyAlgorithm]
+</span><a href="#local-6989586621679188886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filters
+</span><a href="#local-6989586621679188887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyTypes:Filters' :: Maybe [KeyAlgorithm]
 </span><a href="Network.AWS.CertificateManager.Types.Filters.html#%24sel%3AkeyTypes%3AFilters%27"><span class="hs-identifier hs-var">keyTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyAlgorithm]
-</span><a href="#local-6989586621679188877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters"><span class="hs-identifier hs-type">Filters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [KeyAlgorithm] -&gt; f (Maybe [KeyAlgorithm]))
+</span><a href="#local-6989586621679188886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters"><span class="hs-identifier hs-type">Filters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [KeyAlgorithm] -&gt; f (Maybe [KeyAlgorithm]))
  -&gt; Filters -&gt; f Filters)
 -&gt; ((Maybe [KeyAlgorithm] -&gt; f (Maybe [KeyAlgorithm]))
     -&gt; Maybe [KeyAlgorithm] -&gt; f (Maybe [KeyAlgorithm]))
@@ -192,16 +192,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      Filters Filters (Maybe [KeyUsageName]) (Maybe [KeyUsageName])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters%27"><span class="hs-identifier hs-type">Filters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188872"><span class="annot"><span class="annottext">Maybe [KeyUsageName]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters%27"><span class="hs-identifier hs-type">Filters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188881"><span class="annot"><span class="annottext">Maybe [KeyUsageName]
 keyUsage :: Maybe [KeyUsageName]
 $sel:keyUsage:Filters' :: Filters -&gt; Maybe [KeyUsageName]
-</span><a href="#local-6989586621679188872"><span class="hs-identifier hs-var hs-var">keyUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyUsageName]
-</span><a href="#local-6989586621679188872"><span class="hs-identifier hs-var">keyUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188871"><span class="annot"><span class="annottext">s :: Filters
-</span><a href="#local-6989586621679188871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters%27"><span class="hs-identifier hs-type">Filters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188870"><span class="annot"><span class="annottext">Maybe [KeyUsageName]
-</span><a href="#local-6989586621679188870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filters
-</span><a href="#local-6989586621679188871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyUsage:Filters' :: Maybe [KeyUsageName]
+</span><a href="#local-6989586621679188881"><span class="hs-identifier hs-var hs-var">keyUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyUsageName]
+</span><a href="#local-6989586621679188881"><span class="hs-identifier hs-var">keyUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188880"><span class="annot"><span class="annottext">s :: Filters
+</span><a href="#local-6989586621679188880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters%27"><span class="hs-identifier hs-type">Filters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188879"><span class="annot"><span class="annottext">Maybe [KeyUsageName]
+</span><a href="#local-6989586621679188879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filters
+</span><a href="#local-6989586621679188880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyUsage:Filters' :: Maybe [KeyUsageName]
 </span><a href="Network.AWS.CertificateManager.Types.Filters.html#%24sel%3AkeyUsage%3AFilters%27"><span class="hs-identifier hs-var">keyUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [KeyUsageName]
-</span><a href="#local-6989586621679188870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters"><span class="hs-identifier hs-type">Filters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [KeyUsageName] -&gt; f (Maybe [KeyUsageName]))
+</span><a href="#local-6989586621679188879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters"><span class="hs-identifier hs-type">Filters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [KeyUsageName] -&gt; f (Maybe [KeyUsageName]))
  -&gt; Filters -&gt; f Filters)
 -&gt; ((Maybe [KeyUsageName] -&gt; f (Maybe [KeyUsageName]))
     -&gt; Maybe [KeyUsageName] -&gt; f (Maybe [KeyUsageName]))
@@ -234,16 +234,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [ExtendedKeyUsageName])
      (Maybe [ExtendedKeyUsageName])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters%27"><span class="hs-identifier hs-type">Filters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188868"><span class="annot"><span class="annottext">Maybe [ExtendedKeyUsageName]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters%27"><span class="hs-identifier hs-type">Filters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188877"><span class="annot"><span class="annottext">Maybe [ExtendedKeyUsageName]
 extendedKeyUsage :: Maybe [ExtendedKeyUsageName]
 $sel:extendedKeyUsage:Filters' :: Filters -&gt; Maybe [ExtendedKeyUsageName]
-</span><a href="#local-6989586621679188868"><span class="hs-identifier hs-var hs-var">extendedKeyUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ExtendedKeyUsageName]
-</span><a href="#local-6989586621679188868"><span class="hs-identifier hs-var">extendedKeyUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188867"><span class="annot"><span class="annottext">s :: Filters
-</span><a href="#local-6989586621679188867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters%27"><span class="hs-identifier hs-type">Filters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188866"><span class="annot"><span class="annottext">Maybe [ExtendedKeyUsageName]
-</span><a href="#local-6989586621679188866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filters
-</span><a href="#local-6989586621679188867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extendedKeyUsage:Filters' :: Maybe [ExtendedKeyUsageName]
+</span><a href="#local-6989586621679188877"><span class="hs-identifier hs-var hs-var">extendedKeyUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ExtendedKeyUsageName]
+</span><a href="#local-6989586621679188877"><span class="hs-identifier hs-var">extendedKeyUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188876"><span class="annot"><span class="annottext">s :: Filters
+</span><a href="#local-6989586621679188876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters%27"><span class="hs-identifier hs-type">Filters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188875"><span class="annot"><span class="annottext">Maybe [ExtendedKeyUsageName]
+</span><a href="#local-6989586621679188875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filters
+</span><a href="#local-6989586621679188876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extendedKeyUsage:Filters' :: Maybe [ExtendedKeyUsageName]
 </span><a href="Network.AWS.CertificateManager.Types.Filters.html#%24sel%3AextendedKeyUsage%3AFilters%27"><span class="hs-identifier hs-var">extendedKeyUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ExtendedKeyUsageName]
-</span><a href="#local-6989586621679188866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters"><span class="hs-identifier hs-type">Filters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ExtendedKeyUsageName] -&gt; f (Maybe [ExtendedKeyUsageName]))
+</span><a href="#local-6989586621679188875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters"><span class="hs-identifier hs-type">Filters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ExtendedKeyUsageName] -&gt; f (Maybe [ExtendedKeyUsageName]))
  -&gt; Filters -&gt; f Filters)
 -&gt; ((Maybe [ExtendedKeyUsageName]
      -&gt; f (Maybe [ExtendedKeyUsageName]))
@@ -275,13 +275,13 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188862"><span id="local-6989586621679188864"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters"><span class="hs-identifier hs-type">Filters</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188871"><span id="local-6989586621679188873"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters"><span class="hs-identifier hs-type">Filters</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters"><span class="hs-identifier hs-type">Filters</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188868"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters"><span class="hs-identifier hs-type">Filters</span></a></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188851"><span id="local-6989586621679188853"><span id="local-6989586621679188855"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters"><span class="hs-identifier hs-type">Filters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679188849"><span class="annot"><span class="annottext">toJSON :: Filters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters%27"><span class="hs-identifier hs-type">Filters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188845"><span id="local-6989586621679188846"><span id="local-6989586621679188847"><span class="annot"><span class="annottext">Maybe [ExtendedKeyUsageName]
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188860"><span id="local-6989586621679188862"><span id="local-6989586621679188864"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters"><span class="hs-identifier hs-type">Filters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679188858"><span class="annot"><span class="annottext">toJSON :: Filters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.Filters.html#Filters%27"><span class="hs-identifier hs-type">Filters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188854"><span id="local-6989586621679188855"><span id="local-6989586621679188856"><span class="annot"><span class="annottext">Maybe [ExtendedKeyUsageName]
 Maybe [KeyAlgorithm]
 Maybe [KeyUsageName]
 extendedKeyUsage :: Maybe [ExtendedKeyUsageName]
@@ -290,7 +290,7 @@ keyTypes :: Maybe [KeyAlgorithm]
 $sel:extendedKeyUsage:Filters' :: Filters -&gt; Maybe [ExtendedKeyUsageName]
 $sel:keyUsage:Filters' :: Filters -&gt; Maybe [KeyUsageName]
 $sel:keyTypes:Filters' :: Filters -&gt; Maybe [KeyAlgorithm]
-</span><a href="#local-6989586621679188845"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679188854"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -302,14 +302,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([KeyAlgorithm] -&gt; Pair) -&gt; Maybe [KeyAlgorithm] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [KeyAlgorithm]
-</span><a href="#local-6989586621679188847"><span class="hs-identifier hs-var">keyTypes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679188856"><span class="hs-identifier hs-var">keyTypes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyUsage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [KeyUsageName] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([KeyUsageName] -&gt; Pair) -&gt; Maybe [KeyUsageName] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [KeyUsageName]
-</span><a href="#local-6989586621679188846"><span class="hs-identifier hs-var">keyUsage</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679188855"><span class="hs-identifier hs-var">keyUsage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;extendedKeyUsage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ExtendedKeyUsageName] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -318,7 +318,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [ExtendedKeyUsageName] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ExtendedKeyUsageName]
-</span><a href="#local-6989586621679188845"><span class="hs-identifier hs-var">extendedKeyUsage</span></a></span><span>
+</span><a href="#local-6989586621679188854"><span class="hs-identifier hs-var">extendedKeyUsage</span></a></span><span>
 </span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span></pre></body></html>

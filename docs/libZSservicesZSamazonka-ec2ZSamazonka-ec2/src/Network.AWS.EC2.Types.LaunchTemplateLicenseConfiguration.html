@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes a license configuration.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLaunchTemplateLicenseConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681124712"><span id="local-6989586621681124713"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateLicenseConfiguration"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration.html#LaunchTemplateLicenseConfiguration"><span class="hs-identifier hs-var">LaunchTemplateLicenseConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateLicenseConfiguration%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration.html#LaunchTemplateLicenseConfiguration%27"><span class="hs-identifier hs-var">LaunchTemplateLicenseConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681124721"><span id="local-6989586621681124722"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateLicenseConfiguration"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration.html#LaunchTemplateLicenseConfiguration"><span class="hs-identifier hs-var">LaunchTemplateLicenseConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateLicenseConfiguration%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration.html#LaunchTemplateLicenseConfiguration%27"><span class="hs-identifier hs-var">LaunchTemplateLicenseConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the license configuration.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AlicenseConfigurationArn%3ALaunchTemplateLicenseConfiguration%27"><span class="annot"><span class="annottext">LaunchTemplateLicenseConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration.html#%24sel%3AlicenseConfigurationArn%3ALaunchTemplateLicenseConfiguration%27"><span class="hs-identifier hs-var hs-var">licenseConfigurationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681124706"><span id="local-6989586621681124708"><span class="annot"><span class="annottext">LaunchTemplateLicenseConfiguration
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681124715"><span id="local-6989586621681124717"><span class="annot"><span class="annottext">LaunchTemplateLicenseConfiguration
 -&gt; LaunchTemplateLicenseConfiguration -&gt; Bool
 (LaunchTemplateLicenseConfiguration
  -&gt; LaunchTemplateLicenseConfiguration -&gt; Bool)
@@ -48,7 +48,7 @@ $c/= :: LaunchTemplateLicenseConfiguration
 -&gt; LaunchTemplateLicenseConfiguration -&gt; Bool
 $c== :: LaunchTemplateLicenseConfiguration
 -&gt; LaunchTemplateLicenseConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681124697"><span id="local-6989586621681124699"><span id="local-6989586621681124701"><span id="local-6989586621681124703"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateLicenseConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681124706"><span id="local-6989586621681124708"><span id="local-6989586621681124710"><span id="local-6989586621681124712"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateLicenseConfiguration]
 ReadPrec LaunchTemplateLicenseConfiguration
 Int -&gt; ReadS LaunchTemplateLicenseConfiguration
 ReadS [LaunchTemplateLicenseConfiguration]
@@ -68,7 +68,7 @@ readList :: ReadS [LaunchTemplateLicenseConfiguration]
 $creadList :: ReadS [LaunchTemplateLicenseConfiguration]
 readsPrec :: Int -&gt; ReadS LaunchTemplateLicenseConfiguration
 $creadsPrec :: Int -&gt; ReadS LaunchTemplateLicenseConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681124690"><span id="local-6989586621681124692"><span id="local-6989586621681124694"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateLicenseConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681124699"><span id="local-6989586621681124701"><span id="local-6989586621681124703"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateLicenseConfiguration -&gt; ShowS
 [LaunchTemplateLicenseConfiguration] -&gt; ShowS
 LaunchTemplateLicenseConfiguration -&gt; String
 (Int -&gt; LaunchTemplateLicenseConfiguration -&gt; ShowS)
@@ -142,24 +142,24 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration.html#LaunchTemplateLicenseConfiguration%27"><span class="hs-identifier hs-type">LaunchTemplateLicenseConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681124681"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration.html#LaunchTemplateLicenseConfiguration%27"><span class="hs-identifier hs-type">LaunchTemplateLicenseConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681124690"><span class="annot"><span class="annottext">Maybe Text
 licenseConfigurationArn :: Maybe Text
 $sel:licenseConfigurationArn:LaunchTemplateLicenseConfiguration' :: LaunchTemplateLicenseConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621681124681"><span class="hs-identifier hs-var hs-var">licenseConfigurationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681124681"><span class="hs-identifier hs-var">licenseConfigurationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681124680"><span class="annot"><span class="annottext">s :: LaunchTemplateLicenseConfiguration
-</span><a href="#local-6989586621681124680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration.html#LaunchTemplateLicenseConfiguration%27"><span class="hs-identifier hs-type">LaunchTemplateLicenseConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681124679"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681124679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateLicenseConfiguration
-</span><a href="#local-6989586621681124680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseConfigurationArn:LaunchTemplateLicenseConfiguration' :: Maybe Text
+</span><a href="#local-6989586621681124690"><span class="hs-identifier hs-var hs-var">licenseConfigurationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681124690"><span class="hs-identifier hs-var">licenseConfigurationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681124689"><span class="annot"><span class="annottext">s :: LaunchTemplateLicenseConfiguration
+</span><a href="#local-6989586621681124689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration.html#LaunchTemplateLicenseConfiguration%27"><span class="hs-identifier hs-type">LaunchTemplateLicenseConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681124688"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681124688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateLicenseConfiguration
+</span><a href="#local-6989586621681124689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseConfigurationArn:LaunchTemplateLicenseConfiguration' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration.html#%24sel%3AlicenseConfigurationArn%3ALaunchTemplateLicenseConfiguration%27"><span class="hs-identifier hs-var">licenseConfigurationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681124679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration.html#LaunchTemplateLicenseConfiguration"><span class="hs-identifier hs-type">LaunchTemplateLicenseConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681124688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration.html#LaunchTemplateLicenseConfiguration"><span class="hs-identifier hs-type">LaunchTemplateLicenseConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration.html#LaunchTemplateLicenseConfiguration"><span class="hs-identifier hs-type">LaunchTemplateLicenseConfiguration</span></a></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621681124676"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LaunchTemplateLicenseConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681124674"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681124674"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621681124685"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LaunchTemplateLicenseConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681124683"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681124683"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; LaunchTemplateLicenseConfiguration
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration.html#LaunchTemplateLicenseConfiguration%27"><span class="hs-identifier hs-var">LaunchTemplateLicenseConfiguration'</span></a></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; LaunchTemplateLicenseConfiguration)
@@ -167,16 +167,16 @@ $sel:licenseConfigurationArn:LaunchTemplateLicenseConfiguration' :: LaunchTempla
 -&gt; Either String LaunchTemplateLicenseConfiguration
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681124674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681124683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;licenseConfigurationArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621681124668"><span id="local-6989586621681124670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621681124677"><span id="local-6989586621681124679"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration.html#LaunchTemplateLicenseConfiguration"><span class="hs-identifier hs-type">LaunchTemplateLicenseConfiguration</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621681124665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621681124674"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration.html#LaunchTemplateLicenseConfiguration"><span class="hs-identifier hs-type">LaunchTemplateLicenseConfiguration</span></a></span></span><span>
 </span><span id="line-72"></span></pre></body></html>

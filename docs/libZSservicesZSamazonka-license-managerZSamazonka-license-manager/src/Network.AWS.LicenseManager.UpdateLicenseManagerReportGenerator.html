@@ -1,0 +1,791 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a report generator.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- After you make changes to a report generator, it starts generating new</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- reports within 60 minutes of being updated.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier">UpdateLicenseManagerReportGenerator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#newUpdateLicenseManagerReportGenerator"><span class="hs-identifier">newUpdateLicenseManagerReportGenerator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_description"><span class="hs-identifier">updateLicenseManagerReportGenerator_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_licenseManagerReportGeneratorArn"><span class="hs-identifier">updateLicenseManagerReportGenerator_licenseManagerReportGeneratorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_reportGeneratorName"><span class="hs-identifier">updateLicenseManagerReportGenerator_reportGeneratorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_type"><span class="hs-identifier">updateLicenseManagerReportGenerator_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_reportContext"><span class="hs-identifier">updateLicenseManagerReportGenerator_reportContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_reportFrequency"><span class="hs-identifier">updateLicenseManagerReportGenerator_reportFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_clientToken"><span class="hs-identifier">updateLicenseManagerReportGenerator_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGeneratorResponse"><span class="hs-identifier">UpdateLicenseManagerReportGeneratorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#newUpdateLicenseManagerReportGeneratorResponse"><span class="hs-identifier">newUpdateLicenseManagerReportGeneratorResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGeneratorResponse_httpStatus"><span class="hs-identifier">updateLicenseManagerReportGeneratorResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.html"><span class="hs-identifier">Network.AWS.LicenseManager.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newUpdateLicenseManagerReportGenerator' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679315627"><span id="local-6989586621679315628"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLicenseManagerReportGenerator"><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-var">UpdateLicenseManagerReportGenerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLicenseManagerReportGenerator%27"><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">UpdateLicenseManagerReportGenerator'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Description of the report generator.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateLicenseManagerReportGenerator%27"><span class="annot"><span class="annottext">UpdateLicenseManagerReportGenerator -&gt; Maybe Text
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3Adescription%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the report generator to update.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AlicenseManagerReportGeneratorArn%3AUpdateLicenseManagerReportGenerator%27"><span class="annot"><span class="annottext">UpdateLicenseManagerReportGenerator -&gt; Text
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AlicenseManagerReportGeneratorArn%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var hs-var">licenseManagerReportGeneratorArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Name of the report generator.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AreportGeneratorName%3AUpdateLicenseManagerReportGenerator%27"><span class="annot"><span class="annottext">UpdateLicenseManagerReportGenerator -&gt; Text
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AreportGeneratorName%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var hs-var">reportGeneratorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Type of reports to generate. The following report types are supported:</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   License configuration report - Reports the number and details of</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     consumed licenses for a license configuration.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   Resource report - Reports the tracked licenses and resource</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     consumption for a license configuration.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Atype%27%3AUpdateLicenseManagerReportGenerator%27"><span class="annot"><span class="annottext">UpdateLicenseManagerReportGenerator -&gt; [ReportType]
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3Atype%27%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportType.html#ReportType"><span class="hs-identifier hs-type">ReportType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The report context.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AreportContext%3AUpdateLicenseManagerReportGenerator%27"><span class="annot"><span class="annottext">UpdateLicenseManagerReportGenerator -&gt; ReportContext
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AreportContext%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var hs-var">reportContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportContext.html#ReportContext"><span class="hs-identifier hs-type">ReportContext</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Frequency by which reports are generated.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AreportFrequency%3AUpdateLicenseManagerReportGenerator%27"><span class="annot"><span class="annottext">UpdateLicenseManagerReportGenerator -&gt; ReportFrequency
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AreportFrequency%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var hs-var">reportFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequency.html#ReportFrequency"><span class="hs-identifier hs-type">ReportFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AclientToken%3AUpdateLicenseManagerReportGenerator%27"><span class="annot"><span class="annottext">UpdateLicenseManagerReportGenerator -&gt; Text
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AclientToken%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315615"><span id="local-6989586621679315617"><span class="annot"><span class="annottext">UpdateLicenseManagerReportGenerator
+-&gt; UpdateLicenseManagerReportGenerator -&gt; Bool
+(UpdateLicenseManagerReportGenerator
+ -&gt; UpdateLicenseManagerReportGenerator -&gt; Bool)
+-&gt; (UpdateLicenseManagerReportGenerator
+    -&gt; UpdateLicenseManagerReportGenerator -&gt; Bool)
+-&gt; Eq UpdateLicenseManagerReportGenerator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateLicenseManagerReportGenerator
+-&gt; UpdateLicenseManagerReportGenerator -&gt; Bool
+$c/= :: UpdateLicenseManagerReportGenerator
+-&gt; UpdateLicenseManagerReportGenerator -&gt; Bool
+== :: UpdateLicenseManagerReportGenerator
+-&gt; UpdateLicenseManagerReportGenerator -&gt; Bool
+$c== :: UpdateLicenseManagerReportGenerator
+-&gt; UpdateLicenseManagerReportGenerator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315606"><span id="local-6989586621679315608"><span id="local-6989586621679315610"><span id="local-6989586621679315612"><span class="annot"><span class="annottext">ReadPrec [UpdateLicenseManagerReportGenerator]
+ReadPrec UpdateLicenseManagerReportGenerator
+Int -&gt; ReadS UpdateLicenseManagerReportGenerator
+ReadS [UpdateLicenseManagerReportGenerator]
+(Int -&gt; ReadS UpdateLicenseManagerReportGenerator)
+-&gt; ReadS [UpdateLicenseManagerReportGenerator]
+-&gt; ReadPrec UpdateLicenseManagerReportGenerator
+-&gt; ReadPrec [UpdateLicenseManagerReportGenerator]
+-&gt; Read UpdateLicenseManagerReportGenerator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateLicenseManagerReportGenerator]
+$creadListPrec :: ReadPrec [UpdateLicenseManagerReportGenerator]
+readPrec :: ReadPrec UpdateLicenseManagerReportGenerator
+$creadPrec :: ReadPrec UpdateLicenseManagerReportGenerator
+readList :: ReadS [UpdateLicenseManagerReportGenerator]
+$creadList :: ReadS [UpdateLicenseManagerReportGenerator]
+readsPrec :: Int -&gt; ReadS UpdateLicenseManagerReportGenerator
+$creadsPrec :: Int -&gt; ReadS UpdateLicenseManagerReportGenerator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315599"><span id="local-6989586621679315601"><span id="local-6989586621679315603"><span class="annot"><span class="annottext">Int -&gt; UpdateLicenseManagerReportGenerator -&gt; ShowS
+[UpdateLicenseManagerReportGenerator] -&gt; ShowS
+UpdateLicenseManagerReportGenerator -&gt; String
+(Int -&gt; UpdateLicenseManagerReportGenerator -&gt; ShowS)
+-&gt; (UpdateLicenseManagerReportGenerator -&gt; String)
+-&gt; ([UpdateLicenseManagerReportGenerator] -&gt; ShowS)
+-&gt; Show UpdateLicenseManagerReportGenerator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateLicenseManagerReportGenerator] -&gt; ShowS
+$cshowList :: [UpdateLicenseManagerReportGenerator] -&gt; ShowS
+show :: UpdateLicenseManagerReportGenerator -&gt; String
+$cshow :: UpdateLicenseManagerReportGenerator -&gt; String
+showsPrec :: Int -&gt; UpdateLicenseManagerReportGenerator -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateLicenseManagerReportGenerator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateLicenseManagerReportGenerator
+ -&gt; Rep UpdateLicenseManagerReportGenerator x)
+-&gt; (forall x.
+    Rep UpdateLicenseManagerReportGenerator x
+    -&gt; UpdateLicenseManagerReportGenerator)
+-&gt; Generic UpdateLicenseManagerReportGenerator
+forall x.
+Rep UpdateLicenseManagerReportGenerator x
+-&gt; UpdateLicenseManagerReportGenerator
+forall x.
+UpdateLicenseManagerReportGenerator
+-&gt; Rep UpdateLicenseManagerReportGenerator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateLicenseManagerReportGenerator x
+-&gt; UpdateLicenseManagerReportGenerator
+$cfrom :: forall x.
+UpdateLicenseManagerReportGenerator
+-&gt; Rep UpdateLicenseManagerReportGenerator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Create a value of 'UpdateLicenseManagerReportGenerator' with all optional fields omitted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'description', 'updateLicenseManagerReportGenerator_description' - Description of the report generator.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'licenseManagerReportGeneratorArn', 'updateLicenseManagerReportGenerator_licenseManagerReportGeneratorArn' - Amazon Resource Name (ARN) of the report generator to update.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'reportGeneratorName', 'updateLicenseManagerReportGenerator_reportGeneratorName' - Name of the report generator.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'type'', 'updateLicenseManagerReportGenerator_type' - Type of reports to generate. The following report types are supported:</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- -   License configuration report - Reports the number and details of</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--     consumed licenses for a license configuration.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- -   Resource report - Reports the tracked licenses and resource</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--     consumption for a license configuration.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'reportContext', 'updateLicenseManagerReportGenerator_reportContext' - The report context.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'reportFrequency', 'updateLicenseManagerReportGenerator_reportFrequency' - Frequency by which reports are generated.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'clientToken', 'updateLicenseManagerReportGenerator_clientToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#newUpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">newUpdateLicenseManagerReportGenerator</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'licenseManagerReportGeneratorArn'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'reportGeneratorName'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'reportContext'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportContext.html#ReportContext"><span class="hs-identifier hs-type">ReportContext</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-comment">-- | 'reportFrequency'</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequency.html#ReportFrequency"><span class="hs-identifier hs-type">ReportFrequency</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-comment">-- | 'clientToken'</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span>
+</span><span id="line-123"></span><span id="newUpdateLicenseManagerReportGenerator"><span class="annot"><span class="annottext">newUpdateLicenseManagerReportGenerator :: Text
+-&gt; Text
+-&gt; ReportContext
+-&gt; ReportFrequency
+-&gt; Text
+-&gt; UpdateLicenseManagerReportGenerator
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#newUpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-var hs-var">newUpdateLicenseManagerReportGenerator</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679315594"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315594"><span class="hs-identifier hs-var">pLicenseManagerReportGeneratorArn_</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679315593"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315593"><span class="hs-identifier hs-var">pReportGeneratorName_</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679315592"><span class="annot"><span class="annottext">ReportContext
+</span><a href="#local-6989586621679315592"><span class="hs-identifier hs-var">pReportContext_</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679315591"><span class="annot"><span class="annottext">ReportFrequency
+</span><a href="#local-6989586621679315591"><span class="hs-identifier hs-var">pReportFrequency_</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679315590"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315590"><span class="hs-identifier hs-var">pClientToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">UpdateLicenseManagerReportGenerator' :: Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; [ReportType]
+-&gt; ReportContext
+-&gt; ReportFrequency
+-&gt; Text
+-&gt; UpdateLicenseManagerReportGenerator
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator'</span></a></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:UpdateLicenseManagerReportGenerator' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3Adescription%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">$sel:licenseManagerReportGeneratorArn:UpdateLicenseManagerReportGenerator' :: Text
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AlicenseManagerReportGeneratorArn%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">licenseManagerReportGeneratorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315594"><span class="hs-identifier hs-var">pLicenseManagerReportGeneratorArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:reportGeneratorName:UpdateLicenseManagerReportGenerator' :: Text
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AreportGeneratorName%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">reportGeneratorName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315593"><span class="hs-identifier hs-var">pReportGeneratorName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':UpdateLicenseManagerReportGenerator' :: [ReportType]
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3Atype%27%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ReportType]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:reportContext:UpdateLicenseManagerReportGenerator' :: ReportContext
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AreportContext%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">reportContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportContext
+</span><a href="#local-6989586621679315592"><span class="hs-identifier hs-var">pReportContext_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:reportFrequency:UpdateLicenseManagerReportGenerator' :: ReportFrequency
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AreportFrequency%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">reportFrequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportFrequency
+</span><a href="#local-6989586621679315591"><span class="hs-identifier hs-var">pReportFrequency_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientToken:UpdateLicenseManagerReportGenerator' :: Text
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AclientToken%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315590"><span class="hs-identifier hs-var">pClientToken_</span></a></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | Description of the report generator.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_description"><span class="hs-identifier hs-type">updateLicenseManagerReportGenerator_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="updateLicenseManagerReportGenerator_description"><span class="annot"><span class="annottext">updateLicenseManagerReportGenerator_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateLicenseManagerReportGenerator
+-&gt; f UpdateLicenseManagerReportGenerator
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_description"><span class="hs-identifier hs-var hs-var">updateLicenseManagerReportGenerator_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLicenseManagerReportGenerator -&gt; Maybe Text)
+-&gt; (UpdateLicenseManagerReportGenerator
+    -&gt; Maybe Text -&gt; UpdateLicenseManagerReportGenerator)
+-&gt; Lens
+     UpdateLicenseManagerReportGenerator
+     UpdateLicenseManagerReportGenerator
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315587"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateLicenseManagerReportGenerator' :: UpdateLicenseManagerReportGenerator -&gt; Maybe Text
+</span><a href="#local-6989586621679315587"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315587"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315586"><span class="annot"><span class="annottext">s :: UpdateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679315586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315585"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679315586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateLicenseManagerReportGenerator' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3Adescription%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the report generator to update.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_licenseManagerReportGeneratorArn"><span class="hs-identifier hs-type">updateLicenseManagerReportGenerator_licenseManagerReportGeneratorArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-148"></span><span id="updateLicenseManagerReportGenerator_licenseManagerReportGeneratorArn"><span class="annot"><span class="annottext">updateLicenseManagerReportGenerator_licenseManagerReportGeneratorArn :: (Text -&gt; f Text)
+-&gt; UpdateLicenseManagerReportGenerator
+-&gt; f UpdateLicenseManagerReportGenerator
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_licenseManagerReportGeneratorArn"><span class="hs-identifier hs-var hs-var">updateLicenseManagerReportGenerator_licenseManagerReportGeneratorArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLicenseManagerReportGenerator -&gt; Text)
+-&gt; (UpdateLicenseManagerReportGenerator
+    -&gt; Text -&gt; UpdateLicenseManagerReportGenerator)
+-&gt; Lens
+     UpdateLicenseManagerReportGenerator
+     UpdateLicenseManagerReportGenerator
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315584"><span class="annot"><span class="annottext">Text
+licenseManagerReportGeneratorArn :: Text
+$sel:licenseManagerReportGeneratorArn:UpdateLicenseManagerReportGenerator' :: UpdateLicenseManagerReportGenerator -&gt; Text
+</span><a href="#local-6989586621679315584"><span class="hs-identifier hs-var hs-var">licenseManagerReportGeneratorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315584"><span class="hs-identifier hs-var">licenseManagerReportGeneratorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315583"><span class="annot"><span class="annottext">s :: UpdateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679315583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315582"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679315583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseManagerReportGeneratorArn:UpdateLicenseManagerReportGenerator' :: Text
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AlicenseManagerReportGeneratorArn%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">licenseManagerReportGeneratorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | Name of the report generator.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_reportGeneratorName"><span class="hs-identifier hs-type">updateLicenseManagerReportGenerator_reportGeneratorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-152"></span><span id="updateLicenseManagerReportGenerator_reportGeneratorName"><span class="annot"><span class="annottext">updateLicenseManagerReportGenerator_reportGeneratorName :: (Text -&gt; f Text)
+-&gt; UpdateLicenseManagerReportGenerator
+-&gt; f UpdateLicenseManagerReportGenerator
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_reportGeneratorName"><span class="hs-identifier hs-var hs-var">updateLicenseManagerReportGenerator_reportGeneratorName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLicenseManagerReportGenerator -&gt; Text)
+-&gt; (UpdateLicenseManagerReportGenerator
+    -&gt; Text -&gt; UpdateLicenseManagerReportGenerator)
+-&gt; Lens
+     UpdateLicenseManagerReportGenerator
+     UpdateLicenseManagerReportGenerator
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315581"><span class="annot"><span class="annottext">Text
+reportGeneratorName :: Text
+$sel:reportGeneratorName:UpdateLicenseManagerReportGenerator' :: UpdateLicenseManagerReportGenerator -&gt; Text
+</span><a href="#local-6989586621679315581"><span class="hs-identifier hs-var hs-var">reportGeneratorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315581"><span class="hs-identifier hs-var">reportGeneratorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315580"><span class="annot"><span class="annottext">s :: UpdateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679315580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315579"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679315580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportGeneratorName:UpdateLicenseManagerReportGenerator' :: Text
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AreportGeneratorName%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">reportGeneratorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | Type of reports to generate. The following report types are supported:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   License configuration report - Reports the number and details of</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--     consumed licenses for a license configuration.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- -   Resource report - Reports the tracked licenses and resource</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     consumption for a license configuration.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_type"><span class="hs-identifier hs-type">updateLicenseManagerReportGenerator_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportType.html#ReportType"><span class="hs-identifier hs-type">ReportType</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-162"></span><span id="updateLicenseManagerReportGenerator_type"><span class="annot"><span class="annottext">updateLicenseManagerReportGenerator_type :: ([ReportType] -&gt; f [ReportType])
+-&gt; UpdateLicenseManagerReportGenerator
+-&gt; f UpdateLicenseManagerReportGenerator
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_type"><span class="hs-identifier hs-var hs-var">updateLicenseManagerReportGenerator_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLicenseManagerReportGenerator -&gt; [ReportType])
+-&gt; (UpdateLicenseManagerReportGenerator
+    -&gt; [ReportType] -&gt; UpdateLicenseManagerReportGenerator)
+-&gt; Lens
+     UpdateLicenseManagerReportGenerator
+     UpdateLicenseManagerReportGenerator
+     [ReportType]
+     [ReportType]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315578"><span class="annot"><span class="annottext">[ReportType]
+type' :: [ReportType]
+$sel:type':UpdateLicenseManagerReportGenerator' :: UpdateLicenseManagerReportGenerator -&gt; [ReportType]
+</span><a href="#local-6989586621679315578"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ReportType]
+</span><a href="#local-6989586621679315578"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315577"><span class="annot"><span class="annottext">s :: UpdateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679315577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315576"><span class="annot"><span class="annottext">[ReportType]
+</span><a href="#local-6989586621679315576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679315577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':UpdateLicenseManagerReportGenerator' :: [ReportType]
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3Atype%27%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ReportType]
+</span><a href="#local-6989586621679315576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ReportType] -&gt; f [ReportType])
+ -&gt; UpdateLicenseManagerReportGenerator
+ -&gt; f UpdateLicenseManagerReportGenerator)
+-&gt; (([ReportType] -&gt; f [ReportType])
+    -&gt; [ReportType] -&gt; f [ReportType])
+-&gt; ([ReportType] -&gt; f [ReportType])
+-&gt; UpdateLicenseManagerReportGenerator
+-&gt; f UpdateLicenseManagerReportGenerator
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ReportType] -&gt; f [ReportType]) -&gt; [ReportType] -&gt; f [ReportType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The report context.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_reportContext"><span class="hs-identifier hs-type">updateLicenseManagerReportGenerator_reportContext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportContext.html#ReportContext"><span class="hs-identifier hs-type">ReportContext</span></a></span><span>
+</span><span id="line-166"></span><span id="updateLicenseManagerReportGenerator_reportContext"><span class="annot"><span class="annottext">updateLicenseManagerReportGenerator_reportContext :: (ReportContext -&gt; f ReportContext)
+-&gt; UpdateLicenseManagerReportGenerator
+-&gt; f UpdateLicenseManagerReportGenerator
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_reportContext"><span class="hs-identifier hs-var hs-var">updateLicenseManagerReportGenerator_reportContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLicenseManagerReportGenerator -&gt; ReportContext)
+-&gt; (UpdateLicenseManagerReportGenerator
+    -&gt; ReportContext -&gt; UpdateLicenseManagerReportGenerator)
+-&gt; Lens
+     UpdateLicenseManagerReportGenerator
+     UpdateLicenseManagerReportGenerator
+     ReportContext
+     ReportContext
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315573"><span class="annot"><span class="annottext">ReportContext
+reportContext :: ReportContext
+$sel:reportContext:UpdateLicenseManagerReportGenerator' :: UpdateLicenseManagerReportGenerator -&gt; ReportContext
+</span><a href="#local-6989586621679315573"><span class="hs-identifier hs-var hs-var">reportContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportContext
+</span><a href="#local-6989586621679315573"><span class="hs-identifier hs-var">reportContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315572"><span class="annot"><span class="annottext">s :: UpdateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679315572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315571"><span class="annot"><span class="annottext">ReportContext
+</span><a href="#local-6989586621679315571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679315572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportContext:UpdateLicenseManagerReportGenerator' :: ReportContext
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AreportContext%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">reportContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportContext
+</span><a href="#local-6989586621679315571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | Frequency by which reports are generated.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_reportFrequency"><span class="hs-identifier hs-type">updateLicenseManagerReportGenerator_reportFrequency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ReportFrequency.html#ReportFrequency"><span class="hs-identifier hs-type">ReportFrequency</span></a></span><span>
+</span><span id="line-170"></span><span id="updateLicenseManagerReportGenerator_reportFrequency"><span class="annot"><span class="annottext">updateLicenseManagerReportGenerator_reportFrequency :: (ReportFrequency -&gt; f ReportFrequency)
+-&gt; UpdateLicenseManagerReportGenerator
+-&gt; f UpdateLicenseManagerReportGenerator
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_reportFrequency"><span class="hs-identifier hs-var hs-var">updateLicenseManagerReportGenerator_reportFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLicenseManagerReportGenerator -&gt; ReportFrequency)
+-&gt; (UpdateLicenseManagerReportGenerator
+    -&gt; ReportFrequency -&gt; UpdateLicenseManagerReportGenerator)
+-&gt; Lens
+     UpdateLicenseManagerReportGenerator
+     UpdateLicenseManagerReportGenerator
+     ReportFrequency
+     ReportFrequency
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315570"><span class="annot"><span class="annottext">ReportFrequency
+reportFrequency :: ReportFrequency
+$sel:reportFrequency:UpdateLicenseManagerReportGenerator' :: UpdateLicenseManagerReportGenerator -&gt; ReportFrequency
+</span><a href="#local-6989586621679315570"><span class="hs-identifier hs-var hs-var">reportFrequency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportFrequency
+</span><a href="#local-6989586621679315570"><span class="hs-identifier hs-var">reportFrequency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315569"><span class="annot"><span class="annottext">s :: UpdateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679315569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315568"><span class="annot"><span class="annottext">ReportFrequency
+</span><a href="#local-6989586621679315568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679315569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportFrequency:UpdateLicenseManagerReportGenerator' :: ReportFrequency
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AreportFrequency%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">reportFrequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportFrequency
+</span><a href="#local-6989586621679315568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_clientToken"><span class="hs-identifier hs-type">updateLicenseManagerReportGenerator_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-175"></span><span id="updateLicenseManagerReportGenerator_clientToken"><span class="annot"><span class="annottext">updateLicenseManagerReportGenerator_clientToken :: (Text -&gt; f Text)
+-&gt; UpdateLicenseManagerReportGenerator
+-&gt; f UpdateLicenseManagerReportGenerator
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGenerator_clientToken"><span class="hs-identifier hs-var hs-var">updateLicenseManagerReportGenerator_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLicenseManagerReportGenerator -&gt; Text)
+-&gt; (UpdateLicenseManagerReportGenerator
+    -&gt; Text -&gt; UpdateLicenseManagerReportGenerator)
+-&gt; Lens
+     UpdateLicenseManagerReportGenerator
+     UpdateLicenseManagerReportGenerator
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315567"><span class="annot"><span class="annottext">Text
+clientToken :: Text
+$sel:clientToken:UpdateLicenseManagerReportGenerator' :: UpdateLicenseManagerReportGenerator -&gt; Text
+</span><a href="#local-6989586621679315567"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315567"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315566"><span class="annot"><span class="annottext">s :: UpdateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679315566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315565"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLicenseManagerReportGenerator
+</span><a href="#local-6989586621679315566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:UpdateLicenseManagerReportGenerator' :: Text
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AclientToken%3AUpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-182"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGeneratorResponse</span></a></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679315561"><span class="annot"><span class="annottext">request :: UpdateLicenseManagerReportGenerator
+-&gt; Request UpdateLicenseManagerReportGenerator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateLicenseManagerReportGenerator
+-&gt; Request UpdateLicenseManagerReportGenerator
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LicenseManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679315557"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateLicenseManagerReportGenerator
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse UpdateLicenseManagerReportGenerator)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse UpdateLicenseManagerReportGenerator))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateLicenseManagerReportGenerator
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse UpdateLicenseManagerReportGenerator)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315554"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315554"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679315553"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679315553"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679315552"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679315552"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateLicenseManagerReportGeneratorResponse
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-var">UpdateLicenseManagerReportGeneratorResponse'</span></a></span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateLicenseManagerReportGeneratorResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateLicenseManagerReportGeneratorResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315554"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679315545"><span id="local-6989586621679315547"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span></span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679315542"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679315538"><span class="annot"><span class="annottext">toHeaders :: UpdateLicenseManagerReportGenerator -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; UpdateLicenseManagerReportGenerator -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-207"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSLicenseManager.UpdateLicenseManagerReportGenerator&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-209"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-210"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-213"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-214"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679315528"><span id="local-6989586621679315530"><span id="local-6989586621679315532"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span></span></span></span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679315526"><span class="annot"><span class="annottext">toJSON :: UpdateLicenseManagerReportGenerator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315518"><span id="local-6989586621679315519"><span id="local-6989586621679315520"><span id="local-6989586621679315521"><span id="local-6989586621679315522"><span id="local-6989586621679315523"><span id="local-6989586621679315524"><span class="annot"><span class="annottext">[ReportType]
+Maybe Text
+Text
+ReportContext
+ReportFrequency
+clientToken :: Text
+reportFrequency :: ReportFrequency
+reportContext :: ReportContext
+type' :: [ReportType]
+reportGeneratorName :: Text
+licenseManagerReportGeneratorArn :: Text
+description :: Maybe Text
+$sel:clientToken:UpdateLicenseManagerReportGenerator' :: UpdateLicenseManagerReportGenerator -&gt; Text
+$sel:reportFrequency:UpdateLicenseManagerReportGenerator' :: UpdateLicenseManagerReportGenerator -&gt; ReportFrequency
+$sel:reportContext:UpdateLicenseManagerReportGenerator' :: UpdateLicenseManagerReportGenerator -&gt; ReportContext
+$sel:type':UpdateLicenseManagerReportGenerator' :: UpdateLicenseManagerReportGenerator -&gt; [ReportType]
+$sel:reportGeneratorName:UpdateLicenseManagerReportGenerator' :: UpdateLicenseManagerReportGenerator -&gt; Text
+$sel:licenseManagerReportGeneratorArn:UpdateLicenseManagerReportGenerator' :: UpdateLicenseManagerReportGenerator -&gt; Text
+$sel:description:UpdateLicenseManagerReportGenerator' :: UpdateLicenseManagerReportGenerator -&gt; Maybe Text
+</span><a href="#local-6989586621679315518"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-225"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315524"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-227"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseManagerReportGeneratorArn&quot;</span></span><span>
+</span><span id="line-228"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315523"><span class="hs-identifier hs-var">licenseManagerReportGeneratorArn</span></a></span><span>
+</span><span id="line-229"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-231"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportGeneratorName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315522"><span class="hs-identifier hs-var">reportGeneratorName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ReportType] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[ReportType]
+</span><a href="#local-6989586621679315521"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportContext&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReportContext -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ReportContext
+</span><a href="#local-6989586621679315520"><span class="hs-identifier hs-var">reportContext</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-235"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportFrequency&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReportFrequency -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ReportFrequency
+</span><a href="#local-6989586621679315519"><span class="hs-identifier hs-var">reportFrequency</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315518"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679315512"><span class="annot"><span class="annottext">toPath :: UpdateLicenseManagerReportGenerator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateLicenseManagerReportGenerator -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGenerator"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGenerator</span></a></span><span>
+</span><span id="line-249"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679315508"><span class="annot"><span class="annottext">toQuery :: UpdateLicenseManagerReportGenerator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateLicenseManagerReportGenerator -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | /See:/ 'newUpdateLicenseManagerReportGeneratorResponse' smart constructor.</span><span>
+</span><span id="line-253"></span><span id="local-6989586621679315505"><span id="local-6989586621679315506"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLicenseManagerReportGeneratorResponse"><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-var">UpdateLicenseManagerReportGeneratorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLicenseManagerReportGeneratorResponse%27"><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-var">UpdateLicenseManagerReportGeneratorResponse'</span></a></span></span><span>
+</span><span id="line-254"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-255"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateLicenseManagerReportGeneratorResponse%27"><span class="annot"><span class="annottext">UpdateLicenseManagerReportGeneratorResponse -&gt; Int
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AhttpStatus%3AUpdateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-256"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-257"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315500"><span id="local-6989586621679315502"><span class="annot"><span class="annottext">UpdateLicenseManagerReportGeneratorResponse
+-&gt; UpdateLicenseManagerReportGeneratorResponse -&gt; Bool
+(UpdateLicenseManagerReportGeneratorResponse
+ -&gt; UpdateLicenseManagerReportGeneratorResponse -&gt; Bool)
+-&gt; (UpdateLicenseManagerReportGeneratorResponse
+    -&gt; UpdateLicenseManagerReportGeneratorResponse -&gt; Bool)
+-&gt; Eq UpdateLicenseManagerReportGeneratorResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateLicenseManagerReportGeneratorResponse
+-&gt; UpdateLicenseManagerReportGeneratorResponse -&gt; Bool
+$c/= :: UpdateLicenseManagerReportGeneratorResponse
+-&gt; UpdateLicenseManagerReportGeneratorResponse -&gt; Bool
+== :: UpdateLicenseManagerReportGeneratorResponse
+-&gt; UpdateLicenseManagerReportGeneratorResponse -&gt; Bool
+$c== :: UpdateLicenseManagerReportGeneratorResponse
+-&gt; UpdateLicenseManagerReportGeneratorResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315492"><span id="local-6989586621679315494"><span id="local-6989586621679315496"><span id="local-6989586621679315498"><span class="annot"><span class="annottext">ReadPrec [UpdateLicenseManagerReportGeneratorResponse]
+ReadPrec UpdateLicenseManagerReportGeneratorResponse
+Int -&gt; ReadS UpdateLicenseManagerReportGeneratorResponse
+ReadS [UpdateLicenseManagerReportGeneratorResponse]
+(Int -&gt; ReadS UpdateLicenseManagerReportGeneratorResponse)
+-&gt; ReadS [UpdateLicenseManagerReportGeneratorResponse]
+-&gt; ReadPrec UpdateLicenseManagerReportGeneratorResponse
+-&gt; ReadPrec [UpdateLicenseManagerReportGeneratorResponse]
+-&gt; Read UpdateLicenseManagerReportGeneratorResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateLicenseManagerReportGeneratorResponse]
+$creadListPrec :: ReadPrec [UpdateLicenseManagerReportGeneratorResponse]
+readPrec :: ReadPrec UpdateLicenseManagerReportGeneratorResponse
+$creadPrec :: ReadPrec UpdateLicenseManagerReportGeneratorResponse
+readList :: ReadS [UpdateLicenseManagerReportGeneratorResponse]
+$creadList :: ReadS [UpdateLicenseManagerReportGeneratorResponse]
+readsPrec :: Int -&gt; ReadS UpdateLicenseManagerReportGeneratorResponse
+$creadsPrec :: Int -&gt; ReadS UpdateLicenseManagerReportGeneratorResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315486"><span id="local-6989586621679315488"><span id="local-6989586621679315490"><span class="annot"><span class="annottext">Int -&gt; UpdateLicenseManagerReportGeneratorResponse -&gt; ShowS
+[UpdateLicenseManagerReportGeneratorResponse] -&gt; ShowS
+UpdateLicenseManagerReportGeneratorResponse -&gt; String
+(Int -&gt; UpdateLicenseManagerReportGeneratorResponse -&gt; ShowS)
+-&gt; (UpdateLicenseManagerReportGeneratorResponse -&gt; String)
+-&gt; ([UpdateLicenseManagerReportGeneratorResponse] -&gt; ShowS)
+-&gt; Show UpdateLicenseManagerReportGeneratorResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateLicenseManagerReportGeneratorResponse] -&gt; ShowS
+$cshowList :: [UpdateLicenseManagerReportGeneratorResponse] -&gt; ShowS
+show :: UpdateLicenseManagerReportGeneratorResponse -&gt; String
+$cshow :: UpdateLicenseManagerReportGeneratorResponse -&gt; String
+showsPrec :: Int -&gt; UpdateLicenseManagerReportGeneratorResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateLicenseManagerReportGeneratorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateLicenseManagerReportGeneratorResponse
+ -&gt; Rep UpdateLicenseManagerReportGeneratorResponse x)
+-&gt; (forall x.
+    Rep UpdateLicenseManagerReportGeneratorResponse x
+    -&gt; UpdateLicenseManagerReportGeneratorResponse)
+-&gt; Generic UpdateLicenseManagerReportGeneratorResponse
+forall x.
+Rep UpdateLicenseManagerReportGeneratorResponse x
+-&gt; UpdateLicenseManagerReportGeneratorResponse
+forall x.
+UpdateLicenseManagerReportGeneratorResponse
+-&gt; Rep UpdateLicenseManagerReportGeneratorResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateLicenseManagerReportGeneratorResponse x
+-&gt; UpdateLicenseManagerReportGeneratorResponse
+$cfrom :: forall x.
+UpdateLicenseManagerReportGeneratorResponse
+-&gt; Rep UpdateLicenseManagerReportGeneratorResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- Create a value of 'UpdateLicenseManagerReportGeneratorResponse' with all optional fields omitted.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 'httpStatus', 'updateLicenseManagerReportGeneratorResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#newUpdateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-type">newUpdateLicenseManagerReportGeneratorResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-269"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-271"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGeneratorResponse</span></a></span><span>
+</span><span id="line-272"></span><span id="newUpdateLicenseManagerReportGeneratorResponse"><span class="annot"><span class="annottext">newUpdateLicenseManagerReportGeneratorResponse :: Int -&gt; UpdateLicenseManagerReportGeneratorResponse
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#newUpdateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-var hs-var">newUpdateLicenseManagerReportGeneratorResponse</span></a></span></span><span>
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621679315483"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315483"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><span class="annottext">UpdateLicenseManagerReportGeneratorResponse' :: Int -&gt; UpdateLicenseManagerReportGeneratorResponse
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGeneratorResponse'</span></a></span><span>
+</span><span id="line-275"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateLicenseManagerReportGeneratorResponse' :: Int
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AhttpStatus%3AUpdateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-276"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315483"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-277"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGeneratorResponse_httpStatus"><span class="hs-identifier hs-type">updateLicenseManagerReportGeneratorResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGeneratorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-281"></span><span id="updateLicenseManagerReportGeneratorResponse_httpStatus"><span class="annot"><span class="annottext">updateLicenseManagerReportGeneratorResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateLicenseManagerReportGeneratorResponse
+-&gt; f UpdateLicenseManagerReportGeneratorResponse
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#updateLicenseManagerReportGeneratorResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateLicenseManagerReportGeneratorResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLicenseManagerReportGeneratorResponse -&gt; Int)
+-&gt; (UpdateLicenseManagerReportGeneratorResponse
+    -&gt; Int -&gt; UpdateLicenseManagerReportGeneratorResponse)
+-&gt; Lens
+     UpdateLicenseManagerReportGeneratorResponse
+     UpdateLicenseManagerReportGeneratorResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGeneratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315482"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateLicenseManagerReportGeneratorResponse' :: UpdateLicenseManagerReportGeneratorResponse -&gt; Int
+</span><a href="#local-6989586621679315482"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315482"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315481"><span class="annot"><span class="annottext">s :: UpdateLicenseManagerReportGeneratorResponse
+</span><a href="#local-6989586621679315481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGeneratorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315480"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLicenseManagerReportGeneratorResponse
+</span><a href="#local-6989586621679315481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateLicenseManagerReportGeneratorResponse' :: Int
+</span><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#%24sel%3AhttpStatus%3AUpdateLicenseManagerReportGeneratorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGeneratorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621679315478"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator.html#UpdateLicenseManagerReportGeneratorResponse"><span class="hs-identifier hs-type">UpdateLicenseManagerReportGeneratorResponse</span></a></span></span><span>
+</span><span id="line-286"></span></pre></body></html>

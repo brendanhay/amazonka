@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- attribute names.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPricingService' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679143635"><span id="local-6989586621679143636"></span></span><span class="hs-keyword">data</span><span> </span><span id="PricingService"><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService"><span class="hs-identifier hs-var">PricingService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PricingService%27"><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService%27"><span class="hs-identifier hs-var">PricingService'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679143644"><span id="local-6989586621679143645"></span></span><span class="hs-keyword">data</span><span> </span><span id="PricingService"><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService"><span class="hs-identifier hs-var">PricingService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PricingService%27"><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService%27"><span class="hs-identifier hs-var">PricingService'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The attributes that are available for this service.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AattributeNames%3APricingService%27"><span class="annot"><span class="annottext">PricingService -&gt; Maybe [Text]
 </span><a href="Network.AWS.Pricing.Types.PricingService.html#%24sel%3AattributeNames%3APricingService%27"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AserviceCode%3APricingService%27"><span class="annot"><span class="annottext">PricingService -&gt; Maybe Text
 </span><a href="Network.AWS.Pricing.Types.PricingService.html#%24sel%3AserviceCode%3APricingService%27"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679143628"><span id="local-6989586621679143630"><span class="annot"><span class="annottext">PricingService -&gt; PricingService -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679143637"><span id="local-6989586621679143639"><span class="annot"><span class="annottext">PricingService -&gt; PricingService -&gt; Bool
 (PricingService -&gt; PricingService -&gt; Bool)
 -&gt; (PricingService -&gt; PricingService -&gt; Bool) -&gt; Eq PricingService
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PricingService -&gt; PricingService -&gt; Bool
 == :: PricingService -&gt; PricingService -&gt; Bool
 $c== :: PricingService -&gt; PricingService -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143619"><span id="local-6989586621679143621"><span id="local-6989586621679143623"><span id="local-6989586621679143625"><span class="annot"><span class="annottext">ReadPrec [PricingService]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143628"><span id="local-6989586621679143630"><span id="local-6989586621679143632"><span id="local-6989586621679143634"><span class="annot"><span class="annottext">ReadPrec [PricingService]
 ReadPrec PricingService
 Int -&gt; ReadS PricingService
 ReadS [PricingService]
@@ -63,7 +63,7 @@ readList :: ReadS [PricingService]
 $creadList :: ReadS [PricingService]
 readsPrec :: Int -&gt; ReadS PricingService
 $creadsPrec :: Int -&gt; ReadS PricingService
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143612"><span id="local-6989586621679143614"><span id="local-6989586621679143616"><span class="annot"><span class="annottext">Int -&gt; PricingService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143621"><span id="local-6989586621679143623"><span id="local-6989586621679143625"><span class="annot"><span class="annottext">Int -&gt; PricingService -&gt; ShowS
 [PricingService] -&gt; ShowS
 PricingService -&gt; String
 (Int -&gt; PricingService -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
 -&gt; (PricingService -&gt; Maybe [Text] -&gt; PricingService)
 -&gt; Lens PricingService PricingService (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService%27"><span class="hs-identifier hs-type">PricingService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143603"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService%27"><span class="hs-identifier hs-type">PricingService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143612"><span class="annot"><span class="annottext">Maybe [Text]
 attributeNames :: Maybe [Text]
 $sel:attributeNames:PricingService' :: PricingService -&gt; Maybe [Text]
-</span><a href="#local-6989586621679143603"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679143603"><span class="hs-identifier hs-var">attributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143602"><span class="annot"><span class="annottext">s :: PricingService
-</span><a href="#local-6989586621679143602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService%27"><span class="hs-identifier hs-type">PricingService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143601"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679143601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PricingService
-</span><a href="#local-6989586621679143602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeNames:PricingService' :: Maybe [Text]
+</span><a href="#local-6989586621679143612"><span class="hs-identifier hs-var hs-var">attributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679143612"><span class="hs-identifier hs-var">attributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143611"><span class="annot"><span class="annottext">s :: PricingService
+</span><a href="#local-6989586621679143611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService%27"><span class="hs-identifier hs-type">PricingService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143610"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679143610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PricingService
+</span><a href="#local-6989586621679143611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeNames:PricingService' :: Maybe [Text]
 </span><a href="Network.AWS.Pricing.Types.PricingService.html#%24sel%3AattributeNames%3APricingService%27"><span class="hs-identifier hs-var">attributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679143601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService"><span class="hs-identifier hs-type">PricingService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679143610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService"><span class="hs-identifier hs-type">PricingService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; PricingService -&gt; f PricingService)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -158,19 +158,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (PricingService -&gt; Maybe Text -&gt; PricingService)
 -&gt; Lens PricingService PricingService (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService%27"><span class="hs-identifier hs-type">PricingService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143596"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService%27"><span class="hs-identifier hs-type">PricingService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143605"><span class="annot"><span class="annottext">Maybe Text
 serviceCode :: Maybe Text
 $sel:serviceCode:PricingService' :: PricingService -&gt; Maybe Text
-</span><a href="#local-6989586621679143596"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143596"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143595"><span class="annot"><span class="annottext">s :: PricingService
-</span><a href="#local-6989586621679143595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService%27"><span class="hs-identifier hs-type">PricingService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143594"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PricingService
-</span><a href="#local-6989586621679143595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCode:PricingService' :: Maybe Text
+</span><a href="#local-6989586621679143605"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143605"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143604"><span class="annot"><span class="annottext">s :: PricingService
+</span><a href="#local-6989586621679143604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService%27"><span class="hs-identifier hs-type">PricingService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143603"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PricingService
+</span><a href="#local-6989586621679143604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCode:PricingService' :: Maybe Text
 </span><a href="Network.AWS.Pricing.Types.PricingService.html#%24sel%3AserviceCode%3APricingService%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService"><span class="hs-identifier hs-type">PricingService</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679143603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService"><span class="hs-identifier hs-type">PricingService</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143591"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService"><span class="hs-identifier hs-type">PricingService</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679143589"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PricingService
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143600"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService"><span class="hs-identifier hs-type">PricingService</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679143598"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PricingService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PricingService)
@@ -180,15 +180,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PricingService&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679143586"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679143586"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679143595"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679143595"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; PricingService
 </span><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService%27"><span class="hs-identifier hs-var">PricingService'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; PricingService)
 -&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe Text -&gt; PricingService)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679143586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679143595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttributeNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -201,13 +201,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser PricingService
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679143586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679143595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143579"><span id="local-6989586621679143581"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService"><span class="hs-identifier hs-type">PricingService</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143588"><span id="local-6989586621679143590"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService"><span class="hs-identifier hs-type">PricingService</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143576"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService"><span class="hs-identifier hs-type">PricingService</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143585"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.PricingService.html#PricingService"><span class="hs-identifier hs-type">PricingService</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

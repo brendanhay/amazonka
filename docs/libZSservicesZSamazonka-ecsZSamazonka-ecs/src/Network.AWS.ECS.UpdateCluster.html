@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUpdateCluster' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679481057"><span id="local-6989586621679481058"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCluster"><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-var">UpdateCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCluster%27"><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-var">UpdateCluster'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679481066"><span id="local-6989586621679481067"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCluster"><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-var">UpdateCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCluster%27"><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-var">UpdateCluster'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The cluster settings for your cluster.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Asettings%3AUpdateCluster%27"><span class="annot"><span class="annottext">UpdateCluster -&gt; Maybe [ClusterSetting]
 </span><a href="Network.AWS.ECS.UpdateCluster.html#%24sel%3Asettings%3AUpdateCluster%27"><span class="hs-identifier hs-var hs-var">settings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSetting.html#ClusterSetting"><span class="hs-identifier hs-type">ClusterSetting</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Acluster%3AUpdateCluster%27"><span class="annot"><span class="annottext">UpdateCluster -&gt; Text
 </span><a href="Network.AWS.ECS.UpdateCluster.html#%24sel%3Acluster%3AUpdateCluster%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679481049"><span id="local-6989586621679481051"><span class="annot"><span class="annottext">UpdateCluster -&gt; UpdateCluster -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679481058"><span id="local-6989586621679481060"><span class="annot"><span class="annottext">UpdateCluster -&gt; UpdateCluster -&gt; Bool
 (UpdateCluster -&gt; UpdateCluster -&gt; Bool)
 -&gt; (UpdateCluster -&gt; UpdateCluster -&gt; Bool) -&gt; Eq UpdateCluster
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateCluster -&gt; UpdateCluster -&gt; Bool
 == :: UpdateCluster -&gt; UpdateCluster -&gt; Bool
 $c== :: UpdateCluster -&gt; UpdateCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679481040"><span id="local-6989586621679481042"><span id="local-6989586621679481044"><span id="local-6989586621679481046"><span class="annot"><span class="annottext">ReadPrec [UpdateCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679481049"><span id="local-6989586621679481051"><span id="local-6989586621679481053"><span id="local-6989586621679481055"><span class="annot"><span class="annottext">ReadPrec [UpdateCluster]
 ReadPrec UpdateCluster
 Int -&gt; ReadS UpdateCluster
 ReadS [UpdateCluster]
@@ -88,7 +88,7 @@ readList :: ReadS [UpdateCluster]
 $creadList :: ReadS [UpdateCluster]
 readsPrec :: Int -&gt; ReadS UpdateCluster
 $creadsPrec :: Int -&gt; ReadS UpdateCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679481033"><span id="local-6989586621679481035"><span id="local-6989586621679481037"><span class="annot"><span class="annottext">Int -&gt; UpdateCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679481042"><span id="local-6989586621679481044"><span id="local-6989586621679481046"><span class="annot"><span class="annottext">Int -&gt; UpdateCluster -&gt; ShowS
 [UpdateCluster] -&gt; ShowS
 UpdateCluster -&gt; String
 (Int -&gt; UpdateCluster -&gt; ShowS)
@@ -132,8 +132,8 @@ $cfrom :: forall x. UpdateCluster -&gt; Rep UpdateCluster x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span>
 </span><span id="line-79"></span><span id="newUpdateCluster"><span class="annot"><span class="annottext">newUpdateCluster :: Text -&gt; UpdateCluster
-</span><a href="Network.AWS.ECS.UpdateCluster.html#newUpdateCluster"><span class="hs-identifier hs-var hs-var">newUpdateCluster</span></a></span></span><span> </span><span id="local-6989586621679481028"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679481028"><span class="hs-identifier hs-var">pCluster_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.UpdateCluster.html#newUpdateCluster"><span class="hs-identifier hs-var hs-var">newUpdateCluster</span></a></span></span><span> </span><span id="local-6989586621679481037"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679481037"><span class="hs-identifier hs-var">pCluster_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">UpdateCluster' :: Maybe [ClusterSetting]
 -&gt; Maybe ClusterConfiguration -&gt; Text -&gt; UpdateCluster
 </span><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span>
@@ -147,7 +147,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:cluster:UpdateCluster' :: Text
 </span><a href="Network.AWS.ECS.UpdateCluster.html#%24sel%3Acluster%3AUpdateCluster%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679481028"><span class="hs-identifier hs-var">pCluster_</span></a></span><span>
+</span><a href="#local-6989586621679481037"><span class="hs-identifier hs-var">pCluster_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The cluster settings for your cluster.</span><span>
@@ -162,16 +162,16 @@ forall a. Maybe a
      (Maybe [ClusterSetting])
      (Maybe [ClusterSetting])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481025"><span class="annot"><span class="annottext">Maybe [ClusterSetting]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481034"><span class="annot"><span class="annottext">Maybe [ClusterSetting]
 settings :: Maybe [ClusterSetting]
 $sel:settings:UpdateCluster' :: UpdateCluster -&gt; Maybe [ClusterSetting]
-</span><a href="#local-6989586621679481025"><span class="hs-identifier hs-var hs-var">settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterSetting]
-</span><a href="#local-6989586621679481025"><span class="hs-identifier hs-var">settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481024"><span class="annot"><span class="annottext">s :: UpdateCluster
-</span><a href="#local-6989586621679481024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481023"><span class="annot"><span class="annottext">Maybe [ClusterSetting]
-</span><a href="#local-6989586621679481023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
-</span><a href="#local-6989586621679481024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settings:UpdateCluster' :: Maybe [ClusterSetting]
+</span><a href="#local-6989586621679481034"><span class="hs-identifier hs-var hs-var">settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterSetting]
+</span><a href="#local-6989586621679481034"><span class="hs-identifier hs-var">settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481033"><span class="annot"><span class="annottext">s :: UpdateCluster
+</span><a href="#local-6989586621679481033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481032"><span class="annot"><span class="annottext">Maybe [ClusterSetting]
+</span><a href="#local-6989586621679481032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
+</span><a href="#local-6989586621679481033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settings:UpdateCluster' :: Maybe [ClusterSetting]
 </span><a href="Network.AWS.ECS.UpdateCluster.html#%24sel%3Asettings%3AUpdateCluster%27"><span class="hs-identifier hs-var">settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterSetting]
-</span><a href="#local-6989586621679481023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ClusterSetting] -&gt; f (Maybe [ClusterSetting]))
+</span><a href="#local-6989586621679481032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ClusterSetting] -&gt; f (Maybe [ClusterSetting]))
  -&gt; UpdateCluster -&gt; f UpdateCluster)
 -&gt; ((Maybe [ClusterSetting] -&gt; f (Maybe [ClusterSetting]))
     -&gt; Maybe [ClusterSetting] -&gt; f (Maybe [ClusterSetting]))
@@ -206,16 +206,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe ClusterConfiguration)
      (Maybe ClusterConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481019"><span class="annot"><span class="annottext">Maybe ClusterConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481028"><span class="annot"><span class="annottext">Maybe ClusterConfiguration
 configuration :: Maybe ClusterConfiguration
 $sel:configuration:UpdateCluster' :: UpdateCluster -&gt; Maybe ClusterConfiguration
-</span><a href="#local-6989586621679481019"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterConfiguration
-</span><a href="#local-6989586621679481019"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481018"><span class="annot"><span class="annottext">s :: UpdateCluster
-</span><a href="#local-6989586621679481018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481017"><span class="annot"><span class="annottext">Maybe ClusterConfiguration
-</span><a href="#local-6989586621679481017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
-</span><a href="#local-6989586621679481018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:UpdateCluster' :: Maybe ClusterConfiguration
+</span><a href="#local-6989586621679481028"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterConfiguration
+</span><a href="#local-6989586621679481028"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481027"><span class="annot"><span class="annottext">s :: UpdateCluster
+</span><a href="#local-6989586621679481027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481026"><span class="annot"><span class="annottext">Maybe ClusterConfiguration
+</span><a href="#local-6989586621679481026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
+</span><a href="#local-6989586621679481027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:UpdateCluster' :: Maybe ClusterConfiguration
 </span><a href="Network.AWS.ECS.UpdateCluster.html#%24sel%3Aconfiguration%3AUpdateCluster%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClusterConfiguration
-</span><a href="#local-6989586621679481017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679481026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The name of the cluster to modify the settings for.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#updateCluster_cluster"><span class="hs-identifier hs-type">updateCluster_cluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -224,27 +224,27 @@ $sel:configuration:UpdateCluster' :: UpdateCluster -&gt; Maybe ClusterConfigurat
 -&gt; (UpdateCluster -&gt; Text -&gt; UpdateCluster)
 -&gt; Lens UpdateCluster UpdateCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481016"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679481025"><span class="annot"><span class="annottext">Text
 cluster :: Text
 $sel:cluster:UpdateCluster' :: UpdateCluster -&gt; Text
-</span><a href="#local-6989586621679481016"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679481016"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481015"><span class="annot"><span class="annottext">s :: UpdateCluster
-</span><a href="#local-6989586621679481015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481014"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679481014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
-</span><a href="#local-6989586621679481015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:UpdateCluster' :: Text
+</span><a href="#local-6989586621679481025"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679481025"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679481024"><span class="annot"><span class="annottext">s :: UpdateCluster
+</span><a href="#local-6989586621679481024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679481023"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679481023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
+</span><a href="#local-6989586621679481024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:UpdateCluster' :: Text
 </span><a href="Network.AWS.ECS.UpdateCluster.html#%24sel%3Acluster%3AUpdateCluster%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679481014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679481023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679481010"><span class="annot"><span class="annottext">request :: UpdateCluster -&gt; Request UpdateCluster
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679481019"><span class="annot"><span class="annottext">request :: UpdateCluster -&gt; Request UpdateCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateCluster -&gt; Request UpdateCluster
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679481006"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679481015"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateCluster
 -&gt; ClientResponse ClientBody
@@ -268,10 +268,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679481003"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679481003"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679481002"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679481002"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679481001"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679481001"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679481012"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679481012"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679481011"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679481011"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679481010"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679481010"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; UpdateClusterResponse
 </span><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-var">UpdateClusterResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; UpdateClusterResponse)
@@ -279,7 +279,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679481001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
+</span><a href="#local-6989586621679481010"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -291,15 +291,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679481003"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679481012"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679480993"><span id="local-6989586621679480995"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679481002"><span id="local-6989586621679481004"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679480990"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679480999"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679480986"><span class="annot"><span class="annottext">toHeaders :: UpdateCluster -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679480995"><span class="annot"><span class="annottext">toHeaders :: UpdateCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -326,9 +326,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679480976"><span id="local-6989586621679480978"><span id="local-6989586621679480980"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679480974"><span class="annot"><span class="annottext">toJSON :: UpdateCluster -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679480970"><span id="local-6989586621679480971"><span id="local-6989586621679480972"><span class="annot"><span class="annottext">Maybe [ClusterSetting]
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679480985"><span id="local-6989586621679480987"><span id="local-6989586621679480989"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679480983"><span class="annot"><span class="annottext">toJSON :: UpdateCluster -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679480979"><span id="local-6989586621679480980"><span id="local-6989586621679480981"><span class="annot"><span class="annottext">Maybe [ClusterSetting]
 Maybe ClusterConfiguration
 Text
 cluster :: Text
@@ -337,7 +337,7 @@ settings :: Maybe [ClusterSetting]
 $sel:cluster:UpdateCluster' :: UpdateCluster -&gt; Text
 $sel:configuration:UpdateCluster' :: UpdateCluster -&gt; Maybe ClusterConfiguration
 $sel:settings:UpdateCluster' :: UpdateCluster -&gt; Maybe [ClusterSetting]
-</span><a href="#local-6989586621679480970"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679480979"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -349,7 +349,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ClusterSetting] -&gt; Pair) -&gt; Maybe [ClusterSetting] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterSetting]
-</span><a href="#local-6989586621679480972"><span class="hs-identifier hs-var">settings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679480981"><span class="hs-identifier hs-var">settings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;configuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ClusterConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -357,26 +357,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ClusterConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ClusterConfiguration
-</span><a href="#local-6989586621679480971"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679480980"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cluster&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679480970"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679480979"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679480964"><span class="annot"><span class="annottext">toPath :: UpdateCluster -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679480973"><span class="annot"><span class="annottext">toPath :: UpdateCluster -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateCluster -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679480960"><span class="annot"><span class="annottext">toQuery :: UpdateCluster -&gt; QueryString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679480969"><span class="annot"><span class="annottext">toQuery :: UpdateCluster -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateCluster -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -384,7 +384,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | /See:/ 'newUpdateClusterResponse' smart constructor.</span><span>
-</span><span id="line-147"></span><span id="local-6989586621679480957"><span id="local-6989586621679480958"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateClusterResponse"><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-var">UpdateClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateClusterResponse%27"><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-var">UpdateClusterResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span id="local-6989586621679480966"><span id="local-6989586621679480967"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateClusterResponse"><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-var">UpdateClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateClusterResponse%27"><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-var">UpdateClusterResponse'</span></a></span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the cluster.</span><span>
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3Acluster%3AUpdateClusterResponse%27"><span class="annot"><span class="annottext">UpdateClusterResponse -&gt; Maybe Cluster
 </span><a href="Network.AWS.ECS.UpdateCluster.html#%24sel%3Acluster%3AUpdateClusterResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
@@ -392,7 +392,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateClusterResponse%27"><span class="annot"><span class="annottext">UpdateClusterResponse -&gt; Int
 </span><a href="Network.AWS.ECS.UpdateCluster.html#%24sel%3AhttpStatus%3AUpdateClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679480951"><span id="local-6989586621679480953"><span class="annot"><span class="annottext">UpdateClusterResponse -&gt; UpdateClusterResponse -&gt; Bool
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679480960"><span id="local-6989586621679480962"><span class="annot"><span class="annottext">UpdateClusterResponse -&gt; UpdateClusterResponse -&gt; Bool
 (UpdateClusterResponse -&gt; UpdateClusterResponse -&gt; Bool)
 -&gt; (UpdateClusterResponse -&gt; UpdateClusterResponse -&gt; Bool)
 -&gt; Eq UpdateClusterResponse
@@ -401,7 +401,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateClusterResponse -&gt; UpdateClusterResponse -&gt; Bool
 == :: UpdateClusterResponse -&gt; UpdateClusterResponse -&gt; Bool
 $c== :: UpdateClusterResponse -&gt; UpdateClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679480943"><span id="local-6989586621679480945"><span id="local-6989586621679480947"><span id="local-6989586621679480949"><span class="annot"><span class="annottext">ReadPrec [UpdateClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679480952"><span id="local-6989586621679480954"><span id="local-6989586621679480956"><span id="local-6989586621679480958"><span class="annot"><span class="annottext">ReadPrec [UpdateClusterResponse]
 ReadPrec UpdateClusterResponse
 Int -&gt; ReadS UpdateClusterResponse
 ReadS [UpdateClusterResponse]
@@ -421,7 +421,7 @@ readList :: ReadS [UpdateClusterResponse]
 $creadList :: ReadS [UpdateClusterResponse]
 readsPrec :: Int -&gt; ReadS UpdateClusterResponse
 $creadsPrec :: Int -&gt; ReadS UpdateClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679480937"><span id="local-6989586621679480939"><span id="local-6989586621679480941"><span class="annot"><span class="annottext">Int -&gt; UpdateClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679480946"><span id="local-6989586621679480948"><span id="local-6989586621679480950"><span class="annot"><span class="annottext">Int -&gt; UpdateClusterResponse -&gt; ShowS
 [UpdateClusterResponse] -&gt; ShowS
 UpdateClusterResponse -&gt; String
 (Int -&gt; UpdateClusterResponse -&gt; ShowS)
@@ -463,8 +463,8 @@ $cfrom :: forall x. UpdateClusterResponse -&gt; Rep UpdateClusterResponse x
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span><span>
 </span><span id="line-170"></span><span id="newUpdateClusterResponse"><span class="annot"><span class="annottext">newUpdateClusterResponse :: Int -&gt; UpdateClusterResponse
-</span><a href="Network.AWS.ECS.UpdateCluster.html#newUpdateClusterResponse"><span class="hs-identifier hs-var hs-var">newUpdateClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679480934"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679480934"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.UpdateCluster.html#newUpdateClusterResponse"><span class="hs-identifier hs-var hs-var">newUpdateClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679480943"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679480943"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">UpdateClusterResponse' :: Maybe Cluster -&gt; Int -&gt; UpdateClusterResponse
 </span><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:UpdateClusterResponse' :: Maybe Cluster
@@ -473,7 +473,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateClusterResponse' :: Int
 </span><a href="Network.AWS.ECS.UpdateCluster.html#%24sel%3AhttpStatus%3AUpdateClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679480934"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679480943"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | Details about the cluster.</span><span>
@@ -489,16 +489,16 @@ forall a. Maybe a
      (Maybe Cluster)
      (Maybe Cluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679480933"><span class="annot"><span class="annottext">Maybe Cluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679480942"><span class="annot"><span class="annottext">Maybe Cluster
 cluster :: Maybe Cluster
 $sel:cluster:UpdateClusterResponse' :: UpdateClusterResponse -&gt; Maybe Cluster
-</span><a href="#local-6989586621679480933"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679480933"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679480932"><span class="annot"><span class="annottext">s :: UpdateClusterResponse
-</span><a href="#local-6989586621679480932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679480931"><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679480931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClusterResponse
-</span><a href="#local-6989586621679480932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:UpdateClusterResponse' :: Maybe Cluster
+</span><a href="#local-6989586621679480942"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679480942"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679480941"><span class="annot"><span class="annottext">s :: UpdateClusterResponse
+</span><a href="#local-6989586621679480941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679480940"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679480940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClusterResponse
+</span><a href="#local-6989586621679480941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:UpdateClusterResponse' :: Maybe Cluster
 </span><a href="Network.AWS.ECS.UpdateCluster.html#%24sel%3Acluster%3AUpdateClusterResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679480931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679480940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-181"></span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#updateClusterResponse_httpStatus"><span class="hs-identifier hs-type">updateClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -507,16 +507,16 @@ $sel:cluster:UpdateClusterResponse' :: UpdateClusterResponse -&gt; Maybe Cluster
 -&gt; (UpdateClusterResponse -&gt; Int -&gt; UpdateClusterResponse)
 -&gt; Lens UpdateClusterResponse UpdateClusterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679480930"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679480939"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateClusterResponse' :: UpdateClusterResponse -&gt; Int
-</span><a href="#local-6989586621679480930"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679480930"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679480929"><span class="annot"><span class="annottext">s :: UpdateClusterResponse
-</span><a href="#local-6989586621679480929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679480928"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679480928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClusterResponse
-</span><a href="#local-6989586621679480929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateClusterResponse' :: Int
+</span><a href="#local-6989586621679480939"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679480939"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679480938"><span class="annot"><span class="annottext">s :: UpdateClusterResponse
+</span><a href="#local-6989586621679480938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679480937"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679480937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClusterResponse
+</span><a href="#local-6989586621679480938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateClusterResponse' :: Int
 </span><a href="Network.AWS.ECS.UpdateCluster.html#%24sel%3AhttpStatus%3AUpdateClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679480928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679480937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679480926"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679480935"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span></span><span>
 </span><span id="line-185"></span></pre></body></html>

@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Data Firehose delivery stream.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSourceDescription' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679278947"><span id="local-6989586621679278948"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceDescription"><span class="annot"><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription"><span class="hs-identifier hs-var">SourceDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceDescription%27"><span class="annot"><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription%27"><span class="hs-identifier hs-var">SourceDescription'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679278956"><span id="local-6989586621679278957"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceDescription"><span class="annot"><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription"><span class="hs-identifier hs-var">SourceDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceDescription%27"><span class="annot"><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription%27"><span class="hs-identifier hs-var">SourceDescription'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The KinesisStreamSourceDescription value for the source Kinesis data</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- stream.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AkinesisStreamSourceDescription%3ASourceDescription%27"><span class="annot"><span class="annottext">SourceDescription -&gt; Maybe KinesisStreamSourceDescription
 </span><a href="Network.AWS.Firehose.Types.SourceDescription.html#%24sel%3AkinesisStreamSourceDescription%3ASourceDescription%27"><span class="hs-identifier hs-var hs-var">kinesisStreamSourceDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.KinesisStreamSourceDescription.html#KinesisStreamSourceDescription"><span class="hs-identifier hs-type">KinesisStreamSourceDescription</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278941"><span id="local-6989586621679278943"><span class="annot"><span class="annottext">SourceDescription -&gt; SourceDescription -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278950"><span id="local-6989586621679278952"><span class="annot"><span class="annottext">SourceDescription -&gt; SourceDescription -&gt; Bool
 (SourceDescription -&gt; SourceDescription -&gt; Bool)
 -&gt; (SourceDescription -&gt; SourceDescription -&gt; Bool)
 -&gt; Eq SourceDescription
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SourceDescription -&gt; SourceDescription -&gt; Bool
 == :: SourceDescription -&gt; SourceDescription -&gt; Bool
 $c== :: SourceDescription -&gt; SourceDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278932"><span id="local-6989586621679278934"><span id="local-6989586621679278936"><span id="local-6989586621679278938"><span class="annot"><span class="annottext">ReadPrec [SourceDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278941"><span id="local-6989586621679278943"><span id="local-6989586621679278945"><span id="local-6989586621679278947"><span class="annot"><span class="annottext">ReadPrec [SourceDescription]
 ReadPrec SourceDescription
 Int -&gt; ReadS SourceDescription
 ReadS [SourceDescription]
@@ -63,7 +63,7 @@ readList :: ReadS [SourceDescription]
 $creadList :: ReadS [SourceDescription]
 readsPrec :: Int -&gt; ReadS SourceDescription
 $creadsPrec :: Int -&gt; ReadS SourceDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278925"><span id="local-6989586621679278927"><span id="local-6989586621679278929"><span class="annot"><span class="annottext">Int -&gt; SourceDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278934"><span id="local-6989586621679278936"><span id="local-6989586621679278938"><span class="annot"><span class="annottext">Int -&gt; SourceDescription -&gt; ShowS
 [SourceDescription] -&gt; ShowS
 SourceDescription -&gt; String
 (Int -&gt; SourceDescription -&gt; ShowS)
@@ -127,19 +127,19 @@ forall a. Maybe a
      (Maybe KinesisStreamSourceDescription)
      (Maybe KinesisStreamSourceDescription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription%27"><span class="hs-identifier hs-type">SourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278916"><span class="annot"><span class="annottext">Maybe KinesisStreamSourceDescription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription%27"><span class="hs-identifier hs-type">SourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278925"><span class="annot"><span class="annottext">Maybe KinesisStreamSourceDescription
 kinesisStreamSourceDescription :: Maybe KinesisStreamSourceDescription
 $sel:kinesisStreamSourceDescription:SourceDescription' :: SourceDescription -&gt; Maybe KinesisStreamSourceDescription
-</span><a href="#local-6989586621679278916"><span class="hs-identifier hs-var hs-var">kinesisStreamSourceDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamSourceDescription
-</span><a href="#local-6989586621679278916"><span class="hs-identifier hs-var">kinesisStreamSourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278915"><span class="annot"><span class="annottext">s :: SourceDescription
-</span><a href="#local-6989586621679278915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription%27"><span class="hs-identifier hs-type">SourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278914"><span class="annot"><span class="annottext">Maybe KinesisStreamSourceDescription
-</span><a href="#local-6989586621679278914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceDescription
-</span><a href="#local-6989586621679278915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisStreamSourceDescription:SourceDescription' :: Maybe KinesisStreamSourceDescription
+</span><a href="#local-6989586621679278925"><span class="hs-identifier hs-var hs-var">kinesisStreamSourceDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamSourceDescription
+</span><a href="#local-6989586621679278925"><span class="hs-identifier hs-var">kinesisStreamSourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278924"><span class="annot"><span class="annottext">s :: SourceDescription
+</span><a href="#local-6989586621679278924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription%27"><span class="hs-identifier hs-type">SourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278923"><span class="annot"><span class="annottext">Maybe KinesisStreamSourceDescription
+</span><a href="#local-6989586621679278923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceDescription
+</span><a href="#local-6989586621679278924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisStreamSourceDescription:SourceDescription' :: Maybe KinesisStreamSourceDescription
 </span><a href="Network.AWS.Firehose.Types.SourceDescription.html#%24sel%3AkinesisStreamSourceDescription%3ASourceDescription%27"><span class="hs-identifier hs-var">kinesisStreamSourceDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamSourceDescription
-</span><a href="#local-6989586621679278914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription"><span class="hs-identifier hs-type">SourceDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription"><span class="hs-identifier hs-type">SourceDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278911"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription"><span class="hs-identifier hs-type">SourceDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679278909"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SourceDescription
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278920"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription"><span class="hs-identifier hs-type">SourceDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679278918"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SourceDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SourceDescription)
@@ -149,8 +149,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SourceDescription&quot;</span></span><span>
-</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278906"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278906"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278915"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278915"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">Maybe KinesisStreamSourceDescription -&gt; SourceDescription
 </span><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription%27"><span class="hs-identifier hs-var">SourceDescription'</span></a></span><span>
 </span><span id="line-67"></span><span>            </span><span class="annot"><span class="annottext">(Maybe KinesisStreamSourceDescription -&gt; SourceDescription)
@@ -158,13 +158,13 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser SourceDescription
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278906"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KinesisStreamSourceDescription)
+</span><a href="#local-6989586621679278915"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KinesisStreamSourceDescription)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KinesisStreamSourceDescription&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278900"><span id="local-6989586621679278902"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription"><span class="hs-identifier hs-type">SourceDescription</span></a></span></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278909"><span id="local-6989586621679278911"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription"><span class="hs-identifier hs-type">SourceDescription</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278897"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription"><span class="hs-identifier hs-type">SourceDescription</span></a></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278906"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SourceDescription.html#SourceDescription"><span class="hs-identifier hs-type">SourceDescription</span></a></span></span><span>
 </span><span id="line-73"></span></pre></body></html>

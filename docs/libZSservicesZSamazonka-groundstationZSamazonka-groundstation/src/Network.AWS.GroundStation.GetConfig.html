@@ -1,0 +1,724 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.GroundStation.GetConfig</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns @Config@ information.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Only one @Config@ response can be returned.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GroundStation.GetConfig</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig"><span class="hs-identifier">GetConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#newGetConfig"><span class="hs-identifier">newGetConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfig_configId"><span class="hs-identifier">getConfig_configId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfig_configType"><span class="hs-identifier">getConfig_configType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier">GetConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#newGetConfigResponse"><span class="hs-identifier">newGetConfigResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_configType"><span class="hs-identifier">getConfigResponse_configType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_tags"><span class="hs-identifier">getConfigResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_httpStatus"><span class="hs-identifier">getConfigResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_configArn"><span class="hs-identifier">getConfigResponse_configArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_configData"><span class="hs-identifier">getConfigResponse_configData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_configId"><span class="hs-identifier">getConfigResponse_configId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_name"><span class="hs-identifier">getConfigResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.html"><span class="hs-identifier">Network.AWS.GroundStation.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newGetConfig' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679221158"><span id="local-6989586621679221159"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetConfig"><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig"><span class="hs-identifier hs-var">GetConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetConfig%27"><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig%27"><span class="hs-identifier hs-var">GetConfig'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | UUID of a @Config@.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AconfigId%3AGetConfig%27"><span class="annot"><span class="annottext">GetConfig -&gt; Text
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigId%3AGetConfig%27"><span class="hs-identifier hs-var hs-var">configId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Type of a @Config@.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AconfigType%3AGetConfig%27"><span class="annot"><span class="annottext">GetConfig -&gt; ConfigCapabilityType
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigType%3AGetConfig%27"><span class="hs-identifier hs-var hs-var">configType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigCapabilityType.html#ConfigCapabilityType"><span class="hs-identifier hs-type">ConfigCapabilityType</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221151"><span id="local-6989586621679221153"><span class="annot"><span class="annottext">GetConfig -&gt; GetConfig -&gt; Bool
+(GetConfig -&gt; GetConfig -&gt; Bool)
+-&gt; (GetConfig -&gt; GetConfig -&gt; Bool) -&gt; Eq GetConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetConfig -&gt; GetConfig -&gt; Bool
+$c/= :: GetConfig -&gt; GetConfig -&gt; Bool
+== :: GetConfig -&gt; GetConfig -&gt; Bool
+$c== :: GetConfig -&gt; GetConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221142"><span id="local-6989586621679221144"><span id="local-6989586621679221146"><span id="local-6989586621679221148"><span class="annot"><span class="annottext">ReadPrec [GetConfig]
+ReadPrec GetConfig
+Int -&gt; ReadS GetConfig
+ReadS [GetConfig]
+(Int -&gt; ReadS GetConfig)
+-&gt; ReadS [GetConfig]
+-&gt; ReadPrec GetConfig
+-&gt; ReadPrec [GetConfig]
+-&gt; Read GetConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetConfig]
+$creadListPrec :: ReadPrec [GetConfig]
+readPrec :: ReadPrec GetConfig
+$creadPrec :: ReadPrec GetConfig
+readList :: ReadS [GetConfig]
+$creadList :: ReadS [GetConfig]
+readsPrec :: Int -&gt; ReadS GetConfig
+$creadsPrec :: Int -&gt; ReadS GetConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221135"><span id="local-6989586621679221137"><span id="local-6989586621679221139"><span class="annot"><span class="annottext">Int -&gt; GetConfig -&gt; ShowS
+[GetConfig] -&gt; ShowS
+GetConfig -&gt; String
+(Int -&gt; GetConfig -&gt; ShowS)
+-&gt; (GetConfig -&gt; String)
+-&gt; ([GetConfig] -&gt; ShowS)
+-&gt; Show GetConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetConfig] -&gt; ShowS
+$cshowList :: [GetConfig] -&gt; ShowS
+show :: GetConfig -&gt; String
+$cshow :: GetConfig -&gt; String
+showsPrec :: Int -&gt; GetConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetConfig -&gt; Rep GetConfig x)
+-&gt; (forall x. Rep GetConfig x -&gt; GetConfig) -&gt; Generic GetConfig
+forall x. Rep GetConfig x -&gt; GetConfig
+forall x. GetConfig -&gt; Rep GetConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetConfig x -&gt; GetConfig
+$cfrom :: forall x. GetConfig -&gt; Rep GetConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'GetConfig' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'configId', 'getConfig_configId' - UUID of a @Config@.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'configType', 'getConfig_configType' - Type of a @Config@.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#newGetConfig"><span class="hs-identifier hs-type">newGetConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'configId'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'configType'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigCapabilityType.html#ConfigCapabilityType"><span class="hs-identifier hs-type">ConfigCapabilityType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig"><span class="hs-identifier hs-type">GetConfig</span></a></span><span>
+</span><span id="line-85"></span><span id="newGetConfig"><span class="annot"><span class="annottext">newGetConfig :: Text -&gt; ConfigCapabilityType -&gt; GetConfig
+</span><a href="Network.AWS.GroundStation.GetConfig.html#newGetConfig"><span class="hs-identifier hs-var hs-var">newGetConfig</span></a></span></span><span> </span><span id="local-6989586621679221130"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221130"><span class="hs-identifier hs-var">pConfigId_</span></a></span></span><span> </span><span id="local-6989586621679221129"><span class="annot"><span class="annottext">ConfigCapabilityType
+</span><a href="#local-6989586621679221129"><span class="hs-identifier hs-var">pConfigType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">GetConfig' :: Text -&gt; ConfigCapabilityType -&gt; GetConfig
+</span><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig%27"><span class="hs-identifier hs-type">GetConfig'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configId:GetConfig' :: Text
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigId%3AGetConfig%27"><span class="hs-identifier hs-var">configId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221130"><span class="hs-identifier hs-var">pConfigId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:configType:GetConfig' :: ConfigCapabilityType
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigType%3AGetConfig%27"><span class="hs-identifier hs-var">configType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConfigCapabilityType
+</span><a href="#local-6989586621679221129"><span class="hs-identifier hs-var">pConfigType_</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | UUID of a @Config@.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfig_configId"><span class="hs-identifier hs-type">getConfig_configId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig"><span class="hs-identifier hs-type">GetConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="getConfig_configId"><span class="annot"><span class="annottext">getConfig_configId :: (Text -&gt; f Text) -&gt; GetConfig -&gt; f GetConfig
+</span><a href="Network.AWS.GroundStation.GetConfig.html#getConfig_configId"><span class="hs-identifier hs-var hs-var">getConfig_configId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConfig -&gt; Text)
+-&gt; (GetConfig -&gt; Text -&gt; GetConfig)
+-&gt; Lens GetConfig GetConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig%27"><span class="hs-identifier hs-type">GetConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221126"><span class="annot"><span class="annottext">Text
+configId :: Text
+$sel:configId:GetConfig' :: GetConfig -&gt; Text
+</span><a href="#local-6989586621679221126"><span class="hs-identifier hs-var hs-var">configId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221126"><span class="hs-identifier hs-var">configId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221125"><span class="annot"><span class="annottext">s :: GetConfig
+</span><a href="#local-6989586621679221125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig%27"><span class="hs-identifier hs-type">GetConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221124"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConfig
+</span><a href="#local-6989586621679221125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configId:GetConfig' :: Text
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigId%3AGetConfig%27"><span class="hs-identifier hs-var">configId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig"><span class="hs-identifier hs-type">GetConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Type of a @Config@.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfig_configType"><span class="hs-identifier hs-type">getConfig_configType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig"><span class="hs-identifier hs-type">GetConfig</span></a></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigCapabilityType.html#ConfigCapabilityType"><span class="hs-identifier hs-type">ConfigCapabilityType</span></a></span><span>
+</span><span id="line-97"></span><span id="getConfig_configType"><span class="annot"><span class="annottext">getConfig_configType :: (ConfigCapabilityType -&gt; f ConfigCapabilityType)
+-&gt; GetConfig -&gt; f GetConfig
+</span><a href="Network.AWS.GroundStation.GetConfig.html#getConfig_configType"><span class="hs-identifier hs-var hs-var">getConfig_configType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConfig -&gt; ConfigCapabilityType)
+-&gt; (GetConfig -&gt; ConfigCapabilityType -&gt; GetConfig)
+-&gt; Lens
+     GetConfig GetConfig ConfigCapabilityType ConfigCapabilityType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig%27"><span class="hs-identifier hs-type">GetConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221123"><span class="annot"><span class="annottext">ConfigCapabilityType
+configType :: ConfigCapabilityType
+$sel:configType:GetConfig' :: GetConfig -&gt; ConfigCapabilityType
+</span><a href="#local-6989586621679221123"><span class="hs-identifier hs-var hs-var">configType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigCapabilityType
+</span><a href="#local-6989586621679221123"><span class="hs-identifier hs-var">configType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221122"><span class="annot"><span class="annottext">s :: GetConfig
+</span><a href="#local-6989586621679221122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig%27"><span class="hs-identifier hs-type">GetConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221121"><span class="annot"><span class="annottext">ConfigCapabilityType
+</span><a href="#local-6989586621679221121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConfig
+</span><a href="#local-6989586621679221122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configType:GetConfig' :: ConfigCapabilityType
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigType%3AGetConfig%27"><span class="hs-identifier hs-var">configType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConfigCapabilityType
+</span><a href="#local-6989586621679221121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig"><span class="hs-identifier hs-type">GetConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig"><span class="hs-identifier hs-type">GetConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig"><span class="hs-identifier hs-type">GetConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679221117"><span class="annot"><span class="annottext">request :: GetConfig -&gt; Request GetConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetConfig -&gt; Request GetConfig
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GroundStation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679221113"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetConfig)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetConfig))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetConfig
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetConfig)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221110"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221110"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679221109"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679221109"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679221108"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221108"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConfigCapabilityType
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; Text
+-&gt; ConfigTypeData
+-&gt; Text
+-&gt; Text
+-&gt; GetConfigResponse
+</span><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-var">GetConfigResponse'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ConfigCapabilityType
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; Text
+ -&gt; ConfigTypeData
+ -&gt; Text
+ -&gt; Text
+ -&gt; GetConfigResponse)
+-&gt; Either String (Maybe ConfigCapabilityType)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; Text
+      -&gt; ConfigTypeData
+      -&gt; Text
+      -&gt; Text
+      -&gt; GetConfigResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConfigCapabilityType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; Text
+   -&gt; ConfigTypeData
+   -&gt; Text
+   -&gt; Text
+   -&gt; GetConfigResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either
+     String
+     (Int
+      -&gt; Text -&gt; ConfigTypeData -&gt; Text -&gt; Text -&gt; GetConfigResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; Text -&gt; ConfigTypeData -&gt; Text -&gt; Text -&gt; GetConfigResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Text -&gt; ConfigTypeData -&gt; Text -&gt; Text -&gt; GetConfigResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221110"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text -&gt; ConfigTypeData -&gt; Text -&gt; Text -&gt; GetConfigResponse)
+-&gt; Either String Text
+-&gt; Either
+     String (ConfigTypeData -&gt; Text -&gt; Text -&gt; GetConfigResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (ConfigTypeData -&gt; Text -&gt; Text -&gt; GetConfigResponse)
+-&gt; Either String ConfigTypeData
+-&gt; Either String (Text -&gt; Text -&gt; GetConfigResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ConfigTypeData
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configData&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; GetConfigResponse)
+-&gt; Either String Text -&gt; Either String (Text -&gt; GetConfigResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; GetConfigResponse)
+-&gt; Either String Text -&gt; Either String GetConfigResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221098"><span id="local-6989586621679221100"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig"><span class="hs-identifier hs-type">GetConfig</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig"><span class="hs-identifier hs-type">GetConfig</span></a></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig"><span class="hs-identifier hs-type">GetConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679221091"><span class="annot"><span class="annottext">toHeaders :: GetConfig -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetConfig -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-125"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-126"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig"><span class="hs-identifier hs-type">GetConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679221085"><span class="annot"><span class="annottext">toPath :: GetConfig -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig%27"><span class="hs-identifier hs-type">GetConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221082"><span id="local-6989586621679221083"><span class="annot"><span class="annottext">Text
+ConfigCapabilityType
+configType :: ConfigCapabilityType
+configId :: Text
+$sel:configType:GetConfig' :: GetConfig -&gt; ConfigCapabilityType
+$sel:configId:GetConfig' :: GetConfig -&gt; Text
+</span><a href="#local-6989586621679221082"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/config/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">ConfigCapabilityType -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ConfigCapabilityType
+</span><a href="#local-6989586621679221082"><span class="hs-identifier hs-var">configType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221083"><span class="hs-identifier hs-var">configId</span></a></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfig"><span class="hs-identifier hs-type">GetConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679221078"><span class="annot"><span class="annottext">toQuery :: GetConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetConfig -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- /See:/ 'newGetConfigResponse' smart constructor.</span><span>
+</span><span id="line-145"></span><span id="local-6989586621679221075"><span id="local-6989586621679221076"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetConfigResponse"><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-var">GetConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetConfigResponse%27"><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-var">GetConfigResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Type of a @Config@.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AconfigType%3AGetConfigResponse%27"><span class="annot"><span class="annottext">GetConfigResponse -&gt; Maybe ConfigCapabilityType
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigType%3AGetConfigResponse%27"><span class="hs-identifier hs-var hs-var">configType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigCapabilityType.html#ConfigCapabilityType"><span class="hs-identifier hs-type">ConfigCapabilityType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | Tags assigned to a @Config@.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3Atags%3AGetConfigResponse%27"><span class="annot"><span class="annottext">GetConfigResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3Atags%3AGetConfigResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetConfigResponse%27"><span class="annot"><span class="annottext">GetConfigResponse -&gt; Int
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AhttpStatus%3AGetConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | ARN of a @Config@</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AconfigArn%3AGetConfigResponse%27"><span class="annot"><span class="annottext">GetConfigResponse -&gt; Text
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigArn%3AGetConfigResponse%27"><span class="hs-identifier hs-var hs-var">configArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | Data elements in a @Config@.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AconfigData%3AGetConfigResponse%27"><span class="annot"><span class="annottext">GetConfigResponse -&gt; ConfigTypeData
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigData%3AGetConfigResponse%27"><span class="hs-identifier hs-var hs-var">configData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | UUID of a @Config@.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AconfigId%3AGetConfigResponse%27"><span class="annot"><span class="annottext">GetConfigResponse -&gt; Text
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigId%3AGetConfigResponse%27"><span class="hs-identifier hs-var hs-var">configId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | Name of a @Config@.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3Aname%3AGetConfigResponse%27"><span class="annot"><span class="annottext">GetConfigResponse -&gt; Text
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3Aname%3AGetConfigResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221064"><span id="local-6989586621679221066"><span class="annot"><span class="annottext">GetConfigResponse -&gt; GetConfigResponse -&gt; Bool
+(GetConfigResponse -&gt; GetConfigResponse -&gt; Bool)
+-&gt; (GetConfigResponse -&gt; GetConfigResponse -&gt; Bool)
+-&gt; Eq GetConfigResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetConfigResponse -&gt; GetConfigResponse -&gt; Bool
+$c/= :: GetConfigResponse -&gt; GetConfigResponse -&gt; Bool
+== :: GetConfigResponse -&gt; GetConfigResponse -&gt; Bool
+$c== :: GetConfigResponse -&gt; GetConfigResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221056"><span id="local-6989586621679221058"><span id="local-6989586621679221060"><span id="local-6989586621679221062"><span class="annot"><span class="annottext">ReadPrec [GetConfigResponse]
+ReadPrec GetConfigResponse
+Int -&gt; ReadS GetConfigResponse
+ReadS [GetConfigResponse]
+(Int -&gt; ReadS GetConfigResponse)
+-&gt; ReadS [GetConfigResponse]
+-&gt; ReadPrec GetConfigResponse
+-&gt; ReadPrec [GetConfigResponse]
+-&gt; Read GetConfigResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetConfigResponse]
+$creadListPrec :: ReadPrec [GetConfigResponse]
+readPrec :: ReadPrec GetConfigResponse
+$creadPrec :: ReadPrec GetConfigResponse
+readList :: ReadS [GetConfigResponse]
+$creadList :: ReadS [GetConfigResponse]
+readsPrec :: Int -&gt; ReadS GetConfigResponse
+$creadsPrec :: Int -&gt; ReadS GetConfigResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221050"><span id="local-6989586621679221052"><span id="local-6989586621679221054"><span class="annot"><span class="annottext">Int -&gt; GetConfigResponse -&gt; ShowS
+[GetConfigResponse] -&gt; ShowS
+GetConfigResponse -&gt; String
+(Int -&gt; GetConfigResponse -&gt; ShowS)
+-&gt; (GetConfigResponse -&gt; String)
+-&gt; ([GetConfigResponse] -&gt; ShowS)
+-&gt; Show GetConfigResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetConfigResponse] -&gt; ShowS
+$cshowList :: [GetConfigResponse] -&gt; ShowS
+show :: GetConfigResponse -&gt; String
+$cshow :: GetConfigResponse -&gt; String
+showsPrec :: Int -&gt; GetConfigResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetConfigResponse -&gt; Rep GetConfigResponse x)
+-&gt; (forall x. Rep GetConfigResponse x -&gt; GetConfigResponse)
+-&gt; Generic GetConfigResponse
+forall x. Rep GetConfigResponse x -&gt; GetConfigResponse
+forall x. GetConfigResponse -&gt; Rep GetConfigResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetConfigResponse x -&gt; GetConfigResponse
+$cfrom :: forall x. GetConfigResponse -&gt; Rep GetConfigResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Create a value of 'GetConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'configType', 'getConfigResponse_configType' - Type of a @Config@.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'tags', 'getConfigResponse_tags' - Tags assigned to a @Config@.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'httpStatus', 'getConfigResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'configArn', 'getConfigResponse_configArn' - ARN of a @Config@</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'configData', 'getConfigResponse_configData' - Data elements in a @Config@.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'configId', 'getConfigResponse_configId' - UUID of a @Config@.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'name', 'getConfigResponse_name' - Name of a @Config@.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#newGetConfigResponse"><span class="hs-identifier hs-type">newGetConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-comment">-- | 'configArn'</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-comment">-- | 'configData'</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-comment">-- | 'configId'</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span><span>
+</span><span id="line-196"></span><span id="newGetConfigResponse"><span class="annot"><span class="annottext">newGetConfigResponse :: Int -&gt; Text -&gt; ConfigTypeData -&gt; Text -&gt; Text -&gt; GetConfigResponse
+</span><a href="Network.AWS.GroundStation.GetConfig.html#newGetConfigResponse"><span class="hs-identifier hs-var hs-var">newGetConfigResponse</span></a></span></span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679221047"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221047"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679221046"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221046"><span class="hs-identifier hs-var">pConfigArn_</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679221045"><span class="annot"><span class="annottext">ConfigTypeData
+</span><a href="#local-6989586621679221045"><span class="hs-identifier hs-var">pConfigData_</span></a></span></span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679221044"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221044"><span class="hs-identifier hs-var">pConfigId_</span></a></span></span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679221043"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221043"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">GetConfigResponse' :: Maybe ConfigCapabilityType
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; Text
+-&gt; ConfigTypeData
+-&gt; Text
+-&gt; Text
+-&gt; GetConfigResponse
+</span><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-type">GetConfigResponse'</span></a></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configType:GetConfigResponse' :: Maybe ConfigCapabilityType
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigType%3AGetConfigResponse%27"><span class="hs-identifier hs-var">configType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigCapabilityType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:GetConfigResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3Atags%3AGetConfigResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetConfigResponse' :: Int
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AhttpStatus%3AGetConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221047"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">$sel:configArn:GetConfigResponse' :: Text
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigArn%3AGetConfigResponse%27"><span class="hs-identifier hs-var">configArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221046"><span class="hs-identifier hs-var">pConfigArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">$sel:configData:GetConfigResponse' :: ConfigTypeData
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigData%3AGetConfigResponse%27"><span class="hs-identifier hs-var">configData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConfigTypeData
+</span><a href="#local-6989586621679221045"><span class="hs-identifier hs-var">pConfigData_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">$sel:configId:GetConfigResponse' :: Text
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigId%3AGetConfigResponse%27"><span class="hs-identifier hs-var">configId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221044"><span class="hs-identifier hs-var">pConfigId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:GetConfigResponse' :: Text
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3Aname%3AGetConfigResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221043"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | Type of a @Config@.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_configType"><span class="hs-identifier hs-type">getConfigResponse_configType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigCapabilityType.html#ConfigCapabilityType"><span class="hs-identifier hs-type">ConfigCapabilityType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="getConfigResponse_configType"><span class="annot"><span class="annottext">getConfigResponse_configType :: (Maybe ConfigCapabilityType -&gt; f (Maybe ConfigCapabilityType))
+-&gt; GetConfigResponse -&gt; f GetConfigResponse
+</span><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_configType"><span class="hs-identifier hs-var hs-var">getConfigResponse_configType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConfigResponse -&gt; Maybe ConfigCapabilityType)
+-&gt; (GetConfigResponse
+    -&gt; Maybe ConfigCapabilityType -&gt; GetConfigResponse)
+-&gt; Lens
+     GetConfigResponse
+     GetConfigResponse
+     (Maybe ConfigCapabilityType)
+     (Maybe ConfigCapabilityType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-type">GetConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221042"><span class="annot"><span class="annottext">Maybe ConfigCapabilityType
+configType :: Maybe ConfigCapabilityType
+$sel:configType:GetConfigResponse' :: GetConfigResponse -&gt; Maybe ConfigCapabilityType
+</span><a href="#local-6989586621679221042"><span class="hs-identifier hs-var hs-var">configType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigCapabilityType
+</span><a href="#local-6989586621679221042"><span class="hs-identifier hs-var">configType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221041"><span class="annot"><span class="annottext">s :: GetConfigResponse
+</span><a href="#local-6989586621679221041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-type">GetConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221040"><span class="annot"><span class="annottext">Maybe ConfigCapabilityType
+</span><a href="#local-6989586621679221040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConfigResponse
+</span><a href="#local-6989586621679221041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configType:GetConfigResponse' :: Maybe ConfigCapabilityType
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigType%3AGetConfigResponse%27"><span class="hs-identifier hs-var">configType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigCapabilityType
+</span><a href="#local-6989586621679221040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | Tags assigned to a @Config@.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_tags"><span class="hs-identifier hs-type">getConfigResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="getConfigResponse_tags"><span class="annot"><span class="annottext">getConfigResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetConfigResponse -&gt; f GetConfigResponse
+</span><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_tags"><span class="hs-identifier hs-var hs-var">getConfigResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConfigResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (GetConfigResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; GetConfigResponse)
+-&gt; Lens
+     GetConfigResponse
+     GetConfigResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-type">GetConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221039"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:GetConfigResponse' :: GetConfigResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679221039"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679221039"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221038"><span class="annot"><span class="annottext">s :: GetConfigResponse
+</span><a href="#local-6989586621679221038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-type">GetConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221037"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679221037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConfigResponse
+</span><a href="#local-6989586621679221038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetConfigResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3Atags%3AGetConfigResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679221037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; GetConfigResponse -&gt; f GetConfigResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetConfigResponse
+-&gt; f GetConfigResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_httpStatus"><span class="hs-identifier hs-type">getConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-222"></span><span id="getConfigResponse_httpStatus"><span class="annot"><span class="annottext">getConfigResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetConfigResponse -&gt; f GetConfigResponse
+</span><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getConfigResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConfigResponse -&gt; Int)
+-&gt; (GetConfigResponse -&gt; Int -&gt; GetConfigResponse)
+-&gt; Lens GetConfigResponse GetConfigResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-type">GetConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221033"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetConfigResponse' :: GetConfigResponse -&gt; Int
+</span><a href="#local-6989586621679221033"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221033"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221032"><span class="annot"><span class="annottext">s :: GetConfigResponse
+</span><a href="#local-6989586621679221032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-type">GetConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221031"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConfigResponse
+</span><a href="#local-6989586621679221032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetConfigResponse' :: Int
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AhttpStatus%3AGetConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | ARN of a @Config@</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_configArn"><span class="hs-identifier hs-type">getConfigResponse_configArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-226"></span><span id="getConfigResponse_configArn"><span class="annot"><span class="annottext">getConfigResponse_configArn :: (Text -&gt; f Text) -&gt; GetConfigResponse -&gt; f GetConfigResponse
+</span><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_configArn"><span class="hs-identifier hs-var hs-var">getConfigResponse_configArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConfigResponse -&gt; Text)
+-&gt; (GetConfigResponse -&gt; Text -&gt; GetConfigResponse)
+-&gt; Lens GetConfigResponse GetConfigResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-type">GetConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221030"><span class="annot"><span class="annottext">Text
+configArn :: Text
+$sel:configArn:GetConfigResponse' :: GetConfigResponse -&gt; Text
+</span><a href="#local-6989586621679221030"><span class="hs-identifier hs-var hs-var">configArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221030"><span class="hs-identifier hs-var">configArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221029"><span class="annot"><span class="annottext">s :: GetConfigResponse
+</span><a href="#local-6989586621679221029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-type">GetConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221028"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConfigResponse
+</span><a href="#local-6989586621679221029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configArn:GetConfigResponse' :: Text
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigArn%3AGetConfigResponse%27"><span class="hs-identifier hs-var">configArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | Data elements in a @Config@.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_configData"><span class="hs-identifier hs-type">getConfigResponse_configData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span>
+</span><span id="line-230"></span><span id="getConfigResponse_configData"><span class="annot"><span class="annottext">getConfigResponse_configData :: (ConfigTypeData -&gt; f ConfigTypeData)
+-&gt; GetConfigResponse -&gt; f GetConfigResponse
+</span><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_configData"><span class="hs-identifier hs-var hs-var">getConfigResponse_configData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConfigResponse -&gt; ConfigTypeData)
+-&gt; (GetConfigResponse -&gt; ConfigTypeData -&gt; GetConfigResponse)
+-&gt; Lens
+     GetConfigResponse GetConfigResponse ConfigTypeData ConfigTypeData
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-type">GetConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221027"><span class="annot"><span class="annottext">ConfigTypeData
+configData :: ConfigTypeData
+$sel:configData:GetConfigResponse' :: GetConfigResponse -&gt; ConfigTypeData
+</span><a href="#local-6989586621679221027"><span class="hs-identifier hs-var hs-var">configData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigTypeData
+</span><a href="#local-6989586621679221027"><span class="hs-identifier hs-var">configData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221026"><span class="annot"><span class="annottext">s :: GetConfigResponse
+</span><a href="#local-6989586621679221026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-type">GetConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221025"><span class="annot"><span class="annottext">ConfigTypeData
+</span><a href="#local-6989586621679221025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConfigResponse
+</span><a href="#local-6989586621679221026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configData:GetConfigResponse' :: ConfigTypeData
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigData%3AGetConfigResponse%27"><span class="hs-identifier hs-var">configData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConfigTypeData
+</span><a href="#local-6989586621679221025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | UUID of a @Config@.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_configId"><span class="hs-identifier hs-type">getConfigResponse_configId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-234"></span><span id="getConfigResponse_configId"><span class="annot"><span class="annottext">getConfigResponse_configId :: (Text -&gt; f Text) -&gt; GetConfigResponse -&gt; f GetConfigResponse
+</span><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_configId"><span class="hs-identifier hs-var hs-var">getConfigResponse_configId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConfigResponse -&gt; Text)
+-&gt; (GetConfigResponse -&gt; Text -&gt; GetConfigResponse)
+-&gt; Lens GetConfigResponse GetConfigResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-type">GetConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221024"><span class="annot"><span class="annottext">Text
+configId :: Text
+$sel:configId:GetConfigResponse' :: GetConfigResponse -&gt; Text
+</span><a href="#local-6989586621679221024"><span class="hs-identifier hs-var hs-var">configId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221024"><span class="hs-identifier hs-var">configId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221023"><span class="annot"><span class="annottext">s :: GetConfigResponse
+</span><a href="#local-6989586621679221023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-type">GetConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221022"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConfigResponse
+</span><a href="#local-6989586621679221023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configId:GetConfigResponse' :: Text
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3AconfigId%3AGetConfigResponse%27"><span class="hs-identifier hs-var">configId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | Name of a @Config@.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_name"><span class="hs-identifier hs-type">getConfigResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-238"></span><span id="getConfigResponse_name"><span class="annot"><span class="annottext">getConfigResponse_name :: (Text -&gt; f Text) -&gt; GetConfigResponse -&gt; f GetConfigResponse
+</span><a href="Network.AWS.GroundStation.GetConfig.html#getConfigResponse_name"><span class="hs-identifier hs-var hs-var">getConfigResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetConfigResponse -&gt; Text)
+-&gt; (GetConfigResponse -&gt; Text -&gt; GetConfigResponse)
+-&gt; Lens GetConfigResponse GetConfigResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-type">GetConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221021"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GetConfigResponse' :: GetConfigResponse -&gt; Text
+</span><a href="#local-6989586621679221021"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221021"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221020"><span class="annot"><span class="annottext">s :: GetConfigResponse
+</span><a href="#local-6989586621679221020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse%27"><span class="hs-identifier hs-type">GetConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221019"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetConfigResponse
+</span><a href="#local-6989586621679221020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetConfigResponse' :: Text
+</span><a href="Network.AWS.GroundStation.GetConfig.html#%24sel%3Aname%3AGetConfigResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.GetConfig.html#GetConfigResponse"><span class="hs-identifier hs-type">GetConfigResponse</span></a></span></span><span>
+</span><span id="line-241"></span></pre></body></html>

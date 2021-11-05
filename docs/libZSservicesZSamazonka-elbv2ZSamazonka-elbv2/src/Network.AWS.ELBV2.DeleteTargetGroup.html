@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ELBV2.DeleteTargetGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified target group.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You can delete a target group if it is not referenced by any actions.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Deleting a target group also deletes any associated health checks.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Deleting a target group does not affect its registered targets. For</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- example, any EC2 instances continue to run until you stop or terminate</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- them.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ELBV2.DeleteTargetGroup</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup"><span class="hs-identifier">DeleteTargetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#newDeleteTargetGroup"><span class="hs-identifier">newDeleteTargetGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#deleteTargetGroup_targetGroupArn"><span class="hs-identifier">deleteTargetGroup_targetGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroupResponse"><span class="hs-identifier">DeleteTargetGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#newDeleteTargetGroupResponse"><span class="hs-identifier">newDeleteTargetGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#deleteTargetGroupResponse_httpStatus"><span class="hs-identifier">deleteTargetGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.html"><span class="hs-identifier">Network.AWS.ELBV2.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeleteTargetGroup' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679261880"><span id="local-6989586621679261881"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTargetGroup"><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup"><span class="hs-identifier hs-var">DeleteTargetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTargetGroup%27"><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup%27"><span class="hs-identifier hs-var">DeleteTargetGroup'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the target group.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AtargetGroupArn%3ADeleteTargetGroup%27"><span class="annot"><span class="annottext">DeleteTargetGroup -&gt; Text
+</span><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#%24sel%3AtargetGroupArn%3ADeleteTargetGroup%27"><span class="hs-identifier hs-var hs-var">targetGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261874"><span id="local-6989586621679261876"><span class="annot"><span class="annottext">DeleteTargetGroup -&gt; DeleteTargetGroup -&gt; Bool
+(DeleteTargetGroup -&gt; DeleteTargetGroup -&gt; Bool)
+-&gt; (DeleteTargetGroup -&gt; DeleteTargetGroup -&gt; Bool)
+-&gt; Eq DeleteTargetGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteTargetGroup -&gt; DeleteTargetGroup -&gt; Bool
+$c/= :: DeleteTargetGroup -&gt; DeleteTargetGroup -&gt; Bool
+== :: DeleteTargetGroup -&gt; DeleteTargetGroup -&gt; Bool
+$c== :: DeleteTargetGroup -&gt; DeleteTargetGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261865"><span id="local-6989586621679261867"><span id="local-6989586621679261869"><span id="local-6989586621679261871"><span class="annot"><span class="annottext">ReadPrec [DeleteTargetGroup]
+ReadPrec DeleteTargetGroup
+Int -&gt; ReadS DeleteTargetGroup
+ReadS [DeleteTargetGroup]
+(Int -&gt; ReadS DeleteTargetGroup)
+-&gt; ReadS [DeleteTargetGroup]
+-&gt; ReadPrec DeleteTargetGroup
+-&gt; ReadPrec [DeleteTargetGroup]
+-&gt; Read DeleteTargetGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteTargetGroup]
+$creadListPrec :: ReadPrec [DeleteTargetGroup]
+readPrec :: ReadPrec DeleteTargetGroup
+$creadPrec :: ReadPrec DeleteTargetGroup
+readList :: ReadS [DeleteTargetGroup]
+$creadList :: ReadS [DeleteTargetGroup]
+readsPrec :: Int -&gt; ReadS DeleteTargetGroup
+$creadsPrec :: Int -&gt; ReadS DeleteTargetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261858"><span id="local-6989586621679261860"><span id="local-6989586621679261862"><span class="annot"><span class="annottext">Int -&gt; DeleteTargetGroup -&gt; ShowS
+[DeleteTargetGroup] -&gt; ShowS
+DeleteTargetGroup -&gt; String
+(Int -&gt; DeleteTargetGroup -&gt; ShowS)
+-&gt; (DeleteTargetGroup -&gt; String)
+-&gt; ([DeleteTargetGroup] -&gt; ShowS)
+-&gt; Show DeleteTargetGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteTargetGroup] -&gt; ShowS
+$cshowList :: [DeleteTargetGroup] -&gt; ShowS
+show :: DeleteTargetGroup -&gt; String
+$cshow :: DeleteTargetGroup -&gt; String
+showsPrec :: Int -&gt; DeleteTargetGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteTargetGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteTargetGroup -&gt; Rep DeleteTargetGroup x)
+-&gt; (forall x. Rep DeleteTargetGroup x -&gt; DeleteTargetGroup)
+-&gt; Generic DeleteTargetGroup
+forall x. Rep DeleteTargetGroup x -&gt; DeleteTargetGroup
+forall x. DeleteTargetGroup -&gt; Rep DeleteTargetGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteTargetGroup x -&gt; DeleteTargetGroup
+$cfrom :: forall x. DeleteTargetGroup -&gt; Rep DeleteTargetGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'DeleteTargetGroup' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'targetGroupArn', 'deleteTargetGroup_targetGroupArn' - The Amazon Resource Name (ARN) of the target group.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#newDeleteTargetGroup"><span class="hs-identifier hs-type">newDeleteTargetGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'targetGroupArn'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup"><span class="hs-identifier hs-type">DeleteTargetGroup</span></a></span><span>
+</span><span id="line-74"></span><span id="newDeleteTargetGroup"><span class="annot"><span class="annottext">newDeleteTargetGroup :: Text -&gt; DeleteTargetGroup
+</span><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#newDeleteTargetGroup"><span class="hs-identifier hs-var hs-var">newDeleteTargetGroup</span></a></span></span><span> </span><span id="local-6989586621679261853"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261853"><span class="hs-identifier hs-var">pTargetGroupArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">DeleteTargetGroup' :: Text -&gt; DeleteTargetGroup
+</span><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup%27"><span class="hs-identifier hs-type">DeleteTargetGroup'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetGroupArn:DeleteTargetGroup' :: Text
+</span><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#%24sel%3AtargetGroupArn%3ADeleteTargetGroup%27"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261853"><span class="hs-identifier hs-var">pTargetGroupArn_</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the target group.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#deleteTargetGroup_targetGroupArn"><span class="hs-identifier hs-type">deleteTargetGroup_targetGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup"><span class="hs-identifier hs-type">DeleteTargetGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="deleteTargetGroup_targetGroupArn"><span class="annot"><span class="annottext">deleteTargetGroup_targetGroupArn :: (Text -&gt; f Text) -&gt; DeleteTargetGroup -&gt; f DeleteTargetGroup
+</span><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#deleteTargetGroup_targetGroupArn"><span class="hs-identifier hs-var hs-var">deleteTargetGroup_targetGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTargetGroup -&gt; Text)
+-&gt; (DeleteTargetGroup -&gt; Text -&gt; DeleteTargetGroup)
+-&gt; Lens DeleteTargetGroup DeleteTargetGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup%27"><span class="hs-identifier hs-type">DeleteTargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261850"><span class="annot"><span class="annottext">Text
+targetGroupArn :: Text
+$sel:targetGroupArn:DeleteTargetGroup' :: DeleteTargetGroup -&gt; Text
+</span><a href="#local-6989586621679261850"><span class="hs-identifier hs-var hs-var">targetGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261850"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261849"><span class="annot"><span class="annottext">s :: DeleteTargetGroup
+</span><a href="#local-6989586621679261849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup%27"><span class="hs-identifier hs-type">DeleteTargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261848"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTargetGroup
+</span><a href="#local-6989586621679261849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroupArn:DeleteTargetGroup' :: Text
+</span><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#%24sel%3AtargetGroupArn%3ADeleteTargetGroup%27"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup"><span class="hs-identifier hs-type">DeleteTargetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup"><span class="hs-identifier hs-type">DeleteTargetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup"><span class="hs-identifier hs-type">DeleteTargetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroupResponse"><span class="hs-identifier hs-type">DeleteTargetGroupResponse</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679261844"><span class="annot"><span class="annottext">request :: DeleteTargetGroup -&gt; Request DeleteTargetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteTargetGroup -&gt; Request DeleteTargetGroup
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ELBV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679261840"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteTargetGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteTargetGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DeleteTargetGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteTargetGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteTargetGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeleteTargetGroupResult&quot;</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261837"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261837"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679261836"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679261836"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679261835"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679261835"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteTargetGroupResponse
+</span><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroupResponse%27"><span class="hs-identifier hs-var">DeleteTargetGroupResponse'</span></a></span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteTargetGroupResponse)
+-&gt; Either String Int -&gt; Either String DeleteTargetGroupResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261837"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261828"><span id="local-6989586621679261830"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup"><span class="hs-identifier hs-type">DeleteTargetGroup</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261825"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup"><span class="hs-identifier hs-type">DeleteTargetGroup</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup"><span class="hs-identifier hs-type">DeleteTargetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679261821"><span class="annot"><span class="annottext">toHeaders :: DeleteTargetGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteTargetGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup"><span class="hs-identifier hs-type">DeleteTargetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679261816"><span class="annot"><span class="annottext">toPath :: DeleteTargetGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteTargetGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup"><span class="hs-identifier hs-type">DeleteTargetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679261812"><span class="annot"><span class="annottext">toQuery :: DeleteTargetGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroup%27"><span class="hs-identifier hs-type">DeleteTargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261810"><span class="annot"><span class="annottext">Text
+targetGroupArn :: Text
+$sel:targetGroupArn:DeleteTargetGroup' :: DeleteTargetGroup -&gt; Text
+</span><a href="#local-6989586621679261810"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteTargetGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2015-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TargetGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261810"><span class="hs-identifier hs-var">targetGroupArn</span></a></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | /See:/ 'newDeleteTargetGroupResponse' smart constructor.</span><span>
+</span><span id="line-118"></span><span id="local-6989586621679261807"><span id="local-6989586621679261808"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTargetGroupResponse"><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroupResponse"><span class="hs-identifier hs-var">DeleteTargetGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTargetGroupResponse%27"><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroupResponse%27"><span class="hs-identifier hs-var">DeleteTargetGroupResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteTargetGroupResponse%27"><span class="annot"><span class="annottext">DeleteTargetGroupResponse -&gt; Int
+</span><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#%24sel%3AhttpStatus%3ADeleteTargetGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261802"><span id="local-6989586621679261804"><span class="annot"><span class="annottext">DeleteTargetGroupResponse -&gt; DeleteTargetGroupResponse -&gt; Bool
+(DeleteTargetGroupResponse -&gt; DeleteTargetGroupResponse -&gt; Bool)
+-&gt; (DeleteTargetGroupResponse -&gt; DeleteTargetGroupResponse -&gt; Bool)
+-&gt; Eq DeleteTargetGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteTargetGroupResponse -&gt; DeleteTargetGroupResponse -&gt; Bool
+$c/= :: DeleteTargetGroupResponse -&gt; DeleteTargetGroupResponse -&gt; Bool
+== :: DeleteTargetGroupResponse -&gt; DeleteTargetGroupResponse -&gt; Bool
+$c== :: DeleteTargetGroupResponse -&gt; DeleteTargetGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261794"><span id="local-6989586621679261796"><span id="local-6989586621679261798"><span id="local-6989586621679261800"><span class="annot"><span class="annottext">ReadPrec [DeleteTargetGroupResponse]
+ReadPrec DeleteTargetGroupResponse
+Int -&gt; ReadS DeleteTargetGroupResponse
+ReadS [DeleteTargetGroupResponse]
+(Int -&gt; ReadS DeleteTargetGroupResponse)
+-&gt; ReadS [DeleteTargetGroupResponse]
+-&gt; ReadPrec DeleteTargetGroupResponse
+-&gt; ReadPrec [DeleteTargetGroupResponse]
+-&gt; Read DeleteTargetGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteTargetGroupResponse]
+$creadListPrec :: ReadPrec [DeleteTargetGroupResponse]
+readPrec :: ReadPrec DeleteTargetGroupResponse
+$creadPrec :: ReadPrec DeleteTargetGroupResponse
+readList :: ReadS [DeleteTargetGroupResponse]
+$creadList :: ReadS [DeleteTargetGroupResponse]
+readsPrec :: Int -&gt; ReadS DeleteTargetGroupResponse
+$creadsPrec :: Int -&gt; ReadS DeleteTargetGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261788"><span id="local-6989586621679261790"><span id="local-6989586621679261792"><span class="annot"><span class="annottext">Int -&gt; DeleteTargetGroupResponse -&gt; ShowS
+[DeleteTargetGroupResponse] -&gt; ShowS
+DeleteTargetGroupResponse -&gt; String
+(Int -&gt; DeleteTargetGroupResponse -&gt; ShowS)
+-&gt; (DeleteTargetGroupResponse -&gt; String)
+-&gt; ([DeleteTargetGroupResponse] -&gt; ShowS)
+-&gt; Show DeleteTargetGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteTargetGroupResponse] -&gt; ShowS
+$cshowList :: [DeleteTargetGroupResponse] -&gt; ShowS
+show :: DeleteTargetGroupResponse -&gt; String
+$cshow :: DeleteTargetGroupResponse -&gt; String
+showsPrec :: Int -&gt; DeleteTargetGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteTargetGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteTargetGroupResponse -&gt; Rep DeleteTargetGroupResponse x)
+-&gt; (forall x.
+    Rep DeleteTargetGroupResponse x -&gt; DeleteTargetGroupResponse)
+-&gt; Generic DeleteTargetGroupResponse
+forall x.
+Rep DeleteTargetGroupResponse x -&gt; DeleteTargetGroupResponse
+forall x.
+DeleteTargetGroupResponse -&gt; Rep DeleteTargetGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteTargetGroupResponse x -&gt; DeleteTargetGroupResponse
+$cfrom :: forall x.
+DeleteTargetGroupResponse -&gt; Rep DeleteTargetGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Create a value of 'DeleteTargetGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'httpStatus', 'deleteTargetGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#newDeleteTargetGroupResponse"><span class="hs-identifier hs-type">newDeleteTargetGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroupResponse"><span class="hs-identifier hs-type">DeleteTargetGroupResponse</span></a></span><span>
+</span><span id="line-137"></span><span id="newDeleteTargetGroupResponse"><span class="annot"><span class="annottext">newDeleteTargetGroupResponse :: Int -&gt; DeleteTargetGroupResponse
+</span><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#newDeleteTargetGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteTargetGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679261785"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261785"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">DeleteTargetGroupResponse' :: Int -&gt; DeleteTargetGroupResponse
+</span><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroupResponse%27"><span class="hs-identifier hs-type">DeleteTargetGroupResponse'</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTargetGroupResponse' :: Int
+</span><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#%24sel%3AhttpStatus%3ADeleteTargetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261785"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#deleteTargetGroupResponse_httpStatus"><span class="hs-identifier hs-type">deleteTargetGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroupResponse"><span class="hs-identifier hs-type">DeleteTargetGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span id="deleteTargetGroupResponse_httpStatus"><span class="annot"><span class="annottext">deleteTargetGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteTargetGroupResponse -&gt; f DeleteTargetGroupResponse
+</span><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#deleteTargetGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteTargetGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteTargetGroupResponse -&gt; Int)
+-&gt; (DeleteTargetGroupResponse -&gt; Int -&gt; DeleteTargetGroupResponse)
+-&gt; Lens DeleteTargetGroupResponse DeleteTargetGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroupResponse%27"><span class="hs-identifier hs-type">DeleteTargetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261784"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteTargetGroupResponse' :: DeleteTargetGroupResponse -&gt; Int
+</span><a href="#local-6989586621679261784"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261784"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261783"><span class="annot"><span class="annottext">s :: DeleteTargetGroupResponse
+</span><a href="#local-6989586621679261783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroupResponse%27"><span class="hs-identifier hs-type">DeleteTargetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261782"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTargetGroupResponse
+</span><a href="#local-6989586621679261783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTargetGroupResponse' :: Int
+</span><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#%24sel%3AhttpStatus%3ADeleteTargetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroupResponse"><span class="hs-identifier hs-type">DeleteTargetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261780"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.DeleteTargetGroup.html#DeleteTargetGroupResponse"><span class="hs-identifier hs-type">DeleteTargetGroupResponse</span></a></span></span><span>
+</span><span id="line-148"></span></pre></body></html>

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about the targets to which audit notifications are sent.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAuditNotificationTarget' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679776175"><span id="local-6989586621679776176"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuditNotificationTarget"><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-var">AuditNotificationTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuditNotificationTarget%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-var">AuditNotificationTarget'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679776184"><span id="local-6989586621679776185"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuditNotificationTarget"><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-var">AuditNotificationTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuditNotificationTarget%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-var">AuditNotificationTarget'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the target (SNS topic) to which audit notifications are sent.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AtargetArn%3AAuditNotificationTarget%27"><span class="annot"><span class="annottext">AuditNotificationTarget -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#%24sel%3AtargetArn%3AAuditNotificationTarget%27"><span class="hs-identifier hs-var hs-var">targetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AroleArn%3AAuditNotificationTarget%27"><span class="annot"><span class="annottext">AuditNotificationTarget -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#%24sel%3AroleArn%3AAuditNotificationTarget%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679776167"><span id="local-6989586621679776169"><span class="annot"><span class="annottext">AuditNotificationTarget -&gt; AuditNotificationTarget -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679776176"><span id="local-6989586621679776178"><span class="annot"><span class="annottext">AuditNotificationTarget -&gt; AuditNotificationTarget -&gt; Bool
 (AuditNotificationTarget -&gt; AuditNotificationTarget -&gt; Bool)
 -&gt; (AuditNotificationTarget -&gt; AuditNotificationTarget -&gt; Bool)
 -&gt; Eq AuditNotificationTarget
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AuditNotificationTarget -&gt; AuditNotificationTarget -&gt; Bool
 == :: AuditNotificationTarget -&gt; AuditNotificationTarget -&gt; Bool
 $c== :: AuditNotificationTarget -&gt; AuditNotificationTarget -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679776158"><span id="local-6989586621679776160"><span id="local-6989586621679776162"><span id="local-6989586621679776164"><span class="annot"><span class="annottext">ReadPrec [AuditNotificationTarget]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679776167"><span id="local-6989586621679776169"><span id="local-6989586621679776171"><span id="local-6989586621679776173"><span class="annot"><span class="annottext">ReadPrec [AuditNotificationTarget]
 ReadPrec AuditNotificationTarget
 Int -&gt; ReadS AuditNotificationTarget
 ReadS [AuditNotificationTarget]
@@ -67,7 +67,7 @@ readList :: ReadS [AuditNotificationTarget]
 $creadList :: ReadS [AuditNotificationTarget]
 readsPrec :: Int -&gt; ReadS AuditNotificationTarget
 $creadsPrec :: Int -&gt; ReadS AuditNotificationTarget
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679776151"><span id="local-6989586621679776153"><span id="local-6989586621679776155"><span class="annot"><span class="annottext">Int -&gt; AuditNotificationTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679776160"><span id="local-6989586621679776162"><span id="local-6989586621679776164"><span class="annot"><span class="annottext">Int -&gt; AuditNotificationTarget -&gt; ShowS
 [AuditNotificationTarget] -&gt; ShowS
 AuditNotificationTarget -&gt; String
 (Int -&gt; AuditNotificationTarget -&gt; ShowS)
@@ -143,16 +143,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-type">AuditNotificationTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776142"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-type">AuditNotificationTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776151"><span class="annot"><span class="annottext">Maybe Text
 targetArn :: Maybe Text
 $sel:targetArn:AuditNotificationTarget' :: AuditNotificationTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679776142"><span class="hs-identifier hs-var hs-var">targetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776142"><span class="hs-identifier hs-var">targetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776141"><span class="annot"><span class="annottext">s :: AuditNotificationTarget
-</span><a href="#local-6989586621679776141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-type">AuditNotificationTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679776140"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditNotificationTarget
-</span><a href="#local-6989586621679776141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetArn:AuditNotificationTarget' :: Maybe Text
+</span><a href="#local-6989586621679776151"><span class="hs-identifier hs-var hs-var">targetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679776151"><span class="hs-identifier hs-var">targetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776150"><span class="annot"><span class="annottext">s :: AuditNotificationTarget
+</span><a href="#local-6989586621679776150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-type">AuditNotificationTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679776149"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679776149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditNotificationTarget
+</span><a href="#local-6989586621679776150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetArn:AuditNotificationTarget' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#%24sel%3AtargetArn%3AAuditNotificationTarget%27"><span class="hs-identifier hs-var">targetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-type">AuditNotificationTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679776149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-type">AuditNotificationTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | True if notifications to the target are enabled.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#auditNotificationTarget_enabled"><span class="hs-identifier hs-type">auditNotificationTarget_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-type">AuditNotificationTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -167,16 +167,16 @@ $sel:targetArn:AuditNotificationTarget' :: AuditNotificationTarget -&gt; Maybe T
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-type">AuditNotificationTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776138"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-type">AuditNotificationTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776147"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:AuditNotificationTarget' :: AuditNotificationTarget -&gt; Maybe Bool
-</span><a href="#local-6989586621679776138"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679776138"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776137"><span class="annot"><span class="annottext">s :: AuditNotificationTarget
-</span><a href="#local-6989586621679776137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-type">AuditNotificationTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679776136"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679776136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditNotificationTarget
-</span><a href="#local-6989586621679776137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:AuditNotificationTarget' :: Maybe Bool
+</span><a href="#local-6989586621679776147"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679776147"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776146"><span class="annot"><span class="annottext">s :: AuditNotificationTarget
+</span><a href="#local-6989586621679776146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-type">AuditNotificationTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679776145"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679776145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditNotificationTarget
+</span><a href="#local-6989586621679776146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:AuditNotificationTarget' :: Maybe Bool
 </span><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#%24sel%3Aenabled%3AAuditNotificationTarget%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679776136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-type">AuditNotificationTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679776145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-type">AuditNotificationTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The ARN of the role that grants permission to send notifications to the</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- target.</span><span>
@@ -192,19 +192,19 @@ $sel:enabled:AuditNotificationTarget' :: AuditNotificationTarget -&gt; Maybe Boo
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-type">AuditNotificationTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776134"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-type">AuditNotificationTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776143"><span class="annot"><span class="annottext">Maybe Text
 roleArn :: Maybe Text
 $sel:roleArn:AuditNotificationTarget' :: AuditNotificationTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679776134"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776134"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776133"><span class="annot"><span class="annottext">s :: AuditNotificationTarget
-</span><a href="#local-6989586621679776133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-type">AuditNotificationTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679776132"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditNotificationTarget
-</span><a href="#local-6989586621679776133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:AuditNotificationTarget' :: Maybe Text
+</span><a href="#local-6989586621679776143"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679776143"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776142"><span class="annot"><span class="annottext">s :: AuditNotificationTarget
+</span><a href="#local-6989586621679776142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-type">AuditNotificationTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679776141"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679776141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuditNotificationTarget
+</span><a href="#local-6989586621679776142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:AuditNotificationTarget' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#%24sel%3AroleArn%3AAuditNotificationTarget%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-type">AuditNotificationTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679776141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-type">AuditNotificationTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679776129"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-type">AuditNotificationTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679776127"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AuditNotificationTarget
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679776138"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-type">AuditNotificationTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679776136"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AuditNotificationTarget
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AuditNotificationTarget)
@@ -214,8 +214,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AuditNotificationTarget&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679776124"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679776124"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679776133"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679776133"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Bool -&gt; Maybe Text -&gt; AuditNotificationTarget
 </span><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-var">AuditNotificationTarget'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Bool -&gt; Maybe Text -&gt; AuditNotificationTarget)
@@ -223,7 +223,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Bool -&gt; Maybe Text -&gt; AuditNotificationTarget)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679776124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679776133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -232,7 +232,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; AuditNotificationTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679776124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679776133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;enabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -240,19 +240,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser AuditNotificationTarget
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679776124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679776133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679776118"><span id="local-6989586621679776120"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-type">AuditNotificationTarget</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679776127"><span id="local-6989586621679776129"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-type">AuditNotificationTarget</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679776115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-type">AuditNotificationTarget</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679776124"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-type">AuditNotificationTarget</span></a></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679776107"><span id="local-6989586621679776109"><span id="local-6989586621679776111"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-type">AuditNotificationTarget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679776105"><span class="annot"><span class="annottext">toJSON :: AuditNotificationTarget -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-type">AuditNotificationTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776101"><span id="local-6989586621679776102"><span id="local-6989586621679776103"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679776116"><span id="local-6989586621679776118"><span id="local-6989586621679776120"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget"><span class="hs-identifier hs-type">AuditNotificationTarget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679776114"><span class="annot"><span class="annottext">toJSON :: AuditNotificationTarget -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditNotificationTarget.html#AuditNotificationTarget%27"><span class="hs-identifier hs-type">AuditNotificationTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776110"><span id="local-6989586621679776111"><span id="local-6989586621679776112"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 roleArn :: Maybe Text
 enabled :: Maybe Bool
@@ -260,7 +260,7 @@ targetArn :: Maybe Text
 $sel:roleArn:AuditNotificationTarget' :: AuditNotificationTarget -&gt; Maybe Text
 $sel:enabled:AuditNotificationTarget' :: AuditNotificationTarget -&gt; Maybe Bool
 $sel:targetArn:AuditNotificationTarget' :: AuditNotificationTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679776101"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679776110"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -272,21 +272,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776103"><span class="hs-identifier hs-var">targetArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679776112"><span class="hs-identifier hs-var">targetArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679776102"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679776111"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776101"><span class="hs-identifier hs-var">roleArn</span></a></span><span>
+</span><a href="#local-6989586621679776110"><span class="hs-identifier hs-var">roleArn</span></a></span><span>
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span></pre></body></html>

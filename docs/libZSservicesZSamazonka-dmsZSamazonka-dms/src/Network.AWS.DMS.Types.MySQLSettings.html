@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Provides information that defines a MySQL endpoint.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMySQLSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679440989"><span id="local-6989586621679440990"></span></span><span class="hs-keyword">data</span><span> </span><span id="MySQLSettings"><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-var">MySQLSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MySQLSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-var">MySQLSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679440998"><span id="local-6989586621679440999"></span></span><span class="hs-keyword">data</span><span> </span><span id="MySQLSettings"><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-var">MySQLSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MySQLSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-var">MySQLSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the maximum size (in KB) of any .csv file used to transfer</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- data to a MySQL-compatible database.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -122,7 +122,7 @@
 </span><span id="line-109"></span><span>    </span><span id="%24sel%3Aport%3AMySQLSettings%27"><span class="annot"><span class="annottext">MySQLSettings -&gt; Maybe Int
 </span><a href="Network.AWS.DMS.Types.MySQLSettings.html#%24sel%3Aport%3AMySQLSettings%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440970"><span id="local-6989586621679440972"><span class="annot"><span class="annottext">MySQLSettings -&gt; MySQLSettings -&gt; Bool
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440979"><span id="local-6989586621679440981"><span class="annot"><span class="annottext">MySQLSettings -&gt; MySQLSettings -&gt; Bool
 (MySQLSettings -&gt; MySQLSettings -&gt; Bool)
 -&gt; (MySQLSettings -&gt; MySQLSettings -&gt; Bool) -&gt; Eq MySQLSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -130,7 +130,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MySQLSettings -&gt; MySQLSettings -&gt; Bool
 == :: MySQLSettings -&gt; MySQLSettings -&gt; Bool
 $c== :: MySQLSettings -&gt; MySQLSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440963"><span id="local-6989586621679440965"><span id="local-6989586621679440967"><span class="annot"><span class="annottext">Int -&gt; MySQLSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440972"><span id="local-6989586621679440974"><span id="local-6989586621679440976"><span class="annot"><span class="annottext">Int -&gt; MySQLSettings -&gt; ShowS
 [MySQLSettings] -&gt; ShowS
 MySQLSettings -&gt; String
 (Int -&gt; MySQLSettings -&gt; ShowS)
@@ -330,16 +330,16 @@ forall a. Maybe a
 -&gt; (MySQLSettings -&gt; Maybe Int -&gt; MySQLSettings)
 -&gt; Lens MySQLSettings MySQLSettings (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440954"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440963"><span class="annot"><span class="annottext">Maybe Int
 maxFileSize :: Maybe Int
 $sel:maxFileSize:MySQLSettings' :: MySQLSettings -&gt; Maybe Int
-</span><a href="#local-6989586621679440954"><span class="hs-identifier hs-var hs-var">maxFileSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679440954"><span class="hs-identifier hs-var">maxFileSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440953"><span class="annot"><span class="annottext">s :: MySQLSettings
-</span><a href="#local-6989586621679440953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440952"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679440952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
-</span><a href="#local-6989586621679440953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxFileSize:MySQLSettings' :: Maybe Int
+</span><a href="#local-6989586621679440963"><span class="hs-identifier hs-var hs-var">maxFileSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679440963"><span class="hs-identifier hs-var">maxFileSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440962"><span class="annot"><span class="annottext">s :: MySQLSettings
+</span><a href="#local-6989586621679440962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440961"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679440961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
+</span><a href="#local-6989586621679440962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxFileSize:MySQLSettings' :: Maybe Int
 </span><a href="Network.AWS.DMS.Types.MySQLSettings.html#%24sel%3AmaxFileSize%3AMySQLSettings%27"><span class="hs-identifier hs-var">maxFileSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679440952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | Specifies where to migrate source tables on the target, either to a</span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- single database or multiple databases.</span><span>
@@ -356,16 +356,16 @@ $sel:maxFileSize:MySQLSettings' :: MySQLSettings -&gt; Maybe Int
      (Maybe TargetDbType)
      (Maybe TargetDbType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440950"><span class="annot"><span class="annottext">Maybe TargetDbType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440959"><span class="annot"><span class="annottext">Maybe TargetDbType
 targetDbType :: Maybe TargetDbType
 $sel:targetDbType:MySQLSettings' :: MySQLSettings -&gt; Maybe TargetDbType
-</span><a href="#local-6989586621679440950"><span class="hs-identifier hs-var hs-var">targetDbType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetDbType
-</span><a href="#local-6989586621679440950"><span class="hs-identifier hs-var">targetDbType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440949"><span class="annot"><span class="annottext">s :: MySQLSettings
-</span><a href="#local-6989586621679440949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440948"><span class="annot"><span class="annottext">Maybe TargetDbType
-</span><a href="#local-6989586621679440948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
-</span><a href="#local-6989586621679440949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetDbType:MySQLSettings' :: Maybe TargetDbType
+</span><a href="#local-6989586621679440959"><span class="hs-identifier hs-var hs-var">targetDbType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetDbType
+</span><a href="#local-6989586621679440959"><span class="hs-identifier hs-var">targetDbType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440958"><span class="annot"><span class="annottext">s :: MySQLSettings
+</span><a href="#local-6989586621679440958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440957"><span class="annot"><span class="annottext">Maybe TargetDbType
+</span><a href="#local-6989586621679440957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
+</span><a href="#local-6989586621679440958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetDbType:MySQLSettings' :: Maybe TargetDbType
 </span><a href="Network.AWS.DMS.Types.MySQLSettings.html#%24sel%3AtargetDbType%3AMySQLSettings%27"><span class="hs-identifier hs-var">targetDbType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetDbType
-</span><a href="#local-6989586621679440948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | Fully qualified domain name of the endpoint.</span><span>
 </span><span id="line-234"></span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#mySQLSettings_serverName"><span class="hs-identifier hs-type">mySQLSettings_serverName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -374,16 +374,16 @@ $sel:targetDbType:MySQLSettings' :: MySQLSettings -&gt; Maybe TargetDbType
 -&gt; (MySQLSettings -&gt; Maybe Text -&gt; MySQLSettings)
 -&gt; Lens MySQLSettings MySQLSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440946"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440955"><span class="annot"><span class="annottext">Maybe Text
 serverName :: Maybe Text
 $sel:serverName:MySQLSettings' :: MySQLSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679440946"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440946"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440945"><span class="annot"><span class="annottext">s :: MySQLSettings
-</span><a href="#local-6989586621679440945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440944"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
-</span><a href="#local-6989586621679440945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverName:MySQLSettings' :: Maybe Text
+</span><a href="#local-6989586621679440955"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440955"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440954"><span class="annot"><span class="annottext">s :: MySQLSettings
+</span><a href="#local-6989586621679440954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440953"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
+</span><a href="#local-6989586621679440954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverName:MySQLSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.MySQLSettings.html#%24sel%3AserverName%3AMySQLSettings%27"><span class="hs-identifier hs-var">serverName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | Adjusts the behavior of DMS when migrating from an SQL Server source</span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- database that is hosted as part of an Always On availability group</span><span>
@@ -395,16 +395,16 @@ $sel:serverName:MySQLSettings' :: MySQLSettings -&gt; Maybe Text
 -&gt; (MySQLSettings -&gt; Maybe Bool -&gt; MySQLSettings)
 -&gt; Lens MySQLSettings MySQLSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440942"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440951"><span class="annot"><span class="annottext">Maybe Bool
 cleanSourceMetadataOnMismatch :: Maybe Bool
 $sel:cleanSourceMetadataOnMismatch:MySQLSettings' :: MySQLSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679440942"><span class="hs-identifier hs-var hs-var">cleanSourceMetadataOnMismatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679440942"><span class="hs-identifier hs-var">cleanSourceMetadataOnMismatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440941"><span class="annot"><span class="annottext">s :: MySQLSettings
-</span><a href="#local-6989586621679440941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440940"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679440940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
-</span><a href="#local-6989586621679440941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cleanSourceMetadataOnMismatch:MySQLSettings' :: Maybe Bool
+</span><a href="#local-6989586621679440951"><span class="hs-identifier hs-var hs-var">cleanSourceMetadataOnMismatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679440951"><span class="hs-identifier hs-var">cleanSourceMetadataOnMismatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440950"><span class="annot"><span class="annottext">s :: MySQLSettings
+</span><a href="#local-6989586621679440950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440949"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679440949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
+</span><a href="#local-6989586621679440950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cleanSourceMetadataOnMismatch:MySQLSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.MySQLSettings.html#%24sel%3AcleanSourceMetadataOnMismatch%3AMySQLSettings%27"><span class="hs-identifier hs-var">cleanSourceMetadataOnMismatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679440940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- | Improves performance when loading data into the MySQL-compatible target</span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- database. Specifies how many threads to use to load the data into the</span><span>
@@ -419,16 +419,16 @@ $sel:cleanSourceMetadataOnMismatch:MySQLSettings' :: MySQLSettings -&gt; Maybe B
 -&gt; (MySQLSettings -&gt; Maybe Int -&gt; MySQLSettings)
 -&gt; Lens MySQLSettings MySQLSettings (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440938"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440947"><span class="annot"><span class="annottext">Maybe Int
 parallelLoadThreads :: Maybe Int
 $sel:parallelLoadThreads:MySQLSettings' :: MySQLSettings -&gt; Maybe Int
-</span><a href="#local-6989586621679440938"><span class="hs-identifier hs-var hs-var">parallelLoadThreads</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679440938"><span class="hs-identifier hs-var">parallelLoadThreads</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440937"><span class="annot"><span class="annottext">s :: MySQLSettings
-</span><a href="#local-6989586621679440937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440936"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679440936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
-</span><a href="#local-6989586621679440937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parallelLoadThreads:MySQLSettings' :: Maybe Int
+</span><a href="#local-6989586621679440947"><span class="hs-identifier hs-var hs-var">parallelLoadThreads</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679440947"><span class="hs-identifier hs-var">parallelLoadThreads</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440946"><span class="annot"><span class="annottext">s :: MySQLSettings
+</span><a href="#local-6989586621679440946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440945"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679440945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
+</span><a href="#local-6989586621679440946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parallelLoadThreads:MySQLSettings' :: Maybe Int
 </span><a href="Network.AWS.DMS.Types.MySQLSettings.html#%24sel%3AparallelLoadThreads%3AMySQLSettings%27"><span class="hs-identifier hs-var">parallelLoadThreads</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679440936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS</span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- as the trusted entity and grants the required permissions to access the</span><span>
@@ -450,16 +450,16 @@ $sel:parallelLoadThreads:MySQLSettings' :: MySQLSettings -&gt; Maybe Int
 -&gt; (MySQLSettings -&gt; Maybe Text -&gt; MySQLSettings)
 -&gt; Lens MySQLSettings MySQLSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440934"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440943"><span class="annot"><span class="annottext">Maybe Text
 secretsManagerAccessRoleArn :: Maybe Text
 $sel:secretsManagerAccessRoleArn:MySQLSettings' :: MySQLSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679440934"><span class="hs-identifier hs-var hs-var">secretsManagerAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440934"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440933"><span class="annot"><span class="annottext">s :: MySQLSettings
-</span><a href="#local-6989586621679440933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440932"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
-</span><a href="#local-6989586621679440933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretsManagerAccessRoleArn:MySQLSettings' :: Maybe Text
+</span><a href="#local-6989586621679440943"><span class="hs-identifier hs-var hs-var">secretsManagerAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440943"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440942"><span class="annot"><span class="annottext">s :: MySQLSettings
+</span><a href="#local-6989586621679440942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440941"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
+</span><a href="#local-6989586621679440942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretsManagerAccessRoleArn:MySQLSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.MySQLSettings.html#%24sel%3AsecretsManagerAccessRoleArn%3AMySQLSettings%27"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
 </span><span id="line-271"></span><span class="hs-comment">-- | Endpoint connection user name.</span><span>
 </span><span id="line-272"></span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#mySQLSettings_username"><span class="hs-identifier hs-type">mySQLSettings_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -468,16 +468,16 @@ $sel:secretsManagerAccessRoleArn:MySQLSettings' :: MySQLSettings -&gt; Maybe Tex
 -&gt; (MySQLSettings -&gt; Maybe Text -&gt; MySQLSettings)
 -&gt; Lens MySQLSettings MySQLSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440930"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440939"><span class="annot"><span class="annottext">Maybe Text
 username :: Maybe Text
 $sel:username:MySQLSettings' :: MySQLSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679440930"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440930"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440929"><span class="annot"><span class="annottext">s :: MySQLSettings
-</span><a href="#local-6989586621679440929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440928"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
-</span><a href="#local-6989586621679440929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:MySQLSettings' :: Maybe Text
+</span><a href="#local-6989586621679440939"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440939"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440938"><span class="annot"><span class="annottext">s :: MySQLSettings
+</span><a href="#local-6989586621679440938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440937"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
+</span><a href="#local-6989586621679440938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:MySQLSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.MySQLSettings.html#%24sel%3Ausername%3AMySQLSettings%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-274"></span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- | Endpoint connection password.</span><span>
 </span><span id="line-276"></span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#mySQLSettings_password"><span class="hs-identifier hs-type">mySQLSettings_password</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -490,16 +490,16 @@ $sel:username:MySQLSettings' :: MySQLSettings -&gt; Maybe Text
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440926"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440935"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 password :: Maybe (Sensitive Text)
 $sel:password:MySQLSettings' :: MySQLSettings -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679440926"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679440926"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440925"><span class="annot"><span class="annottext">s :: MySQLSettings
-</span><a href="#local-6989586621679440925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440924"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679440924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
-</span><a href="#local-6989586621679440925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:MySQLSettings' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679440935"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679440935"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440934"><span class="annot"><span class="annottext">s :: MySQLSettings
+</span><a href="#local-6989586621679440934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440933"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679440933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
+</span><a href="#local-6989586621679440934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:MySQLSettings' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.DMS.Types.MySQLSettings.html#%24sel%3Apassword%3AMySQLSettings%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679440924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679440933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; MySQLSettings -&gt; f MySQLSettings)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -533,16 +533,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (MySQLSettings -&gt; Maybe Int -&gt; MySQLSettings)
 -&gt; Lens MySQLSettings MySQLSettings (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440919"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440928"><span class="annot"><span class="annottext">Maybe Int
 eventsPollInterval :: Maybe Int
 $sel:eventsPollInterval:MySQLSettings' :: MySQLSettings -&gt; Maybe Int
-</span><a href="#local-6989586621679440919"><span class="hs-identifier hs-var hs-var">eventsPollInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679440919"><span class="hs-identifier hs-var">eventsPollInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440918"><span class="annot"><span class="annottext">s :: MySQLSettings
-</span><a href="#local-6989586621679440918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440917"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679440917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
-</span><a href="#local-6989586621679440918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventsPollInterval:MySQLSettings' :: Maybe Int
+</span><a href="#local-6989586621679440928"><span class="hs-identifier hs-var hs-var">eventsPollInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679440928"><span class="hs-identifier hs-var">eventsPollInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440927"><span class="annot"><span class="annottext">s :: MySQLSettings
+</span><a href="#local-6989586621679440927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440926"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679440926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
+</span><a href="#local-6989586621679440927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventsPollInterval:MySQLSettings' :: Maybe Int
 </span><a href="Network.AWS.DMS.Types.MySQLSettings.html#%24sel%3AeventsPollInterval%3AMySQLSettings%27"><span class="hs-identifier hs-var">eventsPollInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679440917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-288"></span><span>
 </span><span id="line-289"></span><span class="hs-comment">-- | Database name for the endpoint. For a MySQL source or target endpoint,</span><span>
 </span><span id="line-290"></span><span class="hs-comment">-- don\'t explicitly specify the database using the @DatabaseName@ request</span><span>
@@ -557,16 +557,16 @@ $sel:eventsPollInterval:MySQLSettings' :: MySQLSettings -&gt; Maybe Int
 -&gt; (MySQLSettings -&gt; Maybe Text -&gt; MySQLSettings)
 -&gt; Lens MySQLSettings MySQLSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440915"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440924"><span class="annot"><span class="annottext">Maybe Text
 databaseName :: Maybe Text
 $sel:databaseName:MySQLSettings' :: MySQLSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679440915"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440915"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440914"><span class="annot"><span class="annottext">s :: MySQLSettings
-</span><a href="#local-6989586621679440914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440913"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
-</span><a href="#local-6989586621679440914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:MySQLSettings' :: Maybe Text
+</span><a href="#local-6989586621679440924"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440924"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440923"><span class="annot"><span class="annottext">s :: MySQLSettings
+</span><a href="#local-6989586621679440923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440922"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
+</span><a href="#local-6989586621679440923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:MySQLSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.MySQLSettings.html#%24sel%3AdatabaseName%3AMySQLSettings%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-298"></span><span>
 </span><span id="line-299"></span><span class="hs-comment">-- | Specifies a script to run immediately after DMS connects to the</span><span>
 </span><span id="line-300"></span><span class="hs-comment">-- endpoint. The migration task continues running regardless if the SQL</span><span>
@@ -580,16 +580,16 @@ $sel:databaseName:MySQLSettings' :: MySQLSettings -&gt; Maybe Text
 -&gt; (MySQLSettings -&gt; Maybe Text -&gt; MySQLSettings)
 -&gt; Lens MySQLSettings MySQLSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440911"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440920"><span class="annot"><span class="annottext">Maybe Text
 afterConnectScript :: Maybe Text
 $sel:afterConnectScript:MySQLSettings' :: MySQLSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679440911"><span class="hs-identifier hs-var hs-var">afterConnectScript</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440911"><span class="hs-identifier hs-var">afterConnectScript</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440910"><span class="annot"><span class="annottext">s :: MySQLSettings
-</span><a href="#local-6989586621679440910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440909"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
-</span><a href="#local-6989586621679440910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afterConnectScript:MySQLSettings' :: Maybe Text
+</span><a href="#local-6989586621679440920"><span class="hs-identifier hs-var hs-var">afterConnectScript</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440920"><span class="hs-identifier hs-var">afterConnectScript</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440919"><span class="annot"><span class="annottext">s :: MySQLSettings
+</span><a href="#local-6989586621679440919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440918"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
+</span><a href="#local-6989586621679440919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afterConnectScript:MySQLSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.MySQLSettings.html#%24sel%3AafterConnectScript%3AMySQLSettings%27"><span class="hs-identifier hs-var">afterConnectScript</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-307"></span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- | The full ARN, partial ARN, or friendly name of the</span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- @SecretsManagerSecret@ that contains the MySQL endpoint connection</span><span>
@@ -600,16 +600,16 @@ $sel:afterConnectScript:MySQLSettings' :: MySQLSettings -&gt; Maybe Text
 -&gt; (MySQLSettings -&gt; Maybe Text -&gt; MySQLSettings)
 -&gt; Lens MySQLSettings MySQLSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440907"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440916"><span class="annot"><span class="annottext">Maybe Text
 secretsManagerSecretId :: Maybe Text
 $sel:secretsManagerSecretId:MySQLSettings' :: MySQLSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679440907"><span class="hs-identifier hs-var hs-var">secretsManagerSecretId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440907"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440906"><span class="annot"><span class="annottext">s :: MySQLSettings
-</span><a href="#local-6989586621679440906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440905"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
-</span><a href="#local-6989586621679440906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretsManagerSecretId:MySQLSettings' :: Maybe Text
+</span><a href="#local-6989586621679440916"><span class="hs-identifier hs-var hs-var">secretsManagerSecretId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440916"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440915"><span class="annot"><span class="annottext">s :: MySQLSettings
+</span><a href="#local-6989586621679440915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440914"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
+</span><a href="#local-6989586621679440915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretsManagerSecretId:MySQLSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.MySQLSettings.html#%24sel%3AsecretsManagerSecretId%3AMySQLSettings%27"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-313"></span><span>
 </span><span id="line-314"></span><span class="hs-comment">-- | Specifies the time zone for the source MySQL database.</span><span>
 </span><span id="line-315"></span><span class="hs-comment">--</span><span>
@@ -622,16 +622,16 @@ $sel:secretsManagerSecretId:MySQLSettings' :: MySQLSettings -&gt; Maybe Text
 -&gt; (MySQLSettings -&gt; Maybe Text -&gt; MySQLSettings)
 -&gt; Lens MySQLSettings MySQLSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440903"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440912"><span class="annot"><span class="annottext">Maybe Text
 serverTimezone :: Maybe Text
 $sel:serverTimezone:MySQLSettings' :: MySQLSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679440903"><span class="hs-identifier hs-var hs-var">serverTimezone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440903"><span class="hs-identifier hs-var">serverTimezone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440902"><span class="annot"><span class="annottext">s :: MySQLSettings
-</span><a href="#local-6989586621679440902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440901"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
-</span><a href="#local-6989586621679440902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverTimezone:MySQLSettings' :: Maybe Text
+</span><a href="#local-6989586621679440912"><span class="hs-identifier hs-var hs-var">serverTimezone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440912"><span class="hs-identifier hs-var">serverTimezone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440911"><span class="annot"><span class="annottext">s :: MySQLSettings
+</span><a href="#local-6989586621679440911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440910"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
+</span><a href="#local-6989586621679440911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverTimezone:MySQLSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.MySQLSettings.html#%24sel%3AserverTimezone%3AMySQLSettings%27"><span class="hs-identifier hs-var">serverTimezone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-321"></span><span>
 </span><span id="line-322"></span><span class="hs-comment">-- | Endpoint TCP port.</span><span>
 </span><span id="line-323"></span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#mySQLSettings_port"><span class="hs-identifier hs-type">mySQLSettings_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -640,19 +640,19 @@ $sel:serverTimezone:MySQLSettings' :: MySQLSettings -&gt; Maybe Text
 -&gt; (MySQLSettings -&gt; Maybe Int -&gt; MySQLSettings)
 -&gt; Lens MySQLSettings MySQLSettings (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440899"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440908"><span class="annot"><span class="annottext">Maybe Int
 port :: Maybe Int
 $sel:port:MySQLSettings' :: MySQLSettings -&gt; Maybe Int
-</span><a href="#local-6989586621679440899"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679440899"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440898"><span class="annot"><span class="annottext">s :: MySQLSettings
-</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440897"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679440897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
-</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:MySQLSettings' :: Maybe Int
+</span><a href="#local-6989586621679440908"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679440908"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440907"><span class="annot"><span class="annottext">s :: MySQLSettings
+</span><a href="#local-6989586621679440907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440906"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679440906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MySQLSettings
+</span><a href="#local-6989586621679440907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:MySQLSettings' :: Maybe Int
 </span><a href="Network.AWS.DMS.Types.MySQLSettings.html#%24sel%3Aport%3AMySQLSettings%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679440897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-325"></span><span>
-</span><span id="line-326"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440894"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-327"></span><span>  </span><span id="local-6989586621679440892"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MySQLSettings
+</span><span id="line-326"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440903"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-327"></span><span>  </span><span id="local-6989586621679440901"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MySQLSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-328"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MySQLSettings)
@@ -662,8 +662,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-329"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MySQLSettings&quot;</span></span><span>
-</span><span id="line-330"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440889"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-330"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440898"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-331"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe TargetDbType
 -&gt; Maybe Text
@@ -713,7 +713,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; MySQLSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxFileSize&quot;</span></span><span class="hs-special">)</span><span>
@@ -749,7 +749,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MySQLSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TargetDbType)
+</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TargetDbType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetDbType&quot;</span></span><span class="hs-special">)</span><span>
@@ -783,7 +783,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MySQLSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServerName&quot;</span></span><span class="hs-special">)</span><span>
@@ -815,7 +815,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MySQLSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CleanSourceMetadataOnMismatch&quot;</span></span><span class="hs-special">)</span><span>
@@ -845,7 +845,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MySQLSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParallelLoadThreads&quot;</span></span><span class="hs-special">)</span><span>
@@ -873,7 +873,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MySQLSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecretsManagerAccessRoleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -899,7 +899,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MySQLSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Username&quot;</span></span><span class="hs-special">)</span><span>
@@ -923,7 +923,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MySQLSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Password&quot;</span></span><span class="hs-special">)</span><span>
@@ -945,7 +945,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MySQLSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventsPollInterval&quot;</span></span><span class="hs-special">)</span><span>
@@ -962,7 +962,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; MySQLSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span class="hs-special">)</span><span>
@@ -973,7 +973,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; MySQLSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AfterConnectScript&quot;</span></span><span class="hs-special">)</span><span>
@@ -982,7 +982,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; MySQLSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecretsManagerSecretId&quot;</span></span><span class="hs-special">)</span><span>
@@ -990,7 +990,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Int -&gt; MySQLSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServerTimezone&quot;</span></span><span class="hs-special">)</span><span>
@@ -998,19 +998,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser MySQLSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679440898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Port&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-346"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-347"></span><span>
-</span><span id="line-348"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440883"><span id="local-6989586621679440885"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span></span></span><span>
+</span><span id="line-348"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440892"><span id="local-6989586621679440894"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span></span></span><span>
 </span><span id="line-349"></span><span>
-</span><span id="line-350"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span></span><span>
+</span><span id="line-350"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440889"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span></span><span>
 </span><span id="line-351"></span><span>
-</span><span id="line-352"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440872"><span id="local-6989586621679440874"><span id="local-6989586621679440876"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-353"></span><span>  </span><span id="local-6989586621679440870"><span class="annot"><span class="annottext">toJSON :: MySQLSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440855"><span id="local-6989586621679440856"><span id="local-6989586621679440857"><span id="local-6989586621679440858"><span id="local-6989586621679440859"><span id="local-6989586621679440860"><span id="local-6989586621679440861"><span id="local-6989586621679440862"><span id="local-6989586621679440863"><span id="local-6989586621679440864"><span id="local-6989586621679440865"><span id="local-6989586621679440866"><span id="local-6989586621679440867"><span id="local-6989586621679440868"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-352"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440881"><span id="local-6989586621679440883"><span id="local-6989586621679440885"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings"><span class="hs-identifier hs-type">MySQLSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-353"></span><span>  </span><span id="local-6989586621679440879"><span class="annot"><span class="annottext">toJSON :: MySQLSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.MySQLSettings.html#MySQLSettings%27"><span class="hs-identifier hs-type">MySQLSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440864"><span id="local-6989586621679440865"><span id="local-6989586621679440866"><span id="local-6989586621679440867"><span id="local-6989586621679440868"><span id="local-6989586621679440869"><span id="local-6989586621679440870"><span id="local-6989586621679440871"><span id="local-6989586621679440872"><span id="local-6989586621679440873"><span id="local-6989586621679440874"><span id="local-6989586621679440875"><span id="local-6989586621679440876"><span id="local-6989586621679440877"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe Text
 Maybe (Sensitive Text)
@@ -1043,7 +1043,7 @@ $sel:cleanSourceMetadataOnMismatch:MySQLSettings' :: MySQLSettings -&gt; Maybe B
 $sel:serverName:MySQLSettings' :: MySQLSettings -&gt; Maybe Text
 $sel:targetDbType:MySQLSettings' :: MySQLSettings -&gt; Maybe TargetDbType
 $sel:maxFileSize:MySQLSettings' :: MySQLSettings -&gt; Maybe Int
-</span><a href="#local-6989586621679440855"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679440864"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-354"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-355"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1055,21 +1055,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679440868"><span class="hs-identifier hs-var">maxFileSize</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440877"><span class="hs-identifier hs-var">maxFileSize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-357"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetDbType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TargetDbType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TargetDbType -&gt; Pair) -&gt; Maybe TargetDbType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TargetDbType
-</span><a href="#local-6989586621679440867"><span class="hs-identifier hs-var">targetDbType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440876"><span class="hs-identifier hs-var">targetDbType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-358"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440866"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440875"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-359"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CleanSourceMetadataOnMismatch&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1077,7 +1077,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-360"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679440865"><span class="hs-identifier hs-var">cleanSourceMetadataOnMismatch</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440874"><span class="hs-identifier hs-var">cleanSourceMetadataOnMismatch</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-361"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParallelLoadThreads&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1085,7 +1085,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-362"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679440864"><span class="hs-identifier hs-var">parallelLoadThreads</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440873"><span class="hs-identifier hs-var">parallelLoadThreads</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-363"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecretsManagerAccessRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1093,21 +1093,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-364"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440863"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440872"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-365"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440862"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440871"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-366"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Password&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679440861"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440870"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-367"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventsPollInterval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1115,14 +1115,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-368"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679440860"><span class="hs-identifier hs-var">eventsPollInterval</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440869"><span class="hs-identifier hs-var">eventsPollInterval</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-369"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440859"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440868"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-370"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AfterConnectScript&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1130,7 +1130,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-371"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440858"><span class="hs-identifier hs-var">afterConnectScript</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440867"><span class="hs-identifier hs-var">afterConnectScript</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-372"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecretsManagerSecretId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1138,7 +1138,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-373"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440857"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440866"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-374"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServerTimezone&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1146,14 +1146,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-375"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440856"><span class="hs-identifier hs-var">serverTimezone</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440865"><span class="hs-identifier hs-var">serverTimezone</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-376"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Port&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679440855"><span class="hs-identifier hs-var">port</span></a></span><span>
+</span><a href="#local-6989586621679440864"><span class="hs-identifier hs-var">port</span></a></span><span>
 </span><span id="line-377"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-378"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-379"></span></pre></body></html>

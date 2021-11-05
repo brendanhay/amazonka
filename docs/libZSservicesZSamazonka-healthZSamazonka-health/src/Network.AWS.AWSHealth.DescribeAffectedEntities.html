@@ -70,7 +70,7 @@
 </span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | /See:/ 'newDescribeAffectedEntities' smart constructor.</span><span>
-</span><span id="line-73"></span><span id="local-6989586621679191994"><span id="local-6989586621679191995"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAffectedEntities"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-var">DescribeAffectedEntities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAffectedEntities%27"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-var">DescribeAffectedEntities'</span></a></span></span><span>
+</span><span id="line-73"></span><span id="local-6989586621679192003"><span id="local-6989586621679192004"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAffectedEntities"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-var">DescribeAffectedEntities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAffectedEntities%27"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-var">DescribeAffectedEntities'</span></a></span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The locale (language) to return information in. English (en) is the</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- default and the only supported value at this time.</span><span>
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3Alocale%3ADescribeAffectedEntities%27"><span class="annot"><span class="annottext">DescribeAffectedEntities -&gt; Maybe Text
@@ -91,7 +91,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3Afilter%27%3ADescribeAffectedEntities%27"><span class="annot"><span class="annottext">DescribeAffectedEntities -&gt; EntityFilter
 </span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#%24sel%3Afilter%27%3ADescribeAffectedEntities%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityFilter.html#EntityFilter"><span class="hs-identifier hs-type">EntityFilter</span></a></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191985"><span id="local-6989586621679191987"><span class="annot"><span class="annottext">DescribeAffectedEntities -&gt; DescribeAffectedEntities -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191994"><span id="local-6989586621679191996"><span class="annot"><span class="annottext">DescribeAffectedEntities -&gt; DescribeAffectedEntities -&gt; Bool
 (DescribeAffectedEntities -&gt; DescribeAffectedEntities -&gt; Bool)
 -&gt; (DescribeAffectedEntities -&gt; DescribeAffectedEntities -&gt; Bool)
 -&gt; Eq DescribeAffectedEntities
@@ -100,7 +100,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeAffectedEntities -&gt; DescribeAffectedEntities -&gt; Bool
 == :: DescribeAffectedEntities -&gt; DescribeAffectedEntities -&gt; Bool
 $c== :: DescribeAffectedEntities -&gt; DescribeAffectedEntities -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191976"><span id="local-6989586621679191978"><span id="local-6989586621679191980"><span id="local-6989586621679191982"><span class="annot"><span class="annottext">ReadPrec [DescribeAffectedEntities]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191985"><span id="local-6989586621679191987"><span id="local-6989586621679191989"><span id="local-6989586621679191991"><span class="annot"><span class="annottext">ReadPrec [DescribeAffectedEntities]
 ReadPrec DescribeAffectedEntities
 Int -&gt; ReadS DescribeAffectedEntities
 ReadS [DescribeAffectedEntities]
@@ -120,7 +120,7 @@ readList :: ReadS [DescribeAffectedEntities]
 $creadList :: ReadS [DescribeAffectedEntities]
 readsPrec :: Int -&gt; ReadS DescribeAffectedEntities
 $creadsPrec :: Int -&gt; ReadS DescribeAffectedEntities
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191969"><span id="local-6989586621679191971"><span id="local-6989586621679191973"><span class="annot"><span class="annottext">Int -&gt; DescribeAffectedEntities -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191978"><span id="local-6989586621679191980"><span id="local-6989586621679191982"><span class="annot"><span class="annottext">Int -&gt; DescribeAffectedEntities -&gt; ShowS
 [DescribeAffectedEntities] -&gt; ShowS
 DescribeAffectedEntities -&gt; String
 (Int -&gt; DescribeAffectedEntities -&gt; ShowS)
@@ -179,8 +179,8 @@ DescribeAffectedEntities -&gt; Rep DescribeAffectedEntities x
 </span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EntityFilter.html#EntityFilter"><span class="hs-identifier hs-type">EntityFilter</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span><span>
 </span><span id="line-118"></span><span id="newDescribeAffectedEntities"><span class="annot"><span class="annottext">newDescribeAffectedEntities :: EntityFilter -&gt; DescribeAffectedEntities
-</span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#newDescribeAffectedEntities"><span class="hs-identifier hs-var hs-var">newDescribeAffectedEntities</span></a></span></span><span> </span><span id="local-6989586621679191964"><span class="annot"><span class="annottext">EntityFilter
-</span><a href="#local-6989586621679191964"><span class="hs-identifier hs-var">pFilter_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#newDescribeAffectedEntities"><span class="hs-identifier hs-var hs-var">newDescribeAffectedEntities</span></a></span></span><span> </span><span id="local-6989586621679191973"><span class="annot"><span class="annottext">EntityFilter
+</span><a href="#local-6989586621679191973"><span class="hs-identifier hs-var">pFilter_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>  </span><span class="annot"><span class="annottext">DescribeAffectedEntities' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Natural
@@ -201,7 +201,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':DescribeAffectedEntities' :: EntityFilter
 </span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#%24sel%3Afilter%27%3ADescribeAffectedEntities%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EntityFilter
-</span><a href="#local-6989586621679191964"><span class="hs-identifier hs-var">pFilter_</span></a></span><span>
+</span><a href="#local-6989586621679191973"><span class="hs-identifier hs-var">pFilter_</span></a></span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The locale (language) to return information in. English (en) is the</span><span>
@@ -218,16 +218,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191962"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191971"><span class="annot"><span class="annottext">Maybe Text
 locale :: Maybe Text
 $sel:locale:DescribeAffectedEntities' :: DescribeAffectedEntities -&gt; Maybe Text
-</span><a href="#local-6989586621679191962"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191962"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191961"><span class="annot"><span class="annottext">s :: DescribeAffectedEntities
-</span><a href="#local-6989586621679191961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191960"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAffectedEntities
-</span><a href="#local-6989586621679191961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locale:DescribeAffectedEntities' :: Maybe Text
+</span><a href="#local-6989586621679191971"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191971"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191970"><span class="annot"><span class="annottext">s :: DescribeAffectedEntities
+</span><a href="#local-6989586621679191970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191969"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAffectedEntities
+</span><a href="#local-6989586621679191970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locale:DescribeAffectedEntities' :: Maybe Text
 </span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#%24sel%3Alocale%3ADescribeAffectedEntities%27"><span class="hs-identifier hs-var">locale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | If the results of a search are large, only a portion of the results are</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- returned, and a @nextToken@ pagination token is returned in the</span><span>
@@ -246,16 +246,16 @@ $sel:locale:DescribeAffectedEntities' :: DescribeAffectedEntities -&gt; Maybe Te
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191959"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191968"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeAffectedEntities' :: DescribeAffectedEntities -&gt; Maybe Text
-</span><a href="#local-6989586621679191959"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191959"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191958"><span class="annot"><span class="annottext">s :: DescribeAffectedEntities
-</span><a href="#local-6989586621679191958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191957"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAffectedEntities
-</span><a href="#local-6989586621679191958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeAffectedEntities' :: Maybe Text
+</span><a href="#local-6989586621679191968"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191968"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191967"><span class="annot"><span class="annottext">s :: DescribeAffectedEntities
+</span><a href="#local-6989586621679191967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191966"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAffectedEntities
+</span><a href="#local-6989586621679191967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeAffectedEntities' :: Maybe Text
 </span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#%24sel%3AnextToken%3ADescribeAffectedEntities%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The maximum number of items to return in one batch, between 10 and 100,</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- inclusive.</span><span>
@@ -271,16 +271,16 @@ $sel:nextToken:DescribeAffectedEntities' :: DescribeAffectedEntities -&gt; Maybe
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191956"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191965"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:DescribeAffectedEntities' :: DescribeAffectedEntities -&gt; Maybe Natural
-</span><a href="#local-6989586621679191956"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679191956"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191955"><span class="annot"><span class="annottext">s :: DescribeAffectedEntities
-</span><a href="#local-6989586621679191955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191954"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679191954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAffectedEntities
-</span><a href="#local-6989586621679191955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeAffectedEntities' :: Maybe Natural
+</span><a href="#local-6989586621679191965"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679191965"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191964"><span class="annot"><span class="annottext">s :: DescribeAffectedEntities
+</span><a href="#local-6989586621679191964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191963"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679191963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAffectedEntities
+</span><a href="#local-6989586621679191964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeAffectedEntities' :: Maybe Natural
 </span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#%24sel%3AmaxResults%3ADescribeAffectedEntities%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679191954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | Values to narrow the results returned. At least one event ARN is</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- required.</span><span>
@@ -296,30 +296,30 @@ $sel:maxResults:DescribeAffectedEntities' :: DescribeAffectedEntities -&gt; Mayb
      EntityFilter
      EntityFilter
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191953"><span class="annot"><span class="annottext">EntityFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191962"><span class="annot"><span class="annottext">EntityFilter
 filter' :: EntityFilter
 $sel:filter':DescribeAffectedEntities' :: DescribeAffectedEntities -&gt; EntityFilter
-</span><a href="#local-6989586621679191953"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityFilter
-</span><a href="#local-6989586621679191953"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191952"><span class="annot"><span class="annottext">s :: DescribeAffectedEntities
-</span><a href="#local-6989586621679191952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191951"><span class="annot"><span class="annottext">EntityFilter
-</span><a href="#local-6989586621679191951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAffectedEntities
-</span><a href="#local-6989586621679191952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':DescribeAffectedEntities' :: EntityFilter
+</span><a href="#local-6989586621679191962"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EntityFilter
+</span><a href="#local-6989586621679191962"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191961"><span class="annot"><span class="annottext">s :: DescribeAffectedEntities
+</span><a href="#local-6989586621679191961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191960"><span class="annot"><span class="annottext">EntityFilter
+</span><a href="#local-6989586621679191960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAffectedEntities
+</span><a href="#local-6989586621679191961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':DescribeAffectedEntities' :: EntityFilter
 </span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#%24sel%3Afilter%27%3ADescribeAffectedEntities%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EntityFilter
-</span><a href="#local-6989586621679191951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679191947"><span class="annot"><span class="annottext">page :: DescribeAffectedEntities
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679191956"><span class="annot"><span class="annottext">page :: DescribeAffectedEntities
 -&gt; AWSResponse DescribeAffectedEntities
 -&gt; Maybe DescribeAffectedEntities
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679191945"><span class="annot"><span class="annottext">DescribeAffectedEntities
-</span><a href="#local-6989586621679191945"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679191944"><span class="annot"><span class="annottext">AWSResponse DescribeAffectedEntities
-</span><a href="#local-6989586621679191944"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679191954"><span class="annot"><span class="annottext">DescribeAffectedEntities
+</span><a href="#local-6989586621679191954"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679191953"><span class="annot"><span class="annottext">AWSResponse DescribeAffectedEntities
+</span><a href="#local-6989586621679191953"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-152"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeAffectedEntities
 DescribeAffectedEntitiesResponse
-</span><a href="#local-6989586621679191944"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679191953"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">DescribeAffectedEntitiesResponse
 -&gt; Getting (First Text) DescribeAffectedEntitiesResponse Text
 -&gt; Maybe Text
@@ -349,7 +349,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-158"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeAffectedEntities
 DescribeAffectedEntitiesResponse
-</span><a href="#local-6989586621679191944"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679191953"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">DescribeAffectedEntitiesResponse
 -&gt; Getting
      (First [AffectedEntity])
@@ -395,7 +395,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">DescribeAffectedEntities
-</span><a href="#local-6989586621679191945"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679191954"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">DescribeAffectedEntities
 -&gt; (DescribeAffectedEntities -&gt; DescribeAffectedEntities)
 -&gt; DescribeAffectedEntities
@@ -416,7 +416,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeAffectedEntities
 DescribeAffectedEntitiesResponse
-</span><a href="#local-6989586621679191944"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679191953"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">DescribeAffectedEntitiesResponse
 -&gt; Getting (First Text) DescribeAffectedEntitiesResponse Text
 -&gt; Maybe Text
@@ -442,13 +442,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-172"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-173"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>      </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse</span></a></span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679191934"><span class="annot"><span class="annottext">request :: DescribeAffectedEntities -&gt; Request DescribeAffectedEntities
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679191943"><span class="annot"><span class="annottext">request :: DescribeAffectedEntities -&gt; Request DescribeAffectedEntities
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeAffectedEntities -&gt; Request DescribeAffectedEntities
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AWSHealth.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679191930"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679191939"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeAffectedEntities
 -&gt; ClientResponse ClientBody
@@ -474,10 +474,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679191927"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191927"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679191926"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679191926"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679191925"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679191925"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679191936"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679191936"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679191935"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679191935"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679191934"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679191934"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AffectedEntity]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeAffectedEntitiesResponse
 </span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-var">DescribeAffectedEntitiesResponse'</span></a></span><span>
@@ -488,7 +488,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; DescribeAffectedEntitiesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679191925"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AffectedEntity]))
+</span><a href="#local-6989586621679191934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AffectedEntity]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;entities&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AffectedEntity]))
@@ -503,7 +503,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; DescribeAffectedEntitiesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679191925"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679191934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -516,15 +516,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191927"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191936"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191916"><span id="local-6989586621679191918"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span></span></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191925"><span id="local-6989586621679191927"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span></span></span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191913"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191922"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span></span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679191909"><span class="annot"><span class="annottext">toHeaders :: DescribeAffectedEntities -&gt; ResponseHeaders
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679191918"><span class="annot"><span class="annottext">toHeaders :: DescribeAffectedEntities -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAffectedEntities -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -551,9 +551,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-201"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191899"><span id="local-6989586621679191901"><span id="local-6989586621679191903"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679191897"><span class="annot"><span class="annottext">toJSON :: DescribeAffectedEntities -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191892"><span id="local-6989586621679191893"><span id="local-6989586621679191894"><span id="local-6989586621679191895"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191908"><span id="local-6989586621679191910"><span id="local-6989586621679191912"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679191906"><span class="annot"><span class="annottext">toJSON :: DescribeAffectedEntities -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities%27"><span class="hs-identifier hs-type">DescribeAffectedEntities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191901"><span id="local-6989586621679191902"><span id="local-6989586621679191903"><span id="local-6989586621679191904"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 EntityFilter
 filter' :: EntityFilter
@@ -564,7 +564,7 @@ $sel:filter':DescribeAffectedEntities' :: DescribeAffectedEntities -&gt; EntityF
 $sel:maxResults:DescribeAffectedEntities' :: DescribeAffectedEntities -&gt; Maybe Natural
 $sel:nextToken:DescribeAffectedEntities' :: DescribeAffectedEntities -&gt; Maybe Text
 $sel:locale:DescribeAffectedEntities' :: DescribeAffectedEntities -&gt; Maybe Text
-</span><a href="#local-6989586621679191892"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679191901"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -576,40 +576,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191895"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679191904"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191894"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679191903"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679191893"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679191902"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EntityFilter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EntityFilter
-</span><a href="#local-6989586621679191892"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191901"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-213"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679191886"><span class="annot"><span class="annottext">toPath :: DescribeAffectedEntities -&gt; ByteString
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679191895"><span class="annot"><span class="annottext">toPath :: DescribeAffectedEntities -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeAffectedEntities -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntities"><span class="hs-identifier hs-type">DescribeAffectedEntities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-219"></span><span>  </span><span id="local-6989586621679191882"><span class="annot"><span class="annottext">toQuery :: DescribeAffectedEntities -&gt; QueryString
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679191891"><span class="annot"><span class="annottext">toQuery :: DescribeAffectedEntities -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAffectedEntities -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -617,7 +617,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | /See:/ 'newDescribeAffectedEntitiesResponse' smart constructor.</span><span>
-</span><span id="line-222"></span><span id="local-6989586621679191879"><span id="local-6989586621679191880"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAffectedEntitiesResponse"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse"><span class="hs-identifier hs-var">DescribeAffectedEntitiesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAffectedEntitiesResponse%27"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-var">DescribeAffectedEntitiesResponse'</span></a></span></span><span>
+</span><span id="line-222"></span><span id="local-6989586621679191888"><span id="local-6989586621679191889"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAffectedEntitiesResponse"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse"><span class="hs-identifier hs-var">DescribeAffectedEntitiesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAffectedEntitiesResponse%27"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-var">DescribeAffectedEntitiesResponse'</span></a></span></span><span>
 </span><span id="line-223"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The entities that match the filter criteria.</span><span>
 </span><span id="line-224"></span><span>    </span><span id="%24sel%3Aentities%3ADescribeAffectedEntitiesResponse%27"><span class="annot"><span class="annottext">DescribeAffectedEntitiesResponse -&gt; Maybe [AffectedEntity]
 </span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#%24sel%3Aentities%3ADescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-var hs-var">entities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.AffectedEntity.html#AffectedEntity"><span class="hs-identifier hs-type">AffectedEntity</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -632,7 +632,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-232"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAffectedEntitiesResponse%27"><span class="annot"><span class="annottext">DescribeAffectedEntitiesResponse -&gt; Int
 </span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#%24sel%3AhttpStatus%3ADescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-233"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-234"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191872"><span id="local-6989586621679191874"><span class="annot"><span class="annottext">DescribeAffectedEntitiesResponse
+</span><span id="line-234"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191881"><span id="local-6989586621679191883"><span class="annot"><span class="annottext">DescribeAffectedEntitiesResponse
 -&gt; DescribeAffectedEntitiesResponse -&gt; Bool
 (DescribeAffectedEntitiesResponse
  -&gt; DescribeAffectedEntitiesResponse -&gt; Bool)
@@ -648,7 +648,7 @@ $c/= :: DescribeAffectedEntitiesResponse
 -&gt; DescribeAffectedEntitiesResponse -&gt; Bool
 $c== :: DescribeAffectedEntitiesResponse
 -&gt; DescribeAffectedEntitiesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191864"><span id="local-6989586621679191866"><span id="local-6989586621679191868"><span id="local-6989586621679191870"><span class="annot"><span class="annottext">ReadPrec [DescribeAffectedEntitiesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191873"><span id="local-6989586621679191875"><span id="local-6989586621679191877"><span id="local-6989586621679191879"><span class="annot"><span class="annottext">ReadPrec [DescribeAffectedEntitiesResponse]
 ReadPrec DescribeAffectedEntitiesResponse
 Int -&gt; ReadS DescribeAffectedEntitiesResponse
 ReadS [DescribeAffectedEntitiesResponse]
@@ -668,7 +668,7 @@ readList :: ReadS [DescribeAffectedEntitiesResponse]
 $creadList :: ReadS [DescribeAffectedEntitiesResponse]
 readsPrec :: Int -&gt; ReadS DescribeAffectedEntitiesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeAffectedEntitiesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191858"><span id="local-6989586621679191860"><span id="local-6989586621679191862"><span class="annot"><span class="annottext">Int -&gt; DescribeAffectedEntitiesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191867"><span id="local-6989586621679191869"><span id="local-6989586621679191871"><span class="annot"><span class="annottext">Int -&gt; DescribeAffectedEntitiesResponse -&gt; ShowS
 [DescribeAffectedEntitiesResponse] -&gt; ShowS
 DescribeAffectedEntitiesResponse -&gt; String
 (Int -&gt; DescribeAffectedEntitiesResponse -&gt; ShowS)
@@ -728,8 +728,8 @@ DescribeAffectedEntitiesResponse
 </span><span id="line-255"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-256"></span><span>  </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse</span></a></span><span>
 </span><span id="line-257"></span><span id="newDescribeAffectedEntitiesResponse"><span class="annot"><span class="annottext">newDescribeAffectedEntitiesResponse :: Int -&gt; DescribeAffectedEntitiesResponse
-</span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#newDescribeAffectedEntitiesResponse"><span class="hs-identifier hs-var hs-var">newDescribeAffectedEntitiesResponse</span></a></span></span><span> </span><span id="local-6989586621679191855"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191855"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#newDescribeAffectedEntitiesResponse"><span class="hs-identifier hs-var hs-var">newDescribeAffectedEntitiesResponse</span></a></span></span><span> </span><span id="local-6989586621679191864"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679191864"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-258"></span><span>  </span><span class="annot"><span class="annottext">DescribeAffectedEntitiesResponse' :: Maybe [AffectedEntity]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeAffectedEntitiesResponse
 </span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse'</span></a></span><span>
@@ -744,7 +744,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-262"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAffectedEntitiesResponse' :: Int
 </span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#%24sel%3AhttpStatus%3ADescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191855"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679191864"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-263"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- | The entities that match the filter criteria.</span><span>
@@ -757,16 +757,16 @@ forall a. Maybe a
     -&gt; Maybe [AffectedEntity] -&gt; DescribeAffectedEntitiesResponse)
 -&gt; Lens' DescribeAffectedEntitiesResponse (Maybe [AffectedEntity])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191854"><span class="annot"><span class="annottext">Maybe [AffectedEntity]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191863"><span class="annot"><span class="annottext">Maybe [AffectedEntity]
 entities :: Maybe [AffectedEntity]
 $sel:entities:DescribeAffectedEntitiesResponse' :: DescribeAffectedEntitiesResponse -&gt; Maybe [AffectedEntity]
-</span><a href="#local-6989586621679191854"><span class="hs-identifier hs-var hs-var">entities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AffectedEntity]
-</span><a href="#local-6989586621679191854"><span class="hs-identifier hs-var">entities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191853"><span class="annot"><span class="annottext">s :: DescribeAffectedEntitiesResponse
-</span><a href="#local-6989586621679191853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191852"><span class="annot"><span class="annottext">Maybe [AffectedEntity]
-</span><a href="#local-6989586621679191852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAffectedEntitiesResponse
-</span><a href="#local-6989586621679191853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entities:DescribeAffectedEntitiesResponse' :: Maybe [AffectedEntity]
+</span><a href="#local-6989586621679191863"><span class="hs-identifier hs-var hs-var">entities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AffectedEntity]
+</span><a href="#local-6989586621679191863"><span class="hs-identifier hs-var">entities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191862"><span class="annot"><span class="annottext">s :: DescribeAffectedEntitiesResponse
+</span><a href="#local-6989586621679191862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191861"><span class="annot"><span class="annottext">Maybe [AffectedEntity]
+</span><a href="#local-6989586621679191861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAffectedEntitiesResponse
+</span><a href="#local-6989586621679191862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entities:DescribeAffectedEntitiesResponse' :: Maybe [AffectedEntity]
 </span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#%24sel%3Aentities%3ADescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-var">entities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AffectedEntity]
-</span><a href="#local-6989586621679191852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AffectedEntity] -&gt; f (Maybe [AffectedEntity]))
+</span><a href="#local-6989586621679191861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AffectedEntity] -&gt; f (Maybe [AffectedEntity]))
  -&gt; DescribeAffectedEntitiesResponse
  -&gt; f DescribeAffectedEntitiesResponse)
 -&gt; ((Maybe [AffectedEntity] -&gt; f (Maybe [AffectedEntity]))
@@ -804,16 +804,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; DescribeAffectedEntitiesResponse)
 -&gt; Lens' DescribeAffectedEntitiesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191849"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191858"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeAffectedEntitiesResponse' :: DescribeAffectedEntitiesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679191849"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191849"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191848"><span class="annot"><span class="annottext">s :: DescribeAffectedEntitiesResponse
-</span><a href="#local-6989586621679191848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191847"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAffectedEntitiesResponse
-</span><a href="#local-6989586621679191848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeAffectedEntitiesResponse' :: Maybe Text
+</span><a href="#local-6989586621679191858"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191858"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191857"><span class="annot"><span class="annottext">s :: DescribeAffectedEntitiesResponse
+</span><a href="#local-6989586621679191857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191856"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAffectedEntitiesResponse
+</span><a href="#local-6989586621679191857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeAffectedEntitiesResponse' :: Maybe Text
 </span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#%24sel%3AnextToken%3ADescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679191847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-276"></span><span>
 </span><span id="line-277"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-278"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#describeAffectedEntitiesResponse_httpStatus"><span class="hs-identifier hs-type">describeAffectedEntitiesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -829,18 +829,18 @@ $sel:nextToken:DescribeAffectedEntitiesResponse' :: DescribeAffectedEntitiesResp
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191846"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191855"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeAffectedEntitiesResponse' :: DescribeAffectedEntitiesResponse -&gt; Int
-</span><a href="#local-6989586621679191846"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191846"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191845"><span class="annot"><span class="annottext">s :: DescribeAffectedEntitiesResponse
-</span><a href="#local-6989586621679191845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191844"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAffectedEntitiesResponse
-</span><a href="#local-6989586621679191845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAffectedEntitiesResponse' :: Int
+</span><a href="#local-6989586621679191855"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679191855"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191854"><span class="annot"><span class="annottext">s :: DescribeAffectedEntitiesResponse
+</span><a href="#local-6989586621679191854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191853"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679191853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAffectedEntitiesResponse
+</span><a href="#local-6989586621679191854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAffectedEntitiesResponse' :: Int
 </span><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#%24sel%3AhttpStatus%3ADescribeAffectedEntitiesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679191844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-282"></span><span>  </span><span id="local-6989586621679191842"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-282"></span><span>  </span><span id="local-6989586621679191851"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-283"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeAffectedEntities.html#DescribeAffectedEntitiesResponse"><span class="hs-identifier hs-type">DescribeAffectedEntitiesResponse</span></a></span></span><span>
 </span><span id="line-284"></span></pre></body></html>

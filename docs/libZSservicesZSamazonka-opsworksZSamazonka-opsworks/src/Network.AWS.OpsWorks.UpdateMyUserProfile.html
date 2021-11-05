@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newUpdateMyUserProfile' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679397405"><span id="local-6989586621679397406"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateMyUserProfile"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile"><span class="hs-identifier hs-var">UpdateMyUserProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateMyUserProfile%27"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile%27"><span class="hs-identifier hs-var">UpdateMyUserProfile'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679397414"><span id="local-6989586621679397415"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateMyUserProfile"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile"><span class="hs-identifier hs-var">UpdateMyUserProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateMyUserProfile%27"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile%27"><span class="hs-identifier hs-var">UpdateMyUserProfile'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user\'s SSH public key.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AsshPublicKey%3AUpdateMyUserProfile%27"><span class="annot"><span class="annottext">UpdateMyUserProfile -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#%24sel%3AsshPublicKey%3AUpdateMyUserProfile%27"><span class="hs-identifier hs-var hs-var">sshPublicKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397399"><span id="local-6989586621679397401"><span class="annot"><span class="annottext">UpdateMyUserProfile -&gt; UpdateMyUserProfile -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397408"><span id="local-6989586621679397410"><span class="annot"><span class="annottext">UpdateMyUserProfile -&gt; UpdateMyUserProfile -&gt; Bool
 (UpdateMyUserProfile -&gt; UpdateMyUserProfile -&gt; Bool)
 -&gt; (UpdateMyUserProfile -&gt; UpdateMyUserProfile -&gt; Bool)
 -&gt; Eq UpdateMyUserProfile
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateMyUserProfile -&gt; UpdateMyUserProfile -&gt; Bool
 == :: UpdateMyUserProfile -&gt; UpdateMyUserProfile -&gt; Bool
 $c== :: UpdateMyUserProfile -&gt; UpdateMyUserProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397390"><span id="local-6989586621679397392"><span id="local-6989586621679397394"><span id="local-6989586621679397396"><span class="annot"><span class="annottext">ReadPrec [UpdateMyUserProfile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397399"><span id="local-6989586621679397401"><span id="local-6989586621679397403"><span id="local-6989586621679397405"><span class="annot"><span class="annottext">ReadPrec [UpdateMyUserProfile]
 ReadPrec UpdateMyUserProfile
 Int -&gt; ReadS UpdateMyUserProfile
 ReadS [UpdateMyUserProfile]
@@ -82,7 +82,7 @@ readList :: ReadS [UpdateMyUserProfile]
 $creadList :: ReadS [UpdateMyUserProfile]
 readsPrec :: Int -&gt; ReadS UpdateMyUserProfile
 $creadsPrec :: Int -&gt; ReadS UpdateMyUserProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397383"><span id="local-6989586621679397385"><span id="local-6989586621679397387"><span class="annot"><span class="annottext">Int -&gt; UpdateMyUserProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397392"><span id="local-6989586621679397394"><span id="local-6989586621679397396"><span class="annot"><span class="annottext">Int -&gt; UpdateMyUserProfile -&gt; ShowS
 [UpdateMyUserProfile] -&gt; ShowS
 UpdateMyUserProfile -&gt; String
 (Int -&gt; UpdateMyUserProfile -&gt; ShowS)
@@ -139,27 +139,27 @@ forall a. Maybe a
 -&gt; Lens
      UpdateMyUserProfile UpdateMyUserProfile (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile%27"><span class="hs-identifier hs-type">UpdateMyUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397376"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile%27"><span class="hs-identifier hs-type">UpdateMyUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397385"><span class="annot"><span class="annottext">Maybe Text
 sshPublicKey :: Maybe Text
 $sel:sshPublicKey:UpdateMyUserProfile' :: UpdateMyUserProfile -&gt; Maybe Text
-</span><a href="#local-6989586621679397376"><span class="hs-identifier hs-var hs-var">sshPublicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397376"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397375"><span class="annot"><span class="annottext">s :: UpdateMyUserProfile
-</span><a href="#local-6989586621679397375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile%27"><span class="hs-identifier hs-type">UpdateMyUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397374"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMyUserProfile
-</span><a href="#local-6989586621679397375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sshPublicKey:UpdateMyUserProfile' :: Maybe Text
+</span><a href="#local-6989586621679397385"><span class="hs-identifier hs-var hs-var">sshPublicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397385"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397384"><span class="annot"><span class="annottext">s :: UpdateMyUserProfile
+</span><a href="#local-6989586621679397384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile%27"><span class="hs-identifier hs-type">UpdateMyUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397383"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateMyUserProfile
+</span><a href="#local-6989586621679397384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sshPublicKey:UpdateMyUserProfile' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#%24sel%3AsshPublicKey%3AUpdateMyUserProfile%27"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile"><span class="hs-identifier hs-type">UpdateMyUserProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile"><span class="hs-identifier hs-type">UpdateMyUserProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile"><span class="hs-identifier hs-type">UpdateMyUserProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile"><span class="hs-identifier hs-type">UpdateMyUserProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfileResponse"><span class="hs-identifier hs-type">UpdateMyUserProfileResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679397370"><span class="annot"><span class="annottext">request :: UpdateMyUserProfile -&gt; Request UpdateMyUserProfile
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679397379"><span class="annot"><span class="annottext">request :: UpdateMyUserProfile -&gt; Request UpdateMyUserProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateMyUserProfile -&gt; Request UpdateMyUserProfile
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679397366"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679397375"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateMyUserProfile
 -&gt; ClientResponse ClientBody
@@ -185,12 +185,12 @@ AWSResponse a
 UpdateMyUserProfileResponse
 </span><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfileResponse%27"><span class="hs-identifier hs-var">UpdateMyUserProfileResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397359"><span id="local-6989586621679397361"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile"><span class="hs-identifier hs-type">UpdateMyUserProfile</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397368"><span id="local-6989586621679397370"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile"><span class="hs-identifier hs-type">UpdateMyUserProfile</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile"><span class="hs-identifier hs-type">UpdateMyUserProfile</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397365"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile"><span class="hs-identifier hs-type">UpdateMyUserProfile</span></a></span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile"><span class="hs-identifier hs-type">UpdateMyUserProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679397352"><span class="annot"><span class="annottext">toHeaders :: UpdateMyUserProfile -&gt; [Header]
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679397361"><span class="annot"><span class="annottext">toHeaders :: UpdateMyUserProfile -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateMyUserProfile -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -217,12 +217,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397342"><span id="local-6989586621679397344"><span id="local-6989586621679397346"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile"><span class="hs-identifier hs-type">UpdateMyUserProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679397340"><span class="annot"><span class="annottext">toJSON :: UpdateMyUserProfile -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile%27"><span class="hs-identifier hs-type">UpdateMyUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397338"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397351"><span id="local-6989586621679397353"><span id="local-6989586621679397355"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile"><span class="hs-identifier hs-type">UpdateMyUserProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679397349"><span class="annot"><span class="annottext">toJSON :: UpdateMyUserProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile%27"><span class="hs-identifier hs-type">UpdateMyUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397347"><span class="annot"><span class="annottext">Maybe Text
 sshPublicKey :: Maybe Text
 $sel:sshPublicKey:UpdateMyUserProfile' :: UpdateMyUserProfile -&gt; Maybe Text
-</span><a href="#local-6989586621679397338"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679397347"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -234,18 +234,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397338"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679397347"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile"><span class="hs-identifier hs-type">UpdateMyUserProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679397331"><span class="annot"><span class="annottext">toPath :: UpdateMyUserProfile -&gt; ByteString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679397340"><span class="annot"><span class="annottext">toPath :: UpdateMyUserProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateMyUserProfile -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfile"><span class="hs-identifier hs-type">UpdateMyUserProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679397327"><span class="annot"><span class="annottext">toQuery :: UpdateMyUserProfile -&gt; QueryString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679397336"><span class="annot"><span class="annottext">toQuery :: UpdateMyUserProfile -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateMyUserProfile -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -253,10 +253,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newUpdateMyUserProfileResponse' smart constructor.</span><span>
-</span><span id="line-119"></span><span id="local-6989586621679397324"><span id="local-6989586621679397325"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateMyUserProfileResponse"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfileResponse"><span class="hs-identifier hs-var">UpdateMyUserProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateMyUserProfileResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfileResponse%27"><span class="hs-identifier hs-var">UpdateMyUserProfileResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span id="local-6989586621679397333"><span id="local-6989586621679397334"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateMyUserProfileResponse"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfileResponse"><span class="hs-identifier hs-var">UpdateMyUserProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateMyUserProfileResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfileResponse%27"><span class="hs-identifier hs-var">UpdateMyUserProfileResponse'</span></a></span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397320"><span id="local-6989586621679397322"><span class="annot"><span class="annottext">UpdateMyUserProfileResponse -&gt; UpdateMyUserProfileResponse -&gt; Bool
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397329"><span id="local-6989586621679397331"><span class="annot"><span class="annottext">UpdateMyUserProfileResponse -&gt; UpdateMyUserProfileResponse -&gt; Bool
 (UpdateMyUserProfileResponse
  -&gt; UpdateMyUserProfileResponse -&gt; Bool)
 -&gt; (UpdateMyUserProfileResponse
@@ -267,7 +267,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateMyUserProfileResponse -&gt; UpdateMyUserProfileResponse -&gt; Bool
 == :: UpdateMyUserProfileResponse -&gt; UpdateMyUserProfileResponse -&gt; Bool
 $c== :: UpdateMyUserProfileResponse -&gt; UpdateMyUserProfileResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397312"><span id="local-6989586621679397314"><span id="local-6989586621679397316"><span id="local-6989586621679397318"><span class="annot"><span class="annottext">ReadPrec [UpdateMyUserProfileResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397321"><span id="local-6989586621679397323"><span id="local-6989586621679397325"><span id="local-6989586621679397327"><span class="annot"><span class="annottext">ReadPrec [UpdateMyUserProfileResponse]
 ReadPrec UpdateMyUserProfileResponse
 Int -&gt; ReadS UpdateMyUserProfileResponse
 ReadS [UpdateMyUserProfileResponse]
@@ -287,7 +287,7 @@ readList :: ReadS [UpdateMyUserProfileResponse]
 $creadList :: ReadS [UpdateMyUserProfileResponse]
 readsPrec :: Int -&gt; ReadS UpdateMyUserProfileResponse
 $creadsPrec :: Int -&gt; ReadS UpdateMyUserProfileResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397306"><span id="local-6989586621679397308"><span id="local-6989586621679397310"><span class="annot"><span class="annottext">Int -&gt; UpdateMyUserProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397315"><span id="local-6989586621679397317"><span id="local-6989586621679397319"><span class="annot"><span class="annottext">Int -&gt; UpdateMyUserProfileResponse -&gt; ShowS
 [UpdateMyUserProfileResponse] -&gt; ShowS
 UpdateMyUserProfileResponse -&gt; String
 (Int -&gt; UpdateMyUserProfileResponse -&gt; ShowS)
@@ -330,5 +330,5 @@ UpdateMyUserProfileResponse -&gt; Rep UpdateMyUserProfileResponse x
 </span><span id="line-131"></span><span>  </span><span class="annot"><span class="annottext">UpdateMyUserProfileResponse
 </span><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfileResponse%27"><span class="hs-identifier hs-var">UpdateMyUserProfileResponse'</span></a></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfileResponse"><span class="hs-identifier hs-type">UpdateMyUserProfileResponse</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateMyUserProfile.html#UpdateMyUserProfileResponse"><span class="hs-identifier hs-type">UpdateMyUserProfileResponse</span></a></span></span><span>
 </span><span id="line-134"></span></pre></body></html>

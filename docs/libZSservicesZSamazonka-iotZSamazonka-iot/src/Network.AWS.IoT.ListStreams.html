@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListStreams' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679820509"><span id="local-6989586621679820510"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreams"><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-var">ListStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreams%27"><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-var">ListStreams'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679820518"><span id="local-6989586621679820519"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreams"><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-var">ListStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreams%27"><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-var">ListStreams'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token used to get the next set of results.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListStreams%27"><span class="annot"><span class="annottext">ListStreams -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.ListStreams.html#%24sel%3AnextToken%3AListStreams%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AmaxResults%3AListStreams%27"><span class="annot"><span class="annottext">ListStreams -&gt; Maybe Natural
 </span><a href="Network.AWS.IoT.ListStreams.html#%24sel%3AmaxResults%3AListStreams%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679820501"><span id="local-6989586621679820503"><span class="annot"><span class="annottext">ListStreams -&gt; ListStreams -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679820510"><span id="local-6989586621679820512"><span class="annot"><span class="annottext">ListStreams -&gt; ListStreams -&gt; Bool
 (ListStreams -&gt; ListStreams -&gt; Bool)
 -&gt; (ListStreams -&gt; ListStreams -&gt; Bool) -&gt; Eq ListStreams
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListStreams -&gt; ListStreams -&gt; Bool
 == :: ListStreams -&gt; ListStreams -&gt; Bool
 $c== :: ListStreams -&gt; ListStreams -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679820492"><span id="local-6989586621679820494"><span id="local-6989586621679820496"><span id="local-6989586621679820498"><span class="annot"><span class="annottext">ReadPrec [ListStreams]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679820501"><span id="local-6989586621679820503"><span id="local-6989586621679820505"><span id="local-6989586621679820507"><span class="annot"><span class="annottext">ReadPrec [ListStreams]
 ReadPrec ListStreams
 Int -&gt; ReadS ListStreams
 ReadS [ListStreams]
@@ -95,7 +95,7 @@ readList :: ReadS [ListStreams]
 $creadList :: ReadS [ListStreams]
 readsPrec :: Int -&gt; ReadS ListStreams
 $creadsPrec :: Int -&gt; ReadS ListStreams
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679820485"><span id="local-6989586621679820487"><span id="local-6989586621679820489"><span class="annot"><span class="annottext">Int -&gt; ListStreams -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679820494"><span id="local-6989586621679820496"><span id="local-6989586621679820498"><span class="annot"><span class="annottext">Int -&gt; ListStreams -&gt; ShowS
 [ListStreams] -&gt; ShowS
 ListStreams -&gt; String
 (Int -&gt; ListStreams -&gt; ShowS)
@@ -161,16 +161,16 @@ forall a. Maybe a
 -&gt; (ListStreams -&gt; Maybe Text -&gt; ListStreams)
 -&gt; Lens ListStreams ListStreams (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820479"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820488"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListStreams' :: ListStreams -&gt; Maybe Text
-</span><a href="#local-6989586621679820479"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820479"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820478"><span class="annot"><span class="annottext">s :: ListStreams
-</span><a href="#local-6989586621679820478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820477"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
-</span><a href="#local-6989586621679820478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListStreams' :: Maybe Text
+</span><a href="#local-6989586621679820488"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679820488"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820487"><span class="annot"><span class="annottext">s :: ListStreams
+</span><a href="#local-6989586621679820487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820486"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679820486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
+</span><a href="#local-6989586621679820487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListStreams' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListStreams.html#%24sel%3AnextToken%3AListStreams%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679820486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | Set to true to return the list of streams in ascending order.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#listStreams_ascendingOrder"><span class="hs-identifier hs-type">listStreams_ascendingOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -179,16 +179,16 @@ $sel:nextToken:ListStreams' :: ListStreams -&gt; Maybe Text
 -&gt; (ListStreams -&gt; Maybe Bool -&gt; ListStreams)
 -&gt; Lens ListStreams ListStreams (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820476"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820485"><span class="annot"><span class="annottext">Maybe Bool
 ascendingOrder :: Maybe Bool
 $sel:ascendingOrder:ListStreams' :: ListStreams -&gt; Maybe Bool
-</span><a href="#local-6989586621679820476"><span class="hs-identifier hs-var hs-var">ascendingOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679820476"><span class="hs-identifier hs-var">ascendingOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820475"><span class="annot"><span class="annottext">s :: ListStreams
-</span><a href="#local-6989586621679820475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820474"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679820474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
-</span><a href="#local-6989586621679820475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ascendingOrder:ListStreams' :: Maybe Bool
+</span><a href="#local-6989586621679820485"><span class="hs-identifier hs-var hs-var">ascendingOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679820485"><span class="hs-identifier hs-var">ascendingOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820484"><span class="annot"><span class="annottext">s :: ListStreams
+</span><a href="#local-6989586621679820484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820483"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679820483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
+</span><a href="#local-6989586621679820484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ascendingOrder:ListStreams' :: Maybe Bool
 </span><a href="Network.AWS.IoT.ListStreams.html#%24sel%3AascendingOrder%3AListStreams%27"><span class="hs-identifier hs-var">ascendingOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679820474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679820483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The maximum number of results to return at a time.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#listStreams_maxResults"><span class="hs-identifier hs-type">listStreams_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -198,28 +198,28 @@ $sel:ascendingOrder:ListStreams' :: ListStreams -&gt; Maybe Bool
 -&gt; (ListStreams -&gt; Maybe Natural -&gt; ListStreams)
 -&gt; Lens ListStreams ListStreams (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820473"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820482"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListStreams' :: ListStreams -&gt; Maybe Natural
-</span><a href="#local-6989586621679820473"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679820473"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820472"><span class="annot"><span class="annottext">s :: ListStreams
-</span><a href="#local-6989586621679820472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820471"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679820471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
-</span><a href="#local-6989586621679820472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListStreams' :: Maybe Natural
+</span><a href="#local-6989586621679820482"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679820482"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820481"><span class="annot"><span class="annottext">s :: ListStreams
+</span><a href="#local-6989586621679820481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820480"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679820480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
+</span><a href="#local-6989586621679820481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListStreams' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListStreams.html#%24sel%3AmaxResults%3AListStreams%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679820471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679820480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679820467"><span class="annot"><span class="annottext">page :: ListStreams -&gt; AWSResponse ListStreams -&gt; Maybe ListStreams
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679820465"><span class="annot"><span class="annottext">ListStreams
-</span><a href="#local-6989586621679820465"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679820464"><span class="annot"><span class="annottext">AWSResponse ListStreams
-</span><a href="#local-6989586621679820464"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679820476"><span class="annot"><span class="annottext">page :: ListStreams -&gt; AWSResponse ListStreams -&gt; Maybe ListStreams
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679820474"><span class="annot"><span class="annottext">ListStreams
+</span><a href="#local-6989586621679820474"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679820473"><span class="annot"><span class="annottext">AWSResponse ListStreams
+</span><a href="#local-6989586621679820473"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-106"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStreams
 ListStreamsResponse
-</span><a href="#local-6989586621679820464"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679820473"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">ListStreamsResponse
 -&gt; Getting (First Text) ListStreamsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -245,7 +245,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-111"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStreams
 ListStreamsResponse
-</span><a href="#local-6989586621679820464"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679820473"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">ListStreamsResponse
 -&gt; Getting
      (First [StreamSummary]) ListStreamsResponse [StreamSummary]
@@ -285,7 +285,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ListStreams
-</span><a href="#local-6989586621679820465"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679820474"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">ListStreams -&gt; (ListStreams -&gt; ListStreams) -&gt; ListStreams
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -298,7 +298,7 @@ Lens ListStreams ListStreams (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStreams
 ListStreamsResponse
-</span><a href="#local-6989586621679820464"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679820473"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">ListStreamsResponse
 -&gt; Getting (First Text) ListStreamsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -318,12 +318,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679820454"><span class="annot"><span class="annottext">request :: ListStreams -&gt; Request ListStreams
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679820463"><span class="annot"><span class="annottext">request :: ListStreams -&gt; Request ListStreams
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListStreams -&gt; Request ListStreams
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679820450"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679820459"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListStreams
 -&gt; ClientResponse ClientBody
@@ -347,10 +347,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679820447"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820447"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679820446"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679820446"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679820445"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679820445"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679820456"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679820456"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679820455"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679820455"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679820454"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679820454"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [StreamSummary] -&gt; Int -&gt; ListStreamsResponse
 </span><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-var">ListStreamsResponse'</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [StreamSummary] -&gt; Int -&gt; ListStreamsResponse)
@@ -359,7 +359,7 @@ MonadResource m =&gt;
      String (Maybe [StreamSummary] -&gt; Int -&gt; ListStreamsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679820445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679820454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -368,7 +368,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListStreamsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679820445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [StreamSummary]))
+</span><a href="#local-6989586621679820454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [StreamSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;streams&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [StreamSummary]))
@@ -385,15 +385,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820447"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679820456"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679820436"><span id="local-6989586621679820438"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679820445"><span id="local-6989586621679820447"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span></span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679820433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679820442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679820429"><span class="annot"><span class="annottext">toHeaders :: ListStreams -&gt; ResponseHeaders
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679820438"><span class="annot"><span class="annottext">toHeaders :: ListStreams -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListStreams -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -401,15 +401,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679820424"><span class="annot"><span class="annottext">toPath :: ListStreams -&gt; ByteString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679820433"><span class="annot"><span class="annottext">toPath :: ListStreams -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListStreams -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/streams&quot;</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679820420"><span class="annot"><span class="annottext">toQuery :: ListStreams -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820416"><span id="local-6989586621679820417"><span id="local-6989586621679820418"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679820429"><span class="annot"><span class="annottext">toQuery :: ListStreams -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820425"><span id="local-6989586621679820426"><span id="local-6989586621679820427"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
@@ -418,7 +418,7 @@ nextToken :: Maybe Text
 $sel:maxResults:ListStreams' :: ListStreams -&gt; Maybe Natural
 $sel:ascendingOrder:ListStreams' :: ListStreams -&gt; Maybe Bool
 $sel:nextToken:ListStreams' :: ListStreams -&gt; Maybe Text
-</span><a href="#local-6989586621679820416"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679820425"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -426,21 +426,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820418"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679820427"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;isAscendingOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679820417"><span class="hs-identifier hs-var">ascendingOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679820426"><span class="hs-identifier hs-var">ascendingOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679820416"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679820425"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | /See:/ 'newListStreamsResponse' smart constructor.</span><span>
-</span><span id="line-153"></span><span id="local-6989586621679820413"><span id="local-6989586621679820414"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreamsResponse"><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-var">ListStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreamsResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-var">ListStreamsResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span id="local-6989586621679820422"><span id="local-6989586621679820423"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreamsResponse"><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-var">ListStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreamsResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-var">ListStreamsResponse'</span></a></span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token used to get the next set of results.</span><span>
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AnextToken%3AListStreamsResponse%27"><span class="annot"><span class="annottext">ListStreamsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.ListStreams.html#%24sel%3AnextToken%3AListStreamsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -451,7 +451,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-159"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListStreamsResponse%27"><span class="annot"><span class="annottext">ListStreamsResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListStreams.html#%24sel%3AhttpStatus%3AListStreamsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679820406"><span id="local-6989586621679820408"><span class="annot"><span class="annottext">ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679820415"><span id="local-6989586621679820417"><span class="annot"><span class="annottext">ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool
 (ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool)
 -&gt; (ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool)
 -&gt; Eq ListStreamsResponse
@@ -460,7 +460,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool
 == :: ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool
 $c== :: ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679820398"><span id="local-6989586621679820400"><span id="local-6989586621679820402"><span id="local-6989586621679820404"><span class="annot"><span class="annottext">ReadPrec [ListStreamsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679820407"><span id="local-6989586621679820409"><span id="local-6989586621679820411"><span id="local-6989586621679820413"><span class="annot"><span class="annottext">ReadPrec [ListStreamsResponse]
 ReadPrec ListStreamsResponse
 Int -&gt; ReadS ListStreamsResponse
 ReadS [ListStreamsResponse]
@@ -480,7 +480,7 @@ readList :: ReadS [ListStreamsResponse]
 $creadList :: ReadS [ListStreamsResponse]
 readsPrec :: Int -&gt; ReadS ListStreamsResponse
 $creadsPrec :: Int -&gt; ReadS ListStreamsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679820392"><span id="local-6989586621679820394"><span id="local-6989586621679820396"><span class="annot"><span class="annottext">Int -&gt; ListStreamsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679820401"><span id="local-6989586621679820403"><span id="local-6989586621679820405"><span class="annot"><span class="annottext">Int -&gt; ListStreamsResponse -&gt; ShowS
 [ListStreamsResponse] -&gt; ShowS
 ListStreamsResponse -&gt; String
 (Int -&gt; ListStreamsResponse -&gt; ShowS)
@@ -524,8 +524,8 @@ $cfrom :: forall x. ListStreamsResponse -&gt; Rep ListStreamsResponse x
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span>
 </span><span id="line-180"></span><span id="newListStreamsResponse"><span class="annot"><span class="annottext">newListStreamsResponse :: Int -&gt; ListStreamsResponse
-</span><a href="Network.AWS.IoT.ListStreams.html#newListStreamsResponse"><span class="hs-identifier hs-var hs-var">newListStreamsResponse</span></a></span></span><span> </span><span id="local-6989586621679820389"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820389"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListStreams.html#newListStreamsResponse"><span class="hs-identifier hs-var hs-var">newListStreamsResponse</span></a></span></span><span> </span><span id="local-6989586621679820398"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679820398"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">ListStreamsResponse' :: Maybe Text -&gt; Maybe [StreamSummary] -&gt; Int -&gt; ListStreamsResponse
 </span><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListStreamsResponse' :: Maybe Text
@@ -538,7 +538,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListStreamsResponse' :: Int
 </span><a href="Network.AWS.IoT.ListStreams.html#%24sel%3AhttpStatus%3AListStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820389"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679820398"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | A token used to get the next set of results.</span><span>
@@ -549,16 +549,16 @@ forall a. Maybe a
 -&gt; (ListStreamsResponse -&gt; Maybe Text -&gt; ListStreamsResponse)
 -&gt; Lens' ListStreamsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820388"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820397"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListStreamsResponse' :: ListStreamsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679820388"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820388"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820387"><span class="annot"><span class="annottext">s :: ListStreamsResponse
-</span><a href="#local-6989586621679820387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820386"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
-</span><a href="#local-6989586621679820387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListStreamsResponse' :: Maybe Text
+</span><a href="#local-6989586621679820397"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679820397"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820396"><span class="annot"><span class="annottext">s :: ListStreamsResponse
+</span><a href="#local-6989586621679820396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820395"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679820395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
+</span><a href="#local-6989586621679820396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListStreamsResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListStreams.html#%24sel%3AnextToken%3AListStreamsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679820386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679820395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | A list of streams.</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#listStreamsResponse_streams"><span class="hs-identifier hs-type">listStreamsResponse_streams</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.StreamSummary.html#StreamSummary"><span class="hs-identifier hs-type">StreamSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -569,16 +569,16 @@ $sel:nextToken:ListStreamsResponse' :: ListStreamsResponse -&gt; Maybe Text
     -&gt; Maybe [StreamSummary] -&gt; ListStreamsResponse)
 -&gt; Lens' ListStreamsResponse (Maybe [StreamSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820385"><span class="annot"><span class="annottext">Maybe [StreamSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820394"><span class="annot"><span class="annottext">Maybe [StreamSummary]
 streams :: Maybe [StreamSummary]
 $sel:streams:ListStreamsResponse' :: ListStreamsResponse -&gt; Maybe [StreamSummary]
-</span><a href="#local-6989586621679820385"><span class="hs-identifier hs-var hs-var">streams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StreamSummary]
-</span><a href="#local-6989586621679820385"><span class="hs-identifier hs-var">streams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820384"><span class="annot"><span class="annottext">s :: ListStreamsResponse
-</span><a href="#local-6989586621679820384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820383"><span class="annot"><span class="annottext">Maybe [StreamSummary]
-</span><a href="#local-6989586621679820383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
-</span><a href="#local-6989586621679820384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streams:ListStreamsResponse' :: Maybe [StreamSummary]
+</span><a href="#local-6989586621679820394"><span class="hs-identifier hs-var hs-var">streams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StreamSummary]
+</span><a href="#local-6989586621679820394"><span class="hs-identifier hs-var">streams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820393"><span class="annot"><span class="annottext">s :: ListStreamsResponse
+</span><a href="#local-6989586621679820393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820392"><span class="annot"><span class="annottext">Maybe [StreamSummary]
+</span><a href="#local-6989586621679820392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
+</span><a href="#local-6989586621679820393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streams:ListStreamsResponse' :: Maybe [StreamSummary]
 </span><a href="Network.AWS.IoT.ListStreams.html#%24sel%3Astreams%3AListStreamsResponse%27"><span class="hs-identifier hs-var">streams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StreamSummary]
-</span><a href="#local-6989586621679820383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StreamSummary] -&gt; f (Maybe [StreamSummary]))
+</span><a href="#local-6989586621679820392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StreamSummary] -&gt; f (Maybe [StreamSummary]))
  -&gt; ListStreamsResponse -&gt; f ListStreamsResponse)
 -&gt; ((Maybe [StreamSummary] -&gt; f (Maybe [StreamSummary]))
     -&gt; Maybe [StreamSummary] -&gt; f (Maybe [StreamSummary]))
@@ -608,16 +608,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListStreamsResponse -&gt; Int -&gt; ListStreamsResponse)
 -&gt; Lens ListStreamsResponse ListStreamsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820380"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679820389"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListStreamsResponse' :: ListStreamsResponse -&gt; Int
-</span><a href="#local-6989586621679820380"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820380"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820379"><span class="annot"><span class="annottext">s :: ListStreamsResponse
-</span><a href="#local-6989586621679820379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820378"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
-</span><a href="#local-6989586621679820379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListStreamsResponse' :: Int
+</span><a href="#local-6989586621679820389"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679820389"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679820388"><span class="annot"><span class="annottext">s :: ListStreamsResponse
+</span><a href="#local-6989586621679820388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679820387"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679820387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
+</span><a href="#local-6989586621679820388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListStreamsResponse' :: Int
 </span><a href="Network.AWS.IoT.ListStreams.html#%24sel%3AhttpStatus%3AListStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679820378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679820387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679820376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679820385"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span></span><span>
 </span><span id="line-200"></span></pre></body></html>

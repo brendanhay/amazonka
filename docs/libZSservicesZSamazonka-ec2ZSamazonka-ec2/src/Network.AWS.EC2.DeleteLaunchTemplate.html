@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteLaunchTemplate' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621681282211"><span id="local-6989586621681282212"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLaunchTemplate"><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-var">DeleteLaunchTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLaunchTemplate%27"><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate%27"><span class="hs-identifier hs-var">DeleteLaunchTemplate'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621681282220"><span id="local-6989586621681282221"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLaunchTemplate"><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-var">DeleteLaunchTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLaunchTemplate%27"><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate%27"><span class="hs-identifier hs-var">DeleteLaunchTemplate'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the launch template. You must specify either the launch</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- template ID or launch template name in the request.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AlaunchTemplateName%3ADeleteLaunchTemplate%27"><span class="annot"><span class="annottext">DeleteLaunchTemplate -&gt; Maybe Text
@@ -66,7 +66,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AdryRun%3ADeleteLaunchTemplate%27"><span class="annot"><span class="annottext">DeleteLaunchTemplate -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#%24sel%3AdryRun%3ADeleteLaunchTemplate%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681282203"><span id="local-6989586621681282205"><span class="annot"><span class="annottext">DeleteLaunchTemplate -&gt; DeleteLaunchTemplate -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681282212"><span id="local-6989586621681282214"><span class="annot"><span class="annottext">DeleteLaunchTemplate -&gt; DeleteLaunchTemplate -&gt; Bool
 (DeleteLaunchTemplate -&gt; DeleteLaunchTemplate -&gt; Bool)
 -&gt; (DeleteLaunchTemplate -&gt; DeleteLaunchTemplate -&gt; Bool)
 -&gt; Eq DeleteLaunchTemplate
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteLaunchTemplate -&gt; DeleteLaunchTemplate -&gt; Bool
 == :: DeleteLaunchTemplate -&gt; DeleteLaunchTemplate -&gt; Bool
 $c== :: DeleteLaunchTemplate -&gt; DeleteLaunchTemplate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681282194"><span id="local-6989586621681282196"><span id="local-6989586621681282198"><span id="local-6989586621681282200"><span class="annot"><span class="annottext">ReadPrec [DeleteLaunchTemplate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681282203"><span id="local-6989586621681282205"><span id="local-6989586621681282207"><span id="local-6989586621681282209"><span class="annot"><span class="annottext">ReadPrec [DeleteLaunchTemplate]
 ReadPrec DeleteLaunchTemplate
 Int -&gt; ReadS DeleteLaunchTemplate
 ReadS [DeleteLaunchTemplate]
@@ -95,7 +95,7 @@ readList :: ReadS [DeleteLaunchTemplate]
 $creadList :: ReadS [DeleteLaunchTemplate]
 readsPrec :: Int -&gt; ReadS DeleteLaunchTemplate
 $creadsPrec :: Int -&gt; ReadS DeleteLaunchTemplate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681282187"><span id="local-6989586621681282189"><span id="local-6989586621681282191"><span class="annot"><span class="annottext">Int -&gt; DeleteLaunchTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681282196"><span id="local-6989586621681282198"><span id="local-6989586621681282200"><span class="annot"><span class="annottext">Int -&gt; DeleteLaunchTemplate -&gt; ShowS
 [DeleteLaunchTemplate] -&gt; ShowS
 DeleteLaunchTemplate -&gt; String
 (Int -&gt; DeleteLaunchTemplate -&gt; ShowS)
@@ -170,16 +170,16 @@ forall a. Maybe a
 -&gt; Lens
      DeleteLaunchTemplate DeleteLaunchTemplate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate%27"><span class="hs-identifier hs-type">DeleteLaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282180"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate%27"><span class="hs-identifier hs-type">DeleteLaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282189"><span class="annot"><span class="annottext">Maybe Text
 launchTemplateName :: Maybe Text
 $sel:launchTemplateName:DeleteLaunchTemplate' :: DeleteLaunchTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621681282180"><span class="hs-identifier hs-var hs-var">launchTemplateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681282180"><span class="hs-identifier hs-var">launchTemplateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681282179"><span class="annot"><span class="annottext">s :: DeleteLaunchTemplate
-</span><a href="#local-6989586621681282179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate%27"><span class="hs-identifier hs-type">DeleteLaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681282178"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681282178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLaunchTemplate
-</span><a href="#local-6989586621681282179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateName:DeleteLaunchTemplate' :: Maybe Text
+</span><a href="#local-6989586621681282189"><span class="hs-identifier hs-var hs-var">launchTemplateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681282189"><span class="hs-identifier hs-var">launchTemplateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681282188"><span class="annot"><span class="annottext">s :: DeleteLaunchTemplate
+</span><a href="#local-6989586621681282188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate%27"><span class="hs-identifier hs-type">DeleteLaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681282187"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681282187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLaunchTemplate
+</span><a href="#local-6989586621681282188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateName:DeleteLaunchTemplate' :: Maybe Text
 </span><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#%24sel%3AlaunchTemplateName%3ADeleteLaunchTemplate%27"><span class="hs-identifier hs-var">launchTemplateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681282178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-type">DeleteLaunchTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681282187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-type">DeleteLaunchTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The ID of the launch template. You must specify either the launch</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- template ID or launch template name in the request.</span><span>
@@ -191,16 +191,16 @@ $sel:launchTemplateName:DeleteLaunchTemplate' :: DeleteLaunchTemplate -&gt; Mayb
 -&gt; Lens
      DeleteLaunchTemplate DeleteLaunchTemplate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate%27"><span class="hs-identifier hs-type">DeleteLaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282177"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate%27"><span class="hs-identifier hs-type">DeleteLaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282186"><span class="annot"><span class="annottext">Maybe Text
 launchTemplateId :: Maybe Text
 $sel:launchTemplateId:DeleteLaunchTemplate' :: DeleteLaunchTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621681282177"><span class="hs-identifier hs-var hs-var">launchTemplateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681282177"><span class="hs-identifier hs-var">launchTemplateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681282176"><span class="annot"><span class="annottext">s :: DeleteLaunchTemplate
-</span><a href="#local-6989586621681282176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate%27"><span class="hs-identifier hs-type">DeleteLaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681282175"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681282175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLaunchTemplate
-</span><a href="#local-6989586621681282176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateId:DeleteLaunchTemplate' :: Maybe Text
+</span><a href="#local-6989586621681282186"><span class="hs-identifier hs-var hs-var">launchTemplateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681282186"><span class="hs-identifier hs-var">launchTemplateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681282185"><span class="annot"><span class="annottext">s :: DeleteLaunchTemplate
+</span><a href="#local-6989586621681282185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate%27"><span class="hs-identifier hs-type">DeleteLaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681282184"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681282184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLaunchTemplate
+</span><a href="#local-6989586621681282185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateId:DeleteLaunchTemplate' :: Maybe Text
 </span><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#%24sel%3AlaunchTemplateId%3ADeleteLaunchTemplate%27"><span class="hs-identifier hs-var">launchTemplateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681282175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-type">DeleteLaunchTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681282184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-type">DeleteLaunchTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
@@ -214,27 +214,27 @@ $sel:launchTemplateId:DeleteLaunchTemplate' :: DeleteLaunchTemplate -&gt; Maybe 
 -&gt; Lens
      DeleteLaunchTemplate DeleteLaunchTemplate (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate%27"><span class="hs-identifier hs-type">DeleteLaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282174"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate%27"><span class="hs-identifier hs-type">DeleteLaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282183"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:DeleteLaunchTemplate' :: DeleteLaunchTemplate -&gt; Maybe Bool
-</span><a href="#local-6989586621681282174"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681282174"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681282173"><span class="annot"><span class="annottext">s :: DeleteLaunchTemplate
-</span><a href="#local-6989586621681282173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate%27"><span class="hs-identifier hs-type">DeleteLaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681282172"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681282172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLaunchTemplate
-</span><a href="#local-6989586621681282173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DeleteLaunchTemplate' :: Maybe Bool
+</span><a href="#local-6989586621681282183"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681282183"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681282182"><span class="annot"><span class="annottext">s :: DeleteLaunchTemplate
+</span><a href="#local-6989586621681282182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate%27"><span class="hs-identifier hs-type">DeleteLaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681282181"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681282181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLaunchTemplate
+</span><a href="#local-6989586621681282182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DeleteLaunchTemplate' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#%24sel%3AdryRun%3ADeleteLaunchTemplate%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681282172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-type">DeleteLaunchTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681282181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-type">DeleteLaunchTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-type">DeleteLaunchTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-type">DeleteLaunchTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621681282168"><span class="annot"><span class="annottext">request :: DeleteLaunchTemplate -&gt; Request DeleteLaunchTemplate
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621681282177"><span class="annot"><span class="annottext">request :: DeleteLaunchTemplate -&gt; Request DeleteLaunchTemplate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteLaunchTemplate -&gt; Request DeleteLaunchTemplate
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621681282164"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621681282173"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteLaunchTemplate
 -&gt; ClientResponse ClientBody
@@ -260,10 +260,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681282161"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681282161"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681282160"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681282160"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681282159"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681282159"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681282170"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681282170"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681282169"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681282169"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681282168"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681282168"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe LaunchTemplate -&gt; Int -&gt; DeleteLaunchTemplateResponse
 </span><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-var">DeleteLaunchTemplateResponse'</span></a></span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LaunchTemplate -&gt; Int -&gt; DeleteLaunchTemplateResponse)
@@ -271,7 +271,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteLaunchTemplateResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681282159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LaunchTemplate)
+</span><a href="#local-6989586621681282168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LaunchTemplate)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;launchTemplate&quot;</span></span><span class="hs-special">)</span><span>
@@ -283,15 +283,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681282161"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681282170"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681282151"><span id="local-6989586621681282153"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-type">DeleteLaunchTemplate</span></a></span></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681282160"><span id="local-6989586621681282162"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-type">DeleteLaunchTemplate</span></a></span></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681282148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-type">DeleteLaunchTemplate</span></a></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681282157"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-type">DeleteLaunchTemplate</span></a></span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-type">DeleteLaunchTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621681282144"><span class="annot"><span class="annottext">toHeaders :: DeleteLaunchTemplate -&gt; ResponseHeaders
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621681282153"><span class="annot"><span class="annottext">toHeaders :: DeleteLaunchTemplate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteLaunchTemplate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -299,15 +299,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-type">DeleteLaunchTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621681282139"><span class="annot"><span class="annottext">toPath :: DeleteLaunchTemplate -&gt; ByteString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621681282148"><span class="annot"><span class="annottext">toPath :: DeleteLaunchTemplate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteLaunchTemplate -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate"><span class="hs-identifier hs-type">DeleteLaunchTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621681282135"><span class="annot"><span class="annottext">toQuery :: DeleteLaunchTemplate -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate%27"><span class="hs-identifier hs-type">DeleteLaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282131"><span id="local-6989586621681282132"><span id="local-6989586621681282133"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621681282144"><span class="annot"><span class="annottext">toQuery :: DeleteLaunchTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplate%27"><span class="hs-identifier hs-type">DeleteLaunchTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282140"><span id="local-6989586621681282141"><span id="local-6989586621681282142"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 dryRun :: Maybe Bool
 launchTemplateId :: Maybe Text
@@ -315,7 +315,7 @@ launchTemplateName :: Maybe Text
 $sel:dryRun:DeleteLaunchTemplate' :: DeleteLaunchTemplate -&gt; Maybe Bool
 $sel:launchTemplateId:DeleteLaunchTemplate' :: DeleteLaunchTemplate -&gt; Maybe Text
 $sel:launchTemplateName:DeleteLaunchTemplate' :: DeleteLaunchTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621681282131"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681282140"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -335,21 +335,21 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;LaunchTemplateName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681282133"><span class="hs-identifier hs-var">launchTemplateName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681282142"><span class="hs-identifier hs-var">launchTemplateName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;LaunchTemplateId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681282132"><span class="hs-identifier hs-var">launchTemplateId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681282141"><span class="hs-identifier hs-var">launchTemplateId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681282131"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
+</span><a href="#local-6989586621681282140"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newDeleteLaunchTemplateResponse' smart constructor.</span><span>
-</span><span id="line-149"></span><span id="local-6989586621681282128"><span id="local-6989586621681282129"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLaunchTemplateResponse"><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse"><span class="hs-identifier hs-var">DeleteLaunchTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLaunchTemplateResponse%27"><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-var">DeleteLaunchTemplateResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span id="local-6989586621681282137"><span id="local-6989586621681282138"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLaunchTemplateResponse"><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse"><span class="hs-identifier hs-var">DeleteLaunchTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLaunchTemplateResponse%27"><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-var">DeleteLaunchTemplateResponse'</span></a></span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the launch template.</span><span>
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AlaunchTemplate%3ADeleteLaunchTemplateResponse%27"><span class="annot"><span class="annottext">DeleteLaunchTemplateResponse -&gt; Maybe LaunchTemplate
 </span><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#%24sel%3AlaunchTemplate%3ADeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">,</span><span>
@@ -357,7 +357,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteLaunchTemplateResponse%27"><span class="annot"><span class="annottext">DeleteLaunchTemplateResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#%24sel%3AhttpStatus%3ADeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681282122"><span id="local-6989586621681282124"><span class="annot"><span class="annottext">DeleteLaunchTemplateResponse
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681282131"><span id="local-6989586621681282133"><span class="annot"><span class="annottext">DeleteLaunchTemplateResponse
 -&gt; DeleteLaunchTemplateResponse -&gt; Bool
 (DeleteLaunchTemplateResponse
  -&gt; DeleteLaunchTemplateResponse -&gt; Bool)
@@ -373,7 +373,7 @@ $c/= :: DeleteLaunchTemplateResponse
 -&gt; DeleteLaunchTemplateResponse -&gt; Bool
 $c== :: DeleteLaunchTemplateResponse
 -&gt; DeleteLaunchTemplateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681282114"><span id="local-6989586621681282116"><span id="local-6989586621681282118"><span id="local-6989586621681282120"><span class="annot"><span class="annottext">ReadPrec [DeleteLaunchTemplateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681282123"><span id="local-6989586621681282125"><span id="local-6989586621681282127"><span id="local-6989586621681282129"><span class="annot"><span class="annottext">ReadPrec [DeleteLaunchTemplateResponse]
 ReadPrec DeleteLaunchTemplateResponse
 Int -&gt; ReadS DeleteLaunchTemplateResponse
 ReadS [DeleteLaunchTemplateResponse]
@@ -393,7 +393,7 @@ readList :: ReadS [DeleteLaunchTemplateResponse]
 $creadList :: ReadS [DeleteLaunchTemplateResponse]
 readsPrec :: Int -&gt; ReadS DeleteLaunchTemplateResponse
 $creadsPrec :: Int -&gt; ReadS DeleteLaunchTemplateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681282108"><span id="local-6989586621681282110"><span id="local-6989586621681282112"><span class="annot"><span class="annottext">Int -&gt; DeleteLaunchTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681282117"><span id="local-6989586621681282119"><span id="local-6989586621681282121"><span class="annot"><span class="annottext">Int -&gt; DeleteLaunchTemplateResponse -&gt; ShowS
 [DeleteLaunchTemplateResponse] -&gt; ShowS
 DeleteLaunchTemplateResponse -&gt; String
 (Int -&gt; DeleteLaunchTemplateResponse -&gt; ShowS)
@@ -441,8 +441,8 @@ DeleteLaunchTemplateResponse -&gt; Rep DeleteLaunchTemplateResponse x
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse</span></a></span><span>
 </span><span id="line-172"></span><span id="newDeleteLaunchTemplateResponse"><span class="annot"><span class="annottext">newDeleteLaunchTemplateResponse :: Int -&gt; DeleteLaunchTemplateResponse
-</span><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#newDeleteLaunchTemplateResponse"><span class="hs-identifier hs-var hs-var">newDeleteLaunchTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621681282105"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681282105"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#newDeleteLaunchTemplateResponse"><span class="hs-identifier hs-var hs-var">newDeleteLaunchTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621681282114"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681282114"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">DeleteLaunchTemplateResponse' :: Maybe LaunchTemplate -&gt; Int -&gt; DeleteLaunchTemplateResponse
 </span><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse'</span></a></span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:launchTemplate:DeleteLaunchTemplateResponse' :: Maybe LaunchTemplate
@@ -452,7 +452,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLaunchTemplateResponse' :: Int
 </span><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#%24sel%3AhttpStatus%3ADeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681282105"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681282114"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | Information about the launch template.</span><span>
@@ -468,16 +468,16 @@ forall a. Maybe a
      (Maybe LaunchTemplate)
      (Maybe LaunchTemplate)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282104"><span class="annot"><span class="annottext">Maybe LaunchTemplate
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282113"><span class="annot"><span class="annottext">Maybe LaunchTemplate
 launchTemplate :: Maybe LaunchTemplate
 $sel:launchTemplate:DeleteLaunchTemplateResponse' :: DeleteLaunchTemplateResponse -&gt; Maybe LaunchTemplate
-</span><a href="#local-6989586621681282104"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplate
-</span><a href="#local-6989586621681282104"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681282103"><span class="annot"><span class="annottext">s :: DeleteLaunchTemplateResponse
-</span><a href="#local-6989586621681282103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681282102"><span class="annot"><span class="annottext">Maybe LaunchTemplate
-</span><a href="#local-6989586621681282102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLaunchTemplateResponse
-</span><a href="#local-6989586621681282103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplate:DeleteLaunchTemplateResponse' :: Maybe LaunchTemplate
+</span><a href="#local-6989586621681282113"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplate
+</span><a href="#local-6989586621681282113"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681282112"><span class="annot"><span class="annottext">s :: DeleteLaunchTemplateResponse
+</span><a href="#local-6989586621681282112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681282111"><span class="annot"><span class="annottext">Maybe LaunchTemplate
+</span><a href="#local-6989586621681282111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLaunchTemplateResponse
+</span><a href="#local-6989586621681282112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplate:DeleteLaunchTemplateResponse' :: Maybe LaunchTemplate
 </span><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#%24sel%3AlaunchTemplate%3ADeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplate
-</span><a href="#local-6989586621681282102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681282111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#deleteLaunchTemplateResponse_httpStatus"><span class="hs-identifier hs-type">deleteLaunchTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -489,16 +489,16 @@ $sel:launchTemplate:DeleteLaunchTemplateResponse' :: DeleteLaunchTemplateRespons
 -&gt; Lens
      DeleteLaunchTemplateResponse DeleteLaunchTemplateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282101"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282110"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteLaunchTemplateResponse' :: DeleteLaunchTemplateResponse -&gt; Int
-</span><a href="#local-6989586621681282101"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681282101"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681282100"><span class="annot"><span class="annottext">s :: DeleteLaunchTemplateResponse
-</span><a href="#local-6989586621681282100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681282099"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681282099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLaunchTemplateResponse
-</span><a href="#local-6989586621681282100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLaunchTemplateResponse' :: Int
+</span><a href="#local-6989586621681282110"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681282110"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681282109"><span class="annot"><span class="annottext">s :: DeleteLaunchTemplateResponse
+</span><a href="#local-6989586621681282109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681282108"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681282108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLaunchTemplateResponse
+</span><a href="#local-6989586621681282109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLaunchTemplateResponse' :: Int
 </span><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#%24sel%3AhttpStatus%3ADeleteLaunchTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681282099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681282108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681282097"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681282106"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteLaunchTemplate.html#DeleteLaunchTemplateResponse"><span class="hs-identifier hs-type">DeleteLaunchTemplateResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

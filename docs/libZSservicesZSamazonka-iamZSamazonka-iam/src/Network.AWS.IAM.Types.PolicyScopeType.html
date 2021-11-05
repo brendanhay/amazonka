@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679427758"><span id="local-6989586621679427759"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PolicyScopeType"><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType"><span class="hs-identifier hs-var">PolicyScopeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyScopeType%27"><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType%27"><span class="hs-identifier hs-var">PolicyScopeType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679427767"><span id="local-6989586621679427768"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PolicyScopeType"><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType"><span class="hs-identifier hs-var">PolicyScopeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyScopeType%27"><span class="annot"><a href="Network.AWS.IAM.Types.PolicyScopeType.html#PolicyScopeType%27"><span class="hs-identifier hs-var">PolicyScopeType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPolicyScopeType"><span class="annot"><span class="annottext">PolicyScopeType -&gt; Text
 </span><a href="Network.AWS.IAM.Types.PolicyScopeType.html#fromPolicyScopeType"><span class="hs-identifier hs-var hs-var">fromPolicyScopeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427750"><span id="local-6989586621679427752"><span id="local-6989586621679427754"><span class="annot"><span class="annottext">Int -&gt; PolicyScopeType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427759"><span id="local-6989586621679427761"><span id="local-6989586621679427763"><span class="annot"><span class="annottext">Int -&gt; PolicyScopeType -&gt; ShowS
 [PolicyScopeType] -&gt; ShowS
 PolicyScopeType -&gt; String
 (Int -&gt; PolicyScopeType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: PolicyScopeType -&gt; String
 showsPrec :: Int -&gt; PolicyScopeType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PolicyScopeType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679427741"><span id="local-6989586621679427743"><span id="local-6989586621679427745"><span id="local-6989586621679427747"><span class="annot"><span class="annottext">ReadPrec [PolicyScopeType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679427750"><span id="local-6989586621679427752"><span id="local-6989586621679427754"><span id="local-6989586621679427756"><span class="annot"><span class="annottext">ReadPrec [PolicyScopeType]
 ReadPrec PolicyScopeType
 Int -&gt; ReadS PolicyScopeType
 ReadS [PolicyScopeType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [PolicyScopeType]
 readsPrec :: Int -&gt; ReadS PolicyScopeType
 $creadsPrec :: Int -&gt; ReadS PolicyScopeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679427736"><span id="local-6989586621679427738"><span class="annot"><span class="annottext">PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679427745"><span id="local-6989586621679427747"><span class="annot"><span class="annottext">PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
 (PolicyScopeType -&gt; PolicyScopeType -&gt; Bool)
 -&gt; (PolicyScopeType -&gt; PolicyScopeType -&gt; Bool)
 -&gt; Eq PolicyScopeType
@@ -83,7 +83,7 @@ $c/= :: PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
 == :: PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
 $c== :: PolicyScopeType -&gt; PolicyScopeType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679427720"><span id="local-6989586621679427722"><span id="local-6989586621679427724"><span id="local-6989586621679427726"><span id="local-6989586621679427728"><span id="local-6989586621679427730"><span id="local-6989586621679427732"><span class="annot"><span class="annottext">Eq PolicyScopeType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679427729"><span id="local-6989586621679427731"><span id="local-6989586621679427733"><span id="local-6989586621679427735"><span id="local-6989586621679427737"><span id="local-6989586621679427739"><span id="local-6989586621679427741"><span class="annot"><span class="annottext">Eq PolicyScopeType
 Eq PolicyScopeType
 -&gt; (PolicyScopeType -&gt; PolicyScopeType -&gt; Ordering)
 -&gt; (PolicyScopeType -&gt; PolicyScopeType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. PolicyScopeType -&gt; Rep PolicyScopeType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427712"><span id="local-6989586621679427714"><span class="annot"><span class="annottext">Int -&gt; PolicyScopeType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427721"><span id="local-6989586621679427723"><span class="annot"><span class="annottext">Int -&gt; PolicyScopeType -&gt; Int
 PolicyScopeType -&gt; Int
 (Int -&gt; PolicyScopeType -&gt; Int)
 -&gt; (PolicyScopeType -&gt; Int) -&gt; Hashable PolicyScopeType
@@ -144,50 +144,50 @@ $chash :: PolicyScopeType -&gt; Int
 hashWithSalt :: Int -&gt; PolicyScopeType -&gt; Int
 $chashWithSalt :: Int -&gt; PolicyScopeType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679427709"><span class="annot"><span class="annottext">PolicyScopeType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679427718"><span class="annot"><span class="annottext">PolicyScopeType -&gt; ()
 (PolicyScopeType -&gt; ()) -&gt; NFData PolicyScopeType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PolicyScopeType -&gt; ()
 $crnf :: PolicyScopeType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679427706"><span class="annot"><span class="annottext">Text -&gt; Either String PolicyScopeType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679427715"><span class="annot"><span class="annottext">Text -&gt; Either String PolicyScopeType
 (Text -&gt; Either String PolicyScopeType) -&gt; FromText PolicyScopeType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PolicyScopeType
 $cfromText :: Text -&gt; Either String PolicyScopeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679427703"><span class="annot"><span class="annottext">PolicyScopeType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679427712"><span class="annot"><span class="annottext">PolicyScopeType -&gt; Text
 (PolicyScopeType -&gt; Text) -&gt; ToText PolicyScopeType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PolicyScopeType -&gt; Text
 $ctoText :: PolicyScopeType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679427700"><span class="annot"><span class="annottext">PolicyScopeType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679427709"><span class="annot"><span class="annottext">PolicyScopeType -&gt; ByteString
 (PolicyScopeType -&gt; ByteString) -&gt; ToByteString PolicyScopeType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PolicyScopeType -&gt; ByteString
 $ctoBS :: PolicyScopeType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679427697"><span class="annot"><span class="annottext">PolicyScopeType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679427706"><span class="annot"><span class="annottext">PolicyScopeType -&gt; ByteStringBuilder
 (PolicyScopeType -&gt; ByteStringBuilder) -&gt; ToLog PolicyScopeType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PolicyScopeType -&gt; ByteStringBuilder
 $cbuild :: PolicyScopeType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679427694"><span class="annot"><span class="annottext">HeaderName -&gt; PolicyScopeType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679427703"><span class="annot"><span class="annottext">HeaderName -&gt; PolicyScopeType -&gt; [Header]
 (HeaderName -&gt; PolicyScopeType -&gt; [Header])
 -&gt; ToHeader PolicyScopeType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PolicyScopeType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PolicyScopeType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679427691"><span class="annot"><span class="annottext">PolicyScopeType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679427700"><span class="annot"><span class="annottext">PolicyScopeType -&gt; QueryString
 (PolicyScopeType -&gt; QueryString) -&gt; ToQuery PolicyScopeType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PolicyScopeType -&gt; QueryString
 $ctoQuery :: PolicyScopeType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679427686"><span id="local-6989586621679427688"><span class="annot"><span class="annottext">Value -&gt; Parser [PolicyScopeType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679427695"><span id="local-6989586621679427697"><span class="annot"><span class="annottext">Value -&gt; Parser [PolicyScopeType]
 Value -&gt; Parser PolicyScopeType
 (Value -&gt; Parser PolicyScopeType)
 -&gt; (Value -&gt; Parser [PolicyScopeType]) -&gt; FromJSON PolicyScopeType
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [PolicyScopeType]
 parseJSON :: Value -&gt; Parser PolicyScopeType
 $cparseJSON :: Value -&gt; Parser PolicyScopeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679427681"><span id="local-6989586621679427683"><span class="annot"><span class="annottext">FromJSONKeyFunction [PolicyScopeType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679427690"><span id="local-6989586621679427692"><span class="annot"><span class="annottext">FromJSONKeyFunction [PolicyScopeType]
 FromJSONKeyFunction PolicyScopeType
 FromJSONKeyFunction PolicyScopeType
 -&gt; FromJSONKeyFunction [PolicyScopeType]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PolicyScopeType]
 fromJSONKey :: FromJSONKeyFunction PolicyScopeType
 $cfromJSONKey :: FromJSONKeyFunction PolicyScopeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679427672"><span id="local-6989586621679427674"><span id="local-6989586621679427676"><span id="local-6989586621679427678"><span class="annot"><span class="annottext">[PolicyScopeType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679427681"><span id="local-6989586621679427683"><span id="local-6989586621679427685"><span id="local-6989586621679427687"><span class="annot"><span class="annottext">[PolicyScopeType] -&gt; Encoding
 [PolicyScopeType] -&gt; Value
 PolicyScopeType -&gt; Encoding
 PolicyScopeType -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: PolicyScopeType -&gt; Encoding
 toJSON :: PolicyScopeType -&gt; Value
 $ctoJSON :: PolicyScopeType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679427667"><span id="local-6989586621679427669"><span class="annot"><span class="annottext">ToJSONKeyFunction [PolicyScopeType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679427676"><span id="local-6989586621679427678"><span class="annot"><span class="annottext">ToJSONKeyFunction [PolicyScopeType]
 ToJSONKeyFunction PolicyScopeType
 ToJSONKeyFunction PolicyScopeType
 -&gt; ToJSONKeyFunction [PolicyScopeType] -&gt; ToJSONKey PolicyScopeType
@@ -245,14 +245,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PolicyScopeType]
 toJSONKey :: ToJSONKeyFunction PolicyScopeType
 $ctoJSONKey :: ToJSONKeyFunction PolicyScopeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679427664"><span class="annot"><span class="annottext">[Node] -&gt; Either String PolicyScopeType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679427673"><span class="annot"><span class="annottext">[Node] -&gt; Either String PolicyScopeType
 ([Node] -&gt; Either String PolicyScopeType)
 -&gt; FromXML PolicyScopeType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PolicyScopeType
 $cparseXML :: [Node] -&gt; Either String PolicyScopeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679427661"><span class="annot"><span class="annottext">PolicyScopeType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679427670"><span class="annot"><span class="annottext">PolicyScopeType -&gt; XML
 (PolicyScopeType -&gt; XML) -&gt; ToXML PolicyScopeType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PolicyScopeType -&gt; XML

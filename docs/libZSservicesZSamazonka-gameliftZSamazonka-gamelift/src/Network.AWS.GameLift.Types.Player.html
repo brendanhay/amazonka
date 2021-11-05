@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- information is added after a match has been successfully completed.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPlayer' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679437195"><span id="local-6989586621679437196"></span></span><span class="hs-keyword">data</span><span> </span><span id="Player"><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-var">Player</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Player%27"><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-var">Player'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679437204"><span id="local-6989586621679437205"></span></span><span class="hs-keyword">data</span><span> </span><span id="Player"><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-var">Player</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Player%27"><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-var">Player'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A collection of key:value pairs containing player information for use in</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- matchmaking. Player attribute keys must match the /playerAttributes/</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- used in a matchmaking rule set. Example:</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AlatencyInMs%3APlayer%27"><span class="annot"><span class="annottext">Player -&gt; Maybe (HashMap Text Natural)
 </span><a href="Network.AWS.GameLift.Types.Player.html#%24sel%3AlatencyInMs%3APlayer%27"><span class="hs-identifier hs-var hs-var">latencyInMs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679437186"><span id="local-6989586621679437188"><span class="annot"><span class="annottext">Player -&gt; Player -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679437195"><span id="local-6989586621679437197"><span class="annot"><span class="annottext">Player -&gt; Player -&gt; Bool
 (Player -&gt; Player -&gt; Bool)
 -&gt; (Player -&gt; Player -&gt; Bool) -&gt; Eq Player
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Player -&gt; Player -&gt; Bool
 == :: Player -&gt; Player -&gt; Bool
 $c== :: Player -&gt; Player -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437177"><span id="local-6989586621679437179"><span id="local-6989586621679437181"><span id="local-6989586621679437183"><span class="annot"><span class="annottext">ReadPrec [Player]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437186"><span id="local-6989586621679437188"><span id="local-6989586621679437190"><span id="local-6989586621679437192"><span class="annot"><span class="annottext">ReadPrec [Player]
 ReadPrec Player
 Int -&gt; ReadS Player
 ReadS [Player]
@@ -83,7 +83,7 @@ readList :: ReadS [Player]
 $creadList :: ReadS [Player]
 readsPrec :: Int -&gt; ReadS Player
 $creadsPrec :: Int -&gt; ReadS Player
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437170"><span id="local-6989586621679437172"><span id="local-6989586621679437174"><span class="annot"><span class="annottext">Int -&gt; Player -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437179"><span id="local-6989586621679437181"><span id="local-6989586621679437183"><span class="annot"><span class="annottext">Int -&gt; Player -&gt; ShowS
 [Player] -&gt; ShowS
 Player -&gt; String
 (Int -&gt; Player -&gt; ShowS)
@@ -177,16 +177,16 @@ forall a. Maybe a
      (Maybe (HashMap Text AttributeValue))
      (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437161"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437170"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 playerAttributes :: Maybe (HashMap Text AttributeValue)
 $sel:playerAttributes:Player' :: Player -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679437161"><span class="hs-identifier hs-var hs-var">playerAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679437161"><span class="hs-identifier hs-var">playerAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437160"><span class="annot"><span class="annottext">s :: Player
-</span><a href="#local-6989586621679437160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437159"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679437159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Player
-</span><a href="#local-6989586621679437160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerAttributes:Player' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679437170"><span class="hs-identifier hs-var hs-var">playerAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679437170"><span class="hs-identifier hs-var">playerAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437169"><span class="annot"><span class="annottext">s :: Player
+</span><a href="#local-6989586621679437169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437168"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679437168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Player
+</span><a href="#local-6989586621679437169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerAttributes:Player' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.GameLift.Types.Player.html#%24sel%3AplayerAttributes%3APlayer%27"><span class="hs-identifier hs-var">playerAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679437159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679437168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; Player -&gt; f Player)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -227,16 +227,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Player -&gt; Maybe Text -&gt; Player)
 -&gt; Lens Player Player (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437154"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437163"><span class="annot"><span class="annottext">Maybe Text
 team :: Maybe Text
 $sel:team:Player' :: Player -&gt; Maybe Text
-</span><a href="#local-6989586621679437154"><span class="hs-identifier hs-var hs-var">team</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437154"><span class="hs-identifier hs-var">team</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437153"><span class="annot"><span class="annottext">s :: Player
-</span><a href="#local-6989586621679437153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437152"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Player
-</span><a href="#local-6989586621679437153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:team:Player' :: Maybe Text
+</span><a href="#local-6989586621679437163"><span class="hs-identifier hs-var hs-var">team</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437163"><span class="hs-identifier hs-var">team</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437162"><span class="annot"><span class="annottext">s :: Player
+</span><a href="#local-6989586621679437162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437161"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Player
+</span><a href="#local-6989586621679437162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:team:Player' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Player.html#%24sel%3Ateam%3APlayer%27"><span class="hs-identifier hs-var">team</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679437161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | A unique identifier for a player</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#player_playerId"><span class="hs-identifier hs-type">player_playerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -245,16 +245,16 @@ $sel:team:Player' :: Player -&gt; Maybe Text
 -&gt; (Player -&gt; Maybe Text -&gt; Player)
 -&gt; Lens Player Player (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437150"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437159"><span class="annot"><span class="annottext">Maybe Text
 playerId :: Maybe Text
 $sel:playerId:Player' :: Player -&gt; Maybe Text
-</span><a href="#local-6989586621679437150"><span class="hs-identifier hs-var hs-var">playerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437150"><span class="hs-identifier hs-var">playerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437149"><span class="annot"><span class="annottext">s :: Player
-</span><a href="#local-6989586621679437149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437148"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Player
-</span><a href="#local-6989586621679437149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerId:Player' :: Maybe Text
+</span><a href="#local-6989586621679437159"><span class="hs-identifier hs-var hs-var">playerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437159"><span class="hs-identifier hs-var">playerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437158"><span class="annot"><span class="annottext">s :: Player
+</span><a href="#local-6989586621679437158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437157"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Player
+</span><a href="#local-6989586621679437158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerId:Player' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.Player.html#%24sel%3AplayerId%3APlayer%27"><span class="hs-identifier hs-var">playerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679437157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | A set of values, expressed in milliseconds, that indicates the amount of</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- latency that a player experiences when connected to AWS Regions. If this</span><span>
@@ -276,16 +276,16 @@ $sel:playerId:Player' :: Player -&gt; Maybe Text
      (Maybe (HashMap Text Natural))
      (Maybe (HashMap Text Natural))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437146"><span class="annot"><span class="annottext">Maybe (HashMap Text Natural)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437155"><span class="annot"><span class="annottext">Maybe (HashMap Text Natural)
 latencyInMs :: Maybe (HashMap Text Natural)
 $sel:latencyInMs:Player' :: Player -&gt; Maybe (HashMap Text Natural)
-</span><a href="#local-6989586621679437146"><span class="hs-identifier hs-var hs-var">latencyInMs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Natural)
-</span><a href="#local-6989586621679437146"><span class="hs-identifier hs-var">latencyInMs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437145"><span class="annot"><span class="annottext">s :: Player
-</span><a href="#local-6989586621679437145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437144"><span class="annot"><span class="annottext">Maybe (HashMap Text Natural)
-</span><a href="#local-6989586621679437144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Player
-</span><a href="#local-6989586621679437145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latencyInMs:Player' :: Maybe (HashMap Text Natural)
+</span><a href="#local-6989586621679437155"><span class="hs-identifier hs-var hs-var">latencyInMs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Natural)
+</span><a href="#local-6989586621679437155"><span class="hs-identifier hs-var">latencyInMs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437154"><span class="annot"><span class="annottext">s :: Player
+</span><a href="#local-6989586621679437154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437153"><span class="annot"><span class="annottext">Maybe (HashMap Text Natural)
+</span><a href="#local-6989586621679437153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Player
+</span><a href="#local-6989586621679437154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latencyInMs:Player' :: Maybe (HashMap Text Natural)
 </span><a href="Network.AWS.GameLift.Types.Player.html#%24sel%3AlatencyInMs%3APlayer%27"><span class="hs-identifier hs-var">latencyInMs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Natural)
-</span><a href="#local-6989586621679437144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Natural) -&gt; f (Maybe (HashMap Text Natural)))
+</span><a href="#local-6989586621679437153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Natural) -&gt; f (Maybe (HashMap Text Natural)))
  -&gt; Player -&gt; f Player)
 -&gt; ((Maybe (HashMap Text Natural)
      -&gt; f (Maybe (HashMap Text Natural)))
@@ -317,16 +317,16 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437141"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679437139"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Player
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437150"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679437148"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Player
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Player) -&gt; Value -&gt; Parser Player
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Player&quot;</span></span><span>
-</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679437136"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437136"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679437145"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437145"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -344,7 +344,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; Maybe (HashMap Text Natural) -&gt; Player)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437136"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text AttributeValue)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -364,7 +364,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text -&gt; Maybe (HashMap Text Natural) -&gt; Player)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437136"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679437145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Team&quot;</span></span><span class="hs-special">)</span><span>
@@ -373,7 +373,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Natural) -&gt; Player)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437136"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679437145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlayerId&quot;</span></span><span class="hs-special">)</span><span>
@@ -381,7 +381,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Natural)) -&gt; Parser Player
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437136"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Natural)))
+</span><a href="#local-6989586621679437145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Natural)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LatencyInMs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Natural)))
@@ -393,13 +393,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437129"><span id="local-6989586621679437131"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437138"><span id="local-6989586621679437140"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437126"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437135"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437118"><span id="local-6989586621679437120"><span id="local-6989586621679437122"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679437116"><span class="annot"><span class="annottext">toJSON :: Player -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437111"><span id="local-6989586621679437112"><span id="local-6989586621679437113"><span id="local-6989586621679437114"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679437127"><span id="local-6989586621679437129"><span id="local-6989586621679437131"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679437125"><span class="annot"><span class="annottext">toJSON :: Player -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player%27"><span class="hs-identifier hs-type">Player'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437120"><span id="local-6989586621679437121"><span id="local-6989586621679437122"><span id="local-6989586621679437123"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text Natural)
 Maybe (HashMap Text AttributeValue)
 latencyInMs :: Maybe (HashMap Text Natural)
@@ -410,7 +410,7 @@ $sel:latencyInMs:Player' :: Player -&gt; Maybe (HashMap Text Natural)
 $sel:playerId:Player' :: Player -&gt; Maybe Text
 $sel:team:Player' :: Player -&gt; Maybe Text
 $sel:playerAttributes:Player' :: Player -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679437111"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679437120"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -424,21 +424,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text AttributeValue) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679437114"><span class="hs-identifier hs-var">playerAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679437123"><span class="hs-identifier hs-var">playerAttributes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Team&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437113"><span class="hs-identifier hs-var">team</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679437122"><span class="hs-identifier hs-var">team</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlayerId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437112"><span class="hs-identifier hs-var">playerId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679437121"><span class="hs-identifier hs-var">playerId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LatencyInMs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -446,7 +446,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Natural) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Natural)
-</span><a href="#local-6989586621679437111"><span class="hs-identifier hs-var">latencyInMs</span></a></span><span>
+</span><a href="#local-6989586621679437120"><span class="hs-identifier hs-var">latencyInMs</span></a></span><span>
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span></pre></body></html>

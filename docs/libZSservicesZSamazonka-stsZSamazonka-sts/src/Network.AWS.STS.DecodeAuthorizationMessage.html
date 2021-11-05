@@ -81,12 +81,12 @@
 </span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.STS.Types.html"><span class="hs-identifier">Network.AWS.STS.Types</span></a></span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | /See:/ 'newDecodeAuthorizationMessage' smart constructor.</span><span>
-</span><span id="line-84"></span><span id="local-6989586621679152387"><span id="local-6989586621679152388"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecodeAuthorizationMessage"><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage"><span class="hs-identifier hs-var">DecodeAuthorizationMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecodeAuthorizationMessage%27"><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage%27"><span class="hs-identifier hs-var">DecodeAuthorizationMessage'</span></a></span></span><span>
+</span><span id="line-84"></span><span id="local-6989586621679152396"><span id="local-6989586621679152397"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecodeAuthorizationMessage"><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage"><span class="hs-identifier hs-var">DecodeAuthorizationMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecodeAuthorizationMessage%27"><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage%27"><span class="hs-identifier hs-var">DecodeAuthorizationMessage'</span></a></span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encoded message that was returned with the response.</span><span>
 </span><span id="line-86"></span><span>    </span><span id="%24sel%3AencodedMessage%3ADecodeAuthorizationMessage%27"><span class="annot"><span class="annottext">DecodeAuthorizationMessage -&gt; Text
 </span><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#%24sel%3AencodedMessage%3ADecodeAuthorizationMessage%27"><span class="hs-identifier hs-var hs-var">encodedMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152381"><span id="local-6989586621679152383"><span class="annot"><span class="annottext">DecodeAuthorizationMessage -&gt; DecodeAuthorizationMessage -&gt; Bool
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152390"><span id="local-6989586621679152392"><span class="annot"><span class="annottext">DecodeAuthorizationMessage -&gt; DecodeAuthorizationMessage -&gt; Bool
 (DecodeAuthorizationMessage -&gt; DecodeAuthorizationMessage -&gt; Bool)
 -&gt; (DecodeAuthorizationMessage
     -&gt; DecodeAuthorizationMessage -&gt; Bool)
@@ -96,7 +96,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DecodeAuthorizationMessage -&gt; DecodeAuthorizationMessage -&gt; Bool
 == :: DecodeAuthorizationMessage -&gt; DecodeAuthorizationMessage -&gt; Bool
 $c== :: DecodeAuthorizationMessage -&gt; DecodeAuthorizationMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152372"><span id="local-6989586621679152374"><span id="local-6989586621679152376"><span id="local-6989586621679152378"><span class="annot"><span class="annottext">ReadPrec [DecodeAuthorizationMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152381"><span id="local-6989586621679152383"><span id="local-6989586621679152385"><span id="local-6989586621679152387"><span class="annot"><span class="annottext">ReadPrec [DecodeAuthorizationMessage]
 ReadPrec DecodeAuthorizationMessage
 Int -&gt; ReadS DecodeAuthorizationMessage
 ReadS [DecodeAuthorizationMessage]
@@ -116,7 +116,7 @@ readList :: ReadS [DecodeAuthorizationMessage]
 $creadList :: ReadS [DecodeAuthorizationMessage]
 readsPrec :: Int -&gt; ReadS DecodeAuthorizationMessage
 $creadsPrec :: Int -&gt; ReadS DecodeAuthorizationMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152365"><span id="local-6989586621679152367"><span id="local-6989586621679152369"><span class="annot"><span class="annottext">Int -&gt; DecodeAuthorizationMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152374"><span id="local-6989586621679152376"><span id="local-6989586621679152378"><span class="annot"><span class="annottext">Int -&gt; DecodeAuthorizationMessage -&gt; ShowS
 [DecodeAuthorizationMessage] -&gt; ShowS
 DecodeAuthorizationMessage -&gt; String
 (Int -&gt; DecodeAuthorizationMessage -&gt; ShowS)
@@ -162,14 +162,14 @@ DecodeAuthorizationMessage -&gt; Rep DecodeAuthorizationMessage x
 </span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage"><span class="hs-identifier hs-type">DecodeAuthorizationMessage</span></a></span><span>
 </span><span id="line-103"></span><span id="newDecodeAuthorizationMessage"><span class="annot"><span class="annottext">newDecodeAuthorizationMessage :: Text -&gt; DecodeAuthorizationMessage
-</span><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#newDecodeAuthorizationMessage"><span class="hs-identifier hs-var hs-var">newDecodeAuthorizationMessage</span></a></span></span><span> </span><span id="local-6989586621679152360"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679152360"><span class="hs-identifier hs-var">pEncodedMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#newDecodeAuthorizationMessage"><span class="hs-identifier hs-var hs-var">newDecodeAuthorizationMessage</span></a></span></span><span> </span><span id="local-6989586621679152369"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679152369"><span class="hs-identifier hs-var">pEncodedMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">DecodeAuthorizationMessage' :: Text -&gt; DecodeAuthorizationMessage
 </span><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage%27"><span class="hs-identifier hs-type">DecodeAuthorizationMessage'</span></a></span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encodedMessage:DecodeAuthorizationMessage' :: Text
 </span><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#%24sel%3AencodedMessage%3ADecodeAuthorizationMessage%27"><span class="hs-identifier hs-var">encodedMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679152360"><span class="hs-identifier hs-var">pEncodedMessage_</span></a></span><span>
+</span><a href="#local-6989586621679152369"><span class="hs-identifier hs-var">pEncodedMessage_</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The encoded message that was returned with the response.</span><span>
@@ -182,28 +182,28 @@ DecodeAuthorizationMessage -&gt; Rep DecodeAuthorizationMessage x
 -&gt; Lens
      DecodeAuthorizationMessage DecodeAuthorizationMessage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage%27"><span class="hs-identifier hs-type">DecodeAuthorizationMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152357"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage%27"><span class="hs-identifier hs-type">DecodeAuthorizationMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152366"><span class="annot"><span class="annottext">Text
 encodedMessage :: Text
 $sel:encodedMessage:DecodeAuthorizationMessage' :: DecodeAuthorizationMessage -&gt; Text
-</span><a href="#local-6989586621679152357"><span class="hs-identifier hs-var hs-var">encodedMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679152357"><span class="hs-identifier hs-var">encodedMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152356"><span class="annot"><span class="annottext">s :: DecodeAuthorizationMessage
-</span><a href="#local-6989586621679152356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage%27"><span class="hs-identifier hs-type">DecodeAuthorizationMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152355"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679152355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecodeAuthorizationMessage
-</span><a href="#local-6989586621679152356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encodedMessage:DecodeAuthorizationMessage' :: Text
+</span><a href="#local-6989586621679152366"><span class="hs-identifier hs-var hs-var">encodedMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679152366"><span class="hs-identifier hs-var">encodedMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152365"><span class="annot"><span class="annottext">s :: DecodeAuthorizationMessage
+</span><a href="#local-6989586621679152365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage%27"><span class="hs-identifier hs-type">DecodeAuthorizationMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152364"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679152364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecodeAuthorizationMessage
+</span><a href="#local-6989586621679152365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encodedMessage:DecodeAuthorizationMessage' :: Text
 </span><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#%24sel%3AencodedMessage%3ADecodeAuthorizationMessage%27"><span class="hs-identifier hs-var">encodedMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679152355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage"><span class="hs-identifier hs-type">DecodeAuthorizationMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679152364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage"><span class="hs-identifier hs-type">DecodeAuthorizationMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage"><span class="hs-identifier hs-type">DecodeAuthorizationMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage"><span class="hs-identifier hs-type">DecodeAuthorizationMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679152351"><span class="annot"><span class="annottext">request :: DecodeAuthorizationMessage -&gt; Request DecodeAuthorizationMessage
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679152360"><span class="annot"><span class="annottext">request :: DecodeAuthorizationMessage -&gt; Request DecodeAuthorizationMessage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DecodeAuthorizationMessage -&gt; Request DecodeAuthorizationMessage
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.STS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679152347"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679152356"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DecodeAuthorizationMessage
 -&gt; ClientResponse ClientBody
@@ -234,10 +234,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DecodeAuthorizationMessageResult&quot;</span></span><span>
-</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679152344"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679152344"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679152343"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679152343"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679152342"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679152342"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679152353"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679152353"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679152352"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679152352"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679152351"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679152351"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DecodeAuthorizationMessageResponse
 </span><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-var">DecodeAuthorizationMessageResponse'</span></a></span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DecodeAuthorizationMessageResponse)
@@ -245,7 +245,7 @@ Text
 -&gt; Either String (Int -&gt; DecodeAuthorizationMessageResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679152342"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679152351"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DecodedMessage&quot;</span></span><span class="hs-special">)</span><span>
@@ -258,15 +258,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679152344"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679152353"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152334"><span id="local-6989586621679152336"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage"><span class="hs-identifier hs-type">DecodeAuthorizationMessage</span></a></span></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152343"><span id="local-6989586621679152345"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage"><span class="hs-identifier hs-type">DecodeAuthorizationMessage</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152331"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage"><span class="hs-identifier hs-type">DecodeAuthorizationMessage</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152340"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage"><span class="hs-identifier hs-type">DecodeAuthorizationMessage</span></a></span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage"><span class="hs-identifier hs-type">DecodeAuthorizationMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679152327"><span class="annot"><span class="annottext">toHeaders :: DecodeAuthorizationMessage -&gt; ResponseHeaders
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679152336"><span class="annot"><span class="annottext">toHeaders :: DecodeAuthorizationMessage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DecodeAuthorizationMessage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -274,18 +274,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage"><span class="hs-identifier hs-type">DecodeAuthorizationMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679152322"><span class="annot"><span class="annottext">toPath :: DecodeAuthorizationMessage -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679152331"><span class="annot"><span class="annottext">toPath :: DecodeAuthorizationMessage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DecodeAuthorizationMessage -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage"><span class="hs-identifier hs-type">DecodeAuthorizationMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679152318"><span class="annot"><span class="annottext">toQuery :: DecodeAuthorizationMessage -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage%27"><span class="hs-identifier hs-type">DecodeAuthorizationMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152316"><span class="annot"><span class="annottext">Text
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679152327"><span class="annot"><span class="annottext">toQuery :: DecodeAuthorizationMessage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessage%27"><span class="hs-identifier hs-type">DecodeAuthorizationMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152325"><span class="annot"><span class="annottext">Text
 encodedMessage :: Text
 $sel:encodedMessage:DecodeAuthorizationMessage' :: DecodeAuthorizationMessage -&gt; Text
-</span><a href="#local-6989586621679152316"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679152325"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -305,7 +305,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;EncodedMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679152316"><span class="hs-identifier hs-var">encodedMessage</span></a></span><span>
+</span><a href="#local-6989586621679152325"><span class="hs-identifier hs-var">encodedMessage</span></a></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | A document that contains additional information about the authorization</span><span>
@@ -313,7 +313,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-149"></span><span class="hs-comment">-- to an Amazon Web Services request.</span><span>
 </span><span id="line-150"></span><span class="hs-comment">--</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- /See:/ 'newDecodeAuthorizationMessageResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679152313"><span id="local-6989586621679152314"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecodeAuthorizationMessageResponse"><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse"><span class="hs-identifier hs-var">DecodeAuthorizationMessageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecodeAuthorizationMessageResponse%27"><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-var">DecodeAuthorizationMessageResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679152322"><span id="local-6989586621679152323"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecodeAuthorizationMessageResponse"><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse"><span class="hs-identifier hs-var">DecodeAuthorizationMessageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecodeAuthorizationMessageResponse%27"><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-var">DecodeAuthorizationMessageResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An XML document that contains the decoded message.</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AdecodedMessage%3ADecodeAuthorizationMessageResponse%27"><span class="annot"><span class="annottext">DecodeAuthorizationMessageResponse -&gt; Maybe Text
 </span><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#%24sel%3AdecodedMessage%3ADecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-var hs-var">decodedMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -321,7 +321,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADecodeAuthorizationMessageResponse%27"><span class="annot"><span class="annottext">DecodeAuthorizationMessageResponse -&gt; Int
 </span><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#%24sel%3AhttpStatus%3ADecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152307"><span id="local-6989586621679152309"><span class="annot"><span class="annottext">DecodeAuthorizationMessageResponse
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152316"><span id="local-6989586621679152318"><span class="annot"><span class="annottext">DecodeAuthorizationMessageResponse
 -&gt; DecodeAuthorizationMessageResponse -&gt; Bool
 (DecodeAuthorizationMessageResponse
  -&gt; DecodeAuthorizationMessageResponse -&gt; Bool)
@@ -337,7 +337,7 @@ $c/= :: DecodeAuthorizationMessageResponse
 -&gt; DecodeAuthorizationMessageResponse -&gt; Bool
 $c== :: DecodeAuthorizationMessageResponse
 -&gt; DecodeAuthorizationMessageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152299"><span id="local-6989586621679152301"><span id="local-6989586621679152303"><span id="local-6989586621679152305"><span class="annot"><span class="annottext">ReadPrec [DecodeAuthorizationMessageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152308"><span id="local-6989586621679152310"><span id="local-6989586621679152312"><span id="local-6989586621679152314"><span class="annot"><span class="annottext">ReadPrec [DecodeAuthorizationMessageResponse]
 ReadPrec DecodeAuthorizationMessageResponse
 Int -&gt; ReadS DecodeAuthorizationMessageResponse
 ReadS [DecodeAuthorizationMessageResponse]
@@ -357,7 +357,7 @@ readList :: ReadS [DecodeAuthorizationMessageResponse]
 $creadList :: ReadS [DecodeAuthorizationMessageResponse]
 readsPrec :: Int -&gt; ReadS DecodeAuthorizationMessageResponse
 $creadsPrec :: Int -&gt; ReadS DecodeAuthorizationMessageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152293"><span id="local-6989586621679152295"><span id="local-6989586621679152297"><span class="annot"><span class="annottext">Int -&gt; DecodeAuthorizationMessageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152302"><span id="local-6989586621679152304"><span id="local-6989586621679152306"><span class="annot"><span class="annottext">Int -&gt; DecodeAuthorizationMessageResponse -&gt; ShowS
 [DecodeAuthorizationMessageResponse] -&gt; ShowS
 DecodeAuthorizationMessageResponse -&gt; String
 (Int -&gt; DecodeAuthorizationMessageResponse -&gt; ShowS)
@@ -411,8 +411,8 @@ DecodeAuthorizationMessageResponse
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse</span></a></span><span>
 </span><span id="line-175"></span><span id="newDecodeAuthorizationMessageResponse"><span class="annot"><span class="annottext">newDecodeAuthorizationMessageResponse :: Int -&gt; DecodeAuthorizationMessageResponse
-</span><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#newDecodeAuthorizationMessageResponse"><span class="hs-identifier hs-var hs-var">newDecodeAuthorizationMessageResponse</span></a></span></span><span> </span><span id="local-6989586621679152290"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679152290"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#newDecodeAuthorizationMessageResponse"><span class="hs-identifier hs-var hs-var">newDecodeAuthorizationMessageResponse</span></a></span></span><span> </span><span id="local-6989586621679152299"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679152299"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">DecodeAuthorizationMessageResponse' :: Maybe Text -&gt; Int -&gt; DecodeAuthorizationMessageResponse
 </span><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse'</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:decodedMessage:DecodeAuthorizationMessageResponse' :: Maybe Text
@@ -422,7 +422,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DecodeAuthorizationMessageResponse' :: Int
 </span><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#%24sel%3AhttpStatus%3ADecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679152290"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679152299"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | An XML document that contains the decoded message.</span><span>
@@ -439,16 +439,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152289"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152298"><span class="annot"><span class="annottext">Maybe Text
 decodedMessage :: Maybe Text
 $sel:decodedMessage:DecodeAuthorizationMessageResponse' :: DecodeAuthorizationMessageResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679152289"><span class="hs-identifier hs-var hs-var">decodedMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152289"><span class="hs-identifier hs-var">decodedMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152288"><span class="annot"><span class="annottext">s :: DecodeAuthorizationMessageResponse
-</span><a href="#local-6989586621679152288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152287"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecodeAuthorizationMessageResponse
-</span><a href="#local-6989586621679152288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:decodedMessage:DecodeAuthorizationMessageResponse' :: Maybe Text
+</span><a href="#local-6989586621679152298"><span class="hs-identifier hs-var hs-var">decodedMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152298"><span class="hs-identifier hs-var">decodedMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152297"><span class="annot"><span class="annottext">s :: DecodeAuthorizationMessageResponse
+</span><a href="#local-6989586621679152297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152296"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecodeAuthorizationMessageResponse
+</span><a href="#local-6989586621679152297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:decodedMessage:DecodeAuthorizationMessageResponse' :: Maybe Text
 </span><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#%24sel%3AdecodedMessage%3ADecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-var">decodedMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679152296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-187"></span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#decodeAuthorizationMessageResponse_httpStatus"><span class="hs-identifier hs-type">decodeAuthorizationMessageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -464,18 +464,18 @@ $sel:decodedMessage:DecodeAuthorizationMessageResponse' :: DecodeAuthorizationMe
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152286"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152295"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DecodeAuthorizationMessageResponse' :: DecodeAuthorizationMessageResponse -&gt; Int
-</span><a href="#local-6989586621679152286"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679152286"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152285"><span class="annot"><span class="annottext">s :: DecodeAuthorizationMessageResponse
-</span><a href="#local-6989586621679152285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152284"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679152284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecodeAuthorizationMessageResponse
-</span><a href="#local-6989586621679152285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DecodeAuthorizationMessageResponse' :: Int
+</span><a href="#local-6989586621679152295"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679152295"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152294"><span class="annot"><span class="annottext">s :: DecodeAuthorizationMessageResponse
+</span><a href="#local-6989586621679152294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152293"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679152293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecodeAuthorizationMessageResponse
+</span><a href="#local-6989586621679152294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DecodeAuthorizationMessageResponse' :: Int
 </span><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#%24sel%3AhttpStatus%3ADecodeAuthorizationMessageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679152284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679152293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679152282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679152291"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.STS.DecodeAuthorizationMessage.html#DecodeAuthorizationMessageResponse"><span class="hs-identifier hs-type">DecodeAuthorizationMessageResponse</span></a></span></span><span>
 </span><span id="line-193"></span></pre></body></html>

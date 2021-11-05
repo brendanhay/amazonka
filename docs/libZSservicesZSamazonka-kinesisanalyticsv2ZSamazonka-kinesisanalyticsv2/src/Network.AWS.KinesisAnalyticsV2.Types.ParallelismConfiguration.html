@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ConfigurationType.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.ConfigurationType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes parameters for how a Flink-based Kinesis Data Analytics</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- application executes multiple tasks simultaneously. For more information</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- about parallelism, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/parallel.html Parallel Execution&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://ci.apache.org/projects/flink/flink-docs-release-1.8/ Apache Flink Documentation&gt;.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newParallelismConfiguration' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679291531"><span id="local-6989586621679291532"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParallelismConfiguration"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration"><span class="hs-identifier hs-var">ParallelismConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParallelismConfiguration%27"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration%27"><span class="hs-identifier hs-var">ParallelismConfiguration'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes whether the Kinesis Data Analytics service can increase the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- parallelism of the application in response to increased throughput.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AautoScalingEnabled%3AParallelismConfiguration%27"><span class="annot"><span class="annottext">ParallelismConfiguration -&gt; Maybe Bool
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#%24sel%3AautoScalingEnabled%3AParallelismConfiguration%27"><span class="hs-identifier hs-var hs-var">autoScalingEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Describes the number of parallel tasks that a Flink-based Kinesis Data</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Analytics application can perform per Kinesis Processing Unit (KPU) used</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- by the application. For more information about KPUs, see</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- &lt;http://aws.amazon.com/kinesis/data-analytics/pricing/ Amazon Kinesis Data Analytics Pricing&gt;.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AparallelismPerKPU%3AParallelismConfiguration%27"><span class="annot"><span class="annottext">ParallelismConfiguration -&gt; Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#%24sel%3AparallelismPerKPU%3AParallelismConfiguration%27"><span class="hs-identifier hs-var hs-var">parallelismPerKPU</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Describes the initial number of parallel tasks that a Flink-based</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Kinesis Data Analytics application can perform. If @AutoScalingEnabled@</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- is set to True, Kinesis Data Analytics increases the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- @CurrentParallelism@ value in response to application load. The service</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- can increase the @CurrentParallelism@ value up to the maximum</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- parallelism, which is @ParalellismPerKPU@ times the maximum KPUs for the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- application. The maximum KPUs for an application is 32 by default, and</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- can be increased by requesting a limit increase. If application load is</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- reduced, the service can reduce the @CurrentParallelism@ value down to</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- the @Parallelism@ setting.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aparallelism%3AParallelismConfiguration%27"><span class="annot"><span class="annottext">ParallelismConfiguration -&gt; Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#%24sel%3Aparallelism%3AParallelismConfiguration%27"><span class="hs-identifier hs-var hs-var">parallelism</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Describes whether the application uses the default parallelism for the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Kinesis Data Analytics service. You must set this property to @CUSTOM@</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- in order to change your application\'s @AutoScalingEnabled@,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- @Parallelism@, or @ParallelismPerKPU@ properties.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AconfigurationType%3AParallelismConfiguration%27"><span class="annot"><span class="annottext">ParallelismConfiguration -&gt; ConfigurationType
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#%24sel%3AconfigurationType%3AParallelismConfiguration%27"><span class="hs-identifier hs-var hs-var">configurationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ConfigurationType.html#ConfigurationType"><span class="hs-identifier hs-type">ConfigurationType</span></a></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291522"><span id="local-6989586621679291524"><span class="annot"><span class="annottext">ParallelismConfiguration -&gt; ParallelismConfiguration -&gt; Bool
+(ParallelismConfiguration -&gt; ParallelismConfiguration -&gt; Bool)
+-&gt; (ParallelismConfiguration -&gt; ParallelismConfiguration -&gt; Bool)
+-&gt; Eq ParallelismConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ParallelismConfiguration -&gt; ParallelismConfiguration -&gt; Bool
+$c/= :: ParallelismConfiguration -&gt; ParallelismConfiguration -&gt; Bool
+== :: ParallelismConfiguration -&gt; ParallelismConfiguration -&gt; Bool
+$c== :: ParallelismConfiguration -&gt; ParallelismConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291513"><span id="local-6989586621679291515"><span id="local-6989586621679291517"><span id="local-6989586621679291519"><span class="annot"><span class="annottext">ReadPrec [ParallelismConfiguration]
+ReadPrec ParallelismConfiguration
+Int -&gt; ReadS ParallelismConfiguration
+ReadS [ParallelismConfiguration]
+(Int -&gt; ReadS ParallelismConfiguration)
+-&gt; ReadS [ParallelismConfiguration]
+-&gt; ReadPrec ParallelismConfiguration
+-&gt; ReadPrec [ParallelismConfiguration]
+-&gt; Read ParallelismConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ParallelismConfiguration]
+$creadListPrec :: ReadPrec [ParallelismConfiguration]
+readPrec :: ReadPrec ParallelismConfiguration
+$creadPrec :: ReadPrec ParallelismConfiguration
+readList :: ReadS [ParallelismConfiguration]
+$creadList :: ReadS [ParallelismConfiguration]
+readsPrec :: Int -&gt; ReadS ParallelismConfiguration
+$creadsPrec :: Int -&gt; ReadS ParallelismConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291506"><span id="local-6989586621679291508"><span id="local-6989586621679291510"><span class="annot"><span class="annottext">Int -&gt; ParallelismConfiguration -&gt; ShowS
+[ParallelismConfiguration] -&gt; ShowS
+ParallelismConfiguration -&gt; String
+(Int -&gt; ParallelismConfiguration -&gt; ShowS)
+-&gt; (ParallelismConfiguration -&gt; String)
+-&gt; ([ParallelismConfiguration] -&gt; ShowS)
+-&gt; Show ParallelismConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ParallelismConfiguration] -&gt; ShowS
+$cshowList :: [ParallelismConfiguration] -&gt; ShowS
+show :: ParallelismConfiguration -&gt; String
+$cshow :: ParallelismConfiguration -&gt; String
+showsPrec :: Int -&gt; ParallelismConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; ParallelismConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ParallelismConfiguration -&gt; Rep ParallelismConfiguration x)
+-&gt; (forall x.
+    Rep ParallelismConfiguration x -&gt; ParallelismConfiguration)
+-&gt; Generic ParallelismConfiguration
+forall x.
+Rep ParallelismConfiguration x -&gt; ParallelismConfiguration
+forall x.
+ParallelismConfiguration -&gt; Rep ParallelismConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ParallelismConfiguration x -&gt; ParallelismConfiguration
+$cfrom :: forall x.
+ParallelismConfiguration -&gt; Rep ParallelismConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'ParallelismConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'autoScalingEnabled', 'parallelismConfiguration_autoScalingEnabled' - Describes whether the Kinesis Data Analytics service can increase the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- parallelism of the application in response to increased throughput.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'parallelismPerKPU', 'parallelismConfiguration_parallelismPerKPU' - Describes the number of parallel tasks that a Flink-based Kinesis Data</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Analytics application can perform per Kinesis Processing Unit (KPU) used</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- by the application. For more information about KPUs, see</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/kinesis/data-analytics/pricing/ Amazon Kinesis Data Analytics Pricing&gt;.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'parallelism', 'parallelismConfiguration_parallelism' - Describes the initial number of parallel tasks that a Flink-based</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Kinesis Data Analytics application can perform. If @AutoScalingEnabled@</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- is set to True, Kinesis Data Analytics increases the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- @CurrentParallelism@ value in response to application load. The service</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- can increase the @CurrentParallelism@ value up to the maximum</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- parallelism, which is @ParalellismPerKPU@ times the maximum KPUs for the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- application. The maximum KPUs for an application is 32 by default, and</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- can be increased by requesting a limit increase. If application load is</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- reduced, the service can reduce the @CurrentParallelism@ value down to</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- the @Parallelism@ setting.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'configurationType', 'parallelismConfiguration_configurationType' - Describes whether the application uses the default parallelism for the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Kinesis Data Analytics service. You must set this property to @CUSTOM@</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- in order to change your application\'s @AutoScalingEnabled@,</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- @Parallelism@, or @ParallelismPerKPU@ properties.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#newParallelismConfiguration"><span class="hs-identifier hs-type">newParallelismConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'configurationType'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ConfigurationType.html#ConfigurationType"><span class="hs-identifier hs-type">ConfigurationType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration"><span class="hs-identifier hs-type">ParallelismConfiguration</span></a></span><span>
+</span><span id="line-98"></span><span id="newParallelismConfiguration"><span class="annot"><span class="annottext">newParallelismConfiguration :: ConfigurationType -&gt; ParallelismConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#newParallelismConfiguration"><span class="hs-identifier hs-var hs-var">newParallelismConfiguration</span></a></span></span><span> </span><span id="local-6989586621679291500"><span class="annot"><span class="annottext">ConfigurationType
+</span><a href="#local-6989586621679291500"><span class="hs-identifier hs-var">pConfigurationType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">ParallelismConfiguration' :: Maybe Bool
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; ConfigurationType
+-&gt; ParallelismConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration%27"><span class="hs-identifier hs-type">ParallelismConfiguration'</span></a></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:autoScalingEnabled:ParallelismConfiguration' :: Maybe Bool
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#%24sel%3AautoScalingEnabled%3AParallelismConfiguration%27"><span class="hs-identifier hs-var">autoScalingEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:parallelismPerKPU:ParallelismConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#%24sel%3AparallelismPerKPU%3AParallelismConfiguration%27"><span class="hs-identifier hs-var">parallelismPerKPU</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:parallelism:ParallelismConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#%24sel%3Aparallelism%3AParallelismConfiguration%27"><span class="hs-identifier hs-var">parallelism</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:configurationType:ParallelismConfiguration' :: ConfigurationType
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#%24sel%3AconfigurationType%3AParallelismConfiguration%27"><span class="hs-identifier hs-var">configurationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConfigurationType
+</span><a href="#local-6989586621679291500"><span class="hs-identifier hs-var">pConfigurationType_</span></a></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Describes whether the Kinesis Data Analytics service can increase the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- parallelism of the application in response to increased throughput.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#parallelismConfiguration_autoScalingEnabled"><span class="hs-identifier hs-type">parallelismConfiguration_autoScalingEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration"><span class="hs-identifier hs-type">ParallelismConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="parallelismConfiguration_autoScalingEnabled"><span class="annot"><span class="annottext">parallelismConfiguration_autoScalingEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ParallelismConfiguration -&gt; f ParallelismConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#parallelismConfiguration_autoScalingEnabled"><span class="hs-identifier hs-var hs-var">parallelismConfiguration_autoScalingEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParallelismConfiguration -&gt; Maybe Bool)
+-&gt; (ParallelismConfiguration
+    -&gt; Maybe Bool -&gt; ParallelismConfiguration)
+-&gt; Lens
+     ParallelismConfiguration
+     ParallelismConfiguration
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration%27"><span class="hs-identifier hs-type">ParallelismConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291496"><span class="annot"><span class="annottext">Maybe Bool
+autoScalingEnabled :: Maybe Bool
+$sel:autoScalingEnabled:ParallelismConfiguration' :: ParallelismConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679291496"><span class="hs-identifier hs-var hs-var">autoScalingEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679291496"><span class="hs-identifier hs-var">autoScalingEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291495"><span class="annot"><span class="annottext">s :: ParallelismConfiguration
+</span><a href="#local-6989586621679291495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration%27"><span class="hs-identifier hs-type">ParallelismConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291494"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679291494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParallelismConfiguration
+</span><a href="#local-6989586621679291495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingEnabled:ParallelismConfiguration' :: Maybe Bool
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#%24sel%3AautoScalingEnabled%3AParallelismConfiguration%27"><span class="hs-identifier hs-var">autoScalingEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679291494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration"><span class="hs-identifier hs-type">ParallelismConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Describes the number of parallel tasks that a Flink-based Kinesis Data</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Analytics application can perform per Kinesis Processing Unit (KPU) used</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- by the application. For more information about KPUs, see</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/kinesis/data-analytics/pricing/ Amazon Kinesis Data Analytics Pricing&gt;.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#parallelismConfiguration_parallelismPerKPU"><span class="hs-identifier hs-type">parallelismConfiguration_parallelismPerKPU</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration"><span class="hs-identifier hs-type">ParallelismConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="parallelismConfiguration_parallelismPerKPU"><span class="annot"><span class="annottext">parallelismConfiguration_parallelismPerKPU :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ParallelismConfiguration -&gt; f ParallelismConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#parallelismConfiguration_parallelismPerKPU"><span class="hs-identifier hs-var hs-var">parallelismConfiguration_parallelismPerKPU</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParallelismConfiguration -&gt; Maybe Natural)
+-&gt; (ParallelismConfiguration
+    -&gt; Maybe Natural -&gt; ParallelismConfiguration)
+-&gt; Lens
+     ParallelismConfiguration
+     ParallelismConfiguration
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration%27"><span class="hs-identifier hs-type">ParallelismConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291492"><span class="annot"><span class="annottext">Maybe Natural
+parallelismPerKPU :: Maybe Natural
+$sel:parallelismPerKPU:ParallelismConfiguration' :: ParallelismConfiguration -&gt; Maybe Natural
+</span><a href="#local-6989586621679291492"><span class="hs-identifier hs-var hs-var">parallelismPerKPU</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679291492"><span class="hs-identifier hs-var">parallelismPerKPU</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291491"><span class="annot"><span class="annottext">s :: ParallelismConfiguration
+</span><a href="#local-6989586621679291491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration%27"><span class="hs-identifier hs-type">ParallelismConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291490"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679291490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParallelismConfiguration
+</span><a href="#local-6989586621679291491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parallelismPerKPU:ParallelismConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#%24sel%3AparallelismPerKPU%3AParallelismConfiguration%27"><span class="hs-identifier hs-var">parallelismPerKPU</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679291490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration"><span class="hs-identifier hs-type">ParallelismConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | Describes the initial number of parallel tasks that a Flink-based</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Kinesis Data Analytics application can perform. If @AutoScalingEnabled@</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- is set to True, Kinesis Data Analytics increases the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- @CurrentParallelism@ value in response to application load. The service</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- can increase the @CurrentParallelism@ value up to the maximum</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- parallelism, which is @ParalellismPerKPU@ times the maximum KPUs for the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- application. The maximum KPUs for an application is 32 by default, and</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- can be increased by requesting a limit increase. If application load is</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- reduced, the service can reduce the @CurrentParallelism@ value down to</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- the @Parallelism@ setting.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#parallelismConfiguration_parallelism"><span class="hs-identifier hs-type">parallelismConfiguration_parallelism</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration"><span class="hs-identifier hs-type">ParallelismConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="parallelismConfiguration_parallelism"><span class="annot"><span class="annottext">parallelismConfiguration_parallelism :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ParallelismConfiguration -&gt; f ParallelismConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#parallelismConfiguration_parallelism"><span class="hs-identifier hs-var hs-var">parallelismConfiguration_parallelism</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParallelismConfiguration -&gt; Maybe Natural)
+-&gt; (ParallelismConfiguration
+    -&gt; Maybe Natural -&gt; ParallelismConfiguration)
+-&gt; Lens
+     ParallelismConfiguration
+     ParallelismConfiguration
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration%27"><span class="hs-identifier hs-type">ParallelismConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291488"><span class="annot"><span class="annottext">Maybe Natural
+parallelism :: Maybe Natural
+$sel:parallelism:ParallelismConfiguration' :: ParallelismConfiguration -&gt; Maybe Natural
+</span><a href="#local-6989586621679291488"><span class="hs-identifier hs-var hs-var">parallelism</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679291488"><span class="hs-identifier hs-var">parallelism</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291487"><span class="annot"><span class="annottext">s :: ParallelismConfiguration
+</span><a href="#local-6989586621679291487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration%27"><span class="hs-identifier hs-type">ParallelismConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291486"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679291486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParallelismConfiguration
+</span><a href="#local-6989586621679291487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parallelism:ParallelismConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#%24sel%3Aparallelism%3AParallelismConfiguration%27"><span class="hs-identifier hs-var">parallelism</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679291486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration"><span class="hs-identifier hs-type">ParallelismConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Describes whether the application uses the default parallelism for the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Kinesis Data Analytics service. You must set this property to @CUSTOM@</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- in order to change your application\'s @AutoScalingEnabled@,</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- @Parallelism@, or @ParallelismPerKPU@ properties.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#parallelismConfiguration_configurationType"><span class="hs-identifier hs-type">parallelismConfiguration_configurationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration"><span class="hs-identifier hs-type">ParallelismConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ConfigurationType.html#ConfigurationType"><span class="hs-identifier hs-type">ConfigurationType</span></a></span><span>
+</span><span id="line-137"></span><span id="parallelismConfiguration_configurationType"><span class="annot"><span class="annottext">parallelismConfiguration_configurationType :: (ConfigurationType -&gt; f ConfigurationType)
+-&gt; ParallelismConfiguration -&gt; f ParallelismConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#parallelismConfiguration_configurationType"><span class="hs-identifier hs-var hs-var">parallelismConfiguration_configurationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParallelismConfiguration -&gt; ConfigurationType)
+-&gt; (ParallelismConfiguration
+    -&gt; ConfigurationType -&gt; ParallelismConfiguration)
+-&gt; Lens
+     ParallelismConfiguration
+     ParallelismConfiguration
+     ConfigurationType
+     ConfigurationType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration%27"><span class="hs-identifier hs-type">ParallelismConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291484"><span class="annot"><span class="annottext">ConfigurationType
+configurationType :: ConfigurationType
+$sel:configurationType:ParallelismConfiguration' :: ParallelismConfiguration -&gt; ConfigurationType
+</span><a href="#local-6989586621679291484"><span class="hs-identifier hs-var hs-var">configurationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationType
+</span><a href="#local-6989586621679291484"><span class="hs-identifier hs-var">configurationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291483"><span class="annot"><span class="annottext">s :: ParallelismConfiguration
+</span><a href="#local-6989586621679291483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration%27"><span class="hs-identifier hs-type">ParallelismConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291482"><span class="annot"><span class="annottext">ConfigurationType
+</span><a href="#local-6989586621679291482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParallelismConfiguration
+</span><a href="#local-6989586621679291483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationType:ParallelismConfiguration' :: ConfigurationType
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#%24sel%3AconfigurationType%3AParallelismConfiguration%27"><span class="hs-identifier hs-var">configurationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConfigurationType
+</span><a href="#local-6989586621679291482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration"><span class="hs-identifier hs-type">ParallelismConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291478"><span id="local-6989586621679291480"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration"><span class="hs-identifier hs-type">ParallelismConfiguration</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291475"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration"><span class="hs-identifier hs-type">ParallelismConfiguration</span></a></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291467"><span id="local-6989586621679291469"><span id="local-6989586621679291471"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration"><span class="hs-identifier hs-type">ParallelismConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679291465"><span class="annot"><span class="annottext">toJSON :: ParallelismConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ParallelismConfiguration.html#ParallelismConfiguration%27"><span class="hs-identifier hs-type">ParallelismConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291460"><span id="local-6989586621679291461"><span id="local-6989586621679291462"><span id="local-6989586621679291463"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+ConfigurationType
+configurationType :: ConfigurationType
+parallelism :: Maybe Natural
+parallelismPerKPU :: Maybe Natural
+autoScalingEnabled :: Maybe Bool
+$sel:configurationType:ParallelismConfiguration' :: ParallelismConfiguration -&gt; ConfigurationType
+$sel:parallelism:ParallelismConfiguration' :: ParallelismConfiguration -&gt; Maybe Natural
+$sel:parallelismPerKPU:ParallelismConfiguration' :: ParallelismConfiguration -&gt; Maybe Natural
+$sel:autoScalingEnabled:ParallelismConfiguration' :: ParallelismConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679291460"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoScalingEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679291463"><span class="hs-identifier hs-var">autoScalingEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParallelismPerKPU&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679291462"><span class="hs-identifier hs-var">parallelismPerKPU</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Parallelism&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679291461"><span class="hs-identifier hs-var">parallelism</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-153"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConfigurationType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConfigurationType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ConfigurationType
+</span><a href="#local-6989586621679291460"><span class="hs-identifier hs-var">configurationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span></pre></body></html>

@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | The request to update the device status, as an administrator.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newAdminUpdateDeviceStatus' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679454603"><span id="local-6989586621679454604"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminUpdateDeviceStatus"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-var">AdminUpdateDeviceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminUpdateDeviceStatus%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-var">AdminUpdateDeviceStatus'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679454612"><span id="local-6989586621679454613"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminUpdateDeviceStatus"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-var">AdminUpdateDeviceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminUpdateDeviceStatus%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-var">AdminUpdateDeviceStatus'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status indicating whether a device has been remembered or not.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdeviceRememberedStatus%3AAdminUpdateDeviceStatus%27"><span class="annot"><span class="annottext">AdminUpdateDeviceStatus -&gt; Maybe DeviceRememberedStatusType
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#%24sel%3AdeviceRememberedStatus%3AAdminUpdateDeviceStatus%27"><span class="hs-identifier hs-var hs-var">deviceRememberedStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeviceRememberedStatusType.html#DeviceRememberedStatusType"><span class="hs-identifier hs-type">DeviceRememberedStatusType</span></a></span><span class="hs-special">,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AdeviceKey%3AAdminUpdateDeviceStatus%27"><span class="annot"><span class="annottext">AdminUpdateDeviceStatus -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#%24sel%3AdeviceKey%3AAdminUpdateDeviceStatus%27"><span class="hs-identifier hs-var hs-var">deviceKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454594"><span id="local-6989586621679454596"><span class="annot"><span class="annottext">AdminUpdateDeviceStatus -&gt; AdminUpdateDeviceStatus -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454603"><span id="local-6989586621679454605"><span class="annot"><span class="annottext">AdminUpdateDeviceStatus -&gt; AdminUpdateDeviceStatus -&gt; Bool
 (AdminUpdateDeviceStatus -&gt; AdminUpdateDeviceStatus -&gt; Bool)
 -&gt; (AdminUpdateDeviceStatus -&gt; AdminUpdateDeviceStatus -&gt; Bool)
 -&gt; Eq AdminUpdateDeviceStatus
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AdminUpdateDeviceStatus -&gt; AdminUpdateDeviceStatus -&gt; Bool
 == :: AdminUpdateDeviceStatus -&gt; AdminUpdateDeviceStatus -&gt; Bool
 $c== :: AdminUpdateDeviceStatus -&gt; AdminUpdateDeviceStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454587"><span id="local-6989586621679454589"><span id="local-6989586621679454591"><span class="annot"><span class="annottext">Int -&gt; AdminUpdateDeviceStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454596"><span id="local-6989586621679454598"><span id="local-6989586621679454600"><span class="annot"><span class="annottext">Int -&gt; AdminUpdateDeviceStatus -&gt; ShowS
 [AdminUpdateDeviceStatus] -&gt; ShowS
 AdminUpdateDeviceStatus -&gt; String
 (Int -&gt; AdminUpdateDeviceStatus -&gt; ShowS)
@@ -129,12 +129,12 @@ $cfrom :: forall x. AdminUpdateDeviceStatus -&gt; Rep AdminUpdateDeviceStatus x
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span><span>
 </span><span id="line-91"></span><span id="newAdminUpdateDeviceStatus"><span class="annot"><span class="annottext">newAdminUpdateDeviceStatus :: Text -&gt; Text -&gt; Text -&gt; AdminUpdateDeviceStatus
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#newAdminUpdateDeviceStatus"><span class="hs-identifier hs-var hs-var">newAdminUpdateDeviceStatus</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679454582"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454582"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679454581"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454581"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679454580"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454580"><span class="hs-identifier hs-var">pDeviceKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679454591"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454591"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679454590"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454590"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679454589"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454589"><span class="hs-identifier hs-var">pDeviceKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">AdminUpdateDeviceStatus' :: Maybe DeviceRememberedStatusType
 -&gt; Text -&gt; Sensitive Text -&gt; Text -&gt; AdminUpdateDeviceStatus
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span>
@@ -145,7 +145,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:userPoolId:AdminUpdateDeviceStatus' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#%24sel%3AuserPoolId%3AAdminUpdateDeviceStatus%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454582"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679454591"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:username:AdminUpdateDeviceStatus' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#%24sel%3Ausername%3AAdminUpdateDeviceStatus%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -155,10 +155,10 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454581"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679454590"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:deviceKey:AdminUpdateDeviceStatus' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#%24sel%3AdeviceKey%3AAdminUpdateDeviceStatus%27"><span class="hs-identifier hs-var">deviceKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454580"><span class="hs-identifier hs-var">pDeviceKey_</span></a></span><span>
+</span><a href="#local-6989586621679454589"><span class="hs-identifier hs-var">pDeviceKey_</span></a></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The status indicating whether a device has been remembered or not.</span><span>
@@ -175,16 +175,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe DeviceRememberedStatusType)
      (Maybe DeviceRememberedStatusType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454575"><span class="annot"><span class="annottext">Maybe DeviceRememberedStatusType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454584"><span class="annot"><span class="annottext">Maybe DeviceRememberedStatusType
 deviceRememberedStatus :: Maybe DeviceRememberedStatusType
 $sel:deviceRememberedStatus:AdminUpdateDeviceStatus' :: AdminUpdateDeviceStatus -&gt; Maybe DeviceRememberedStatusType
-</span><a href="#local-6989586621679454575"><span class="hs-identifier hs-var hs-var">deviceRememberedStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceRememberedStatusType
-</span><a href="#local-6989586621679454575"><span class="hs-identifier hs-var">deviceRememberedStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454574"><span class="annot"><span class="annottext">s :: AdminUpdateDeviceStatus
-</span><a href="#local-6989586621679454574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454573"><span class="annot"><span class="annottext">Maybe DeviceRememberedStatusType
-</span><a href="#local-6989586621679454573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUpdateDeviceStatus
-</span><a href="#local-6989586621679454574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceRememberedStatus:AdminUpdateDeviceStatus' :: Maybe DeviceRememberedStatusType
+</span><a href="#local-6989586621679454584"><span class="hs-identifier hs-var hs-var">deviceRememberedStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceRememberedStatusType
+</span><a href="#local-6989586621679454584"><span class="hs-identifier hs-var">deviceRememberedStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454583"><span class="annot"><span class="annottext">s :: AdminUpdateDeviceStatus
+</span><a href="#local-6989586621679454583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454582"><span class="annot"><span class="annottext">Maybe DeviceRememberedStatusType
+</span><a href="#local-6989586621679454582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUpdateDeviceStatus
+</span><a href="#local-6989586621679454583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceRememberedStatus:AdminUpdateDeviceStatus' :: Maybe DeviceRememberedStatusType
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#%24sel%3AdeviceRememberedStatus%3AAdminUpdateDeviceStatus%27"><span class="hs-identifier hs-var">deviceRememberedStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceRememberedStatusType
-</span><a href="#local-6989586621679454573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The user pool ID.</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#adminUpdateDeviceStatus_userPoolId"><span class="hs-identifier hs-type">adminUpdateDeviceStatus_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -194,16 +194,16 @@ $sel:deviceRememberedStatus:AdminUpdateDeviceStatus' :: AdminUpdateDeviceStatus 
 -&gt; (AdminUpdateDeviceStatus -&gt; Text -&gt; AdminUpdateDeviceStatus)
 -&gt; Lens AdminUpdateDeviceStatus AdminUpdateDeviceStatus Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454572"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454581"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 $sel:userPoolId:AdminUpdateDeviceStatus' :: AdminUpdateDeviceStatus -&gt; Text
-</span><a href="#local-6989586621679454572"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454572"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454571"><span class="annot"><span class="annottext">s :: AdminUpdateDeviceStatus
-</span><a href="#local-6989586621679454571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454570"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUpdateDeviceStatus
-</span><a href="#local-6989586621679454571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:AdminUpdateDeviceStatus' :: Text
+</span><a href="#local-6989586621679454581"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454581"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454580"><span class="annot"><span class="annottext">s :: AdminUpdateDeviceStatus
+</span><a href="#local-6989586621679454580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454579"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUpdateDeviceStatus
+</span><a href="#local-6989586621679454580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:AdminUpdateDeviceStatus' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#%24sel%3AuserPoolId%3AAdminUpdateDeviceStatus%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The user name.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#adminUpdateDeviceStatus_username"><span class="hs-identifier hs-type">adminUpdateDeviceStatus_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -218,16 +218,16 @@ $sel:userPoolId:AdminUpdateDeviceStatus' :: AdminUpdateDeviceStatus -&gt; Text
      (Sensitive Text)
      (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454569"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454578"><span class="annot"><span class="annottext">Sensitive Text
 username :: Sensitive Text
 $sel:username:AdminUpdateDeviceStatus' :: AdminUpdateDeviceStatus -&gt; Sensitive Text
-</span><a href="#local-6989586621679454569"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679454569"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454568"><span class="annot"><span class="annottext">s :: AdminUpdateDeviceStatus
-</span><a href="#local-6989586621679454568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454567"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679454567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUpdateDeviceStatus
-</span><a href="#local-6989586621679454568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:AdminUpdateDeviceStatus' :: Sensitive Text
+</span><a href="#local-6989586621679454578"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679454578"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454577"><span class="annot"><span class="annottext">s :: AdminUpdateDeviceStatus
+</span><a href="#local-6989586621679454577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454576"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679454576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUpdateDeviceStatus
+</span><a href="#local-6989586621679454577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:AdminUpdateDeviceStatus' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#%24sel%3Ausername%3AAdminUpdateDeviceStatus%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679454567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679454576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; AdminUpdateDeviceStatus -&gt; f AdminUpdateDeviceStatus)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -246,28 +246,28 @@ forall a. Iso' (Sensitive a) a
 -&gt; (AdminUpdateDeviceStatus -&gt; Text -&gt; AdminUpdateDeviceStatus)
 -&gt; Lens AdminUpdateDeviceStatus AdminUpdateDeviceStatus Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454565"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454574"><span class="annot"><span class="annottext">Text
 deviceKey :: Text
 $sel:deviceKey:AdminUpdateDeviceStatus' :: AdminUpdateDeviceStatus -&gt; Text
-</span><a href="#local-6989586621679454565"><span class="hs-identifier hs-var hs-var">deviceKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454565"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454564"><span class="annot"><span class="annottext">s :: AdminUpdateDeviceStatus
-</span><a href="#local-6989586621679454564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454563"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUpdateDeviceStatus
-</span><a href="#local-6989586621679454564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceKey:AdminUpdateDeviceStatus' :: Text
+</span><a href="#local-6989586621679454574"><span class="hs-identifier hs-var hs-var">deviceKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454574"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454573"><span class="annot"><span class="annottext">s :: AdminUpdateDeviceStatus
+</span><a href="#local-6989586621679454573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454572"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUpdateDeviceStatus
+</span><a href="#local-6989586621679454573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceKey:AdminUpdateDeviceStatus' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#%24sel%3AdeviceKey%3AAdminUpdateDeviceStatus%27"><span class="hs-identifier hs-var">deviceKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatusResponse"><span class="hs-identifier hs-type">AdminUpdateDeviceStatusResponse</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679454559"><span class="annot"><span class="annottext">request :: AdminUpdateDeviceStatus -&gt; Request AdminUpdateDeviceStatus
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679454568"><span class="annot"><span class="annottext">request :: AdminUpdateDeviceStatus -&gt; Request AdminUpdateDeviceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; AdminUpdateDeviceStatus -&gt; Request AdminUpdateDeviceStatus
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679454555"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679454564"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AdminUpdateDeviceStatus
 -&gt; ClientResponse ClientBody
@@ -293,10 +293,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679454552"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454552"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679454551"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679454551"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679454550"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679454550"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679454561"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454561"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679454560"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679454560"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679454559"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679454559"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AdminUpdateDeviceStatusResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatusResponse%27"><span class="hs-identifier hs-var">AdminUpdateDeviceStatusResponse'</span></a></span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AdminUpdateDeviceStatusResponse)
@@ -308,15 +308,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454552"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454561"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454543"><span id="local-6989586621679454545"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454552"><span id="local-6989586621679454554"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454540"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454549"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679454536"><span class="annot"><span class="annottext">toHeaders :: AdminUpdateDeviceStatus -&gt; ResponseHeaders
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679454545"><span class="annot"><span class="annottext">toHeaders :: AdminUpdateDeviceStatus -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AdminUpdateDeviceStatus -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -343,9 +343,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454526"><span id="local-6989586621679454528"><span id="local-6989586621679454530"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679454524"><span class="annot"><span class="annottext">toJSON :: AdminUpdateDeviceStatus -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454519"><span id="local-6989586621679454520"><span id="local-6989586621679454521"><span id="local-6989586621679454522"><span class="annot"><span class="annottext">Maybe DeviceRememberedStatusType
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454535"><span id="local-6989586621679454537"><span id="local-6989586621679454539"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679454533"><span class="annot"><span class="annottext">toJSON :: AdminUpdateDeviceStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454528"><span id="local-6989586621679454529"><span id="local-6989586621679454530"><span id="local-6989586621679454531"><span class="annot"><span class="annottext">Maybe DeviceRememberedStatusType
 Text
 Sensitive Text
 deviceKey :: Text
@@ -356,7 +356,7 @@ $sel:deviceKey:AdminUpdateDeviceStatus' :: AdminUpdateDeviceStatus -&gt; Text
 $sel:username:AdminUpdateDeviceStatus' :: AdminUpdateDeviceStatus -&gt; Sensitive Text
 $sel:userPoolId:AdminUpdateDeviceStatus' :: AdminUpdateDeviceStatus -&gt; Text
 $sel:deviceRememberedStatus:AdminUpdateDeviceStatus' :: AdminUpdateDeviceStatus -&gt; Maybe DeviceRememberedStatusType
-</span><a href="#local-6989586621679454519"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679454528"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -370,40 +370,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DeviceRememberedStatusType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeviceRememberedStatusType
-</span><a href="#local-6989586621679454522"><span class="hs-identifier hs-var">deviceRememberedStatus</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679454531"><span class="hs-identifier hs-var">deviceRememberedStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454521"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679454530"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679454520"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679454529"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679454519"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454528"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679454513"><span class="annot"><span class="annottext">toPath :: AdminUpdateDeviceStatus -&gt; ByteString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679454522"><span class="annot"><span class="annottext">toPath :: AdminUpdateDeviceStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AdminUpdateDeviceStatus -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatus"><span class="hs-identifier hs-type">AdminUpdateDeviceStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679454509"><span class="annot"><span class="annottext">toQuery :: AdminUpdateDeviceStatus -&gt; QueryString
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679454518"><span class="annot"><span class="annottext">toQuery :: AdminUpdateDeviceStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AdminUpdateDeviceStatus -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -414,12 +414,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-169"></span><span class="hs-comment">-- administrator.</span><span>
 </span><span id="line-170"></span><span class="hs-comment">--</span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- /See:/ 'newAdminUpdateDeviceStatusResponse' smart constructor.</span><span>
-</span><span id="line-172"></span><span id="local-6989586621679454506"><span id="local-6989586621679454507"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminUpdateDeviceStatusResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatusResponse"><span class="hs-identifier hs-var">AdminUpdateDeviceStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminUpdateDeviceStatusResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatusResponse%27"><span class="hs-identifier hs-var">AdminUpdateDeviceStatusResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span id="local-6989586621679454515"><span id="local-6989586621679454516"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminUpdateDeviceStatusResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatusResponse"><span class="hs-identifier hs-var">AdminUpdateDeviceStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminUpdateDeviceStatusResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatusResponse%27"><span class="hs-identifier hs-var">AdminUpdateDeviceStatusResponse'</span></a></span></span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAdminUpdateDeviceStatusResponse%27"><span class="annot"><span class="annottext">AdminUpdateDeviceStatusResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#%24sel%3AhttpStatus%3AAdminUpdateDeviceStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454501"><span id="local-6989586621679454503"><span class="annot"><span class="annottext">AdminUpdateDeviceStatusResponse
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454510"><span id="local-6989586621679454512"><span class="annot"><span class="annottext">AdminUpdateDeviceStatusResponse
 -&gt; AdminUpdateDeviceStatusResponse -&gt; Bool
 (AdminUpdateDeviceStatusResponse
  -&gt; AdminUpdateDeviceStatusResponse -&gt; Bool)
@@ -435,7 +435,7 @@ $c/= :: AdminUpdateDeviceStatusResponse
 -&gt; AdminUpdateDeviceStatusResponse -&gt; Bool
 $c== :: AdminUpdateDeviceStatusResponse
 -&gt; AdminUpdateDeviceStatusResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454493"><span id="local-6989586621679454495"><span id="local-6989586621679454497"><span id="local-6989586621679454499"><span class="annot"><span class="annottext">ReadPrec [AdminUpdateDeviceStatusResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454502"><span id="local-6989586621679454504"><span id="local-6989586621679454506"><span id="local-6989586621679454508"><span class="annot"><span class="annottext">ReadPrec [AdminUpdateDeviceStatusResponse]
 ReadPrec AdminUpdateDeviceStatusResponse
 Int -&gt; ReadS AdminUpdateDeviceStatusResponse
 ReadS [AdminUpdateDeviceStatusResponse]
@@ -455,7 +455,7 @@ readList :: ReadS [AdminUpdateDeviceStatusResponse]
 $creadList :: ReadS [AdminUpdateDeviceStatusResponse]
 readsPrec :: Int -&gt; ReadS AdminUpdateDeviceStatusResponse
 $creadsPrec :: Int -&gt; ReadS AdminUpdateDeviceStatusResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454486"><span id="local-6989586621679454488"><span id="local-6989586621679454490"><span class="annot"><span class="annottext">Int -&gt; AdminUpdateDeviceStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454495"><span id="local-6989586621679454497"><span id="local-6989586621679454499"><span class="annot"><span class="annottext">Int -&gt; AdminUpdateDeviceStatusResponse -&gt; ShowS
 [AdminUpdateDeviceStatusResponse] -&gt; ShowS
 AdminUpdateDeviceStatusResponse -&gt; String
 (Int -&gt; AdminUpdateDeviceStatusResponse -&gt; ShowS)
@@ -507,14 +507,14 @@ AdminUpdateDeviceStatusResponse
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatusResponse"><span class="hs-identifier hs-type">AdminUpdateDeviceStatusResponse</span></a></span><span>
 </span><span id="line-191"></span><span id="newAdminUpdateDeviceStatusResponse"><span class="annot"><span class="annottext">newAdminUpdateDeviceStatusResponse :: Int -&gt; AdminUpdateDeviceStatusResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#newAdminUpdateDeviceStatusResponse"><span class="hs-identifier hs-var hs-var">newAdminUpdateDeviceStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679454483"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454483"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#newAdminUpdateDeviceStatusResponse"><span class="hs-identifier hs-var hs-var">newAdminUpdateDeviceStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679454492"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454492"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="annottext">AdminUpdateDeviceStatusResponse' :: Int -&gt; AdminUpdateDeviceStatusResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatusResponse%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatusResponse'</span></a></span><span>
 </span><span id="line-193"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AdminUpdateDeviceStatusResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#%24sel%3AhttpStatus%3AAdminUpdateDeviceStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454483"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679454492"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-195"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -531,18 +531,18 @@ AdminUpdateDeviceStatusResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatusResponse%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454482"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatusResponse%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454491"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AdminUpdateDeviceStatusResponse' :: AdminUpdateDeviceStatusResponse -&gt; Int
-</span><a href="#local-6989586621679454482"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454482"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454481"><span class="annot"><span class="annottext">s :: AdminUpdateDeviceStatusResponse
-</span><a href="#local-6989586621679454481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatusResponse%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454480"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUpdateDeviceStatusResponse
-</span><a href="#local-6989586621679454481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AdminUpdateDeviceStatusResponse' :: Int
+</span><a href="#local-6989586621679454491"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454491"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454490"><span class="annot"><span class="annottext">s :: AdminUpdateDeviceStatusResponse
+</span><a href="#local-6989586621679454490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatusResponse%27"><span class="hs-identifier hs-type">AdminUpdateDeviceStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454489"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUpdateDeviceStatusResponse
+</span><a href="#local-6989586621679454490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AdminUpdateDeviceStatusResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#%24sel%3AhttpStatus%3AAdminUpdateDeviceStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679454480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatusResponse"><span class="hs-identifier hs-type">AdminUpdateDeviceStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatusResponse"><span class="hs-identifier hs-type">AdminUpdateDeviceStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679454478"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679454487"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-203"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus.html#AdminUpdateDeviceStatusResponse"><span class="hs-identifier hs-type">AdminUpdateDeviceStatusResponse</span></a></span></span><span>
 </span><span id="line-204"></span></pre></body></html>

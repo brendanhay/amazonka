@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | Represents the input for EnableEnhancedMonitoring.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newEnableEnhancedMonitoring' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679203780"><span id="local-6989586621679203781"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableEnhancedMonitoring"><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-var">EnableEnhancedMonitoring</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableEnhancedMonitoring%27"><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring%27"><span class="hs-identifier hs-var">EnableEnhancedMonitoring'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679203789"><span id="local-6989586621679203790"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableEnhancedMonitoring"><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-var">EnableEnhancedMonitoring</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableEnhancedMonitoring%27"><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring%27"><span class="hs-identifier hs-var">EnableEnhancedMonitoring'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the stream for which to enable enhanced monitoring.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AstreamName%3AEnableEnhancedMonitoring%27"><span class="annot"><span class="annottext">EnableEnhancedMonitoring -&gt; Text
 </span><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#%24sel%3AstreamName%3AEnableEnhancedMonitoring%27"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -82,7 +82,7 @@
 </span><span id="line-81"></span><span>    </span><span id="%24sel%3AshardLevelMetrics%3AEnableEnhancedMonitoring%27"><span class="annot"><span class="annottext">EnableEnhancedMonitoring -&gt; [MetricsName]
 </span><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#%24sel%3AshardLevelMetrics%3AEnableEnhancedMonitoring%27"><span class="hs-identifier hs-var hs-var">shardLevelMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName"><span class="hs-identifier hs-type">MetricsName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203773"><span id="local-6989586621679203775"><span class="annot"><span class="annottext">EnableEnhancedMonitoring -&gt; EnableEnhancedMonitoring -&gt; Bool
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203782"><span id="local-6989586621679203784"><span class="annot"><span class="annottext">EnableEnhancedMonitoring -&gt; EnableEnhancedMonitoring -&gt; Bool
 (EnableEnhancedMonitoring -&gt; EnableEnhancedMonitoring -&gt; Bool)
 -&gt; (EnableEnhancedMonitoring -&gt; EnableEnhancedMonitoring -&gt; Bool)
 -&gt; Eq EnableEnhancedMonitoring
@@ -91,7 +91,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnableEnhancedMonitoring -&gt; EnableEnhancedMonitoring -&gt; Bool
 == :: EnableEnhancedMonitoring -&gt; EnableEnhancedMonitoring -&gt; Bool
 $c== :: EnableEnhancedMonitoring -&gt; EnableEnhancedMonitoring -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203764"><span id="local-6989586621679203766"><span id="local-6989586621679203768"><span id="local-6989586621679203770"><span class="annot"><span class="annottext">ReadPrec [EnableEnhancedMonitoring]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203773"><span id="local-6989586621679203775"><span id="local-6989586621679203777"><span id="local-6989586621679203779"><span class="annot"><span class="annottext">ReadPrec [EnableEnhancedMonitoring]
 ReadPrec EnableEnhancedMonitoring
 Int -&gt; ReadS EnableEnhancedMonitoring
 ReadS [EnableEnhancedMonitoring]
@@ -111,7 +111,7 @@ readList :: ReadS [EnableEnhancedMonitoring]
 $creadList :: ReadS [EnableEnhancedMonitoring]
 readsPrec :: Int -&gt; ReadS EnableEnhancedMonitoring
 $creadsPrec :: Int -&gt; ReadS EnableEnhancedMonitoring
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203757"><span id="local-6989586621679203759"><span id="local-6989586621679203761"><span class="annot"><span class="annottext">Int -&gt; EnableEnhancedMonitoring -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203766"><span id="local-6989586621679203768"><span id="local-6989586621679203770"><span class="annot"><span class="annottext">Int -&gt; EnableEnhancedMonitoring -&gt; ShowS
 [EnableEnhancedMonitoring] -&gt; ShowS
 EnableEnhancedMonitoring -&gt; String
 (Int -&gt; EnableEnhancedMonitoring -&gt; ShowS)
@@ -182,14 +182,14 @@ EnableEnhancedMonitoring -&gt; Rep EnableEnhancedMonitoring x
 </span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-type">EnableEnhancedMonitoring</span></a></span><span>
 </span><span id="line-123"></span><span id="newEnableEnhancedMonitoring"><span class="annot"><span class="annottext">newEnableEnhancedMonitoring :: Text -&gt; EnableEnhancedMonitoring
-</span><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#newEnableEnhancedMonitoring"><span class="hs-identifier hs-var hs-var">newEnableEnhancedMonitoring</span></a></span></span><span> </span><span id="local-6989586621679203752"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203752"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#newEnableEnhancedMonitoring"><span class="hs-identifier hs-var hs-var">newEnableEnhancedMonitoring</span></a></span></span><span> </span><span id="local-6989586621679203761"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203761"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>  </span><span class="annot"><span class="annottext">EnableEnhancedMonitoring' :: Text -&gt; [MetricsName] -&gt; EnableEnhancedMonitoring
 </span><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring%27"><span class="hs-identifier hs-type">EnableEnhancedMonitoring'</span></a></span><span>
 </span><span id="line-125"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamName:EnableEnhancedMonitoring' :: Text
 </span><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#%24sel%3AstreamName%3AEnableEnhancedMonitoring%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203752"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679203761"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:shardLevelMetrics:EnableEnhancedMonitoring' :: [MetricsName]
 </span><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#%24sel%3AshardLevelMetrics%3AEnableEnhancedMonitoring%27"><span class="hs-identifier hs-var">shardLevelMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MetricsName]
 forall a. Monoid a =&gt; a
@@ -204,16 +204,16 @@ forall a. Monoid a =&gt; a
 -&gt; (EnableEnhancedMonitoring -&gt; Text -&gt; EnableEnhancedMonitoring)
 -&gt; Lens EnableEnhancedMonitoring EnableEnhancedMonitoring Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring%27"><span class="hs-identifier hs-type">EnableEnhancedMonitoring'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203749"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring%27"><span class="hs-identifier hs-type">EnableEnhancedMonitoring'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203758"><span class="annot"><span class="annottext">Text
 streamName :: Text
 $sel:streamName:EnableEnhancedMonitoring' :: EnableEnhancedMonitoring -&gt; Text
-</span><a href="#local-6989586621679203749"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203749"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203748"><span class="annot"><span class="annottext">s :: EnableEnhancedMonitoring
-</span><a href="#local-6989586621679203748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring%27"><span class="hs-identifier hs-type">EnableEnhancedMonitoring'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203747"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableEnhancedMonitoring
-</span><a href="#local-6989586621679203748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:EnableEnhancedMonitoring' :: Text
+</span><a href="#local-6989586621679203758"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203758"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203757"><span class="annot"><span class="annottext">s :: EnableEnhancedMonitoring
+</span><a href="#local-6989586621679203757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring%27"><span class="hs-identifier hs-type">EnableEnhancedMonitoring'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203756"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableEnhancedMonitoring
+</span><a href="#local-6989586621679203757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:EnableEnhancedMonitoring' :: Text
 </span><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#%24sel%3AstreamName%3AEnableEnhancedMonitoring%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-type">EnableEnhancedMonitoring</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-type">EnableEnhancedMonitoring</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | List of shard-level metrics to enable.</span><span>
 </span><span id="line-135"></span><span class="hs-comment">--</span><span>
@@ -251,16 +251,16 @@ $sel:streamName:EnableEnhancedMonitoring' :: EnableEnhancedMonitoring -&gt; Text
      [MetricsName]
      [MetricsName]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring%27"><span class="hs-identifier hs-type">EnableEnhancedMonitoring'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203746"><span class="annot"><span class="annottext">[MetricsName]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring%27"><span class="hs-identifier hs-type">EnableEnhancedMonitoring'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203755"><span class="annot"><span class="annottext">[MetricsName]
 shardLevelMetrics :: [MetricsName]
 $sel:shardLevelMetrics:EnableEnhancedMonitoring' :: EnableEnhancedMonitoring -&gt; [MetricsName]
-</span><a href="#local-6989586621679203746"><span class="hs-identifier hs-var hs-var">shardLevelMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MetricsName]
-</span><a href="#local-6989586621679203746"><span class="hs-identifier hs-var">shardLevelMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203745"><span class="annot"><span class="annottext">s :: EnableEnhancedMonitoring
-</span><a href="#local-6989586621679203745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring%27"><span class="hs-identifier hs-type">EnableEnhancedMonitoring'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203744"><span class="annot"><span class="annottext">[MetricsName]
-</span><a href="#local-6989586621679203744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableEnhancedMonitoring
-</span><a href="#local-6989586621679203745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardLevelMetrics:EnableEnhancedMonitoring' :: [MetricsName]
+</span><a href="#local-6989586621679203755"><span class="hs-identifier hs-var hs-var">shardLevelMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MetricsName]
+</span><a href="#local-6989586621679203755"><span class="hs-identifier hs-var">shardLevelMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203754"><span class="annot"><span class="annottext">s :: EnableEnhancedMonitoring
+</span><a href="#local-6989586621679203754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring%27"><span class="hs-identifier hs-type">EnableEnhancedMonitoring'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203753"><span class="annot"><span class="annottext">[MetricsName]
+</span><a href="#local-6989586621679203753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableEnhancedMonitoring
+</span><a href="#local-6989586621679203754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardLevelMetrics:EnableEnhancedMonitoring' :: [MetricsName]
 </span><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#%24sel%3AshardLevelMetrics%3AEnableEnhancedMonitoring%27"><span class="hs-identifier hs-var">shardLevelMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MetricsName]
-</span><a href="#local-6989586621679203744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-type">EnableEnhancedMonitoring</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MetricsName] -&gt; f [MetricsName])
+</span><a href="#local-6989586621679203753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-type">EnableEnhancedMonitoring</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MetricsName] -&gt; f [MetricsName])
  -&gt; EnableEnhancedMonitoring -&gt; f EnableEnhancedMonitoring)
 -&gt; (([MetricsName] -&gt; f [MetricsName])
     -&gt; [MetricsName] -&gt; f [MetricsName])
@@ -277,13 +277,13 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-162"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-163"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-type">EnableEnhancedMonitoring</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMonitoringOutput.html#EnhancedMonitoringOutput"><span class="hs-identifier hs-type">EnhancedMonitoringOutput</span></a></span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679203738"><span class="annot"><span class="annottext">request :: EnableEnhancedMonitoring -&gt; Request EnableEnhancedMonitoring
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679203747"><span class="annot"><span class="annottext">request :: EnableEnhancedMonitoring -&gt; Request EnableEnhancedMonitoring
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; EnableEnhancedMonitoring -&gt; Request EnableEnhancedMonitoring
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Kinesis.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679203734"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679203743"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy EnableEnhancedMonitoring
 -&gt; ClientResponse ClientBody
@@ -309,20 +309,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203731"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679203731"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679203730"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679203730"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679203729"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203729"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String EnhancedMonitoringOutput
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203740"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203740"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679203739"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679203739"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679203738"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203738"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String EnhancedMonitoringOutput
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203729"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203738"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203724"><span id="local-6989586621679203726"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-type">EnableEnhancedMonitoring</span></a></span></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203733"><span id="local-6989586621679203735"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-type">EnableEnhancedMonitoring</span></a></span></span></span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203721"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-type">EnableEnhancedMonitoring</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203730"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-type">EnableEnhancedMonitoring</span></a></span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-type">EnableEnhancedMonitoring</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679203717"><span class="annot"><span class="annottext">toHeaders :: EnableEnhancedMonitoring -&gt; ResponseHeaders
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679203726"><span class="annot"><span class="annottext">toHeaders :: EnableEnhancedMonitoring -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; EnableEnhancedMonitoring -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -349,15 +349,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-186"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203707"><span id="local-6989586621679203709"><span id="local-6989586621679203711"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-type">EnableEnhancedMonitoring</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679203705"><span class="annot"><span class="annottext">toJSON :: EnableEnhancedMonitoring -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring%27"><span class="hs-identifier hs-type">EnableEnhancedMonitoring'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203702"><span id="local-6989586621679203703"><span class="annot"><span class="annottext">[MetricsName]
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203716"><span id="local-6989586621679203718"><span id="local-6989586621679203720"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-type">EnableEnhancedMonitoring</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679203714"><span class="annot"><span class="annottext">toJSON :: EnableEnhancedMonitoring -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring%27"><span class="hs-identifier hs-type">EnableEnhancedMonitoring'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203711"><span id="local-6989586621679203712"><span class="annot"><span class="annottext">[MetricsName]
 Text
 shardLevelMetrics :: [MetricsName]
 streamName :: Text
 $sel:shardLevelMetrics:EnableEnhancedMonitoring' :: EnableEnhancedMonitoring -&gt; [MetricsName]
 $sel:streamName:EnableEnhancedMonitoring' :: EnableEnhancedMonitoring -&gt; Text
-</span><a href="#local-6989586621679203702"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679203711"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -369,7 +369,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203703"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679203712"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -377,19 +377,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ShardLevelMetrics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MetricsName] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[MetricsName]
-</span><a href="#local-6989586621679203702"><span class="hs-identifier hs-var">shardLevelMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203711"><span class="hs-identifier hs-var">shardLevelMetrics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-type">EnableEnhancedMonitoring</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679203696"><span class="annot"><span class="annottext">toPath :: EnableEnhancedMonitoring -&gt; ByteString
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679203705"><span class="annot"><span class="annottext">toPath :: EnableEnhancedMonitoring -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EnableEnhancedMonitoring -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.EnableEnhancedMonitoring.html#EnableEnhancedMonitoring"><span class="hs-identifier hs-type">EnableEnhancedMonitoring</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679203692"><span class="annot"><span class="annottext">toQuery :: EnableEnhancedMonitoring -&gt; QueryString
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679203701"><span class="annot"><span class="annottext">toQuery :: EnableEnhancedMonitoring -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; EnableEnhancedMonitoring -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

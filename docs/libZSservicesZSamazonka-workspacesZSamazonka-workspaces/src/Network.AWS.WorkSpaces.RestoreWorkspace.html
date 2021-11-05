@@ -56,12 +56,12 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types</span></a></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newRestoreWorkspace' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679279145"><span id="local-6989586621679279146"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreWorkspace"><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-var">RestoreWorkspace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreWorkspace%27"><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace%27"><span class="hs-identifier hs-var">RestoreWorkspace'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679279154"><span id="local-6989586621679279155"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreWorkspace"><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-var">RestoreWorkspace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreWorkspace%27"><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace%27"><span class="hs-identifier hs-var">RestoreWorkspace'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the WorkSpace.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AworkspaceId%3ARestoreWorkspace%27"><span class="annot"><span class="annottext">RestoreWorkspace -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#%24sel%3AworkspaceId%3ARestoreWorkspace%27"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279139"><span id="local-6989586621679279141"><span class="annot"><span class="annottext">RestoreWorkspace -&gt; RestoreWorkspace -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279148"><span id="local-6989586621679279150"><span class="annot"><span class="annottext">RestoreWorkspace -&gt; RestoreWorkspace -&gt; Bool
 (RestoreWorkspace -&gt; RestoreWorkspace -&gt; Bool)
 -&gt; (RestoreWorkspace -&gt; RestoreWorkspace -&gt; Bool)
 -&gt; Eq RestoreWorkspace
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RestoreWorkspace -&gt; RestoreWorkspace -&gt; Bool
 == :: RestoreWorkspace -&gt; RestoreWorkspace -&gt; Bool
 $c== :: RestoreWorkspace -&gt; RestoreWorkspace -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279130"><span id="local-6989586621679279132"><span id="local-6989586621679279134"><span id="local-6989586621679279136"><span class="annot"><span class="annottext">ReadPrec [RestoreWorkspace]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279139"><span id="local-6989586621679279141"><span id="local-6989586621679279143"><span id="local-6989586621679279145"><span class="annot"><span class="annottext">ReadPrec [RestoreWorkspace]
 ReadPrec RestoreWorkspace
 Int -&gt; ReadS RestoreWorkspace
 ReadS [RestoreWorkspace]
@@ -90,7 +90,7 @@ readList :: ReadS [RestoreWorkspace]
 $creadList :: ReadS [RestoreWorkspace]
 readsPrec :: Int -&gt; ReadS RestoreWorkspace
 $creadsPrec :: Int -&gt; ReadS RestoreWorkspace
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279123"><span id="local-6989586621679279125"><span id="local-6989586621679279127"><span class="annot"><span class="annottext">Int -&gt; RestoreWorkspace -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279132"><span id="local-6989586621679279134"><span id="local-6989586621679279136"><span class="annot"><span class="annottext">Int -&gt; RestoreWorkspace -&gt; ShowS
 [RestoreWorkspace] -&gt; ShowS
 RestoreWorkspace -&gt; String
 (Int -&gt; RestoreWorkspace -&gt; ShowS)
@@ -130,12 +130,12 @@ $cfrom :: forall x. RestoreWorkspace -&gt; Rep RestoreWorkspace x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-type">RestoreWorkspace</span></a></span><span>
 </span><span id="line-78"></span><span id="newRestoreWorkspace"><span class="annot"><span class="annottext">newRestoreWorkspace :: Text -&gt; RestoreWorkspace
-</span><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#newRestoreWorkspace"><span class="hs-identifier hs-var hs-var">newRestoreWorkspace</span></a></span></span><span> </span><span id="local-6989586621679279118"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279118"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#newRestoreWorkspace"><span class="hs-identifier hs-var hs-var">newRestoreWorkspace</span></a></span></span><span> </span><span id="local-6989586621679279127"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279127"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">RestoreWorkspace' :: Text -&gt; RestoreWorkspace
 </span><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace%27"><span class="hs-identifier hs-type">RestoreWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceId:RestoreWorkspace' :: Text
 </span><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#%24sel%3AworkspaceId%3ARestoreWorkspace%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279118"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679279127"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The identifier of the WorkSpace.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#restoreWorkspace_workspaceId"><span class="hs-identifier hs-type">restoreWorkspace_workspaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-type">RestoreWorkspace</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -144,27 +144,27 @@ $cfrom :: forall x. RestoreWorkspace -&gt; Rep RestoreWorkspace x
 -&gt; (RestoreWorkspace -&gt; Text -&gt; RestoreWorkspace)
 -&gt; Lens RestoreWorkspace RestoreWorkspace Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace%27"><span class="hs-identifier hs-type">RestoreWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279115"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace%27"><span class="hs-identifier hs-type">RestoreWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279124"><span class="annot"><span class="annottext">Text
 workspaceId :: Text
 $sel:workspaceId:RestoreWorkspace' :: RestoreWorkspace -&gt; Text
-</span><a href="#local-6989586621679279115"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279115"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279114"><span class="annot"><span class="annottext">s :: RestoreWorkspace
-</span><a href="#local-6989586621679279114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace%27"><span class="hs-identifier hs-type">RestoreWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279113"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreWorkspace
-</span><a href="#local-6989586621679279114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceId:RestoreWorkspace' :: Text
+</span><a href="#local-6989586621679279124"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279124"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279123"><span class="annot"><span class="annottext">s :: RestoreWorkspace
+</span><a href="#local-6989586621679279123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace%27"><span class="hs-identifier hs-type">RestoreWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279122"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreWorkspace
+</span><a href="#local-6989586621679279123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceId:RestoreWorkspace' :: Text
 </span><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#%24sel%3AworkspaceId%3ARestoreWorkspace%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-type">RestoreWorkspace</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-type">RestoreWorkspace</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-type">RestoreWorkspace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-type">RestoreWorkspace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspaceResponse"><span class="hs-identifier hs-type">RestoreWorkspaceResponse</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679279109"><span class="annot"><span class="annottext">request :: RestoreWorkspace -&gt; Request RestoreWorkspace
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679279118"><span class="annot"><span class="annottext">request :: RestoreWorkspace -&gt; Request RestoreWorkspace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RestoreWorkspace -&gt; Request RestoreWorkspace
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679279105"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679279114"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RestoreWorkspace
 -&gt; ClientResponse ClientBody
@@ -188,10 +188,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279102"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279102"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279101"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679279101"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279100"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679279100"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279111"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279111"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279110"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679279110"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279109"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679279109"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RestoreWorkspaceResponse
 </span><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspaceResponse%27"><span class="hs-identifier hs-var">RestoreWorkspaceResponse'</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RestoreWorkspaceResponse)
@@ -202,15 +202,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279102"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279111"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279093"><span id="local-6989586621679279095"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-type">RestoreWorkspace</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279102"><span id="local-6989586621679279104"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-type">RestoreWorkspace</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279090"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-type">RestoreWorkspace</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279099"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-type">RestoreWorkspace</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-type">RestoreWorkspace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679279086"><span class="annot"><span class="annottext">toHeaders :: RestoreWorkspace -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679279095"><span class="annot"><span class="annottext">toHeaders :: RestoreWorkspace -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RestoreWorkspace -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -237,12 +237,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279076"><span id="local-6989586621679279078"><span id="local-6989586621679279080"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-type">RestoreWorkspace</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679279074"><span class="annot"><span class="annottext">toJSON :: RestoreWorkspace -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace%27"><span class="hs-identifier hs-type">RestoreWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279072"><span class="annot"><span class="annottext">Text
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279085"><span id="local-6989586621679279087"><span id="local-6989586621679279089"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-type">RestoreWorkspace</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679279083"><span class="annot"><span class="annottext">toJSON :: RestoreWorkspace -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace%27"><span class="hs-identifier hs-type">RestoreWorkspace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279081"><span class="annot"><span class="annottext">Text
 workspaceId :: Text
 $sel:workspaceId:RestoreWorkspace' :: RestoreWorkspace -&gt; Text
-</span><a href="#local-6989586621679279072"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679279081"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -254,18 +254,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;WorkspaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679279072"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679279081"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-type">RestoreWorkspace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679279066"><span class="annot"><span class="annottext">toPath :: RestoreWorkspace -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679279075"><span class="annot"><span class="annottext">toPath :: RestoreWorkspace -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RestoreWorkspace -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspace"><span class="hs-identifier hs-type">RestoreWorkspace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679279062"><span class="annot"><span class="annottext">toQuery :: RestoreWorkspace -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679279071"><span class="annot"><span class="annottext">toQuery :: RestoreWorkspace -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RestoreWorkspace -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -273,12 +273,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newRestoreWorkspaceResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679279059"><span id="local-6989586621679279060"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreWorkspaceResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspaceResponse"><span class="hs-identifier hs-var">RestoreWorkspaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreWorkspaceResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspaceResponse%27"><span class="hs-identifier hs-var">RestoreWorkspaceResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679279068"><span id="local-6989586621679279069"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreWorkspaceResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspaceResponse"><span class="hs-identifier hs-var">RestoreWorkspaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreWorkspaceResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspaceResponse%27"><span class="hs-identifier hs-var">RestoreWorkspaceResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARestoreWorkspaceResponse%27"><span class="annot"><span class="annottext">RestoreWorkspaceResponse -&gt; Int
 </span><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#%24sel%3AhttpStatus%3ARestoreWorkspaceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279054"><span id="local-6989586621679279056"><span class="annot"><span class="annottext">RestoreWorkspaceResponse -&gt; RestoreWorkspaceResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279063"><span id="local-6989586621679279065"><span class="annot"><span class="annottext">RestoreWorkspaceResponse -&gt; RestoreWorkspaceResponse -&gt; Bool
 (RestoreWorkspaceResponse -&gt; RestoreWorkspaceResponse -&gt; Bool)
 -&gt; (RestoreWorkspaceResponse -&gt; RestoreWorkspaceResponse -&gt; Bool)
 -&gt; Eq RestoreWorkspaceResponse
@@ -287,7 +287,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RestoreWorkspaceResponse -&gt; RestoreWorkspaceResponse -&gt; Bool
 == :: RestoreWorkspaceResponse -&gt; RestoreWorkspaceResponse -&gt; Bool
 $c== :: RestoreWorkspaceResponse -&gt; RestoreWorkspaceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279046"><span id="local-6989586621679279048"><span id="local-6989586621679279050"><span id="local-6989586621679279052"><span class="annot"><span class="annottext">ReadPrec [RestoreWorkspaceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279055"><span id="local-6989586621679279057"><span id="local-6989586621679279059"><span id="local-6989586621679279061"><span class="annot"><span class="annottext">ReadPrec [RestoreWorkspaceResponse]
 ReadPrec RestoreWorkspaceResponse
 Int -&gt; ReadS RestoreWorkspaceResponse
 ReadS [RestoreWorkspaceResponse]
@@ -307,7 +307,7 @@ readList :: ReadS [RestoreWorkspaceResponse]
 $creadList :: ReadS [RestoreWorkspaceResponse]
 readsPrec :: Int -&gt; ReadS RestoreWorkspaceResponse
 $creadsPrec :: Int -&gt; ReadS RestoreWorkspaceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279040"><span id="local-6989586621679279042"><span id="local-6989586621679279044"><span class="annot"><span class="annottext">Int -&gt; RestoreWorkspaceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279049"><span id="local-6989586621679279051"><span id="local-6989586621679279053"><span class="annot"><span class="annottext">Int -&gt; RestoreWorkspaceResponse -&gt; ShowS
 [RestoreWorkspaceResponse] -&gt; ShowS
 RestoreWorkspaceResponse -&gt; String
 (Int -&gt; RestoreWorkspaceResponse -&gt; ShowS)
@@ -353,14 +353,14 @@ RestoreWorkspaceResponse -&gt; Rep RestoreWorkspaceResponse x
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspaceResponse"><span class="hs-identifier hs-type">RestoreWorkspaceResponse</span></a></span><span>
 </span><span id="line-149"></span><span id="newRestoreWorkspaceResponse"><span class="annot"><span class="annottext">newRestoreWorkspaceResponse :: Int -&gt; RestoreWorkspaceResponse
-</span><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#newRestoreWorkspaceResponse"><span class="hs-identifier hs-var hs-var">newRestoreWorkspaceResponse</span></a></span></span><span> </span><span id="local-6989586621679279037"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279037"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#newRestoreWorkspaceResponse"><span class="hs-identifier hs-var hs-var">newRestoreWorkspaceResponse</span></a></span></span><span> </span><span id="local-6989586621679279046"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">RestoreWorkspaceResponse' :: Int -&gt; RestoreWorkspaceResponse
 </span><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspaceResponse%27"><span class="hs-identifier hs-type">RestoreWorkspaceResponse'</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:RestoreWorkspaceResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#%24sel%3AhttpStatus%3ARestoreWorkspaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279037"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679279046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -371,16 +371,16 @@ RestoreWorkspaceResponse -&gt; Rep RestoreWorkspaceResponse x
 -&gt; (RestoreWorkspaceResponse -&gt; Int -&gt; RestoreWorkspaceResponse)
 -&gt; Lens RestoreWorkspaceResponse RestoreWorkspaceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspaceResponse%27"><span class="hs-identifier hs-type">RestoreWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279036"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspaceResponse%27"><span class="hs-identifier hs-type">RestoreWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279045"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RestoreWorkspaceResponse' :: RestoreWorkspaceResponse -&gt; Int
-</span><a href="#local-6989586621679279036"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279036"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279035"><span class="annot"><span class="annottext">s :: RestoreWorkspaceResponse
-</span><a href="#local-6989586621679279035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspaceResponse%27"><span class="hs-identifier hs-type">RestoreWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279034"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreWorkspaceResponse
-</span><a href="#local-6989586621679279035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RestoreWorkspaceResponse' :: Int
+</span><a href="#local-6989586621679279045"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279045"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279044"><span class="annot"><span class="annottext">s :: RestoreWorkspaceResponse
+</span><a href="#local-6989586621679279044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspaceResponse%27"><span class="hs-identifier hs-type">RestoreWorkspaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279043"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreWorkspaceResponse
+</span><a href="#local-6989586621679279044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RestoreWorkspaceResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#%24sel%3AhttpStatus%3ARestoreWorkspaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspaceResponse"><span class="hs-identifier hs-type">RestoreWorkspaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspaceResponse"><span class="hs-identifier hs-type">RestoreWorkspaceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279032"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspaceResponse"><span class="hs-identifier hs-type">RestoreWorkspaceResponse</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279041"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RestoreWorkspace.html#RestoreWorkspaceResponse"><span class="hs-identifier hs-type">RestoreWorkspaceResponse</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

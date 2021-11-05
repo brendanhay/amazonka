@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679451254"><span id="local-6989586621679451255"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeviceCgroupPermission"><span class="annot"><a href="Network.AWS.ECS.Types.DeviceCgroupPermission.html#DeviceCgroupPermission"><span class="hs-identifier hs-var">DeviceCgroupPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceCgroupPermission%27"><span class="annot"><a href="Network.AWS.ECS.Types.DeviceCgroupPermission.html#DeviceCgroupPermission%27"><span class="hs-identifier hs-var">DeviceCgroupPermission'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679451263"><span id="local-6989586621679451264"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeviceCgroupPermission"><span class="annot"><a href="Network.AWS.ECS.Types.DeviceCgroupPermission.html#DeviceCgroupPermission"><span class="hs-identifier hs-var">DeviceCgroupPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceCgroupPermission%27"><span class="annot"><a href="Network.AWS.ECS.Types.DeviceCgroupPermission.html#DeviceCgroupPermission%27"><span class="hs-identifier hs-var">DeviceCgroupPermission'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeviceCgroupPermission"><span class="annot"><span class="annottext">DeviceCgroupPermission -&gt; Text
 </span><a href="Network.AWS.ECS.Types.DeviceCgroupPermission.html#fromDeviceCgroupPermission"><span class="hs-identifier hs-var hs-var">fromDeviceCgroupPermission</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679451246"><span id="local-6989586621679451248"><span id="local-6989586621679451250"><span class="annot"><span class="annottext">Int -&gt; DeviceCgroupPermission -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679451255"><span id="local-6989586621679451257"><span id="local-6989586621679451259"><span class="annot"><span class="annottext">Int -&gt; DeviceCgroupPermission -&gt; ShowS
 [DeviceCgroupPermission] -&gt; ShowS
 DeviceCgroupPermission -&gt; String
 (Int -&gt; DeviceCgroupPermission -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: DeviceCgroupPermission -&gt; String
 showsPrec :: Int -&gt; DeviceCgroupPermission -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeviceCgroupPermission -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679451237"><span id="local-6989586621679451239"><span id="local-6989586621679451241"><span id="local-6989586621679451243"><span class="annot"><span class="annottext">ReadPrec [DeviceCgroupPermission]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679451246"><span id="local-6989586621679451248"><span id="local-6989586621679451250"><span id="local-6989586621679451252"><span class="annot"><span class="annottext">ReadPrec [DeviceCgroupPermission]
 ReadPrec DeviceCgroupPermission
 Int -&gt; ReadS DeviceCgroupPermission
 ReadS [DeviceCgroupPermission]
@@ -73,7 +73,7 @@ $creadList :: ReadS [DeviceCgroupPermission]
 readsPrec :: Int -&gt; ReadS DeviceCgroupPermission
 $creadsPrec :: Int -&gt; ReadS DeviceCgroupPermission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679451232"><span id="local-6989586621679451234"><span class="annot"><span class="annottext">DeviceCgroupPermission -&gt; DeviceCgroupPermission -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679451241"><span id="local-6989586621679451243"><span class="annot"><span class="annottext">DeviceCgroupPermission -&gt; DeviceCgroupPermission -&gt; Bool
 (DeviceCgroupPermission -&gt; DeviceCgroupPermission -&gt; Bool)
 -&gt; (DeviceCgroupPermission -&gt; DeviceCgroupPermission -&gt; Bool)
 -&gt; Eq DeviceCgroupPermission
@@ -83,7 +83,7 @@ $c/= :: DeviceCgroupPermission -&gt; DeviceCgroupPermission -&gt; Bool
 == :: DeviceCgroupPermission -&gt; DeviceCgroupPermission -&gt; Bool
 $c== :: DeviceCgroupPermission -&gt; DeviceCgroupPermission -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679451216"><span id="local-6989586621679451218"><span id="local-6989586621679451220"><span id="local-6989586621679451222"><span id="local-6989586621679451224"><span id="local-6989586621679451226"><span id="local-6989586621679451228"><span class="annot"><span class="annottext">Eq DeviceCgroupPermission
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679451225"><span id="local-6989586621679451227"><span id="local-6989586621679451229"><span id="local-6989586621679451231"><span id="local-6989586621679451233"><span id="local-6989586621679451235"><span id="local-6989586621679451237"><span class="annot"><span class="annottext">Eq DeviceCgroupPermission
 Eq DeviceCgroupPermission
 -&gt; (DeviceCgroupPermission -&gt; DeviceCgroupPermission -&gt; Ordering)
 -&gt; (DeviceCgroupPermission -&gt; DeviceCgroupPermission -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. DeviceCgroupPermission -&gt; Rep DeviceCgroupPermission x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679451208"><span id="local-6989586621679451210"><span class="annot"><span class="annottext">Int -&gt; DeviceCgroupPermission -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679451217"><span id="local-6989586621679451219"><span class="annot"><span class="annottext">Int -&gt; DeviceCgroupPermission -&gt; Int
 DeviceCgroupPermission -&gt; Int
 (Int -&gt; DeviceCgroupPermission -&gt; Int)
 -&gt; (DeviceCgroupPermission -&gt; Int)
@@ -153,54 +153,54 @@ $chash :: DeviceCgroupPermission -&gt; Int
 hashWithSalt :: Int -&gt; DeviceCgroupPermission -&gt; Int
 $chashWithSalt :: Int -&gt; DeviceCgroupPermission -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679451205"><span class="annot"><span class="annottext">DeviceCgroupPermission -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679451214"><span class="annot"><span class="annottext">DeviceCgroupPermission -&gt; ()
 (DeviceCgroupPermission -&gt; ()) -&gt; NFData DeviceCgroupPermission
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeviceCgroupPermission -&gt; ()
 $crnf :: DeviceCgroupPermission -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679451202"><span class="annot"><span class="annottext">Text -&gt; Either String DeviceCgroupPermission
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679451211"><span class="annot"><span class="annottext">Text -&gt; Either String DeviceCgroupPermission
 (Text -&gt; Either String DeviceCgroupPermission)
 -&gt; FromText DeviceCgroupPermission
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeviceCgroupPermission
 $cfromText :: Text -&gt; Either String DeviceCgroupPermission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679451199"><span class="annot"><span class="annottext">DeviceCgroupPermission -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679451208"><span class="annot"><span class="annottext">DeviceCgroupPermission -&gt; Text
 (DeviceCgroupPermission -&gt; Text) -&gt; ToText DeviceCgroupPermission
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeviceCgroupPermission -&gt; Text
 $ctoText :: DeviceCgroupPermission -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679451196"><span class="annot"><span class="annottext">DeviceCgroupPermission -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679451205"><span class="annot"><span class="annottext">DeviceCgroupPermission -&gt; ByteString
 (DeviceCgroupPermission -&gt; ByteString)
 -&gt; ToByteString DeviceCgroupPermission
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeviceCgroupPermission -&gt; ByteString
 $ctoBS :: DeviceCgroupPermission -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679451193"><span class="annot"><span class="annottext">DeviceCgroupPermission -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679451202"><span class="annot"><span class="annottext">DeviceCgroupPermission -&gt; ByteStringBuilder
 (DeviceCgroupPermission -&gt; ByteStringBuilder)
 -&gt; ToLog DeviceCgroupPermission
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeviceCgroupPermission -&gt; ByteStringBuilder
 $cbuild :: DeviceCgroupPermission -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679451190"><span class="annot"><span class="annottext">HeaderName -&gt; DeviceCgroupPermission -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679451199"><span class="annot"><span class="annottext">HeaderName -&gt; DeviceCgroupPermission -&gt; [Header]
 (HeaderName -&gt; DeviceCgroupPermission -&gt; [Header])
 -&gt; ToHeader DeviceCgroupPermission
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeviceCgroupPermission -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeviceCgroupPermission -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679451187"><span class="annot"><span class="annottext">DeviceCgroupPermission -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679451196"><span class="annot"><span class="annottext">DeviceCgroupPermission -&gt; QueryString
 (DeviceCgroupPermission -&gt; QueryString)
 -&gt; ToQuery DeviceCgroupPermission
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeviceCgroupPermission -&gt; QueryString
 $ctoQuery :: DeviceCgroupPermission -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679451182"><span id="local-6989586621679451184"><span class="annot"><span class="annottext">Value -&gt; Parser [DeviceCgroupPermission]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679451191"><span id="local-6989586621679451193"><span class="annot"><span class="annottext">Value -&gt; Parser [DeviceCgroupPermission]
 Value -&gt; Parser DeviceCgroupPermission
 (Value -&gt; Parser DeviceCgroupPermission)
 -&gt; (Value -&gt; Parser [DeviceCgroupPermission])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [DeviceCgroupPermission]
 parseJSON :: Value -&gt; Parser DeviceCgroupPermission
 $cparseJSON :: Value -&gt; Parser DeviceCgroupPermission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679451177"><span id="local-6989586621679451179"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeviceCgroupPermission]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679451186"><span id="local-6989586621679451188"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeviceCgroupPermission]
 FromJSONKeyFunction DeviceCgroupPermission
 FromJSONKeyFunction DeviceCgroupPermission
 -&gt; FromJSONKeyFunction [DeviceCgroupPermission]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeviceCgroupPermission]
 fromJSONKey :: FromJSONKeyFunction DeviceCgroupPermission
 $cfromJSONKey :: FromJSONKeyFunction DeviceCgroupPermission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679451168"><span id="local-6989586621679451170"><span id="local-6989586621679451172"><span id="local-6989586621679451174"><span class="annot"><span class="annottext">[DeviceCgroupPermission] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679451177"><span id="local-6989586621679451179"><span id="local-6989586621679451181"><span id="local-6989586621679451183"><span class="annot"><span class="annottext">[DeviceCgroupPermission] -&gt; Encoding
 [DeviceCgroupPermission] -&gt; Value
 DeviceCgroupPermission -&gt; Encoding
 DeviceCgroupPermission -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: DeviceCgroupPermission -&gt; Encoding
 toJSON :: DeviceCgroupPermission -&gt; Value
 $ctoJSON :: DeviceCgroupPermission -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679451163"><span id="local-6989586621679451165"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeviceCgroupPermission]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679451172"><span id="local-6989586621679451174"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeviceCgroupPermission]
 ToJSONKeyFunction DeviceCgroupPermission
 ToJSONKeyFunction DeviceCgroupPermission
 -&gt; ToJSONKeyFunction [DeviceCgroupPermission]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeviceCgroupPermission]
 toJSONKey :: ToJSONKeyFunction DeviceCgroupPermission
 $ctoJSONKey :: ToJSONKeyFunction DeviceCgroupPermission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679451160"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeviceCgroupPermission
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679451169"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeviceCgroupPermission
 ([Node] -&gt; Either String DeviceCgroupPermission)
 -&gt; FromXML DeviceCgroupPermission
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeviceCgroupPermission
 $cparseXML :: [Node] -&gt; Either String DeviceCgroupPermission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679451157"><span class="annot"><span class="annottext">DeviceCgroupPermission -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679451166"><span class="annot"><span class="annottext">DeviceCgroupPermission -&gt; XML
 (DeviceCgroupPermission -&gt; XML) -&gt; ToXML DeviceCgroupPermission
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeviceCgroupPermission -&gt; XML

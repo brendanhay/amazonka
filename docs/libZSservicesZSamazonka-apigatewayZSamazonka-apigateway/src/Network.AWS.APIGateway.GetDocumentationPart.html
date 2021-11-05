@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | Gets a specified documentation part of a given API.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newGetDocumentationPart' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679383714"><span id="local-6989586621679383715"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDocumentationPart"><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-var">GetDocumentationPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDocumentationPart%27"><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart%27"><span class="hs-identifier hs-var">GetDocumentationPart'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679383723"><span id="local-6989586621679383724"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDocumentationPart"><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-var">GetDocumentationPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDocumentationPart%27"><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart%27"><span class="hs-identifier hs-var">GetDocumentationPart'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3ArestApiId%3AGetDocumentationPart%27"><span class="annot"><span class="annottext">GetDocumentationPart -&gt; Text
 </span><a href="Network.AWS.APIGateway.GetDocumentationPart.html#%24sel%3ArestApiId%3AGetDocumentationPart%27"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdocumentationPartId%3AGetDocumentationPart%27"><span class="annot"><span class="annottext">GetDocumentationPart -&gt; Text
 </span><a href="Network.AWS.APIGateway.GetDocumentationPart.html#%24sel%3AdocumentationPartId%3AGetDocumentationPart%27"><span class="hs-identifier hs-var hs-var">documentationPartId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383707"><span id="local-6989586621679383709"><span class="annot"><span class="annottext">GetDocumentationPart -&gt; GetDocumentationPart -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383716"><span id="local-6989586621679383718"><span class="annot"><span class="annottext">GetDocumentationPart -&gt; GetDocumentationPart -&gt; Bool
 (GetDocumentationPart -&gt; GetDocumentationPart -&gt; Bool)
 -&gt; (GetDocumentationPart -&gt; GetDocumentationPart -&gt; Bool)
 -&gt; Eq GetDocumentationPart
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDocumentationPart -&gt; GetDocumentationPart -&gt; Bool
 == :: GetDocumentationPart -&gt; GetDocumentationPart -&gt; Bool
 $c== :: GetDocumentationPart -&gt; GetDocumentationPart -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383698"><span id="local-6989586621679383700"><span id="local-6989586621679383702"><span id="local-6989586621679383704"><span class="annot"><span class="annottext">ReadPrec [GetDocumentationPart]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383707"><span id="local-6989586621679383709"><span id="local-6989586621679383711"><span id="local-6989586621679383713"><span class="annot"><span class="annottext">ReadPrec [GetDocumentationPart]
 ReadPrec GetDocumentationPart
 Int -&gt; ReadS GetDocumentationPart
 ReadS [GetDocumentationPart]
@@ -88,7 +88,7 @@ readList :: ReadS [GetDocumentationPart]
 $creadList :: ReadS [GetDocumentationPart]
 readsPrec :: Int -&gt; ReadS GetDocumentationPart
 $creadsPrec :: Int -&gt; ReadS GetDocumentationPart
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383691"><span id="local-6989586621679383693"><span id="local-6989586621679383695"><span class="annot"><span class="annottext">Int -&gt; GetDocumentationPart -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383700"><span id="local-6989586621679383702"><span id="local-6989586621679383704"><span class="annot"><span class="annottext">Int -&gt; GetDocumentationPart -&gt; ShowS
 [GetDocumentationPart] -&gt; ShowS
 GetDocumentationPart -&gt; String
 (Int -&gt; GetDocumentationPart -&gt; ShowS)
@@ -133,18 +133,18 @@ $cfrom :: forall x. GetDocumentationPart -&gt; Rep GetDocumentationPart x
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-type">GetDocumentationPart</span></a></span><span>
 </span><span id="line-79"></span><span id="newGetDocumentationPart"><span class="annot"><span class="annottext">newGetDocumentationPart :: Text -&gt; Text -&gt; GetDocumentationPart
 </span><a href="Network.AWS.APIGateway.GetDocumentationPart.html#newGetDocumentationPart"><span class="hs-identifier hs-var hs-var">newGetDocumentationPart</span></a></span></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679383686"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383686"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679383685"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383685"><span class="hs-identifier hs-var">pDocumentationPartId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679383695"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383695"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679383694"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383694"><span class="hs-identifier hs-var">pDocumentationPartId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">GetDocumentationPart' :: Text -&gt; Text -&gt; GetDocumentationPart
 </span><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart%27"><span class="hs-identifier hs-type">GetDocumentationPart'</span></a></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:restApiId:GetDocumentationPart' :: Text
 </span><a href="Network.AWS.APIGateway.GetDocumentationPart.html#%24sel%3ArestApiId%3AGetDocumentationPart%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383686"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679383695"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:documentationPartId:GetDocumentationPart' :: Text
 </span><a href="Network.AWS.APIGateway.GetDocumentationPart.html#%24sel%3AdocumentationPartId%3AGetDocumentationPart%27"><span class="hs-identifier hs-var">documentationPartId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383685"><span class="hs-identifier hs-var">pDocumentationPartId_</span></a></span><span>
+</span><a href="#local-6989586621679383694"><span class="hs-identifier hs-var">pDocumentationPartId_</span></a></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
@@ -154,16 +154,16 @@ $cfrom :: forall x. GetDocumentationPart -&gt; Rep GetDocumentationPart x
 -&gt; (GetDocumentationPart -&gt; Text -&gt; GetDocumentationPart)
 -&gt; Lens GetDocumentationPart GetDocumentationPart Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart%27"><span class="hs-identifier hs-type">GetDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383682"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart%27"><span class="hs-identifier hs-type">GetDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383691"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:GetDocumentationPart' :: GetDocumentationPart -&gt; Text
-</span><a href="#local-6989586621679383682"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383682"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383681"><span class="annot"><span class="annottext">s :: GetDocumentationPart
-</span><a href="#local-6989586621679383681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart%27"><span class="hs-identifier hs-type">GetDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383680"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDocumentationPart
-</span><a href="#local-6989586621679383681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:GetDocumentationPart' :: Text
+</span><a href="#local-6989586621679383691"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383691"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383690"><span class="annot"><span class="annottext">s :: GetDocumentationPart
+</span><a href="#local-6989586621679383690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart%27"><span class="hs-identifier hs-type">GetDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383689"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDocumentationPart
+</span><a href="#local-6989586621679383690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:GetDocumentationPart' :: Text
 </span><a href="Network.AWS.APIGateway.GetDocumentationPart.html#%24sel%3ArestApiId%3AGetDocumentationPart%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-type">GetDocumentationPart</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-type">GetDocumentationPart</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#getDocumentationPart_documentationPartId"><span class="hs-identifier hs-type">getDocumentationPart_documentationPartId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-type">GetDocumentationPart</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -172,27 +172,27 @@ $sel:restApiId:GetDocumentationPart' :: GetDocumentationPart -&gt; Text
 -&gt; (GetDocumentationPart -&gt; Text -&gt; GetDocumentationPart)
 -&gt; Lens GetDocumentationPart GetDocumentationPart Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart%27"><span class="hs-identifier hs-type">GetDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383679"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart%27"><span class="hs-identifier hs-type">GetDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383688"><span class="annot"><span class="annottext">Text
 documentationPartId :: Text
 $sel:documentationPartId:GetDocumentationPart' :: GetDocumentationPart -&gt; Text
-</span><a href="#local-6989586621679383679"><span class="hs-identifier hs-var hs-var">documentationPartId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383679"><span class="hs-identifier hs-var">documentationPartId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383678"><span class="annot"><span class="annottext">s :: GetDocumentationPart
-</span><a href="#local-6989586621679383678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart%27"><span class="hs-identifier hs-type">GetDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383677"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDocumentationPart
-</span><a href="#local-6989586621679383678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentationPartId:GetDocumentationPart' :: Text
+</span><a href="#local-6989586621679383688"><span class="hs-identifier hs-var hs-var">documentationPartId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383688"><span class="hs-identifier hs-var">documentationPartId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383687"><span class="annot"><span class="annottext">s :: GetDocumentationPart
+</span><a href="#local-6989586621679383687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart%27"><span class="hs-identifier hs-type">GetDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383686"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDocumentationPart
+</span><a href="#local-6989586621679383687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentationPartId:GetDocumentationPart' :: Text
 </span><a href="Network.AWS.APIGateway.GetDocumentationPart.html#%24sel%3AdocumentationPartId%3AGetDocumentationPart%27"><span class="hs-identifier hs-var">documentationPartId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-type">GetDocumentationPart</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-type">GetDocumentationPart</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-type">GetDocumentationPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-type">GetDocumentationPart</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.APIGateway.Types.DocumentationPart.html#DocumentationPart"><span class="hs-identifier hs-type">DocumentationPart</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679383673"><span class="annot"><span class="annottext">request :: GetDocumentationPart -&gt; Request GetDocumentationPart
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679383682"><span class="annot"><span class="annottext">request :: GetDocumentationPart -&gt; Request GetDocumentationPart
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDocumentationPart -&gt; Request GetDocumentationPart
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679383669"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679383678"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetDocumentationPart
 -&gt; ClientResponse ClientBody
@@ -218,20 +218,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383666"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383666"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679383665"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679383665"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679383664"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679383664"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String DocumentationPart
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383675"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383675"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679383674"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679383674"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679383673"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383673"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String DocumentationPart
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679383664"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383673"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383659"><span id="local-6989586621679383661"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-type">GetDocumentationPart</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383668"><span id="local-6989586621679383670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-type">GetDocumentationPart</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383656"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-type">GetDocumentationPart</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-type">GetDocumentationPart</span></a></span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-type">GetDocumentationPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679383652"><span class="annot"><span class="annottext">toHeaders :: GetDocumentationPart -&gt; ResponseHeaders
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679383661"><span class="annot"><span class="annottext">toHeaders :: GetDocumentationPart -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDocumentationPart -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -249,13 +249,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-type">GetDocumentationPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679383646"><span class="annot"><span class="annottext">toPath :: GetDocumentationPart -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart%27"><span class="hs-identifier hs-type">GetDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383643"><span id="local-6989586621679383644"><span class="annot"><span class="annottext">Text
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679383655"><span class="annot"><span class="annottext">toPath :: GetDocumentationPart -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart%27"><span class="hs-identifier hs-type">GetDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383652"><span id="local-6989586621679383653"><span class="annot"><span class="annottext">Text
 documentationPartId :: Text
 restApiId :: Text
 $sel:documentationPartId:GetDocumentationPart' :: GetDocumentationPart -&gt; Text
 $sel:restApiId:GetDocumentationPart' :: GetDocumentationPart -&gt; Text
-</span><a href="#local-6989586621679383643"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679383652"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -264,17 +264,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383644"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679383653"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/documentation/parts/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383643"><span class="hs-identifier hs-var">documentationPartId</span></a></span><span>
+</span><a href="#local-6989586621679383652"><span class="hs-identifier hs-var">documentationPartId</span></a></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDocumentationPart.html#GetDocumentationPart"><span class="hs-identifier hs-type">GetDocumentationPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679383639"><span class="annot"><span class="annottext">toQuery :: GetDocumentationPart -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679383648"><span class="annot"><span class="annottext">toQuery :: GetDocumentationPart -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDocumentationPart -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-comment">-- | Input for ConfirmSubscription action.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newConfirmSubscription' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679199935"><span id="local-6989586621679199936"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfirmSubscription"><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-var">ConfirmSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfirmSubscription%27"><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-var">ConfirmSubscription'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679199944"><span id="local-6989586621679199945"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfirmSubscription"><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-var">ConfirmSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfirmSubscription%27"><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-var">ConfirmSubscription'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Disallows unauthenticated unsubscribes of the subscription. If the value</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- of this parameter is @true@ and the request has an Amazon Web Services</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- signature, then only the topic owner and the subscription owner can</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3Atoken%3AConfirmSubscription%27"><span class="annot"><span class="annottext">ConfirmSubscription -&gt; Text
 </span><a href="Network.AWS.SNS.ConfirmSubscription.html#%24sel%3Atoken%3AConfirmSubscription%27"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199927"><span id="local-6989586621679199929"><span class="annot"><span class="annottext">ConfirmSubscription -&gt; ConfirmSubscription -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199936"><span id="local-6989586621679199938"><span class="annot"><span class="annottext">ConfirmSubscription -&gt; ConfirmSubscription -&gt; Bool
 (ConfirmSubscription -&gt; ConfirmSubscription -&gt; Bool)
 -&gt; (ConfirmSubscription -&gt; ConfirmSubscription -&gt; Bool)
 -&gt; Eq ConfirmSubscription
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConfirmSubscription -&gt; ConfirmSubscription -&gt; Bool
 == :: ConfirmSubscription -&gt; ConfirmSubscription -&gt; Bool
 $c== :: ConfirmSubscription -&gt; ConfirmSubscription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199918"><span id="local-6989586621679199920"><span id="local-6989586621679199922"><span id="local-6989586621679199924"><span class="annot"><span class="annottext">ReadPrec [ConfirmSubscription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199927"><span id="local-6989586621679199929"><span id="local-6989586621679199931"><span id="local-6989586621679199933"><span class="annot"><span class="annottext">ReadPrec [ConfirmSubscription]
 ReadPrec ConfirmSubscription
 Int -&gt; ReadS ConfirmSubscription
 ReadS [ConfirmSubscription]
@@ -99,7 +99,7 @@ readList :: ReadS [ConfirmSubscription]
 $creadList :: ReadS [ConfirmSubscription]
 readsPrec :: Int -&gt; ReadS ConfirmSubscription
 $creadsPrec :: Int -&gt; ReadS ConfirmSubscription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199911"><span id="local-6989586621679199913"><span id="local-6989586621679199915"><span class="annot"><span class="annottext">Int -&gt; ConfirmSubscription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199920"><span id="local-6989586621679199922"><span id="local-6989586621679199924"><span class="annot"><span class="annottext">Int -&gt; ConfirmSubscription -&gt; ShowS
 [ConfirmSubscription] -&gt; ShowS
 ConfirmSubscription -&gt; String
 (Int -&gt; ConfirmSubscription -&gt; ShowS)
@@ -149,9 +149,9 @@ $cfrom :: forall x. ConfirmSubscription -&gt; Rep ConfirmSubscription x
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span><span>
 </span><span id="line-95"></span><span id="newConfirmSubscription"><span class="annot"><span class="annottext">newConfirmSubscription :: Text -&gt; Text -&gt; ConfirmSubscription
-</span><a href="Network.AWS.SNS.ConfirmSubscription.html#newConfirmSubscription"><span class="hs-identifier hs-var hs-var">newConfirmSubscription</span></a></span></span><span> </span><span id="local-6989586621679199906"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199906"><span class="hs-identifier hs-var">pTopicArn_</span></a></span></span><span> </span><span id="local-6989586621679199905"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199905"><span class="hs-identifier hs-var">pToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.ConfirmSubscription.html#newConfirmSubscription"><span class="hs-identifier hs-var hs-var">newConfirmSubscription</span></a></span></span><span> </span><span id="local-6989586621679199915"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199915"><span class="hs-identifier hs-var">pTopicArn_</span></a></span></span><span> </span><span id="local-6989586621679199914"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199914"><span class="hs-identifier hs-var">pToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">ConfirmSubscription' :: Maybe Text -&gt; Text -&gt; Text -&gt; ConfirmSubscription
 </span><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-type">ConfirmSubscription'</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authenticateOnUnsubscribe:ConfirmSubscription' :: Maybe Text
@@ -161,10 +161,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:topicArn:ConfirmSubscription' :: Text
 </span><a href="Network.AWS.SNS.ConfirmSubscription.html#%24sel%3AtopicArn%3AConfirmSubscription%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199906"><span class="hs-identifier hs-var">pTopicArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679199915"><span class="hs-identifier hs-var">pTopicArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:token:ConfirmSubscription' :: Text
 </span><a href="Network.AWS.SNS.ConfirmSubscription.html#%24sel%3Atoken%3AConfirmSubscription%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199905"><span class="hs-identifier hs-var">pToken_</span></a></span><span>
+</span><a href="#local-6989586621679199914"><span class="hs-identifier hs-var">pToken_</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | Disallows unauthenticated unsubscribes of the subscription. If the value</span><span>
@@ -180,16 +180,16 @@ forall a. Maybe a
 -&gt; Lens
      ConfirmSubscription ConfirmSubscription (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-type">ConfirmSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199902"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-type">ConfirmSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199911"><span class="annot"><span class="annottext">Maybe Text
 authenticateOnUnsubscribe :: Maybe Text
 $sel:authenticateOnUnsubscribe:ConfirmSubscription' :: ConfirmSubscription -&gt; Maybe Text
-</span><a href="#local-6989586621679199902"><span class="hs-identifier hs-var hs-var">authenticateOnUnsubscribe</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679199902"><span class="hs-identifier hs-var">authenticateOnUnsubscribe</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199901"><span class="annot"><span class="annottext">s :: ConfirmSubscription
-</span><a href="#local-6989586621679199901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-type">ConfirmSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199900"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679199900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSubscription
-</span><a href="#local-6989586621679199901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticateOnUnsubscribe:ConfirmSubscription' :: Maybe Text
+</span><a href="#local-6989586621679199911"><span class="hs-identifier hs-var hs-var">authenticateOnUnsubscribe</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199911"><span class="hs-identifier hs-var">authenticateOnUnsubscribe</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199910"><span class="annot"><span class="annottext">s :: ConfirmSubscription
+</span><a href="#local-6989586621679199910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-type">ConfirmSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199909"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSubscription
+</span><a href="#local-6989586621679199910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticateOnUnsubscribe:ConfirmSubscription' :: Maybe Text
 </span><a href="Network.AWS.SNS.ConfirmSubscription.html#%24sel%3AauthenticateOnUnsubscribe%3AConfirmSubscription%27"><span class="hs-identifier hs-var">authenticateOnUnsubscribe</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679199900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The ARN of the topic for which you wish to confirm a subscription.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#confirmSubscription_topicArn"><span class="hs-identifier hs-type">confirmSubscription_topicArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -198,16 +198,16 @@ $sel:authenticateOnUnsubscribe:ConfirmSubscription' :: ConfirmSubscription -&gt;
 -&gt; (ConfirmSubscription -&gt; Text -&gt; ConfirmSubscription)
 -&gt; Lens ConfirmSubscription ConfirmSubscription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-type">ConfirmSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199899"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-type">ConfirmSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199908"><span class="annot"><span class="annottext">Text
 topicArn :: Text
 $sel:topicArn:ConfirmSubscription' :: ConfirmSubscription -&gt; Text
-</span><a href="#local-6989586621679199899"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199899"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199898"><span class="annot"><span class="annottext">s :: ConfirmSubscription
-</span><a href="#local-6989586621679199898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-type">ConfirmSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199897"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSubscription
-</span><a href="#local-6989586621679199898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:ConfirmSubscription' :: Text
+</span><a href="#local-6989586621679199908"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199908"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199907"><span class="annot"><span class="annottext">s :: ConfirmSubscription
+</span><a href="#local-6989586621679199907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-type">ConfirmSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199906"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSubscription
+</span><a href="#local-6989586621679199907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:ConfirmSubscription' :: Text
 </span><a href="Network.AWS.SNS.ConfirmSubscription.html#%24sel%3AtopicArn%3AConfirmSubscription%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | Short-lived token sent to an endpoint during the @Subscribe@ action.</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#confirmSubscription_token"><span class="hs-identifier hs-type">confirmSubscription_token</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -216,27 +216,27 @@ $sel:topicArn:ConfirmSubscription' :: ConfirmSubscription -&gt; Text
 -&gt; (ConfirmSubscription -&gt; Text -&gt; ConfirmSubscription)
 -&gt; Lens ConfirmSubscription ConfirmSubscription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-type">ConfirmSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199896"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-type">ConfirmSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199905"><span class="annot"><span class="annottext">Text
 token :: Text
 $sel:token:ConfirmSubscription' :: ConfirmSubscription -&gt; Text
-</span><a href="#local-6989586621679199896"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199896"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199895"><span class="annot"><span class="annottext">s :: ConfirmSubscription
-</span><a href="#local-6989586621679199895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-type">ConfirmSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199894"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSubscription
-</span><a href="#local-6989586621679199895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:token:ConfirmSubscription' :: Text
+</span><a href="#local-6989586621679199905"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199905"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199904"><span class="annot"><span class="annottext">s :: ConfirmSubscription
+</span><a href="#local-6989586621679199904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-type">ConfirmSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199903"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSubscription
+</span><a href="#local-6989586621679199904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:token:ConfirmSubscription' :: Text
 </span><a href="Network.AWS.SNS.ConfirmSubscription.html#%24sel%3Atoken%3AConfirmSubscription%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679199890"><span class="annot"><span class="annottext">request :: ConfirmSubscription -&gt; Request ConfirmSubscription
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679199899"><span class="annot"><span class="annottext">request :: ConfirmSubscription -&gt; Request ConfirmSubscription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ConfirmSubscription -&gt; Request ConfirmSubscription
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679199886"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679199895"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ConfirmSubscription
 -&gt; ClientResponse ClientBody
@@ -267,10 +267,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConfirmSubscriptionResult&quot;</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199883"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199883"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679199882"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679199882"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679199881"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679199881"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199892"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199892"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679199891"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679199891"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679199890"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679199890"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; ConfirmSubscriptionResponse
 </span><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse%27"><span class="hs-identifier hs-var">ConfirmSubscriptionResponse'</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; ConfirmSubscriptionResponse)
@@ -278,7 +278,7 @@ Text
 -&gt; Either String (Int -&gt; ConfirmSubscriptionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679199881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679199890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubscriptionArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -290,15 +290,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199883"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199892"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199873"><span id="local-6989586621679199875"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199882"><span id="local-6989586621679199884"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199879"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679199866"><span class="annot"><span class="annottext">toHeaders :: ConfirmSubscription -&gt; ResponseHeaders
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679199875"><span class="annot"><span class="annottext">toHeaders :: ConfirmSubscription -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ConfirmSubscription -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -306,15 +306,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679199861"><span class="annot"><span class="annottext">toPath :: ConfirmSubscription -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679199870"><span class="annot"><span class="annottext">toPath :: ConfirmSubscription -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ConfirmSubscription -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription"><span class="hs-identifier hs-type">ConfirmSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679199857"><span class="annot"><span class="annottext">toQuery :: ConfirmSubscription -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-type">ConfirmSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199853"><span id="local-6989586621679199854"><span id="local-6989586621679199855"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679199866"><span class="annot"><span class="annottext">toQuery :: ConfirmSubscription -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscription%27"><span class="hs-identifier hs-type">ConfirmSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199862"><span id="local-6989586621679199863"><span id="local-6989586621679199864"><span class="annot"><span class="annottext">Maybe Text
 Text
 token :: Text
 topicArn :: Text
@@ -322,7 +322,7 @@ authenticateOnUnsubscribe :: Maybe Text
 $sel:token:ConfirmSubscription' :: ConfirmSubscription -&gt; Text
 $sel:topicArn:ConfirmSubscription' :: ConfirmSubscription -&gt; Text
 $sel:authenticateOnUnsubscribe:ConfirmSubscription' :: ConfirmSubscription -&gt; Maybe Text
-</span><a href="#local-6989586621679199853"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679199862"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -343,23 +343,23 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679199855"><span class="hs-identifier hs-var">authenticateOnUnsubscribe</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679199864"><span class="hs-identifier hs-var">authenticateOnUnsubscribe</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199854"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679199863"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Token&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199853"><span class="hs-identifier hs-var">token</span></a></span><span>
+</span><a href="#local-6989586621679199862"><span class="hs-identifier hs-var">token</span></a></span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | Response for ConfirmSubscriptions action.</span><span>
 </span><span id="line-157"></span><span class="hs-comment">--</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- /See:/ 'newConfirmSubscriptionResponse' smart constructor.</span><span>
-</span><span id="line-159"></span><span id="local-6989586621679199850"><span id="local-6989586621679199851"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfirmSubscriptionResponse"><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse"><span class="hs-identifier hs-var">ConfirmSubscriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfirmSubscriptionResponse%27"><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse%27"><span class="hs-identifier hs-var">ConfirmSubscriptionResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span id="local-6989586621679199859"><span id="local-6989586621679199860"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfirmSubscriptionResponse"><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse"><span class="hs-identifier hs-var">ConfirmSubscriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfirmSubscriptionResponse%27"><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse%27"><span class="hs-identifier hs-var">ConfirmSubscriptionResponse'</span></a></span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the created subscription.</span><span>
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3AsubscriptionArn%3AConfirmSubscriptionResponse%27"><span class="annot"><span class="annottext">ConfirmSubscriptionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SNS.ConfirmSubscription.html#%24sel%3AsubscriptionArn%3AConfirmSubscriptionResponse%27"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -367,7 +367,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3AConfirmSubscriptionResponse%27"><span class="annot"><span class="annottext">ConfirmSubscriptionResponse -&gt; Int
 </span><a href="Network.AWS.SNS.ConfirmSubscription.html#%24sel%3AhttpStatus%3AConfirmSubscriptionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199844"><span id="local-6989586621679199846"><span class="annot"><span class="annottext">ConfirmSubscriptionResponse -&gt; ConfirmSubscriptionResponse -&gt; Bool
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199853"><span id="local-6989586621679199855"><span class="annot"><span class="annottext">ConfirmSubscriptionResponse -&gt; ConfirmSubscriptionResponse -&gt; Bool
 (ConfirmSubscriptionResponse
  -&gt; ConfirmSubscriptionResponse -&gt; Bool)
 -&gt; (ConfirmSubscriptionResponse
@@ -378,7 +378,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConfirmSubscriptionResponse -&gt; ConfirmSubscriptionResponse -&gt; Bool
 == :: ConfirmSubscriptionResponse -&gt; ConfirmSubscriptionResponse -&gt; Bool
 $c== :: ConfirmSubscriptionResponse -&gt; ConfirmSubscriptionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199836"><span id="local-6989586621679199838"><span id="local-6989586621679199840"><span id="local-6989586621679199842"><span class="annot"><span class="annottext">ReadPrec [ConfirmSubscriptionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199845"><span id="local-6989586621679199847"><span id="local-6989586621679199849"><span id="local-6989586621679199851"><span class="annot"><span class="annottext">ReadPrec [ConfirmSubscriptionResponse]
 ReadPrec ConfirmSubscriptionResponse
 Int -&gt; ReadS ConfirmSubscriptionResponse
 ReadS [ConfirmSubscriptionResponse]
@@ -398,7 +398,7 @@ readList :: ReadS [ConfirmSubscriptionResponse]
 $creadList :: ReadS [ConfirmSubscriptionResponse]
 readsPrec :: Int -&gt; ReadS ConfirmSubscriptionResponse
 $creadsPrec :: Int -&gt; ReadS ConfirmSubscriptionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199830"><span id="local-6989586621679199832"><span id="local-6989586621679199834"><span class="annot"><span class="annottext">Int -&gt; ConfirmSubscriptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199839"><span id="local-6989586621679199841"><span id="local-6989586621679199843"><span class="annot"><span class="annottext">Int -&gt; ConfirmSubscriptionResponse -&gt; ShowS
 [ConfirmSubscriptionResponse] -&gt; ShowS
 ConfirmSubscriptionResponse -&gt; String
 (Int -&gt; ConfirmSubscriptionResponse -&gt; ShowS)
@@ -446,8 +446,8 @@ ConfirmSubscriptionResponse -&gt; Rep ConfirmSubscriptionResponse x
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse</span></a></span><span>
 </span><span id="line-182"></span><span id="newConfirmSubscriptionResponse"><span class="annot"><span class="annottext">newConfirmSubscriptionResponse :: Int -&gt; ConfirmSubscriptionResponse
-</span><a href="Network.AWS.SNS.ConfirmSubscription.html#newConfirmSubscriptionResponse"><span class="hs-identifier hs-var hs-var">newConfirmSubscriptionResponse</span></a></span></span><span> </span><span id="local-6989586621679199827"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199827"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.ConfirmSubscription.html#newConfirmSubscriptionResponse"><span class="hs-identifier hs-var hs-var">newConfirmSubscriptionResponse</span></a></span></span><span> </span><span id="local-6989586621679199836"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199836"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">ConfirmSubscriptionResponse' :: Maybe Text -&gt; Int -&gt; ConfirmSubscriptionResponse
 </span><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse%27"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse'</span></a></span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subscriptionArn:ConfirmSubscriptionResponse' :: Maybe Text
@@ -457,7 +457,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ConfirmSubscriptionResponse' :: Int
 </span><a href="Network.AWS.SNS.ConfirmSubscription.html#%24sel%3AhttpStatus%3AConfirmSubscriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199827"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679199836"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | The ARN of the created subscription.</span><span>
@@ -473,16 +473,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse%27"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199826"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse%27"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199835"><span class="annot"><span class="annottext">Maybe Text
 subscriptionArn :: Maybe Text
 $sel:subscriptionArn:ConfirmSubscriptionResponse' :: ConfirmSubscriptionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679199826"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679199826"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199825"><span class="annot"><span class="annottext">s :: ConfirmSubscriptionResponse
-</span><a href="#local-6989586621679199825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse%27"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199824"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679199824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSubscriptionResponse
-</span><a href="#local-6989586621679199825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionArn:ConfirmSubscriptionResponse' :: Maybe Text
+</span><a href="#local-6989586621679199835"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199835"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199834"><span class="annot"><span class="annottext">s :: ConfirmSubscriptionResponse
+</span><a href="#local-6989586621679199834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse%27"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199833"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSubscriptionResponse
+</span><a href="#local-6989586621679199834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionArn:ConfirmSubscriptionResponse' :: Maybe Text
 </span><a href="Network.AWS.SNS.ConfirmSubscription.html#%24sel%3AsubscriptionArn%3AConfirmSubscriptionResponse%27"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679199824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-194"></span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#confirmSubscriptionResponse_httpStatus"><span class="hs-identifier hs-type">confirmSubscriptionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -494,16 +494,16 @@ $sel:subscriptionArn:ConfirmSubscriptionResponse' :: ConfirmSubscriptionResponse
 -&gt; Lens
      ConfirmSubscriptionResponse ConfirmSubscriptionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse%27"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199823"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse%27"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199832"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ConfirmSubscriptionResponse' :: ConfirmSubscriptionResponse -&gt; Int
-</span><a href="#local-6989586621679199823"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199823"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199822"><span class="annot"><span class="annottext">s :: ConfirmSubscriptionResponse
-</span><a href="#local-6989586621679199822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse%27"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199821"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSubscriptionResponse
-</span><a href="#local-6989586621679199822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ConfirmSubscriptionResponse' :: Int
+</span><a href="#local-6989586621679199832"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199832"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199831"><span class="annot"><span class="annottext">s :: ConfirmSubscriptionResponse
+</span><a href="#local-6989586621679199831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse%27"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199830"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSubscriptionResponse
+</span><a href="#local-6989586621679199831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ConfirmSubscriptionResponse' :: Int
 </span><a href="Network.AWS.SNS.ConfirmSubscription.html#%24sel%3AhttpStatus%3AConfirmSubscriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199819"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse</span></a></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.ConfirmSubscription.html#ConfirmSubscriptionResponse"><span class="hs-identifier hs-type">ConfirmSubscriptionResponse</span></a></span></span><span>
 </span><span id="line-198"></span></pre></body></html>

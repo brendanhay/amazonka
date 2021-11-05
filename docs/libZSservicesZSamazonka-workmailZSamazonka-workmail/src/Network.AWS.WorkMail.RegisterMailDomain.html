@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.html"><span class="hs-identifier">Network.AWS.WorkMail.Types</span></a></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newRegisterMailDomain' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679283955"><span id="local-6989586621679283956"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterMailDomain"><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-var">RegisterMailDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterMailDomain%27"><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-var">RegisterMailDomain'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679283964"><span id="local-6989586621679283965"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterMailDomain"><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-var">RegisterMailDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterMailDomain%27"><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-var">RegisterMailDomain'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Idempotency token used when retrying requests.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AclientToken%3ARegisterMailDomain%27"><span class="annot"><span class="annottext">RegisterMailDomain -&gt; Maybe Text
 </span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#%24sel%3AclientToken%3ARegisterMailDomain%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AdomainName%3ARegisterMailDomain%27"><span class="annot"><span class="annottext">RegisterMailDomain -&gt; Text
 </span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#%24sel%3AdomainName%3ARegisterMailDomain%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283947"><span id="local-6989586621679283949"><span class="annot"><span class="annottext">RegisterMailDomain -&gt; RegisterMailDomain -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283956"><span id="local-6989586621679283958"><span class="annot"><span class="annottext">RegisterMailDomain -&gt; RegisterMailDomain -&gt; Bool
 (RegisterMailDomain -&gt; RegisterMailDomain -&gt; Bool)
 -&gt; (RegisterMailDomain -&gt; RegisterMailDomain -&gt; Bool)
 -&gt; Eq RegisterMailDomain
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegisterMailDomain -&gt; RegisterMailDomain -&gt; Bool
 == :: RegisterMailDomain -&gt; RegisterMailDomain -&gt; Bool
 $c== :: RegisterMailDomain -&gt; RegisterMailDomain -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283938"><span id="local-6989586621679283940"><span id="local-6989586621679283942"><span id="local-6989586621679283944"><span class="annot"><span class="annottext">ReadPrec [RegisterMailDomain]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283947"><span id="local-6989586621679283949"><span id="local-6989586621679283951"><span id="local-6989586621679283953"><span class="annot"><span class="annottext">ReadPrec [RegisterMailDomain]
 ReadPrec RegisterMailDomain
 Int -&gt; ReadS RegisterMailDomain
 ReadS [RegisterMailDomain]
@@ -92,7 +92,7 @@ readList :: ReadS [RegisterMailDomain]
 $creadList :: ReadS [RegisterMailDomain]
 readsPrec :: Int -&gt; ReadS RegisterMailDomain
 $creadsPrec :: Int -&gt; ReadS RegisterMailDomain
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283931"><span id="local-6989586621679283933"><span id="local-6989586621679283935"><span class="annot"><span class="annottext">Int -&gt; RegisterMailDomain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283940"><span id="local-6989586621679283942"><span id="local-6989586621679283944"><span class="annot"><span class="annottext">Int -&gt; RegisterMailDomain -&gt; ShowS
 [RegisterMailDomain] -&gt; ShowS
 RegisterMailDomain -&gt; String
 (Int -&gt; RegisterMailDomain -&gt; ShowS)
@@ -139,9 +139,9 @@ $cfrom :: forall x. RegisterMailDomain -&gt; Rep RegisterMailDomain x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span><span>
 </span><span id="line-85"></span><span id="newRegisterMailDomain"><span class="annot"><span class="annottext">newRegisterMailDomain :: Text -&gt; Text -&gt; RegisterMailDomain
-</span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#newRegisterMailDomain"><span class="hs-identifier hs-var hs-var">newRegisterMailDomain</span></a></span></span><span> </span><span id="local-6989586621679283926"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283926"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span id="local-6989586621679283925"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283925"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#newRegisterMailDomain"><span class="hs-identifier hs-var hs-var">newRegisterMailDomain</span></a></span></span><span> </span><span id="local-6989586621679283935"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283935"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span id="local-6989586621679283934"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283934"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">RegisterMailDomain' :: Maybe Text -&gt; Text -&gt; Text -&gt; RegisterMailDomain
 </span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-type">RegisterMailDomain'</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:RegisterMailDomain' :: Maybe Text
@@ -150,10 +150,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationId:RegisterMailDomain' :: Text
 </span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#%24sel%3AorganizationId%3ARegisterMailDomain%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283926"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679283935"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:RegisterMailDomain' :: Text
 </span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#%24sel%3AdomainName%3ARegisterMailDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283925"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span>
+</span><a href="#local-6989586621679283934"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | Idempotency token used when retrying requests.</span><span>
@@ -165,16 +165,16 @@ forall a. Maybe a
 -&gt; Lens
      RegisterMailDomain RegisterMailDomain (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-type">RegisterMailDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283922"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-type">RegisterMailDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283931"><span class="annot"><span class="annottext">Maybe Text
 clientToken :: Maybe Text
 $sel:clientToken:RegisterMailDomain' :: RegisterMailDomain -&gt; Maybe Text
-</span><a href="#local-6989586621679283922"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283922"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283921"><span class="annot"><span class="annottext">s :: RegisterMailDomain
-</span><a href="#local-6989586621679283921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-type">RegisterMailDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283920"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterMailDomain
-</span><a href="#local-6989586621679283921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:RegisterMailDomain' :: Maybe Text
+</span><a href="#local-6989586621679283931"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283931"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283930"><span class="annot"><span class="annottext">s :: RegisterMailDomain
+</span><a href="#local-6989586621679283930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-type">RegisterMailDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283929"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterMailDomain
+</span><a href="#local-6989586621679283930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:RegisterMailDomain' :: Maybe Text
 </span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#%24sel%3AclientToken%3ARegisterMailDomain%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The Amazon WorkMail organization under which you\'re creating the</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- domain.</span><span>
@@ -184,16 +184,16 @@ $sel:clientToken:RegisterMailDomain' :: RegisterMailDomain -&gt; Maybe Text
 -&gt; (RegisterMailDomain -&gt; Text -&gt; RegisterMailDomain)
 -&gt; Lens RegisterMailDomain RegisterMailDomain Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-type">RegisterMailDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283919"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-type">RegisterMailDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283928"><span class="annot"><span class="annottext">Text
 organizationId :: Text
 $sel:organizationId:RegisterMailDomain' :: RegisterMailDomain -&gt; Text
-</span><a href="#local-6989586621679283919"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283919"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283918"><span class="annot"><span class="annottext">s :: RegisterMailDomain
-</span><a href="#local-6989586621679283918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-type">RegisterMailDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283917"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterMailDomain
-</span><a href="#local-6989586621679283918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:RegisterMailDomain' :: Text
+</span><a href="#local-6989586621679283928"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283928"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283927"><span class="annot"><span class="annottext">s :: RegisterMailDomain
+</span><a href="#local-6989586621679283927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-type">RegisterMailDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283926"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterMailDomain
+</span><a href="#local-6989586621679283927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:RegisterMailDomain' :: Text
 </span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#%24sel%3AorganizationId%3ARegisterMailDomain%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The name of the mail domain to create in Amazon WorkMail and SES.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#registerMailDomain_domainName"><span class="hs-identifier hs-type">registerMailDomain_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -202,27 +202,27 @@ $sel:organizationId:RegisterMailDomain' :: RegisterMailDomain -&gt; Text
 -&gt; (RegisterMailDomain -&gt; Text -&gt; RegisterMailDomain)
 -&gt; Lens RegisterMailDomain RegisterMailDomain Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-type">RegisterMailDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283916"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-type">RegisterMailDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283925"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:RegisterMailDomain' :: RegisterMailDomain -&gt; Text
-</span><a href="#local-6989586621679283916"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283916"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283915"><span class="annot"><span class="annottext">s :: RegisterMailDomain
-</span><a href="#local-6989586621679283915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-type">RegisterMailDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283914"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterMailDomain
-</span><a href="#local-6989586621679283915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:RegisterMailDomain' :: Text
+</span><a href="#local-6989586621679283925"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283925"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283924"><span class="annot"><span class="annottext">s :: RegisterMailDomain
+</span><a href="#local-6989586621679283924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-type">RegisterMailDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283923"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterMailDomain
+</span><a href="#local-6989586621679283924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:RegisterMailDomain' :: Text
 </span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#%24sel%3AdomainName%3ARegisterMailDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomainResponse"><span class="hs-identifier hs-type">RegisterMailDomainResponse</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679283910"><span class="annot"><span class="annottext">request :: RegisterMailDomain -&gt; Request RegisterMailDomain
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679283919"><span class="annot"><span class="annottext">request :: RegisterMailDomain -&gt; Request RegisterMailDomain
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RegisterMailDomain -&gt; Request RegisterMailDomain
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkMail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679283906"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679283915"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RegisterMailDomain
 -&gt; ClientResponse ClientBody
@@ -248,10 +248,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283903"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283903"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679283902"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679283902"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679283901"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679283901"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283912"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283912"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679283911"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679283911"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679283910"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679283910"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RegisterMailDomainResponse
 </span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomainResponse%27"><span class="hs-identifier hs-var">RegisterMailDomainResponse'</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RegisterMailDomainResponse)
@@ -262,15 +262,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283903"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283912"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283894"><span id="local-6989586621679283896"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283903"><span id="local-6989586621679283905"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283891"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283900"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679283887"><span class="annot"><span class="annottext">toHeaders :: RegisterMailDomain -&gt; ResponseHeaders
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679283896"><span class="annot"><span class="annottext">toHeaders :: RegisterMailDomain -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RegisterMailDomain -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -297,9 +297,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283877"><span id="local-6989586621679283879"><span id="local-6989586621679283881"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679283875"><span class="annot"><span class="annottext">toJSON :: RegisterMailDomain -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-type">RegisterMailDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283871"><span id="local-6989586621679283872"><span id="local-6989586621679283873"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283886"><span id="local-6989586621679283888"><span id="local-6989586621679283890"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679283884"><span class="annot"><span class="annottext">toJSON :: RegisterMailDomain -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain%27"><span class="hs-identifier hs-type">RegisterMailDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283880"><span id="local-6989586621679283881"><span id="local-6989586621679283882"><span class="annot"><span class="annottext">Maybe Text
 Text
 domainName :: Text
 organizationId :: Text
@@ -307,7 +307,7 @@ clientToken :: Maybe Text
 $sel:domainName:RegisterMailDomain' :: RegisterMailDomain -&gt; Text
 $sel:organizationId:RegisterMailDomain' :: RegisterMailDomain -&gt; Text
 $sel:clientToken:RegisterMailDomain' :: RegisterMailDomain -&gt; Maybe Text
-</span><a href="#local-6989586621679283871"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679283880"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -319,7 +319,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283873"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679283882"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -327,26 +327,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;OrganizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283872"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679283881"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283871"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283880"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679283865"><span class="annot"><span class="annottext">toPath :: RegisterMailDomain -&gt; ByteString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679283874"><span class="annot"><span class="annottext">toPath :: RegisterMailDomain -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterMailDomain -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomain"><span class="hs-identifier hs-type">RegisterMailDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679283861"><span class="annot"><span class="annottext">toQuery :: RegisterMailDomain -&gt; QueryString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679283870"><span class="annot"><span class="annottext">toQuery :: RegisterMailDomain -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterMailDomain -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -354,12 +354,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newRegisterMailDomainResponse' smart constructor.</span><span>
-</span><span id="line-154"></span><span id="local-6989586621679283858"><span id="local-6989586621679283859"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterMailDomainResponse"><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomainResponse"><span class="hs-identifier hs-var">RegisterMailDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterMailDomainResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomainResponse%27"><span class="hs-identifier hs-var">RegisterMailDomainResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span id="local-6989586621679283867"><span id="local-6989586621679283868"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterMailDomainResponse"><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomainResponse"><span class="hs-identifier hs-var">RegisterMailDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterMailDomainResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomainResponse%27"><span class="hs-identifier hs-var">RegisterMailDomainResponse'</span></a></span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARegisterMailDomainResponse%27"><span class="annot"><span class="annottext">RegisterMailDomainResponse -&gt; Int
 </span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#%24sel%3AhttpStatus%3ARegisterMailDomainResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283853"><span id="local-6989586621679283855"><span class="annot"><span class="annottext">RegisterMailDomainResponse -&gt; RegisterMailDomainResponse -&gt; Bool
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283862"><span id="local-6989586621679283864"><span class="annot"><span class="annottext">RegisterMailDomainResponse -&gt; RegisterMailDomainResponse -&gt; Bool
 (RegisterMailDomainResponse -&gt; RegisterMailDomainResponse -&gt; Bool)
 -&gt; (RegisterMailDomainResponse
     -&gt; RegisterMailDomainResponse -&gt; Bool)
@@ -369,7 +369,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegisterMailDomainResponse -&gt; RegisterMailDomainResponse -&gt; Bool
 == :: RegisterMailDomainResponse -&gt; RegisterMailDomainResponse -&gt; Bool
 $c== :: RegisterMailDomainResponse -&gt; RegisterMailDomainResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283845"><span id="local-6989586621679283847"><span id="local-6989586621679283849"><span id="local-6989586621679283851"><span class="annot"><span class="annottext">ReadPrec [RegisterMailDomainResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283854"><span id="local-6989586621679283856"><span id="local-6989586621679283858"><span id="local-6989586621679283860"><span class="annot"><span class="annottext">ReadPrec [RegisterMailDomainResponse]
 ReadPrec RegisterMailDomainResponse
 Int -&gt; ReadS RegisterMailDomainResponse
 ReadS [RegisterMailDomainResponse]
@@ -389,7 +389,7 @@ readList :: ReadS [RegisterMailDomainResponse]
 $creadList :: ReadS [RegisterMailDomainResponse]
 readsPrec :: Int -&gt; ReadS RegisterMailDomainResponse
 $creadsPrec :: Int -&gt; ReadS RegisterMailDomainResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283839"><span id="local-6989586621679283841"><span id="local-6989586621679283843"><span class="annot"><span class="annottext">Int -&gt; RegisterMailDomainResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283848"><span id="local-6989586621679283850"><span id="local-6989586621679283852"><span class="annot"><span class="annottext">Int -&gt; RegisterMailDomainResponse -&gt; ShowS
 [RegisterMailDomainResponse] -&gt; ShowS
 RegisterMailDomainResponse -&gt; String
 (Int -&gt; RegisterMailDomainResponse -&gt; ShowS)
@@ -435,14 +435,14 @@ RegisterMailDomainResponse -&gt; Rep RegisterMailDomainResponse x
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomainResponse"><span class="hs-identifier hs-type">RegisterMailDomainResponse</span></a></span><span>
 </span><span id="line-173"></span><span id="newRegisterMailDomainResponse"><span class="annot"><span class="annottext">newRegisterMailDomainResponse :: Int -&gt; RegisterMailDomainResponse
-</span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#newRegisterMailDomainResponse"><span class="hs-identifier hs-var hs-var">newRegisterMailDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679283836"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283836"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#newRegisterMailDomainResponse"><span class="hs-identifier hs-var hs-var">newRegisterMailDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679283845"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283845"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">RegisterMailDomainResponse' :: Int -&gt; RegisterMailDomainResponse
 </span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomainResponse%27"><span class="hs-identifier hs-type">RegisterMailDomainResponse'</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterMailDomainResponse' :: Int
 </span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#%24sel%3AhttpStatus%3ARegisterMailDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283836"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679283845"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -455,16 +455,16 @@ RegisterMailDomainResponse -&gt; Rep RegisterMailDomainResponse x
 -&gt; Lens
      RegisterMailDomainResponse RegisterMailDomainResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomainResponse%27"><span class="hs-identifier hs-type">RegisterMailDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283835"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomainResponse%27"><span class="hs-identifier hs-type">RegisterMailDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283844"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RegisterMailDomainResponse' :: RegisterMailDomainResponse -&gt; Int
-</span><a href="#local-6989586621679283835"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283835"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283834"><span class="annot"><span class="annottext">s :: RegisterMailDomainResponse
-</span><a href="#local-6989586621679283834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomainResponse%27"><span class="hs-identifier hs-type">RegisterMailDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283833"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterMailDomainResponse
-</span><a href="#local-6989586621679283834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterMailDomainResponse' :: Int
+</span><a href="#local-6989586621679283844"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283844"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283843"><span class="annot"><span class="annottext">s :: RegisterMailDomainResponse
+</span><a href="#local-6989586621679283843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomainResponse%27"><span class="hs-identifier hs-type">RegisterMailDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283842"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterMailDomainResponse
+</span><a href="#local-6989586621679283843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterMailDomainResponse' :: Int
 </span><a href="Network.AWS.WorkMail.RegisterMailDomain.html#%24sel%3AhttpStatus%3ARegisterMailDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomainResponse"><span class="hs-identifier hs-type">RegisterMailDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomainResponse"><span class="hs-identifier hs-type">RegisterMailDomainResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283831"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomainResponse"><span class="hs-identifier hs-type">RegisterMailDomainResponse</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283840"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.RegisterMailDomain.html#RegisterMailDomainResponse"><span class="hs-identifier hs-type">RegisterMailDomainResponse</span></a></span></span><span>
 </span><span id="line-184"></span></pre></body></html>

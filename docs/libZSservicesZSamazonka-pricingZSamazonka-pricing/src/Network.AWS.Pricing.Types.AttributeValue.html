@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- @Provisioned IOPS@ for the @Amazon EC2@ @volumeType@ attribute.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAttributeValue' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679143269"><span id="local-6989586621679143270"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttributeValue"><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-var">AttributeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeValue%27"><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-var">AttributeValue'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679143278"><span id="local-6989586621679143279"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttributeValue"><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-var">AttributeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeValue%27"><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-var">AttributeValue'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The specific value of an @attributeName@.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe Text
 </span><a href="Network.AWS.Pricing.Types.AttributeValue.html#%24sel%3Avalue%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679143263"><span id="local-6989586621679143265"><span class="annot"><span class="annottext">AttributeValue -&gt; AttributeValue -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679143272"><span id="local-6989586621679143274"><span class="annot"><span class="annottext">AttributeValue -&gt; AttributeValue -&gt; Bool
 (AttributeValue -&gt; AttributeValue -&gt; Bool)
 -&gt; (AttributeValue -&gt; AttributeValue -&gt; Bool) -&gt; Eq AttributeValue
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttributeValue -&gt; AttributeValue -&gt; Bool
 == :: AttributeValue -&gt; AttributeValue -&gt; Bool
 $c== :: AttributeValue -&gt; AttributeValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143254"><span id="local-6989586621679143256"><span id="local-6989586621679143258"><span id="local-6989586621679143260"><span class="annot"><span class="annottext">ReadPrec [AttributeValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143263"><span id="local-6989586621679143265"><span id="local-6989586621679143267"><span id="local-6989586621679143269"><span class="annot"><span class="annottext">ReadPrec [AttributeValue]
 ReadPrec AttributeValue
 Int -&gt; ReadS AttributeValue
 ReadS [AttributeValue]
@@ -60,7 +60,7 @@ readList :: ReadS [AttributeValue]
 $creadList :: ReadS [AttributeValue]
 readsPrec :: Int -&gt; ReadS AttributeValue
 $creadsPrec :: Int -&gt; ReadS AttributeValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143247"><span id="local-6989586621679143249"><span id="local-6989586621679143251"><span class="annot"><span class="annottext">Int -&gt; AttributeValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143256"><span id="local-6989586621679143258"><span id="local-6989586621679143260"><span class="annot"><span class="annottext">Int -&gt; AttributeValue -&gt; ShowS
 [AttributeValue] -&gt; ShowS
 AttributeValue -&gt; String
 (Int -&gt; AttributeValue -&gt; ShowS)
@@ -113,19 +113,19 @@ forall a. Maybe a
 -&gt; (AttributeValue -&gt; Maybe Text -&gt; AttributeValue)
 -&gt; Lens AttributeValue AttributeValue (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143238"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143247"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:AttributeValue' :: AttributeValue -&gt; Maybe Text
-</span><a href="#local-6989586621679143238"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143238"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143237"><span class="annot"><span class="annottext">s :: AttributeValue
-</span><a href="#local-6989586621679143237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143236"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
-</span><a href="#local-6989586621679143237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:AttributeValue' :: Maybe Text
+</span><a href="#local-6989586621679143247"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143247"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143246"><span class="annot"><span class="annottext">s :: AttributeValue
+</span><a href="#local-6989586621679143246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143245"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
+</span><a href="#local-6989586621679143246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:AttributeValue' :: Maybe Text
 </span><a href="Network.AWS.Pricing.Types.AttributeValue.html#%24sel%3Avalue%3AAttributeValue%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679143245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143233"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679143231"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttributeValue
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143242"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679143240"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttributeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AttributeValue)
@@ -135,20 +135,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AttributeValue&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679143228"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679143228"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679143237"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679143237"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; AttributeValue
 </span><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-var">AttributeValue'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; AttributeValue)
 -&gt; Parser (Maybe Text) -&gt; Parser AttributeValue
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679143228"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679143237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143222"><span id="local-6989586621679143224"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143231"><span id="local-6989586621679143233"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

@@ -83,7 +83,7 @@
 </span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | /See:/ 'newListRetirableGrants' smart constructor.</span><span>
-</span><span id="line-86"></span><span id="local-6989586621679253147"><span id="local-6989586621679253148"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRetirableGrants"><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-var">ListRetirableGrants</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRetirableGrants%27"><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-var">ListRetirableGrants'</span></a></span></span><span>
+</span><span id="line-86"></span><span id="local-6989586621679253156"><span id="local-6989586621679253157"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRetirableGrants"><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-var">ListRetirableGrants</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRetirableGrants%27"><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-var">ListRetirableGrants'</span></a></span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this parameter in a subsequent request after you receive a response</span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-comment">-- with truncated results. Set it to the value of @NextMarker@ from the</span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-comment">-- truncated response you just received.</span><span>
@@ -112,7 +112,7 @@
 </span><span id="line-110"></span><span>    </span><span id="%24sel%3AretiringPrincipal%3AListRetirableGrants%27"><span class="annot"><span class="annottext">ListRetirableGrants -&gt; Text
 </span><a href="Network.AWS.KMS.ListRetirableGrants.html#%24sel%3AretiringPrincipal%3AListRetirableGrants%27"><span class="hs-identifier hs-var hs-var">retiringPrincipal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253139"><span id="local-6989586621679253141"><span class="annot"><span class="annottext">ListRetirableGrants -&gt; ListRetirableGrants -&gt; Bool
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253148"><span id="local-6989586621679253150"><span class="annot"><span class="annottext">ListRetirableGrants -&gt; ListRetirableGrants -&gt; Bool
 (ListRetirableGrants -&gt; ListRetirableGrants -&gt; Bool)
 -&gt; (ListRetirableGrants -&gt; ListRetirableGrants -&gt; Bool)
 -&gt; Eq ListRetirableGrants
@@ -121,7 +121,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListRetirableGrants -&gt; ListRetirableGrants -&gt; Bool
 == :: ListRetirableGrants -&gt; ListRetirableGrants -&gt; Bool
 $c== :: ListRetirableGrants -&gt; ListRetirableGrants -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253130"><span id="local-6989586621679253132"><span id="local-6989586621679253134"><span id="local-6989586621679253136"><span class="annot"><span class="annottext">ReadPrec [ListRetirableGrants]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253139"><span id="local-6989586621679253141"><span id="local-6989586621679253143"><span id="local-6989586621679253145"><span class="annot"><span class="annottext">ReadPrec [ListRetirableGrants]
 ReadPrec ListRetirableGrants
 Int -&gt; ReadS ListRetirableGrants
 ReadS [ListRetirableGrants]
@@ -141,7 +141,7 @@ readList :: ReadS [ListRetirableGrants]
 $creadList :: ReadS [ListRetirableGrants]
 readsPrec :: Int -&gt; ReadS ListRetirableGrants
 $creadsPrec :: Int -&gt; ReadS ListRetirableGrants
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253123"><span id="local-6989586621679253125"><span id="local-6989586621679253127"><span class="annot"><span class="annottext">Int -&gt; ListRetirableGrants -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253132"><span id="local-6989586621679253134"><span id="local-6989586621679253136"><span class="annot"><span class="annottext">Int -&gt; ListRetirableGrants -&gt; ShowS
 [ListRetirableGrants] -&gt; ShowS
 ListRetirableGrants -&gt; String
 (Int -&gt; ListRetirableGrants -&gt; ShowS)
@@ -203,8 +203,8 @@ $cfrom :: forall x. ListRetirableGrants -&gt; Rep ListRetirableGrants x
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span><span>
 </span><span id="line-149"></span><span id="newListRetirableGrants"><span class="annot"><span class="annottext">newListRetirableGrants :: Text -&gt; ListRetirableGrants
-</span><a href="Network.AWS.KMS.ListRetirableGrants.html#newListRetirableGrants"><span class="hs-identifier hs-var hs-var">newListRetirableGrants</span></a></span></span><span> </span><span id="local-6989586621679253118"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253118"><span class="hs-identifier hs-var">pRetiringPrincipal_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.ListRetirableGrants.html#newListRetirableGrants"><span class="hs-identifier hs-var hs-var">newListRetirableGrants</span></a></span></span><span> </span><span id="local-6989586621679253127"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253127"><span class="hs-identifier hs-var">pRetiringPrincipal_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">ListRetirableGrants' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListRetirableGrants
 </span><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-type">ListRetirableGrants'</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListRetirableGrants' :: Maybe Text
@@ -217,7 +217,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:retiringPrincipal:ListRetirableGrants' :: Text
 </span><a href="Network.AWS.KMS.ListRetirableGrants.html#%24sel%3AretiringPrincipal%3AListRetirableGrants%27"><span class="hs-identifier hs-var">retiringPrincipal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253118"><span class="hs-identifier hs-var">pRetiringPrincipal_</span></a></span><span>
+</span><a href="#local-6989586621679253127"><span class="hs-identifier hs-var">pRetiringPrincipal_</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | Use this parameter in a subsequent request after you receive a response</span><span>
@@ -231,16 +231,16 @@ forall a. Maybe a
 -&gt; Lens
      ListRetirableGrants ListRetirableGrants (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-type">ListRetirableGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253115"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-type">ListRetirableGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253124"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListRetirableGrants' :: ListRetirableGrants -&gt; Maybe Text
-</span><a href="#local-6989586621679253115"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253115"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253114"><span class="annot"><span class="annottext">s :: ListRetirableGrants
-</span><a href="#local-6989586621679253114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-type">ListRetirableGrants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253113"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRetirableGrants
-</span><a href="#local-6989586621679253114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListRetirableGrants' :: Maybe Text
+</span><a href="#local-6989586621679253124"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253124"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253123"><span class="annot"><span class="annottext">s :: ListRetirableGrants
+</span><a href="#local-6989586621679253123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-type">ListRetirableGrants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253122"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRetirableGrants
+</span><a href="#local-6989586621679253123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListRetirableGrants' :: Maybe Text
 </span><a href="Network.AWS.KMS.ListRetirableGrants.html#%24sel%3Amarker%3AListRetirableGrants%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | Use this parameter to specify the maximum number of items to return.</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- When this value is present, KMS does not return more than the specified</span><span>
@@ -259,16 +259,16 @@ $sel:marker:ListRetirableGrants' :: ListRetirableGrants -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-type">ListRetirableGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253112"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-type">ListRetirableGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253121"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListRetirableGrants' :: ListRetirableGrants -&gt; Maybe Natural
-</span><a href="#local-6989586621679253112"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679253112"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253111"><span class="annot"><span class="annottext">s :: ListRetirableGrants
-</span><a href="#local-6989586621679253111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-type">ListRetirableGrants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253110"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679253110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRetirableGrants
-</span><a href="#local-6989586621679253111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListRetirableGrants' :: Maybe Natural
+</span><a href="#local-6989586621679253121"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679253121"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253120"><span class="annot"><span class="annottext">s :: ListRetirableGrants
+</span><a href="#local-6989586621679253120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-type">ListRetirableGrants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253119"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679253119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRetirableGrants
+</span><a href="#local-6989586621679253120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListRetirableGrants' :: Maybe Natural
 </span><a href="Network.AWS.KMS.ListRetirableGrants.html#%24sel%3Alimit%3AListRetirableGrants%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679253110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The retiring principal for which to list grants. Enter a principal in</span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- your Amazon Web Services account.</span><span>
@@ -288,27 +288,27 @@ $sel:limit:ListRetirableGrants' :: ListRetirableGrants -&gt; Maybe Natural
 -&gt; (ListRetirableGrants -&gt; Text -&gt; ListRetirableGrants)
 -&gt; Lens ListRetirableGrants ListRetirableGrants Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-type">ListRetirableGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253109"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-type">ListRetirableGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253118"><span class="annot"><span class="annottext">Text
 retiringPrincipal :: Text
 $sel:retiringPrincipal:ListRetirableGrants' :: ListRetirableGrants -&gt; Text
-</span><a href="#local-6989586621679253109"><span class="hs-identifier hs-var hs-var">retiringPrincipal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253109"><span class="hs-identifier hs-var">retiringPrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253108"><span class="annot"><span class="annottext">s :: ListRetirableGrants
-</span><a href="#local-6989586621679253108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-type">ListRetirableGrants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253107"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRetirableGrants
-</span><a href="#local-6989586621679253108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retiringPrincipal:ListRetirableGrants' :: Text
+</span><a href="#local-6989586621679253118"><span class="hs-identifier hs-var hs-var">retiringPrincipal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253118"><span class="hs-identifier hs-var">retiringPrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253117"><span class="annot"><span class="annottext">s :: ListRetirableGrants
+</span><a href="#local-6989586621679253117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-type">ListRetirableGrants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253116"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRetirableGrants
+</span><a href="#local-6989586621679253117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retiringPrincipal:ListRetirableGrants' :: Text
 </span><a href="Network.AWS.KMS.ListRetirableGrants.html#%24sel%3AretiringPrincipal%3AListRetirableGrants%27"><span class="hs-identifier hs-var">retiringPrincipal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-188"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>      </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679253103"><span class="annot"><span class="annottext">request :: ListRetirableGrants -&gt; Request ListRetirableGrants
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679253112"><span class="annot"><span class="annottext">request :: ListRetirableGrants -&gt; Request ListRetirableGrants
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListRetirableGrants -&gt; Request ListRetirableGrants
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679253099"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679253108"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListRetirableGrants
 -&gt; ClientResponse ClientBody
@@ -334,20 +334,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-193"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253096"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253096"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679253095"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679253095"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679253094"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253094"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String ListGrantsResponse
+</span><span id="line-193"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253105"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253105"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679253104"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679253104"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679253103"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253103"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String ListGrantsResponse
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253094"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253103"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253089"><span id="local-6989586621679253091"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253098"><span id="local-6989586621679253100"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span></span></span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253086"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679253082"><span class="annot"><span class="annottext">toHeaders :: ListRetirableGrants -&gt; ResponseHeaders
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679253091"><span class="annot"><span class="annottext">toHeaders :: ListRetirableGrants -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListRetirableGrants -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -374,9 +374,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-211"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253072"><span id="local-6989586621679253074"><span id="local-6989586621679253076"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679253070"><span class="annot"><span class="annottext">toJSON :: ListRetirableGrants -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-type">ListRetirableGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253066"><span id="local-6989586621679253067"><span id="local-6989586621679253068"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253081"><span id="local-6989586621679253083"><span id="local-6989586621679253085"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679253079"><span class="annot"><span class="annottext">toJSON :: ListRetirableGrants -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants%27"><span class="hs-identifier hs-type">ListRetirableGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253075"><span id="local-6989586621679253076"><span id="local-6989586621679253077"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 retiringPrincipal :: Text
@@ -385,7 +385,7 @@ marker :: Maybe Text
 $sel:retiringPrincipal:ListRetirableGrants' :: ListRetirableGrants -&gt; Text
 $sel:limit:ListRetirableGrants' :: ListRetirableGrants -&gt; Maybe Natural
 $sel:marker:ListRetirableGrants' :: ListRetirableGrants -&gt; Maybe Text
-</span><a href="#local-6989586621679253066"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679253075"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -397,14 +397,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253068"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679253077"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679253067"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679253076"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -412,19 +412,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RetiringPrincipal&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253066"><span class="hs-identifier hs-var">retiringPrincipal</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253075"><span class="hs-identifier hs-var">retiringPrincipal</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621679253059"><span class="annot"><span class="annottext">toPath :: ListRetirableGrants -&gt; ByteString
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679253068"><span class="annot"><span class="annottext">toPath :: ListRetirableGrants -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListRetirableGrants -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListRetirableGrants.html#ListRetirableGrants"><span class="hs-identifier hs-type">ListRetirableGrants</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679253055"><span class="annot"><span class="annottext">toQuery :: ListRetirableGrants -&gt; QueryString
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679253064"><span class="annot"><span class="annottext">toQuery :: ListRetirableGrants -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListRetirableGrants -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

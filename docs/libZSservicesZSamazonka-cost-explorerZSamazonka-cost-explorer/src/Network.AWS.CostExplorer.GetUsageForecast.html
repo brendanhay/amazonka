@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newGetUsageForecast' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679342572"><span id="local-6989586621679342573"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUsageForecast"><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-var">GetUsageForecast</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUsageForecast%27"><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-var">GetUsageForecast'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679342581"><span id="local-6989586621679342582"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUsageForecast"><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-var">GetUsageForecast</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUsageForecast%27"><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-var">GetUsageForecast'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Cost Explorer always returns the mean forecast as a single point. You</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- can request a prediction interval around the mean by specifying a</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- confidence level. The higher the confidence level, the more confident</span><span>
@@ -138,7 +138,7 @@
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3Agranularity%3AGetUsageForecast%27"><span class="annot"><span class="annottext">GetUsageForecast -&gt; Granularity
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#%24sel%3Agranularity%3AGetUsageForecast%27"><span class="hs-identifier hs-var hs-var">granularity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Granularity.html#Granularity"><span class="hs-identifier hs-type">Granularity</span></a></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342562"><span id="local-6989586621679342564"><span class="annot"><span class="annottext">GetUsageForecast -&gt; GetUsageForecast -&gt; Bool
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342571"><span id="local-6989586621679342573"><span class="annot"><span class="annottext">GetUsageForecast -&gt; GetUsageForecast -&gt; Bool
 (GetUsageForecast -&gt; GetUsageForecast -&gt; Bool)
 -&gt; (GetUsageForecast -&gt; GetUsageForecast -&gt; Bool)
 -&gt; Eq GetUsageForecast
@@ -147,7 +147,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetUsageForecast -&gt; GetUsageForecast -&gt; Bool
 == :: GetUsageForecast -&gt; GetUsageForecast -&gt; Bool
 $c== :: GetUsageForecast -&gt; GetUsageForecast -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342553"><span id="local-6989586621679342555"><span id="local-6989586621679342557"><span id="local-6989586621679342559"><span class="annot"><span class="annottext">ReadPrec [GetUsageForecast]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342562"><span id="local-6989586621679342564"><span id="local-6989586621679342566"><span id="local-6989586621679342568"><span class="annot"><span class="annottext">ReadPrec [GetUsageForecast]
 ReadPrec GetUsageForecast
 Int -&gt; ReadS GetUsageForecast
 ReadS [GetUsageForecast]
@@ -167,7 +167,7 @@ readList :: ReadS [GetUsageForecast]
 $creadList :: ReadS [GetUsageForecast]
 readsPrec :: Int -&gt; ReadS GetUsageForecast
 $creadsPrec :: Int -&gt; ReadS GetUsageForecast
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342546"><span id="local-6989586621679342548"><span id="local-6989586621679342550"><span class="annot"><span class="annottext">Int -&gt; GetUsageForecast -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342555"><span id="local-6989586621679342557"><span id="local-6989586621679342559"><span class="annot"><span class="annottext">Int -&gt; GetUsageForecast -&gt; ShowS
 [GetUsageForecast] -&gt; ShowS
 GetUsageForecast -&gt; String
 (Int -&gt; GetUsageForecast -&gt; ShowS)
@@ -287,12 +287,12 @@ $cfrom :: forall x. GetUsageForecast -&gt; Rep GetUsageForecast x
 </span><span id="line-229"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span><span>
 </span><span id="line-230"></span><span id="newGetUsageForecast"><span class="annot"><span class="annottext">newGetUsageForecast :: DateInterval -&gt; Metric -&gt; Granularity -&gt; GetUsageForecast
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#newGetUsageForecast"><span class="hs-identifier hs-var hs-var">newGetUsageForecast</span></a></span></span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621679342541"><span class="annot"><span class="annottext">DateInterval
-</span><a href="#local-6989586621679342541"><span class="hs-identifier hs-var">pTimePeriod_</span></a></span></span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679342540"><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679342540"><span class="hs-identifier hs-var">pMetric_</span></a></span></span><span>
-</span><span id="line-233"></span><span>  </span><span id="local-6989586621679342539"><span class="annot"><span class="annottext">Granularity
-</span><a href="#local-6989586621679342539"><span class="hs-identifier hs-var">pGranularity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679342550"><span class="annot"><span class="annottext">DateInterval
+</span><a href="#local-6989586621679342550"><span class="hs-identifier hs-var">pTimePeriod_</span></a></span></span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679342549"><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679342549"><span class="hs-identifier hs-var">pMetric_</span></a></span></span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679342548"><span class="annot"><span class="annottext">Granularity
+</span><a href="#local-6989586621679342548"><span class="hs-identifier hs-var">pGranularity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-234"></span><span>    </span><span class="annot"><span class="annottext">GetUsageForecast' :: Maybe Natural
 -&gt; Maybe Expression
 -&gt; DateInterval
@@ -311,13 +311,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">$sel:timePeriod:GetUsageForecast' :: DateInterval
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#%24sel%3AtimePeriod%3AGetUsageForecast%27"><span class="hs-identifier hs-var">timePeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DateInterval
-</span><a href="#local-6989586621679342541"><span class="hs-identifier hs-var">pTimePeriod_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679342550"><span class="hs-identifier hs-var">pTimePeriod_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-239"></span><span>        </span><span class="annot"><span class="annottext">$sel:metric:GetUsageForecast' :: Metric
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#%24sel%3Ametric%3AGetUsageForecast%27"><span class="hs-identifier hs-var">metric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679342540"><span class="hs-identifier hs-var">pMetric_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679342549"><span class="hs-identifier hs-var">pMetric_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">$sel:granularity:GetUsageForecast' :: Granularity
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#%24sel%3Agranularity%3AGetUsageForecast%27"><span class="hs-identifier hs-var">granularity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Granularity
-</span><a href="#local-6989586621679342539"><span class="hs-identifier hs-var">pGranularity_</span></a></span><span>
+</span><a href="#local-6989586621679342548"><span class="hs-identifier hs-var">pGranularity_</span></a></span><span>
 </span><span id="line-241"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-242"></span><span>
 </span><span id="line-243"></span><span class="hs-comment">-- | Cost Explorer always returns the mean forecast as a single point. You</span><span>
@@ -333,16 +333,16 @@ forall a. Maybe a
 -&gt; Lens
      GetUsageForecast GetUsageForecast (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342536"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342545"><span class="annot"><span class="annottext">Maybe Natural
 predictionIntervalLevel :: Maybe Natural
 $sel:predictionIntervalLevel:GetUsageForecast' :: GetUsageForecast -&gt; Maybe Natural
-</span><a href="#local-6989586621679342536"><span class="hs-identifier hs-var hs-var">predictionIntervalLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679342536"><span class="hs-identifier hs-var">predictionIntervalLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342535"><span class="annot"><span class="annottext">s :: GetUsageForecast
-</span><a href="#local-6989586621679342535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342534"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679342534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsageForecast
-</span><a href="#local-6989586621679342535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predictionIntervalLevel:GetUsageForecast' :: Maybe Natural
+</span><a href="#local-6989586621679342545"><span class="hs-identifier hs-var hs-var">predictionIntervalLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679342545"><span class="hs-identifier hs-var">predictionIntervalLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342544"><span class="annot"><span class="annottext">s :: GetUsageForecast
+</span><a href="#local-6989586621679342544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342543"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679342543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsageForecast
+</span><a href="#local-6989586621679342544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predictionIntervalLevel:GetUsageForecast' :: Maybe Natural
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#%24sel%3ApredictionIntervalLevel%3AGetUsageForecast%27"><span class="hs-identifier hs-var">predictionIntervalLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679342534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-comment">-- | The filters that you want to use to filter your forecast. The</span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- @GetUsageForecast@ API supports filtering by the following dimensions:</span><span>
@@ -403,16 +403,16 @@ $sel:predictionIntervalLevel:GetUsageForecast' :: GetUsageForecast -&gt; Maybe N
      (Maybe Expression)
      (Maybe Expression)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342533"><span class="annot"><span class="annottext">Maybe Expression
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342542"><span class="annot"><span class="annottext">Maybe Expression
 filter' :: Maybe Expression
 $sel:filter':GetUsageForecast' :: GetUsageForecast -&gt; Maybe Expression
-</span><a href="#local-6989586621679342533"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
-</span><a href="#local-6989586621679342533"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342532"><span class="annot"><span class="annottext">s :: GetUsageForecast
-</span><a href="#local-6989586621679342532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342531"><span class="annot"><span class="annottext">Maybe Expression
-</span><a href="#local-6989586621679342531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsageForecast
-</span><a href="#local-6989586621679342532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':GetUsageForecast' :: Maybe Expression
+</span><a href="#local-6989586621679342542"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
+</span><a href="#local-6989586621679342542"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342541"><span class="annot"><span class="annottext">s :: GetUsageForecast
+</span><a href="#local-6989586621679342541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342540"><span class="annot"><span class="annottext">Maybe Expression
+</span><a href="#local-6989586621679342540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsageForecast
+</span><a href="#local-6989586621679342541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':GetUsageForecast' :: Maybe Expression
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#%24sel%3Afilter%27%3AGetUsageForecast%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
-</span><a href="#local-6989586621679342531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-301"></span><span>
 </span><span id="line-302"></span><span class="hs-comment">-- | The start and end dates of the period that you want to retrieve usage</span><span>
 </span><span id="line-303"></span><span class="hs-comment">-- forecast for. The start date is inclusive, but the end date is</span><span>
@@ -428,16 +428,16 @@ $sel:filter':GetUsageForecast' :: GetUsageForecast -&gt; Maybe Expression
 -&gt; (GetUsageForecast -&gt; DateInterval -&gt; GetUsageForecast)
 -&gt; Lens GetUsageForecast GetUsageForecast DateInterval DateInterval
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342530"><span class="annot"><span class="annottext">DateInterval
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342539"><span class="annot"><span class="annottext">DateInterval
 timePeriod :: DateInterval
 $sel:timePeriod:GetUsageForecast' :: GetUsageForecast -&gt; DateInterval
-</span><a href="#local-6989586621679342530"><span class="hs-identifier hs-var hs-var">timePeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateInterval
-</span><a href="#local-6989586621679342530"><span class="hs-identifier hs-var">timePeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342529"><span class="annot"><span class="annottext">s :: GetUsageForecast
-</span><a href="#local-6989586621679342529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342528"><span class="annot"><span class="annottext">DateInterval
-</span><a href="#local-6989586621679342528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsageForecast
-</span><a href="#local-6989586621679342529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timePeriod:GetUsageForecast' :: DateInterval
+</span><a href="#local-6989586621679342539"><span class="hs-identifier hs-var hs-var">timePeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateInterval
+</span><a href="#local-6989586621679342539"><span class="hs-identifier hs-var">timePeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342538"><span class="annot"><span class="annottext">s :: GetUsageForecast
+</span><a href="#local-6989586621679342538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342537"><span class="annot"><span class="annottext">DateInterval
+</span><a href="#local-6989586621679342537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsageForecast
+</span><a href="#local-6989586621679342538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timePeriod:GetUsageForecast' :: DateInterval
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#%24sel%3AtimePeriod%3AGetUsageForecast%27"><span class="hs-identifier hs-var">timePeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DateInterval
-</span><a href="#local-6989586621679342528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-311"></span><span>
 </span><span id="line-312"></span><span class="hs-comment">-- | Which metric Cost Explorer uses to create your forecast.</span><span>
 </span><span id="line-313"></span><span class="hs-comment">--</span><span>
@@ -452,16 +452,16 @@ $sel:timePeriod:GetUsageForecast' :: GetUsageForecast -&gt; DateInterval
 -&gt; (GetUsageForecast -&gt; Metric -&gt; GetUsageForecast)
 -&gt; Lens GetUsageForecast GetUsageForecast Metric Metric
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342527"><span class="annot"><span class="annottext">Metric
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342536"><span class="annot"><span class="annottext">Metric
 metric :: Metric
 $sel:metric:GetUsageForecast' :: GetUsageForecast -&gt; Metric
-</span><a href="#local-6989586621679342527"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679342527"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342526"><span class="annot"><span class="annottext">s :: GetUsageForecast
-</span><a href="#local-6989586621679342526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342525"><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679342525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsageForecast
-</span><a href="#local-6989586621679342526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metric:GetUsageForecast' :: Metric
+</span><a href="#local-6989586621679342536"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679342536"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342535"><span class="annot"><span class="annottext">s :: GetUsageForecast
+</span><a href="#local-6989586621679342535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342534"><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679342534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsageForecast
+</span><a href="#local-6989586621679342535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metric:GetUsageForecast' :: Metric
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#%24sel%3Ametric%3AGetUsageForecast%27"><span class="hs-identifier hs-var">metric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679342525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-321"></span><span>
 </span><span id="line-322"></span><span class="hs-comment">-- | How granular you want the forecast to be. You can get 3 months of</span><span>
 </span><span id="line-323"></span><span class="hs-comment">-- @DAILY@ forecasts or 12 months of @MONTHLY@ forecasts.</span><span>
@@ -475,27 +475,27 @@ $sel:metric:GetUsageForecast' :: GetUsageForecast -&gt; Metric
 -&gt; (GetUsageForecast -&gt; Granularity -&gt; GetUsageForecast)
 -&gt; Lens GetUsageForecast GetUsageForecast Granularity Granularity
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342524"><span class="annot"><span class="annottext">Granularity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342533"><span class="annot"><span class="annottext">Granularity
 granularity :: Granularity
 $sel:granularity:GetUsageForecast' :: GetUsageForecast -&gt; Granularity
-</span><a href="#local-6989586621679342524"><span class="hs-identifier hs-var hs-var">granularity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Granularity
-</span><a href="#local-6989586621679342524"><span class="hs-identifier hs-var">granularity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342523"><span class="annot"><span class="annottext">s :: GetUsageForecast
-</span><a href="#local-6989586621679342523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342522"><span class="annot"><span class="annottext">Granularity
-</span><a href="#local-6989586621679342522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsageForecast
-</span><a href="#local-6989586621679342523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:granularity:GetUsageForecast' :: Granularity
+</span><a href="#local-6989586621679342533"><span class="hs-identifier hs-var hs-var">granularity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Granularity
+</span><a href="#local-6989586621679342533"><span class="hs-identifier hs-var">granularity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342532"><span class="annot"><span class="annottext">s :: GetUsageForecast
+</span><a href="#local-6989586621679342532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342531"><span class="annot"><span class="annottext">Granularity
+</span><a href="#local-6989586621679342531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsageForecast
+</span><a href="#local-6989586621679342532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:granularity:GetUsageForecast' :: Granularity
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#%24sel%3Agranularity%3AGetUsageForecast%27"><span class="hs-identifier hs-var">granularity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Granularity
-</span><a href="#local-6989586621679342522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-329"></span><span>
 </span><span id="line-330"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-331"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-332"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-333"></span><span>      </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse"><span class="hs-identifier hs-type">GetUsageForecastResponse</span></a></span><span>
-</span><span id="line-334"></span><span>  </span><span id="local-6989586621679342518"><span class="annot"><span class="annottext">request :: GetUsageForecast -&gt; Request GetUsageForecast
+</span><span id="line-334"></span><span>  </span><span id="local-6989586621679342527"><span class="annot"><span class="annottext">request :: GetUsageForecast -&gt; Request GetUsageForecast
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetUsageForecast -&gt; Request GetUsageForecast
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CostExplorer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-335"></span><span>  </span><span id="local-6989586621679342514"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-335"></span><span>  </span><span id="local-6989586621679342523"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetUsageForecast
 -&gt; ClientResponse ClientBody
@@ -519,10 +519,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-337"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342511"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342511"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679342510"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679342510"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679342509"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342509"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-337"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342520"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342520"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679342519"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679342519"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679342518"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342518"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-338"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ForecastResult]
 -&gt; Maybe MetricValue -&gt; Int -&gt; GetUsageForecastResponse
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse%27"><span class="hs-identifier hs-var">GetUsageForecastResponse'</span></a></span><span>
@@ -533,7 +533,7 @@ MonadResource m =&gt;
      String (Maybe MetricValue -&gt; Int -&gt; GetUsageForecastResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ForecastResult]))
+</span><a href="#local-6989586621679342518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ForecastResult]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ForecastResultsByTime&quot;</span></span><span>
@@ -550,7 +550,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; GetUsageForecastResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MetricValue)
+</span><a href="#local-6989586621679342518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MetricValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Total&quot;</span></span><span class="hs-special">)</span><span>
@@ -562,15 +562,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342511"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342520"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-344"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-345"></span><span>
-</span><span id="line-346"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342500"><span id="local-6989586621679342502"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span></span></span><span>
+</span><span id="line-346"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342509"><span id="local-6989586621679342511"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span></span></span><span>
 </span><span id="line-347"></span><span>
-</span><span id="line-348"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span></span><span>
+</span><span id="line-348"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342506"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span></span><span>
 </span><span id="line-349"></span><span>
 </span><span id="line-350"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-351"></span><span>  </span><span id="local-6989586621679342493"><span class="annot"><span class="annottext">toHeaders :: GetUsageForecast -&gt; ResponseHeaders
+</span><span id="line-351"></span><span>  </span><span id="local-6989586621679342502"><span class="annot"><span class="annottext">toHeaders :: GetUsageForecast -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-352"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetUsageForecast -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -597,9 +597,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-362"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-363"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-364"></span><span>
-</span><span id="line-365"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342483"><span id="local-6989586621679342485"><span id="local-6989586621679342487"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-366"></span><span>  </span><span id="local-6989586621679342481"><span class="annot"><span class="annottext">toJSON :: GetUsageForecast -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342475"><span id="local-6989586621679342476"><span id="local-6989586621679342477"><span id="local-6989586621679342478"><span id="local-6989586621679342479"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-365"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342492"><span id="local-6989586621679342494"><span id="local-6989586621679342496"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-366"></span><span>  </span><span id="local-6989586621679342490"><span class="annot"><span class="annottext">toJSON :: GetUsageForecast -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast%27"><span class="hs-identifier hs-type">GetUsageForecast'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342484"><span id="local-6989586621679342485"><span id="local-6989586621679342486"><span id="local-6989586621679342487"><span id="local-6989586621679342488"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Expression
 DateInterval
 Granularity
@@ -614,7 +614,7 @@ $sel:metric:GetUsageForecast' :: GetUsageForecast -&gt; Metric
 $sel:timePeriod:GetUsageForecast' :: GetUsageForecast -&gt; DateInterval
 $sel:filter':GetUsageForecast' :: GetUsageForecast -&gt; Maybe Expression
 $sel:predictionIntervalLevel:GetUsageForecast' :: GetUsageForecast -&gt; Maybe Natural
-</span><a href="#local-6989586621679342475"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679342484"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-367"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-368"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -627,47 +627,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-370"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679342479"><span class="hs-identifier hs-var">predictionIntervalLevel</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679342488"><span class="hs-identifier hs-var">predictionIntervalLevel</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-371"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Expression -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Pair) -&gt; Maybe Expression -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Expression
-</span><a href="#local-6989586621679342478"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679342487"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-372"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimePeriod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DateInterval -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DateInterval
-</span><a href="#local-6989586621679342477"><span class="hs-identifier hs-var">timePeriod</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679342486"><span class="hs-identifier hs-var">timePeriod</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-373"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Metric&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Metric -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679342476"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679342485"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-374"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Granularity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Granularity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Granularity
-</span><a href="#local-6989586621679342475"><span class="hs-identifier hs-var">granularity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342484"><span class="hs-identifier hs-var">granularity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-375"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-376"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-377"></span><span>
 </span><span id="line-378"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-379"></span><span>  </span><span id="local-6989586621679342469"><span class="annot"><span class="annottext">toPath :: GetUsageForecast -&gt; ByteString
+</span><span id="line-379"></span><span>  </span><span id="local-6989586621679342478"><span class="annot"><span class="annottext">toPath :: GetUsageForecast -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetUsageForecast -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-380"></span><span>
 </span><span id="line-381"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecast"><span class="hs-identifier hs-type">GetUsageForecast</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-382"></span><span>  </span><span id="local-6989586621679342465"><span class="annot"><span class="annottext">toQuery :: GetUsageForecast -&gt; QueryString
+</span><span id="line-382"></span><span>  </span><span id="local-6989586621679342474"><span class="annot"><span class="annottext">toQuery :: GetUsageForecast -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetUsageForecast -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -675,7 +675,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-383"></span><span>
 </span><span id="line-384"></span><span class="hs-comment">-- | /See:/ 'newGetUsageForecastResponse' smart constructor.</span><span>
-</span><span id="line-385"></span><span id="local-6989586621679342462"><span id="local-6989586621679342463"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUsageForecastResponse"><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse"><span class="hs-identifier hs-var">GetUsageForecastResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUsageForecastResponse%27"><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse%27"><span class="hs-identifier hs-var">GetUsageForecastResponse'</span></a></span></span><span>
+</span><span id="line-385"></span><span id="local-6989586621679342471"><span id="local-6989586621679342472"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUsageForecastResponse"><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse"><span class="hs-identifier hs-var">GetUsageForecastResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUsageForecastResponse%27"><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse%27"><span class="hs-identifier hs-var">GetUsageForecastResponse'</span></a></span></span><span>
 </span><span id="line-386"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The forecasts for your query, in order. For @DAILY@ forecasts, this is a</span><span>
 </span><span id="line-387"></span><span>    </span><span class="hs-comment">-- list of days. For @MONTHLY@ forecasts, this is a list of months.</span><span>
 </span><span id="line-388"></span><span>    </span><span id="%24sel%3AforecastResultsByTime%3AGetUsageForecastResponse%27"><span class="annot"><span class="annottext">GetUsageForecastResponse -&gt; Maybe [ForecastResult]
@@ -687,7 +687,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-392"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetUsageForecastResponse%27"><span class="annot"><span class="annottext">GetUsageForecastResponse -&gt; Int
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#%24sel%3AhttpStatus%3AGetUsageForecastResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-393"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-394"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342455"><span id="local-6989586621679342457"><span class="annot"><span class="annottext">GetUsageForecastResponse -&gt; GetUsageForecastResponse -&gt; Bool
+</span><span id="line-394"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342464"><span id="local-6989586621679342466"><span class="annot"><span class="annottext">GetUsageForecastResponse -&gt; GetUsageForecastResponse -&gt; Bool
 (GetUsageForecastResponse -&gt; GetUsageForecastResponse -&gt; Bool)
 -&gt; (GetUsageForecastResponse -&gt; GetUsageForecastResponse -&gt; Bool)
 -&gt; Eq GetUsageForecastResponse
@@ -696,7 +696,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetUsageForecastResponse -&gt; GetUsageForecastResponse -&gt; Bool
 == :: GetUsageForecastResponse -&gt; GetUsageForecastResponse -&gt; Bool
 $c== :: GetUsageForecastResponse -&gt; GetUsageForecastResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342447"><span id="local-6989586621679342449"><span id="local-6989586621679342451"><span id="local-6989586621679342453"><span class="annot"><span class="annottext">ReadPrec [GetUsageForecastResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342456"><span id="local-6989586621679342458"><span id="local-6989586621679342460"><span id="local-6989586621679342462"><span class="annot"><span class="annottext">ReadPrec [GetUsageForecastResponse]
 ReadPrec GetUsageForecastResponse
 Int -&gt; ReadS GetUsageForecastResponse
 ReadS [GetUsageForecastResponse]
@@ -716,7 +716,7 @@ readList :: ReadS [GetUsageForecastResponse]
 $creadList :: ReadS [GetUsageForecastResponse]
 readsPrec :: Int -&gt; ReadS GetUsageForecastResponse
 $creadsPrec :: Int -&gt; ReadS GetUsageForecastResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342441"><span id="local-6989586621679342443"><span id="local-6989586621679342445"><span class="annot"><span class="annottext">Int -&gt; GetUsageForecastResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342450"><span id="local-6989586621679342452"><span id="local-6989586621679342454"><span class="annot"><span class="annottext">Int -&gt; GetUsageForecastResponse -&gt; ShowS
 [GetUsageForecastResponse] -&gt; ShowS
 GetUsageForecastResponse -&gt; String
 (Int -&gt; GetUsageForecastResponse -&gt; ShowS)
@@ -767,8 +767,8 @@ GetUsageForecastResponse -&gt; Rep GetUsageForecastResponse x
 </span><span id="line-412"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-413"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse"><span class="hs-identifier hs-type">GetUsageForecastResponse</span></a></span><span>
 </span><span id="line-414"></span><span id="newGetUsageForecastResponse"><span class="annot"><span class="annottext">newGetUsageForecastResponse :: Int -&gt; GetUsageForecastResponse
-</span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#newGetUsageForecastResponse"><span class="hs-identifier hs-var hs-var">newGetUsageForecastResponse</span></a></span></span><span> </span><span id="local-6989586621679342438"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342438"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#newGetUsageForecastResponse"><span class="hs-identifier hs-var hs-var">newGetUsageForecastResponse</span></a></span></span><span> </span><span id="local-6989586621679342447"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342447"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-415"></span><span>  </span><span class="annot"><span class="annottext">GetUsageForecastResponse' :: Maybe [ForecastResult]
 -&gt; Maybe MetricValue -&gt; Int -&gt; GetUsageForecastResponse
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse%27"><span class="hs-identifier hs-type">GetUsageForecastResponse'</span></a></span><span>
@@ -783,7 +783,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-419"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetUsageForecastResponse' :: Int
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#%24sel%3AhttpStatus%3AGetUsageForecastResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342438"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679342447"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-420"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-421"></span><span>
 </span><span id="line-422"></span><span class="hs-comment">-- | The forecasts for your query, in order. For @DAILY@ forecasts, this is a</span><span>
@@ -800,16 +800,16 @@ forall a. Maybe a
      (Maybe [ForecastResult])
      (Maybe [ForecastResult])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse%27"><span class="hs-identifier hs-type">GetUsageForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342437"><span class="annot"><span class="annottext">Maybe [ForecastResult]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse%27"><span class="hs-identifier hs-type">GetUsageForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342446"><span class="annot"><span class="annottext">Maybe [ForecastResult]
 forecastResultsByTime :: Maybe [ForecastResult]
 $sel:forecastResultsByTime:GetUsageForecastResponse' :: GetUsageForecastResponse -&gt; Maybe [ForecastResult]
-</span><a href="#local-6989586621679342437"><span class="hs-identifier hs-var hs-var">forecastResultsByTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ForecastResult]
-</span><a href="#local-6989586621679342437"><span class="hs-identifier hs-var">forecastResultsByTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342436"><span class="annot"><span class="annottext">s :: GetUsageForecastResponse
-</span><a href="#local-6989586621679342436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse%27"><span class="hs-identifier hs-type">GetUsageForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342435"><span class="annot"><span class="annottext">Maybe [ForecastResult]
-</span><a href="#local-6989586621679342435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsageForecastResponse
-</span><a href="#local-6989586621679342436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forecastResultsByTime:GetUsageForecastResponse' :: Maybe [ForecastResult]
+</span><a href="#local-6989586621679342446"><span class="hs-identifier hs-var hs-var">forecastResultsByTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ForecastResult]
+</span><a href="#local-6989586621679342446"><span class="hs-identifier hs-var">forecastResultsByTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342445"><span class="annot"><span class="annottext">s :: GetUsageForecastResponse
+</span><a href="#local-6989586621679342445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse%27"><span class="hs-identifier hs-type">GetUsageForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342444"><span class="annot"><span class="annottext">Maybe [ForecastResult]
+</span><a href="#local-6989586621679342444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsageForecastResponse
+</span><a href="#local-6989586621679342445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forecastResultsByTime:GetUsageForecastResponse' :: Maybe [ForecastResult]
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#%24sel%3AforecastResultsByTime%3AGetUsageForecastResponse%27"><span class="hs-identifier hs-var">forecastResultsByTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ForecastResult]
-</span><a href="#local-6989586621679342435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse"><span class="hs-identifier hs-type">GetUsageForecastResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ForecastResult] -&gt; f (Maybe [ForecastResult]))
+</span><a href="#local-6989586621679342444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse"><span class="hs-identifier hs-type">GetUsageForecastResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ForecastResult] -&gt; f (Maybe [ForecastResult]))
  -&gt; GetUsageForecastResponse -&gt; f GetUsageForecastResponse)
 -&gt; ((Maybe [ForecastResult] -&gt; f (Maybe [ForecastResult]))
     -&gt; Maybe [ForecastResult] -&gt; f (Maybe [ForecastResult]))
@@ -845,16 +845,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe MetricValue)
      (Maybe MetricValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse%27"><span class="hs-identifier hs-type">GetUsageForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342431"><span class="annot"><span class="annottext">Maybe MetricValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse%27"><span class="hs-identifier hs-type">GetUsageForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342440"><span class="annot"><span class="annottext">Maybe MetricValue
 total :: Maybe MetricValue
 $sel:total:GetUsageForecastResponse' :: GetUsageForecastResponse -&gt; Maybe MetricValue
-</span><a href="#local-6989586621679342431"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricValue
-</span><a href="#local-6989586621679342431"><span class="hs-identifier hs-var">total</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342430"><span class="annot"><span class="annottext">s :: GetUsageForecastResponse
-</span><a href="#local-6989586621679342430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse%27"><span class="hs-identifier hs-type">GetUsageForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342429"><span class="annot"><span class="annottext">Maybe MetricValue
-</span><a href="#local-6989586621679342429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsageForecastResponse
-</span><a href="#local-6989586621679342430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:total:GetUsageForecastResponse' :: Maybe MetricValue
+</span><a href="#local-6989586621679342440"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricValue
+</span><a href="#local-6989586621679342440"><span class="hs-identifier hs-var">total</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342439"><span class="annot"><span class="annottext">s :: GetUsageForecastResponse
+</span><a href="#local-6989586621679342439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse%27"><span class="hs-identifier hs-type">GetUsageForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342438"><span class="annot"><span class="annottext">Maybe MetricValue
+</span><a href="#local-6989586621679342438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsageForecastResponse
+</span><a href="#local-6989586621679342439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:total:GetUsageForecastResponse' :: Maybe MetricValue
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#%24sel%3Atotal%3AGetUsageForecastResponse%27"><span class="hs-identifier hs-var">total</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricValue
-</span><a href="#local-6989586621679342429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse"><span class="hs-identifier hs-type">GetUsageForecastResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse"><span class="hs-identifier hs-type">GetUsageForecastResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-430"></span><span>
 </span><span id="line-431"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-432"></span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#getUsageForecastResponse_httpStatus"><span class="hs-identifier hs-type">getUsageForecastResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse"><span class="hs-identifier hs-type">GetUsageForecastResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -864,16 +864,16 @@ $sel:total:GetUsageForecastResponse' :: GetUsageForecastResponse -&gt; Maybe Met
 -&gt; (GetUsageForecastResponse -&gt; Int -&gt; GetUsageForecastResponse)
 -&gt; Lens GetUsageForecastResponse GetUsageForecastResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse%27"><span class="hs-identifier hs-type">GetUsageForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342428"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse%27"><span class="hs-identifier hs-type">GetUsageForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342437"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetUsageForecastResponse' :: GetUsageForecastResponse -&gt; Int
-</span><a href="#local-6989586621679342428"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342428"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342427"><span class="annot"><span class="annottext">s :: GetUsageForecastResponse
-</span><a href="#local-6989586621679342427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse%27"><span class="hs-identifier hs-type">GetUsageForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342426"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsageForecastResponse
-</span><a href="#local-6989586621679342427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetUsageForecastResponse' :: Int
+</span><a href="#local-6989586621679342437"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342437"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342436"><span class="annot"><span class="annottext">s :: GetUsageForecastResponse
+</span><a href="#local-6989586621679342436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse%27"><span class="hs-identifier hs-type">GetUsageForecastResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342435"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUsageForecastResponse
+</span><a href="#local-6989586621679342436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetUsageForecastResponse' :: Int
 </span><a href="Network.AWS.CostExplorer.GetUsageForecast.html#%24sel%3AhttpStatus%3AGetUsageForecastResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse"><span class="hs-identifier hs-type">GetUsageForecastResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse"><span class="hs-identifier hs-type">GetUsageForecastResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-434"></span><span>
-</span><span id="line-435"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342424"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse"><span class="hs-identifier hs-type">GetUsageForecastResponse</span></a></span></span><span>
+</span><span id="line-435"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.GetUsageForecast.html#GetUsageForecastResponse"><span class="hs-identifier hs-type">GetUsageForecastResponse</span></a></span></span><span>
 </span><span id="line-436"></span></pre></body></html>

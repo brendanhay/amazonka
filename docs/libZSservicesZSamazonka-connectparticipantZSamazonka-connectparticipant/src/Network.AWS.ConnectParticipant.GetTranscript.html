@@ -1,0 +1,791 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ConnectParticipant.GetTranscript</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves a transcript of the session, including details about any</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- attachments. Note that ConnectionToken is used for invoking this API</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- instead of ParticipantToken.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- The Amazon Connect Participant Service APIs do not use</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 authentication&gt;.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ConnectParticipant.GetTranscript</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier">GetTranscript</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#newGetTranscript"><span class="hs-identifier">newGetTranscript</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_scanDirection"><span class="hs-identifier">getTranscript_scanDirection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_nextToken"><span class="hs-identifier">getTranscript_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_sortOrder"><span class="hs-identifier">getTranscript_sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_contactId"><span class="hs-identifier">getTranscript_contactId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_maxResults"><span class="hs-identifier">getTranscript_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_startPosition"><span class="hs-identifier">getTranscript_startPosition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_connectionToken"><span class="hs-identifier">getTranscript_connectionToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse"><span class="hs-identifier">GetTranscriptResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#newGetTranscriptResponse"><span class="hs-identifier">newGetTranscriptResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscriptResponse_nextToken"><span class="hs-identifier">getTranscriptResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscriptResponse_initialContactId"><span class="hs-identifier">getTranscriptResponse_initialContactId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscriptResponse_transcript"><span class="hs-identifier">getTranscriptResponse_transcript</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscriptResponse_httpStatus"><span class="hs-identifier">getTranscriptResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.html"><span class="hs-identifier">Network.AWS.ConnectParticipant.Types</span></a></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newGetTranscript' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679162414"><span id="local-6989586621679162415"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTranscript"><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-var">GetTranscript</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTranscript%27"><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-var">GetTranscript'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The direction from StartPosition from which to retrieve message.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Default: BACKWARD when no StartPosition is provided, FORWARD with</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- StartPosition.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AscanDirection%3AGetTranscript%27"><span class="annot"><span class="annottext">GetTranscript -&gt; Maybe ScanDirection
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AscanDirection%3AGetTranscript%27"><span class="hs-identifier hs-var hs-var">scanDirection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.ScanDirection.html#ScanDirection"><span class="hs-identifier hs-type">ScanDirection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The pagination token. Use the value returned previously in the next</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- subsequent request to retrieve the next set of results.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AnextToken%3AGetTranscript%27"><span class="annot"><span class="annottext">GetTranscript -&gt; Maybe Text
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AnextToken%3AGetTranscript%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The sort order for the records. Default: DESCENDING.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AsortOrder%3AGetTranscript%27"><span class="annot"><span class="annottext">GetTranscript -&gt; Maybe SortKey
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AsortOrder%3AGetTranscript%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#SortKey"><span class="hs-identifier hs-type">SortKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The contactId from the current contact chain for which transcript is</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- needed.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AcontactId%3AGetTranscript%27"><span class="annot"><span class="annottext">GetTranscript -&gt; Maybe Text
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AcontactId%3AGetTranscript%27"><span class="hs-identifier hs-var hs-var">contactId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return in the page. Default: 10.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetTranscript%27"><span class="annot"><span class="annottext">GetTranscript -&gt; Maybe Natural
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AmaxResults%3AGetTranscript%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | A filtering option for where to start.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AstartPosition%3AGetTranscript%27"><span class="annot"><span class="annottext">GetTranscript -&gt; Maybe StartPosition
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AstartPosition%3AGetTranscript%27"><span class="hs-identifier hs-var hs-var">startPosition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.StartPosition.html#StartPosition"><span class="hs-identifier hs-type">StartPosition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The authentication token associated with the participant\'s connection.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AconnectionToken%3AGetTranscript%27"><span class="annot"><span class="annottext">GetTranscript -&gt; Text
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AconnectionToken%3AGetTranscript%27"><span class="hs-identifier hs-var hs-var">connectionToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679162402"><span id="local-6989586621679162404"><span class="annot"><span class="annottext">GetTranscript -&gt; GetTranscript -&gt; Bool
+(GetTranscript -&gt; GetTranscript -&gt; Bool)
+-&gt; (GetTranscript -&gt; GetTranscript -&gt; Bool) -&gt; Eq GetTranscript
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetTranscript -&gt; GetTranscript -&gt; Bool
+$c/= :: GetTranscript -&gt; GetTranscript -&gt; Bool
+== :: GetTranscript -&gt; GetTranscript -&gt; Bool
+$c== :: GetTranscript -&gt; GetTranscript -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679162393"><span id="local-6989586621679162395"><span id="local-6989586621679162397"><span id="local-6989586621679162399"><span class="annot"><span class="annottext">ReadPrec [GetTranscript]
+ReadPrec GetTranscript
+Int -&gt; ReadS GetTranscript
+ReadS [GetTranscript]
+(Int -&gt; ReadS GetTranscript)
+-&gt; ReadS [GetTranscript]
+-&gt; ReadPrec GetTranscript
+-&gt; ReadPrec [GetTranscript]
+-&gt; Read GetTranscript
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetTranscript]
+$creadListPrec :: ReadPrec [GetTranscript]
+readPrec :: ReadPrec GetTranscript
+$creadPrec :: ReadPrec GetTranscript
+readList :: ReadS [GetTranscript]
+$creadList :: ReadS [GetTranscript]
+readsPrec :: Int -&gt; ReadS GetTranscript
+$creadsPrec :: Int -&gt; ReadS GetTranscript
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679162386"><span id="local-6989586621679162388"><span id="local-6989586621679162390"><span class="annot"><span class="annottext">Int -&gt; GetTranscript -&gt; ShowS
+[GetTranscript] -&gt; ShowS
+GetTranscript -&gt; String
+(Int -&gt; GetTranscript -&gt; ShowS)
+-&gt; (GetTranscript -&gt; String)
+-&gt; ([GetTranscript] -&gt; ShowS)
+-&gt; Show GetTranscript
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetTranscript] -&gt; ShowS
+$cshowList :: [GetTranscript] -&gt; ShowS
+show :: GetTranscript -&gt; String
+$cshow :: GetTranscript -&gt; String
+showsPrec :: Int -&gt; GetTranscript -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetTranscript -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetTranscript -&gt; Rep GetTranscript x)
+-&gt; (forall x. Rep GetTranscript x -&gt; GetTranscript)
+-&gt; Generic GetTranscript
+forall x. Rep GetTranscript x -&gt; GetTranscript
+forall x. GetTranscript -&gt; Rep GetTranscript x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetTranscript x -&gt; GetTranscript
+$cfrom :: forall x. GetTranscript -&gt; Rep GetTranscript x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Create a value of 'GetTranscript' with all optional fields omitted.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'scanDirection', 'getTranscript_scanDirection' - The direction from StartPosition from which to retrieve message.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Default: BACKWARD when no StartPosition is provided, FORWARD with</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- StartPosition.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'nextToken', 'getTranscript_nextToken' - The pagination token. Use the value returned previously in the next</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- subsequent request to retrieve the next set of results.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'sortOrder', 'getTranscript_sortOrder' - The sort order for the records. Default: DESCENDING.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'contactId', 'getTranscript_contactId' - The contactId from the current contact chain for which transcript is</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- needed.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'maxResults', 'getTranscript_maxResults' - The maximum number of results to return in the page. Default: 10.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'startPosition', 'getTranscript_startPosition' - A filtering option for where to start.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'connectionToken', 'getTranscript_connectionToken' - The authentication token associated with the participant\'s connection.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#newGetTranscript"><span class="hs-identifier hs-type">newGetTranscript</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-comment">-- | 'connectionToken'</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span>
+</span><span id="line-114"></span><span id="newGetTranscript"><span class="annot"><span class="annottext">newGetTranscript :: Text -&gt; GetTranscript
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#newGetTranscript"><span class="hs-identifier hs-var hs-var">newGetTranscript</span></a></span></span><span> </span><span id="local-6989586621679162381"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679162381"><span class="hs-identifier hs-var">pConnectionToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">GetTranscript' :: Maybe ScanDirection
+-&gt; Maybe Text
+-&gt; Maybe SortKey
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe StartPosition
+-&gt; Text
+-&gt; GetTranscript
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scanDirection:GetTranscript' :: Maybe ScanDirection
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AscanDirection%3AGetTranscript%27"><span class="hs-identifier hs-var">scanDirection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScanDirection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetTranscript' :: Maybe Text
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AnextToken%3AGetTranscript%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortOrder:GetTranscript' :: Maybe SortKey
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AsortOrder%3AGetTranscript%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortKey
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:contactId:GetTranscript' :: Maybe Text
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AcontactId%3AGetTranscript%27"><span class="hs-identifier hs-var">contactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetTranscript' :: Maybe Natural
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AmaxResults%3AGetTranscript%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:startPosition:GetTranscript' :: Maybe StartPosition
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AstartPosition%3AGetTranscript%27"><span class="hs-identifier hs-var">startPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StartPosition
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionToken:GetTranscript' :: Text
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AconnectionToken%3AGetTranscript%27"><span class="hs-identifier hs-var">connectionToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679162381"><span class="hs-identifier hs-var">pConnectionToken_</span></a></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The direction from StartPosition from which to retrieve message.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Default: BACKWARD when no StartPosition is provided, FORWARD with</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- StartPosition.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_scanDirection"><span class="hs-identifier hs-type">getTranscript_scanDirection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.ScanDirection.html#ScanDirection"><span class="hs-identifier hs-type">ScanDirection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="getTranscript_scanDirection"><span class="annot"><span class="annottext">getTranscript_scanDirection :: (Maybe ScanDirection -&gt; f (Maybe ScanDirection))
+-&gt; GetTranscript -&gt; f GetTranscript
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_scanDirection"><span class="hs-identifier hs-var hs-var">getTranscript_scanDirection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTranscript -&gt; Maybe ScanDirection)
+-&gt; (GetTranscript -&gt; Maybe ScanDirection -&gt; GetTranscript)
+-&gt; Lens
+     GetTranscript
+     GetTranscript
+     (Maybe ScanDirection)
+     (Maybe ScanDirection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162378"><span class="annot"><span class="annottext">Maybe ScanDirection
+scanDirection :: Maybe ScanDirection
+$sel:scanDirection:GetTranscript' :: GetTranscript -&gt; Maybe ScanDirection
+</span><a href="#local-6989586621679162378"><span class="hs-identifier hs-var hs-var">scanDirection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScanDirection
+</span><a href="#local-6989586621679162378"><span class="hs-identifier hs-var">scanDirection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162377"><span class="annot"><span class="annottext">s :: GetTranscript
+</span><a href="#local-6989586621679162377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162376"><span class="annot"><span class="annottext">Maybe ScanDirection
+</span><a href="#local-6989586621679162376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTranscript
+</span><a href="#local-6989586621679162377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanDirection:GetTranscript' :: Maybe ScanDirection
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AscanDirection%3AGetTranscript%27"><span class="hs-identifier hs-var">scanDirection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScanDirection
+</span><a href="#local-6989586621679162376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The pagination token. Use the value returned previously in the next</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- subsequent request to retrieve the next set of results.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_nextToken"><span class="hs-identifier hs-type">getTranscript_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="getTranscript_nextToken"><span class="annot"><span class="annottext">getTranscript_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetTranscript -&gt; f GetTranscript
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_nextToken"><span class="hs-identifier hs-var hs-var">getTranscript_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTranscript -&gt; Maybe Text)
+-&gt; (GetTranscript -&gt; Maybe Text -&gt; GetTranscript)
+-&gt; Lens GetTranscript GetTranscript (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162375"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetTranscript' :: GetTranscript -&gt; Maybe Text
+</span><a href="#local-6989586621679162375"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162375"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162374"><span class="annot"><span class="annottext">s :: GetTranscript
+</span><a href="#local-6989586621679162374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162373"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTranscript
+</span><a href="#local-6989586621679162374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetTranscript' :: Maybe Text
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AnextToken%3AGetTranscript%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The sort order for the records. Default: DESCENDING.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_sortOrder"><span class="hs-identifier hs-type">getTranscript_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#SortKey"><span class="hs-identifier hs-type">SortKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="getTranscript_sortOrder"><span class="annot"><span class="annottext">getTranscript_sortOrder :: (Maybe SortKey -&gt; f (Maybe SortKey))
+-&gt; GetTranscript -&gt; f GetTranscript
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_sortOrder"><span class="hs-identifier hs-var hs-var">getTranscript_sortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTranscript -&gt; Maybe SortKey)
+-&gt; (GetTranscript -&gt; Maybe SortKey -&gt; GetTranscript)
+-&gt; Lens GetTranscript GetTranscript (Maybe SortKey) (Maybe SortKey)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162372"><span class="annot"><span class="annottext">Maybe SortKey
+sortOrder :: Maybe SortKey
+$sel:sortOrder:GetTranscript' :: GetTranscript -&gt; Maybe SortKey
+</span><a href="#local-6989586621679162372"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortKey
+</span><a href="#local-6989586621679162372"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162371"><span class="annot"><span class="annottext">s :: GetTranscript
+</span><a href="#local-6989586621679162371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162370"><span class="annot"><span class="annottext">Maybe SortKey
+</span><a href="#local-6989586621679162370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTranscript
+</span><a href="#local-6989586621679162371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:GetTranscript' :: Maybe SortKey
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AsortOrder%3AGetTranscript%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortKey
+</span><a href="#local-6989586621679162370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The contactId from the current contact chain for which transcript is</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- needed.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_contactId"><span class="hs-identifier hs-type">getTranscript_contactId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="getTranscript_contactId"><span class="annot"><span class="annottext">getTranscript_contactId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetTranscript -&gt; f GetTranscript
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_contactId"><span class="hs-identifier hs-var hs-var">getTranscript_contactId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTranscript -&gt; Maybe Text)
+-&gt; (GetTranscript -&gt; Maybe Text -&gt; GetTranscript)
+-&gt; Lens GetTranscript GetTranscript (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162369"><span class="annot"><span class="annottext">Maybe Text
+contactId :: Maybe Text
+$sel:contactId:GetTranscript' :: GetTranscript -&gt; Maybe Text
+</span><a href="#local-6989586621679162369"><span class="hs-identifier hs-var hs-var">contactId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162369"><span class="hs-identifier hs-var">contactId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162368"><span class="annot"><span class="annottext">s :: GetTranscript
+</span><a href="#local-6989586621679162368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162367"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTranscript
+</span><a href="#local-6989586621679162368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactId:GetTranscript' :: Maybe Text
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AcontactId%3AGetTranscript%27"><span class="hs-identifier hs-var">contactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The maximum number of results to return in the page. Default: 10.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_maxResults"><span class="hs-identifier hs-type">getTranscript_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="getTranscript_maxResults"><span class="annot"><span class="annottext">getTranscript_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetTranscript -&gt; f GetTranscript
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_maxResults"><span class="hs-identifier hs-var hs-var">getTranscript_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTranscript -&gt; Maybe Natural)
+-&gt; (GetTranscript -&gt; Maybe Natural -&gt; GetTranscript)
+-&gt; Lens GetTranscript GetTranscript (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162366"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetTranscript' :: GetTranscript -&gt; Maybe Natural
+</span><a href="#local-6989586621679162366"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679162366"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162365"><span class="annot"><span class="annottext">s :: GetTranscript
+</span><a href="#local-6989586621679162365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162364"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679162364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTranscript
+</span><a href="#local-6989586621679162365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetTranscript' :: Maybe Natural
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AmaxResults%3AGetTranscript%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679162364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | A filtering option for where to start.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_startPosition"><span class="hs-identifier hs-type">getTranscript_startPosition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.StartPosition.html#StartPosition"><span class="hs-identifier hs-type">StartPosition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="getTranscript_startPosition"><span class="annot"><span class="annottext">getTranscript_startPosition :: (Maybe StartPosition -&gt; f (Maybe StartPosition))
+-&gt; GetTranscript -&gt; f GetTranscript
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_startPosition"><span class="hs-identifier hs-var hs-var">getTranscript_startPosition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTranscript -&gt; Maybe StartPosition)
+-&gt; (GetTranscript -&gt; Maybe StartPosition -&gt; GetTranscript)
+-&gt; Lens
+     GetTranscript
+     GetTranscript
+     (Maybe StartPosition)
+     (Maybe StartPosition)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162363"><span class="annot"><span class="annottext">Maybe StartPosition
+startPosition :: Maybe StartPosition
+$sel:startPosition:GetTranscript' :: GetTranscript -&gt; Maybe StartPosition
+</span><a href="#local-6989586621679162363"><span class="hs-identifier hs-var hs-var">startPosition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StartPosition
+</span><a href="#local-6989586621679162363"><span class="hs-identifier hs-var">startPosition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162362"><span class="annot"><span class="annottext">s :: GetTranscript
+</span><a href="#local-6989586621679162362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162361"><span class="annot"><span class="annottext">Maybe StartPosition
+</span><a href="#local-6989586621679162361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTranscript
+</span><a href="#local-6989586621679162362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startPosition:GetTranscript' :: Maybe StartPosition
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AstartPosition%3AGetTranscript%27"><span class="hs-identifier hs-var">startPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StartPosition
+</span><a href="#local-6989586621679162361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The authentication token associated with the participant\'s connection.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_connectionToken"><span class="hs-identifier hs-type">getTranscript_connectionToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-155"></span><span id="getTranscript_connectionToken"><span class="annot"><span class="annottext">getTranscript_connectionToken :: (Text -&gt; f Text) -&gt; GetTranscript -&gt; f GetTranscript
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscript_connectionToken"><span class="hs-identifier hs-var hs-var">getTranscript_connectionToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTranscript -&gt; Text)
+-&gt; (GetTranscript -&gt; Text -&gt; GetTranscript)
+-&gt; Lens GetTranscript GetTranscript Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162360"><span class="annot"><span class="annottext">Text
+connectionToken :: Text
+$sel:connectionToken:GetTranscript' :: GetTranscript -&gt; Text
+</span><a href="#local-6989586621679162360"><span class="hs-identifier hs-var hs-var">connectionToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679162360"><span class="hs-identifier hs-var">connectionToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162359"><span class="annot"><span class="annottext">s :: GetTranscript
+</span><a href="#local-6989586621679162359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162358"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679162358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTranscript
+</span><a href="#local-6989586621679162359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionToken:GetTranscript' :: Text
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AconnectionToken%3AGetTranscript%27"><span class="hs-identifier hs-var">connectionToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679162358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-159"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse"><span class="hs-identifier hs-type">GetTranscriptResponse</span></a></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679162354"><span class="annot"><span class="annottext">request :: GetTranscript -&gt; Request GetTranscript
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetTranscript -&gt; Request GetTranscript
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ConnectParticipant.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679162350"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetTranscript
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetTranscript)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetTranscript))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetTranscript
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetTranscript)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679162347"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679162347"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679162346"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679162346"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679162345"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679162345"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe [Item] -&gt; Int -&gt; GetTranscriptResponse
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse%27"><span class="hs-identifier hs-var">GetTranscriptResponse'</span></a></span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe [Item] -&gt; Int -&gt; GetTranscriptResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe [Item] -&gt; Int -&gt; GetTranscriptResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679162345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe [Item] -&gt; Int -&gt; GetTranscriptResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Item] -&gt; Int -&gt; GetTranscriptResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679162345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InitialContactId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Item] -&gt; Int -&gt; GetTranscriptResponse)
+-&gt; Either String (Maybe [Item])
+-&gt; Either String (Int -&gt; GetTranscriptResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679162345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Item]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Transcript&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Item]))
+-&gt; Maybe [Item] -&gt; Either String (Maybe [Item])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetTranscriptResponse)
+-&gt; Either String Int -&gt; Either String GetTranscriptResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679162347"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679162336"><span id="local-6989586621679162338"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span></span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679162333"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679162329"><span class="annot"><span class="annottext">toHeaders :: GetTranscript -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162321"><span id="local-6989586621679162322"><span id="local-6989586621679162323"><span id="local-6989586621679162324"><span id="local-6989586621679162325"><span id="local-6989586621679162326"><span id="local-6989586621679162327"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe ScanDirection
+Maybe SortKey
+Maybe StartPosition
+Text
+connectionToken :: Text
+startPosition :: Maybe StartPosition
+maxResults :: Maybe Natural
+contactId :: Maybe Text
+sortOrder :: Maybe SortKey
+nextToken :: Maybe Text
+scanDirection :: Maybe ScanDirection
+$sel:connectionToken:GetTranscript' :: GetTranscript -&gt; Text
+$sel:startPosition:GetTranscript' :: GetTranscript -&gt; Maybe StartPosition
+$sel:maxResults:GetTranscript' :: GetTranscript -&gt; Maybe Natural
+$sel:contactId:GetTranscript' :: GetTranscript -&gt; Maybe Text
+$sel:sortOrder:GetTranscript' :: GetTranscript -&gt; Maybe SortKey
+$sel:nextToken:GetTranscript' :: GetTranscript -&gt; Maybe Text
+$sel:scanDirection:GetTranscript' :: GetTranscript -&gt; Maybe ScanDirection
+</span><a href="#local-6989586621679162321"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Bearer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679162321"><span class="hs-identifier hs-var">connectionToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679162313"><span id="local-6989586621679162315"><span id="local-6989586621679162317"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679162311"><span class="annot"><span class="annottext">toJSON :: GetTranscript -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript%27"><span class="hs-identifier hs-type">GetTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162303"><span id="local-6989586621679162304"><span id="local-6989586621679162305"><span id="local-6989586621679162306"><span id="local-6989586621679162307"><span id="local-6989586621679162308"><span id="local-6989586621679162309"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe ScanDirection
+Maybe SortKey
+Maybe StartPosition
+Text
+connectionToken :: Text
+startPosition :: Maybe StartPosition
+maxResults :: Maybe Natural
+contactId :: Maybe Text
+sortOrder :: Maybe SortKey
+nextToken :: Maybe Text
+scanDirection :: Maybe ScanDirection
+$sel:connectionToken:GetTranscript' :: GetTranscript -&gt; Text
+$sel:startPosition:GetTranscript' :: GetTranscript -&gt; Maybe StartPosition
+$sel:maxResults:GetTranscript' :: GetTranscript -&gt; Maybe Natural
+$sel:contactId:GetTranscript' :: GetTranscript -&gt; Maybe Text
+$sel:sortOrder:GetTranscript' :: GetTranscript -&gt; Maybe SortKey
+$sel:nextToken:GetTranscript' :: GetTranscript -&gt; Maybe Text
+$sel:scanDirection:GetTranscript' :: GetTranscript -&gt; Maybe ScanDirection
+</span><a href="#local-6989586621679162303"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScanDirection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScanDirection -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ScanDirection -&gt; Pair) -&gt; Maybe ScanDirection -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ScanDirection
+</span><a href="#local-6989586621679162309"><span class="hs-identifier hs-var">scanDirection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162308"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortKey -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortKey -&gt; Pair) -&gt; Maybe SortKey -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortKey
+</span><a href="#local-6989586621679162307"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContactId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162306"><span class="hs-identifier hs-var">contactId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679162305"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartPosition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StartPosition -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(StartPosition -&gt; Pair) -&gt; Maybe StartPosition -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StartPosition
+</span><a href="#local-6989586621679162304"><span class="hs-identifier hs-var">startPosition</span></a></span><span>
+</span><span id="line-194"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679162297"><span class="annot"><span class="annottext">toPath :: GetTranscript -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetTranscript -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/participant/transcript&quot;</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscript"><span class="hs-identifier hs-type">GetTranscript</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679162292"><span class="annot"><span class="annottext">toQuery :: GetTranscript -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetTranscript -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | /See:/ 'newGetTranscriptResponse' smart constructor.</span><span>
+</span><span id="line-204"></span><span id="local-6989586621679162289"><span id="local-6989586621679162290"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTranscriptResponse"><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse"><span class="hs-identifier hs-var">GetTranscriptResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTranscriptResponse%27"><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse%27"><span class="hs-identifier hs-var">GetTranscriptResponse'</span></a></span></span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token. Use the value returned previously in the next</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- subsequent request to retrieve the next set of results.</span><span>
+</span><span id="line-207"></span><span>    </span><span id="%24sel%3AnextToken%3AGetTranscriptResponse%27"><span class="annot"><span class="annottext">GetTranscriptResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AnextToken%3AGetTranscriptResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- | The initial contact ID for the contact.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3AinitialContactId%3AGetTranscriptResponse%27"><span class="annot"><span class="annottext">GetTranscriptResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AinitialContactId%3AGetTranscriptResponse%27"><span class="hs-identifier hs-var hs-var">initialContactId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- | The list of messages in the session.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3Atranscript%3AGetTranscriptResponse%27"><span class="annot"><span class="annottext">GetTranscriptResponse -&gt; Maybe [Item]
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3Atranscript%3AGetTranscriptResponse%27"><span class="hs-identifier hs-var hs-var">transcript</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetTranscriptResponse%27"><span class="annot"><span class="annottext">GetTranscriptResponse -&gt; Int
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AhttpStatus%3AGetTranscriptResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679162281"><span id="local-6989586621679162283"><span class="annot"><span class="annottext">GetTranscriptResponse -&gt; GetTranscriptResponse -&gt; Bool
+(GetTranscriptResponse -&gt; GetTranscriptResponse -&gt; Bool)
+-&gt; (GetTranscriptResponse -&gt; GetTranscriptResponse -&gt; Bool)
+-&gt; Eq GetTranscriptResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetTranscriptResponse -&gt; GetTranscriptResponse -&gt; Bool
+$c/= :: GetTranscriptResponse -&gt; GetTranscriptResponse -&gt; Bool
+== :: GetTranscriptResponse -&gt; GetTranscriptResponse -&gt; Bool
+$c== :: GetTranscriptResponse -&gt; GetTranscriptResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679162273"><span id="local-6989586621679162275"><span id="local-6989586621679162277"><span id="local-6989586621679162279"><span class="annot"><span class="annottext">ReadPrec [GetTranscriptResponse]
+ReadPrec GetTranscriptResponse
+Int -&gt; ReadS GetTranscriptResponse
+ReadS [GetTranscriptResponse]
+(Int -&gt; ReadS GetTranscriptResponse)
+-&gt; ReadS [GetTranscriptResponse]
+-&gt; ReadPrec GetTranscriptResponse
+-&gt; ReadPrec [GetTranscriptResponse]
+-&gt; Read GetTranscriptResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetTranscriptResponse]
+$creadListPrec :: ReadPrec [GetTranscriptResponse]
+readPrec :: ReadPrec GetTranscriptResponse
+$creadPrec :: ReadPrec GetTranscriptResponse
+readList :: ReadS [GetTranscriptResponse]
+$creadList :: ReadS [GetTranscriptResponse]
+readsPrec :: Int -&gt; ReadS GetTranscriptResponse
+$creadsPrec :: Int -&gt; ReadS GetTranscriptResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679162267"><span id="local-6989586621679162269"><span id="local-6989586621679162271"><span class="annot"><span class="annottext">Int -&gt; GetTranscriptResponse -&gt; ShowS
+[GetTranscriptResponse] -&gt; ShowS
+GetTranscriptResponse -&gt; String
+(Int -&gt; GetTranscriptResponse -&gt; ShowS)
+-&gt; (GetTranscriptResponse -&gt; String)
+-&gt; ([GetTranscriptResponse] -&gt; ShowS)
+-&gt; Show GetTranscriptResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetTranscriptResponse] -&gt; ShowS
+$cshowList :: [GetTranscriptResponse] -&gt; ShowS
+show :: GetTranscriptResponse -&gt; String
+$cshow :: GetTranscriptResponse -&gt; String
+showsPrec :: Int -&gt; GetTranscriptResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetTranscriptResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetTranscriptResponse -&gt; Rep GetTranscriptResponse x)
+-&gt; (forall x. Rep GetTranscriptResponse x -&gt; GetTranscriptResponse)
+-&gt; Generic GetTranscriptResponse
+forall x. Rep GetTranscriptResponse x -&gt; GetTranscriptResponse
+forall x. GetTranscriptResponse -&gt; Rep GetTranscriptResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetTranscriptResponse x -&gt; GetTranscriptResponse
+$cfrom :: forall x. GetTranscriptResponse -&gt; Rep GetTranscriptResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Create a value of 'GetTranscriptResponse' with all optional fields omitted.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'nextToken', 'getTranscriptResponse_nextToken' - The pagination token. Use the value returned previously in the next</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- subsequent request to retrieve the next set of results.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'initialContactId', 'getTranscriptResponse_initialContactId' - The initial contact ID for the contact.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'transcript', 'getTranscriptResponse_transcript' - The list of messages in the session.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'httpStatus', 'getTranscriptResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#newGetTranscriptResponse"><span class="hs-identifier hs-type">newGetTranscriptResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-235"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-236"></span><span>  </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse"><span class="hs-identifier hs-type">GetTranscriptResponse</span></a></span><span>
+</span><span id="line-237"></span><span id="newGetTranscriptResponse"><span class="annot"><span class="annottext">newGetTranscriptResponse :: Int -&gt; GetTranscriptResponse
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#newGetTranscriptResponse"><span class="hs-identifier hs-var hs-var">newGetTranscriptResponse</span></a></span></span><span> </span><span id="local-6989586621679162264"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679162264"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><span class="annottext">GetTranscriptResponse' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe [Item] -&gt; Int -&gt; GetTranscriptResponse
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse%27"><span class="hs-identifier hs-type">GetTranscriptResponse'</span></a></span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetTranscriptResponse' :: Maybe Text
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AnextToken%3AGetTranscriptResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">$sel:initialContactId:GetTranscriptResponse' :: Maybe Text
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AinitialContactId%3AGetTranscriptResponse%27"><span class="hs-identifier hs-var">initialContactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:transcript:GetTranscriptResponse' :: Maybe [Item]
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3Atranscript%3AGetTranscriptResponse%27"><span class="hs-identifier hs-var">transcript</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetTranscriptResponse' :: Int
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AhttpStatus%3AGetTranscriptResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679162264"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | The pagination token. Use the value returned previously in the next</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- subsequent request to retrieve the next set of results.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscriptResponse_nextToken"><span class="hs-identifier hs-type">getTranscriptResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse"><span class="hs-identifier hs-type">GetTranscriptResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="getTranscriptResponse_nextToken"><span class="annot"><span class="annottext">getTranscriptResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetTranscriptResponse -&gt; f GetTranscriptResponse
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscriptResponse_nextToken"><span class="hs-identifier hs-var hs-var">getTranscriptResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTranscriptResponse -&gt; Maybe Text)
+-&gt; (GetTranscriptResponse -&gt; Maybe Text -&gt; GetTranscriptResponse)
+-&gt; Lens
+     GetTranscriptResponse
+     GetTranscriptResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse%27"><span class="hs-identifier hs-type">GetTranscriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162263"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetTranscriptResponse' :: GetTranscriptResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679162263"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162263"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162262"><span class="annot"><span class="annottext">s :: GetTranscriptResponse
+</span><a href="#local-6989586621679162262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse%27"><span class="hs-identifier hs-type">GetTranscriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162261"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTranscriptResponse
+</span><a href="#local-6989586621679162262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetTranscriptResponse' :: Maybe Text
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AnextToken%3AGetTranscriptResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse"><span class="hs-identifier hs-type">GetTranscriptResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The initial contact ID for the contact.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscriptResponse_initialContactId"><span class="hs-identifier hs-type">getTranscriptResponse_initialContactId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse"><span class="hs-identifier hs-type">GetTranscriptResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="getTranscriptResponse_initialContactId"><span class="annot"><span class="annottext">getTranscriptResponse_initialContactId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetTranscriptResponse -&gt; f GetTranscriptResponse
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscriptResponse_initialContactId"><span class="hs-identifier hs-var hs-var">getTranscriptResponse_initialContactId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTranscriptResponse -&gt; Maybe Text)
+-&gt; (GetTranscriptResponse -&gt; Maybe Text -&gt; GetTranscriptResponse)
+-&gt; Lens
+     GetTranscriptResponse
+     GetTranscriptResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse%27"><span class="hs-identifier hs-type">GetTranscriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162260"><span class="annot"><span class="annottext">Maybe Text
+initialContactId :: Maybe Text
+$sel:initialContactId:GetTranscriptResponse' :: GetTranscriptResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679162260"><span class="hs-identifier hs-var hs-var">initialContactId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162260"><span class="hs-identifier hs-var">initialContactId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162259"><span class="annot"><span class="annottext">s :: GetTranscriptResponse
+</span><a href="#local-6989586621679162259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse%27"><span class="hs-identifier hs-type">GetTranscriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162258"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTranscriptResponse
+</span><a href="#local-6989586621679162259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initialContactId:GetTranscriptResponse' :: Maybe Text
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AinitialContactId%3AGetTranscriptResponse%27"><span class="hs-identifier hs-var">initialContactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679162258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse"><span class="hs-identifier hs-type">GetTranscriptResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The list of messages in the session.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscriptResponse_transcript"><span class="hs-identifier hs-type">getTranscriptResponse_transcript</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse"><span class="hs-identifier hs-type">GetTranscriptResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="getTranscriptResponse_transcript"><span class="annot"><span class="annottext">getTranscriptResponse_transcript :: (Maybe [Item] -&gt; f (Maybe [Item]))
+-&gt; GetTranscriptResponse -&gt; f GetTranscriptResponse
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscriptResponse_transcript"><span class="hs-identifier hs-var hs-var">getTranscriptResponse_transcript</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTranscriptResponse -&gt; Maybe [Item])
+-&gt; (GetTranscriptResponse -&gt; Maybe [Item] -&gt; GetTranscriptResponse)
+-&gt; Lens
+     GetTranscriptResponse
+     GetTranscriptResponse
+     (Maybe [Item])
+     (Maybe [Item])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse%27"><span class="hs-identifier hs-type">GetTranscriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162257"><span class="annot"><span class="annottext">Maybe [Item]
+transcript :: Maybe [Item]
+$sel:transcript:GetTranscriptResponse' :: GetTranscriptResponse -&gt; Maybe [Item]
+</span><a href="#local-6989586621679162257"><span class="hs-identifier hs-var hs-var">transcript</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
+</span><a href="#local-6989586621679162257"><span class="hs-identifier hs-var">transcript</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162256"><span class="annot"><span class="annottext">s :: GetTranscriptResponse
+</span><a href="#local-6989586621679162256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse%27"><span class="hs-identifier hs-type">GetTranscriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162255"><span class="annot"><span class="annottext">Maybe [Item]
+</span><a href="#local-6989586621679162255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTranscriptResponse
+</span><a href="#local-6989586621679162256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transcript:GetTranscriptResponse' :: Maybe [Item]
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3Atranscript%3AGetTranscriptResponse%27"><span class="hs-identifier hs-var">transcript</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
+</span><a href="#local-6989586621679162255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse"><span class="hs-identifier hs-type">GetTranscriptResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Item] -&gt; f (Maybe [Item]))
+ -&gt; GetTranscriptResponse -&gt; f GetTranscriptResponse)
+-&gt; ((Maybe [Item] -&gt; f (Maybe [Item]))
+    -&gt; Maybe [Item] -&gt; f (Maybe [Item]))
+-&gt; (Maybe [Item] -&gt; f (Maybe [Item]))
+-&gt; GetTranscriptResponse
+-&gt; f GetTranscriptResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Item] [Item] [Item] [Item]
+-&gt; Iso (Maybe [Item]) (Maybe [Item]) (Maybe [Item]) (Maybe [Item])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Item] [Item] [Item] [Item]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscriptResponse_httpStatus"><span class="hs-identifier hs-type">getTranscriptResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse"><span class="hs-identifier hs-type">GetTranscriptResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-260"></span><span id="getTranscriptResponse_httpStatus"><span class="annot"><span class="annottext">getTranscriptResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetTranscriptResponse -&gt; f GetTranscriptResponse
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#getTranscriptResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getTranscriptResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTranscriptResponse -&gt; Int)
+-&gt; (GetTranscriptResponse -&gt; Int -&gt; GetTranscriptResponse)
+-&gt; Lens GetTranscriptResponse GetTranscriptResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse%27"><span class="hs-identifier hs-type">GetTranscriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679162251"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetTranscriptResponse' :: GetTranscriptResponse -&gt; Int
+</span><a href="#local-6989586621679162251"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679162251"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679162250"><span class="annot"><span class="annottext">s :: GetTranscriptResponse
+</span><a href="#local-6989586621679162250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse%27"><span class="hs-identifier hs-type">GetTranscriptResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679162249"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679162249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTranscriptResponse
+</span><a href="#local-6989586621679162250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTranscriptResponse' :: Int
+</span><a href="Network.AWS.ConnectParticipant.GetTranscript.html#%24sel%3AhttpStatus%3AGetTranscriptResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679162249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse"><span class="hs-identifier hs-type">GetTranscriptResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679162247"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.GetTranscript.html#GetTranscriptResponse"><span class="hs-identifier hs-type">GetTranscriptResponse</span></a></span></span><span>
+</span><span id="line-263"></span></pre></body></html>

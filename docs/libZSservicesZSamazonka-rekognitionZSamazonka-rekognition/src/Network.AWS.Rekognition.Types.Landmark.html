@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Indicates the location of the landmark on the face.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLandmark' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679326041"><span id="local-6989586621679326042"></span></span><span class="hs-keyword">data</span><span> </span><span id="Landmark"><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-var">Landmark</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Landmark%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-var">Landmark'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679326050"><span id="local-6989586621679326051"></span></span><span class="hs-keyword">data</span><span> </span><span id="Landmark"><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-var">Landmark</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Landmark%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-var">Landmark'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Type of landmark.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Atype%27%3ALandmark%27"><span class="annot"><span class="annottext">Landmark -&gt; Maybe LandmarkType
 </span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Atype%27%3ALandmark%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.LandmarkType.html#LandmarkType"><span class="hs-identifier hs-type">LandmarkType</span></a></span><span class="hs-special">,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Ay%3ALandmark%27"><span class="annot"><span class="annottext">Landmark -&gt; Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Ay%3ALandmark%27"><span class="hs-identifier hs-var hs-var">y</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326033"><span id="local-6989586621679326035"><span class="annot"><span class="annottext">Landmark -&gt; Landmark -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326042"><span id="local-6989586621679326044"><span class="annot"><span class="annottext">Landmark -&gt; Landmark -&gt; Bool
 (Landmark -&gt; Landmark -&gt; Bool)
 -&gt; (Landmark -&gt; Landmark -&gt; Bool) -&gt; Eq Landmark
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Landmark -&gt; Landmark -&gt; Bool
 == :: Landmark -&gt; Landmark -&gt; Bool
 $c== :: Landmark -&gt; Landmark -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326024"><span id="local-6989586621679326026"><span id="local-6989586621679326028"><span id="local-6989586621679326030"><span class="annot"><span class="annottext">ReadPrec [Landmark]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326033"><span id="local-6989586621679326035"><span id="local-6989586621679326037"><span id="local-6989586621679326039"><span class="annot"><span class="annottext">ReadPrec [Landmark]
 ReadPrec Landmark
 Int -&gt; ReadS Landmark
 ReadS [Landmark]
@@ -72,7 +72,7 @@ readList :: ReadS [Landmark]
 $creadList :: ReadS [Landmark]
 readsPrec :: Int -&gt; ReadS Landmark
 $creadsPrec :: Int -&gt; ReadS Landmark
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326017"><span id="local-6989586621679326019"><span id="local-6989586621679326021"><span class="annot"><span class="annottext">Int -&gt; Landmark -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326026"><span id="local-6989586621679326028"><span id="local-6989586621679326030"><span class="annot"><span class="annottext">Int -&gt; Landmark -&gt; ShowS
 [Landmark] -&gt; ShowS
 Landmark -&gt; String
 (Int -&gt; Landmark -&gt; ShowS)
@@ -142,16 +142,16 @@ forall a. Maybe a
 -&gt; (Landmark -&gt; Maybe LandmarkType -&gt; Landmark)
 -&gt; Lens Landmark Landmark (Maybe LandmarkType) (Maybe LandmarkType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326008"><span class="annot"><span class="annottext">Maybe LandmarkType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326017"><span class="annot"><span class="annottext">Maybe LandmarkType
 type' :: Maybe LandmarkType
 $sel:type':Landmark' :: Landmark -&gt; Maybe LandmarkType
-</span><a href="#local-6989586621679326008"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LandmarkType
-</span><a href="#local-6989586621679326008"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326007"><span class="annot"><span class="annottext">s :: Landmark
-</span><a href="#local-6989586621679326007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326006"><span class="annot"><span class="annottext">Maybe LandmarkType
-</span><a href="#local-6989586621679326006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Landmark
-</span><a href="#local-6989586621679326007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Landmark' :: Maybe LandmarkType
+</span><a href="#local-6989586621679326017"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LandmarkType
+</span><a href="#local-6989586621679326017"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326016"><span class="annot"><span class="annottext">s :: Landmark
+</span><a href="#local-6989586621679326016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326015"><span class="annot"><span class="annottext">Maybe LandmarkType
+</span><a href="#local-6989586621679326015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Landmark
+</span><a href="#local-6989586621679326016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Landmark' :: Maybe LandmarkType
 </span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Atype%27%3ALandmark%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LandmarkType
-</span><a href="#local-6989586621679326006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The x-coordinate of the landmark expressed as a ratio of the width of</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- the image. The x-coordinate is measured from the left-side of the image.</span><span>
@@ -163,16 +163,16 @@ $sel:type':Landmark' :: Landmark -&gt; Maybe LandmarkType
 -&gt; (Landmark -&gt; Maybe Double -&gt; Landmark)
 -&gt; Lens Landmark Landmark (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326004"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326013"><span class="annot"><span class="annottext">Maybe Double
 x :: Maybe Double
 $sel:x:Landmark' :: Landmark -&gt; Maybe Double
-</span><a href="#local-6989586621679326004"><span class="hs-identifier hs-var hs-var">x</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679326004"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326003"><span class="annot"><span class="annottext">s :: Landmark
-</span><a href="#local-6989586621679326003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326002"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679326002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Landmark
-</span><a href="#local-6989586621679326003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:x:Landmark' :: Maybe Double
+</span><a href="#local-6989586621679326013"><span class="hs-identifier hs-var hs-var">x</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679326013"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326012"><span class="annot"><span class="annottext">s :: Landmark
+</span><a href="#local-6989586621679326012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326011"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679326011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Landmark
+</span><a href="#local-6989586621679326012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:x:Landmark' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Ax%3ALandmark%27"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679326002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The y-coordinate of the landmark expressed as a ratio of the height of</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- the image. The y-coordinate is measured from the top of the image. For</span><span>
@@ -184,27 +184,27 @@ $sel:x:Landmark' :: Landmark -&gt; Maybe Double
 -&gt; (Landmark -&gt; Maybe Double -&gt; Landmark)
 -&gt; Lens Landmark Landmark (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326000"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326009"><span class="annot"><span class="annottext">Maybe Double
 y :: Maybe Double
 $sel:y:Landmark' :: Landmark -&gt; Maybe Double
-</span><a href="#local-6989586621679326000"><span class="hs-identifier hs-var hs-var">y</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679326000"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325999"><span class="annot"><span class="annottext">s :: Landmark
-</span><a href="#local-6989586621679325999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325998"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679325998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Landmark
-</span><a href="#local-6989586621679325999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:y:Landmark' :: Maybe Double
+</span><a href="#local-6989586621679326009"><span class="hs-identifier hs-var hs-var">y</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679326009"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326008"><span class="annot"><span class="annottext">s :: Landmark
+</span><a href="#local-6989586621679326008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-type">Landmark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326007"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679326007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Landmark
+</span><a href="#local-6989586621679326008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:y:Landmark' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.Landmark.html#%24sel%3Ay%3ALandmark%27"><span class="hs-identifier hs-var">y</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679325998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325995"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679325993"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Landmark
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326004"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679326002"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Landmark
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Landmark) -&gt; Value -&gt; Parser Landmark
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Landmark&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679325990"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325990"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679325999"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325999"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe LandmarkType -&gt; Maybe Double -&gt; Maybe Double -&gt; Landmark
 </span><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark%27"><span class="hs-identifier hs-var">Landmark'</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LandmarkType -&gt; Maybe Double -&gt; Maybe Double -&gt; Landmark)
@@ -212,7 +212,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Double -&gt; Maybe Double -&gt; Landmark)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325990"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LandmarkType)
+</span><a href="#local-6989586621679325999"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LandmarkType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
@@ -220,7 +220,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double) -&gt; Parser (Maybe Double -&gt; Landmark)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325990"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679325999"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;X&quot;</span></span><span class="hs-special">)</span><span>
@@ -228,13 +228,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double) -&gt; Parser Landmark
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325990"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679325999"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Y&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325984"><span id="local-6989586621679325986"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325993"><span id="local-6989586621679325995"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325981"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325990"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Landmark.html#Landmark"><span class="hs-identifier hs-type">Landmark</span></a></span></span><span>
 </span><span id="line-106"></span></pre></body></html>

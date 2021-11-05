@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MGN.Types.DataReplicationInitiationStepStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MGN.Types.DataReplicationInitiationStepStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus"><span class="hs-identifier">DataReplicationInitiationStepStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus_FAILED"><span class="hs-identifier">DataReplicationInitiationStepStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus_IN_PROGRESS"><span class="hs-identifier">DataReplicationInitiationStepStatus_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus_NOT_STARTED"><span class="hs-identifier">DataReplicationInitiationStepStatus_NOT_STARTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus_SKIPPED"><span class="hs-identifier">DataReplicationInitiationStepStatus_SKIPPED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus_SUCCEEDED"><span class="hs-identifier">DataReplicationInitiationStepStatus_SUCCEEDED</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679224666"><span id="local-6989586621679224667"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataReplicationInitiationStepStatus"><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus"><span class="hs-identifier hs-var">DataReplicationInitiationStepStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataReplicationInitiationStepStatus%27"><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus%27"><span class="hs-identifier hs-var">DataReplicationInitiationStepStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDataReplicationInitiationStepStatus"><span class="annot"><span class="annottext">DataReplicationInitiationStepStatus -&gt; Text
+</span><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#fromDataReplicationInitiationStepStatus"><span class="hs-identifier hs-var hs-var">fromDataReplicationInitiationStepStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679224658"><span id="local-6989586621679224660"><span id="local-6989586621679224662"><span class="annot"><span class="annottext">Int -&gt; DataReplicationInitiationStepStatus -&gt; ShowS
+[DataReplicationInitiationStepStatus] -&gt; ShowS
+DataReplicationInitiationStepStatus -&gt; String
+(Int -&gt; DataReplicationInitiationStepStatus -&gt; ShowS)
+-&gt; (DataReplicationInitiationStepStatus -&gt; String)
+-&gt; ([DataReplicationInitiationStepStatus] -&gt; ShowS)
+-&gt; Show DataReplicationInitiationStepStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataReplicationInitiationStepStatus] -&gt; ShowS
+$cshowList :: [DataReplicationInitiationStepStatus] -&gt; ShowS
+show :: DataReplicationInitiationStepStatus -&gt; String
+$cshow :: DataReplicationInitiationStepStatus -&gt; String
+showsPrec :: Int -&gt; DataReplicationInitiationStepStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataReplicationInitiationStepStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679224649"><span id="local-6989586621679224651"><span id="local-6989586621679224653"><span id="local-6989586621679224655"><span class="annot"><span class="annottext">ReadPrec [DataReplicationInitiationStepStatus]
+ReadPrec DataReplicationInitiationStepStatus
+Int -&gt; ReadS DataReplicationInitiationStepStatus
+ReadS [DataReplicationInitiationStepStatus]
+(Int -&gt; ReadS DataReplicationInitiationStepStatus)
+-&gt; ReadS [DataReplicationInitiationStepStatus]
+-&gt; ReadPrec DataReplicationInitiationStepStatus
+-&gt; ReadPrec [DataReplicationInitiationStepStatus]
+-&gt; Read DataReplicationInitiationStepStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataReplicationInitiationStepStatus]
+$creadListPrec :: ReadPrec [DataReplicationInitiationStepStatus]
+readPrec :: ReadPrec DataReplicationInitiationStepStatus
+$creadPrec :: ReadPrec DataReplicationInitiationStepStatus
+readList :: ReadS [DataReplicationInitiationStepStatus]
+$creadList :: ReadS [DataReplicationInitiationStepStatus]
+readsPrec :: Int -&gt; ReadS DataReplicationInitiationStepStatus
+$creadsPrec :: Int -&gt; ReadS DataReplicationInitiationStepStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679224644"><span id="local-6989586621679224646"><span class="annot"><span class="annottext">DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Bool
+(DataReplicationInitiationStepStatus
+ -&gt; DataReplicationInitiationStepStatus -&gt; Bool)
+-&gt; (DataReplicationInitiationStepStatus
+    -&gt; DataReplicationInitiationStepStatus -&gt; Bool)
+-&gt; Eq DataReplicationInitiationStepStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Bool
+$c/= :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Bool
+== :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Bool
+$c== :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679224628"><span id="local-6989586621679224630"><span id="local-6989586621679224632"><span id="local-6989586621679224634"><span id="local-6989586621679224636"><span id="local-6989586621679224638"><span id="local-6989586621679224640"><span class="annot"><span class="annottext">Eq DataReplicationInitiationStepStatus
+Eq DataReplicationInitiationStepStatus
+-&gt; (DataReplicationInitiationStepStatus
+    -&gt; DataReplicationInitiationStepStatus -&gt; Ordering)
+-&gt; (DataReplicationInitiationStepStatus
+    -&gt; DataReplicationInitiationStepStatus -&gt; Bool)
+-&gt; (DataReplicationInitiationStepStatus
+    -&gt; DataReplicationInitiationStepStatus -&gt; Bool)
+-&gt; (DataReplicationInitiationStepStatus
+    -&gt; DataReplicationInitiationStepStatus -&gt; Bool)
+-&gt; (DataReplicationInitiationStepStatus
+    -&gt; DataReplicationInitiationStepStatus -&gt; Bool)
+-&gt; (DataReplicationInitiationStepStatus
+    -&gt; DataReplicationInitiationStepStatus
+    -&gt; DataReplicationInitiationStepStatus)
+-&gt; (DataReplicationInitiationStepStatus
+    -&gt; DataReplicationInitiationStepStatus
+    -&gt; DataReplicationInitiationStepStatus)
+-&gt; Ord DataReplicationInitiationStepStatus
+DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Bool
+DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Ordering
+DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus
+$cmin :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus
+max :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus
+$cmax :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus
+&gt;= :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Bool
+$c&gt;= :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Bool
+&gt; :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Bool
+$c&gt; :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Bool
+&lt;= :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Bool
+$c&lt;= :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Bool
+&lt; :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Bool
+$c&lt; :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Bool
+compare :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Ordering
+$ccompare :: DataReplicationInitiationStepStatus
+-&gt; DataReplicationInitiationStepStatus -&gt; Ordering
+$cp1Ord :: Eq DataReplicationInitiationStepStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DataReplicationInitiationStepStatus
+ -&gt; Rep DataReplicationInitiationStepStatus x)
+-&gt; (forall x.
+    Rep DataReplicationInitiationStepStatus x
+    -&gt; DataReplicationInitiationStepStatus)
+-&gt; Generic DataReplicationInitiationStepStatus
+forall x.
+Rep DataReplicationInitiationStepStatus x
+-&gt; DataReplicationInitiationStepStatus
+forall x.
+DataReplicationInitiationStepStatus
+-&gt; Rep DataReplicationInitiationStepStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DataReplicationInitiationStepStatus x
+-&gt; DataReplicationInitiationStepStatus
+$cfrom :: forall x.
+DataReplicationInitiationStepStatus
+-&gt; Rep DataReplicationInitiationStepStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679224620"><span id="local-6989586621679224622"><span class="annot"><span class="annottext">Int -&gt; DataReplicationInitiationStepStatus -&gt; Int
+DataReplicationInitiationStepStatus -&gt; Int
+(Int -&gt; DataReplicationInitiationStepStatus -&gt; Int)
+-&gt; (DataReplicationInitiationStepStatus -&gt; Int)
+-&gt; Hashable DataReplicationInitiationStepStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DataReplicationInitiationStepStatus -&gt; Int
+$chash :: DataReplicationInitiationStepStatus -&gt; Int
+hashWithSalt :: Int -&gt; DataReplicationInitiationStepStatus -&gt; Int
+$chashWithSalt :: Int -&gt; DataReplicationInitiationStepStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679224617"><span class="annot"><span class="annottext">DataReplicationInitiationStepStatus -&gt; ()
+(DataReplicationInitiationStepStatus -&gt; ())
+-&gt; NFData DataReplicationInitiationStepStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DataReplicationInitiationStepStatus -&gt; ()
+$crnf :: DataReplicationInitiationStepStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679224614"><span class="annot"><span class="annottext">Text -&gt; Either String DataReplicationInitiationStepStatus
+(Text -&gt; Either String DataReplicationInitiationStepStatus)
+-&gt; FromText DataReplicationInitiationStepStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DataReplicationInitiationStepStatus
+$cfromText :: Text -&gt; Either String DataReplicationInitiationStepStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679224611"><span class="annot"><span class="annottext">DataReplicationInitiationStepStatus -&gt; Text
+(DataReplicationInitiationStepStatus -&gt; Text)
+-&gt; ToText DataReplicationInitiationStepStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DataReplicationInitiationStepStatus -&gt; Text
+$ctoText :: DataReplicationInitiationStepStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679224608"><span class="annot"><span class="annottext">DataReplicationInitiationStepStatus -&gt; ByteString
+(DataReplicationInitiationStepStatus -&gt; ByteString)
+-&gt; ToByteString DataReplicationInitiationStepStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DataReplicationInitiationStepStatus -&gt; ByteString
+$ctoBS :: DataReplicationInitiationStepStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679224605"><span class="annot"><span class="annottext">DataReplicationInitiationStepStatus -&gt; ByteStringBuilder
+(DataReplicationInitiationStepStatus -&gt; ByteStringBuilder)
+-&gt; ToLog DataReplicationInitiationStepStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DataReplicationInitiationStepStatus -&gt; ByteStringBuilder
+$cbuild :: DataReplicationInitiationStepStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679224602"><span class="annot"><span class="annottext">HeaderName -&gt; DataReplicationInitiationStepStatus -&gt; [Header]
+(HeaderName -&gt; DataReplicationInitiationStepStatus -&gt; [Header])
+-&gt; ToHeader DataReplicationInitiationStepStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DataReplicationInitiationStepStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DataReplicationInitiationStepStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679224599"><span class="annot"><span class="annottext">DataReplicationInitiationStepStatus -&gt; QueryString
+(DataReplicationInitiationStepStatus -&gt; QueryString)
+-&gt; ToQuery DataReplicationInitiationStepStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DataReplicationInitiationStepStatus -&gt; QueryString
+$ctoQuery :: DataReplicationInitiationStepStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679224594"><span id="local-6989586621679224596"><span class="annot"><span class="annottext">Value -&gt; Parser [DataReplicationInitiationStepStatus]
+Value -&gt; Parser DataReplicationInitiationStepStatus
+(Value -&gt; Parser DataReplicationInitiationStepStatus)
+-&gt; (Value -&gt; Parser [DataReplicationInitiationStepStatus])
+-&gt; FromJSON DataReplicationInitiationStepStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DataReplicationInitiationStepStatus]
+$cparseJSONList :: Value -&gt; Parser [DataReplicationInitiationStepStatus]
+parseJSON :: Value -&gt; Parser DataReplicationInitiationStepStatus
+$cparseJSON :: Value -&gt; Parser DataReplicationInitiationStepStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679224589"><span id="local-6989586621679224591"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataReplicationInitiationStepStatus]
+FromJSONKeyFunction DataReplicationInitiationStepStatus
+FromJSONKeyFunction DataReplicationInitiationStepStatus
+-&gt; FromJSONKeyFunction [DataReplicationInitiationStepStatus]
+-&gt; FromJSONKey DataReplicationInitiationStepStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DataReplicationInitiationStepStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [DataReplicationInitiationStepStatus]
+fromJSONKey :: FromJSONKeyFunction DataReplicationInitiationStepStatus
+$cfromJSONKey :: FromJSONKeyFunction DataReplicationInitiationStepStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679224580"><span id="local-6989586621679224582"><span id="local-6989586621679224584"><span id="local-6989586621679224586"><span class="annot"><span class="annottext">[DataReplicationInitiationStepStatus] -&gt; Encoding
+[DataReplicationInitiationStepStatus] -&gt; Value
+DataReplicationInitiationStepStatus -&gt; Encoding
+DataReplicationInitiationStepStatus -&gt; Value
+(DataReplicationInitiationStepStatus -&gt; Value)
+-&gt; (DataReplicationInitiationStepStatus -&gt; Encoding)
+-&gt; ([DataReplicationInitiationStepStatus] -&gt; Value)
+-&gt; ([DataReplicationInitiationStepStatus] -&gt; Encoding)
+-&gt; ToJSON DataReplicationInitiationStepStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DataReplicationInitiationStepStatus] -&gt; Encoding
+$ctoEncodingList :: [DataReplicationInitiationStepStatus] -&gt; Encoding
+toJSONList :: [DataReplicationInitiationStepStatus] -&gt; Value
+$ctoJSONList :: [DataReplicationInitiationStepStatus] -&gt; Value
+toEncoding :: DataReplicationInitiationStepStatus -&gt; Encoding
+$ctoEncoding :: DataReplicationInitiationStepStatus -&gt; Encoding
+toJSON :: DataReplicationInitiationStepStatus -&gt; Value
+$ctoJSON :: DataReplicationInitiationStepStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679224575"><span id="local-6989586621679224577"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataReplicationInitiationStepStatus]
+ToJSONKeyFunction DataReplicationInitiationStepStatus
+ToJSONKeyFunction DataReplicationInitiationStepStatus
+-&gt; ToJSONKeyFunction [DataReplicationInitiationStepStatus]
+-&gt; ToJSONKey DataReplicationInitiationStepStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DataReplicationInitiationStepStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [DataReplicationInitiationStepStatus]
+toJSONKey :: ToJSONKeyFunction DataReplicationInitiationStepStatus
+$ctoJSONKey :: ToJSONKeyFunction DataReplicationInitiationStepStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679224572"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataReplicationInitiationStepStatus
+([Node] -&gt; Either String DataReplicationInitiationStepStatus)
+-&gt; FromXML DataReplicationInitiationStepStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DataReplicationInitiationStepStatus
+$cparseXML :: [Node] -&gt; Either String DataReplicationInitiationStepStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679224569"><span class="annot"><span class="annottext">DataReplicationInitiationStepStatus -&gt; XML
+(DataReplicationInitiationStepStatus -&gt; XML)
+-&gt; ToXML DataReplicationInitiationStepStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DataReplicationInitiationStepStatus -&gt; XML
+$ctoXML :: DataReplicationInitiationStepStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus_FAILED"><span class="hs-identifier hs-type">DataReplicationInitiationStepStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus"><span class="hs-identifier hs-type">DataReplicationInitiationStepStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationInitiationStepStatus_FAILED"><span id="%24mDataReplicationInitiationStepStatus_FAILED"><span id="DataReplicationInitiationStepStatus_FAILED"><span class="annot"><span class="annottext">$bDataReplicationInitiationStepStatus_FAILED :: DataReplicationInitiationStepStatus
+$mDataReplicationInitiationStepStatus_FAILED :: forall r.
+DataReplicationInitiationStepStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#%24bDataReplicationInitiationStepStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationInitiationStepStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus%27"><span class="hs-identifier hs-type">DataReplicationInitiationStepStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus_IN_PROGRESS"><span class="hs-identifier hs-type">DataReplicationInitiationStepStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus"><span class="hs-identifier hs-type">DataReplicationInitiationStepStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationInitiationStepStatus_IN_PROGRESS"><span id="%24mDataReplicationInitiationStepStatus_IN_PROGRESS"><span id="DataReplicationInitiationStepStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bDataReplicationInitiationStepStatus_IN_PROGRESS :: DataReplicationInitiationStepStatus
+$mDataReplicationInitiationStepStatus_IN_PROGRESS :: forall r.
+DataReplicationInitiationStepStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#%24bDataReplicationInitiationStepStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationInitiationStepStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus%27"><span class="hs-identifier hs-type">DataReplicationInitiationStepStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus_NOT_STARTED"><span class="hs-identifier hs-type">DataReplicationInitiationStepStatus_NOT_STARTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus"><span class="hs-identifier hs-type">DataReplicationInitiationStepStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationInitiationStepStatus_NOT_STARTED"><span id="%24mDataReplicationInitiationStepStatus_NOT_STARTED"><span id="DataReplicationInitiationStepStatus_NOT_STARTED"><span class="annot"><span class="annottext">$bDataReplicationInitiationStepStatus_NOT_STARTED :: DataReplicationInitiationStepStatus
+$mDataReplicationInitiationStepStatus_NOT_STARTED :: forall r.
+DataReplicationInitiationStepStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#%24bDataReplicationInitiationStepStatus_NOT_STARTED"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationInitiationStepStatus_NOT_STARTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus%27"><span class="hs-identifier hs-type">DataReplicationInitiationStepStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_STARTED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus_SKIPPED"><span class="hs-identifier hs-type">DataReplicationInitiationStepStatus_SKIPPED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus"><span class="hs-identifier hs-type">DataReplicationInitiationStepStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationInitiationStepStatus_SKIPPED"><span id="%24mDataReplicationInitiationStepStatus_SKIPPED"><span id="DataReplicationInitiationStepStatus_SKIPPED"><span class="annot"><span class="annottext">$bDataReplicationInitiationStepStatus_SKIPPED :: DataReplicationInitiationStepStatus
+$mDataReplicationInitiationStepStatus_SKIPPED :: forall r.
+DataReplicationInitiationStepStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#%24bDataReplicationInitiationStepStatus_SKIPPED"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationInitiationStepStatus_SKIPPED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus%27"><span class="hs-identifier hs-type">DataReplicationInitiationStepStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SKIPPED&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus_SUCCEEDED"><span class="hs-identifier hs-type">DataReplicationInitiationStepStatus_SUCCEEDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus"><span class="hs-identifier hs-type">DataReplicationInitiationStepStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationInitiationStepStatus_SUCCEEDED"><span id="%24mDataReplicationInitiationStepStatus_SUCCEEDED"><span id="DataReplicationInitiationStepStatus_SUCCEEDED"><span class="annot"><span class="annottext">$bDataReplicationInitiationStepStatus_SUCCEEDED :: DataReplicationInitiationStepStatus
+$mDataReplicationInitiationStepStatus_SUCCEEDED :: forall r.
+DataReplicationInitiationStepStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#%24bDataReplicationInitiationStepStatus_SUCCEEDED"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationInitiationStepStatus_SUCCEEDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus%27"><span class="hs-identifier hs-type">DataReplicationInitiationStepStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUCCEEDED&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus_FAILED"><span class="hs-pragma hs-type">DataReplicationInitiationStepStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus_IN_PROGRESS"><span class="hs-pragma hs-type">DataReplicationInitiationStepStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus_NOT_STARTED"><span class="hs-pragma hs-type">DataReplicationInitiationStepStatus_NOT_STARTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus_SKIPPED"><span class="hs-pragma hs-type">DataReplicationInitiationStepStatus_SKIPPED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus_SUCCEEDED"><span class="hs-pragma hs-type">DataReplicationInitiationStepStatus_SUCCEEDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.Types.DataReplicationInitiationStepStatus.html#DataReplicationInitiationStepStatus%27"><span class="hs-pragma hs-type">DataReplicationInitiationStepStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

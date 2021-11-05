@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newGetIntents' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679322167"><span id="local-6989586621679322168"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIntents"><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-var">GetIntents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIntents%27"><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-var">GetIntents'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679322176"><span id="local-6989586621679322177"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIntents"><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-var">GetIntents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIntents%27"><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-var">GetIntents'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Substring to match in intent names. An intent will be returned if any</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- part of its name matches the substring. For example, \&quot;xyz\&quot; matches</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- both \&quot;xyzabc\&quot; and \&quot;abcxyz.\&quot;</span><span>
@@ -77,7 +77,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetIntents%27"><span class="annot"><span class="annottext">GetIntents -&gt; Maybe Natural
 </span><a href="Network.AWS.LexModels.GetIntents.html#%24sel%3AmaxResults%3AGetIntents%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322159"><span id="local-6989586621679322161"><span class="annot"><span class="annottext">GetIntents -&gt; GetIntents -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322168"><span id="local-6989586621679322170"><span class="annot"><span class="annottext">GetIntents -&gt; GetIntents -&gt; Bool
 (GetIntents -&gt; GetIntents -&gt; Bool)
 -&gt; (GetIntents -&gt; GetIntents -&gt; Bool) -&gt; Eq GetIntents
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetIntents -&gt; GetIntents -&gt; Bool
 == :: GetIntents -&gt; GetIntents -&gt; Bool
 $c== :: GetIntents -&gt; GetIntents -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322150"><span id="local-6989586621679322152"><span id="local-6989586621679322154"><span id="local-6989586621679322156"><span class="annot"><span class="annottext">ReadPrec [GetIntents]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322159"><span id="local-6989586621679322161"><span id="local-6989586621679322163"><span id="local-6989586621679322165"><span class="annot"><span class="annottext">ReadPrec [GetIntents]
 ReadPrec GetIntents
 Int -&gt; ReadS GetIntents
 ReadS [GetIntents]
@@ -105,7 +105,7 @@ readList :: ReadS [GetIntents]
 $creadList :: ReadS [GetIntents]
 readsPrec :: Int -&gt; ReadS GetIntents
 $creadsPrec :: Int -&gt; ReadS GetIntents
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322143"><span id="local-6989586621679322145"><span id="local-6989586621679322147"><span class="annot"><span class="annottext">Int -&gt; GetIntents -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322152"><span id="local-6989586621679322154"><span id="local-6989586621679322156"><span class="annot"><span class="annottext">Int -&gt; GetIntents -&gt; ShowS
 [GetIntents] -&gt; ShowS
 GetIntents -&gt; String
 (Int -&gt; GetIntents -&gt; ShowS)
@@ -178,16 +178,16 @@ forall a. Maybe a
 -&gt; (GetIntents -&gt; Maybe Text -&gt; GetIntents)
 -&gt; Lens GetIntents GetIntents (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322137"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322146"><span class="annot"><span class="annottext">Maybe Text
 nameContains :: Maybe Text
 $sel:nameContains:GetIntents' :: GetIntents -&gt; Maybe Text
-</span><a href="#local-6989586621679322137"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322137"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322136"><span class="annot"><span class="annottext">s :: GetIntents
-</span><a href="#local-6989586621679322136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322135"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntents
-</span><a href="#local-6989586621679322136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:GetIntents' :: Maybe Text
+</span><a href="#local-6989586621679322146"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322146"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322145"><span class="annot"><span class="annottext">s :: GetIntents
+</span><a href="#local-6989586621679322145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322144"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntents
+</span><a href="#local-6989586621679322145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:GetIntents' :: Maybe Text
 </span><a href="Network.AWS.LexModels.GetIntents.html#%24sel%3AnameContains%3AGetIntents%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | A pagination token that fetches the next page of intents. If the</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- response to this API call is truncated, Amazon Lex returns a pagination</span><span>
@@ -199,16 +199,16 @@ $sel:nameContains:GetIntents' :: GetIntents -&gt; Maybe Text
 -&gt; (GetIntents -&gt; Maybe Text -&gt; GetIntents)
 -&gt; Lens GetIntents GetIntents (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322134"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322143"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetIntents' :: GetIntents -&gt; Maybe Text
-</span><a href="#local-6989586621679322134"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322134"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322133"><span class="annot"><span class="annottext">s :: GetIntents
-</span><a href="#local-6989586621679322133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322132"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntents
-</span><a href="#local-6989586621679322133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetIntents' :: Maybe Text
+</span><a href="#local-6989586621679322143"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322143"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322142"><span class="annot"><span class="annottext">s :: GetIntents
+</span><a href="#local-6989586621679322142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322141"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntents
+</span><a href="#local-6989586621679322142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetIntents' :: Maybe Text
 </span><a href="Network.AWS.LexModels.GetIntents.html#%24sel%3AnextToken%3AGetIntents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The maximum number of intents to return in the response. The default is</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- 10.</span><span>
@@ -218,28 +218,28 @@ $sel:nextToken:GetIntents' :: GetIntents -&gt; Maybe Text
 -&gt; (GetIntents -&gt; Maybe Natural -&gt; GetIntents)
 -&gt; Lens GetIntents GetIntents (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322131"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322140"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:GetIntents' :: GetIntents -&gt; Maybe Natural
-</span><a href="#local-6989586621679322131"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679322131"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322130"><span class="annot"><span class="annottext">s :: GetIntents
-</span><a href="#local-6989586621679322130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322129"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679322129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntents
-</span><a href="#local-6989586621679322130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetIntents' :: Maybe Natural
+</span><a href="#local-6989586621679322140"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679322140"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322139"><span class="annot"><span class="annottext">s :: GetIntents
+</span><a href="#local-6989586621679322139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322138"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679322138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntents
+</span><a href="#local-6989586621679322139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetIntents' :: Maybe Natural
 </span><a href="Network.AWS.LexModels.GetIntents.html#%24sel%3AmaxResults%3AGetIntents%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679322129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679322125"><span class="annot"><span class="annottext">page :: GetIntents -&gt; AWSResponse GetIntents -&gt; Maybe GetIntents
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679322123"><span class="annot"><span class="annottext">GetIntents
-</span><a href="#local-6989586621679322123"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679322122"><span class="annot"><span class="annottext">AWSResponse GetIntents
-</span><a href="#local-6989586621679322122"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679322134"><span class="annot"><span class="annottext">page :: GetIntents -&gt; AWSResponse GetIntents -&gt; Maybe GetIntents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679322132"><span class="annot"><span class="annottext">GetIntents
+</span><a href="#local-6989586621679322132"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679322131"><span class="annot"><span class="annottext">AWSResponse GetIntents
+</span><a href="#local-6989586621679322131"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-128"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetIntents
 GetIntentsResponse
-</span><a href="#local-6989586621679322122"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679322131"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">GetIntentsResponse
 -&gt; Getting (First Text) GetIntentsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -265,7 +265,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-133"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetIntents
 GetIntentsResponse
-</span><a href="#local-6989586621679322122"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679322131"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">GetIntentsResponse
 -&gt; Getting
      (First [IntentMetadata]) GetIntentsResponse [IntentMetadata]
@@ -305,7 +305,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">GetIntents
-</span><a href="#local-6989586621679322123"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679322132"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">GetIntents -&gt; (GetIntents -&gt; GetIntents) -&gt; GetIntents
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -318,7 +318,7 @@ Lens GetIntents GetIntents (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetIntents
 GetIntentsResponse
-</span><a href="#local-6989586621679322122"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679322131"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">GetIntentsResponse
 -&gt; Getting (First Text) GetIntentsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -338,12 +338,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679322112"><span class="annot"><span class="annottext">request :: GetIntents -&gt; Request GetIntents
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679322121"><span class="annot"><span class="annottext">request :: GetIntents -&gt; Request GetIntents
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetIntents -&gt; Request GetIntents
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.LexModels.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679322108"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679322117"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetIntents
 -&gt; ClientResponse ClientBody
@@ -367,10 +367,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679322105"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322105"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679322104"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679322104"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679322103"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679322103"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679322114"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322114"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679322113"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679322113"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679322112"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679322112"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe [IntentMetadata] -&gt; Maybe Text -&gt; Int -&gt; GetIntentsResponse
 </span><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-var">GetIntentsResponse'</span></a></span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [IntentMetadata] -&gt; Maybe Text -&gt; Int -&gt; GetIntentsResponse)
@@ -378,7 +378,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; GetIntentsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679322103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [IntentMetadata]))
+</span><a href="#local-6989586621679322112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [IntentMetadata]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;intents&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [IntentMetadata]))
@@ -392,7 +392,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; GetIntentsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679322103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679322112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -404,15 +404,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322105"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322114"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322094"><span id="local-6989586621679322096"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322103"><span id="local-6989586621679322105"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322091"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322100"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679322087"><span class="annot"><span class="annottext">toHeaders :: GetIntents -&gt; ResponseHeaders
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679322096"><span class="annot"><span class="annottext">toHeaders :: GetIntents -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetIntents -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -432,15 +432,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679322081"><span class="annot"><span class="annottext">toPath :: GetIntents -&gt; ByteString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679322090"><span class="annot"><span class="annottext">toPath :: GetIntents -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetIntents -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/intents/&quot;</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents"><span class="hs-identifier hs-type">GetIntents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679322077"><span class="annot"><span class="annottext">toQuery :: GetIntents -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322073"><span id="local-6989586621679322074"><span id="local-6989586621679322075"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679322086"><span class="annot"><span class="annottext">toQuery :: GetIntents -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntents%27"><span class="hs-identifier hs-type">GetIntents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322082"><span id="local-6989586621679322083"><span id="local-6989586621679322084"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
@@ -448,7 +448,7 @@ nameContains :: Maybe Text
 $sel:maxResults:GetIntents' :: GetIntents -&gt; Maybe Natural
 $sel:nextToken:GetIntents' :: GetIntents -&gt; Maybe Text
 $sel:nameContains:GetIntents' :: GetIntents -&gt; Maybe Text
-</span><a href="#local-6989586621679322073"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679322082"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -456,21 +456,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nameContains&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322075"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679322084"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322074"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679322083"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679322073"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679322082"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newGetIntentsResponse' smart constructor.</span><span>
-</span><span id="line-183"></span><span id="local-6989586621679322070"><span id="local-6989586621679322071"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIntentsResponse"><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-var">GetIntentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIntentsResponse%27"><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-var">GetIntentsResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span id="local-6989586621679322079"><span id="local-6989586621679322080"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetIntentsResponse"><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-var">GetIntentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetIntentsResponse%27"><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-var">GetIntentsResponse'</span></a></span></span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of @Intent@ objects. For more information, see PutBot.</span><span>
 </span><span id="line-185"></span><span>    </span><span id="%24sel%3Aintents%3AGetIntentsResponse%27"><span class="annot"><span class="annottext">GetIntentsResponse -&gt; Maybe [IntentMetadata]
 </span><a href="Network.AWS.LexModels.GetIntents.html#%24sel%3Aintents%3AGetIntentsResponse%27"><span class="hs-identifier hs-var hs-var">intents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -483,7 +483,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetIntentsResponse%27"><span class="annot"><span class="annottext">GetIntentsResponse -&gt; Int
 </span><a href="Network.AWS.LexModels.GetIntents.html#%24sel%3AhttpStatus%3AGetIntentsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322063"><span id="local-6989586621679322065"><span class="annot"><span class="annottext">GetIntentsResponse -&gt; GetIntentsResponse -&gt; Bool
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322072"><span id="local-6989586621679322074"><span class="annot"><span class="annottext">GetIntentsResponse -&gt; GetIntentsResponse -&gt; Bool
 (GetIntentsResponse -&gt; GetIntentsResponse -&gt; Bool)
 -&gt; (GetIntentsResponse -&gt; GetIntentsResponse -&gt; Bool)
 -&gt; Eq GetIntentsResponse
@@ -492,7 +492,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetIntentsResponse -&gt; GetIntentsResponse -&gt; Bool
 == :: GetIntentsResponse -&gt; GetIntentsResponse -&gt; Bool
 $c== :: GetIntentsResponse -&gt; GetIntentsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322055"><span id="local-6989586621679322057"><span id="local-6989586621679322059"><span id="local-6989586621679322061"><span class="annot"><span class="annottext">ReadPrec [GetIntentsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322064"><span id="local-6989586621679322066"><span id="local-6989586621679322068"><span id="local-6989586621679322070"><span class="annot"><span class="annottext">ReadPrec [GetIntentsResponse]
 ReadPrec GetIntentsResponse
 Int -&gt; ReadS GetIntentsResponse
 ReadS [GetIntentsResponse]
@@ -512,7 +512,7 @@ readList :: ReadS [GetIntentsResponse]
 $creadList :: ReadS [GetIntentsResponse]
 readsPrec :: Int -&gt; ReadS GetIntentsResponse
 $creadsPrec :: Int -&gt; ReadS GetIntentsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322049"><span id="local-6989586621679322051"><span id="local-6989586621679322053"><span class="annot"><span class="annottext">Int -&gt; GetIntentsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322058"><span id="local-6989586621679322060"><span id="local-6989586621679322062"><span class="annot"><span class="annottext">Int -&gt; GetIntentsResponse -&gt; ShowS
 [GetIntentsResponse] -&gt; ShowS
 GetIntentsResponse -&gt; String
 (Int -&gt; GetIntentsResponse -&gt; ShowS)
@@ -558,8 +558,8 @@ $cfrom :: forall x. GetIntentsResponse -&gt; Rep GetIntentsResponse x
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span>
 </span><span id="line-214"></span><span id="newGetIntentsResponse"><span class="annot"><span class="annottext">newGetIntentsResponse :: Int -&gt; GetIntentsResponse
-</span><a href="Network.AWS.LexModels.GetIntents.html#newGetIntentsResponse"><span class="hs-identifier hs-var hs-var">newGetIntentsResponse</span></a></span></span><span> </span><span id="local-6989586621679322046"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.LexModels.GetIntents.html#newGetIntentsResponse"><span class="hs-identifier hs-var hs-var">newGetIntentsResponse</span></a></span></span><span> </span><span id="local-6989586621679322055"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322055"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">GetIntentsResponse' :: Maybe [IntentMetadata] -&gt; Maybe Text -&gt; Int -&gt; GetIntentsResponse
 </span><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span>
 </span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:intents:GetIntentsResponse' :: Maybe [IntentMetadata]
@@ -572,7 +572,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetIntentsResponse' :: Int
 </span><a href="Network.AWS.LexModels.GetIntents.html#%24sel%3AhttpStatus%3AGetIntentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679322055"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-219"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | An array of @Intent@ objects. For more information, see PutBot.</span><span>
@@ -584,16 +584,16 @@ forall a. Maybe a
     -&gt; Maybe [IntentMetadata] -&gt; GetIntentsResponse)
 -&gt; Lens' GetIntentsResponse (Maybe [IntentMetadata])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322045"><span class="annot"><span class="annottext">Maybe [IntentMetadata]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322054"><span class="annot"><span class="annottext">Maybe [IntentMetadata]
 intents :: Maybe [IntentMetadata]
 $sel:intents:GetIntentsResponse' :: GetIntentsResponse -&gt; Maybe [IntentMetadata]
-</span><a href="#local-6989586621679322045"><span class="hs-identifier hs-var hs-var">intents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IntentMetadata]
-</span><a href="#local-6989586621679322045"><span class="hs-identifier hs-var">intents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322044"><span class="annot"><span class="annottext">s :: GetIntentsResponse
-</span><a href="#local-6989586621679322044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322043"><span class="annot"><span class="annottext">Maybe [IntentMetadata]
-</span><a href="#local-6989586621679322043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntentsResponse
-</span><a href="#local-6989586621679322044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intents:GetIntentsResponse' :: Maybe [IntentMetadata]
+</span><a href="#local-6989586621679322054"><span class="hs-identifier hs-var hs-var">intents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IntentMetadata]
+</span><a href="#local-6989586621679322054"><span class="hs-identifier hs-var">intents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322053"><span class="annot"><span class="annottext">s :: GetIntentsResponse
+</span><a href="#local-6989586621679322053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322052"><span class="annot"><span class="annottext">Maybe [IntentMetadata]
+</span><a href="#local-6989586621679322052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntentsResponse
+</span><a href="#local-6989586621679322053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intents:GetIntentsResponse' :: Maybe [IntentMetadata]
 </span><a href="Network.AWS.LexModels.GetIntents.html#%24sel%3Aintents%3AGetIntentsResponse%27"><span class="hs-identifier hs-var">intents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IntentMetadata]
-</span><a href="#local-6989586621679322043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IntentMetadata] -&gt; f (Maybe [IntentMetadata]))
+</span><a href="#local-6989586621679322052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IntentMetadata] -&gt; f (Maybe [IntentMetadata]))
  -&gt; GetIntentsResponse -&gt; f GetIntentsResponse)
 -&gt; ((Maybe [IntentMetadata] -&gt; f (Maybe [IntentMetadata]))
     -&gt; Maybe [IntentMetadata] -&gt; f (Maybe [IntentMetadata]))
@@ -626,16 +626,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetIntentsResponse -&gt; Maybe Text -&gt; GetIntentsResponse)
 -&gt; Lens' GetIntentsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322040"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322049"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetIntentsResponse' :: GetIntentsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679322040"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322040"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322039"><span class="annot"><span class="annottext">s :: GetIntentsResponse
-</span><a href="#local-6989586621679322039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322038"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntentsResponse
-</span><a href="#local-6989586621679322039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetIntentsResponse' :: Maybe Text
+</span><a href="#local-6989586621679322049"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322049"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322048"><span class="annot"><span class="annottext">s :: GetIntentsResponse
+</span><a href="#local-6989586621679322048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322047"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntentsResponse
+</span><a href="#local-6989586621679322048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetIntentsResponse' :: Maybe Text
 </span><a href="Network.AWS.LexModels.GetIntents.html#%24sel%3AnextToken%3AGetIntentsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-232"></span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#getIntentsResponse_httpStatus"><span class="hs-identifier hs-type">getIntentsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -644,16 +644,16 @@ $sel:nextToken:GetIntentsResponse' :: GetIntentsResponse -&gt; Maybe Text
 -&gt; (GetIntentsResponse -&gt; Int -&gt; GetIntentsResponse)
 -&gt; Lens GetIntentsResponse GetIntentsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322037"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322046"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetIntentsResponse' :: GetIntentsResponse -&gt; Int
-</span><a href="#local-6989586621679322037"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322037"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322036"><span class="annot"><span class="annottext">s :: GetIntentsResponse
-</span><a href="#local-6989586621679322036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322035"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntentsResponse
-</span><a href="#local-6989586621679322036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetIntentsResponse' :: Int
+</span><a href="#local-6989586621679322046"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322046"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322045"><span class="annot"><span class="annottext">s :: GetIntentsResponse
+</span><a href="#local-6989586621679322045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse%27"><span class="hs-identifier hs-type">GetIntentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322044"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetIntentsResponse
+</span><a href="#local-6989586621679322045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetIntentsResponse' :: Int
 </span><a href="Network.AWS.LexModels.GetIntents.html#%24sel%3AhttpStatus%3AGetIntentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322042"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.GetIntents.html#GetIntentsResponse"><span class="hs-identifier hs-type">GetIntentsResponse</span></a></span></span><span>
 </span><span id="line-236"></span></pre></body></html>

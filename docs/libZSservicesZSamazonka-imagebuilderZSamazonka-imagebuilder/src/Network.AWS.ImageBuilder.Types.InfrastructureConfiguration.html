@@ -1,0 +1,1231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ImageBuilder.Types.InfrastructureConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ImageBuilder.Types.InfrastructureConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InstanceMetadataOptions.html"><span class="hs-identifier">Network.AWS.ImageBuilder.Types.InstanceMetadataOptions</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Logging.html"><span class="hs-identifier">Network.AWS.ImageBuilder.Types.Logging</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Details of the infrastructure configuration.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInfrastructureConfiguration' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679318100"><span id="local-6989586621679318101"></span></span><span class="hs-keyword">data</span><span> </span><span id="InfrastructureConfiguration"><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-var">InfrastructureConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InfrastructureConfiguration%27"><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-var">InfrastructureConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The security group IDs of the infrastructure configuration.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsecurityGroupIds%3AInfrastructureConfiguration%27"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; Maybe [Text]
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AsecurityGroupIds%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The SNS topic Amazon Resource Name (ARN) of the infrastructure</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AsnsTopicArn%3AInfrastructureConfiguration%27"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AsnsTopicArn%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">snsTopicArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The instance types of the infrastructure configuration.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AinstanceTypes%3AInfrastructureConfiguration%27"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; Maybe [Text]
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AinstanceTypes%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">instanceTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the infrastructure configuration.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aarn%3AInfrastructureConfiguration%27"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3Aarn%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Amazon EC2 key pair of the infrastructure configuration.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AkeyPair%3AInfrastructureConfiguration%27"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AkeyPair%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">keyPair</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The tags attached to the resource created by Image Builder.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AresourceTags%3AInfrastructureConfiguration%27"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AresourceTags%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">resourceTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The subnet ID of the infrastructure configuration.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AsubnetId%3AInfrastructureConfiguration%27"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AsubnetId%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The date on which the infrastructure configuration was last updated.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AdateUpdated%3AInfrastructureConfiguration%27"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AdateUpdated%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">dateUpdated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The date on which the infrastructure configuration was created.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AdateCreated%3AInfrastructureConfiguration%27"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AdateCreated%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">dateCreated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The instance metadata option settings for the infrastructure</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AinstanceMetadataOptions%3AInfrastructureConfiguration%27"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; Maybe InstanceMetadataOptions
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AinstanceMetadataOptions%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">instanceMetadataOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InstanceMetadataOptions.html#InstanceMetadataOptions"><span class="hs-identifier hs-type">InstanceMetadataOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The name of the infrastructure configuration.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aname%3AInfrastructureConfiguration%27"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3Aname%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The instance profile of the infrastructure configuration.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AinstanceProfileName%3AInfrastructureConfiguration%27"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AinstanceProfileName%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">instanceProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The logging configuration of the infrastructure configuration.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Alogging%3AInfrastructureConfiguration%27"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; Maybe Logging
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3Alogging%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">logging</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Logging.html#Logging"><span class="hs-identifier hs-type">Logging</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The description of the infrastructure configuration.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Adescription%3AInfrastructureConfiguration%27"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3Adescription%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The tags of the infrastructure configuration.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Atags%3AInfrastructureConfiguration%27"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3Atags%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The terminate instance on failure configuration of the infrastructure</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AterminateInstanceOnFailure%3AInfrastructureConfiguration%27"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; Maybe Bool
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AterminateInstanceOnFailure%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var hs-var">terminateInstanceOnFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318079"><span id="local-6989586621679318081"><span class="annot"><span class="annottext">InfrastructureConfiguration -&gt; InfrastructureConfiguration -&gt; Bool
+(InfrastructureConfiguration
+ -&gt; InfrastructureConfiguration -&gt; Bool)
+-&gt; (InfrastructureConfiguration
+    -&gt; InfrastructureConfiguration -&gt; Bool)
+-&gt; Eq InfrastructureConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InfrastructureConfiguration -&gt; InfrastructureConfiguration -&gt; Bool
+$c/= :: InfrastructureConfiguration -&gt; InfrastructureConfiguration -&gt; Bool
+== :: InfrastructureConfiguration -&gt; InfrastructureConfiguration -&gt; Bool
+$c== :: InfrastructureConfiguration -&gt; InfrastructureConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318070"><span id="local-6989586621679318072"><span id="local-6989586621679318074"><span id="local-6989586621679318076"><span class="annot"><span class="annottext">ReadPrec [InfrastructureConfiguration]
+ReadPrec InfrastructureConfiguration
+Int -&gt; ReadS InfrastructureConfiguration
+ReadS [InfrastructureConfiguration]
+(Int -&gt; ReadS InfrastructureConfiguration)
+-&gt; ReadS [InfrastructureConfiguration]
+-&gt; ReadPrec InfrastructureConfiguration
+-&gt; ReadPrec [InfrastructureConfiguration]
+-&gt; Read InfrastructureConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InfrastructureConfiguration]
+$creadListPrec :: ReadPrec [InfrastructureConfiguration]
+readPrec :: ReadPrec InfrastructureConfiguration
+$creadPrec :: ReadPrec InfrastructureConfiguration
+readList :: ReadS [InfrastructureConfiguration]
+$creadList :: ReadS [InfrastructureConfiguration]
+readsPrec :: Int -&gt; ReadS InfrastructureConfiguration
+$creadsPrec :: Int -&gt; ReadS InfrastructureConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318063"><span id="local-6989586621679318065"><span id="local-6989586621679318067"><span class="annot"><span class="annottext">Int -&gt; InfrastructureConfiguration -&gt; ShowS
+[InfrastructureConfiguration] -&gt; ShowS
+InfrastructureConfiguration -&gt; String
+(Int -&gt; InfrastructureConfiguration -&gt; ShowS)
+-&gt; (InfrastructureConfiguration -&gt; String)
+-&gt; ([InfrastructureConfiguration] -&gt; ShowS)
+-&gt; Show InfrastructureConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InfrastructureConfiguration] -&gt; ShowS
+$cshowList :: [InfrastructureConfiguration] -&gt; ShowS
+show :: InfrastructureConfiguration -&gt; String
+$cshow :: InfrastructureConfiguration -&gt; String
+showsPrec :: Int -&gt; InfrastructureConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; InfrastructureConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ InfrastructureConfiguration -&gt; Rep InfrastructureConfiguration x)
+-&gt; (forall x.
+    Rep InfrastructureConfiguration x -&gt; InfrastructureConfiguration)
+-&gt; Generic InfrastructureConfiguration
+forall x.
+Rep InfrastructureConfiguration x -&gt; InfrastructureConfiguration
+forall x.
+InfrastructureConfiguration -&gt; Rep InfrastructureConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep InfrastructureConfiguration x -&gt; InfrastructureConfiguration
+$cfrom :: forall x.
+InfrastructureConfiguration -&gt; Rep InfrastructureConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'InfrastructureConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'securityGroupIds', 'infrastructureConfiguration_securityGroupIds' - The security group IDs of the infrastructure configuration.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'snsTopicArn', 'infrastructureConfiguration_snsTopicArn' - The SNS topic Amazon Resource Name (ARN) of the infrastructure</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'instanceTypes', 'infrastructureConfiguration_instanceTypes' - The instance types of the infrastructure configuration.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'arn', 'infrastructureConfiguration_arn' - The Amazon Resource Name (ARN) of the infrastructure configuration.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'keyPair', 'infrastructureConfiguration_keyPair' - The Amazon EC2 key pair of the infrastructure configuration.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'resourceTags', 'infrastructureConfiguration_resourceTags' - The tags attached to the resource created by Image Builder.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'subnetId', 'infrastructureConfiguration_subnetId' - The subnet ID of the infrastructure configuration.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'dateUpdated', 'infrastructureConfiguration_dateUpdated' - The date on which the infrastructure configuration was last updated.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'dateCreated', 'infrastructureConfiguration_dateCreated' - The date on which the infrastructure configuration was created.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'instanceMetadataOptions', 'infrastructureConfiguration_instanceMetadataOptions' - The instance metadata option settings for the infrastructure</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'name', 'infrastructureConfiguration_name' - The name of the infrastructure configuration.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'instanceProfileName', 'infrastructureConfiguration_instanceProfileName' - The instance profile of the infrastructure configuration.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'logging', 'infrastructureConfiguration_logging' - The logging configuration of the infrastructure configuration.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'description', 'infrastructureConfiguration_description' - The description of the infrastructure configuration.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'tags', 'infrastructureConfiguration_tags' - The tags of the infrastructure configuration.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'terminateInstanceOnFailure', 'infrastructureConfiguration_terminateInstanceOnFailure' - The terminate instance on failure configuration of the infrastructure</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#newInfrastructureConfiguration"><span class="hs-identifier hs-type">newInfrastructureConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span>
+</span><span id="line-114"></span><span id="newInfrastructureConfiguration"><span class="annot"><span class="annottext">newInfrastructureConfiguration :: InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#newInfrastructureConfiguration"><span class="hs-identifier hs-var hs-var">newInfrastructureConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">InfrastructureConfiguration' :: Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe InstanceMetadataOptions
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Logging
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Bool
+-&gt; InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:securityGroupIds:InfrastructureConfiguration' :: Maybe [Text]
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AsecurityGroupIds%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:snsTopicArn:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AsnsTopicArn%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceTypes:InfrastructureConfiguration' :: Maybe [Text]
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AinstanceTypes%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">instanceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3Aarn%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyPair:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AkeyPair%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">keyPair</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceTags:InfrastructureConfiguration' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AresourceTags%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">resourceTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetId:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AsubnetId%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:dateUpdated:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AdateUpdated%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">dateUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:dateCreated:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AdateCreated%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">dateCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceMetadataOptions:InfrastructureConfiguration' :: Maybe InstanceMetadataOptions
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AinstanceMetadataOptions%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">instanceMetadataOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceMetadataOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3Aname%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceProfileName:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AinstanceProfileName%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:logging:InfrastructureConfiguration' :: Maybe Logging
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3Alogging%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">logging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Logging
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3Adescription%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:InfrastructureConfiguration' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3Atags%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:terminateInstanceOnFailure:InfrastructureConfiguration' :: Maybe Bool
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AterminateInstanceOnFailure%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">terminateInstanceOnFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The security group IDs of the infrastructure configuration.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_securityGroupIds"><span class="hs-identifier hs-type">infrastructureConfiguration_securityGroupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="infrastructureConfiguration_securityGroupIds"><span class="annot"><span class="annottext">infrastructureConfiguration_securityGroupIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_securityGroupIds"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration_securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InfrastructureConfiguration -&gt; Maybe [Text])
+-&gt; (InfrastructureConfiguration
+    -&gt; Maybe [Text] -&gt; InfrastructureConfiguration)
+-&gt; Lens
+     InfrastructureConfiguration
+     InfrastructureConfiguration
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318054"><span class="annot"><span class="annottext">Maybe [Text]
+securityGroupIds :: Maybe [Text]
+$sel:securityGroupIds:InfrastructureConfiguration' :: InfrastructureConfiguration -&gt; Maybe [Text]
+</span><a href="#local-6989586621679318054"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679318054"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318053"><span class="annot"><span class="annottext">s :: InfrastructureConfiguration
+</span><a href="#local-6989586621679318053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318052"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679318052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InfrastructureConfiguration
+</span><a href="#local-6989586621679318053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:InfrastructureConfiguration' :: Maybe [Text]
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AsecurityGroupIds%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679318052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; InfrastructureConfiguration
+-&gt; f InfrastructureConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The SNS topic Amazon Resource Name (ARN) of the infrastructure</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_snsTopicArn"><span class="hs-identifier hs-type">infrastructureConfiguration_snsTopicArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="infrastructureConfiguration_snsTopicArn"><span class="annot"><span class="annottext">infrastructureConfiguration_snsTopicArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_snsTopicArn"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration_snsTopicArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InfrastructureConfiguration -&gt; Maybe Text)
+-&gt; (InfrastructureConfiguration
+    -&gt; Maybe Text -&gt; InfrastructureConfiguration)
+-&gt; Lens
+     InfrastructureConfiguration
+     InfrastructureConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318047"><span class="annot"><span class="annottext">Maybe Text
+snsTopicArn :: Maybe Text
+$sel:snsTopicArn:InfrastructureConfiguration' :: InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679318047"><span class="hs-identifier hs-var hs-var">snsTopicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318047"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318046"><span class="annot"><span class="annottext">s :: InfrastructureConfiguration
+</span><a href="#local-6989586621679318046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318045"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InfrastructureConfiguration
+</span><a href="#local-6989586621679318046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snsTopicArn:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AsnsTopicArn%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The instance types of the infrastructure configuration.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_instanceTypes"><span class="hs-identifier hs-type">infrastructureConfiguration_instanceTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="infrastructureConfiguration_instanceTypes"><span class="annot"><span class="annottext">infrastructureConfiguration_instanceTypes :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_instanceTypes"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration_instanceTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InfrastructureConfiguration -&gt; Maybe [Text])
+-&gt; (InfrastructureConfiguration
+    -&gt; Maybe [Text] -&gt; InfrastructureConfiguration)
+-&gt; Lens
+     InfrastructureConfiguration
+     InfrastructureConfiguration
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318043"><span class="annot"><span class="annottext">Maybe [Text]
+instanceTypes :: Maybe [Text]
+$sel:instanceTypes:InfrastructureConfiguration' :: InfrastructureConfiguration -&gt; Maybe [Text]
+</span><a href="#local-6989586621679318043"><span class="hs-identifier hs-var hs-var">instanceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679318043"><span class="hs-identifier hs-var">instanceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318042"><span class="annot"><span class="annottext">s :: InfrastructureConfiguration
+</span><a href="#local-6989586621679318042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318041"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679318041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InfrastructureConfiguration
+</span><a href="#local-6989586621679318042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceTypes:InfrastructureConfiguration' :: Maybe [Text]
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AinstanceTypes%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">instanceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679318041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; InfrastructureConfiguration
+-&gt; f InfrastructureConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the infrastructure configuration.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_arn"><span class="hs-identifier hs-type">infrastructureConfiguration_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="infrastructureConfiguration_arn"><span class="annot"><span class="annottext">infrastructureConfiguration_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_arn"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InfrastructureConfiguration -&gt; Maybe Text)
+-&gt; (InfrastructureConfiguration
+    -&gt; Maybe Text -&gt; InfrastructureConfiguration)
+-&gt; Lens
+     InfrastructureConfiguration
+     InfrastructureConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318039"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:InfrastructureConfiguration' :: InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679318039"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318039"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318038"><span class="annot"><span class="annottext">s :: InfrastructureConfiguration
+</span><a href="#local-6989586621679318038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318037"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InfrastructureConfiguration
+</span><a href="#local-6989586621679318038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3Aarn%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The Amazon EC2 key pair of the infrastructure configuration.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_keyPair"><span class="hs-identifier hs-type">infrastructureConfiguration_keyPair</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="infrastructureConfiguration_keyPair"><span class="annot"><span class="annottext">infrastructureConfiguration_keyPair :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_keyPair"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration_keyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InfrastructureConfiguration -&gt; Maybe Text)
+-&gt; (InfrastructureConfiguration
+    -&gt; Maybe Text -&gt; InfrastructureConfiguration)
+-&gt; Lens
+     InfrastructureConfiguration
+     InfrastructureConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318035"><span class="annot"><span class="annottext">Maybe Text
+keyPair :: Maybe Text
+$sel:keyPair:InfrastructureConfiguration' :: InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679318035"><span class="hs-identifier hs-var hs-var">keyPair</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318035"><span class="hs-identifier hs-var">keyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318034"><span class="annot"><span class="annottext">s :: InfrastructureConfiguration
+</span><a href="#local-6989586621679318034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318033"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InfrastructureConfiguration
+</span><a href="#local-6989586621679318034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPair:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AkeyPair%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">keyPair</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The tags attached to the resource created by Image Builder.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_resourceTags"><span class="hs-identifier hs-type">infrastructureConfiguration_resourceTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="infrastructureConfiguration_resourceTags"><span class="annot"><span class="annottext">infrastructureConfiguration_resourceTags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_resourceTags"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration_resourceTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InfrastructureConfiguration -&gt; Maybe (HashMap Text Text))
+-&gt; (InfrastructureConfiguration
+    -&gt; Maybe (HashMap Text Text) -&gt; InfrastructureConfiguration)
+-&gt; Lens
+     InfrastructureConfiguration
+     InfrastructureConfiguration
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318031"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+resourceTags :: Maybe (HashMap Text Text)
+$sel:resourceTags:InfrastructureConfiguration' :: InfrastructureConfiguration -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679318031"><span class="hs-identifier hs-var hs-var">resourceTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679318031"><span class="hs-identifier hs-var">resourceTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318030"><span class="annot"><span class="annottext">s :: InfrastructureConfiguration
+</span><a href="#local-6989586621679318030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318029"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679318029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InfrastructureConfiguration
+</span><a href="#local-6989586621679318030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTags:InfrastructureConfiguration' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AresourceTags%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">resourceTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679318029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; InfrastructureConfiguration
+-&gt; f InfrastructureConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The subnet ID of the infrastructure configuration.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_subnetId"><span class="hs-identifier hs-type">infrastructureConfiguration_subnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="infrastructureConfiguration_subnetId"><span class="annot"><span class="annottext">infrastructureConfiguration_subnetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_subnetId"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration_subnetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InfrastructureConfiguration -&gt; Maybe Text)
+-&gt; (InfrastructureConfiguration
+    -&gt; Maybe Text -&gt; InfrastructureConfiguration)
+-&gt; Lens
+     InfrastructureConfiguration
+     InfrastructureConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318027"><span class="annot"><span class="annottext">Maybe Text
+subnetId :: Maybe Text
+$sel:subnetId:InfrastructureConfiguration' :: InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679318027"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318027"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318026"><span class="annot"><span class="annottext">s :: InfrastructureConfiguration
+</span><a href="#local-6989586621679318026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318025"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InfrastructureConfiguration
+</span><a href="#local-6989586621679318026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AsubnetId%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The date on which the infrastructure configuration was last updated.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_dateUpdated"><span class="hs-identifier hs-type">infrastructureConfiguration_dateUpdated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="infrastructureConfiguration_dateUpdated"><span class="annot"><span class="annottext">infrastructureConfiguration_dateUpdated :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_dateUpdated"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration_dateUpdated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InfrastructureConfiguration -&gt; Maybe Text)
+-&gt; (InfrastructureConfiguration
+    -&gt; Maybe Text -&gt; InfrastructureConfiguration)
+-&gt; Lens
+     InfrastructureConfiguration
+     InfrastructureConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318023"><span class="annot"><span class="annottext">Maybe Text
+dateUpdated :: Maybe Text
+$sel:dateUpdated:InfrastructureConfiguration' :: InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679318023"><span class="hs-identifier hs-var hs-var">dateUpdated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318023"><span class="hs-identifier hs-var">dateUpdated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318022"><span class="annot"><span class="annottext">s :: InfrastructureConfiguration
+</span><a href="#local-6989586621679318022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318021"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InfrastructureConfiguration
+</span><a href="#local-6989586621679318022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dateUpdated:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AdateUpdated%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">dateUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The date on which the infrastructure configuration was created.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_dateCreated"><span class="hs-identifier hs-type">infrastructureConfiguration_dateCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="infrastructureConfiguration_dateCreated"><span class="annot"><span class="annottext">infrastructureConfiguration_dateCreated :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_dateCreated"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration_dateCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InfrastructureConfiguration -&gt; Maybe Text)
+-&gt; (InfrastructureConfiguration
+    -&gt; Maybe Text -&gt; InfrastructureConfiguration)
+-&gt; Lens
+     InfrastructureConfiguration
+     InfrastructureConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318019"><span class="annot"><span class="annottext">Maybe Text
+dateCreated :: Maybe Text
+$sel:dateCreated:InfrastructureConfiguration' :: InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679318019"><span class="hs-identifier hs-var hs-var">dateCreated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318019"><span class="hs-identifier hs-var">dateCreated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318018"><span class="annot"><span class="annottext">s :: InfrastructureConfiguration
+</span><a href="#local-6989586621679318018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318017"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InfrastructureConfiguration
+</span><a href="#local-6989586621679318018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dateCreated:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AdateCreated%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">dateCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The instance metadata option settings for the infrastructure</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_instanceMetadataOptions"><span class="hs-identifier hs-type">infrastructureConfiguration_instanceMetadataOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InstanceMetadataOptions.html#InstanceMetadataOptions"><span class="hs-identifier hs-type">InstanceMetadataOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="infrastructureConfiguration_instanceMetadataOptions"><span class="annot"><span class="annottext">infrastructureConfiguration_instanceMetadataOptions :: (Maybe InstanceMetadataOptions
+ -&gt; f (Maybe InstanceMetadataOptions))
+-&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_instanceMetadataOptions"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration_instanceMetadataOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InfrastructureConfiguration -&gt; Maybe InstanceMetadataOptions)
+-&gt; (InfrastructureConfiguration
+    -&gt; Maybe InstanceMetadataOptions -&gt; InfrastructureConfiguration)
+-&gt; Lens
+     InfrastructureConfiguration
+     InfrastructureConfiguration
+     (Maybe InstanceMetadataOptions)
+     (Maybe InstanceMetadataOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318015"><span class="annot"><span class="annottext">Maybe InstanceMetadataOptions
+instanceMetadataOptions :: Maybe InstanceMetadataOptions
+$sel:instanceMetadataOptions:InfrastructureConfiguration' :: InfrastructureConfiguration -&gt; Maybe InstanceMetadataOptions
+</span><a href="#local-6989586621679318015"><span class="hs-identifier hs-var hs-var">instanceMetadataOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceMetadataOptions
+</span><a href="#local-6989586621679318015"><span class="hs-identifier hs-var">instanceMetadataOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318014"><span class="annot"><span class="annottext">s :: InfrastructureConfiguration
+</span><a href="#local-6989586621679318014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318013"><span class="annot"><span class="annottext">Maybe InstanceMetadataOptions
+</span><a href="#local-6989586621679318013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InfrastructureConfiguration
+</span><a href="#local-6989586621679318014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceMetadataOptions:InfrastructureConfiguration' :: Maybe InstanceMetadataOptions
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AinstanceMetadataOptions%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">instanceMetadataOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceMetadataOptions
+</span><a href="#local-6989586621679318013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The name of the infrastructure configuration.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_name"><span class="hs-identifier hs-type">infrastructureConfiguration_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="infrastructureConfiguration_name"><span class="annot"><span class="annottext">infrastructureConfiguration_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_name"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InfrastructureConfiguration -&gt; Maybe Text)
+-&gt; (InfrastructureConfiguration
+    -&gt; Maybe Text -&gt; InfrastructureConfiguration)
+-&gt; Lens
+     InfrastructureConfiguration
+     InfrastructureConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318011"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:InfrastructureConfiguration' :: InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679318011"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318011"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318010"><span class="annot"><span class="annottext">s :: InfrastructureConfiguration
+</span><a href="#local-6989586621679318010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318009"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InfrastructureConfiguration
+</span><a href="#local-6989586621679318010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3Aname%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The instance profile of the infrastructure configuration.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_instanceProfileName"><span class="hs-identifier hs-type">infrastructureConfiguration_instanceProfileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="infrastructureConfiguration_instanceProfileName"><span class="annot"><span class="annottext">infrastructureConfiguration_instanceProfileName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_instanceProfileName"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration_instanceProfileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InfrastructureConfiguration -&gt; Maybe Text)
+-&gt; (InfrastructureConfiguration
+    -&gt; Maybe Text -&gt; InfrastructureConfiguration)
+-&gt; Lens
+     InfrastructureConfiguration
+     InfrastructureConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318007"><span class="annot"><span class="annottext">Maybe Text
+instanceProfileName :: Maybe Text
+$sel:instanceProfileName:InfrastructureConfiguration' :: InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679318007"><span class="hs-identifier hs-var hs-var">instanceProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318007"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318006"><span class="annot"><span class="annottext">s :: InfrastructureConfiguration
+</span><a href="#local-6989586621679318006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318005"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InfrastructureConfiguration
+</span><a href="#local-6989586621679318006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceProfileName:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AinstanceProfileName%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The logging configuration of the infrastructure configuration.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_logging"><span class="hs-identifier hs-type">infrastructureConfiguration_logging</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Logging.html#Logging"><span class="hs-identifier hs-type">Logging</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="infrastructureConfiguration_logging"><span class="annot"><span class="annottext">infrastructureConfiguration_logging :: (Maybe Logging -&gt; f (Maybe Logging))
+-&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_logging"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration_logging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InfrastructureConfiguration -&gt; Maybe Logging)
+-&gt; (InfrastructureConfiguration
+    -&gt; Maybe Logging -&gt; InfrastructureConfiguration)
+-&gt; Lens
+     InfrastructureConfiguration
+     InfrastructureConfiguration
+     (Maybe Logging)
+     (Maybe Logging)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318003"><span class="annot"><span class="annottext">Maybe Logging
+logging :: Maybe Logging
+$sel:logging:InfrastructureConfiguration' :: InfrastructureConfiguration -&gt; Maybe Logging
+</span><a href="#local-6989586621679318003"><span class="hs-identifier hs-var hs-var">logging</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Logging
+</span><a href="#local-6989586621679318003"><span class="hs-identifier hs-var">logging</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318002"><span class="annot"><span class="annottext">s :: InfrastructureConfiguration
+</span><a href="#local-6989586621679318002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318001"><span class="annot"><span class="annottext">Maybe Logging
+</span><a href="#local-6989586621679318001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InfrastructureConfiguration
+</span><a href="#local-6989586621679318002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logging:InfrastructureConfiguration' :: Maybe Logging
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3Alogging%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">logging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Logging
+</span><a href="#local-6989586621679318001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The description of the infrastructure configuration.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_description"><span class="hs-identifier hs-type">infrastructureConfiguration_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="infrastructureConfiguration_description"><span class="annot"><span class="annottext">infrastructureConfiguration_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_description"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InfrastructureConfiguration -&gt; Maybe Text)
+-&gt; (InfrastructureConfiguration
+    -&gt; Maybe Text -&gt; InfrastructureConfiguration)
+-&gt; Lens
+     InfrastructureConfiguration
+     InfrastructureConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317999"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:InfrastructureConfiguration' :: InfrastructureConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679317999"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317999"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317998"><span class="annot"><span class="annottext">s :: InfrastructureConfiguration
+</span><a href="#local-6989586621679317998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317997"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InfrastructureConfiguration
+</span><a href="#local-6989586621679317998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:InfrastructureConfiguration' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3Adescription%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The tags of the infrastructure configuration.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_tags"><span class="hs-identifier hs-type">infrastructureConfiguration_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="infrastructureConfiguration_tags"><span class="annot"><span class="annottext">infrastructureConfiguration_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_tags"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InfrastructureConfiguration -&gt; Maybe (HashMap Text Text))
+-&gt; (InfrastructureConfiguration
+    -&gt; Maybe (HashMap Text Text) -&gt; InfrastructureConfiguration)
+-&gt; Lens
+     InfrastructureConfiguration
+     InfrastructureConfiguration
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317995"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:InfrastructureConfiguration' :: InfrastructureConfiguration -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679317995"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679317995"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317994"><span class="annot"><span class="annottext">s :: InfrastructureConfiguration
+</span><a href="#local-6989586621679317994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317993"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679317993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InfrastructureConfiguration
+</span><a href="#local-6989586621679317994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:InfrastructureConfiguration' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3Atags%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679317993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; InfrastructureConfiguration
+-&gt; f InfrastructureConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The terminate instance on failure configuration of the infrastructure</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_terminateInstanceOnFailure"><span class="hs-identifier hs-type">infrastructureConfiguration_terminateInstanceOnFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="infrastructureConfiguration_terminateInstanceOnFailure"><span class="annot"><span class="annottext">infrastructureConfiguration_terminateInstanceOnFailure :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; InfrastructureConfiguration -&gt; f InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#infrastructureConfiguration_terminateInstanceOnFailure"><span class="hs-identifier hs-var hs-var">infrastructureConfiguration_terminateInstanceOnFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InfrastructureConfiguration -&gt; Maybe Bool)
+-&gt; (InfrastructureConfiguration
+    -&gt; Maybe Bool -&gt; InfrastructureConfiguration)
+-&gt; Lens
+     InfrastructureConfiguration
+     InfrastructureConfiguration
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317991"><span class="annot"><span class="annottext">Maybe Bool
+terminateInstanceOnFailure :: Maybe Bool
+$sel:terminateInstanceOnFailure:InfrastructureConfiguration' :: InfrastructureConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679317991"><span class="hs-identifier hs-var hs-var">terminateInstanceOnFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679317991"><span class="hs-identifier hs-var">terminateInstanceOnFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317990"><span class="annot"><span class="annottext">s :: InfrastructureConfiguration
+</span><a href="#local-6989586621679317990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-type">InfrastructureConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317989"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679317989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InfrastructureConfiguration
+</span><a href="#local-6989586621679317990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:terminateInstanceOnFailure:InfrastructureConfiguration' :: Maybe Bool
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#%24sel%3AterminateInstanceOnFailure%3AInfrastructureConfiguration%27"><span class="hs-identifier hs-var">terminateInstanceOnFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679317989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317986"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679317984"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InfrastructureConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InfrastructureConfiguration)
+-&gt; Value
+-&gt; Parser InfrastructureConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InfrastructureConfiguration&quot;</span></span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317981"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-207"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe InstanceMetadataOptions
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Logging
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Bool
+-&gt; InfrastructureConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration%27"><span class="hs-identifier hs-var">InfrastructureConfiguration'</span></a></span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe InstanceMetadataOptions
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Logging
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Bool
+ -&gt; InfrastructureConfiguration)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe InstanceMetadataOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Logging
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; InfrastructureConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;securityGroupIds&quot;</span></span><span>
+</span><span id="line-209"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-210"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe InstanceMetadataOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Logging
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; InfrastructureConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe InstanceMetadataOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Logging
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; InfrastructureConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;snsTopicArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe InstanceMetadataOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Logging
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; InfrastructureConfiguration)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe InstanceMetadataOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Logging
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; InfrastructureConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe InstanceMetadataOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Logging
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; InfrastructureConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe InstanceMetadataOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Logging
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; InfrastructureConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe InstanceMetadataOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Logging
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; InfrastructureConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe InstanceMetadataOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Logging
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; InfrastructureConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyPair&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe InstanceMetadataOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Logging
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; InfrastructureConfiguration)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe InstanceMetadataOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Logging
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; InfrastructureConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe InstanceMetadataOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Logging
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; InfrastructureConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe InstanceMetadataOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Logging
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; InfrastructureConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;subnetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe InstanceMetadataOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Logging
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; InfrastructureConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe InstanceMetadataOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Logging
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; InfrastructureConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dateUpdated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe InstanceMetadataOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Logging
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; InfrastructureConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe InstanceMetadataOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Logging
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; InfrastructureConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dateCreated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InstanceMetadataOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Logging
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; InfrastructureConfiguration)
+-&gt; Parser (Maybe InstanceMetadataOptions)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Logging
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; InfrastructureConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceMetadataOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceMetadataOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Logging
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; InfrastructureConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Logging
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; InfrastructureConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Logging
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; InfrastructureConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Logging
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; InfrastructureConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceProfileName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Logging
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; InfrastructureConfiguration)
+-&gt; Parser (Maybe Logging)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Bool
+      -&gt; InfrastructureConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Logging)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logging&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Bool
+   -&gt; InfrastructureConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Bool -&gt; InfrastructureConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Bool -&gt; InfrastructureConfiguration)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Maybe Bool -&gt; InfrastructureConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; InfrastructureConfiguration)
+-&gt; Parser (Maybe Bool) -&gt; Parser InfrastructureConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;terminateInstanceOnFailure&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317974"><span id="local-6989586621679317976"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span></span></span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317971"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.InfrastructureConfiguration.html#InfrastructureConfiguration"><span class="hs-identifier hs-type">InfrastructureConfiguration</span></a></span></span><span>
+</span><span id="line-231"></span></pre></body></html>

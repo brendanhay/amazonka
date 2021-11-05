@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679431763"><span id="local-6989586621679431764"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EncryptionModeValue"><span class="annot"><a href="Network.AWS.DMS.Types.EncryptionModeValue.html#EncryptionModeValue"><span class="hs-identifier hs-var">EncryptionModeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionModeValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.EncryptionModeValue.html#EncryptionModeValue%27"><span class="hs-identifier hs-var">EncryptionModeValue'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679431772"><span id="local-6989586621679431773"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EncryptionModeValue"><span class="annot"><a href="Network.AWS.DMS.Types.EncryptionModeValue.html#EncryptionModeValue"><span class="hs-identifier hs-var">EncryptionModeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionModeValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.EncryptionModeValue.html#EncryptionModeValue%27"><span class="hs-identifier hs-var">EncryptionModeValue'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEncryptionModeValue"><span class="annot"><span class="annottext">EncryptionModeValue -&gt; Text
 </span><a href="Network.AWS.DMS.Types.EncryptionModeValue.html#fromEncryptionModeValue"><span class="hs-identifier hs-var hs-var">fromEncryptionModeValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431755"><span id="local-6989586621679431757"><span id="local-6989586621679431759"><span class="annot"><span class="annottext">Int -&gt; EncryptionModeValue -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431764"><span id="local-6989586621679431766"><span id="local-6989586621679431768"><span class="annot"><span class="annottext">Int -&gt; EncryptionModeValue -&gt; ShowS
 [EncryptionModeValue] -&gt; ShowS
 EncryptionModeValue -&gt; String
 (Int -&gt; EncryptionModeValue -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: EncryptionModeValue -&gt; String
 showsPrec :: Int -&gt; EncryptionModeValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; EncryptionModeValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679431746"><span id="local-6989586621679431748"><span id="local-6989586621679431750"><span id="local-6989586621679431752"><span class="annot"><span class="annottext">ReadPrec [EncryptionModeValue]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679431755"><span id="local-6989586621679431757"><span id="local-6989586621679431759"><span id="local-6989586621679431761"><span class="annot"><span class="annottext">ReadPrec [EncryptionModeValue]
 ReadPrec EncryptionModeValue
 Int -&gt; ReadS EncryptionModeValue
 ReadS [EncryptionModeValue]
@@ -72,7 +72,7 @@ $creadList :: ReadS [EncryptionModeValue]
 readsPrec :: Int -&gt; ReadS EncryptionModeValue
 $creadsPrec :: Int -&gt; ReadS EncryptionModeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679431741"><span id="local-6989586621679431743"><span class="annot"><span class="annottext">EncryptionModeValue -&gt; EncryptionModeValue -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679431750"><span id="local-6989586621679431752"><span class="annot"><span class="annottext">EncryptionModeValue -&gt; EncryptionModeValue -&gt; Bool
 (EncryptionModeValue -&gt; EncryptionModeValue -&gt; Bool)
 -&gt; (EncryptionModeValue -&gt; EncryptionModeValue -&gt; Bool)
 -&gt; Eq EncryptionModeValue
@@ -82,7 +82,7 @@ $c/= :: EncryptionModeValue -&gt; EncryptionModeValue -&gt; Bool
 == :: EncryptionModeValue -&gt; EncryptionModeValue -&gt; Bool
 $c== :: EncryptionModeValue -&gt; EncryptionModeValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679431725"><span id="local-6989586621679431727"><span id="local-6989586621679431729"><span id="local-6989586621679431731"><span id="local-6989586621679431733"><span id="local-6989586621679431735"><span id="local-6989586621679431737"><span class="annot"><span class="annottext">Eq EncryptionModeValue
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679431734"><span id="local-6989586621679431736"><span id="local-6989586621679431738"><span id="local-6989586621679431740"><span id="local-6989586621679431742"><span id="local-6989586621679431744"><span id="local-6989586621679431746"><span class="annot"><span class="annottext">Eq EncryptionModeValue
 Eq EncryptionModeValue
 -&gt; (EncryptionModeValue -&gt; EncryptionModeValue -&gt; Ordering)
 -&gt; (EncryptionModeValue -&gt; EncryptionModeValue -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. EncryptionModeValue -&gt; Rep EncryptionModeValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431717"><span id="local-6989586621679431719"><span class="annot"><span class="annottext">Int -&gt; EncryptionModeValue -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431726"><span id="local-6989586621679431728"><span class="annot"><span class="annottext">Int -&gt; EncryptionModeValue -&gt; Int
 EncryptionModeValue -&gt; Int
 (Int -&gt; EncryptionModeValue -&gt; Int)
 -&gt; (EncryptionModeValue -&gt; Int) -&gt; Hashable EncryptionModeValue
@@ -145,53 +145,53 @@ $chash :: EncryptionModeValue -&gt; Int
 hashWithSalt :: Int -&gt; EncryptionModeValue -&gt; Int
 $chashWithSalt :: Int -&gt; EncryptionModeValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679431714"><span class="annot"><span class="annottext">EncryptionModeValue -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679431723"><span class="annot"><span class="annottext">EncryptionModeValue -&gt; ()
 (EncryptionModeValue -&gt; ()) -&gt; NFData EncryptionModeValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EncryptionModeValue -&gt; ()
 $crnf :: EncryptionModeValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679431711"><span class="annot"><span class="annottext">Text -&gt; Either String EncryptionModeValue
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679431720"><span class="annot"><span class="annottext">Text -&gt; Either String EncryptionModeValue
 (Text -&gt; Either String EncryptionModeValue)
 -&gt; FromText EncryptionModeValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EncryptionModeValue
 $cfromText :: Text -&gt; Either String EncryptionModeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679431708"><span class="annot"><span class="annottext">EncryptionModeValue -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679431717"><span class="annot"><span class="annottext">EncryptionModeValue -&gt; Text
 (EncryptionModeValue -&gt; Text) -&gt; ToText EncryptionModeValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EncryptionModeValue -&gt; Text
 $ctoText :: EncryptionModeValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679431705"><span class="annot"><span class="annottext">EncryptionModeValue -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679431714"><span class="annot"><span class="annottext">EncryptionModeValue -&gt; ByteString
 (EncryptionModeValue -&gt; ByteString)
 -&gt; ToByteString EncryptionModeValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EncryptionModeValue -&gt; ByteString
 $ctoBS :: EncryptionModeValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679431702"><span class="annot"><span class="annottext">EncryptionModeValue -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679431711"><span class="annot"><span class="annottext">EncryptionModeValue -&gt; ByteStringBuilder
 (EncryptionModeValue -&gt; ByteStringBuilder)
 -&gt; ToLog EncryptionModeValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EncryptionModeValue -&gt; ByteStringBuilder
 $cbuild :: EncryptionModeValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679431699"><span class="annot"><span class="annottext">HeaderName -&gt; EncryptionModeValue -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679431708"><span class="annot"><span class="annottext">HeaderName -&gt; EncryptionModeValue -&gt; [Header]
 (HeaderName -&gt; EncryptionModeValue -&gt; [Header])
 -&gt; ToHeader EncryptionModeValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EncryptionModeValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EncryptionModeValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679431696"><span class="annot"><span class="annottext">EncryptionModeValue -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679431705"><span class="annot"><span class="annottext">EncryptionModeValue -&gt; QueryString
 (EncryptionModeValue -&gt; QueryString) -&gt; ToQuery EncryptionModeValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EncryptionModeValue -&gt; QueryString
 $ctoQuery :: EncryptionModeValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679431691"><span id="local-6989586621679431693"><span class="annot"><span class="annottext">Value -&gt; Parser [EncryptionModeValue]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679431700"><span id="local-6989586621679431702"><span class="annot"><span class="annottext">Value -&gt; Parser [EncryptionModeValue]
 Value -&gt; Parser EncryptionModeValue
 (Value -&gt; Parser EncryptionModeValue)
 -&gt; (Value -&gt; Parser [EncryptionModeValue])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [EncryptionModeValue]
 parseJSON :: Value -&gt; Parser EncryptionModeValue
 $cparseJSON :: Value -&gt; Parser EncryptionModeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679431686"><span id="local-6989586621679431688"><span class="annot"><span class="annottext">FromJSONKeyFunction [EncryptionModeValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679431695"><span id="local-6989586621679431697"><span class="annot"><span class="annottext">FromJSONKeyFunction [EncryptionModeValue]
 FromJSONKeyFunction EncryptionModeValue
 FromJSONKeyFunction EncryptionModeValue
 -&gt; FromJSONKeyFunction [EncryptionModeValue]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EncryptionModeValue]
 fromJSONKey :: FromJSONKeyFunction EncryptionModeValue
 $cfromJSONKey :: FromJSONKeyFunction EncryptionModeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679431677"><span id="local-6989586621679431679"><span id="local-6989586621679431681"><span id="local-6989586621679431683"><span class="annot"><span class="annottext">[EncryptionModeValue] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679431686"><span id="local-6989586621679431688"><span id="local-6989586621679431690"><span id="local-6989586621679431692"><span class="annot"><span class="annottext">[EncryptionModeValue] -&gt; Encoding
 [EncryptionModeValue] -&gt; Value
 EncryptionModeValue -&gt; Encoding
 EncryptionModeValue -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: EncryptionModeValue -&gt; Encoding
 toJSON :: EncryptionModeValue -&gt; Value
 $ctoJSON :: EncryptionModeValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679431672"><span id="local-6989586621679431674"><span class="annot"><span class="annottext">ToJSONKeyFunction [EncryptionModeValue]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679431681"><span id="local-6989586621679431683"><span class="annot"><span class="annottext">ToJSONKeyFunction [EncryptionModeValue]
 ToJSONKeyFunction EncryptionModeValue
 ToJSONKeyFunction EncryptionModeValue
 -&gt; ToJSONKeyFunction [EncryptionModeValue]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EncryptionModeValue]
 toJSONKey :: ToJSONKeyFunction EncryptionModeValue
 $ctoJSONKey :: ToJSONKeyFunction EncryptionModeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679431669"><span class="annot"><span class="annottext">[Node] -&gt; Either String EncryptionModeValue
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679431678"><span class="annot"><span class="annottext">[Node] -&gt; Either String EncryptionModeValue
 ([Node] -&gt; Either String EncryptionModeValue)
 -&gt; FromXML EncryptionModeValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EncryptionModeValue
 $cparseXML :: [Node] -&gt; Either String EncryptionModeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679431666"><span class="annot"><span class="annottext">EncryptionModeValue -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679431675"><span class="annot"><span class="annottext">EncryptionModeValue -&gt; XML
 (EncryptionModeValue -&gt; XML) -&gt; ToXML EncryptionModeValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EncryptionModeValue -&gt; XML

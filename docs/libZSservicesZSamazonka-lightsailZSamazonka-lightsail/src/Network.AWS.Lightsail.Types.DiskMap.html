@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes a block storage disk mapping.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDiskMap' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679609319"><span id="local-6989586621679609320"></span></span><span class="hs-keyword">data</span><span> </span><span id="DiskMap"><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap"><span class="hs-identifier hs-var">DiskMap</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiskMap%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap%27"><span class="hs-identifier hs-var">DiskMap'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679609328"><span id="local-6989586621679609329"></span></span><span class="hs-keyword">data</span><span> </span><span id="DiskMap"><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap"><span class="hs-identifier hs-var">DiskMap</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiskMap%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap%27"><span class="hs-identifier hs-var">DiskMap'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new disk name (e.g., @my-new-disk@).</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AnewDiskName%27%3ADiskMap%27"><span class="annot"><span class="annottext">DiskMap -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.DiskMap.html#%24sel%3AnewDiskName%27%3ADiskMap%27"><span class="hs-identifier hs-var hs-var">newDiskName'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AoriginalDiskPath%3ADiskMap%27"><span class="annot"><span class="annottext">DiskMap -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.DiskMap.html#%24sel%3AoriginalDiskPath%3ADiskMap%27"><span class="hs-identifier hs-var hs-var">originalDiskPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679609312"><span id="local-6989586621679609314"><span class="annot"><span class="annottext">DiskMap -&gt; DiskMap -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679609321"><span id="local-6989586621679609323"><span class="annot"><span class="annottext">DiskMap -&gt; DiskMap -&gt; Bool
 (DiskMap -&gt; DiskMap -&gt; Bool)
 -&gt; (DiskMap -&gt; DiskMap -&gt; Bool) -&gt; Eq DiskMap
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DiskMap -&gt; DiskMap -&gt; Bool
 == :: DiskMap -&gt; DiskMap -&gt; Bool
 $c== :: DiskMap -&gt; DiskMap -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609303"><span id="local-6989586621679609305"><span id="local-6989586621679609307"><span id="local-6989586621679609309"><span class="annot"><span class="annottext">ReadPrec [DiskMap]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609312"><span id="local-6989586621679609314"><span id="local-6989586621679609316"><span id="local-6989586621679609318"><span class="annot"><span class="annottext">ReadPrec [DiskMap]
 ReadPrec DiskMap
 Int -&gt; ReadS DiskMap
 ReadS [DiskMap]
@@ -63,7 +63,7 @@ readList :: ReadS [DiskMap]
 $creadList :: ReadS [DiskMap]
 readsPrec :: Int -&gt; ReadS DiskMap
 $creadsPrec :: Int -&gt; ReadS DiskMap
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609296"><span id="local-6989586621679609298"><span id="local-6989586621679609300"><span class="annot"><span class="annottext">Int -&gt; DiskMap -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609305"><span id="local-6989586621679609307"><span id="local-6989586621679609309"><span class="annot"><span class="annottext">Int -&gt; DiskMap -&gt; ShowS
 [DiskMap] -&gt; ShowS
 DiskMap -&gt; String
 (Int -&gt; DiskMap -&gt; ShowS)
@@ -121,16 +121,16 @@ forall a. Maybe a
 -&gt; (DiskMap -&gt; Maybe Text -&gt; DiskMap)
 -&gt; Lens DiskMap DiskMap (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap%27"><span class="hs-identifier hs-type">DiskMap'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609287"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap%27"><span class="hs-identifier hs-type">DiskMap'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609296"><span class="annot"><span class="annottext">Maybe Text
 newDiskName' :: Maybe Text
 $sel:newDiskName':DiskMap' :: DiskMap -&gt; Maybe Text
-</span><a href="#local-6989586621679609287"><span class="hs-identifier hs-var hs-var">newDiskName'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609287"><span class="hs-identifier hs-var">newDiskName'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609286"><span class="annot"><span class="annottext">s :: DiskMap
-</span><a href="#local-6989586621679609286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap%27"><span class="hs-identifier hs-type">DiskMap'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609285"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskMap
-</span><a href="#local-6989586621679609286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newDiskName':DiskMap' :: Maybe Text
+</span><a href="#local-6989586621679609296"><span class="hs-identifier hs-var hs-var">newDiskName'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679609296"><span class="hs-identifier hs-var">newDiskName'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609295"><span class="annot"><span class="annottext">s :: DiskMap
+</span><a href="#local-6989586621679609295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap%27"><span class="hs-identifier hs-type">DiskMap'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609294"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679609294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskMap
+</span><a href="#local-6989586621679609295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newDiskName':DiskMap' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.DiskMap.html#%24sel%3AnewDiskName%27%3ADiskMap%27"><span class="hs-identifier hs-var">newDiskName'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap"><span class="hs-identifier hs-type">DiskMap</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679609294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap"><span class="hs-identifier hs-type">DiskMap</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The original disk path exposed to the instance (for example,</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- @\/dev\/sdh@).</span><span>
@@ -140,29 +140,29 @@ $sel:newDiskName':DiskMap' :: DiskMap -&gt; Maybe Text
 -&gt; (DiskMap -&gt; Maybe Text -&gt; DiskMap)
 -&gt; Lens DiskMap DiskMap (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap%27"><span class="hs-identifier hs-type">DiskMap'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609283"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap%27"><span class="hs-identifier hs-type">DiskMap'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609292"><span class="annot"><span class="annottext">Maybe Text
 originalDiskPath :: Maybe Text
 $sel:originalDiskPath:DiskMap' :: DiskMap -&gt; Maybe Text
-</span><a href="#local-6989586621679609283"><span class="hs-identifier hs-var hs-var">originalDiskPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609283"><span class="hs-identifier hs-var">originalDiskPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609282"><span class="annot"><span class="annottext">s :: DiskMap
-</span><a href="#local-6989586621679609282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap%27"><span class="hs-identifier hs-type">DiskMap'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609281"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskMap
-</span><a href="#local-6989586621679609282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originalDiskPath:DiskMap' :: Maybe Text
+</span><a href="#local-6989586621679609292"><span class="hs-identifier hs-var hs-var">originalDiskPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679609292"><span class="hs-identifier hs-var">originalDiskPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609291"><span class="annot"><span class="annottext">s :: DiskMap
+</span><a href="#local-6989586621679609291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap%27"><span class="hs-identifier hs-type">DiskMap'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609290"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679609290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskMap
+</span><a href="#local-6989586621679609291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originalDiskPath:DiskMap' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.DiskMap.html#%24sel%3AoriginalDiskPath%3ADiskMap%27"><span class="hs-identifier hs-var">originalDiskPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap"><span class="hs-identifier hs-type">DiskMap</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679609290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap"><span class="hs-identifier hs-type">DiskMap</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609277"><span id="local-6989586621679609279"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap"><span class="hs-identifier hs-type">DiskMap</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609286"><span id="local-6989586621679609288"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap"><span class="hs-identifier hs-type">DiskMap</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609274"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap"><span class="hs-identifier hs-type">DiskMap</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap"><span class="hs-identifier hs-type">DiskMap</span></a></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609266"><span id="local-6989586621679609268"><span id="local-6989586621679609270"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap"><span class="hs-identifier hs-type">DiskMap</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679609264"><span class="annot"><span class="annottext">toJSON :: DiskMap -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap%27"><span class="hs-identifier hs-type">DiskMap'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609261"><span id="local-6989586621679609262"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609275"><span id="local-6989586621679609277"><span id="local-6989586621679609279"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap"><span class="hs-identifier hs-type">DiskMap</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679609273"><span class="annot"><span class="annottext">toJSON :: DiskMap -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskMap.html#DiskMap%27"><span class="hs-identifier hs-type">DiskMap'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609270"><span id="local-6989586621679609271"><span class="annot"><span class="annottext">Maybe Text
 originalDiskPath :: Maybe Text
 newDiskName' :: Maybe Text
 $sel:originalDiskPath:DiskMap' :: DiskMap -&gt; Maybe Text
 $sel:newDiskName':DiskMap' :: DiskMap -&gt; Maybe Text
-</span><a href="#local-6989586621679609261"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679609270"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -174,7 +174,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609262"><span class="hs-identifier hs-var">newDiskName'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679609271"><span class="hs-identifier hs-var">newDiskName'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;originalDiskPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -182,7 +182,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-77"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609261"><span class="hs-identifier hs-var">originalDiskPath</span></a></span><span>
+</span><a href="#local-6989586621679609270"><span class="hs-identifier hs-var">originalDiskPath</span></a></span><span>
 </span><span id="line-78"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span></pre></body></html>

@@ -1,0 +1,824 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ImageBuilder.ListImages</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the list of images that you have access to.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ImageBuilder.ListImages</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier">ListImages</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#newListImages"><span class="hs-identifier">newListImages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_filters"><span class="hs-identifier">listImages_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_owner"><span class="hs-identifier">listImages_owner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_byName"><span class="hs-identifier">listImages_byName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_nextToken"><span class="hs-identifier">listImages_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_includeDeprecated"><span class="hs-identifier">listImages_includeDeprecated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_maxResults"><span class="hs-identifier">listImages_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse"><span class="hs-identifier">ListImagesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#newListImagesResponse"><span class="hs-identifier">newListImagesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImagesResponse_requestId"><span class="hs-identifier">listImagesResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImagesResponse_imageVersionList"><span class="hs-identifier">listImagesResponse_imageVersionList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImagesResponse_nextToken"><span class="hs-identifier">listImagesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImagesResponse_httpStatus"><span class="hs-identifier">listImagesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.html"><span class="hs-identifier">Network.AWS.ImageBuilder.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListImages' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679322742"><span id="local-6989586621679322743"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListImages"><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-var">ListImages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListImages%27"><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages%27"><span class="hs-identifier hs-var">ListImages'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use the following filters to streamline results:</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   @name@</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   @osVersion@</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @platform@</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   @type@</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @version@</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Afilters%3AListImages%27"><span class="annot"><span class="annottext">ListImages -&gt; Maybe (NonEmpty Filter)
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3Afilters%3AListImages%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The owner defines which images you want to list. By default, this</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- request will only show images owned by your account. You can use this</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- field to specify if you want to view images owned by yourself, by</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Amazon, or those images that have been shared with you by other</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- customers.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Aowner%3AListImages%27"><span class="annot"><span class="annottext">ListImages -&gt; Maybe Ownership
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3Aowner%3AListImages%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Ownership.html#Ownership"><span class="hs-identifier hs-type">Ownership</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | Requests a list of images with a specific recipe name.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AbyName%3AListImages%27"><span class="annot"><span class="annottext">ListImages -&gt; Maybe Bool
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AbyName%3AListImages%27"><span class="hs-identifier hs-var hs-var">byName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | A token to specify where to start paginating. This is the NextToken from</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- a previously truncated response.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AnextToken%3AListImages%27"><span class="annot"><span class="annottext">ListImages -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AnextToken%3AListImages%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Includes deprecated images in the response list.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AincludeDeprecated%3AListImages%27"><span class="annot"><span class="annottext">ListImages -&gt; Maybe Bool
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AincludeDeprecated%3AListImages%27"><span class="hs-identifier hs-var hs-var">includeDeprecated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The maximum items to return in a request.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AmaxResults%3AListImages%27"><span class="annot"><span class="annottext">ListImages -&gt; Maybe Natural
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AmaxResults%3AListImages%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322731"><span id="local-6989586621679322733"><span class="annot"><span class="annottext">ListImages -&gt; ListImages -&gt; Bool
+(ListImages -&gt; ListImages -&gt; Bool)
+-&gt; (ListImages -&gt; ListImages -&gt; Bool) -&gt; Eq ListImages
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListImages -&gt; ListImages -&gt; Bool
+$c/= :: ListImages -&gt; ListImages -&gt; Bool
+== :: ListImages -&gt; ListImages -&gt; Bool
+$c== :: ListImages -&gt; ListImages -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322722"><span id="local-6989586621679322724"><span id="local-6989586621679322726"><span id="local-6989586621679322728"><span class="annot"><span class="annottext">ReadPrec [ListImages]
+ReadPrec ListImages
+Int -&gt; ReadS ListImages
+ReadS [ListImages]
+(Int -&gt; ReadS ListImages)
+-&gt; ReadS [ListImages]
+-&gt; ReadPrec ListImages
+-&gt; ReadPrec [ListImages]
+-&gt; Read ListImages
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListImages]
+$creadListPrec :: ReadPrec [ListImages]
+readPrec :: ReadPrec ListImages
+$creadPrec :: ReadPrec ListImages
+readList :: ReadS [ListImages]
+$creadList :: ReadS [ListImages]
+readsPrec :: Int -&gt; ReadS ListImages
+$creadsPrec :: Int -&gt; ReadS ListImages
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322715"><span id="local-6989586621679322717"><span id="local-6989586621679322719"><span class="annot"><span class="annottext">Int -&gt; ListImages -&gt; ShowS
+[ListImages] -&gt; ShowS
+ListImages -&gt; String
+(Int -&gt; ListImages -&gt; ShowS)
+-&gt; (ListImages -&gt; String)
+-&gt; ([ListImages] -&gt; ShowS)
+-&gt; Show ListImages
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListImages] -&gt; ShowS
+$cshowList :: [ListImages] -&gt; ShowS
+show :: ListImages -&gt; String
+$cshow :: ListImages -&gt; String
+showsPrec :: Int -&gt; ListImages -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListImages -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListImages -&gt; Rep ListImages x)
+-&gt; (forall x. Rep ListImages x -&gt; ListImages) -&gt; Generic ListImages
+forall x. Rep ListImages x -&gt; ListImages
+forall x. ListImages -&gt; Rep ListImages x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListImages x -&gt; ListImages
+$cfrom :: forall x. ListImages -&gt; Rep ListImages x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Create a value of 'ListImages' with all optional fields omitted.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'filters', 'listImages_filters' - Use the following filters to streamline results:</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   @name@</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- -   @osVersion@</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- -   @platform@</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- -   @type@</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- -   @version@</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'owner', 'listImages_owner' - The owner defines which images you want to list. By default, this</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- request will only show images owned by your account. You can use this</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- field to specify if you want to view images owned by yourself, by</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Amazon, or those images that have been shared with you by other</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- customers.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'byName', 'listImages_byName' - Requests a list of images with a specific recipe name.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'nextToken', 'listImages_nextToken' - A token to specify where to start paginating. This is the NextToken from</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- a previously truncated response.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'includeDeprecated', 'listImages_includeDeprecated' - Includes deprecated images in the response list.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'maxResults', 'listImages_maxResults' - The maximum items to return in a request.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#newListImages"><span class="hs-identifier hs-type">newListImages</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span>
+</span><span id="line-124"></span><span id="newListImages"><span class="annot"><span class="annottext">newListImages :: ListImages
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#newListImages"><span class="hs-identifier hs-var hs-var">newListImages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="annottext">ListImages' :: Maybe (NonEmpty Filter)
+-&gt; Maybe Ownership
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; ListImages
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages%27"><span class="hs-identifier hs-type">ListImages'</span></a></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:ListImages' :: Maybe (NonEmpty Filter)
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3Afilters%3AListImages%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:owner:ListImages' :: Maybe Ownership
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3Aowner%3AListImages%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Ownership
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:byName:ListImages' :: Maybe Bool
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AbyName%3AListImages%27"><span class="hs-identifier hs-var">byName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListImages' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AnextToken%3AListImages%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:includeDeprecated:ListImages' :: Maybe Bool
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AincludeDeprecated%3AListImages%27"><span class="hs-identifier hs-var">includeDeprecated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListImages' :: Maybe Natural
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AmaxResults%3AListImages%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | Use the following filters to streamline results:</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- -   @name@</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   @osVersion@</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   @platform@</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- -   @type@</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   @version@</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_filters"><span class="hs-identifier hs-type">listImages_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="listImages_filters"><span class="annot"><span class="annottext">listImages_filters :: (Maybe (NonEmpty Filter) -&gt; f (Maybe (NonEmpty Filter)))
+-&gt; ListImages -&gt; f ListImages
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_filters"><span class="hs-identifier hs-var hs-var">listImages_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImages -&gt; Maybe (NonEmpty Filter))
+-&gt; (ListImages -&gt; Maybe (NonEmpty Filter) -&gt; ListImages)
+-&gt; Lens
+     ListImages
+     ListImages
+     (Maybe (NonEmpty Filter))
+     (Maybe (NonEmpty Filter))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages%27"><span class="hs-identifier hs-type">ListImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322708"><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+filters :: Maybe (NonEmpty Filter)
+$sel:filters:ListImages' :: ListImages -&gt; Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679322708"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679322708"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322707"><span class="annot"><span class="annottext">s :: ListImages
+</span><a href="#local-6989586621679322707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages%27"><span class="hs-identifier hs-type">ListImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322706"><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679322706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImages
+</span><a href="#local-6989586621679322707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListImages' :: Maybe (NonEmpty Filter)
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3Afilters%3AListImages%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679322706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Filter) -&gt; f (Maybe (NonEmpty Filter)))
+ -&gt; ListImages -&gt; f ListImages)
+-&gt; ((Maybe (NonEmpty Filter) -&gt; f (Maybe (NonEmpty Filter)))
+    -&gt; Maybe (NonEmpty Filter) -&gt; f (Maybe (NonEmpty Filter)))
+-&gt; (Maybe (NonEmpty Filter) -&gt; f (Maybe (NonEmpty Filter)))
+-&gt; ListImages
+-&gt; f ListImages
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+-&gt; Iso
+     (Maybe (NonEmpty Filter))
+     (Maybe (NonEmpty Filter))
+     (Maybe (NonEmpty Filter))
+     (Maybe (NonEmpty Filter))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The owner defines which images you want to list. By default, this</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- request will only show images owned by your account. You can use this</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- field to specify if you want to view images owned by yourself, by</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Amazon, or those images that have been shared with you by other</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- customers.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_owner"><span class="hs-identifier hs-type">listImages_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Ownership.html#Ownership"><span class="hs-identifier hs-type">Ownership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="listImages_owner"><span class="annot"><span class="annottext">listImages_owner :: (Maybe Ownership -&gt; f (Maybe Ownership))
+-&gt; ListImages -&gt; f ListImages
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_owner"><span class="hs-identifier hs-var hs-var">listImages_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImages -&gt; Maybe Ownership)
+-&gt; (ListImages -&gt; Maybe Ownership -&gt; ListImages)
+-&gt; Lens ListImages ListImages (Maybe Ownership) (Maybe Ownership)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages%27"><span class="hs-identifier hs-type">ListImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322702"><span class="annot"><span class="annottext">Maybe Ownership
+owner :: Maybe Ownership
+$sel:owner:ListImages' :: ListImages -&gt; Maybe Ownership
+</span><a href="#local-6989586621679322702"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ownership
+</span><a href="#local-6989586621679322702"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322701"><span class="annot"><span class="annottext">s :: ListImages
+</span><a href="#local-6989586621679322701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages%27"><span class="hs-identifier hs-type">ListImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322700"><span class="annot"><span class="annottext">Maybe Ownership
+</span><a href="#local-6989586621679322700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImages
+</span><a href="#local-6989586621679322701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:ListImages' :: Maybe Ownership
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3Aowner%3AListImages%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Ownership
+</span><a href="#local-6989586621679322700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Requests a list of images with a specific recipe name.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_byName"><span class="hs-identifier hs-type">listImages_byName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="listImages_byName"><span class="annot"><span class="annottext">listImages_byName :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ListImages -&gt; f ListImages
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_byName"><span class="hs-identifier hs-var hs-var">listImages_byName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImages -&gt; Maybe Bool)
+-&gt; (ListImages -&gt; Maybe Bool -&gt; ListImages)
+-&gt; Lens ListImages ListImages (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages%27"><span class="hs-identifier hs-type">ListImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322699"><span class="annot"><span class="annottext">Maybe Bool
+byName :: Maybe Bool
+$sel:byName:ListImages' :: ListImages -&gt; Maybe Bool
+</span><a href="#local-6989586621679322699"><span class="hs-identifier hs-var hs-var">byName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679322699"><span class="hs-identifier hs-var">byName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322698"><span class="annot"><span class="annottext">s :: ListImages
+</span><a href="#local-6989586621679322698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages%27"><span class="hs-identifier hs-type">ListImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322697"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679322697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImages
+</span><a href="#local-6989586621679322698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:byName:ListImages' :: Maybe Bool
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AbyName%3AListImages%27"><span class="hs-identifier hs-var">byName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679322697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | A token to specify where to start paginating. This is the NextToken from</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- a previously truncated response.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_nextToken"><span class="hs-identifier hs-type">listImages_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="listImages_nextToken"><span class="annot"><span class="annottext">listImages_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListImages -&gt; f ListImages
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_nextToken"><span class="hs-identifier hs-var hs-var">listImages_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImages -&gt; Maybe Text)
+-&gt; (ListImages -&gt; Maybe Text -&gt; ListImages)
+-&gt; Lens ListImages ListImages (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages%27"><span class="hs-identifier hs-type">ListImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322696"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListImages' :: ListImages -&gt; Maybe Text
+</span><a href="#local-6989586621679322696"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322696"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322695"><span class="annot"><span class="annottext">s :: ListImages
+</span><a href="#local-6989586621679322695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages%27"><span class="hs-identifier hs-type">ListImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322694"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImages
+</span><a href="#local-6989586621679322695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListImages' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AnextToken%3AListImages%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | Includes deprecated images in the response list.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_includeDeprecated"><span class="hs-identifier hs-type">listImages_includeDeprecated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="listImages_includeDeprecated"><span class="annot"><span class="annottext">listImages_includeDeprecated :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ListImages -&gt; f ListImages
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_includeDeprecated"><span class="hs-identifier hs-var hs-var">listImages_includeDeprecated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImages -&gt; Maybe Bool)
+-&gt; (ListImages -&gt; Maybe Bool -&gt; ListImages)
+-&gt; Lens ListImages ListImages (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages%27"><span class="hs-identifier hs-type">ListImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322693"><span class="annot"><span class="annottext">Maybe Bool
+includeDeprecated :: Maybe Bool
+$sel:includeDeprecated:ListImages' :: ListImages -&gt; Maybe Bool
+</span><a href="#local-6989586621679322693"><span class="hs-identifier hs-var hs-var">includeDeprecated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679322693"><span class="hs-identifier hs-var">includeDeprecated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322692"><span class="annot"><span class="annottext">s :: ListImages
+</span><a href="#local-6989586621679322692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages%27"><span class="hs-identifier hs-type">ListImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322691"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679322691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImages
+</span><a href="#local-6989586621679322692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeDeprecated:ListImages' :: Maybe Bool
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AincludeDeprecated%3AListImages%27"><span class="hs-identifier hs-var">includeDeprecated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679322691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The maximum items to return in a request.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_maxResults"><span class="hs-identifier hs-type">listImages_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="listImages_maxResults"><span class="annot"><span class="annottext">listImages_maxResults :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; ListImages -&gt; f ListImages
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#listImages_maxResults"><span class="hs-identifier hs-var hs-var">listImages_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImages -&gt; Maybe Natural)
+-&gt; (ListImages -&gt; Maybe Natural -&gt; ListImages)
+-&gt; Lens ListImages ListImages (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages%27"><span class="hs-identifier hs-type">ListImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322690"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListImages' :: ListImages -&gt; Maybe Natural
+</span><a href="#local-6989586621679322690"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679322690"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322689"><span class="annot"><span class="annottext">s :: ListImages
+</span><a href="#local-6989586621679322689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages%27"><span class="hs-identifier hs-type">ListImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322688"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679322688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImages
+</span><a href="#local-6989586621679322689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListImages' :: Maybe Natural
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AmaxResults%3AListImages%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679322688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse"><span class="hs-identifier hs-type">ListImagesResponse</span></a></span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679322684"><span class="annot"><span class="annottext">request :: ListImages -&gt; Request ListImages
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListImages -&gt; Request ListImages
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ImageBuilder.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679322680"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListImages
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListImages)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListImages))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListImages
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListImages)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679322677"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322677"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679322676"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679322676"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679322675"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679322675"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ImageVersion] -&gt; Maybe Text -&gt; Int -&gt; ListImagesResponse
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse%27"><span class="hs-identifier hs-var">ListImagesResponse'</span></a></span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ImageVersion] -&gt; Maybe Text -&gt; Int -&gt; ListImagesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ImageVersion] -&gt; Maybe Text -&gt; Int -&gt; ListImagesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679322675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;requestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ImageVersion] -&gt; Maybe Text -&gt; Int -&gt; ListImagesResponse)
+-&gt; Either String (Maybe [ImageVersion])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListImagesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679322675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ImageVersion]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;imageVersionList&quot;</span></span><span>
+</span><span id="line-182"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ImageVersion]))
+-&gt; Maybe [ImageVersion] -&gt; Either String (Maybe [ImageVersion])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ImageVersion]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-183"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListImagesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListImagesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679322675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListImagesResponse)
+-&gt; Either String Int -&gt; Either String ListImagesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322677"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322666"><span id="local-6989586621679322668"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span></span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322663"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679322659"><span class="annot"><span class="annottext">toHeaders :: ListImages -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListImages -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-197"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-199"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322649"><span id="local-6989586621679322651"><span id="local-6989586621679322653"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679322647"><span class="annot"><span class="annottext">toJSON :: ListImages -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages%27"><span class="hs-identifier hs-type">ListImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322640"><span id="local-6989586621679322641"><span id="local-6989586621679322642"><span id="local-6989586621679322643"><span id="local-6989586621679322644"><span id="local-6989586621679322645"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe (NonEmpty Filter)
+Maybe Text
+Maybe Ownership
+maxResults :: Maybe Natural
+includeDeprecated :: Maybe Bool
+nextToken :: Maybe Text
+byName :: Maybe Bool
+owner :: Maybe Ownership
+filters :: Maybe (NonEmpty Filter)
+$sel:maxResults:ListImages' :: ListImages -&gt; Maybe Natural
+$sel:includeDeprecated:ListImages' :: ListImages -&gt; Maybe Bool
+$sel:nextToken:ListImages' :: ListImages -&gt; Maybe Text
+$sel:byName:ListImages' :: ListImages -&gt; Maybe Bool
+$sel:owner:ListImages' :: ListImages -&gt; Maybe Ownership
+$sel:filters:ListImages' :: ListImages -&gt; Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679322640"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-207"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Filter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Filter -&gt; Pair) -&gt; Maybe (NonEmpty Filter) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679322645"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;owner&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Ownership -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Ownership -&gt; Pair) -&gt; Maybe Ownership -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Ownership
+</span><a href="#local-6989586621679322644"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;byName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679322643"><span class="hs-identifier hs-var">byName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322642"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;includeDeprecated&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679322641"><span class="hs-identifier hs-var">includeDeprecated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679322640"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-214"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679322634"><span class="annot"><span class="annottext">toPath :: ListImages -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListImages -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/ListImages&quot;</span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImages"><span class="hs-identifier hs-type">ListImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679322630"><span class="annot"><span class="annottext">toQuery :: ListImages -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListImages -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | /See:/ 'newListImagesResponse' smart constructor.</span><span>
+</span><span id="line-224"></span><span id="local-6989586621679322627"><span id="local-6989586621679322628"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListImagesResponse"><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse"><span class="hs-identifier hs-var">ListImagesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListImagesResponse%27"><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse%27"><span class="hs-identifier hs-var">ListImagesResponse'</span></a></span></span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The request ID that uniquely identifies this request.</span><span>
+</span><span id="line-226"></span><span>    </span><span id="%24sel%3ArequestId%3AListImagesResponse%27"><span class="annot"><span class="annottext">ListImagesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3ArequestId%3AListImagesResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- | The list of image semantic versions.</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- The semantic version has four nodes:</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;\/\&lt;build&gt;. You can assign values for the</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- first three, and can filter on all of them.</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- __Filtering:__ With semantic versioning, you have the flexibility to use</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">-- wildcards (x) to specify the most recent versions or nodes when</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- selecting the base image or components for your recipe. When you use a</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- wildcard in any node, all nodes to the right of the first wildcard must</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- also be wildcards.</span><span>
+</span><span id="line-238"></span><span>    </span><span id="%24sel%3AimageVersionList%3AListImagesResponse%27"><span class="annot"><span class="annottext">ListImagesResponse -&gt; Maybe [ImageVersion]
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AimageVersionList%3AListImagesResponse%27"><span class="hs-identifier hs-var hs-var">imageVersionList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ImageVersion.html#ImageVersion"><span class="hs-identifier hs-type">ImageVersion</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">-- | The next token used for paginated responses. When this is not empty,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- there are additional elements that the service has not included in this</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-comment">-- request. Use this token with the next request to retrieve additional</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">-- objects.</span><span>
+</span><span id="line-243"></span><span>    </span><span id="%24sel%3AnextToken%3AListImagesResponse%27"><span class="annot"><span class="annottext">ListImagesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AnextToken%3AListImagesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-245"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListImagesResponse%27"><span class="annot"><span class="annottext">ListImagesResponse -&gt; Int
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AhttpStatus%3AListImagesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322619"><span id="local-6989586621679322621"><span class="annot"><span class="annottext">ListImagesResponse -&gt; ListImagesResponse -&gt; Bool
+(ListImagesResponse -&gt; ListImagesResponse -&gt; Bool)
+-&gt; (ListImagesResponse -&gt; ListImagesResponse -&gt; Bool)
+-&gt; Eq ListImagesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListImagesResponse -&gt; ListImagesResponse -&gt; Bool
+$c/= :: ListImagesResponse -&gt; ListImagesResponse -&gt; Bool
+== :: ListImagesResponse -&gt; ListImagesResponse -&gt; Bool
+$c== :: ListImagesResponse -&gt; ListImagesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322611"><span id="local-6989586621679322613"><span id="local-6989586621679322615"><span id="local-6989586621679322617"><span class="annot"><span class="annottext">ReadPrec [ListImagesResponse]
+ReadPrec ListImagesResponse
+Int -&gt; ReadS ListImagesResponse
+ReadS [ListImagesResponse]
+(Int -&gt; ReadS ListImagesResponse)
+-&gt; ReadS [ListImagesResponse]
+-&gt; ReadPrec ListImagesResponse
+-&gt; ReadPrec [ListImagesResponse]
+-&gt; Read ListImagesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListImagesResponse]
+$creadListPrec :: ReadPrec [ListImagesResponse]
+readPrec :: ReadPrec ListImagesResponse
+$creadPrec :: ReadPrec ListImagesResponse
+readList :: ReadS [ListImagesResponse]
+$creadList :: ReadS [ListImagesResponse]
+readsPrec :: Int -&gt; ReadS ListImagesResponse
+$creadsPrec :: Int -&gt; ReadS ListImagesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322605"><span id="local-6989586621679322607"><span id="local-6989586621679322609"><span class="annot"><span class="annottext">Int -&gt; ListImagesResponse -&gt; ShowS
+[ListImagesResponse] -&gt; ShowS
+ListImagesResponse -&gt; String
+(Int -&gt; ListImagesResponse -&gt; ShowS)
+-&gt; (ListImagesResponse -&gt; String)
+-&gt; ([ListImagesResponse] -&gt; ShowS)
+-&gt; Show ListImagesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListImagesResponse] -&gt; ShowS
+$cshowList :: [ListImagesResponse] -&gt; ShowS
+show :: ListImagesResponse -&gt; String
+$cshow :: ListImagesResponse -&gt; String
+showsPrec :: Int -&gt; ListImagesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListImagesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListImagesResponse -&gt; Rep ListImagesResponse x)
+-&gt; (forall x. Rep ListImagesResponse x -&gt; ListImagesResponse)
+-&gt; Generic ListImagesResponse
+forall x. Rep ListImagesResponse x -&gt; ListImagesResponse
+forall x. ListImagesResponse -&gt; Rep ListImagesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListImagesResponse x -&gt; ListImagesResponse
+$cfrom :: forall x. ListImagesResponse -&gt; Rep ListImagesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- Create a value of 'ListImagesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'requestId', 'listImagesResponse_requestId' - The request ID that uniquely identifies this request.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- 'imageVersionList', 'listImagesResponse_imageVersionList' - The list of image semantic versions.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- The semantic version has four nodes:</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;\/\&lt;build&gt;. You can assign values for the</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- first three, and can filter on all of them.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- __Filtering:__ With semantic versioning, you have the flexibility to use</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- wildcards (x) to specify the most recent versions or nodes when</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- selecting the base image or components for your recipe. When you use a</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- wildcard in any node, all nodes to the right of the first wildcard must</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- also be wildcards.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- 'nextToken', 'listImagesResponse_nextToken' - The next token used for paginated responses. When this is not empty,</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- there are additional elements that the service has not included in this</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- request. Use this token with the next request to retrieve additional</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- objects.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- 'httpStatus', 'listImagesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#newListImagesResponse"><span class="hs-identifier hs-type">newListImagesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-278"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-279"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-280"></span><span>  </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse"><span class="hs-identifier hs-type">ListImagesResponse</span></a></span><span>
+</span><span id="line-281"></span><span id="newListImagesResponse"><span class="annot"><span class="annottext">newListImagesResponse :: Int -&gt; ListImagesResponse
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#newListImagesResponse"><span class="hs-identifier hs-var hs-var">newListImagesResponse</span></a></span></span><span> </span><span id="local-6989586621679322602"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322602"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-282"></span><span>  </span><span class="annot"><span class="annottext">ListImagesResponse' :: Maybe Text
+-&gt; Maybe [ImageVersion] -&gt; Maybe Text -&gt; Int -&gt; ListImagesResponse
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse%27"><span class="hs-identifier hs-type">ListImagesResponse'</span></a></span><span>
+</span><span id="line-283"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:ListImagesResponse' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3ArequestId%3AListImagesResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageVersionList:ListImagesResponse' :: Maybe [ImageVersion]
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AimageVersionList%3AListImagesResponse%27"><span class="hs-identifier hs-var">imageVersionList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageVersion]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListImagesResponse' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AnextToken%3AListImagesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListImagesResponse' :: Int
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AhttpStatus%3AListImagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322602"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-287"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | The request ID that uniquely identifies this request.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImagesResponse_requestId"><span class="hs-identifier hs-type">listImagesResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse"><span class="hs-identifier hs-type">ListImagesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="listImagesResponse_requestId"><span class="annot"><span class="annottext">listImagesResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListImagesResponse -&gt; f ListImagesResponse
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#listImagesResponse_requestId"><span class="hs-identifier hs-var hs-var">listImagesResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImagesResponse -&gt; Maybe Text)
+-&gt; (ListImagesResponse -&gt; Maybe Text -&gt; ListImagesResponse)
+-&gt; Lens
+     ListImagesResponse ListImagesResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse%27"><span class="hs-identifier hs-type">ListImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322601"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:ListImagesResponse' :: ListImagesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679322601"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322601"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322600"><span class="annot"><span class="annottext">s :: ListImagesResponse
+</span><a href="#local-6989586621679322600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse%27"><span class="hs-identifier hs-type">ListImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322599"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImagesResponse
+</span><a href="#local-6989586621679322600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:ListImagesResponse' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3ArequestId%3AListImagesResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse"><span class="hs-identifier hs-type">ListImagesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | The list of image semantic versions.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- The semantic version has four nodes:</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;\/\&lt;build&gt;. You can assign values for the</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- first three, and can filter on all of them.</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- __Filtering:__ With semantic versioning, you have the flexibility to use</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- wildcards (x) to specify the most recent versions or nodes when</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- selecting the base image or components for your recipe. When you use a</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- wildcard in any node, all nodes to the right of the first wildcard must</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- also be wildcards.</span><span>
+</span><span id="line-304"></span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImagesResponse_imageVersionList"><span class="hs-identifier hs-type">listImagesResponse_imageVersionList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse"><span class="hs-identifier hs-type">ListImagesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ImageVersion.html#ImageVersion"><span class="hs-identifier hs-type">ImageVersion</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span id="listImagesResponse_imageVersionList"><span class="annot"><span class="annottext">listImagesResponse_imageVersionList :: (Maybe [ImageVersion] -&gt; f (Maybe [ImageVersion]))
+-&gt; ListImagesResponse -&gt; f ListImagesResponse
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#listImagesResponse_imageVersionList"><span class="hs-identifier hs-var hs-var">listImagesResponse_imageVersionList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImagesResponse -&gt; Maybe [ImageVersion])
+-&gt; (ListImagesResponse
+    -&gt; Maybe [ImageVersion] -&gt; ListImagesResponse)
+-&gt; Lens
+     ListImagesResponse
+     ListImagesResponse
+     (Maybe [ImageVersion])
+     (Maybe [ImageVersion])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse%27"><span class="hs-identifier hs-type">ListImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322598"><span class="annot"><span class="annottext">Maybe [ImageVersion]
+imageVersionList :: Maybe [ImageVersion]
+$sel:imageVersionList:ListImagesResponse' :: ListImagesResponse -&gt; Maybe [ImageVersion]
+</span><a href="#local-6989586621679322598"><span class="hs-identifier hs-var hs-var">imageVersionList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageVersion]
+</span><a href="#local-6989586621679322598"><span class="hs-identifier hs-var">imageVersionList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322597"><span class="annot"><span class="annottext">s :: ListImagesResponse
+</span><a href="#local-6989586621679322597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse%27"><span class="hs-identifier hs-type">ListImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322596"><span class="annot"><span class="annottext">Maybe [ImageVersion]
+</span><a href="#local-6989586621679322596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImagesResponse
+</span><a href="#local-6989586621679322597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageVersionList:ListImagesResponse' :: Maybe [ImageVersion]
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AimageVersionList%3AListImagesResponse%27"><span class="hs-identifier hs-var">imageVersionList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageVersion]
+</span><a href="#local-6989586621679322596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse"><span class="hs-identifier hs-type">ListImagesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ImageVersion] -&gt; f (Maybe [ImageVersion]))
+ -&gt; ListImagesResponse -&gt; f ListImagesResponse)
+-&gt; ((Maybe [ImageVersion] -&gt; f (Maybe [ImageVersion]))
+    -&gt; Maybe [ImageVersion] -&gt; f (Maybe [ImageVersion]))
+-&gt; (Maybe [ImageVersion] -&gt; f (Maybe [ImageVersion]))
+-&gt; ListImagesResponse
+-&gt; f ListImagesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ImageVersion] [ImageVersion] [ImageVersion] [ImageVersion]
+-&gt; Iso
+     (Maybe [ImageVersion])
+     (Maybe [ImageVersion])
+     (Maybe [ImageVersion])
+     (Maybe [ImageVersion])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ImageVersion] [ImageVersion] [ImageVersion] [ImageVersion]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- | The next token used for paginated responses. When this is not empty,</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- there are additional elements that the service has not included in this</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- request. Use this token with the next request to retrieve additional</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- objects.</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImagesResponse_nextToken"><span class="hs-identifier hs-type">listImagesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse"><span class="hs-identifier hs-type">ListImagesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span id="listImagesResponse_nextToken"><span class="annot"><span class="annottext">listImagesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListImagesResponse -&gt; f ListImagesResponse
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#listImagesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listImagesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImagesResponse -&gt; Maybe Text)
+-&gt; (ListImagesResponse -&gt; Maybe Text -&gt; ListImagesResponse)
+-&gt; Lens
+     ListImagesResponse ListImagesResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse%27"><span class="hs-identifier hs-type">ListImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322595"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListImagesResponse' :: ListImagesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679322595"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322595"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322594"><span class="annot"><span class="annottext">s :: ListImagesResponse
+</span><a href="#local-6989586621679322594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse%27"><span class="hs-identifier hs-type">ListImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322593"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImagesResponse
+</span><a href="#local-6989586621679322594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListImagesResponse' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AnextToken%3AListImagesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse"><span class="hs-identifier hs-type">ListImagesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-315"></span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#listImagesResponse_httpStatus"><span class="hs-identifier hs-type">listImagesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse"><span class="hs-identifier hs-type">ListImagesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-316"></span><span id="listImagesResponse_httpStatus"><span class="annot"><span class="annottext">listImagesResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListImagesResponse -&gt; f ListImagesResponse
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#listImagesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listImagesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImagesResponse -&gt; Int)
+-&gt; (ListImagesResponse -&gt; Int -&gt; ListImagesResponse)
+-&gt; Lens ListImagesResponse ListImagesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse%27"><span class="hs-identifier hs-type">ListImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322592"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListImagesResponse' :: ListImagesResponse -&gt; Int
+</span><a href="#local-6989586621679322592"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322592"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322591"><span class="annot"><span class="annottext">s :: ListImagesResponse
+</span><a href="#local-6989586621679322591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse%27"><span class="hs-identifier hs-type">ListImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322590"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImagesResponse
+</span><a href="#local-6989586621679322591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListImagesResponse' :: Int
+</span><a href="Network.AWS.ImageBuilder.ListImages.html#%24sel%3AhttpStatus%3AListImagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse"><span class="hs-identifier hs-type">ListImagesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.ListImages.html#ListImagesResponse"><span class="hs-identifier hs-type">ListImagesResponse</span></a></span></span><span>
+</span><span id="line-319"></span></pre></body></html>

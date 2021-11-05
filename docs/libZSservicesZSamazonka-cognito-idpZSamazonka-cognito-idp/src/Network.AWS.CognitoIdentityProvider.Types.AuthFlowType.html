@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679425119"><span id="local-6989586621679425120"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthFlowType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthFlowType.html#AuthFlowType"><span class="hs-identifier hs-var">AuthFlowType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthFlowType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthFlowType.html#AuthFlowType%27"><span class="hs-identifier hs-var">AuthFlowType'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679425128"><span id="local-6989586621679425129"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthFlowType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthFlowType.html#AuthFlowType"><span class="hs-identifier hs-var">AuthFlowType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthFlowType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AuthFlowType.html#AuthFlowType%27"><span class="hs-identifier hs-var">AuthFlowType'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuthFlowType"><span class="annot"><span class="annottext">AuthFlowType -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.AuthFlowType.html#fromAuthFlowType"><span class="hs-identifier hs-var hs-var">fromAuthFlowType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679425111"><span id="local-6989586621679425113"><span id="local-6989586621679425115"><span class="annot"><span class="annottext">Int -&gt; AuthFlowType -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679425120"><span id="local-6989586621679425122"><span id="local-6989586621679425124"><span class="annot"><span class="annottext">Int -&gt; AuthFlowType -&gt; ShowS
 [AuthFlowType] -&gt; ShowS
 AuthFlowType -&gt; String
 (Int -&gt; AuthFlowType -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: AuthFlowType -&gt; String
 showsPrec :: Int -&gt; AuthFlowType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AuthFlowType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679425102"><span id="local-6989586621679425104"><span id="local-6989586621679425106"><span id="local-6989586621679425108"><span class="annot"><span class="annottext">ReadPrec [AuthFlowType]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679425111"><span id="local-6989586621679425113"><span id="local-6989586621679425115"><span id="local-6989586621679425117"><span class="annot"><span class="annottext">ReadPrec [AuthFlowType]
 ReadPrec AuthFlowType
 Int -&gt; ReadS AuthFlowType
 ReadS [AuthFlowType]
@@ -77,7 +77,7 @@ $creadList :: ReadS [AuthFlowType]
 readsPrec :: Int -&gt; ReadS AuthFlowType
 $creadsPrec :: Int -&gt; ReadS AuthFlowType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679425097"><span id="local-6989586621679425099"><span class="annot"><span class="annottext">AuthFlowType -&gt; AuthFlowType -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679425106"><span id="local-6989586621679425108"><span class="annot"><span class="annottext">AuthFlowType -&gt; AuthFlowType -&gt; Bool
 (AuthFlowType -&gt; AuthFlowType -&gt; Bool)
 -&gt; (AuthFlowType -&gt; AuthFlowType -&gt; Bool) -&gt; Eq AuthFlowType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: AuthFlowType -&gt; AuthFlowType -&gt; Bool
 == :: AuthFlowType -&gt; AuthFlowType -&gt; Bool
 $c== :: AuthFlowType -&gt; AuthFlowType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679425081"><span id="local-6989586621679425083"><span id="local-6989586621679425085"><span id="local-6989586621679425087"><span id="local-6989586621679425089"><span id="local-6989586621679425091"><span id="local-6989586621679425093"><span class="annot"><span class="annottext">Eq AuthFlowType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679425090"><span id="local-6989586621679425092"><span id="local-6989586621679425094"><span id="local-6989586621679425096"><span id="local-6989586621679425098"><span id="local-6989586621679425100"><span id="local-6989586621679425102"><span class="annot"><span class="annottext">Eq AuthFlowType
 Eq AuthFlowType
 -&gt; (AuthFlowType -&gt; AuthFlowType -&gt; Ordering)
 -&gt; (AuthFlowType -&gt; AuthFlowType -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. AuthFlowType -&gt; Rep AuthFlowType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679425073"><span id="local-6989586621679425075"><span class="annot"><span class="annottext">Int -&gt; AuthFlowType -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679425082"><span id="local-6989586621679425084"><span class="annot"><span class="annottext">Int -&gt; AuthFlowType -&gt; Int
 AuthFlowType -&gt; Int
 (Int -&gt; AuthFlowType -&gt; Int)
 -&gt; (AuthFlowType -&gt; Int) -&gt; Hashable AuthFlowType
@@ -147,49 +147,49 @@ $chash :: AuthFlowType -&gt; Int
 hashWithSalt :: Int -&gt; AuthFlowType -&gt; Int
 $chashWithSalt :: Int -&gt; AuthFlowType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679425070"><span class="annot"><span class="annottext">AuthFlowType -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679425079"><span class="annot"><span class="annottext">AuthFlowType -&gt; ()
 (AuthFlowType -&gt; ()) -&gt; NFData AuthFlowType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AuthFlowType -&gt; ()
 $crnf :: AuthFlowType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679425067"><span class="annot"><span class="annottext">Text -&gt; Either String AuthFlowType
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679425076"><span class="annot"><span class="annottext">Text -&gt; Either String AuthFlowType
 (Text -&gt; Either String AuthFlowType) -&gt; FromText AuthFlowType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AuthFlowType
 $cfromText :: Text -&gt; Either String AuthFlowType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679425064"><span class="annot"><span class="annottext">AuthFlowType -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679425073"><span class="annot"><span class="annottext">AuthFlowType -&gt; Text
 (AuthFlowType -&gt; Text) -&gt; ToText AuthFlowType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AuthFlowType -&gt; Text
 $ctoText :: AuthFlowType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679425061"><span class="annot"><span class="annottext">AuthFlowType -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679425070"><span class="annot"><span class="annottext">AuthFlowType -&gt; ByteString
 (AuthFlowType -&gt; ByteString) -&gt; ToByteString AuthFlowType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AuthFlowType -&gt; ByteString
 $ctoBS :: AuthFlowType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679425058"><span class="annot"><span class="annottext">AuthFlowType -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679425067"><span class="annot"><span class="annottext">AuthFlowType -&gt; ByteStringBuilder
 (AuthFlowType -&gt; ByteStringBuilder) -&gt; ToLog AuthFlowType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AuthFlowType -&gt; ByteStringBuilder
 $cbuild :: AuthFlowType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679425055"><span class="annot"><span class="annottext">HeaderName -&gt; AuthFlowType -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679425064"><span class="annot"><span class="annottext">HeaderName -&gt; AuthFlowType -&gt; [Header]
 (HeaderName -&gt; AuthFlowType -&gt; [Header]) -&gt; ToHeader AuthFlowType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AuthFlowType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AuthFlowType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679425052"><span class="annot"><span class="annottext">AuthFlowType -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679425061"><span class="annot"><span class="annottext">AuthFlowType -&gt; QueryString
 (AuthFlowType -&gt; QueryString) -&gt; ToQuery AuthFlowType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AuthFlowType -&gt; QueryString
 $ctoQuery :: AuthFlowType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679425047"><span id="local-6989586621679425049"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthFlowType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679425056"><span id="local-6989586621679425058"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthFlowType]
 Value -&gt; Parser AuthFlowType
 (Value -&gt; Parser AuthFlowType)
 -&gt; (Value -&gt; Parser [AuthFlowType]) -&gt; FromJSON AuthFlowType
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [AuthFlowType]
 parseJSON :: Value -&gt; Parser AuthFlowType
 $cparseJSON :: Value -&gt; Parser AuthFlowType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679425042"><span id="local-6989586621679425044"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthFlowType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679425051"><span id="local-6989586621679425053"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthFlowType]
 FromJSONKeyFunction AuthFlowType
 FromJSONKeyFunction AuthFlowType
 -&gt; FromJSONKeyFunction [AuthFlowType] -&gt; FromJSONKey AuthFlowType
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AuthFlowType]
 fromJSONKey :: FromJSONKeyFunction AuthFlowType
 $cfromJSONKey :: FromJSONKeyFunction AuthFlowType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679425033"><span id="local-6989586621679425035"><span id="local-6989586621679425037"><span id="local-6989586621679425039"><span class="annot"><span class="annottext">[AuthFlowType] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679425042"><span id="local-6989586621679425044"><span id="local-6989586621679425046"><span id="local-6989586621679425048"><span class="annot"><span class="annottext">[AuthFlowType] -&gt; Encoding
 [AuthFlowType] -&gt; Value
 AuthFlowType -&gt; Encoding
 AuthFlowType -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: AuthFlowType -&gt; Encoding
 toJSON :: AuthFlowType -&gt; Value
 $ctoJSON :: AuthFlowType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679425028"><span id="local-6989586621679425030"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthFlowType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679425037"><span id="local-6989586621679425039"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthFlowType]
 ToJSONKeyFunction AuthFlowType
 ToJSONKeyFunction AuthFlowType
 -&gt; ToJSONKeyFunction [AuthFlowType] -&gt; ToJSONKey AuthFlowType
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AuthFlowType]
 toJSONKey :: ToJSONKeyFunction AuthFlowType
 $ctoJSONKey :: ToJSONKeyFunction AuthFlowType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679425025"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthFlowType
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679425034"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthFlowType
 ([Node] -&gt; Either String AuthFlowType) -&gt; FromXML AuthFlowType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AuthFlowType
 $cparseXML :: [Node] -&gt; Either String AuthFlowType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679425022"><span class="annot"><span class="annottext">AuthFlowType -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679425031"><span class="annot"><span class="annottext">AuthFlowType -&gt; XML
 (AuthFlowType -&gt; XML) -&gt; ToXML AuthFlowType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AuthFlowType -&gt; XML

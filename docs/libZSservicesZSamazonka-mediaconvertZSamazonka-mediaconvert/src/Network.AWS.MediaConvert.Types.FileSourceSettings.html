@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- instead of FileSoureSettings.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newFileSourceSettings' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679965841"><span id="local-6989586621679965842"></span></span><span class="hs-keyword">data</span><span> </span><span id="FileSourceSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-var">FileSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileSourceSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-var">FileSourceSettings'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679965850"><span id="local-6989586621679965851"></span></span><span class="hs-keyword">data</span><span> </span><span id="FileSourceSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-var">FileSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileSourceSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-var">FileSourceSettings'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Ignore this setting unless your input captions format is SCC. To have</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the service compensate for differing frame rates between your input</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- captions and input video, specify the frame rate of the captions file.</span><span>
@@ -80,7 +80,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AsourceFile%3AFileSourceSettings%27"><span class="annot"><span class="annottext">FileSourceSettings -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#%24sel%3AsourceFile%3AFileSourceSettings%27"><span class="hs-identifier hs-var hs-var">sourceFile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679965831"><span id="local-6989586621679965833"><span class="annot"><span class="annottext">FileSourceSettings -&gt; FileSourceSettings -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679965840"><span id="local-6989586621679965842"><span class="annot"><span class="annottext">FileSourceSettings -&gt; FileSourceSettings -&gt; Bool
 (FileSourceSettings -&gt; FileSourceSettings -&gt; Bool)
 -&gt; (FileSourceSettings -&gt; FileSourceSettings -&gt; Bool)
 -&gt; Eq FileSourceSettings
@@ -89,7 +89,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FileSourceSettings -&gt; FileSourceSettings -&gt; Bool
 == :: FileSourceSettings -&gt; FileSourceSettings -&gt; Bool
 $c== :: FileSourceSettings -&gt; FileSourceSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679965822"><span id="local-6989586621679965824"><span id="local-6989586621679965826"><span id="local-6989586621679965828"><span class="annot"><span class="annottext">ReadPrec [FileSourceSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679965831"><span id="local-6989586621679965833"><span id="local-6989586621679965835"><span id="local-6989586621679965837"><span class="annot"><span class="annottext">ReadPrec [FileSourceSettings]
 ReadPrec FileSourceSettings
 Int -&gt; ReadS FileSourceSettings
 ReadS [FileSourceSettings]
@@ -109,7 +109,7 @@ readList :: ReadS [FileSourceSettings]
 $creadList :: ReadS [FileSourceSettings]
 readsPrec :: Int -&gt; ReadS FileSourceSettings
 $creadsPrec :: Int -&gt; ReadS FileSourceSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679965815"><span id="local-6989586621679965817"><span id="local-6989586621679965819"><span class="annot"><span class="annottext">Int -&gt; FileSourceSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679965824"><span id="local-6989586621679965826"><span id="local-6989586621679965828"><span class="annot"><span class="annottext">Int -&gt; FileSourceSettings -&gt; ShowS
 [FileSourceSettings] -&gt; ShowS
 FileSourceSettings -&gt; String
 (Int -&gt; FileSourceSettings -&gt; ShowS)
@@ -236,16 +236,16 @@ forall a. Maybe a
      (Maybe CaptionSourceFramerate)
      (Maybe CaptionSourceFramerate)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679965806"><span class="annot"><span class="annottext">Maybe CaptionSourceFramerate
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679965815"><span class="annot"><span class="annottext">Maybe CaptionSourceFramerate
 framerate :: Maybe CaptionSourceFramerate
 $sel:framerate:FileSourceSettings' :: FileSourceSettings -&gt; Maybe CaptionSourceFramerate
-</span><a href="#local-6989586621679965806"><span class="hs-identifier hs-var hs-var">framerate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CaptionSourceFramerate
-</span><a href="#local-6989586621679965806"><span class="hs-identifier hs-var">framerate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679965805"><span class="annot"><span class="annottext">s :: FileSourceSettings
-</span><a href="#local-6989586621679965805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679965804"><span class="annot"><span class="annottext">Maybe CaptionSourceFramerate
-</span><a href="#local-6989586621679965804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSourceSettings
-</span><a href="#local-6989586621679965805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerate:FileSourceSettings' :: Maybe CaptionSourceFramerate
+</span><a href="#local-6989586621679965815"><span class="hs-identifier hs-var hs-var">framerate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CaptionSourceFramerate
+</span><a href="#local-6989586621679965815"><span class="hs-identifier hs-var">framerate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679965814"><span class="annot"><span class="annottext">s :: FileSourceSettings
+</span><a href="#local-6989586621679965814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679965813"><span class="annot"><span class="annottext">Maybe CaptionSourceFramerate
+</span><a href="#local-6989586621679965813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSourceSettings
+</span><a href="#local-6989586621679965814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerate:FileSourceSettings' :: Maybe CaptionSourceFramerate
 </span><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#%24sel%3Aframerate%3AFileSourceSettings%27"><span class="hs-identifier hs-var">framerate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CaptionSourceFramerate
-</span><a href="#local-6989586621679965804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679965813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | Specify whether this set of input captions appears in your outputs in</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- both 608 and 708 format. If you choose Upconvert (UPCONVERT),</span><span>
@@ -265,16 +265,16 @@ $sel:framerate:FileSourceSettings' :: FileSourceSettings -&gt; Maybe CaptionSour
      (Maybe FileSourceConvert608To708)
      (Maybe FileSourceConvert608To708)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679965802"><span class="annot"><span class="annottext">Maybe FileSourceConvert608To708
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679965811"><span class="annot"><span class="annottext">Maybe FileSourceConvert608To708
 convert608To708 :: Maybe FileSourceConvert608To708
 $sel:convert608To708:FileSourceSettings' :: FileSourceSettings -&gt; Maybe FileSourceConvert608To708
-</span><a href="#local-6989586621679965802"><span class="hs-identifier hs-var hs-var">convert608To708</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileSourceConvert608To708
-</span><a href="#local-6989586621679965802"><span class="hs-identifier hs-var">convert608To708</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679965801"><span class="annot"><span class="annottext">s :: FileSourceSettings
-</span><a href="#local-6989586621679965801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679965800"><span class="annot"><span class="annottext">Maybe FileSourceConvert608To708
-</span><a href="#local-6989586621679965800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSourceSettings
-</span><a href="#local-6989586621679965801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:convert608To708:FileSourceSettings' :: Maybe FileSourceConvert608To708
+</span><a href="#local-6989586621679965811"><span class="hs-identifier hs-var hs-var">convert608To708</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileSourceConvert608To708
+</span><a href="#local-6989586621679965811"><span class="hs-identifier hs-var">convert608To708</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679965810"><span class="annot"><span class="annottext">s :: FileSourceSettings
+</span><a href="#local-6989586621679965810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679965809"><span class="annot"><span class="annottext">Maybe FileSourceConvert608To708
+</span><a href="#local-6989586621679965809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSourceSettings
+</span><a href="#local-6989586621679965810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:convert608To708:FileSourceSettings' :: Maybe FileSourceConvert608To708
 </span><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#%24sel%3Aconvert608To708%3AFileSourceSettings%27"><span class="hs-identifier hs-var">convert608To708</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileSourceConvert608To708
-</span><a href="#local-6989586621679965800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679965809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | Optional. Use this setting when you need to adjust the sync between your</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- sidecar captions and your video. For more information, see</span><span>
@@ -299,16 +299,16 @@ $sel:convert608To708:FileSourceSettings' :: FileSourceSettings -&gt; Maybe FileS
 -&gt; Lens
      FileSourceSettings FileSourceSettings (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679965798"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679965807"><span class="annot"><span class="annottext">Maybe Int
 timeDelta :: Maybe Int
 $sel:timeDelta:FileSourceSettings' :: FileSourceSettings -&gt; Maybe Int
-</span><a href="#local-6989586621679965798"><span class="hs-identifier hs-var hs-var">timeDelta</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679965798"><span class="hs-identifier hs-var">timeDelta</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679965797"><span class="annot"><span class="annottext">s :: FileSourceSettings
-</span><a href="#local-6989586621679965797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679965796"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679965796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSourceSettings
-</span><a href="#local-6989586621679965797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeDelta:FileSourceSettings' :: Maybe Int
+</span><a href="#local-6989586621679965807"><span class="hs-identifier hs-var hs-var">timeDelta</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679965807"><span class="hs-identifier hs-var">timeDelta</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679965806"><span class="annot"><span class="annottext">s :: FileSourceSettings
+</span><a href="#local-6989586621679965806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679965805"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679965805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSourceSettings
+</span><a href="#local-6989586621679965806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeDelta:FileSourceSettings' :: Maybe Int
 </span><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#%24sel%3AtimeDelta%3AFileSourceSettings%27"><span class="hs-identifier hs-var">timeDelta</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679965796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679965805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | When you use the setting Time delta (TimeDelta) to adjust the sync</span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- between your sidecar captions and your video, use this setting to</span><span>
@@ -328,16 +328,16 @@ $sel:timeDelta:FileSourceSettings' :: FileSourceSettings -&gt; Maybe Int
      (Maybe FileSourceTimeDeltaUnits)
      (Maybe FileSourceTimeDeltaUnits)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679965794"><span class="annot"><span class="annottext">Maybe FileSourceTimeDeltaUnits
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679965803"><span class="annot"><span class="annottext">Maybe FileSourceTimeDeltaUnits
 timeDeltaUnits :: Maybe FileSourceTimeDeltaUnits
 $sel:timeDeltaUnits:FileSourceSettings' :: FileSourceSettings -&gt; Maybe FileSourceTimeDeltaUnits
-</span><a href="#local-6989586621679965794"><span class="hs-identifier hs-var hs-var">timeDeltaUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileSourceTimeDeltaUnits
-</span><a href="#local-6989586621679965794"><span class="hs-identifier hs-var">timeDeltaUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679965793"><span class="annot"><span class="annottext">s :: FileSourceSettings
-</span><a href="#local-6989586621679965793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679965792"><span class="annot"><span class="annottext">Maybe FileSourceTimeDeltaUnits
-</span><a href="#local-6989586621679965792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSourceSettings
-</span><a href="#local-6989586621679965793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeDeltaUnits:FileSourceSettings' :: Maybe FileSourceTimeDeltaUnits
+</span><a href="#local-6989586621679965803"><span class="hs-identifier hs-var hs-var">timeDeltaUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileSourceTimeDeltaUnits
+</span><a href="#local-6989586621679965803"><span class="hs-identifier hs-var">timeDeltaUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679965802"><span class="annot"><span class="annottext">s :: FileSourceSettings
+</span><a href="#local-6989586621679965802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679965801"><span class="annot"><span class="annottext">Maybe FileSourceTimeDeltaUnits
+</span><a href="#local-6989586621679965801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSourceSettings
+</span><a href="#local-6989586621679965802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeDeltaUnits:FileSourceSettings' :: Maybe FileSourceTimeDeltaUnits
 </span><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#%24sel%3AtimeDeltaUnits%3AFileSourceSettings%27"><span class="hs-identifier hs-var">timeDeltaUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileSourceTimeDeltaUnits
-</span><a href="#local-6989586621679965792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679965801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | External caption file used for loading captions. Accepted file</span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- extensions are \'scc\', \'ttml\', \'dfxp\', \'stl\', \'srt\', \'xml\',</span><span>
@@ -350,19 +350,19 @@ $sel:timeDeltaUnits:FileSourceSettings' :: FileSourceSettings -&gt; Maybe FileSo
 -&gt; Lens
      FileSourceSettings FileSourceSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679965790"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679965799"><span class="annot"><span class="annottext">Maybe Text
 sourceFile :: Maybe Text
 $sel:sourceFile:FileSourceSettings' :: FileSourceSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679965790"><span class="hs-identifier hs-var hs-var">sourceFile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679965790"><span class="hs-identifier hs-var">sourceFile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679965789"><span class="annot"><span class="annottext">s :: FileSourceSettings
-</span><a href="#local-6989586621679965789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679965788"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679965788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSourceSettings
-</span><a href="#local-6989586621679965789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceFile:FileSourceSettings' :: Maybe Text
+</span><a href="#local-6989586621679965799"><span class="hs-identifier hs-var hs-var">sourceFile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679965799"><span class="hs-identifier hs-var">sourceFile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679965798"><span class="annot"><span class="annottext">s :: FileSourceSettings
+</span><a href="#local-6989586621679965798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679965797"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679965797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileSourceSettings
+</span><a href="#local-6989586621679965798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceFile:FileSourceSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#%24sel%3AsourceFile%3AFileSourceSettings%27"><span class="hs-identifier hs-var">sourceFile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679965788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679965797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679965785"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679965783"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FileSourceSettings
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679965794"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679965792"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FileSourceSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FileSourceSettings)
@@ -372,8 +372,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FileSourceSettings&quot;</span></span><span>
-</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679965780"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679965780"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679965789"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679965789"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">Maybe CaptionSourceFramerate
 -&gt; Maybe FileSourceConvert608To708
 -&gt; Maybe Int
@@ -396,7 +396,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; FileSourceSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679965780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CaptionSourceFramerate)
+</span><a href="#local-6989586621679965789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CaptionSourceFramerate)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerate&quot;</span></span><span class="hs-special">)</span><span>
@@ -414,7 +414,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; FileSourceSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679965780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileSourceConvert608To708)
+</span><a href="#local-6989586621679965789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileSourceConvert608To708)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;convert608To708&quot;</span></span><span class="hs-special">)</span><span>
@@ -429,7 +429,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; FileSourceSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679965780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679965789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeDelta&quot;</span></span><span class="hs-special">)</span><span>
@@ -440,7 +440,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; FileSourceSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679965780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileSourceTimeDeltaUnits)
+</span><a href="#local-6989586621679965789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileSourceTimeDeltaUnits)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeDeltaUnits&quot;</span></span><span class="hs-special">)</span><span>
@@ -448,19 +448,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser FileSourceSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679965780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679965789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceFile&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679965774"><span id="local-6989586621679965776"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span></span></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679965783"><span id="local-6989586621679965785"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span></span></span><span>
 </span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679965771"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679965780"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span></span><span>
 </span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679965763"><span id="local-6989586621679965765"><span id="local-6989586621679965767"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679965761"><span class="annot"><span class="annottext">toJSON :: FileSourceSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679965755"><span id="local-6989586621679965756"><span id="local-6989586621679965757"><span id="local-6989586621679965758"><span id="local-6989586621679965759"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679965772"><span id="local-6989586621679965774"><span id="local-6989586621679965776"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679965770"><span class="annot"><span class="annottext">toJSON :: FileSourceSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings%27"><span class="hs-identifier hs-type">FileSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679965764"><span id="local-6989586621679965765"><span id="local-6989586621679965766"><span id="local-6989586621679965767"><span id="local-6989586621679965768"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Maybe CaptionSourceFramerate
 Maybe FileSourceConvert608To708
@@ -475,7 +475,7 @@ $sel:timeDeltaUnits:FileSourceSettings' :: FileSourceSettings -&gt; Maybe FileSo
 $sel:timeDelta:FileSourceSettings' :: FileSourceSettings -&gt; Maybe Int
 $sel:convert608To708:FileSourceSettings' :: FileSourceSettings -&gt; Maybe FileSourceConvert608To708
 $sel:framerate:FileSourceSettings' :: FileSourceSettings -&gt; Maybe CaptionSourceFramerate
-</span><a href="#local-6989586621679965755"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679965764"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -488,7 +488,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CaptionSourceFramerate -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CaptionSourceFramerate
-</span><a href="#local-6989586621679965759"><span class="hs-identifier hs-var">framerate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679965768"><span class="hs-identifier hs-var">framerate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;convert608To708&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FileSourceConvert608To708 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -497,14 +497,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe FileSourceConvert608To708 -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FileSourceConvert608To708
-</span><a href="#local-6989586621679965758"><span class="hs-identifier hs-var">convert608To708</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679965767"><span class="hs-identifier hs-var">convert608To708</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeDelta&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679965757"><span class="hs-identifier hs-var">timeDelta</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679965766"><span class="hs-identifier hs-var">timeDelta</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeDeltaUnits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FileSourceTimeDeltaUnits -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -513,14 +513,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe FileSourceTimeDeltaUnits -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FileSourceTimeDeltaUnits
-</span><a href="#local-6989586621679965756"><span class="hs-identifier hs-var">timeDeltaUnits</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679965765"><span class="hs-identifier hs-var">timeDeltaUnits</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceFile&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679965755"><span class="hs-identifier hs-var">sourceFile</span></a></span><span>
+</span><a href="#local-6989586621679965764"><span class="hs-identifier hs-var">sourceFile</span></a></span><span>
 </span><span id="line-218"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-219"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span></pre></body></html>

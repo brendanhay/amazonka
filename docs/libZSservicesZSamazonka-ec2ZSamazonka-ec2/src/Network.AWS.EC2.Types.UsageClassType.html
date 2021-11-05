@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681177032"><span id="local-6989586621681177033"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UsageClassType"><span class="annot"><a href="Network.AWS.EC2.Types.UsageClassType.html#UsageClassType"><span class="hs-identifier hs-var">UsageClassType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageClassType%27"><span class="annot"><a href="Network.AWS.EC2.Types.UsageClassType.html#UsageClassType%27"><span class="hs-identifier hs-var">UsageClassType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681177041"><span id="local-6989586621681177042"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UsageClassType"><span class="annot"><a href="Network.AWS.EC2.Types.UsageClassType.html#UsageClassType"><span class="hs-identifier hs-var">UsageClassType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageClassType%27"><span class="annot"><a href="Network.AWS.EC2.Types.UsageClassType.html#UsageClassType%27"><span class="hs-identifier hs-var">UsageClassType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUsageClassType"><span class="annot"><span class="annottext">UsageClassType -&gt; Text
 </span><a href="Network.AWS.EC2.Types.UsageClassType.html#fromUsageClassType"><span class="hs-identifier hs-var hs-var">fromUsageClassType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681177024"><span id="local-6989586621681177026"><span id="local-6989586621681177028"><span class="annot"><span class="annottext">Int -&gt; UsageClassType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681177033"><span id="local-6989586621681177035"><span id="local-6989586621681177037"><span class="annot"><span class="annottext">Int -&gt; UsageClassType -&gt; ShowS
 [UsageClassType] -&gt; ShowS
 UsageClassType -&gt; String
 (Int -&gt; UsageClassType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: UsageClassType -&gt; String
 showsPrec :: Int -&gt; UsageClassType -&gt; ShowS
 $cshowsPrec :: Int -&gt; UsageClassType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681177015"><span id="local-6989586621681177017"><span id="local-6989586621681177019"><span id="local-6989586621681177021"><span class="annot"><span class="annottext">ReadPrec [UsageClassType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681177024"><span id="local-6989586621681177026"><span id="local-6989586621681177028"><span id="local-6989586621681177030"><span class="annot"><span class="annottext">ReadPrec [UsageClassType]
 ReadPrec UsageClassType
 Int -&gt; ReadS UsageClassType
 ReadS [UsageClassType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [UsageClassType]
 readsPrec :: Int -&gt; ReadS UsageClassType
 $creadsPrec :: Int -&gt; ReadS UsageClassType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681177010"><span id="local-6989586621681177012"><span class="annot"><span class="annottext">UsageClassType -&gt; UsageClassType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681177019"><span id="local-6989586621681177021"><span class="annot"><span class="annottext">UsageClassType -&gt; UsageClassType -&gt; Bool
 (UsageClassType -&gt; UsageClassType -&gt; Bool)
 -&gt; (UsageClassType -&gt; UsageClassType -&gt; Bool) -&gt; Eq UsageClassType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: UsageClassType -&gt; UsageClassType -&gt; Bool
 == :: UsageClassType -&gt; UsageClassType -&gt; Bool
 $c== :: UsageClassType -&gt; UsageClassType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681176994"><span id="local-6989586621681176996"><span id="local-6989586621681176998"><span id="local-6989586621681177000"><span id="local-6989586621681177002"><span id="local-6989586621681177004"><span id="local-6989586621681177006"><span class="annot"><span class="annottext">Eq UsageClassType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681177003"><span id="local-6989586621681177005"><span id="local-6989586621681177007"><span id="local-6989586621681177009"><span id="local-6989586621681177011"><span id="local-6989586621681177013"><span id="local-6989586621681177015"><span class="annot"><span class="annottext">Eq UsageClassType
 Eq UsageClassType
 -&gt; (UsageClassType -&gt; UsageClassType -&gt; Ordering)
 -&gt; (UsageClassType -&gt; UsageClassType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. UsageClassType -&gt; Rep UsageClassType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681176986"><span id="local-6989586621681176988"><span class="annot"><span class="annottext">Int -&gt; UsageClassType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681176995"><span id="local-6989586621681176997"><span class="annot"><span class="annottext">Int -&gt; UsageClassType -&gt; Int
 UsageClassType -&gt; Int
 (Int -&gt; UsageClassType -&gt; Int)
 -&gt; (UsageClassType -&gt; Int) -&gt; Hashable UsageClassType
@@ -143,50 +143,50 @@ $chash :: UsageClassType -&gt; Int
 hashWithSalt :: Int -&gt; UsageClassType -&gt; Int
 $chashWithSalt :: Int -&gt; UsageClassType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681176983"><span class="annot"><span class="annottext">UsageClassType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681176992"><span class="annot"><span class="annottext">UsageClassType -&gt; ()
 (UsageClassType -&gt; ()) -&gt; NFData UsageClassType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UsageClassType -&gt; ()
 $crnf :: UsageClassType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681176980"><span class="annot"><span class="annottext">Text -&gt; Either String UsageClassType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681176989"><span class="annot"><span class="annottext">Text -&gt; Either String UsageClassType
 (Text -&gt; Either String UsageClassType) -&gt; FromText UsageClassType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UsageClassType
 $cfromText :: Text -&gt; Either String UsageClassType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681176977"><span class="annot"><span class="annottext">UsageClassType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681176986"><span class="annot"><span class="annottext">UsageClassType -&gt; Text
 (UsageClassType -&gt; Text) -&gt; ToText UsageClassType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UsageClassType -&gt; Text
 $ctoText :: UsageClassType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681176974"><span class="annot"><span class="annottext">UsageClassType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681176983"><span class="annot"><span class="annottext">UsageClassType -&gt; ByteString
 (UsageClassType -&gt; ByteString) -&gt; ToByteString UsageClassType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UsageClassType -&gt; ByteString
 $ctoBS :: UsageClassType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681176971"><span class="annot"><span class="annottext">UsageClassType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681176980"><span class="annot"><span class="annottext">UsageClassType -&gt; ByteStringBuilder
 (UsageClassType -&gt; ByteStringBuilder) -&gt; ToLog UsageClassType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UsageClassType -&gt; ByteStringBuilder
 $cbuild :: UsageClassType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681176968"><span class="annot"><span class="annottext">HeaderName -&gt; UsageClassType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681176977"><span class="annot"><span class="annottext">HeaderName -&gt; UsageClassType -&gt; [Header]
 (HeaderName -&gt; UsageClassType -&gt; [Header])
 -&gt; ToHeader UsageClassType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UsageClassType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UsageClassType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681176965"><span class="annot"><span class="annottext">UsageClassType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681176974"><span class="annot"><span class="annottext">UsageClassType -&gt; QueryString
 (UsageClassType -&gt; QueryString) -&gt; ToQuery UsageClassType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UsageClassType -&gt; QueryString
 $ctoQuery :: UsageClassType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681176960"><span id="local-6989586621681176962"><span class="annot"><span class="annottext">Value -&gt; Parser [UsageClassType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681176969"><span id="local-6989586621681176971"><span class="annot"><span class="annottext">Value -&gt; Parser [UsageClassType]
 Value -&gt; Parser UsageClassType
 (Value -&gt; Parser UsageClassType)
 -&gt; (Value -&gt; Parser [UsageClassType]) -&gt; FromJSON UsageClassType
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [UsageClassType]
 parseJSON :: Value -&gt; Parser UsageClassType
 $cparseJSON :: Value -&gt; Parser UsageClassType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681176955"><span id="local-6989586621681176957"><span class="annot"><span class="annottext">FromJSONKeyFunction [UsageClassType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681176964"><span id="local-6989586621681176966"><span class="annot"><span class="annottext">FromJSONKeyFunction [UsageClassType]
 FromJSONKeyFunction UsageClassType
 FromJSONKeyFunction UsageClassType
 -&gt; FromJSONKeyFunction [UsageClassType]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UsageClassType]
 fromJSONKey :: FromJSONKeyFunction UsageClassType
 $cfromJSONKey :: FromJSONKeyFunction UsageClassType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681176946"><span id="local-6989586621681176948"><span id="local-6989586621681176950"><span id="local-6989586621681176952"><span class="annot"><span class="annottext">[UsageClassType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681176955"><span id="local-6989586621681176957"><span id="local-6989586621681176959"><span id="local-6989586621681176961"><span class="annot"><span class="annottext">[UsageClassType] -&gt; Encoding
 [UsageClassType] -&gt; Value
 UsageClassType -&gt; Encoding
 UsageClassType -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: UsageClassType -&gt; Encoding
 toJSON :: UsageClassType -&gt; Value
 $ctoJSON :: UsageClassType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681176941"><span id="local-6989586621681176943"><span class="annot"><span class="annottext">ToJSONKeyFunction [UsageClassType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681176950"><span id="local-6989586621681176952"><span class="annot"><span class="annottext">ToJSONKeyFunction [UsageClassType]
 ToJSONKeyFunction UsageClassType
 ToJSONKeyFunction UsageClassType
 -&gt; ToJSONKeyFunction [UsageClassType] -&gt; ToJSONKey UsageClassType
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UsageClassType]
 toJSONKey :: ToJSONKeyFunction UsageClassType
 $ctoJSONKey :: ToJSONKeyFunction UsageClassType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681176938"><span class="annot"><span class="annottext">[Node] -&gt; Either String UsageClassType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681176947"><span class="annot"><span class="annottext">[Node] -&gt; Either String UsageClassType
 ([Node] -&gt; Either String UsageClassType) -&gt; FromXML UsageClassType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UsageClassType
 $cparseXML :: [Node] -&gt; Either String UsageClassType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681176935"><span class="annot"><span class="annottext">UsageClassType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681176944"><span class="annot"><span class="annottext">UsageClassType -&gt; XML
 (UsageClassType -&gt; XML) -&gt; ToXML UsageClassType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UsageClassType -&gt; XML

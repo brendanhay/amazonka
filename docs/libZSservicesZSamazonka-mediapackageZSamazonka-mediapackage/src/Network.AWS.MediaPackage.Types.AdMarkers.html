@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679234881"><span id="local-6989586621679234882"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AdMarkers"><span class="annot"><a href="Network.AWS.MediaPackage.Types.AdMarkers.html#AdMarkers"><span class="hs-identifier hs-var">AdMarkers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdMarkers%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.AdMarkers.html#AdMarkers%27"><span class="hs-identifier hs-var">AdMarkers'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679234890"><span id="local-6989586621679234891"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AdMarkers"><span class="annot"><a href="Network.AWS.MediaPackage.Types.AdMarkers.html#AdMarkers"><span class="hs-identifier hs-var">AdMarkers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdMarkers%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.AdMarkers.html#AdMarkers%27"><span class="hs-identifier hs-var">AdMarkers'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAdMarkers"><span class="annot"><span class="annottext">AdMarkers -&gt; Text
 </span><a href="Network.AWS.MediaPackage.Types.AdMarkers.html#fromAdMarkers"><span class="hs-identifier hs-var hs-var">fromAdMarkers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679234873"><span id="local-6989586621679234875"><span id="local-6989586621679234877"><span class="annot"><span class="annottext">Int -&gt; AdMarkers -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679234882"><span id="local-6989586621679234884"><span id="local-6989586621679234886"><span class="annot"><span class="annottext">Int -&gt; AdMarkers -&gt; ShowS
 [AdMarkers] -&gt; ShowS
 AdMarkers -&gt; String
 (Int -&gt; AdMarkers -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: AdMarkers -&gt; String
 showsPrec :: Int -&gt; AdMarkers -&gt; ShowS
 $cshowsPrec :: Int -&gt; AdMarkers -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679234864"><span id="local-6989586621679234866"><span id="local-6989586621679234868"><span id="local-6989586621679234870"><span class="annot"><span class="annottext">ReadPrec [AdMarkers]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679234873"><span id="local-6989586621679234875"><span id="local-6989586621679234877"><span id="local-6989586621679234879"><span class="annot"><span class="annottext">ReadPrec [AdMarkers]
 ReadPrec AdMarkers
 Int -&gt; ReadS AdMarkers
 ReadS [AdMarkers]
@@ -74,7 +74,7 @@ $creadList :: ReadS [AdMarkers]
 readsPrec :: Int -&gt; ReadS AdMarkers
 $creadsPrec :: Int -&gt; ReadS AdMarkers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679234859"><span id="local-6989586621679234861"><span class="annot"><span class="annottext">AdMarkers -&gt; AdMarkers -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679234868"><span id="local-6989586621679234870"><span class="annot"><span class="annottext">AdMarkers -&gt; AdMarkers -&gt; Bool
 (AdMarkers -&gt; AdMarkers -&gt; Bool)
 -&gt; (AdMarkers -&gt; AdMarkers -&gt; Bool) -&gt; Eq AdMarkers
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: AdMarkers -&gt; AdMarkers -&gt; Bool
 == :: AdMarkers -&gt; AdMarkers -&gt; Bool
 $c== :: AdMarkers -&gt; AdMarkers -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679234843"><span id="local-6989586621679234845"><span id="local-6989586621679234847"><span id="local-6989586621679234849"><span id="local-6989586621679234851"><span id="local-6989586621679234853"><span id="local-6989586621679234855"><span class="annot"><span class="annottext">Eq AdMarkers
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679234852"><span id="local-6989586621679234854"><span id="local-6989586621679234856"><span id="local-6989586621679234858"><span id="local-6989586621679234860"><span id="local-6989586621679234862"><span id="local-6989586621679234864"><span class="annot"><span class="annottext">Eq AdMarkers
 Eq AdMarkers
 -&gt; (AdMarkers -&gt; AdMarkers -&gt; Ordering)
 -&gt; (AdMarkers -&gt; AdMarkers -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. AdMarkers -&gt; Rep AdMarkers x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679234835"><span id="local-6989586621679234837"><span class="annot"><span class="annottext">Int -&gt; AdMarkers -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679234844"><span id="local-6989586621679234846"><span class="annot"><span class="annottext">Int -&gt; AdMarkers -&gt; Int
 AdMarkers -&gt; Int
 (Int -&gt; AdMarkers -&gt; Int)
 -&gt; (AdMarkers -&gt; Int) -&gt; Hashable AdMarkers
@@ -143,49 +143,49 @@ $chash :: AdMarkers -&gt; Int
 hashWithSalt :: Int -&gt; AdMarkers -&gt; Int
 $chashWithSalt :: Int -&gt; AdMarkers -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679234832"><span class="annot"><span class="annottext">AdMarkers -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679234841"><span class="annot"><span class="annottext">AdMarkers -&gt; ()
 (AdMarkers -&gt; ()) -&gt; NFData AdMarkers
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AdMarkers -&gt; ()
 $crnf :: AdMarkers -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679234829"><span class="annot"><span class="annottext">Text -&gt; Either String AdMarkers
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679234838"><span class="annot"><span class="annottext">Text -&gt; Either String AdMarkers
 (Text -&gt; Either String AdMarkers) -&gt; FromText AdMarkers
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AdMarkers
 $cfromText :: Text -&gt; Either String AdMarkers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679234826"><span class="annot"><span class="annottext">AdMarkers -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679234835"><span class="annot"><span class="annottext">AdMarkers -&gt; Text
 (AdMarkers -&gt; Text) -&gt; ToText AdMarkers
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AdMarkers -&gt; Text
 $ctoText :: AdMarkers -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679234823"><span class="annot"><span class="annottext">AdMarkers -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679234832"><span class="annot"><span class="annottext">AdMarkers -&gt; ByteString
 (AdMarkers -&gt; ByteString) -&gt; ToByteString AdMarkers
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AdMarkers -&gt; ByteString
 $ctoBS :: AdMarkers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679234820"><span class="annot"><span class="annottext">AdMarkers -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679234829"><span class="annot"><span class="annottext">AdMarkers -&gt; ByteStringBuilder
 (AdMarkers -&gt; ByteStringBuilder) -&gt; ToLog AdMarkers
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AdMarkers -&gt; ByteStringBuilder
 $cbuild :: AdMarkers -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679234817"><span class="annot"><span class="annottext">HeaderName -&gt; AdMarkers -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679234826"><span class="annot"><span class="annottext">HeaderName -&gt; AdMarkers -&gt; [Header]
 (HeaderName -&gt; AdMarkers -&gt; [Header]) -&gt; ToHeader AdMarkers
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AdMarkers -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AdMarkers -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679234814"><span class="annot"><span class="annottext">AdMarkers -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679234823"><span class="annot"><span class="annottext">AdMarkers -&gt; QueryString
 (AdMarkers -&gt; QueryString) -&gt; ToQuery AdMarkers
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AdMarkers -&gt; QueryString
 $ctoQuery :: AdMarkers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679234809"><span id="local-6989586621679234811"><span class="annot"><span class="annottext">Value -&gt; Parser [AdMarkers]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679234818"><span id="local-6989586621679234820"><span class="annot"><span class="annottext">Value -&gt; Parser [AdMarkers]
 Value -&gt; Parser AdMarkers
 (Value -&gt; Parser AdMarkers)
 -&gt; (Value -&gt; Parser [AdMarkers]) -&gt; FromJSON AdMarkers
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [AdMarkers]
 parseJSON :: Value -&gt; Parser AdMarkers
 $cparseJSON :: Value -&gt; Parser AdMarkers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679234804"><span id="local-6989586621679234806"><span class="annot"><span class="annottext">FromJSONKeyFunction [AdMarkers]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679234813"><span id="local-6989586621679234815"><span class="annot"><span class="annottext">FromJSONKeyFunction [AdMarkers]
 FromJSONKeyFunction AdMarkers
 FromJSONKeyFunction AdMarkers
 -&gt; FromJSONKeyFunction [AdMarkers] -&gt; FromJSONKey AdMarkers
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AdMarkers]
 fromJSONKey :: FromJSONKeyFunction AdMarkers
 $cfromJSONKey :: FromJSONKeyFunction AdMarkers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679234795"><span id="local-6989586621679234797"><span id="local-6989586621679234799"><span id="local-6989586621679234801"><span class="annot"><span class="annottext">[AdMarkers] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679234804"><span id="local-6989586621679234806"><span id="local-6989586621679234808"><span id="local-6989586621679234810"><span class="annot"><span class="annottext">[AdMarkers] -&gt; Encoding
 [AdMarkers] -&gt; Value
 AdMarkers -&gt; Encoding
 AdMarkers -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: AdMarkers -&gt; Encoding
 toJSON :: AdMarkers -&gt; Value
 $ctoJSON :: AdMarkers -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679234790"><span id="local-6989586621679234792"><span class="annot"><span class="annottext">ToJSONKeyFunction [AdMarkers]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679234799"><span id="local-6989586621679234801"><span class="annot"><span class="annottext">ToJSONKeyFunction [AdMarkers]
 ToJSONKeyFunction AdMarkers
 ToJSONKeyFunction AdMarkers
 -&gt; ToJSONKeyFunction [AdMarkers] -&gt; ToJSONKey AdMarkers
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AdMarkers]
 toJSONKey :: ToJSONKeyFunction AdMarkers
 $ctoJSONKey :: ToJSONKeyFunction AdMarkers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679234787"><span class="annot"><span class="annottext">[Node] -&gt; Either String AdMarkers
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679234796"><span class="annot"><span class="annottext">[Node] -&gt; Either String AdMarkers
 ([Node] -&gt; Either String AdMarkers) -&gt; FromXML AdMarkers
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AdMarkers
 $cparseXML :: [Node] -&gt; Either String AdMarkers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679234784"><span class="annot"><span class="annottext">AdMarkers -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679234793"><span class="annot"><span class="annottext">AdMarkers -&gt; XML
 (AdMarkers -&gt; XML) -&gt; ToXML AdMarkers
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AdMarkers -&gt; XML

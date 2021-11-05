@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- | Burn In Background Color</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679868441"><span id="local-6989586621679868442"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BurnInBackgroundColor"><span class="annot"><a href="Network.AWS.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor"><span class="hs-identifier hs-var">BurnInBackgroundColor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BurnInBackgroundColor%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor%27"><span class="hs-identifier hs-var">BurnInBackgroundColor'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679868450"><span id="local-6989586621679868451"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BurnInBackgroundColor"><span class="annot"><a href="Network.AWS.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor"><span class="hs-identifier hs-var">BurnInBackgroundColor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BurnInBackgroundColor%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.BurnInBackgroundColor.html#BurnInBackgroundColor%27"><span class="hs-identifier hs-var">BurnInBackgroundColor'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBurnInBackgroundColor"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.BurnInBackgroundColor.html#fromBurnInBackgroundColor"><span class="hs-identifier hs-var hs-var">fromBurnInBackgroundColor</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679868433"><span id="local-6989586621679868435"><span id="local-6989586621679868437"><span class="annot"><span class="annottext">Int -&gt; BurnInBackgroundColor -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679868442"><span id="local-6989586621679868444"><span id="local-6989586621679868446"><span class="annot"><span class="annottext">Int -&gt; BurnInBackgroundColor -&gt; ShowS
 [BurnInBackgroundColor] -&gt; ShowS
 BurnInBackgroundColor -&gt; String
 (Int -&gt; BurnInBackgroundColor -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: BurnInBackgroundColor -&gt; String
 showsPrec :: Int -&gt; BurnInBackgroundColor -&gt; ShowS
 $cshowsPrec :: Int -&gt; BurnInBackgroundColor -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679868424"><span id="local-6989586621679868426"><span id="local-6989586621679868428"><span id="local-6989586621679868430"><span class="annot"><span class="annottext">ReadPrec [BurnInBackgroundColor]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679868433"><span id="local-6989586621679868435"><span id="local-6989586621679868437"><span id="local-6989586621679868439"><span class="annot"><span class="annottext">ReadPrec [BurnInBackgroundColor]
 ReadPrec BurnInBackgroundColor
 Int -&gt; ReadS BurnInBackgroundColor
 ReadS [BurnInBackgroundColor]
@@ -74,7 +74,7 @@ $creadList :: ReadS [BurnInBackgroundColor]
 readsPrec :: Int -&gt; ReadS BurnInBackgroundColor
 $creadsPrec :: Int -&gt; ReadS BurnInBackgroundColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679868419"><span id="local-6989586621679868421"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679868428"><span id="local-6989586621679868430"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
 (BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool)
 -&gt; (BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool)
 -&gt; Eq BurnInBackgroundColor
@@ -84,7 +84,7 @@ $c/= :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
 == :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
 $c== :: BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679868403"><span id="local-6989586621679868405"><span id="local-6989586621679868407"><span id="local-6989586621679868409"><span id="local-6989586621679868411"><span id="local-6989586621679868413"><span id="local-6989586621679868415"><span class="annot"><span class="annottext">Eq BurnInBackgroundColor
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679868412"><span id="local-6989586621679868414"><span id="local-6989586621679868416"><span id="local-6989586621679868418"><span id="local-6989586621679868420"><span id="local-6989586621679868422"><span id="local-6989586621679868424"><span class="annot"><span class="annottext">Eq BurnInBackgroundColor
 Eq BurnInBackgroundColor
 -&gt; (BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Ordering)
 -&gt; (BurnInBackgroundColor -&gt; BurnInBackgroundColor -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. BurnInBackgroundColor -&gt; Rep BurnInBackgroundColor x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679868395"><span id="local-6989586621679868397"><span class="annot"><span class="annottext">Int -&gt; BurnInBackgroundColor -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679868404"><span id="local-6989586621679868406"><span class="annot"><span class="annottext">Int -&gt; BurnInBackgroundColor -&gt; Int
 BurnInBackgroundColor -&gt; Int
 (Int -&gt; BurnInBackgroundColor -&gt; Int)
 -&gt; (BurnInBackgroundColor -&gt; Int) -&gt; Hashable BurnInBackgroundColor
@@ -152,54 +152,54 @@ $chash :: BurnInBackgroundColor -&gt; Int
 hashWithSalt :: Int -&gt; BurnInBackgroundColor -&gt; Int
 $chashWithSalt :: Int -&gt; BurnInBackgroundColor -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679868392"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679868401"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; ()
 (BurnInBackgroundColor -&gt; ()) -&gt; NFData BurnInBackgroundColor
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BurnInBackgroundColor -&gt; ()
 $crnf :: BurnInBackgroundColor -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679868389"><span class="annot"><span class="annottext">Text -&gt; Either String BurnInBackgroundColor
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679868398"><span class="annot"><span class="annottext">Text -&gt; Either String BurnInBackgroundColor
 (Text -&gt; Either String BurnInBackgroundColor)
 -&gt; FromText BurnInBackgroundColor
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BurnInBackgroundColor
 $cfromText :: Text -&gt; Either String BurnInBackgroundColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679868386"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679868395"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; Text
 (BurnInBackgroundColor -&gt; Text) -&gt; ToText BurnInBackgroundColor
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BurnInBackgroundColor -&gt; Text
 $ctoText :: BurnInBackgroundColor -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679868383"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679868392"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; ByteString
 (BurnInBackgroundColor -&gt; ByteString)
 -&gt; ToByteString BurnInBackgroundColor
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BurnInBackgroundColor -&gt; ByteString
 $ctoBS :: BurnInBackgroundColor -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679868380"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679868389"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; ByteStringBuilder
 (BurnInBackgroundColor -&gt; ByteStringBuilder)
 -&gt; ToLog BurnInBackgroundColor
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BurnInBackgroundColor -&gt; ByteStringBuilder
 $cbuild :: BurnInBackgroundColor -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679868377"><span class="annot"><span class="annottext">HeaderName -&gt; BurnInBackgroundColor -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679868386"><span class="annot"><span class="annottext">HeaderName -&gt; BurnInBackgroundColor -&gt; [Header]
 (HeaderName -&gt; BurnInBackgroundColor -&gt; [Header])
 -&gt; ToHeader BurnInBackgroundColor
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BurnInBackgroundColor -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BurnInBackgroundColor -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679868374"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679868383"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; QueryString
 (BurnInBackgroundColor -&gt; QueryString)
 -&gt; ToQuery BurnInBackgroundColor
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BurnInBackgroundColor -&gt; QueryString
 $ctoQuery :: BurnInBackgroundColor -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679868369"><span id="local-6989586621679868371"><span class="annot"><span class="annottext">Value -&gt; Parser [BurnInBackgroundColor]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679868378"><span id="local-6989586621679868380"><span class="annot"><span class="annottext">Value -&gt; Parser [BurnInBackgroundColor]
 Value -&gt; Parser BurnInBackgroundColor
 (Value -&gt; Parser BurnInBackgroundColor)
 -&gt; (Value -&gt; Parser [BurnInBackgroundColor])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [BurnInBackgroundColor]
 parseJSON :: Value -&gt; Parser BurnInBackgroundColor
 $cparseJSON :: Value -&gt; Parser BurnInBackgroundColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679868364"><span id="local-6989586621679868366"><span class="annot"><span class="annottext">FromJSONKeyFunction [BurnInBackgroundColor]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679868373"><span id="local-6989586621679868375"><span class="annot"><span class="annottext">FromJSONKeyFunction [BurnInBackgroundColor]
 FromJSONKeyFunction BurnInBackgroundColor
 FromJSONKeyFunction BurnInBackgroundColor
 -&gt; FromJSONKeyFunction [BurnInBackgroundColor]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BurnInBackgroundColor]
 fromJSONKey :: FromJSONKeyFunction BurnInBackgroundColor
 $cfromJSONKey :: FromJSONKeyFunction BurnInBackgroundColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679868355"><span id="local-6989586621679868357"><span id="local-6989586621679868359"><span id="local-6989586621679868361"><span class="annot"><span class="annottext">[BurnInBackgroundColor] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679868364"><span id="local-6989586621679868366"><span id="local-6989586621679868368"><span id="local-6989586621679868370"><span class="annot"><span class="annottext">[BurnInBackgroundColor] -&gt; Encoding
 [BurnInBackgroundColor] -&gt; Value
 BurnInBackgroundColor -&gt; Encoding
 BurnInBackgroundColor -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: BurnInBackgroundColor -&gt; Encoding
 toJSON :: BurnInBackgroundColor -&gt; Value
 $ctoJSON :: BurnInBackgroundColor -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679868350"><span id="local-6989586621679868352"><span class="annot"><span class="annottext">ToJSONKeyFunction [BurnInBackgroundColor]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679868359"><span id="local-6989586621679868361"><span class="annot"><span class="annottext">ToJSONKeyFunction [BurnInBackgroundColor]
 ToJSONKeyFunction BurnInBackgroundColor
 ToJSONKeyFunction BurnInBackgroundColor
 -&gt; ToJSONKeyFunction [BurnInBackgroundColor]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BurnInBackgroundColor]
 toJSONKey :: ToJSONKeyFunction BurnInBackgroundColor
 $ctoJSONKey :: ToJSONKeyFunction BurnInBackgroundColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679868347"><span class="annot"><span class="annottext">[Node] -&gt; Either String BurnInBackgroundColor
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679868356"><span class="annot"><span class="annottext">[Node] -&gt; Either String BurnInBackgroundColor
 ([Node] -&gt; Either String BurnInBackgroundColor)
 -&gt; FromXML BurnInBackgroundColor
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BurnInBackgroundColor
 $cparseXML :: [Node] -&gt; Either String BurnInBackgroundColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679868344"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679868353"><span class="annot"><span class="annottext">BurnInBackgroundColor -&gt; XML
 (BurnInBackgroundColor -&gt; XML) -&gt; ToXML BurnInBackgroundColor
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BurnInBackgroundColor -&gt; XML

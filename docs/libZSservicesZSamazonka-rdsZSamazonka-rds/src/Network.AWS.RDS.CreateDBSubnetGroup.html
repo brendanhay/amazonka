@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newCreateDBSubnetGroup' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679800848"><span id="local-6989586621679800849"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDBSubnetGroup"><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-var">CreateDBSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDBSubnetGroup%27"><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-var">CreateDBSubnetGroup'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679800857"><span id="local-6989586621679800858"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDBSubnetGroup"><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-var">CreateDBSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDBSubnetGroup%27"><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-var">CreateDBSubnetGroup'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Tags to assign to the DB subnet group.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Atags%3ACreateDBSubnetGroup%27"><span class="annot"><span class="annottext">CreateDBSubnetGroup -&gt; Maybe [Tag]
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#%24sel%3Atags%3ACreateDBSubnetGroup%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -73,7 +73,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AsubnetIds%3ACreateDBSubnetGroup%27"><span class="annot"><span class="annottext">CreateDBSubnetGroup -&gt; [Text]
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#%24sel%3AsubnetIds%3ACreateDBSubnetGroup%27"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800839"><span id="local-6989586621679800841"><span class="annot"><span class="annottext">CreateDBSubnetGroup -&gt; CreateDBSubnetGroup -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800848"><span id="local-6989586621679800850"><span class="annot"><span class="annottext">CreateDBSubnetGroup -&gt; CreateDBSubnetGroup -&gt; Bool
 (CreateDBSubnetGroup -&gt; CreateDBSubnetGroup -&gt; Bool)
 -&gt; (CreateDBSubnetGroup -&gt; CreateDBSubnetGroup -&gt; Bool)
 -&gt; Eq CreateDBSubnetGroup
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDBSubnetGroup -&gt; CreateDBSubnetGroup -&gt; Bool
 == :: CreateDBSubnetGroup -&gt; CreateDBSubnetGroup -&gt; Bool
 $c== :: CreateDBSubnetGroup -&gt; CreateDBSubnetGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800830"><span id="local-6989586621679800832"><span id="local-6989586621679800834"><span id="local-6989586621679800836"><span class="annot"><span class="annottext">ReadPrec [CreateDBSubnetGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800839"><span id="local-6989586621679800841"><span id="local-6989586621679800843"><span id="local-6989586621679800845"><span class="annot"><span class="annottext">ReadPrec [CreateDBSubnetGroup]
 ReadPrec CreateDBSubnetGroup
 Int -&gt; ReadS CreateDBSubnetGroup
 ReadS [CreateDBSubnetGroup]
@@ -102,7 +102,7 @@ readList :: ReadS [CreateDBSubnetGroup]
 $creadList :: ReadS [CreateDBSubnetGroup]
 readsPrec :: Int -&gt; ReadS CreateDBSubnetGroup
 $creadsPrec :: Int -&gt; ReadS CreateDBSubnetGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800823"><span id="local-6989586621679800825"><span id="local-6989586621679800827"><span class="annot"><span class="annottext">Int -&gt; CreateDBSubnetGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800832"><span id="local-6989586621679800834"><span id="local-6989586621679800836"><span class="annot"><span class="annottext">Int -&gt; CreateDBSubnetGroup -&gt; ShowS
 [CreateDBSubnetGroup] -&gt; ShowS
 CreateDBSubnetGroup -&gt; String
 (Int -&gt; CreateDBSubnetGroup -&gt; ShowS)
@@ -157,10 +157,10 @@ $cfrom :: forall x. CreateDBSubnetGroup -&gt; Rep CreateDBSubnetGroup x
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span><span>
 </span><span id="line-101"></span><span id="newCreateDBSubnetGroup"><span class="annot"><span class="annottext">newCreateDBSubnetGroup :: Text -&gt; Text -&gt; CreateDBSubnetGroup
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#newCreateDBSubnetGroup"><span class="hs-identifier hs-var hs-var">newCreateDBSubnetGroup</span></a></span></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679800818"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800818"><span class="hs-identifier hs-var">pDBSubnetGroupName_</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679800817"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800817"><span class="hs-identifier hs-var">pDBSubnetGroupDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679800827"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800827"><span class="hs-identifier hs-var">pDBSubnetGroupName_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679800826"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800826"><span class="hs-identifier hs-var">pDBSubnetGroupDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">CreateDBSubnetGroup' :: Maybe [Tag] -&gt; Text -&gt; Text -&gt; [Text] -&gt; CreateDBSubnetGroup
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateDBSubnetGroup' :: Maybe [Tag]
@@ -169,11 +169,11 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbSubnetGroupName:CreateDBSubnetGroup' :: Text
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#%24sel%3AdbSubnetGroupName%3ACreateDBSubnetGroup%27"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800818"><span class="hs-identifier hs-var">pDBSubnetGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679800827"><span class="hs-identifier hs-var">pDBSubnetGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbSubnetGroupDescription:CreateDBSubnetGroup' :: Text
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#%24sel%3AdbSubnetGroupDescription%3ACreateDBSubnetGroup%27"><span class="hs-identifier hs-var">dbSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800817"><span class="hs-identifier hs-var">pDBSubnetGroupDescription_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679800826"><span class="hs-identifier hs-var">pDBSubnetGroupDescription_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:subnetIds:CreateDBSubnetGroup' :: [Text]
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#%24sel%3AsubnetIds%3ACreateDBSubnetGroup%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -189,16 +189,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      CreateDBSubnetGroup CreateDBSubnetGroup (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800814"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800823"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateDBSubnetGroup' :: CreateDBSubnetGroup -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679800814"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679800814"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800813"><span class="annot"><span class="annottext">s :: CreateDBSubnetGroup
-</span><a href="#local-6989586621679800813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800812"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679800812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSubnetGroup
-</span><a href="#local-6989586621679800813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDBSubnetGroup' :: Maybe [Tag]
+</span><a href="#local-6989586621679800823"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679800823"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800822"><span class="annot"><span class="annottext">s :: CreateDBSubnetGroup
+</span><a href="#local-6989586621679800822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800821"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679800821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSubnetGroup
+</span><a href="#local-6989586621679800822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDBSubnetGroup' :: Maybe [Tag]
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#%24sel%3Atags%3ACreateDBSubnetGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679800812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679800821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateDBSubnetGroup -&gt; f CreateDBSubnetGroup)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -228,16 +228,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateDBSubnetGroup -&gt; Text -&gt; CreateDBSubnetGroup)
 -&gt; Lens CreateDBSubnetGroup CreateDBSubnetGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800808"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800817"><span class="annot"><span class="annottext">Text
 dbSubnetGroupName :: Text
 $sel:dbSubnetGroupName:CreateDBSubnetGroup' :: CreateDBSubnetGroup -&gt; Text
-</span><a href="#local-6989586621679800808"><span class="hs-identifier hs-var hs-var">dbSubnetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800808"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800807"><span class="annot"><span class="annottext">s :: CreateDBSubnetGroup
-</span><a href="#local-6989586621679800807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800806"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSubnetGroup
-</span><a href="#local-6989586621679800807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSubnetGroupName:CreateDBSubnetGroup' :: Text
+</span><a href="#local-6989586621679800817"><span class="hs-identifier hs-var hs-var">dbSubnetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800817"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800816"><span class="annot"><span class="annottext">s :: CreateDBSubnetGroup
+</span><a href="#local-6989586621679800816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800815"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSubnetGroup
+</span><a href="#local-6989586621679800816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSubnetGroupName:CreateDBSubnetGroup' :: Text
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#%24sel%3AdbSubnetGroupName%3ACreateDBSubnetGroup%27"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The description for the DB subnet group.</span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#createDBSubnetGroup_dbSubnetGroupDescription"><span class="hs-identifier hs-type">createDBSubnetGroup_dbSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -246,16 +246,16 @@ $sel:dbSubnetGroupName:CreateDBSubnetGroup' :: CreateDBSubnetGroup -&gt; Text
 -&gt; (CreateDBSubnetGroup -&gt; Text -&gt; CreateDBSubnetGroup)
 -&gt; Lens CreateDBSubnetGroup CreateDBSubnetGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800805"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800814"><span class="annot"><span class="annottext">Text
 dbSubnetGroupDescription :: Text
 $sel:dbSubnetGroupDescription:CreateDBSubnetGroup' :: CreateDBSubnetGroup -&gt; Text
-</span><a href="#local-6989586621679800805"><span class="hs-identifier hs-var hs-var">dbSubnetGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800805"><span class="hs-identifier hs-var">dbSubnetGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800804"><span class="annot"><span class="annottext">s :: CreateDBSubnetGroup
-</span><a href="#local-6989586621679800804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800803"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSubnetGroup
-</span><a href="#local-6989586621679800804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSubnetGroupDescription:CreateDBSubnetGroup' :: Text
+</span><a href="#local-6989586621679800814"><span class="hs-identifier hs-var hs-var">dbSubnetGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800814"><span class="hs-identifier hs-var">dbSubnetGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800813"><span class="annot"><span class="annottext">s :: CreateDBSubnetGroup
+</span><a href="#local-6989586621679800813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800812"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSubnetGroup
+</span><a href="#local-6989586621679800813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSubnetGroupDescription:CreateDBSubnetGroup' :: Text
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#%24sel%3AdbSubnetGroupDescription%3ACreateDBSubnetGroup%27"><span class="hs-identifier hs-var">dbSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The EC2 Subnet IDs for the DB subnet group.</span><span>
 </span><span id="line-131"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#createDBSubnetGroup_subnetIds"><span class="hs-identifier hs-type">createDBSubnetGroup_subnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -265,16 +265,16 @@ $sel:dbSubnetGroupDescription:CreateDBSubnetGroup' :: CreateDBSubnetGroup -&gt; 
 -&gt; (CreateDBSubnetGroup -&gt; [Text] -&gt; CreateDBSubnetGroup)
 -&gt; Lens CreateDBSubnetGroup CreateDBSubnetGroup [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800802"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800811"><span class="annot"><span class="annottext">[Text]
 subnetIds :: [Text]
 $sel:subnetIds:CreateDBSubnetGroup' :: CreateDBSubnetGroup -&gt; [Text]
-</span><a href="#local-6989586621679800802"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679800802"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800801"><span class="annot"><span class="annottext">s :: CreateDBSubnetGroup
-</span><a href="#local-6989586621679800801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800800"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679800800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSubnetGroup
-</span><a href="#local-6989586621679800801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:CreateDBSubnetGroup' :: [Text]
+</span><a href="#local-6989586621679800811"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679800811"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800810"><span class="annot"><span class="annottext">s :: CreateDBSubnetGroup
+</span><a href="#local-6989586621679800810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800809"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679800809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSubnetGroup
+</span><a href="#local-6989586621679800810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:CreateDBSubnetGroup' :: [Text]
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#%24sel%3AsubnetIds%3ACreateDBSubnetGroup%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679800800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679800809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; CreateDBSubnetGroup -&gt; f CreateDBSubnetGroup)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -289,12 +289,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-135"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-136"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679800796"><span class="annot"><span class="annottext">request :: CreateDBSubnetGroup -&gt; Request CreateDBSubnetGroup
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679800805"><span class="annot"><span class="annottext">request :: CreateDBSubnetGroup -&gt; Request CreateDBSubnetGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDBSubnetGroup -&gt; Request CreateDBSubnetGroup
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679800792"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679800801"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateDBSubnetGroup
 -&gt; ClientResponse ClientBody
@@ -325,10 +325,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateDBSubnetGroupResult&quot;</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679800789"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679800789"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679800788"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679800788"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679800787"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679800787"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679800798"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800798"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679800797"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679800797"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679800796"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679800796"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBSubnetGroup -&gt; Int -&gt; CreateDBSubnetGroupResponse
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-var">CreateDBSubnetGroupResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBSubnetGroup -&gt; Int -&gt; CreateDBSubnetGroupResponse)
@@ -336,7 +336,7 @@ Text
 -&gt; Either String (Int -&gt; CreateDBSubnetGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679800787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBSubnetGroup)
+</span><a href="#local-6989586621679800796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBSubnetGroup)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBSubnetGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -348,15 +348,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679800789"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800798"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800779"><span id="local-6989586621679800781"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800788"><span id="local-6989586621679800790"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span></span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800776"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679800772"><span class="annot"><span class="annottext">toHeaders :: CreateDBSubnetGroup -&gt; ResponseHeaders
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679800781"><span class="annot"><span class="annottext">toHeaders :: CreateDBSubnetGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDBSubnetGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -364,15 +364,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679800767"><span class="annot"><span class="annottext">toPath :: CreateDBSubnetGroup -&gt; ByteString
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679800776"><span class="annot"><span class="annottext">toPath :: CreateDBSubnetGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDBSubnetGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup"><span class="hs-identifier hs-type">CreateDBSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679800763"><span class="annot"><span class="annottext">toQuery :: CreateDBSubnetGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800758"><span id="local-6989586621679800759"><span id="local-6989586621679800760"><span id="local-6989586621679800761"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679800772"><span class="annot"><span class="annottext">toQuery :: CreateDBSubnetGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroup%27"><span class="hs-identifier hs-type">CreateDBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800767"><span id="local-6989586621679800768"><span id="local-6989586621679800769"><span id="local-6989586621679800770"><span class="annot"><span class="annottext">[Text]
 Maybe [Tag]
 Text
 subnetIds :: [Text]
@@ -383,7 +383,7 @@ $sel:subnetIds:CreateDBSubnetGroup' :: CreateDBSubnetGroup -&gt; [Text]
 $sel:dbSubnetGroupDescription:CreateDBSubnetGroup' :: CreateDBSubnetGroup -&gt; Text
 $sel:dbSubnetGroupName:CreateDBSubnetGroup' :: CreateDBSubnetGroup -&gt; Text
 $sel:tags:CreateDBSubnetGroup' :: CreateDBSubnetGroup -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679800758"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679800767"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -414,18 +414,18 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679800761"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679800770"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBSubnetGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800760"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679800769"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBSubnetGroupDescription&quot;</span></span><span>
 </span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800759"><span class="hs-identifier hs-var">dbSubnetGroupDescription</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679800768"><span class="hs-identifier hs-var">dbSubnetGroupDescription</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SubnetIds&quot;</span></span><span>
 </span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -436,18 +436,18 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SubnetIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679800758"><span class="hs-identifier hs-var">subnetIds</span></a></span><span>
+</span><a href="#local-6989586621679800767"><span class="hs-identifier hs-var">subnetIds</span></a></span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newCreateDBSubnetGroupResponse' smart constructor.</span><span>
-</span><span id="line-176"></span><span id="local-6989586621679800754"><span id="local-6989586621679800755"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDBSubnetGroupResponse"><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse"><span class="hs-identifier hs-var">CreateDBSubnetGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDBSubnetGroupResponse%27"><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-var">CreateDBSubnetGroupResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span id="local-6989586621679800763"><span id="local-6989586621679800764"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDBSubnetGroupResponse"><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse"><span class="hs-identifier hs-var">CreateDBSubnetGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDBSubnetGroupResponse%27"><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-var">CreateDBSubnetGroupResponse'</span></a></span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdbSubnetGroup%3ACreateDBSubnetGroupResponse%27"><span class="annot"><span class="annottext">CreateDBSubnetGroupResponse -&gt; Maybe DBSubnetGroup
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#%24sel%3AdbSubnetGroup%3ACreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-var hs-var">dbSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-179"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDBSubnetGroupResponse%27"><span class="annot"><span class="annottext">CreateDBSubnetGroupResponse -&gt; Int
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#%24sel%3AhttpStatus%3ACreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800748"><span id="local-6989586621679800750"><span class="annot"><span class="annottext">CreateDBSubnetGroupResponse -&gt; CreateDBSubnetGroupResponse -&gt; Bool
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800757"><span id="local-6989586621679800759"><span class="annot"><span class="annottext">CreateDBSubnetGroupResponse -&gt; CreateDBSubnetGroupResponse -&gt; Bool
 (CreateDBSubnetGroupResponse
  -&gt; CreateDBSubnetGroupResponse -&gt; Bool)
 -&gt; (CreateDBSubnetGroupResponse
@@ -458,7 +458,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDBSubnetGroupResponse -&gt; CreateDBSubnetGroupResponse -&gt; Bool
 == :: CreateDBSubnetGroupResponse -&gt; CreateDBSubnetGroupResponse -&gt; Bool
 $c== :: CreateDBSubnetGroupResponse -&gt; CreateDBSubnetGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800740"><span id="local-6989586621679800742"><span id="local-6989586621679800744"><span id="local-6989586621679800746"><span class="annot"><span class="annottext">ReadPrec [CreateDBSubnetGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800749"><span id="local-6989586621679800751"><span id="local-6989586621679800753"><span id="local-6989586621679800755"><span class="annot"><span class="annottext">ReadPrec [CreateDBSubnetGroupResponse]
 ReadPrec CreateDBSubnetGroupResponse
 Int -&gt; ReadS CreateDBSubnetGroupResponse
 ReadS [CreateDBSubnetGroupResponse]
@@ -478,7 +478,7 @@ readList :: ReadS [CreateDBSubnetGroupResponse]
 $creadList :: ReadS [CreateDBSubnetGroupResponse]
 readsPrec :: Int -&gt; ReadS CreateDBSubnetGroupResponse
 $creadsPrec :: Int -&gt; ReadS CreateDBSubnetGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800734"><span id="local-6989586621679800736"><span id="local-6989586621679800738"><span class="annot"><span class="annottext">Int -&gt; CreateDBSubnetGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800743"><span id="local-6989586621679800745"><span id="local-6989586621679800747"><span class="annot"><span class="annottext">Int -&gt; CreateDBSubnetGroupResponse -&gt; ShowS
 [CreateDBSubnetGroupResponse] -&gt; ShowS
 CreateDBSubnetGroupResponse -&gt; String
 (Int -&gt; CreateDBSubnetGroupResponse -&gt; ShowS)
@@ -526,8 +526,8 @@ CreateDBSubnetGroupResponse -&gt; Rep CreateDBSubnetGroupResponse x
 </span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse</span></a></span><span>
 </span><span id="line-198"></span><span id="newCreateDBSubnetGroupResponse"><span class="annot"><span class="annottext">newCreateDBSubnetGroupResponse :: Int -&gt; CreateDBSubnetGroupResponse
-</span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#newCreateDBSubnetGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateDBSubnetGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679800731"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679800731"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#newCreateDBSubnetGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateDBSubnetGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679800740"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800740"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">CreateDBSubnetGroupResponse' :: Maybe DBSubnetGroup -&gt; Int -&gt; CreateDBSubnetGroupResponse
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse'</span></a></span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbSubnetGroup:CreateDBSubnetGroupResponse' :: Maybe DBSubnetGroup
@@ -537,7 +537,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDBSubnetGroupResponse' :: Int
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#%24sel%3AhttpStatus%3ACreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679800731"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679800740"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -553,16 +553,16 @@ forall a. Maybe a
      (Maybe DBSubnetGroup)
      (Maybe DBSubnetGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800730"><span class="annot"><span class="annottext">Maybe DBSubnetGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800739"><span class="annot"><span class="annottext">Maybe DBSubnetGroup
 dbSubnetGroup :: Maybe DBSubnetGroup
 $sel:dbSubnetGroup:CreateDBSubnetGroupResponse' :: CreateDBSubnetGroupResponse -&gt; Maybe DBSubnetGroup
-</span><a href="#local-6989586621679800730"><span class="hs-identifier hs-var hs-var">dbSubnetGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBSubnetGroup
-</span><a href="#local-6989586621679800730"><span class="hs-identifier hs-var">dbSubnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800729"><span class="annot"><span class="annottext">s :: CreateDBSubnetGroupResponse
-</span><a href="#local-6989586621679800729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800728"><span class="annot"><span class="annottext">Maybe DBSubnetGroup
-</span><a href="#local-6989586621679800728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSubnetGroupResponse
-</span><a href="#local-6989586621679800729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSubnetGroup:CreateDBSubnetGroupResponse' :: Maybe DBSubnetGroup
+</span><a href="#local-6989586621679800739"><span class="hs-identifier hs-var hs-var">dbSubnetGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBSubnetGroup
+</span><a href="#local-6989586621679800739"><span class="hs-identifier hs-var">dbSubnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800738"><span class="annot"><span class="annottext">s :: CreateDBSubnetGroupResponse
+</span><a href="#local-6989586621679800738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800737"><span class="annot"><span class="annottext">Maybe DBSubnetGroup
+</span><a href="#local-6989586621679800737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSubnetGroupResponse
+</span><a href="#local-6989586621679800738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSubnetGroup:CreateDBSubnetGroupResponse' :: Maybe DBSubnetGroup
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#%24sel%3AdbSubnetGroup%3ACreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-var">dbSubnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBSubnetGroup
-</span><a href="#local-6989586621679800728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-210"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#createDBSubnetGroupResponse_httpStatus"><span class="hs-identifier hs-type">createDBSubnetGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -574,16 +574,16 @@ $sel:dbSubnetGroup:CreateDBSubnetGroupResponse' :: CreateDBSubnetGroupResponse -
 -&gt; Lens
      CreateDBSubnetGroupResponse CreateDBSubnetGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800727"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800736"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateDBSubnetGroupResponse' :: CreateDBSubnetGroupResponse -&gt; Int
-</span><a href="#local-6989586621679800727"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679800727"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800726"><span class="annot"><span class="annottext">s :: CreateDBSubnetGroupResponse
-</span><a href="#local-6989586621679800726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800725"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679800725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSubnetGroupResponse
-</span><a href="#local-6989586621679800726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDBSubnetGroupResponse' :: Int
+</span><a href="#local-6989586621679800736"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800736"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800735"><span class="annot"><span class="annottext">s :: CreateDBSubnetGroupResponse
+</span><a href="#local-6989586621679800735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800734"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBSubnetGroupResponse
+</span><a href="#local-6989586621679800735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDBSubnetGroupResponse' :: Int
 </span><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#%24sel%3AhttpStatus%3ACreateDBSubnetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679800725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800723"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse</span></a></span></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800732"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBSubnetGroup.html#CreateDBSubnetGroupResponse"><span class="hs-identifier hs-type">CreateDBSubnetGroupResponse</span></a></span></span><span>
 </span><span id="line-214"></span></pre></body></html>

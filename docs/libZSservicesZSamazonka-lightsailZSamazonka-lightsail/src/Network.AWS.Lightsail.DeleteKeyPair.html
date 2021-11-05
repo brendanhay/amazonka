@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeleteKeyPair' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679652830"><span id="local-6989586621679652831"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteKeyPair"><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-var">DeleteKeyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteKeyPair%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-var">DeleteKeyPair'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679652839"><span id="local-6989586621679652840"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteKeyPair"><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-var">DeleteKeyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteKeyPair%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-var">DeleteKeyPair'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the key pair to delete.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AkeyPairName%3ADeleteKeyPair%27"><span class="annot"><span class="annottext">DeleteKeyPair -&gt; Text
 </span><a href="Network.AWS.Lightsail.DeleteKeyPair.html#%24sel%3AkeyPairName%3ADeleteKeyPair%27"><span class="hs-identifier hs-var hs-var">keyPairName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679652824"><span id="local-6989586621679652826"><span class="annot"><span class="annottext">DeleteKeyPair -&gt; DeleteKeyPair -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679652833"><span id="local-6989586621679652835"><span class="annot"><span class="annottext">DeleteKeyPair -&gt; DeleteKeyPair -&gt; Bool
 (DeleteKeyPair -&gt; DeleteKeyPair -&gt; Bool)
 -&gt; (DeleteKeyPair -&gt; DeleteKeyPair -&gt; Bool) -&gt; Eq DeleteKeyPair
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteKeyPair -&gt; DeleteKeyPair -&gt; Bool
 == :: DeleteKeyPair -&gt; DeleteKeyPair -&gt; Bool
 $c== :: DeleteKeyPair -&gt; DeleteKeyPair -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652815"><span id="local-6989586621679652817"><span id="local-6989586621679652819"><span id="local-6989586621679652821"><span class="annot"><span class="annottext">ReadPrec [DeleteKeyPair]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652824"><span id="local-6989586621679652826"><span id="local-6989586621679652828"><span id="local-6989586621679652830"><span class="annot"><span class="annottext">ReadPrec [DeleteKeyPair]
 ReadPrec DeleteKeyPair
 Int -&gt; ReadS DeleteKeyPair
 ReadS [DeleteKeyPair]
@@ -85,7 +85,7 @@ readList :: ReadS [DeleteKeyPair]
 $creadList :: ReadS [DeleteKeyPair]
 readsPrec :: Int -&gt; ReadS DeleteKeyPair
 $creadsPrec :: Int -&gt; ReadS DeleteKeyPair
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652808"><span id="local-6989586621679652810"><span id="local-6989586621679652812"><span class="annot"><span class="annottext">Int -&gt; DeleteKeyPair -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652817"><span id="local-6989586621679652819"><span id="local-6989586621679652821"><span class="annot"><span class="annottext">Int -&gt; DeleteKeyPair -&gt; ShowS
 [DeleteKeyPair] -&gt; ShowS
 DeleteKeyPair -&gt; String
 (Int -&gt; DeleteKeyPair -&gt; ShowS)
@@ -125,12 +125,12 @@ $cfrom :: forall x. DeleteKeyPair -&gt; Rep DeleteKeyPair x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span>
 </span><span id="line-74"></span><span id="newDeleteKeyPair"><span class="annot"><span class="annottext">newDeleteKeyPair :: Text -&gt; DeleteKeyPair
-</span><a href="Network.AWS.Lightsail.DeleteKeyPair.html#newDeleteKeyPair"><span class="hs-identifier hs-var hs-var">newDeleteKeyPair</span></a></span></span><span> </span><span id="local-6989586621679652803"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652803"><span class="hs-identifier hs-var">pKeyPairName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteKeyPair.html#newDeleteKeyPair"><span class="hs-identifier hs-var hs-var">newDeleteKeyPair</span></a></span></span><span> </span><span id="local-6989586621679652812"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679652812"><span class="hs-identifier hs-var">pKeyPairName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">DeleteKeyPair' :: Text -&gt; DeleteKeyPair
 </span><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairName:DeleteKeyPair' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteKeyPair.html#%24sel%3AkeyPairName%3ADeleteKeyPair%27"><span class="hs-identifier hs-var">keyPairName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652803"><span class="hs-identifier hs-var">pKeyPairName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679652812"><span class="hs-identifier hs-var">pKeyPairName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The name of the key pair to delete.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#deleteKeyPair_keyPairName"><span class="hs-identifier hs-type">deleteKeyPair_keyPairName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -139,27 +139,27 @@ $cfrom :: forall x. DeleteKeyPair -&gt; Rep DeleteKeyPair x
 -&gt; (DeleteKeyPair -&gt; Text -&gt; DeleteKeyPair)
 -&gt; Lens DeleteKeyPair DeleteKeyPair Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652800"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652809"><span class="annot"><span class="annottext">Text
 keyPairName :: Text
 $sel:keyPairName:DeleteKeyPair' :: DeleteKeyPair -&gt; Text
-</span><a href="#local-6989586621679652800"><span class="hs-identifier hs-var hs-var">keyPairName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652800"><span class="hs-identifier hs-var">keyPairName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652799"><span class="annot"><span class="annottext">s :: DeleteKeyPair
-</span><a href="#local-6989586621679652799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652798"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeyPair
-</span><a href="#local-6989586621679652799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairName:DeleteKeyPair' :: Text
+</span><a href="#local-6989586621679652809"><span class="hs-identifier hs-var hs-var">keyPairName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679652809"><span class="hs-identifier hs-var">keyPairName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652808"><span class="annot"><span class="annottext">s :: DeleteKeyPair
+</span><a href="#local-6989586621679652808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652807"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679652807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeyPair
+</span><a href="#local-6989586621679652808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairName:DeleteKeyPair' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteKeyPair.html#%24sel%3AkeyPairName%3ADeleteKeyPair%27"><span class="hs-identifier hs-var">keyPairName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679652807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse"><span class="hs-identifier hs-type">DeleteKeyPairResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679652794"><span class="annot"><span class="annottext">request :: DeleteKeyPair -&gt; Request DeleteKeyPair
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679652803"><span class="annot"><span class="annottext">request :: DeleteKeyPair -&gt; Request DeleteKeyPair
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteKeyPair -&gt; Request DeleteKeyPair
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679652790"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679652799"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteKeyPair
 -&gt; ClientResponse ClientBody
@@ -183,10 +183,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679652787"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652787"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679652786"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679652786"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679652785"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679652785"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679652796"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679652796"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679652795"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679652795"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679652794"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679652794"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Operation -&gt; Int -&gt; DeleteKeyPairResponse
 </span><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse%27"><span class="hs-identifier hs-var">DeleteKeyPairResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Operation -&gt; Int -&gt; DeleteKeyPairResponse)
@@ -194,7 +194,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteKeyPairResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679652785"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
+</span><a href="#local-6989586621679652794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operation&quot;</span></span><span class="hs-special">)</span><span>
@@ -206,15 +206,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652787"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679652796"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652777"><span id="local-6989586621679652779"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652786"><span id="local-6989586621679652788"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652774"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652783"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679652770"><span class="annot"><span class="annottext">toHeaders :: DeleteKeyPair -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679652779"><span class="annot"><span class="annottext">toHeaders :: DeleteKeyPair -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteKeyPair -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -241,12 +241,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652760"><span id="local-6989586621679652762"><span id="local-6989586621679652764"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679652758"><span class="annot"><span class="annottext">toJSON :: DeleteKeyPair -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652756"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652769"><span id="local-6989586621679652771"><span id="local-6989586621679652773"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679652767"><span class="annot"><span class="annottext">toJSON :: DeleteKeyPair -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652765"><span class="annot"><span class="annottext">Text
 keyPairName :: Text
 $sel:keyPairName:DeleteKeyPair' :: DeleteKeyPair -&gt; Text
-</span><a href="#local-6989586621679652756"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679652765"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -258,18 +258,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;keyPairName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679652756"><span class="hs-identifier hs-var">keyPairName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679652765"><span class="hs-identifier hs-var">keyPairName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679652750"><span class="annot"><span class="annottext">toPath :: DeleteKeyPair -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679652759"><span class="annot"><span class="annottext">toPath :: DeleteKeyPair -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteKeyPair -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679652746"><span class="annot"><span class="annottext">toQuery :: DeleteKeyPair -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679652755"><span class="annot"><span class="annottext">toQuery :: DeleteKeyPair -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteKeyPair -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -277,7 +277,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newDeleteKeyPairResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679652743"><span id="local-6989586621679652744"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteKeyPairResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse"><span class="hs-identifier hs-var">DeleteKeyPairResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteKeyPairResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse%27"><span class="hs-identifier hs-var">DeleteKeyPairResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679652752"><span id="local-6989586621679652753"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteKeyPairResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse"><span class="hs-identifier hs-var">DeleteKeyPairResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteKeyPairResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse%27"><span class="hs-identifier hs-var">DeleteKeyPairResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -287,7 +287,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteKeyPairResponse%27"><span class="annot"><span class="annottext">DeleteKeyPairResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.DeleteKeyPair.html#%24sel%3AhttpStatus%3ADeleteKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679652737"><span id="local-6989586621679652739"><span class="annot"><span class="annottext">DeleteKeyPairResponse -&gt; DeleteKeyPairResponse -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679652746"><span id="local-6989586621679652748"><span class="annot"><span class="annottext">DeleteKeyPairResponse -&gt; DeleteKeyPairResponse -&gt; Bool
 (DeleteKeyPairResponse -&gt; DeleteKeyPairResponse -&gt; Bool)
 -&gt; (DeleteKeyPairResponse -&gt; DeleteKeyPairResponse -&gt; Bool)
 -&gt; Eq DeleteKeyPairResponse
@@ -296,7 +296,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteKeyPairResponse -&gt; DeleteKeyPairResponse -&gt; Bool
 == :: DeleteKeyPairResponse -&gt; DeleteKeyPairResponse -&gt; Bool
 $c== :: DeleteKeyPairResponse -&gt; DeleteKeyPairResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652729"><span id="local-6989586621679652731"><span id="local-6989586621679652733"><span id="local-6989586621679652735"><span class="annot"><span class="annottext">ReadPrec [DeleteKeyPairResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652738"><span id="local-6989586621679652740"><span id="local-6989586621679652742"><span id="local-6989586621679652744"><span class="annot"><span class="annottext">ReadPrec [DeleteKeyPairResponse]
 ReadPrec DeleteKeyPairResponse
 Int -&gt; ReadS DeleteKeyPairResponse
 ReadS [DeleteKeyPairResponse]
@@ -316,7 +316,7 @@ readList :: ReadS [DeleteKeyPairResponse]
 $creadList :: ReadS [DeleteKeyPairResponse]
 readsPrec :: Int -&gt; ReadS DeleteKeyPairResponse
 $creadsPrec :: Int -&gt; ReadS DeleteKeyPairResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652723"><span id="local-6989586621679652725"><span id="local-6989586621679652727"><span class="annot"><span class="annottext">Int -&gt; DeleteKeyPairResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679652732"><span id="local-6989586621679652734"><span id="local-6989586621679652736"><span class="annot"><span class="annottext">Int -&gt; DeleteKeyPairResponse -&gt; ShowS
 [DeleteKeyPairResponse] -&gt; ShowS
 DeleteKeyPairResponse -&gt; String
 (Int -&gt; DeleteKeyPairResponse -&gt; ShowS)
@@ -360,8 +360,8 @@ $cfrom :: forall x. DeleteKeyPairResponse -&gt; Rep DeleteKeyPairResponse x
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse"><span class="hs-identifier hs-type">DeleteKeyPairResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newDeleteKeyPairResponse"><span class="annot"><span class="annottext">newDeleteKeyPairResponse :: Int -&gt; DeleteKeyPairResponse
-</span><a href="Network.AWS.Lightsail.DeleteKeyPair.html#newDeleteKeyPairResponse"><span class="hs-identifier hs-var hs-var">newDeleteKeyPairResponse</span></a></span></span><span> </span><span id="local-6989586621679652720"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652720"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteKeyPair.html#newDeleteKeyPairResponse"><span class="hs-identifier hs-var hs-var">newDeleteKeyPairResponse</span></a></span></span><span> </span><span id="local-6989586621679652729"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679652729"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">DeleteKeyPairResponse' :: Maybe Operation -&gt; Int -&gt; DeleteKeyPairResponse
 </span><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse%27"><span class="hs-identifier hs-type">DeleteKeyPairResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operation:DeleteKeyPairResponse' :: Maybe Operation
@@ -370,7 +370,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteKeyPairResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteKeyPair.html#%24sel%3AhttpStatus%3ADeleteKeyPairResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652720"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679652729"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -388,16 +388,16 @@ forall a. Maybe a
      (Maybe Operation)
      (Maybe Operation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse%27"><span class="hs-identifier hs-type">DeleteKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652719"><span class="annot"><span class="annottext">Maybe Operation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse%27"><span class="hs-identifier hs-type">DeleteKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652728"><span class="annot"><span class="annottext">Maybe Operation
 operation :: Maybe Operation
 $sel:operation:DeleteKeyPairResponse' :: DeleteKeyPairResponse -&gt; Maybe Operation
-</span><a href="#local-6989586621679652719"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679652719"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652718"><span class="annot"><span class="annottext">s :: DeleteKeyPairResponse
-</span><a href="#local-6989586621679652718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse%27"><span class="hs-identifier hs-type">DeleteKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652717"><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679652717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeyPairResponse
-</span><a href="#local-6989586621679652718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:DeleteKeyPairResponse' :: Maybe Operation
+</span><a href="#local-6989586621679652728"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679652728"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652727"><span class="annot"><span class="annottext">s :: DeleteKeyPairResponse
+</span><a href="#local-6989586621679652727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse%27"><span class="hs-identifier hs-type">DeleteKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652726"><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679652726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeyPairResponse
+</span><a href="#local-6989586621679652727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:DeleteKeyPairResponse' :: Maybe Operation
 </span><a href="Network.AWS.Lightsail.DeleteKeyPair.html#%24sel%3Aoperation%3ADeleteKeyPairResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679652717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse"><span class="hs-identifier hs-type">DeleteKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679652726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse"><span class="hs-identifier hs-type">DeleteKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#deleteKeyPairResponse_httpStatus"><span class="hs-identifier hs-type">deleteKeyPairResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse"><span class="hs-identifier hs-type">DeleteKeyPairResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -406,16 +406,16 @@ $sel:operation:DeleteKeyPairResponse' :: DeleteKeyPairResponse -&gt; Maybe Opera
 -&gt; (DeleteKeyPairResponse -&gt; Int -&gt; DeleteKeyPairResponse)
 -&gt; Lens DeleteKeyPairResponse DeleteKeyPairResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse%27"><span class="hs-identifier hs-type">DeleteKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652716"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse%27"><span class="hs-identifier hs-type">DeleteKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652725"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteKeyPairResponse' :: DeleteKeyPairResponse -&gt; Int
-</span><a href="#local-6989586621679652716"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652716"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652715"><span class="annot"><span class="annottext">s :: DeleteKeyPairResponse
-</span><a href="#local-6989586621679652715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse%27"><span class="hs-identifier hs-type">DeleteKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652714"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeyPairResponse
-</span><a href="#local-6989586621679652715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteKeyPairResponse' :: Int
+</span><a href="#local-6989586621679652725"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679652725"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652724"><span class="annot"><span class="annottext">s :: DeleteKeyPairResponse
+</span><a href="#local-6989586621679652724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse%27"><span class="hs-identifier hs-type">DeleteKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652723"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679652723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeyPairResponse
+</span><a href="#local-6989586621679652724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteKeyPairResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteKeyPair.html#%24sel%3AhttpStatus%3ADeleteKeyPairResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse"><span class="hs-identifier hs-type">DeleteKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679652723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse"><span class="hs-identifier hs-type">DeleteKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652712"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse"><span class="hs-identifier hs-type">DeleteKeyPairResponse</span></a></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652721"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteKeyPair.html#DeleteKeyPairResponse"><span class="hs-identifier hs-type">DeleteKeyPairResponse</span></a></span></span><span>
 </span><span id="line-171"></span></pre></body></html>

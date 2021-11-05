@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | A standard channel has two encoding pipelines and a single pipeline</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- channel only has one.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679869832"><span id="local-6989586621679869833"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChannelClass"><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass"><span class="hs-identifier hs-var">ChannelClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelClass%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass%27"><span class="hs-identifier hs-var">ChannelClass'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679869841"><span id="local-6989586621679869842"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChannelClass"><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass"><span class="hs-identifier hs-var">ChannelClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelClass%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelClass.html#ChannelClass%27"><span class="hs-identifier hs-var">ChannelClass'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromChannelClass"><span class="annot"><span class="annottext">ChannelClass -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.ChannelClass.html#fromChannelClass"><span class="hs-identifier hs-var hs-var">fromChannelClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679869824"><span id="local-6989586621679869826"><span id="local-6989586621679869828"><span class="annot"><span class="annottext">Int -&gt; ChannelClass -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679869833"><span id="local-6989586621679869835"><span id="local-6989586621679869837"><span class="annot"><span class="annottext">Int -&gt; ChannelClass -&gt; ShowS
 [ChannelClass] -&gt; ShowS
 ChannelClass -&gt; String
 (Int -&gt; ChannelClass -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ChannelClass -&gt; String
 showsPrec :: Int -&gt; ChannelClass -&gt; ShowS
 $cshowsPrec :: Int -&gt; ChannelClass -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679869815"><span id="local-6989586621679869817"><span id="local-6989586621679869819"><span id="local-6989586621679869821"><span class="annot"><span class="annottext">ReadPrec [ChannelClass]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679869824"><span id="local-6989586621679869826"><span id="local-6989586621679869828"><span id="local-6989586621679869830"><span class="annot"><span class="annottext">ReadPrec [ChannelClass]
 ReadPrec ChannelClass
 Int -&gt; ReadS ChannelClass
 ReadS [ChannelClass]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ChannelClass]
 readsPrec :: Int -&gt; ReadS ChannelClass
 $creadsPrec :: Int -&gt; ReadS ChannelClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679869810"><span id="local-6989586621679869812"><span class="annot"><span class="annottext">ChannelClass -&gt; ChannelClass -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679869819"><span id="local-6989586621679869821"><span class="annot"><span class="annottext">ChannelClass -&gt; ChannelClass -&gt; Bool
 (ChannelClass -&gt; ChannelClass -&gt; Bool)
 -&gt; (ChannelClass -&gt; ChannelClass -&gt; Bool) -&gt; Eq ChannelClass
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: ChannelClass -&gt; ChannelClass -&gt; Bool
 == :: ChannelClass -&gt; ChannelClass -&gt; Bool
 $c== :: ChannelClass -&gt; ChannelClass -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679869794"><span id="local-6989586621679869796"><span id="local-6989586621679869798"><span id="local-6989586621679869800"><span id="local-6989586621679869802"><span id="local-6989586621679869804"><span id="local-6989586621679869806"><span class="annot"><span class="annottext">Eq ChannelClass
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679869803"><span id="local-6989586621679869805"><span id="local-6989586621679869807"><span id="local-6989586621679869809"><span id="local-6989586621679869811"><span id="local-6989586621679869813"><span id="local-6989586621679869815"><span class="annot"><span class="annottext">Eq ChannelClass
 Eq ChannelClass
 -&gt; (ChannelClass -&gt; ChannelClass -&gt; Ordering)
 -&gt; (ChannelClass -&gt; ChannelClass -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ChannelClass -&gt; Rep ChannelClass x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679869786"><span id="local-6989586621679869788"><span class="annot"><span class="annottext">Int -&gt; ChannelClass -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679869795"><span id="local-6989586621679869797"><span class="annot"><span class="annottext">Int -&gt; ChannelClass -&gt; Int
 ChannelClass -&gt; Int
 (Int -&gt; ChannelClass -&gt; Int)
 -&gt; (ChannelClass -&gt; Int) -&gt; Hashable ChannelClass
@@ -144,49 +144,49 @@ $chash :: ChannelClass -&gt; Int
 hashWithSalt :: Int -&gt; ChannelClass -&gt; Int
 $chashWithSalt :: Int -&gt; ChannelClass -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679869783"><span class="annot"><span class="annottext">ChannelClass -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679869792"><span class="annot"><span class="annottext">ChannelClass -&gt; ()
 (ChannelClass -&gt; ()) -&gt; NFData ChannelClass
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ChannelClass -&gt; ()
 $crnf :: ChannelClass -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679869780"><span class="annot"><span class="annottext">Text -&gt; Either String ChannelClass
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679869789"><span class="annot"><span class="annottext">Text -&gt; Either String ChannelClass
 (Text -&gt; Either String ChannelClass) -&gt; FromText ChannelClass
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ChannelClass
 $cfromText :: Text -&gt; Either String ChannelClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679869777"><span class="annot"><span class="annottext">ChannelClass -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679869786"><span class="annot"><span class="annottext">ChannelClass -&gt; Text
 (ChannelClass -&gt; Text) -&gt; ToText ChannelClass
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ChannelClass -&gt; Text
 $ctoText :: ChannelClass -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679869774"><span class="annot"><span class="annottext">ChannelClass -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679869783"><span class="annot"><span class="annottext">ChannelClass -&gt; ByteString
 (ChannelClass -&gt; ByteString) -&gt; ToByteString ChannelClass
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ChannelClass -&gt; ByteString
 $ctoBS :: ChannelClass -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679869771"><span class="annot"><span class="annottext">ChannelClass -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679869780"><span class="annot"><span class="annottext">ChannelClass -&gt; ByteStringBuilder
 (ChannelClass -&gt; ByteStringBuilder) -&gt; ToLog ChannelClass
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ChannelClass -&gt; ByteStringBuilder
 $cbuild :: ChannelClass -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679869768"><span class="annot"><span class="annottext">HeaderName -&gt; ChannelClass -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679869777"><span class="annot"><span class="annottext">HeaderName -&gt; ChannelClass -&gt; [Header]
 (HeaderName -&gt; ChannelClass -&gt; [Header]) -&gt; ToHeader ChannelClass
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ChannelClass -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ChannelClass -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679869765"><span class="annot"><span class="annottext">ChannelClass -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679869774"><span class="annot"><span class="annottext">ChannelClass -&gt; QueryString
 (ChannelClass -&gt; QueryString) -&gt; ToQuery ChannelClass
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ChannelClass -&gt; QueryString
 $ctoQuery :: ChannelClass -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679869760"><span id="local-6989586621679869762"><span class="annot"><span class="annottext">Value -&gt; Parser [ChannelClass]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679869769"><span id="local-6989586621679869771"><span class="annot"><span class="annottext">Value -&gt; Parser [ChannelClass]
 Value -&gt; Parser ChannelClass
 (Value -&gt; Parser ChannelClass)
 -&gt; (Value -&gt; Parser [ChannelClass]) -&gt; FromJSON ChannelClass
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [ChannelClass]
 parseJSON :: Value -&gt; Parser ChannelClass
 $cparseJSON :: Value -&gt; Parser ChannelClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679869755"><span id="local-6989586621679869757"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChannelClass]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679869764"><span id="local-6989586621679869766"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChannelClass]
 FromJSONKeyFunction ChannelClass
 FromJSONKeyFunction ChannelClass
 -&gt; FromJSONKeyFunction [ChannelClass] -&gt; FromJSONKey ChannelClass
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ChannelClass]
 fromJSONKey :: FromJSONKeyFunction ChannelClass
 $cfromJSONKey :: FromJSONKeyFunction ChannelClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679869746"><span id="local-6989586621679869748"><span id="local-6989586621679869750"><span id="local-6989586621679869752"><span class="annot"><span class="annottext">[ChannelClass] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679869755"><span id="local-6989586621679869757"><span id="local-6989586621679869759"><span id="local-6989586621679869761"><span class="annot"><span class="annottext">[ChannelClass] -&gt; Encoding
 [ChannelClass] -&gt; Value
 ChannelClass -&gt; Encoding
 ChannelClass -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: ChannelClass -&gt; Encoding
 toJSON :: ChannelClass -&gt; Value
 $ctoJSON :: ChannelClass -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679869741"><span id="local-6989586621679869743"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChannelClass]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679869750"><span id="local-6989586621679869752"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChannelClass]
 ToJSONKeyFunction ChannelClass
 ToJSONKeyFunction ChannelClass
 -&gt; ToJSONKeyFunction [ChannelClass] -&gt; ToJSONKey ChannelClass
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ChannelClass]
 toJSONKey :: ToJSONKeyFunction ChannelClass
 $ctoJSONKey :: ToJSONKeyFunction ChannelClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679869738"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChannelClass
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679869747"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChannelClass
 ([Node] -&gt; Either String ChannelClass) -&gt; FromXML ChannelClass
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ChannelClass
 $cparseXML :: [Node] -&gt; Either String ChannelClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679869735"><span class="annot"><span class="annottext">ChannelClass -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679869744"><span class="annot"><span class="annottext">ChannelClass -&gt; XML
 (ChannelClass -&gt; XML) -&gt; ToXML ChannelClass
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ChannelClass -&gt; XML
